@@ -4223,7 +4223,7 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
 </li>
 </ol>
 <p>自动链接</p>
-<p> <a href="http://xhstormr.github.io/" target="_blank" rel="noopener">http://xhstormr.github.io/</a><br> <a href="mailto:&#x58;&#x68;&#x73;&#x74;&#x6f;&#114;&#109;&#82;&#64;&#102;&#111;&#120;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x58;&#x68;&#x73;&#x74;&#x6f;&#114;&#109;&#82;&#64;&#102;&#111;&#120;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+<p> <a href="http://xhstormr.github.io/" target="_blank" rel="noopener">http://xhstormr.github.io/</a><br> <a href="mailto:&#88;&#104;&#x73;&#x74;&#x6f;&#x72;&#109;&#x52;&#x40;&#x66;&#x6f;&#x78;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;" target="_blank" rel="noopener">&#88;&#104;&#x73;&#x74;&#x6f;&#x72;&#109;&#x52;&#x40;&#x66;&#x6f;&#x78;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a></p>
 <p>插入链接</p>
 <p> <a href="http://example.com/" title="optional title" target="_blank" rel="noopener">link text</a></p>
 <p> <a href="http://example.com/" title="optional title here" target="_blank" rel="noopener">link text</a></p>
@@ -4370,7 +4370,7 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
 <p>在引用中加链接，第一个中括号添加需要添加的文字，第二个中括号中是引用链接的id，之后在引用中，使用id加链接：如下：</p>
 <p>[link text][id]<br>[id]: <a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> “optional title here”</p>
 <p>在文中直接引用链接，直接使用尖括号，把链接加入到尖括号中就可以实现，如下：</p>
-<p><a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> or <a href="mailto:&#x61;&#x64;&#x64;&#114;&#101;&#x73;&#x73;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#x61;&#x64;&#x64;&#114;&#101;&#x73;&#x73;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a><br>插入互联网上图片，格式如下：</p>
+<p><a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> or <a href="mailto:&#x61;&#x64;&#100;&#114;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#x61;&#x64;&#100;&#114;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;</a><br>插入互联网上图片，格式如下：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
