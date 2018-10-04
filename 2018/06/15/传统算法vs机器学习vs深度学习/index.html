@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <title>传统算法vs机器学习vs深度学习 | lightsmile&#39;s Blog | lightsmile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="this is a description">
+<meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="传统算法vs机器学习vs深度学习">
+<meta property="og:url" content="http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/index.html">
+<meta property="og:site_name" content="lightsmile&#39;s Blog">
+<meta property="og:description" content="this is a description">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-15T15:00:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="传统算法vs机器学习vs深度学习">
+<meta name="twitter:description" content="this is a description">
+    
+        <link rel="alternate" type="application/atom+xml" title="lightsmile&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/lightsmile.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lightsmile</h5>
+          <a href="mailto:1459679436@qq.com" title="1459679436@qq.com" class="mail">1459679436@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                档案
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                类别
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/smilelight" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/p/1005055392510271" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">传统算法vs机器学习vs深度学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">传统算法vs机器学习vs深度学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-15T15:00:39.000Z" itemprop="datePublished" class="page-time">
+  2018-06-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-传统算法vs机器学习vs深度学习"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">传统算法vs机器学习vs深度学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-15 23:00:39" datetime="2018-06-15T15:00:39.000Z"  itemprop="datePublished">2018-06-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-15T15:00:40.000Z" itemprop="dateUpdated">2018-06-15 23:00:40</time>
+</span><br>
+
+
+        
+        鄙人才疏学浅，行文难免有纰漏之处，还请各位看官见谅！
+        
+    </div>
+    <footer>
+        <a href="http://www.iamlightsmile.com">
+            <img src="/img/lightsmile.jpg" alt="lightsmile">
+            lightsmile
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/&title=《传统算法vs机器学习vs深度学习》 — lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/&title=《传统算法vs机器学习vs深度学习》 — lightsmile's Blog&source=this is a description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《传统算法vs机器学习vs深度学习》 — lightsmile's Blog&url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/&via=http://www.iamlightsmile.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/06/15/机器学习之己见/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">机器学习之己见</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/26/自然语言处理（1）基本概念/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">自然语言处理（1）基本概念</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lightsmile &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/&title=《传统算法vs机器学习vs深度学习》 — lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/&title=《传统算法vs机器学习vs深度学习》 — lightsmile's Blog&source=this is a description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《传统算法vs机器学习vs深度学习》 — lightsmile's Blog&url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/&via=http://www.iamlightsmile.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/2018/06/15/传统算法vs机器学习vs深度学习/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQW4bMRAEQP//0841QGype4ZcKEDpZEjrXRYFkFTPfH3Fr+9fXsmVr6/59/38+mMvPDw8vEND//t2r99PBvEas3nWmwnFw8PDu8Z7PaDXi/JvQ08eP5ugfBLx8PDwPoHXbh7JEfnU9Xh4eHj/C29/EG9JeHh4eJ/ASwaaHKBnaWo+TRezFjw8PLyYl1eRPufvK/U9PDw8vHVVvV2mk0giv+eB0eLh4eFd4OUL7uzYmjcZ5IfmfJx4eHh493jtobaIUNftVu2zoqwaDw8Pb8FrA9l96avdbPKjdt0LhoeHh7fmtYHC6/tsSv7tUfvXseHh4eFd4LWwNkqYFdI2TQnR9oCHh4e34G2Os/smqlnwkXwZP9T38PDw8C7w8h/8SYSxR+Zltl+peHh4eBd4s2JVEQSsg+AZCQ8PD+953qnmqpxXF7fKa/Dw8PDu8WZx7ayBoJ2IPDKOwHh4eHhrXnvAnTVsJRFtsnm0h288PDy8U7z8Ru3g2kA2/69ik8DDw8O7zMvD3M3R9lRQG/0MwMPDw3uEt6G2QUO70Oef4uHh4T3DG5aR4gfn4exsJKt2VTw8PLySlwxoEwHPYuL2YP3Dp3h4eHgXeJsf/LNiWI7cHMrx8PDwnuQl7FkTVdtkkAPebEt4eHh413ibpfn2ol83pw73EDw8PLyO1zaGzqLbdmra++Dh4eE9z0sW6OSRSbRxqvz2ZpPAw8PDO8r7Ll/RbC2O14fLYHh4eHiXK+yz5oB2CpKNZDMReHh4eM/w8iCgXcrzxoLNsf7N94aHh4d3jdcWxmbNBJsC2yqSwMPDw/sA3maxTkLhWVmumCc8PDy8B3ntlW0E3LYX9CU/PDw8vDO8WcNTHl60zQSzQ/Yqa8HDw8M7+ht/Frnm98lJRYCLh4eHd573BzNpFtusNqMkAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '客官慢走！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎光临！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

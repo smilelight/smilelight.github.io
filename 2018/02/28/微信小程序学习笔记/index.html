@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <title>微信小程序学习笔记 | lightsmile&#39;s Blog | lightsmile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="微信小程序">
+    <meta name="description" content="框架1. 响应的数据绑定框架的核心是一个响应的数据绑定系统。整个系统分为两块视图层(View)和逻辑层(App Service)框架可以让数据与视图非常简单地保持同步。当做数据修改的时候，只需要在逻辑层修改数据，视图层就会做相应的更新。 2. 页面管理框架管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进框架中，">
+<meta name="keywords" content="微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序学习笔记">
+<meta property="og:url" content="http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/index.html">
+<meta property="og:site_name" content="lightsmile&#39;s Blog">
+<meta property="og:description" content="框架1. 响应的数据绑定框架的核心是一个响应的数据绑定系统。整个系统分为两块视图层(View)和逻辑层(App Service)框架可以让数据与视图非常简单地保持同步。当做数据修改的时候，只需要在逻辑层修改数据，视图层就会做相应的更新。 2. 页面管理框架管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进框架中，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-04T02:14:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序学习笔记">
+<meta name="twitter:description" content="框架1. 响应的数据绑定框架的核心是一个响应的数据绑定系统。整个系统分为两块视图层(View)和逻辑层(App Service)框架可以让数据与视图非常简单地保持同步。当做数据修改的时候，只需要在逻辑层修改数据，视图层就会做相应的更新。 2. 页面管理框架管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进框架中，">
+    
+        <link rel="alternate" type="application/atom+xml" title="lightsmile&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/lightsmile.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lightsmile</h5>
+          <a href="mailto:1459679436@qq.com" title="1459679436@qq.com" class="mail">1459679436@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                档案
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                类别
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/smilelight" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/p/1005055392510271" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">微信小程序学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">微信小程序学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-28T04:24:02.000Z" itemprop="datePublished" class="page-time">
+  2018-02-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#框架"><span class="post-toc-number">1.</span> <span class="post-toc-text">框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-响应的数据绑定"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 响应的数据绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-页面管理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 页面管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-基础组件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 基础组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-丰富的API"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 丰富的API</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-微信小程序学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">微信小程序学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-28 12:24:02" datetime="2018-02-28T04:24:02.000Z"  itemprop="datePublished">2018-02-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><h2 id="1-响应的数据绑定"><a href="#1-响应的数据绑定" class="headerlink" title="1. 响应的数据绑定"></a>1. 响应的数据绑定</h2><p>框架的核心是一个响应的数据绑定系统。<br>整个系统分为两块视图层(View)和逻辑层(App Service)<br>框架可以让数据与视图非常简单地保持同步。当做数据修改的时候，只需要在逻辑层修改数据，视图层就会做相应的更新。</p>
+<h2 id="2-页面管理"><a href="#2-页面管理" class="headerlink" title="2. 页面管理"></a>2. 页面管理</h2><p>框架管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进框架中，其他的一切复杂的操作都交由框架处理。</p>
+<h2 id="3-基础组件"><a href="#3-基础组件" class="headerlink" title="3. 基础组件"></a>3. 基础组件</h2><p>框架提供了一套基础的组件，这些组件自带微信风格的样式以及特殊的逻辑，开发者可以通过组合基础组件，创建出强大的微信小程序 。</p>
+<h2 id="4-丰富的API"><a href="#4-丰富的API" class="headerlink" title="4. 丰富的API"></a>4. 丰富的API</h2><p>框架提供丰富的微信原生API，可以方便的调起微信提供的能力，如获取用户信息，本地存储，支付功能等。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-04T02:14:18.000Z" itemprop="dateUpdated">2018-03-04 10:14:18</time>
+</span><br>
+
+
+        
+        鄙人才疏学浅，行文难免有纰漏之处，还请各位看官见谅！
+        
+    </div>
+    <footer>
+        <a href="http://www.iamlightsmile.com">
+            <img src="/img/lightsmile.jpg" alt="lightsmile">
+            lightsmile
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/&title=《微信小程序学习笔记》 — lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/&title=《微信小程序学习笔记》 — lightsmile's Blog&source=this is a description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序学习笔记》 — lightsmile's Blog&url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/&via=http://www.iamlightsmile.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/02/算法学习笔记（1）字符串/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">算法学习笔记（1）字符串</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/25/Node-js学习笔记/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Node.js学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lightsmile &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/&title=《微信小程序学习笔记》 — lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/&title=《微信小程序学习笔记》 — lightsmile's Blog&source=this is a description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序学习笔记》 — lightsmile's Blog&url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/&via=http://www.iamlightsmile.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/2018/02/28/微信小程序学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aQW7jMBAEwPz/01lgT3tYC90zpOMApZPhSDKLATSjJr++4uP77/H8+d9vXh3tPZ/vcOzAw8PDGw39eUDPt06uSiYluX87iXh4eHj3eHkxSM5sJ+t5DPl04+Hh4X0aLxnE852fW/CkGODh4eH9Ll4eJeRhxKwRx8PDw/sEXtIERy//cY6alJ/9JOLh4eHd4J1aAHvn5x9Y38PDw8MLHq/HHruj8LctBv+5Ax4eHt4FXhLRtqUiH0rb1idtd7TvAA8PD2/Ba38suUP7cJ8tp0WxBR4eHt5beJvHcVtgNgUgCizw8PDwLvBmnWcbIsxS1tk5BxprPDw8vEdeG9S2Eep+uO0mg5d1Dw8PD+8Qb79ZajYdecSwiSrw8PDwbvA2D/TZVoA2jFjFynh4eHgXeG2cmoet+VaAdkKTsjFMi/Hw8PACXn5qGyi0i2R58UgafTw8PLx7vFlDPPvrbCLyEhIthuHh4eGteW37u1n02m+HrRtuPDw8vAu8dmPofomrXZHLm3I8PDy8d/JmD+JhKLAOJvJig4eHh/ce3v7xvVmL2wcZeHh4eO/knZqVe3OfX4uHh4d3jzcLSWex7ybAnQUWeHh4ePd4eRi6Lw9545637y+nDA8PD+8Cr91ElSNny1TtxEWNOx4eHt4FXvKqn3/TZiHtNM0W2/Dw8PDO8mY/kJ9zNtSoow08PDy8a7y8Uc6vbYe7CT5e/qvw8PDwjvK+y2PTs+elJSkw0Xjw8PDwLvDyY7YBa78965laVD88PDy8o7y8GLSfZ0HD4UgCDw8P7xpv0wTX+Ue5SDYrXXh4eHifydvkpZt+v9iIgIeHh/ejvHYbQdL+tulIu9iGh4eHd4/XLnrlWwdm+KQgRbEyHh4e3gVe+6rfgpNrc2Q7oXh4eHhHeX8AjH5f9HYxUiIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '客官慢走！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎光临！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

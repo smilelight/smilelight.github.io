@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'true', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    <title>lightsmile&#39;s Blog | lightsmile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+    <meta name="description" content="this is a description">
+<meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lightsmile&#39;s Blog">
+<meta property="og:url" content="http://www.iamlightsmile.com/page/2/index.html">
+<meta property="og:site_name" content="lightsmile&#39;s Blog">
+<meta property="og:description" content="this is a description">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lightsmile&#39;s Blog">
+<meta name="twitter:description" content="this is a description">
+    
+        <link rel="alternate" type="application/atom+xml" title="lightsmile&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/lightsmile.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">lightsmile</h5>
+          <a href="mailto:1459679436@qq.com" title="1459679436@qq.com" class="mail">1459679436@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                档案
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                类别
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/smilelight" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/p/1005055392510271" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">lightsmile&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">lightsmile&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                lightsmile
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-TextRank算法原理与实现"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-24 10:32:03" datetime="2018-04-24T02:32:03.000Z"  itemprop="datePublished">2018-04-24</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/24/TextRank算法原理与实现/">TextRank算法原理与实现</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先挖坑再说！
+场景原理实现（Python）总结参考
+    
+
+        <a href="/2018/04/24/TextRank算法原理与实现/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-TF-IDF算法原理与实现"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-24 10:31:34" datetime="2018-04-24T02:31:34.000Z"  itemprop="datePublished">2018-04-24</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/24/TF-IDF算法原理与实现/">TF-IDF算法原理与实现</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先挖坑再说！
+场景原理实现（Python）总结参考
+关键词提取算法-TextRank
+textrank算法原理与提取关键词、自动提取摘要PYTHON
+
+
+    
+
+        <a href="/2018/04/24/TF-IDF算法原理与实现/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-无题1"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-21 22:22:10" datetime="2018-04-21T14:22:10.000Z"  itemprop="datePublished">2018-04-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/21/无题1/">无题1</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        我们慢慢成长，都要学会去接受现实，接受自己平凡的事实，接受总有一些梦是无法实现的。
+逃避也好，面对也罢，我们都要去接受生活中的喜与悲。
+
+    
+
+        <a href="/2018/04/21/无题1/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-腾讯云SDKforJS开发实战"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-21 15:31:34" datetime="2018-04-21T07:31:34.000Z"  itemprop="datePublished">2018-04-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/21/腾讯云SDKforJS开发实战/">腾讯云SDKforJS开发实战</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前面曾经提到过的，我想要把自然语言处理相关的技术接入到我的毕设微信小程序里面。
+由于腾讯云未提供JS的SDK，要自己编写HTTP请求来实现，之前觉得比较麻烦，相关说明文档没有整明白，不想尝试，后来觉得既然是自己选择的路，那么无论再苦再累，都要坚持走下去，无论结果是什么，也算对得起当初自己的豪情壮志了。
+再贴一下我的参考文档：腾讯云文智自然语言处理API链接
+大致了解了签名方法和技术之后，我就...
+    
+
+        <a href="/2018/04/21/腾讯云SDKforJS开发实战/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-科技发展之小感慨"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-21 15:23:00" datetime="2018-04-21T07:23:00.000Z"  itemprop="datePublished">2018-04-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/21/科技发展之小感慨/">科技发展之小感慨</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        现在真的是越来越理解“人生而有涯而知也无涯”了。
+现在科技发展的速度这么快，技术更迭周期越来越短，我们这些将来要搞编程的到时候真的是活到老学到老啊！
+比如近几年来大火的人工智能、云计算、大数据、机器学习、深度学习等等，还有物联网和机器人技术等，就在不久的将来，一定会极大的改变人们的生产生活方式。
+现在发现自己真的是一个井底之蛙，所知甚少。最近接触和了解的一些工具、术语和概念简直让我头大，比如...
+    
+
+        <a href="/2018/04/21/科技发展之小感慨/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-自然语言处理与知识图谱相关市场研究"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-19 22:15:10" datetime="2018-04-19T14:15:10.000Z"  itemprop="datePublished">2018-04-19</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/19/自然语言处理与知识图谱相关市场研究/">自然语言处理与知识图谱相关市场研究</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        经过我的探索，发现现在商用也好，学习也罢，目前提供NLP技术服务的大致分三种：
+
+一种是大学院校的教授、助教和研究生等依托团队的学术背景和技术沉淀，通过创办规模较小的公司提供技术支持，以实现技术变现。服务对象主要为科研院所、政府部门、一些没有精力或没有必要自己去做这方面服务的大公司和一些没有条件或没有必要自己去做的中小型公司。
+一种是大公司如Google、Facebook、Microsoft...
+    
+
+        <a href="/2018/04/19/自然语言处理与知识图谱相关市场研究/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-腾讯云-云智自然语言处理API小试"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-19 21:02:27" datetime="2018-04-19T13:02:27.000Z"  itemprop="datePublished">2018-04-19</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/19/腾讯云-云智自然语言处理API小试/">腾讯云-云智自然语言处理API小试</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        前述（妈耶！这是昨天的文章了，昨天晚上写着写着突然断电，而我的电脑是台式机。。。）
+今天在忙毕设的事情，毕设项目是做一个微计划日程管理的小程序，目前已经完成了大部分的功能。
+其中包括图表统计、时间轴、四象限、小卡片、数据备份和数据还原等功能。不过今天刚通知了说审核失败，理由是身份为个人的开发者不能做备忘录相关的微信小程序。
+昨天想着能不能把自己的兴趣（自然语言处理+知识图谱）和毕设结合起来，...
+    
+
+        <a href="/2018/04/19/腾讯云-云智自然语言处理API小试/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-GithubPages新尝试"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-18 16:01:53" datetime="2018-04-18T08:01:53.000Z"  itemprop="datePublished">2018-04-18</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/18/GithubPages新尝试/">GithubPages新尝试</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        由于某些不便明说的原因，我要再申请一个域名，再申请一个GitHub账号，再搞一个GitHub Pages。打算用来记录一些不便明说的东西。
+这次域名的申请不同于之前的在万网的iamlightsmile.com，这次是在腾讯云上申请的，不过都大同小异了。接着等待大概3天左右的实名认证，通过后域名就可以解析可用了。由于只是使用GitHub Pages 作为静态网页，不需要另外购置服务器，所以也不...
+    
+
+        <a href="/2018/04/18/GithubPages新尝试/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-学习Python设计模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-17 10:16:59" datetime="2018-04-17T02:16:59.000Z"  itemprop="datePublished">2018-04-17</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/17/学习Python设计模式/">学习Python设计模式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        本书主要参阅的书籍是《精通Python设计模式》
+本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真...
+    
+
+        <a href="/2018/04/17/学习Python设计模式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-推荐阅读书籍"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-04-14 20:02:20" datetime="2018-04-14T12:02:20.000Z"  itemprop="datePublished">2018-04-14</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/04/14/推荐阅读书籍/">推荐阅读书籍</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        此博文作为书籍阅读及相关的记录如果可以，请读好书~
+哲学篇
+《和谐辩证法》
+《智慧之根》
+
+计算机篇
+《统计学习理论基础》
+《大数据智能》
+《统计自然语言处理》（第2版）
+《Python自然语言处理》（第2版，没有纸质）
+《精通Python设计模式》
+《机器学习导论》[美]米罗斯拉夫·库巴特(Miroslav Kubat)著(翻译的不是很好，但是原著质量极佳，是我读过的最好的机器学习入门书籍...
+    
+
+        <a href="/2018/04/14/推荐阅读书籍/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>lightsmile &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/page/2/&title=lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/page/2/&title=lightsmile's Blog&source=this is a description" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/page/2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=lightsmile's Blog&url=http://www.iamlightsmile.com/page/2/&via=http://www.iamlightsmile.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/page/2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB10lEQVR42u3awWrDMBAE0Pz/T7tQcgiU2DOypKbl6WSC7bzksGhn9XjE6/her9evn/y8J3n23f0TFi4u7m3ucboS4jk9vz434OLi7ucmBej8qeTn5e9/+zkuLu6Hcc8LXLvpwcXF/d/c6GtmvQcXF3cjN2l+2qZl1ntwcXH3c8cC07nXy/NdXFzcSVOJtiQlcepYEXw+hYuLu4XbDkHnxh/JwOaiV8PFxV3MbV+ajEzGhjEXbQ8uLu4WbtKK5EVnLGZtg1dcXNw93Baab0rubHTq2BQXF3cSd+wrZxW4JBGtz27g4uLe4Ca1bRa0bX6iUQouLu4C7lizEcWacWgyFrjg4uLu4Y4dkhg7gNXGptH8BxcXdyr3zmGLO4XvnB71ari4uAu4Y69oi11Swur9Fy4u7jLunXYlH6a28Wh9CAMXF3cqd13rkhSsfLz6vAcXF3cLd2yscmdAm29iLrZQuLi4y7hHudowJQ9Hoj8IFxd3C7fNH/JtTRJ8zApkcXFxV3DzUUp+VKItbcXGCBcXdyN3bNDSFsF2PnJxTgQXF/fDuO2Upm1vcHFx/wp3rDzlW5moaOLi4m7kjjU/bdiaH+da0qvh4uKWPUXbwLQ/8tfyXVxc3I77BdBLbMOkfDJIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '客官慢走！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎光临！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
