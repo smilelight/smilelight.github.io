@@ -3,6 +3,28 @@
   
     
     <entry>
+      <title><![CDATA[你好，2019]]></title>
+      <url>/2019/01/01/%E4%BD%A0%E5%A5%BD%EF%BC%8C2019/</url>
+      <content type="html"><![CDATA[<p>再见，2018.</p>
+<p>终于领悟到，自己早就已经成年，已经步入社会，该是个成熟的成年人了，不再是小孩子了。</p>
+<p>要学会一个人照顾好自己，经营好自己，不要发脾气，不要因畏惧而胆怯。</p>
+<p>要学会先做应该做的事，再做自己想做的事。</p>
+<p>独自在外，要有一个人远航的心理准备，没有家和学校这样的避风港，许多事就算不想做也要去做，不要再想当然的随意而为了，要学会对自己负责，称为真正心理成熟的成年人。</p>
+<p>凡事要做好规划，目标要明确，要有强大的执行力作为支撑，要有强大的意志力做燃料。</p>
+<p>不要再去讲黑白对错了，社会永远都是森林法则，弱肉强食，规律如此，何来对错？学会适应这个法则吧，努力变强，什么都会有的。</p>
+<p>不要再执念于过去了，回忆再美好也只是曾经，现在再悔恨也于事无补，把视角向前看吧。</p>
+<p>不要再惦记喜欢的人了，现在的你配不上她。</p>
+<p>不喜欢的饭就算难以下胃也要吃下去，不要饿肚子。</p>
+<p>不要只有想法而不付出行动，想法谁都有，最终还是行动说明一切。</p>
+<p>该向游戏和网络小说说再见了，不要再把精力放到没有意义的事情上去了。</p>
+<p>过去曾经幼稚的孩子，也该死掉了。</p>
+<p>你好，2019.</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hello World]]></title>
       <url>/2018/10/02/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -4223,7 +4245,7 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
 </li>
 </ol>
 <p>自动链接</p>
-<p> <a href="http://xhstormr.github.io/" target="_blank" rel="noopener">http://xhstormr.github.io/</a><br> <a href="mailto:&#88;&#104;&#x73;&#x74;&#x6f;&#x72;&#109;&#x52;&#x40;&#x66;&#x6f;&#x78;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;" target="_blank" rel="noopener">&#88;&#104;&#x73;&#x74;&#x6f;&#x72;&#109;&#x52;&#x40;&#x66;&#x6f;&#x78;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a></p>
+<p> <a href="http://xhstormr.github.io/" target="_blank" rel="noopener">http://xhstormr.github.io/</a><br> <a href="mailto:&#88;&#104;&#115;&#116;&#111;&#x72;&#x6d;&#x52;&#64;&#x66;&#x6f;&#x78;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;" target="_blank" rel="noopener">&#88;&#104;&#115;&#116;&#111;&#x72;&#x6d;&#x52;&#64;&#x66;&#x6f;&#x78;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></p>
 <p>插入链接</p>
 <p> <a href="http://example.com/" title="optional title" target="_blank" rel="noopener">link text</a></p>
 <p> <a href="http://example.com/" title="optional title here" target="_blank" rel="noopener">link text</a></p>
@@ -4370,7 +4392,7 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
 <p>在引用中加链接，第一个中括号添加需要添加的文字，第二个中括号中是引用链接的id，之后在引用中，使用id加链接：如下：</p>
 <p>[link text][id]<br>[id]: <a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> “optional title here”</p>
 <p>在文中直接引用链接，直接使用尖括号，把链接加入到尖括号中就可以实现，如下：</p>
-<p><a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> or <a href="mailto:&#x61;&#x64;&#100;&#114;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#x61;&#x64;&#100;&#114;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;</a><br>插入互联网上图片，格式如下：</p>
+<p><a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> or <a href="mailto:&#x61;&#x64;&#x64;&#114;&#x65;&#x73;&#115;&#x40;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#x61;&#x64;&#x64;&#114;&#x65;&#x73;&#115;&#x40;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;</a><br>插入互联网上图片，格式如下：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
