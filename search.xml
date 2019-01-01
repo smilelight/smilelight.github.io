@@ -25,59 +25,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2018/10/02/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> test </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[深度学习之己见]]></title>
-      <url>/2018/06/15/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%B7%B1%E8%A7%81/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[机器学习之己见]]></title>
-      <url>/2018/06/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%B7%B1%E8%A7%81/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[传统算法vs机器学习vs深度学习]]></title>
-      <url>/2018/06/15/%E4%BC%A0%E7%BB%9F%E7%AE%97%E6%B3%95vs%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0vs%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[自然语言处理（1）基本概念]]></title>
       <url>/2018/05/26/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
       <content type="html"><![CDATA[<ol>
@@ -108,121 +55,6 @@
 <li><p>自然语言处理涉及的几个<strong>层次</strong>：形态学（morphology）、语法学（syntax）、语义学（semantics）、语用学（pragmatics）。</p>
 </li>
 </ol>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[生活生活]]></title>
-      <url>/2018/05/05/%E7%94%9F%E6%B4%BB%E7%94%9F%E6%B4%BB/</url>
-      <content type="html"><![CDATA[<p>生活生活，就是不停地相遇，不断地错过~</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 抽风 </tag>
-            
-            <tag> 中二 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[自私的选择]]></title>
-      <url>/2018/05/04/%E8%87%AA%E7%A7%81%E7%9A%84%E9%80%89%E6%8B%A9/</url>
-      <content type="html"><![CDATA[<p>俗话说“人不为己天诛地灭”，以前只觉得这话是自私自利者的冠冕堂皇的借口，现在看来也不尽然也。</p>
-<p>未完待续。。。</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[C++嵌入Python解释器小试]]></title>
-      <url>/2018/05/04/C-%E5%B5%8C%E5%85%A5Python%E8%A7%A3%E9%87%8A%E5%99%A8%E5%B0%8F%E8%AF%95/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[《统计学习方法》摘抄]]></title>
-      <url>/2018/04/24/%E3%80%8A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E3%80%8B%E6%91%98%E6%8A%84/</url>
-      <content type="html"><![CDATA[<p>##摘抄</p>
-<ol>
-<li><code>统计学习</code>（statistical leanrning）是<strong>关于</strong><code>计算机</code><strong>基于</strong><code>数据</code><strong>构建</strong><code>概率统计模型</code>并<strong>运用</strong><code>模型</code>对<code>数据</code>进行<code>预测与分析</code>的一门学科。</li>
-<li>统计学习关于数据的<strong>基本假设</strong>是<code>同类</code>数据具有一定的<code>统计规律性</code>，这是统计学习的<code>前提</code>。</li>
-<li>统计学习总的目标就是考虑学习<code>什么样</code>的模型和<code>如何学习</code>模型，以使模型能对数据进行准确的预测与分析，同时也要考虑尽可能地<code>提高学习效率</code>。</li>
-<li>实现统计学习方法的步骤如下：<ol>
-<li>得到一个有限的训练<code>数据集合</code>；</li>
-<li>确定包含所有可能的模型的假设空间，即学习<code>模型的集合</code>；</li>
-<li>确定模型选择的准则，即学习的<code>策略</code>；</li>
-<li>实现求解最优模型的算法，即学习的<code>算法</code>；</li>
-<li>通过学习方法选择最优模型；</li>
-<li>利用学习的最优模型对新数据进行预测或分析。<br>5.<br>##己见</li>
-</ol>
-</li>
-<li>机器学习也好，深度学习也罢，目的都是希望以偏概全、举一反三。</li>
-</ol>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 机器学习 </tag>
-            
-            <tag> 统计学 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[TextRank算法原理与实现]]></title>
-      <url>/2018/04/24/TextRank%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
-      <content type="html"><![CDATA[<p>先挖坑再说！</p>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h3 id="实现（Python）"><a href="#实现（Python）" class="headerlink" title="实现（Python）"></a>实现（Python）</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3>]]></content>
-      
-        
-        <tags>
-            
-            <tag> Python </tag>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[TF-IDF算法原理与实现]]></title>
-      <url>/2018/04/24/TF-IDF%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0/</url>
-      <content type="html"><![CDATA[<p>先挖坑再说！</p>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h3 id="实现（Python）"><a href="#实现（Python）" class="headerlink" title="实现（Python）"></a>实现（Python）</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://www.cnblogs.com/xueyinzhe/p/7101295.html" target="_blank" rel="noopener">关键词提取算法-TextRank</a></li>
-<li><a href="https://blog.csdn.net/hhtnan/article/details/78032712" target="_blank" rel="noopener">textrank算法原理与提取关键词、自动提取摘要PYTHON</a></li>
-</ul>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> Python </tag>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[无题1]]></title>
-      <url>/2018/04/21/%E6%97%A0%E9%A2%981/</url>
-      <content type="html"><![CDATA[<p>我们慢慢成长，都要学会去接受现实，接受自己平凡的事实，接受总有一些梦是无法实现的。</p>
-<p>逃避也好，面对也罢，我们都要去接受生活中的喜与悲。</p>
 ]]></content>
       
         
@@ -290,7 +122,7 @@
 <li>第三种则应该是比较专业，主打自然语言处理及其衍生相关服务的了。基本上创始人和主要的技术人员都是来自国内外知名的大学和公司，有学习相关的专业技术，并有丰富的从业经验，后来自主创业，开辟相关市场，想要在自然语言处理服务领域彻底火起来之前做大做强，多吃点蛋糕。国外的有不少，国内的现在也在发展中，估计目前至少有10家公司在做相关的了。服务对象和第一种基本相同。</li>
 </ul>
 <p>除此之外，其他的一些技术公司或大公司中则主要使用公司内部相关研发团队或技术部门主要针对与公司业务的技术和成果做一些辅助工作，不提供外部服务，没有想发展壮大的目标计划，同时种种原因也不想借助他人的服务。</p>
-<p>在知识图谱相关应用中，有用于企业决策的，也有用于金融分析的，基本情况应该是基本类似于自然语言处理服务领域。 </p>
+<p>在知识图谱相关应用中，有用于企业决策的，也有用于金融分析的，基本情况应该是基本类似于自然语言处理服务领域。</p>
 ]]></content>
       
         
@@ -507,45 +339,6 @@
 <h4 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h4><p>编写优秀代码的一个要素是避免冗余。</p>
 <p>模板模式关注的是消除代码冗余，其思想是我们应该无需改变算法结构就能重新定义一个算法的某个部分。</p>
 <h1 id="设计模式是被发现，而不是被发明出来的。"><a href="#设计模式是被发现，而不是被发明出来的。" class="headerlink" title="设计模式是被发现，而不是被发明出来的。"></a>设计模式是被发现，而不是被发明出来的。</h1>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[推荐阅读书籍]]></title>
-      <url>/2018/04/14/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/</url>
-      <content type="html"><![CDATA[<h1 id="此博文作为书籍阅读及相关的记录"><a href="#此博文作为书籍阅读及相关的记录" class="headerlink" title="此博文作为书籍阅读及相关的记录"></a>此博文作为书籍阅读及相关的记录</h1><p><strong>如果可以，请读好书~</strong></p>
-<h3 id="哲学篇"><a href="#哲学篇" class="headerlink" title="哲学篇"></a>哲学篇</h3><ol>
-<li>《和谐辩证法》</li>
-<li>《智慧之根》</li>
-</ol>
-<h3 id="计算机篇"><a href="#计算机篇" class="headerlink" title="计算机篇"></a>计算机篇</h3><ol>
-<li>《统计学习理论基础》</li>
-<li>《大数据智能》</li>
-<li>《统计自然语言处理》（第2版）</li>
-<li>《Python自然语言处理》（第2版，没有纸质）</li>
-<li>《精通Python设计模式》</li>
-<li>《机器学习导论》[美]米罗斯拉夫·库巴特(Miroslav Kubat)著(翻译的不是很好，但是原著质量极佳，是我读过的最好的机器学习入门书籍)</li>
-<li>《神经网络设计》（第2版）</li>
-<li>《自然语言处理综论》（第2版）第2版加入了一些机器学习相关的内容，第3版则加入了神经网络和深度学习相关的内容，不过第3版的英文版正在编写中。</li>
-</ol>
-<h3 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h3><ol>
-<li>《线性代数及其应用》</li>
-</ol>
-<h3 id="历史篇"><a href="#历史篇" class="headerlink" title="历史篇"></a>历史篇</h3><h3 id="小说篇"><a href="#小说篇" class="headerlink" title="小说篇"></a>小说篇</h3><ol>
-<li>《天行健》</li>
-<li>《英雄志》</li>
-<li>《国士无双》</li>
-<li>《原谅我红尘颠倒》</li>
-</ol>
-<h3 id="思维篇"><a href="#思维篇" class="headerlink" title="思维篇"></a>思维篇</h3><ol>
-<li>《如何系统思考》</li>
-</ol>
-<h3 id="程序人生篇"><a href="#程序人生篇" class="headerlink" title="程序人生篇"></a>程序人生篇</h3><ol>
-<li>《一个程序员的奋斗史》</li>
-<li>《程序员的爱情》</li>
-</ol>
-]]></content>
       
         
     </entry>
@@ -773,20 +566,6 @@
             <tag> Scrapy </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[随想]]></title>
-      <url>/2018/04/03/%E9%9A%8F%E6%83%B3/</url>
-      <content type="html"><![CDATA[<ol>
-<li>其实这世上哪有什么善恶，有的只是不同环境下不同的选择。</li>
-<li>我发现人和人相识的过程基本上都是从他的经历中提取特质然后贴上标签的过程。</li>
-<li>普天之下又有多少人敢把自己的灵魂放在阳光下炙烤呢？</li>
-<li>生活终究会教会我们如何做人。</li>
-</ol>
-]]></content>
-      
         
     </entry>
     
@@ -3330,27 +3109,6 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
     </entry>
     
     <entry>
-      <title><![CDATA[线性代数与微积分浅解]]></title>
-      <url>/2018/03/13/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%BE%AE%E7%A7%AF%E5%88%86%E6%B5%85%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<p>以前在大一大二时曾学过高等数学（微积分）与线性代数，不过在当时都是被动的学一学，考个分数而已，同时教授一般也都是照本宣科的围绕理论展开，平淡无味的</p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[《自然语言处理综论》学习笔记]]></title>
-      <url>/2018/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%BB%BC%E8%AE%BA%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<ol>
-<li>Bill Manaris 关于自然语言处理的定义</li>
-<li></li>
-</ol>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[英文表达与写作练习宣告]]></title>
       <url>/2018/03/06/%E8%8B%B1%E6%96%87%E8%A1%A8%E8%BE%BE%E4%B8%8E%E5%86%99%E4%BD%9C%E7%BB%83%E4%B9%A0%E5%AE%A3%E5%91%8A/</url>
       <content type="html"><![CDATA[<p><code>汉语版</code>:为了更好的提高自己的英文表达和写作能力，我决定在以后的技术博客中尽可能的使用英文。仅在此声明！</p>
@@ -3365,14 +3123,6 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
 <li>technical:adj,技术的</li>
 </ul>
 ]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Google机器学习速成班学习笔记]]></title>
-      <url>/2018/03/05/Google%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%80%9F%E6%88%90%E7%8F%AD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"></content>
       
         
     </entry>
@@ -3581,53 +3331,6 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
 <p>接下来的语言还没出现或者还没接触到，可能今后才会冒出来，或者是我自己设计定义实现的吧……</p>
 ]]></content>
       
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[《精通Python自然语言处理》（1）字符串操作]]></title>
-      <url>/2018/03/04/%E3%80%8A%E7%B2%BE%E9%80%9APython%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%EF%BC%881%EF%BC%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/</url>
-      <content type="html"><![CDATA[<ol>
-<li>sent_tokenize函数用于将文本切分为语句，该函数使用了NLTK包的PunktSentenceTokenizer类的实例。</li>
-<li>word_tokenize函数用于将句子切分为单词，该函数使用了NLTK包的TreebankTokenizer类的实例。</li>
-<li>三个分词器：<ul>
-<li><code>TreebankWordTokenizer</code>：通过<code>分离缩略词</code>实现切分</li>
-<li><code>PunktWordTokenizer</code>：通过<code>分离标点</code>实现切分</li>
-<li><code>WordPunctTokenizer</code>：通过<code>将标点转化为一个全新的标识符</code>实现切分</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> Python </tag>
-            
-            <tag> 自然语言处理 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[《精通Python自然语言处理》-翻译]]></title>
-      <url>/2018/03/04/%E3%80%8A%E7%B2%BE%E9%80%9APython%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B-%E7%BF%BB%E8%AF%91/</url>
-      <content type="html"><![CDATA[<ul>
-<li>tokenize 标记</li>
-<li>pickle 泡菜</li>
-<li>punkt</li>
-</ul>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> Python </tag>
-            
-            <tag> 自然语言处理 </tag>
-            
-        </tags>
         
     </entry>
     
@@ -4005,38 +3708,6 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
     </entry>
     
     <entry>
-      <title><![CDATA[微信小程序学习笔记]]></title>
-      <url>/2018/02/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><h2 id="1-响应的数据绑定"><a href="#1-响应的数据绑定" class="headerlink" title="1. 响应的数据绑定"></a>1. 响应的数据绑定</h2><p>框架的核心是一个响应的数据绑定系统。<br>整个系统分为两块视图层(View)和逻辑层(App Service)<br>框架可以让数据与视图非常简单地保持同步。当做数据修改的时候，只需要在逻辑层修改数据，视图层就会做相应的更新。</p>
-<h2 id="2-页面管理"><a href="#2-页面管理" class="headerlink" title="2. 页面管理"></a>2. 页面管理</h2><p>框架管理了整个小程序的页面路由，可以做到页面间的无缝切换，并给以页面完整的生命周期。开发者需要做的只是将页面的数据，方法，生命周期函数注册进框架中，其他的一切复杂的操作都交由框架处理。</p>
-<h2 id="3-基础组件"><a href="#3-基础组件" class="headerlink" title="3. 基础组件"></a>3. 基础组件</h2><p>框架提供了一套基础的组件，这些组件自带微信风格的样式以及特殊的逻辑，开发者可以通过组合基础组件，创建出强大的微信小程序 。</p>
-<h2 id="4-丰富的API"><a href="#4-丰富的API" class="headerlink" title="4. 丰富的API"></a>4. 丰富的API</h2><p>框架提供丰富的微信原生API，可以方便的调起微信提供的能力，如获取用户信息，本地存储，支付功能等。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 微信小程序 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Node.js学习笔记]]></title>
-      <url>/2018/02/25/Node-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"></content>
-      
-        
-        <tags>
-            
-            <tag> Node.js </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[浏览器插件小试]]></title>
       <url>/2017/12/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%B0%8F%E8%AF%95/</url>
       <content type="html"><![CDATA[<p>由于时间比较久远，现在浏览器插件编写的工作都已经忘记了一大半，不过之前获取的只是图片的绝对地址，用起来还是不太方便，并且比如说插件的title、description、icon等都是原来的如testMenu等比较low的，于是后来又修改了一下，包括以上的项目属性，以及目前复制到剪贴板的直接是Markdown中的图片地址格式，如<code>! [image_title] (image_absolute_path)</code>的格式，并且已经把相关的源码上传到我的GitHub上面，链接地址为：<a href="https://github.com/smilelight/GithubImagePace" target="_blank" rel="noopener">https://github.com/smilelight/GithubImagePace</a> 。</p>
@@ -4209,260 +3880,6 @@ TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray
         <tags>
             
             <tag> lua </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[test2]]></title>
-      <url>/2017/12/09/test2/</url>
-      <content type="html"><![CDATA[<ol>
-<li><p>标题</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></li>
-<li><p>列表</p>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
-<li>无序列表3</li>
-</ul>
-<ol>
-<li>有序列表1</li>
-<li>有序列表2</li>
-<li>有序列表3</li>
-</ol>
-</li>
-<li><p>引用</p>
-<blockquote>
-<p>这个是引用<br>是不是和电子邮件中的<br>引用格式很像</p>
-</blockquote>
-</li>
-<li><p>粗体与斜体</p>
-<p><strong>这个是粗体</strong></p>
-<p><em>这个是斜体</em></p>
-</li>
-<li><p>链接与图片</p>
-</li>
-</ol>
-<p>自动链接</p>
-<p> <a href="http://xhstormr.github.io/" target="_blank" rel="noopener">http://xhstormr.github.io/</a><br> <a href="mailto:&#88;&#104;&#115;&#116;&#111;&#x72;&#x6d;&#x52;&#64;&#x66;&#x6f;&#x78;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;" target="_blank" rel="noopener">&#88;&#104;&#115;&#116;&#111;&#x72;&#x6d;&#x52;&#64;&#x66;&#x6f;&#x78;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></p>
-<p>插入链接</p>
-<p> <a href="http://example.com/" title="optional title" target="_blank" rel="noopener">link text</a></p>
-<p> <a href="http://example.com/" title="optional title here" target="_blank" rel="noopener">link text</a></p>
-<p>插入图片</p>
-<p> <img src="/path/to/img.jpg" alt="" title="optional title">{ImgCap}alt text{/ImgCap}</p>
-<p>图片链接</p>
-<p> <a href="http://book.douban.com/subject/1141406/" target="_blank" rel="noopener"><img src="http://img3.douban.com/mpic/s1108264.jpg" alt=""></a></p>
-<ol start="6">
-<li>代码</li>
-</ol>
-<p>用TAB键起始的段落，会被认为是代码块</p>
-  <php><br>       echo “hello world”;<br>  </php>
-
-<p>如果在一个行内需要引用代码，只要用反引号`引起来就好</p>
-<p> Use the <code>printf()</code> function.</p>
-<ol start="7">
-<li>分割线、删除线</li>
-</ol>
-<p>可以在一行中用三个以上的星号、减号、底线来建立一个分隔线,用~可建立删除线。</p>
-<hr>
-<p> <del>Mistaken text.</del></p>
-<ol start="8">
-<li><p>代码块与语法高亮</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = Redcarpet.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>段落、标题、区块代码</p>
-<p>区块引用则使用 email 形式的 ‘&gt;’ 角括号。</p>
-<p>Markdown 语法:</p>
-<h1 id="A-First-Level-Header"><a href="#A-First-Level-Header" class="headerlink" title="A First Level Header"></a>A First Level Header</h1><h2 id="A-Second-Level-Header"><a href="#A-Second-Level-Header" class="headerlink" title="A Second Level Header"></a>A Second Level Header</h2><h1 id="A-Frist"><a href="#A-Frist" class="headerlink" title="A Frist"></a>A Frist</h1><h2 id="A-Second"><a href="#A-Second" class="headerlink" title="A Second"></a>A Second</h2><p>Now is the time for all good men to come to<br>the aid of their country. This is just a<br>regular paragraph.</p>
-<p>The quick brown fox jumped over the lazy<br>dog’s back.</p>
-<h3 id="Header-3"><a href="#Header-3" class="headerlink" title="Header 3"></a>Header 3</h3><blockquote>
-<p>This is a blockquote.</p>
-<p>This is the second paragraph in the blockquote.</p>
-<h2 id="This-is-an-H2-in-a-blockquote"><a href="#This-is-an-H2-in-a-blockquote" class="headerlink" title="This is an H2 in a blockquote"></a>This is an H2 in a blockquote</h2><p>修辞和强调</p>
-</blockquote>
-<p>Markdown 使用星号和底线来标记需要强调的区段。</p>
-<p>Markdown 语法:</p>
-<p>Some of these words <em>are emphasized</em>.<br>Some of these words <em>are emphasized also</em>.<br>Use two asterisks for <strong>strong emphasis</strong>.<br>Or, if you prefer, <strong>use two underscores instead</strong>.<br>列表</p>
-<p>无序列表使用星号、加号和减号来做为列表的项目标记，这些符号是都可以使用的，使用星号：</p>
-<ul>
-<li>Candy.</li>
-<li>Gum.</li>
-<li>Booze.<br>加号：</li>
-</ul>
-<ul>
-<li>Candy.</li>
-<li>Gum.</li>
-<li>Booze.<br>和减号</li>
-</ul>
-<ul>
-<li>Candy.</li>
-<li>Gum.</li>
-<li>Booze.<br>都会输出 HTML 为：</li>
-</ul>
-<p><ul></ul></p>
-<p><li>Candy.</li></p>
-<p><li>Gum.</li></p>
-<p><li>Booze.</li><br><br>有序的列表则是使用一般的数字接着一个英文句点作为项目标记：</p>
-<ol>
-<li>Red</li>
-<li>Green</li>
-<li>Blue</li>
-</ol>
-<p>输出 HTML 为：</p>
-<ol><br><li>Red</li><br><li>Green</li><br><li>Blue</li><br></ol>
-
-<p>链接</p>
-<p>Markdown 支援两种形式的链接语法： 行内 和 参考 两种形式，两种都是使用角括号来把文字转成连结。</p>
-<p>行内形式是直接在后面用括号直接接上链接：</p>
-<p>This is an <a href="http://example.com/" target="_blank" rel="noopener">example link</a>.<br>你也可以选择性的加上 title 属性：</p>
-<p>This is an <a href="http://example.com/" title="With a Title" target="_blank" rel="noopener">example link</a>.</p>
-<p>参考形式的链接让你可以为链接定一个名称，之后你可以在文件的其他地方定义该链接的内容：</p>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google" target="_blank" rel="noopener">Google</a> than from<br><a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="noopener">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search" target="_blank" rel="noopener">MSN</a>.</p>
-<p>图片</p>
-<p>图片的语法和链接很像。</p>
-<p>行内形式（title 是选择性的）：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/path/to/img.jpg" alt="alt text" title="Title">
-                </div>
-                <div class="image-caption">Title</div>
-            </figure>
-<p>参考形式：</p>
-<p><img src="http://example.com/" alt="alt text" title="optional title here"></p>
-<p>代码</p>
-<p>在一般的段落文字中，你可以使用反引号 ` 来标记代码区段，区段内的 &amp;、&lt; 和 &gt; 都会被自动的转换成 HTML 实体，这项特性让你可以很容易的在代码区段内插入 HTML 码：</p>
-<p>I strongly recommend against using any <code>&lt;blink&gt;</code> tags.</p>
-<p>I wish SmartyPants used named entities like <code>—</code><br>instead of decimal-encoded entites like <code>—</code>.<br>如果要建立一个已经格式化好的代码区块，只要每行都缩进 4 个空格或是一个 tab 就可以了，而 &amp;、&lt; 和 &gt; 也一样会自动转成 HTML 实体。</p>
-<p>Markdown 语法:</p>
-<p>If you want your page to validate under XHTML 1.0 Strict,<br>you’ve got to put paragraph tags in your blockquotes:</p>
-<blockquote><br><p>For example.</p><br></blockquote>
-
-<p>作者：XhstormR<br>链接：<a href="http://www.jianshu.com/p/fdb5cbdaf244" target="_blank" rel="noopener">http://www.jianshu.com/p/fdb5cbdaf244</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> xixi </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[test1]]></title>
-      <url>/2017/12/09/test1/</url>
-      <content type="html"><![CDATA[<p>在文字写书写不同数量的#可以完成不同的标题，如下：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>等号及减号也可以进行标题的书写，不过只能书写二级标题，并且需要写在文字的下面，减号及等号的数量不会影响标题的基数，如下：</p>
-<h1 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h1><h2 id="二级标题-2"><a href="#二级标题-2" class="headerlink" title="二级标题"></a>二级标题</h2><p>无序列表的使用，在符号“-”后加空格使用。如下：</p>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
-<li>无序列表3</li>
-</ul>
-<p>如果要控制列表的层级，则需要在符号“-”前使用空格。如下：</p>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2<ul>
-<li>无序列表2.1<ul>
-<li>列表内容</li>
-<li>列表内容</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>有序列表的使用，在数字及符号“.”后加空格几个，如下：</p>
-<ol>
-<li>有序列表1</li>
-<li>有序列表2</li>
-<li>有序列表3<br>有序列表如果要区分层级，也可以在数字前加空格。</li>
-</ol>
-<p>引用的格式是使用符号“&gt;”后面书写文字，及可以使用引用。如下：</p>
-<blockquote>
-<p>这个是引用<br>是不是和电子邮件中的<br>引用格式很像</p>
-</blockquote>
-<p>粗体的使用是在需要加粗的文字前后各加两个“<em>”，而斜体的使用则是在需要斜体的文字前后各加一个“</em>”，如果要使用粗体和斜体，那么就是在需要操作的文字前后各加三个“*”。如下：</p>
-<p><strong>这个是粗体</strong><br><em>这个是斜体</em><br><strong><em>这个是粗体加斜体</em></strong></p>
-<p>在文中直接加链接，中括号中是需要添加链接的文字，圆括号中是需要添加的链接，如下：</p>
-<p><a href="http://example.com/" title="optional title" target="_blank" rel="noopener">link text</a></p>
-<p>在引用中加链接，第一个中括号添加需要添加的文字，第二个中括号中是引用链接的id，之后在引用中，使用id加链接：如下：</p>
-<p>[link text][id]<br>[id]: <a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> “optional title here”</p>
-<p>在文中直接引用链接，直接使用尖括号，把链接加入到尖括号中就可以实现，如下：</p>
-<p><a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> or <a href="mailto:&#x61;&#x64;&#x64;&#114;&#x65;&#x73;&#115;&#x40;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;" target="_blank" rel="noopener">&#x61;&#x64;&#x64;&#114;&#x65;&#x73;&#115;&#x40;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;</a><br>插入互联网上图片，格式如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://img3.douban.com/mpic/s1108264.jpg" alt="这里写图片描述" title="">
-                </div>
-                <div class="image-caption">这里写图片描述</div>
-            </figure>
-<p>![这里写图片描述][jane-eyre-douban]<br>[jane-eyre-douban]: <a href="http://img3.douban.com/mpic/s1108264.jpg" target="_blank" rel="noopener">http://img3.douban.com/mpic/s1108264.jpg</a></p>
-<p>用TAB键起始的段落，会被认为是代码块，如下：</p>
-<pre><code>&lt;php&gt;
-    echo “hello world&quot;;
-&lt;/php&gt;
-</code></pre><p>如果在一个行内需要引用代码，只要用反引号`引起来就好，如下：</p>
-<p>Use the <code>printf()</code> function.</p>
-<p>可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，同时需要在分隔线的上面空一行。如下：</p>
-<hr>
-<hr>
-<hr>
-<p>删除线的使用，在需要删除的文字前后各使用两个符合“~”，如下</p>
-<p><del>Mistaken text.</del></p>
-<p>在需要高亮的代码块的前一行及后一行使用三个反引号“`”，同时第一行反引号后面表面代码块所使用的语言，如下：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = Redcarpet.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
-<p>可以使用冒号来定义表格的对齐方式，如下：</p>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<p>使用MathJax渲染<em>LaTex</em> 数学公式，详见[math.stackexchange.com]</p>
-<p>行内公式，数学公式为：</p>
-<p>$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$<br>块级公式：</p>
-<p>$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<p>更多LaTex语法请参考 [这儿]。</p>
-<p>可以渲染序列图：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">张三-&gt;李四: 嘿，小四儿, 写博客了没?</span><br><span class="line">Note right of 李四: 李四愣了一下，说：</span><br><span class="line">李四--&gt;张三: 忙得吐血，哪有时间写。</span><br></pre></td></tr></table></figure>
-<p>或者流程图：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">op=&gt;operation: 我的操作</span><br><span class="line">cond=&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-<ul>
-<li>关于 <strong>序列图</strong> 语法，参考 [这儿]</li>
-<li>关于 <strong>流程图</strong> 语法，参考 [这儿]</li>
-</ul>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> try </tag>
-            
-            <tag> fuck </tag>
             
         </tags>
         
