@@ -1,530 +1,3028 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'true', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!-- End Google Analytics -->
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Tag: 自然语言处理 | lightsmile&#39;s Blog</title>
+  
+  <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+  
+  
+  <meta name="description" content="this is a description">
+  
+
+  <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
 
 
-    
 
-    
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-
-
-    <meta charset="utf-8">
-    
-    <meta name="google-site-verification" content="true">
-    
-    
-    
-    <title>标签: 自然语言处理 | lightsmile&#39;s Blog | lightsmile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
-    <meta name="description" content="this is a description">
-<meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lightsmile&#39;s Blog">
-<meta property="og:url" content="http://www.iamlightsmile.com/tags/自然语言处理/index.html">
-<meta property="og:site_name" content="lightsmile&#39;s Blog">
-<meta property="og:description" content="this is a description">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lightsmile&#39;s Blog">
-<meta name="twitter:description" content="this is a description">
-    
-        <link rel="alternate" type="application/atom+xml" title="lightsmile&#39;s Blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
-
+  
+  
 </head>
 
 <body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/lightsmile.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">lightsmile</h5>
-          <a href="mailto:1459679436@qq.com" title="1459679436@qq.com" class="mail">1459679436@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                档案
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect active">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                类别
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/smilelight" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://weibo.com/p/1005055392510271" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                微博
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom"  >
-                <i class="icon icon-lg icon-link"></i>
-                测试
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">标签: 自然语言处理</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header tags-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">标签: 自然语言处理</h1>
-        <h5 class="subtitle">
-            
-        </h5>
-    </div>
-
-    
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/tags" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">全部</a>
-        
-
-            <a href="/tags/GitHub/" style="-webkit-order:16;order:16" class="tags-list-item waves-effect waves-button waves-light">GitHub</a>
-
-        
-
-            <a href="/tags/Python/" style="-webkit-order:17;order:17" class="tags-list-item waves-effect waves-button waves-light">Python</a>
-
-        
-
-            <a href="/tags/爬虫/" style="-webkit-order:18;order:18" class="tags-list-item waves-effect waves-button waves-light">爬虫</a>
-
-        
-
-            <a href="/tags/Scrapy/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">Scrapy</a>
-
-        
-
-            <a href="/tags/自然语言处理/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">自然语言处理</a>
-
-        
-
-            <a href="/tags/NLTK/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">NLTK</a>
-
-        
-
-            <a href="/tags/哲学/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">哲学</a>
-
-        
-
-            <a href="/tags/抽象/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">抽象</a>
-
-        
-
-            <a href="/tags/ltp/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">ltp</a>
-
-        
-
-            <a href="/tags/lua/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">lua</a>
-
-        
-
-            <a href="/tags/markdown/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">markdown</a>
-
-        
-
-            <a href="/tags/图片绝对地址/" style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">图片绝对地址</a>
-
-        
-
-            <a href="/tags/浏览器插件/" style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">浏览器插件</a>
-
-        
-
-            <a href="/tags/github/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">github</a>
-
-        
-
-            <a href="/tags/概念/" style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light">概念</a>
-
-        
-
-            <a href="/tags/微信小程序/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">微信小程序</a>
-
-        
-
-            <a href="/tags/数学/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">数学</a>
-
-        
-
-            <a href="/tags/统计学/" style="-webkit-order:14;order:14" class="tags-list-item waves-effect waves-button waves-light">统计学</a>
-
-        
-
-            <a href="/tags/算法/" style="-webkit-order:15;order:15" class="tags-list-item waves-effect waves-button waves-light">算法</a>
-
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
 </div>
 
-
-
-</header>
-
-<div class="container body-wrap fade">
-    
-            <div class="waterfall">
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          lightsmile's Blog
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
           
+				</ul>
+			</div>
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-04-07 23:28:35" datetime="2018-04-07T15:28:35.000Z"  itemprop="datePublished">2018-04-07</time>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
 
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            
+    <script>
+        window.subData= { title:'热门标签 : 自然语言处理'}
+    </script>
+
+
+<section class="post-list">
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/2018/04/07/哈工大ltp小试/">
+              
+                  哈工大ltp小试
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-04-07
+      </time>
+    
+
+    
       
 
-
-    </div>
     
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/04/07/哈工大ltp小试/">哈工大ltp小试</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ltp/">ltp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自然语言处理/">自然语言处理</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-        
-
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-03-19 17:28:40" datetime="2018-03-19T09:28:40.000Z"  itemprop="datePublished">2018-03-19</time>
-
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机/">计算机</a></li></ul>
-
-
-
-    </div>
     
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/19/learnNLTKbyWatchVideo/">learnNLTKbyWatchVideo</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLTK/">NLTK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自然语言处理/">自然语言处理</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-        
-
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-03-05 15:28:41" datetime="2018-03-05T07:28:41.000Z"  itemprop="datePublished">2018-03-05</time>
-
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/自然语言处理/">自然语言处理</a></li></ul>
-
-
-
-    </div>
     
 
+  </div>
+</section>
 
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/05/常见10种自然语言处理技术（转载）/">常见10种自然语言处理技术（转载）</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自然语言处理/">自然语言处理</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
+    <section class="article typo">
+        <p>今天开始探索学习使用哈工大的LTP（Language Technology Platform）。</p>
+<p>这里是<a href="http://ltp.ai/" target="_blank" rel="noopener">官网地址</a></p>
+<p>这里是<a href="https://github.com/HIT-SCIR/ltp" target="_blank" rel="noopener">GitHub地址</a></p>
+<p>这里是<a href="http://pyltp.readthedocs.io/zh_CN/latest/api.html" target="_blank" rel="noopener">pyltp的使用文档</a></p>
+<p>平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Python版本是3.6。</p>
+<p>使用流程很简单：</p>
+<ol>
+<li>下载最新版本的<a href="http://ltp.ai/download.html" target="_blank" rel="noopener">模型</a>（目前是3.4）</li>
+<li>安装pyltp，在命令行输入指令：<code>pip install pyltp</code>。<br>不过我的一直安装失败，总是不成功，后来从网上找了pyltp 3.6的<a href="http://mlln.cn/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/pyltp-0.2.1-cp36-cp36m-win_amd64.whl" target="_blank" rel="noopener">whl</a>文件，然后通过<code>pip install pyltp-0.2.1-cp36-cp36m-win_amd64.whl</code>成功了。</li>
+</ol>
+<p>这里有一篇<a href="http://mlln.cn/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener">博客</a>专门讲安装的，发现他的界面有点黑客风，挺炫酷的哈~</p>
+<p>通过PyCharm新建Python项目后，整个工程长成这个样子：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/learnLTPtest/project-structure.png" alt="project-structure" title="">
+                </div>
+                <div class="image-caption">project-structure</div>
+            </figure>
+<p>不过其中的data文件夹、source文件夹和test文件夹是自己新创建的，其中data文件夹内放置下载的模型，source文件夹放置那个其实也没啥东西的txt文件，test中放置编写的Python代码。</p>
+<p>照着使用文档敲的<code>testltp.py</code>内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyltp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分句</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SentenceSplitter</span><br><span class="line">sents = SentenceSplitter.split(<span class="string">'元芳你怎么看？我就趴窗口上看呗！'</span>)</span><br><span class="line">print(<span class="string">'\n'</span>.join(sents))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Segmentor</span><br><span class="line">segmentor = Segmentor()</span><br><span class="line">segmentor.load(<span class="string">'../data/cws.model'</span>)</span><br><span class="line">words = segmentor.segment(<span class="string">"元芳你怎么看"</span>)</span><br><span class="line">segmentor.release()</span><br><span class="line">print(list(words))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 词性标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Postagger</span><br><span class="line">postagger = Postagger()</span><br><span class="line">postagger.load(<span class="string">'../data/pos.model'</span>)</span><br><span class="line">posts = postagger.postag(list(words))</span><br><span class="line">postagger.release()</span><br><span class="line">print(list(zip(list(words),list(posts))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#命名实体识别</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> NamedEntityRecognizer</span><br><span class="line">recognizer = NamedEntityRecognizer()</span><br><span class="line">recognizer.load(<span class="string">'../data/ner.model'</span>)</span><br><span class="line">nettags = recognizer.recognize(list(words),list(posts))</span><br><span class="line">recognizer.release()</span><br><span class="line">print(list(zip(list(words),list(nettags))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#依存语法分析</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Parser</span><br><span class="line">parer = Parser()</span><br><span class="line">parer.load(<span class="string">'../data/parser.model'</span>)</span><br><span class="line">arcs = parer.parse(list(words),list(posts))</span><br><span class="line">parer.release()</span><br><span class="line">print(list(zip(list(words),[(arc.head,arc.relation) <span class="keyword">for</span> arc <span class="keyword">in</span> arcs])))</span><br><span class="line"></span><br><span class="line"><span class="comment">#语义角色标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SementicRoleLabeller</span><br><span class="line">labeller = SementicRoleLabeller()</span><br><span class="line">labeller.load(<span class="string">'../data/pisrl_win.model'</span>)</span><br><span class="line">roles = labeller.label(list(words),list(posts),arcs)</span><br><span class="line">labeller.release()</span><br><span class="line"><span class="keyword">for</span> role <span class="keyword">in</span> roles:</span><br><span class="line">    print(role.index, <span class="string">""</span>.join(</span><br><span class="line">        [<span class="string">"%s:(%d,%d)"</span> % (arg.name, arg.range.start, arg.range.end) <span class="keyword">for</span> arg <span class="keyword">in</span> role.arguments]))</span><br></pre></td></tr></table></figure>
+<p>其中我的pyltp不知道怎么安装的，竟然成了build-in里的东西了，而不是在site-packages里面。</p>
+<p>执行以上代码的结果为：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltp-result.png" alt="testltp-result" title="">
+                </div>
+                <div class="image-caption">testltp-result</div>
+            </figure>
+<p>其中要注意的是这里在语义角色标注中使用的并非pisrl.model而是pisrl_win.model，前者会报错的。</p>
+<p>同时由于文档中提到：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/learnLTPtest/no-support.png" alt="no-support" title="">
+                </div>
+                <div class="image-caption">no-support</div>
+            </figure>
+<p>于是我又去申请了哈工大的<a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">语言云</a>个人账号,经过邮箱激活之后，按照人家的<a href="https://www.ltp-cloud.com/document/" target="_blank" rel="noopener">使用文档</a>就要探索一下，不过没想到出现了问题。。。</p>
+<p>由于官网提供的Python示例代码使用的是2.7版本，所以这里我使用的是另外的一个网络请求模块：<code>requests</code>，最终的代码<code>testltpCloud.py</code>长成这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> APIKEY</span><br><span class="line"></span><br><span class="line">url_get_base = <span class="string">"http://api.ltp-cloud.com/analysis/"</span></span><br><span class="line">args = &#123;</span><br><span class="line">    <span class="string">'api_key'</span>: APIKEY,</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">'我是中国人。'</span>,</span><br><span class="line">    <span class="string">'pattern'</span>: <span class="string">'dp'</span>,</span><br><span class="line">    <span class="string">'format'</span>: <span class="string">'plain'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># result = urllib.request.urlopen(url_get_base, urllib.parse.urlencode(args))  # POST method</span></span><br><span class="line">result = requests.post(url_get_base,args)</span><br><span class="line">print(result.text)</span><br></pre></td></tr></table></figure>
+<p>在同路径下的<code>settings.py</code>的内容为：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/learnLTPtest/apikey.png" alt="apikey" title="">
+                </div>
+                <div class="image-caption">apikey</div>
+            </figure>
+<p>其中APIKEY的内容是邮件发给你的api_key字符串。</p>
+<p>不过运行的结果为：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltpCloud-result.png" alt="testltpCloud-result" title="">
+                </div>
+                <div class="image-caption">testltpCloud-result</div>
+            </figure>
+<p>显示未授权用户，但是我的账户类型是免费的，刚注册的啊，为啥这样，搜了搜没搜出个啥，就先这样吧。</p>
+<p>又向目标迈进了一步，嘿嘿，加油！</p>
 
         
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/Python/"><i class="fas fa-hashtag fa-fw"></i>Python</a>
+                
+                    <a href="/tags/自然语言处理/"><i class="fas fa-hashtag fa-fw"></i>自然语言处理</a>
+                
+                    <a href="/tags/ltp/"><i class="fas fa-hashtag fa-fw"></i>ltp</a>
+                
             </div>
         
+    </section>
+</article>
+
+        </div>
+      
     
-</div>
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/2018/03/19/learnNLTKbyWatchVideo/">
+              
+                  learnNLTKbyWatchVideo
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-03-19
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/计算机/">计算机</a>
+    </div>
 
 
-        <footer class="footer">
-    <div class="top">
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <h1 id="The-following-is-learning-from-the-video-NLTK-with-Python-3-for-Natural-Language-Processing"><a href="#The-following-is-learning-from-the-video-NLTK-with-Python-3-for-Natural-Language-Processing" class="headerlink" title="The following is learning from the video:NLTK with Python 3 for Natural Language Processing."></a>The following is learning from the video:NLTK with Python 3 for Natural Language Processing.</h1><p>You can watch the videos in YouTube,iliibili and the author’s website: <a href="http://pythonprogramming.net" target="_blank" rel="noopener">pythonprogramming.net</a></p>
+<p>I use jupyter notebook to write and run the python code,the python version is 3.4.4.</p>
+<p>Frist,we need to import the <code>nltk</code> module to use it</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.tokenize <span class="keyword">import</span> sent_tokenize,word_tokenize</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">r"hello,how are you! I am lightsmile. My github link is www.github.com/smilelight. My persoanl website is www.iamlightsmile.com"</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-Tokenizing-words-and-entences-分词和分句"><a href="#1-Tokenizing-words-and-entences-分词和分句" class="headerlink" title="1. Tokenizing words and entences(分词和分句)"></a>1. Tokenizing words and entences(分词和分句)</h3><p>use the <code>sent_tokenize</code> method to tokenize the texts to sentenses(分句)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sent_tokenize(text)</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;hello,how are you!&apos;,
+ &apos;I am lightsmile.&apos;,
+ &apos;My github link is www.github.com/smilelight.&apos;,
+ &apos;My persoanl website is www.iamlightsmile.com&apos;]
+</code></pre><p>use the <code>word_tokenize</code> method to tokenize the texts to words(分词)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_tokenize(text)</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;hello&apos;,
+ &apos;,&apos;,
+ &apos;how&apos;,
+ &apos;are&apos;,
+ &apos;you&apos;,
+ &apos;!&apos;,
+ &apos;I&apos;,
+ &apos;am&apos;,
+ &apos;lightsmile&apos;,
+ &apos;.&apos;,
+ &apos;My&apos;,
+ &apos;github&apos;,
+ &apos;link&apos;,
+ &apos;is&apos;,
+ &apos;www.github.com/smilelight&apos;,
+ &apos;.&apos;,
+ &apos;My&apos;,
+ &apos;persoanl&apos;,
+ &apos;website&apos;,
+ &apos;is&apos;,
+ &apos;www.iamlightsmile.com&apos;]
+</code></pre><h3 id="2-Stop-Words-停用词"><a href="#2-Stop-Words-停用词" class="headerlink" title="2. Stop Words(停用词)"></a>2. Stop Words(停用词)</h3><p>Then,import the <code>stopwords</code>(停用词) from the <code>nltk.corpus</code> module</p>
+<p>The stopwords are the words which are used commonly in the daliy life but usefulless for we to analyze the texts,so we need to remove them from the texts before we do the next steps.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> stopwords</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example_sentense = <span class="string">"This is an example showing off stop word filtration"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter_sentense = [w <span class="keyword">for</span> w <span class="keyword">in</span> word_tokenize(example_sentense) <span class="keyword">if</span>  w <span class="keyword">not</span> <span class="keyword">in</span> stopwords.words(<span class="string">'english'</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter_sentense</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;This&apos;, &apos;example&apos;, &apos;showing&apos;, &apos;stop&apos;, &apos;word&apos;, &apos;filtration&apos;]
+</code></pre><h3 id="3-Stemming-提取词干"><a href="#3-Stemming-提取词干" class="headerlink" title="3. Stemming(提取词干)"></a>3. Stemming(提取词干)</h3><p>Use <code>PorterStemmer()</code> to get the stems of words(提取词干)</p>
+<p>In some situations there are different expressions which have the same meanings.For example,the words:good,better,well have the similar meanings in the most situations.So,on the purpose to simplify the texts,we can get the stems of words in the texts. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.stem <span class="keyword">import</span> PorterStemmer</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps = PorterStemmer()</span><br><span class="line">example_words = [<span class="string">"python"</span>,<span class="string">"pythoner"</span>,<span class="string">"pythoning"</span>,<span class="string">"pythoned"</span>,<span class="string">"pythonly"</span>]</span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> example_words:</span><br><span class="line">    print(ps.stem(w))</span><br></pre></td></tr></table></figure>
+<pre><code>python
+python
+python
+python
+pythonli
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new_text = <span class="string">"It is very important to be pythonly while you are pythoning with python. All pythoners have pythoned poorly at least once."</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> word_tokenize(new_text):</span><br><span class="line">    print(ps.stem(w))</span><br></pre></td></tr></table></figure>
+<pre><code>It
+is
+veri
+import
+to
+be
+pythonli
+while
+you
+are
+python
+with
+python
+.
+all
+python
+have
+python
+poorli
+at
+least
+onc
+.
+</code></pre><h3 id="4-Part-of-speech-tagging-词性标注"><a href="#4-Part-of-speech-tagging-词性标注" class="headerlink" title="4. Part of speech tagging(词性标注)"></a>4. Part of speech tagging(词性标注)</h3><p>Use pos_tag method to do part of speech tagging(词性标注)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tagged = nltk.pos_tag(word_tokenize(new_text))</span><br><span class="line">print(tagged)</span><br></pre></td></tr></table></figure>
+<pre><code>[(&apos;It&apos;, &apos;PRP&apos;), (&apos;is&apos;, &apos;VBZ&apos;), (&apos;very&apos;, &apos;RB&apos;), (&apos;important&apos;, &apos;JJ&apos;), (&apos;to&apos;, &apos;TO&apos;), (&apos;be&apos;, &apos;VB&apos;), (&apos;pythonly&apos;, &apos;RB&apos;), (&apos;while&apos;, &apos;IN&apos;), (&apos;you&apos;, &apos;PRP&apos;), (&apos;are&apos;, &apos;VBP&apos;), (&apos;pythoning&apos;, &apos;VBG&apos;), (&apos;with&apos;, &apos;IN&apos;), (&apos;python&apos;, &apos;NN&apos;), (&apos;.&apos;, &apos;.&apos;), (&apos;All&apos;, &apos;DT&apos;), (&apos;pythoners&apos;, &apos;NNS&apos;), (&apos;have&apos;, &apos;VBP&apos;), (&apos;pythoned&apos;, &apos;VBN&apos;), (&apos;poorly&apos;, &apos;RB&apos;), (&apos;at&apos;, &apos;IN&apos;), (&apos;least&apos;, &apos;JJS&apos;), (&apos;once&apos;, &apos;RB&apos;), (&apos;.&apos;, &apos;.&apos;)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[w <span class="keyword">for</span> w,t <span class="keyword">in</span> tagged <span class="keyword">if</span> t == <span class="string">'RB'</span> ]</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;very&apos;, &apos;pythonly&apos;, &apos;poorly&apos;, &apos;once&apos;]
+</code></pre><h3 id="5-Chunking-短语识别"><a href="#5-Chunking-短语识别" class="headerlink" title="5. Chunking(短语识别)"></a>5. Chunking(短语识别)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chunkGram = <span class="string">r"""Chunk: &#123;&lt;RB.?&gt;*&lt;VB.?&gt;*&lt;NNP&gt;*&lt;NN&gt;&#125;"""</span></span><br><span class="line">chunkParser = nltk.RegexpParser(chunkGram)</span><br><span class="line">chunked = chunkParser.parse(tagged)</span><br><span class="line">print(chunked)</span><br></pre></td></tr></table></figure>
+<pre><code>(S
+  It/PRP
+  is/VBZ
+  very/RB
+  important/JJ
+  to/TO
+  be/VB
+  pythonly/RB
+  while/IN
+  you/PRP
+  are/VBP
+  pythoning/VBG
+  with/IN
+  (Chunk python/NN)
+  ./.
+  All/DT
+  pythoners/NNS
+  have/VBP
+  pythoned/VBN
+  poorly/RB
+  at/IN
+  least/JJS
+  once/RB
+  ./.)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chunked.draw()</span><br></pre></td></tr></table></figure>
+<h3 id="6-Chinking-短语排除"><a href="#6-Chinking-短语排除" class="headerlink" title="6. Chinking(短语排除)"></a>6. Chinking(短语排除)</h3><p>The chinking is used to chunk something expect the chinking things.It’s effect is to remove something.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chinkGram = <span class="string">r"""Chunk: &#123;&lt;.*&gt;&#125;</span></span><br><span class="line"><span class="string">                                           Chink: &#125;&lt;NN&gt;&#123;"""</span></span><br><span class="line">chinkParser = nltk.RegexpParser(chinkGram)</span><br><span class="line">chinked = chinkParser.parse(tagged)</span><br><span class="line">print(chinked)</span><br></pre></td></tr></table></figure>
+<pre><code>(S
+  (Chunk It/PRP)
+  (Chunk is/VBZ)
+  (Chunk very/RB)
+  (Chunk important/JJ)
+  (Chunk to/TO)
+  (Chunk be/VB)
+  (Chunk pythonly/RB)
+  (Chunk while/IN)
+  (Chunk you/PRP)
+  (Chunk are/VBP)
+  (Chunk pythoning/VBG)
+  (Chunk with/IN)
+  (Chunk python/NN)
+  (Chunk ./.)
+  (Chunk All/DT)
+  (Chunk pythoners/NNS)
+  (Chunk have/VBP)
+  (Chunk pythoned/VBN)
+  (Chunk poorly/RB)
+  (Chunk at/IN)
+  (Chunk least/JJS)
+  (Chunk once/RB)
+  (Chunk ./.))
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chinked.draw()</span><br></pre></td></tr></table></figure>
+<h3 id="7-Named-Entity-Recognition-命名实体识别"><a href="#7-Named-Entity-Recognition-命名实体识别" class="headerlink" title="7. Named Entity Recognition(命名实体识别)"></a>7. Named Entity Recognition(命名实体识别)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new_text2 = <span class="string">"The Obama,president of the United States,is walking by the Danube with his families.They'll go back home at 7:00 a.m.."</span></span><br><span class="line">tagged2 = nltk.pos_tag(word_tokenize(new_text2))</span><br><span class="line">nameEnt = nltk.ne_chunk(tagged2)</span><br><span class="line">nameEnt.draw()</span><br></pre></td></tr></table></figure>
+<h3 id="8-Lemmatizing-词形还原"><a href="#8-Lemmatizing-词形还原" class="headerlink" title="8. Lemmatizing(词形还原)"></a>8. Lemmatizing(词形还原)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.stem <span class="keyword">import</span> WordNetLemmatizer</span><br><span class="line">lemmatizer = WordNetLemmatizer()</span><br><span class="line">entities = [<span class="string">"cats"</span>,<span class="string">"body"</span>,<span class="string">"shoes"</span>,<span class="string">"python"</span>,<span class="string">"shit"</span>,<span class="string">"park"</span>]</span><br><span class="line"><span class="keyword">for</span> entity <span class="keyword">in</span> entities:</span><br><span class="line">    print(lemmatizer.lemmatize(entity))</span><br></pre></td></tr></table></figure>
+<pre><code>cat
+body
+shoe
+python
+shit
+park
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nltk.__file__</span><br></pre></td></tr></table></figure>
+<pre><code>&apos;C:\\Program Files\\Anaconda3\\lib\\site-packages\\nltk\\__init__.py&apos;
+</code></pre><h3 id="9-NLTK-Corpora-语料库"><a href="#9-NLTK-Corpora-语料库" class="headerlink" title="9. NLTK Corpora(语料库)"></a>9. NLTK Corpora(语料库)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> gutenberg</span><br><span class="line"><span class="keyword">from</span> nltk.tokenize <span class="keyword">import</span> sent_tokenize</span><br><span class="line">sample = gutenberg.raw(<span class="string">'bible-kjv.txt'</span>)</span><br><span class="line">tok = sent_tokenize(sample)</span><br><span class="line">tok[:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;[The King James Bible]\n\nThe Old Testament of the King James Bible\n\nThe First Book of Moses:  Called Genesis\n\n\n1:1 In the beginning God created the heaven and the earth.&apos;,
+ &apos;1:2 And the earth was without form, and void; and darkness was upon\nthe face of the deep.&apos;,
+ &apos;And the Spirit of God moved upon the face of the\nwaters.&apos;,
+ &apos;1:3 And God said, Let there be light: and there was light.&apos;,
+ &apos;1:4 And God saw the light, that it was good: and God divided the light\nfrom the darkness.&apos;]
+</code></pre><h3 id="10-WordNet-一个英语词汇数据库"><a href="#10-WordNet-一个英语词汇数据库" class="headerlink" title="10. WordNet(一个英语词汇数据库)"></a>10. WordNet(一个英语词汇数据库)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> wordnet</span><br><span class="line">syns = wordnet.synsets(<span class="string">"program"</span>)</span><br><span class="line">syns</span><br></pre></td></tr></table></figure>
+<pre><code>[Synset(&apos;plan.n.01&apos;),
+ Synset(&apos;program.n.02&apos;),
+ Synset(&apos;broadcast.n.02&apos;),
+ Synset(&apos;platform.n.02&apos;),
+ Synset(&apos;program.n.05&apos;),
+ Synset(&apos;course_of_study.n.01&apos;),
+ Synset(&apos;program.n.07&apos;),
+ Synset(&apos;program.n.08&apos;),
+ Synset(&apos;program.v.01&apos;),
+ Synset(&apos;program.v.02&apos;)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">word = wordnet.synsets(<span class="string">'boy'</span>)</span><br><span class="line">synonyms =[]</span><br><span class="line">antonyms = []</span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> word:</span><br><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> w.lemmas():</span><br><span class="line">        synonyms.append(l.name())</span><br><span class="line">        <span class="keyword">if</span> l.antonyms():</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> l.antonyms():</span><br><span class="line">                antonyms.append(a.name())</span><br><span class="line">print(set(synonyms))</span><br><span class="line">print(set(antonyms))</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;male_child&apos;, &apos;son&apos;, &apos;boy&apos;}
+{&apos;female_child&apos;, &apos;daughter&apos;, &apos;girl&apos;}
+</code></pre><p>Use list comprehension(列表推导式)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">synonyms2 = set([l.name() <span class="keyword">for</span> w <span class="keyword">in</span> word <span class="keyword">for</span> l <span class="keyword">in</span> w.lemmas()])</span><br><span class="line">antonyms2 = set([a.name() <span class="keyword">for</span> w <span class="keyword">in</span> word <span class="keyword">for</span> l <span class="keyword">in</span> w.lemmas() <span class="keyword">for</span> a <span class="keyword">in</span> l.antonyms()])</span><br><span class="line">print(synonyms2)</span><br><span class="line">print(antonyms2)</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;male_child&apos;, &apos;son&apos;, &apos;boy&apos;}
+{&apos;female_child&apos;, &apos;daughter&apos;, &apos;girl&apos;}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word[<span class="number">0</span>][<span class="string">"boy"</span>].antosyns()</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-77-93678c6743d6&gt; in &lt;module&gt;()
+----&gt; 1 word[0][&quot;boy&quot;].antosyns()
+
+
+TypeError: &apos;Synset&apos; object is not subscriptable
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat = wordnet.synset(<span class="string">"cat.n.01"</span>)</span><br><span class="line">dog = wordnet.synset(<span class="string">"dog.n.01"</span>)</span><br><span class="line">dog.wup_similarity(cat)</span><br></pre></td></tr></table></figure>
+<pre><code>0.8571428571428571
+</code></pre><h3 id="11-Text-Classfication-文本分类"><a href="#11-Text-Classfication-文本分类" class="headerlink" title="11. Text Classfication(文本分类)"></a>11. Text Classfication(文本分类)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> movie_reviews</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">documents = [(list(movie_reviews.words(fileid)),category)</span><br><span class="line">              <span class="keyword">for</span> category <span class="keyword">in</span> movie_reviews.categories()</span><br><span class="line">             <span class="keyword">for</span> fileid <span class="keyword">in</span> movie_reviews.fileids(category)]</span><br><span class="line">random.shuffle(documents)</span><br><span class="line"></span><br><span class="line">documents[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>([&apos;did&apos;,
+  &apos;you&apos;,
+  &apos;ever&apos;,
+  &apos;wonder&apos;,
+  &apos;if&apos;,
+  &apos;dennis&apos;,
+  &apos;rodman&apos;,
+  &apos;was&apos;,
+  &apos;actually&apos;,
+  &apos;from&apos;,
+  &apos;this&apos;,
+  &apos;planet&apos;,
+  &apos;?&apos;,
+  &apos;or&apos;,
+  &apos;if&apos;,
+  &apos;sylvester&apos;,
+  &apos;stallone&apos;,
+  &apos;was&apos;,
+  &apos;some&apos;,
+  &apos;kind&apos;,
+  &apos;of&apos;,
+  &apos;weird&apos;,
+  &apos;extra&apos;,
+  &apos;-&apos;,
+  &apos;terrestrial&apos;,
+  &apos;?&apos;,
+  &apos;i&apos;,
+  &apos;used&apos;,
+  &apos;to&apos;,
+  &apos;think&apos;,
+  &apos;that&apos;,
+  &apos;about&apos;,
+  &apos;my&apos;,
+  &apos;7th&apos;,
+  &apos;grade&apos;,
+  &apos;english&apos;,
+  &apos;teacher&apos;,
+  &apos;,&apos;,
+  &apos;ms&apos;,
+  &apos;.&apos;,
+  &apos;carey&apos;,
+  &apos;.&apos;,
+  &apos;but&apos;,
+  &apos;after&apos;,
+  &apos;seeing&apos;,
+  &apos;this&apos;,
+  &apos;movie&apos;,
+  &apos;,&apos;,
+  &apos;they&apos;,
+  &apos;may&apos;,
+  &apos;have&apos;,
+  &apos;confirmed&apos;,
+  &apos;my&apos;,
+  &apos;suspicions&apos;,
+  &apos;.&apos;,
+  &apos;as&apos;,
+  &apos;the&apos;,
+  &apos;story&apos;,
+  &apos;goes&apos;,
+  &apos;,&apos;,
+  &apos;at&apos;,
+  &apos;any&apos;,
+  &apos;time&apos;,
+  &apos;,&apos;,
+  &apos;there&apos;,
+  &apos;are&apos;,
+  &apos;over&apos;,
+  &apos;a&apos;,
+  &apos;thousand&apos;,
+  &apos;aliens&apos;,
+  &apos;living&apos;,
+  &apos;among&apos;,
+  &apos;us&apos;,
+  &apos;here&apos;,
+  &apos;on&apos;,
+  &apos;earth&apos;,
+  &apos;.&apos;,
+  &apos;the&apos;,
+  &apos;men&apos;,
+  &apos;in&apos;,
+  &apos;black&apos;,
+  &apos;(&apos;,
+  &apos;mib&apos;,
+  &apos;)&apos;,
+  &apos;are&apos;,
+  &apos;the&apos;,
+  &apos;watchdogs&apos;,
+  &apos;that&apos;,
+  &apos;oversee&apos;,
+  &apos;the&apos;,
+  &apos;cosmic&apos;,
+  &apos;citizens&apos;,
+  &apos;,&apos;,
+  &apos;guardians&apos;,
+  &apos;of&apos;,
+  &apos;our&apos;,
+  &apos;beloved&apos;,
+  &apos;planet&apos;,
+  &apos;from&apos;,
+  &apos;nasty&apos;,
+  &apos;-&apos;,
+  &apos;tempered&apos;,
+  &apos;aliens&apos;,
+  &apos;,&apos;,
+  &apos;and&apos;,
+  &apos;secret&apos;,
+  &apos;service&apos;,
+  &apos;to&apos;,
+  &apos;the&apos;,
+  &apos;stars&apos;,
+  &apos;.&apos;,
+  &apos;based&apos;,
+  &apos;in&apos;,
+  &apos;new&apos;,
+  &apos;york&apos;,
+  &apos;city&apos;,
+  &apos;(&apos;,
+  &apos;where&apos;,
+  &apos;weird&apos;,
+  &apos;is&apos;,
+  &apos;the&apos;,
+  &apos;norm&apos;,
+  &apos;)&apos;,
+  &apos;,&apos;,
+  &apos;the&apos;,
+  &apos;mib&apos;,
+  &apos;organization&apos;,
+  &apos;gives&apos;,
+  &apos;human&apos;,
+  &apos;form&apos;,
+  &apos;to&apos;,
+  &apos;our&apos;,
+  &apos;space&apos;,
+  &apos;-&apos;,
+  &apos;faring&apos;,
+  &apos;emigrants&apos;,
+  &apos;so&apos;,
+  &apos;that&apos;,
+  &apos;they&apos;,
+  &apos;may&apos;,
+  &apos;walk&apos;,
+  &apos;and&apos;,
+  &apos;live&apos;,
+  &apos;among&apos;,
+  &apos;us&apos;,
+  &apos;unnoticed&apos;,
+  &apos;.&apos;,
+  &apos;but&apos;,
+  &apos;to&apos;,
+  &apos;enforce&apos;,
+  &apos;the&apos;,
+  &apos;laws&apos;,
+  &apos;of&apos;,
+  &apos;earth&apos;,
+  &apos;,&apos;,
+  &apos;the&apos;,
+  &apos;mib&apos;,
+  &apos;carry&apos;,
+  &apos;weapons&apos;,
+  &apos;that&apos;,
+  &apos;are&apos;,
+  &apos;powerful&apos;,
+  &apos;enough&apos;,
+  &apos;to&apos;,
+  &apos;meet&apos;,
+  &apos;or&apos;,
+  &apos;exceed&apos;,
+  &apos;destruction&apos;,
+  &apos;quotas&apos;,
+  &apos;in&apos;,
+  &apos;one&apos;,
+  &apos;single&apos;,
+  &apos;blast&apos;,
+  &apos;.&apos;,
+  &apos;they&apos;,
+  &apos;carry&apos;,
+  &apos;other&apos;,
+  &apos;-&apos;,
+  &apos;worldly&apos;,
+  &apos;technology&apos;,
+  &apos;to&apos;,
+  &apos;erase&apos;,
+  &apos;people&apos;,
+  &quot;&apos;&quot;,
+  &apos;s&apos;,
+  &apos;short&apos;,
+  &apos;-&apos;,
+  &apos;term&apos;,
+  &apos;memory&apos;,
+  &apos;when&apos;,
+  &apos;common&apos;,
+  &apos;folk&apos;,
+  &apos;see&apos;,
+  &apos;the&apos;,
+  &apos;mib&apos;,
+  &apos;in&apos;,
+  &apos;action&apos;,
+  &apos;.&apos;,
+  &apos;and&apos;,
+  &apos;their&apos;,
+  &apos;best&apos;,
+  &apos;leads&apos;,
+  &apos;on&apos;,
+  &apos;cosmic&apos;,
+  &apos;things&apos;,
+  &apos;-&apos;,
+  &apos;gone&apos;,
+  &apos;-&apos;,
+  &apos;awry&apos;,
+  &apos;are&apos;,
+  &apos;the&apos;,
+  &apos;supermarket&apos;,
+  &apos;tabloids&apos;,
+  &apos;.&apos;,
+  &apos;little&apos;,
+  &apos;do&apos;,
+  &apos;we&apos;,
+  &apos;know&apos;,
+  &apos;that&apos;,
+  &apos;there&apos;,
+  &apos;are&apos;,
+  &apos;much&apos;,
+  &apos;stronger&apos;,
+  &apos;battles&apos;,
+  &apos;of&apos;,
+  &apos;good&apos;,
+  &apos;v&apos;,
+  &apos;.&apos;,
+  &apos;evil&apos;,
+  &apos;going&apos;,
+  &apos;on&apos;,
+  &apos;in&apos;,
+  &apos;the&apos;,
+  &apos;depths&apos;,
+  &apos;of&apos;,
+  &apos;space&apos;,
+  &apos;.&apos;,
+  &apos;one&apos;,
+  &apos;of&apos;,
+  &apos;the&apos;,
+  &apos;aliens&apos;,
+  &apos;-&apos;,
+  &apos;as&apos;,
+  &apos;-&apos;,
+  &apos;human&apos;,
+  &apos;on&apos;,
+  &apos;this&apos;,
+  &apos;planet&apos;,
+  &apos;is&apos;,
+  &apos;an&apos;,
+  &apos;important&apos;,
+  &apos;diplomat&apos;,
+  &apos;that&apos;,
+  &apos;is&apos;,
+  &apos;carrying&apos;,
+  &apos;something&apos;,
+  &apos;very&apos;,
+  &apos;precious&apos;,
+  &apos;.&apos;,
+  &apos;it&apos;,
+  &apos;holds&apos;,
+  &apos;the&apos;,
+  &quot;&apos;&quot;,
+  &apos;key&apos;,
+  &quot;&apos;&quot;,
+  &apos;,&apos;,
+  &apos;literally&apos;,
+  &apos;,&apos;,
+  &apos;to&apos;,
+  &apos;universal&apos;,
+  &apos;peace&apos;,
+  &apos;.&apos;,
+  &apos;a&apos;,
+  &apos;giant&apos;,
+  &apos;cockroach&apos;,
+  &apos;-&apos;,
+  &apos;like&apos;,
+  &apos;alien&apos;,
+  &apos;soon&apos;,
+  &apos;arrives&apos;,
+  &apos;on&apos;,
+  &apos;the&apos;,
+  &apos;planet&apos;,
+  &apos;and&apos;,
+  &apos;steals&apos;,
+  &apos;this&apos;,
+  &quot;&apos;&quot;,
+  &apos;key&apos;,
+  &quot;&apos;&quot;,
+  &apos;.&apos;,
+  &apos;in&apos;,
+  &apos;the&apos;,
+  &apos;wrong&apos;,
+  &apos;alien&apos;,
+  &apos;hands&apos;,
+  &apos;(&apos;,
+  &apos;flippers&apos;,
+  &apos;?&apos;,
+  &apos;mandibles&apos;,
+  &apos;?&apos;,
+  &apos;tentacles&apos;,
+  &apos;?&apos;,
+  &apos;)&apos;,
+  &apos;,&apos;,
+  &apos;it&apos;,
+  &apos;can&apos;,
+  &apos;be&apos;,
+  &apos;used&apos;,
+  &apos;as&apos;,
+  &apos;a&apos;,
+  &apos;weapon&apos;,
+  &apos;.&apos;,
+  &apos;therefore&apos;,
+  &apos;,&apos;,
+  &apos;it&apos;,
+  &apos;must&apos;,
+  &apos;be&apos;,
+  &apos;recovered&apos;,
+  &apos;and&apos;,
+  &apos;returned&apos;,
+  &apos;to&apos;,
+  &apos;it&apos;,
+  &quot;&apos;&quot;,
+  &apos;s&apos;,
+  &apos;rightful&apos;,
+  &apos;owners&apos;,
+  &apos;.&apos;,
+  &apos;otherwise&apos;,
+  &apos;,&apos;,
+  &apos;to&apos;,
+  &apos;ensure&apos;,
+  &apos;universal&apos;,
+  &apos;safety&apos;,
+  &apos;,&apos;,
+  &apos;earth&apos;,
+  &apos;will&apos;,
+  &apos;be&apos;,
+  &apos;destroyed&apos;,
+  &apos;,&apos;,
+  &apos;along&apos;,
+  &apos;with&apos;,
+  &apos;the&apos;,
+  &quot;&apos;&quot;,
+  &apos;key&apos;,
+  &quot;&apos;&quot;,
+  &apos;.&apos;,
+  &apos;now&apos;,
+  &apos;,&apos;,
+  &apos;it&apos;,
+  &quot;&apos;&quot;,
+  &apos;s&apos;,
+  &apos;the&apos;,
+  &apos;mib&apos;,
+  &apos;who&apos;,
+  &apos;must&apos;,
+  &apos;prevent&apos;,
+  &apos;this&apos;,
+  &apos;catastrophe&apos;,
+  &apos;.&apos;,
+  &apos;the&apos;,
+  &apos;mib&apos;,
+  &apos;agents&apos;,
+  &apos;on&apos;,
+  &apos;the&apos;,
+  &apos;case&apos;,
+  &apos;are&apos;,
+  &apos;&quot;&apos;,
+  &apos;k&apos;,
+  &apos;&quot;&apos;,
+  &apos;,&apos;,
+  &apos;played&apos;,
+  &apos;by&apos;,
+  &apos;tommy&apos;,
+  &apos;lee&apos;,
+  &apos;jones&apos;,
+  &apos;.&apos;,
+  &apos;he&apos;,
+  &apos;is&apos;,
+  &apos;crustier&apos;,
+  &apos;than&apos;,
+  &apos;burnt&apos;,
+  &apos;toast&apos;,
+  &apos;and&apos;,
+  &apos;even&apos;,
+  &apos;more&apos;,
+  &apos;serious&apos;,
+  &apos;than&apos;,
+  &apos;al&apos;,
+  &apos;gore&apos;,
+  &apos;.&apos;,
+  &apos;the&apos;,
+  &apos;stars&apos;,
+  &apos;in&apos;,
+  &apos;the&apos;,
+  &apos;sky&apos;,
+  &apos;no&apos;,
+  &apos;longer&apos;,
+  &apos;spark&apos;,
+  &apos;wonder&apos;,
+  &apos;in&apos;,
+  &apos;his&apos;,
+  &apos;eyes&apos;,
+  &apos;.&apos;,
+  &apos;he&apos;,
+  &apos;is&apos;,
+  &apos;accompanied&apos;,
+  &apos;by&apos;,
+  &apos;a&apos;,
+  &apos;flippant&apos;,
+  &apos;rookie&apos;,
+  &apos;,&apos;,
+  &apos;&quot;&apos;,
+  &apos;j&apos;,
+  &apos;&quot;&apos;,
+  &apos;,&apos;,
+  &apos;played&apos;,
+  &apos;by&apos;,
+  &apos;will&apos;,
+  &apos;smith&apos;,
+  &apos;.&apos;,
+  &apos;but&apos;,
+  &apos;,&apos;,
+  &apos;despite&apos;,
+  &apos;this&apos;,
+  &apos;shoot&apos;,
+  &apos;-&apos;,
+  &apos;em&apos;,
+  &apos;-&apos;,
+  &apos;up&apos;,
+  &apos;,&apos;,
+  &apos;protect&apos;,
+  &apos;-&apos;,
+  &apos;earth&apos;,
+  &apos;-&apos;,
+  &apos;from&apos;,
+  &apos;-&apos;,
+  &apos;destruction&apos;,
+  &apos;premise&apos;,
+  &apos;,&apos;,
+  &apos;this&apos;,
+  &apos;is&apos;,
+  &apos;nothing&apos;,
+  &apos;at&apos;,
+  &apos;all&apos;,
+  &apos;like&apos;,
+  &apos;a&apos;,
+  &apos;typical&apos;,
+  &apos;summer&apos;,
+  &apos;action&apos;,
+  &apos;movie&apos;,
+  &apos;.&apos;,
+  &apos;and&apos;,
+  &apos;,&apos;,
+  &apos;this&apos;,
+  &apos;isn&apos;,
+  &quot;&apos;&quot;,
+  &apos;t&apos;,
+  &apos;an&apos;,
+  &apos;independence&apos;,
+  &apos;day&apos;,
+  &apos;knockoff&apos;,
+  &apos;.&apos;,
+  &apos;rather&apos;,
+  &apos;,&apos;,
+  &apos;this&apos;,
+  &apos;is&apos;,
+  &apos;a&apos;,
+  &apos;stylishly&apos;,
+  &apos;offbeat&apos;,
+  &apos;sci&apos;,
+  &apos;-&apos;,
+  &apos;fi&apos;,
+  &apos;comedy&apos;,
+  &apos;that&apos;,
+  &apos;pokes&apos;,
+  &apos;fun&apos;,
+  &apos;at&apos;,
+  &apos;what&apos;,
+  &apos;the&apos;,
+  &apos;government&apos;,
+  &apos;always&apos;,
+  &apos;denies&apos;,
+  &apos;?&apos;,
+  &apos;that&apos;,
+  &apos;there&apos;,
+  &apos;are&apos;,
+  &apos;real&apos;,
+  &apos;aliens&apos;,
+  &apos;that&apos;,
+  &apos;live&apos;,
+  &apos;here&apos;,
+  &apos;,&apos;,
+  &apos;and&apos;,
+  &apos;that&apos;,
+  &apos;the&apos;,
+  &apos;government&apos;,
+  &apos;does&apos;,
+  &apos;its&apos;,
+  &apos;darndest&apos;,
+  &apos;to&apos;,
+  &apos;cover&apos;,
+  &apos;them&apos;,
+  &apos;up&apos;,
+  &apos;.&apos;,
+  &apos;but&apos;,
+  &apos;to&apos;,
+  &apos;give&apos;,
+  &apos;it&apos;,
+  &apos;some&apos;,
+  &apos;sense&apos;,
+  &apos;of&apos;,
+  &apos;excitement&apos;,
+  &apos;and&apos;,
+  &apos;to&apos;,
+  &apos;keep&apos;,
+  &apos;it&apos;,
+  &apos;within&apos;,
+  &apos;the&apos;,
+  &apos;parameters&apos;,
+  &apos;of&apos;,
+  &apos;the&apos;,
+  &apos;summer&apos;,
+  &apos;movie&apos;,
+  &apos;recipe&apos;,
+  &apos;,&apos;,
+  &apos;there&apos;,
+  &apos;must&apos;,
+  &apos;be&apos;,
+  &apos;some&apos;,
+  &apos;kind&apos;,
+  &apos;of&apos;,
+  &apos;earth&apos;,
+  &apos;-&apos;,
+  &apos;hangs&apos;,
+  &apos;-&apos;,
+  &apos;in&apos;,
+  &apos;-&apos;,
+  &apos;the&apos;,
+  &apos;-&apos;,
+  &apos;balance&apos;,
+  &apos;scenario&apos;,
+  &apos;.&apos;,
+  &apos;yet&apos;,
+  &apos;,&apos;,
+  &apos;this&apos;,
+  &apos;movie&apos;,
+  &apos;is&apos;,
+  &apos;very&apos;,
+  &apos;appealing&apos;,
+  &apos;.&apos;,
+  &apos;the&apos;,
+  &apos;abundance&apos;,
+  &apos;of&apos;,
+  &apos;wierdness&apos;,
+  &apos;(&apos;,
+  &apos;talking&apos;,
+  &apos;aliens&apos;,
+  &apos;,&apos;,
+  &apos;pee&apos;,
+  &apos;-&apos;,
+  &apos;wee&apos;,
+  &apos;atomizers&apos;,
+  &apos;,&apos;,
+  &apos;a&apos;,
+  &apos;mortician&apos;,
+  &apos;who&apos;,
+  &quot;&apos;&quot;,
+  &apos;lives&apos;,
+  &quot;&apos;&quot;,
+  &apos;for&apos;,
+  &apos;her&apos;,
+  &apos;work&apos;,
+  &apos;,&apos;,
+  &apos;and&apos;,
+  &apos;lots&apos;,
+  &apos;of&apos;,
+  &apos;yucky&apos;,
+  &apos;bugs&apos;,
+  &apos;and&apos;,
+  &apos;slime&apos;,
+  &apos;-&apos;,
+  &apos;splattering&apos;,
+  &apos;galore&apos;,
+  &apos;)&apos;,
+  &apos;,&apos;,
+  &apos;is&apos;,
+  &apos;played&apos;,
+  &apos;straight&apos;,
+  &apos;,&apos;,
+  &apos;like&apos;,
+  &apos;as&apos;,
+  &apos;if&apos;,
+  &apos;this&apos;,
+  &apos;were&apos;,
+  &apos;normal&apos;,
+  &apos;(&apos;,
+  &apos;of&apos;,
+  &apos;course&apos;,
+  &apos;,&apos;,
+  &apos;we&apos;,
+  &apos;are&apos;,
+  &apos;in&apos;,
+  &apos;nyc&apos;,
+  &apos;)&apos;,
+  &apos;.&apos;,
+  &apos;it&apos;,
+  &apos;gives&apos;,
+  &apos;it&apos;,
+  &apos;a&apos;,
+  &apos;deadpan&apos;,
+  &apos;feel&apos;,
+  &apos;,&apos;,
+  &apos;which&apos;,
+  &apos;makes&apos;,
+  &apos;it&apos;,
+  &apos;all&apos;,
+  &apos;the&apos;,
+  &apos;more&apos;,
+  &apos;funnier&apos;,
+  &apos;and&apos;,
+  &apos;odder&apos;,
+  &apos;.&apos;,
+  &apos;jones&apos;,
+  &apos;plays&apos;,
+  &apos;the&apos;,
+  &apos;venerable&apos;,
+  &apos;seen&apos;,
+  &apos;-&apos;,
+  &apos;it&apos;,
+  &apos;-&apos;,
+  &apos;all&apos;,
+  &apos;agent&apos;,
+  &apos;with&apos;,
+  &apos;seriousness&apos;,
+  &apos;and&apos;,
+  &apos;maturity&apos;,
+  &apos;.&apos;,
+  &apos;smith&apos;,
+  &apos;is&apos;,
+  &apos;likeable&apos;,
+  &apos;and&apos;,
+  &apos;makes&apos;,
+  &apos;a&apos;,
+  &apos;great&apos;,
+  &apos;comic&apos;,
+  &apos;partner&apos;,
+  &apos;to&apos;,
+  &apos;jones&apos;,
+  &quot;&apos;&quot;,
+  &apos;straight&apos;,
+  &apos;man&apos;,
+  &apos;routine&apos;,
+  &apos;.&apos;,
+  &apos;they&apos;,
+  &apos;click&apos;,
+  &apos;like&apos;,
+  &apos;dorothy&apos;,
+  &quot;&apos;&quot;,
+  &apos;s&apos;,
+  &apos;ruby&apos;,
+  &apos;red&apos;,
+  &apos;shoes&apos;,
+  &apos;.&apos;,
+  &apos;the&apos;,
+  &apos;look&apos;,
+  &apos;and&apos;,
+  &apos;feel&apos;,
+  &apos;of&apos;,
+  &apos;the&apos;,
+  &apos;movie&apos;,
+  &apos;is&apos;,
+  &apos;made&apos;,
+  &apos;even&apos;,
+  &apos;better&apos;,
+  &apos;with&apos;,
+  &apos;direction&apos;,
+  &apos;from&apos;,
+  &apos;barry&apos;,
+  &apos;sonnenfeld&apos;,
+  &apos;(&apos;,
+  &apos;the&apos;,
+  &apos;addam&apos;,
+  &quot;&apos;&quot;,
+  &apos;s&apos;,
+  &apos;family&apos;,
+  &apos;)&apos;,
+  &apos;.&apos;,
+  &apos;this&apos;,
+  &apos;guy&apos;,
+  &apos;has&apos;,
+  &apos;a&apos;,
+  &apos;knack&apos;,
+  &apos;for&apos;,
+  &quot;&apos;&quot;,
+  &apos;gothic&apos;,
+  &quot;&apos;&quot;,
+  &apos;comedy&apos;,
+  &apos;,&apos;,
+  &apos;and&apos;,
+  &apos;successfully&apos;,
+  &apos;transfers&apos;,
+  &apos;his&apos;,
+  &apos;macabre&apos;,
+  &apos;sense&apos;,
+  &apos;of&apos;,
+  &apos;humor&apos;,
+  &apos;onto&apos;,
+  &apos;the&apos;,
+  &apos;screen&apos;,
+  &apos;.&apos;,
+  &apos;and&apos;,
+  &apos;,&apos;,
+  &apos;an&apos;,
+  &apos;appropriate&apos;,
+  &apos;dose&apos;,
+  &apos;of&apos;,
+  &apos;special&apos;,
+  &apos;effects&apos;,
+  &apos;helps&apos;,
+  &apos;to&apos;,
+  &apos;bolster&apos;,
+  &apos;the&apos;,
+  &apos;oddness&apos;,
+  &apos;of&apos;,
+  &apos;their&apos;,
+  &apos;task&apos;,
+  &apos;without&apos;,
+  &apos;diverting&apos;,
+  &apos;attention&apos;,
+  &apos;from&apos;,
+  &apos;the&apos;,
+  &apos;human&apos;,
+  &apos;actors&apos;,
+  &apos;.&apos;,
+  &apos;the&apos;,
+  &apos;story&apos;,
+  &apos;moves&apos;,
+  &apos;well&apos;,
+  &apos;,&apos;,
+  &apos;and&apos;,
+  &apos;before&apos;,
+  &apos;you&apos;,
+  &apos;know&apos;,
+  &apos;it&apos;,
+  &apos;,&apos;,
+  &apos;the&apos;,
+  &apos;end&apos;,
+  &apos;credits&apos;,
+  &apos;are&apos;,
+  &apos;already&apos;,
+  &apos;rolling&apos;,
+  &apos;!&apos;,
+  &apos;the&apos;,
+  &apos;result&apos;,
+  &apos;is&apos;,
+  &apos;100&apos;,
+  &apos;minutes&apos;,
+  &apos;worth&apos;,
+  &apos;of&apos;,
+  &apos;fun&apos;,
+  &apos;in&apos;,
+  &apos;the&apos;,
+  &apos;form&apos;,
+  &apos;of&apos;,
+  &apos;ewwwws&apos;,
+  &apos;and&apos;,
+  &apos;blechhhs&apos;,
+  &apos;,&apos;,
+  &apos;aaaahhhs&apos;,
+  &apos;and&apos;,
+  &apos;wows&apos;,
+  &apos;.&apos;,
+  &apos;let&apos;,
+  &apos;the&apos;,
+  &apos;men&apos;,
+  &apos;in&apos;,
+  &apos;black&apos;,
+  &apos;protect&apos;,
+  &apos;and&apos;,
+  &apos;color&apos;,
+  &apos;your&apos;,
+  &apos;world&apos;,
+  &apos;.&apos;],
+ &apos;pos&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">all_words = [w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> movie_reviews.words()]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">all_words</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;plot&apos;,
+ &apos;:&apos;,
+ &apos;two&apos;,
+ &apos;teen&apos;,
+ &apos;couples&apos;,
+ &apos;go&apos;,
+ &apos;to&apos;,
+ &apos;a&apos;,
+ &apos;church&apos;,
+ &apos;party&apos;,
+ &apos;,&apos;,
+ &apos;drink&apos;,
+ &apos;and&apos;,
+ &apos;then&apos;,
+ &apos;drive&apos;,
+ &apos;.&apos;,
+ &apos;they&apos;,
+ &apos;get&apos;,
+ &apos;into&apos;,
+ &apos;an&apos;,
+ &apos;accident&apos;,
+ &apos;.&apos;,
+ &apos;one&apos;,
+ &apos;of&apos;,
+ &apos;the&apos;,
+ &apos;guys&apos;,
+ &apos;dies&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;his&apos;,
+ &apos;girlfriend&apos;,
+ &apos;continues&apos;,
+ &apos;to&apos;,
+ &apos;see&apos;,
+ &apos;him&apos;,
+ &apos;in&apos;,
+ &apos;her&apos;,
+ &apos;life&apos;,
+ &apos;,&apos;,
+ &apos;and&apos;,
+ &apos;has&apos;,
+ &apos;nightmares&apos;,
+ &apos;.&apos;,
+ &apos;what&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;the&apos;,
+ &apos;deal&apos;,
+ &apos;?&apos;,
+ &apos;watch&apos;,
+ &apos;the&apos;,
+ &apos;movie&apos;,
+ &apos;and&apos;,
+ &apos;&quot;&apos;,
+ &apos;sorta&apos;,
+ &apos;&quot;&apos;,
+ &apos;find&apos;,
+ &apos;out&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;critique&apos;,
+ &apos;:&apos;,
+ &apos;a&apos;,
+ &apos;mind&apos;,
+ &apos;-&apos;,
+ &apos;fuck&apos;,
+ &apos;movie&apos;,
+ &apos;for&apos;,
+ &apos;the&apos;,
+ &apos;teen&apos;,
+ &apos;generation&apos;,
+ &apos;that&apos;,
+ &apos;touches&apos;,
+ &apos;on&apos;,
+ &apos;a&apos;,
+ &apos;very&apos;,
+ &apos;cool&apos;,
+ &apos;idea&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;presents&apos;,
+ &apos;it&apos;,
+ &apos;in&apos;,
+ &apos;a&apos;,
+ &apos;very&apos;,
+ &apos;bad&apos;,
+ &apos;package&apos;,
+ &apos;.&apos;,
+ &apos;which&apos;,
+ &apos;is&apos;,
+ &apos;what&apos;,
+ &apos;makes&apos;,
+ &apos;this&apos;,
+ &apos;review&apos;,
+ &apos;an&apos;,
+ &apos;even&apos;,
+ &apos;harder&apos;,
+ &apos;one&apos;,
+ &apos;to&apos;,
+ &apos;write&apos;,
+ &apos;,&apos;,
+ &apos;since&apos;,
+ &apos;i&apos;,
+ &apos;generally&apos;,
+ &apos;applaud&apos;,
+ &apos;films&apos;,
+ &apos;which&apos;,
+ &apos;attempt&apos;,
+ &apos;to&apos;,
+ &apos;break&apos;,
+ &apos;the&apos;,
+ &apos;mold&apos;,
+ &apos;,&apos;,
+ &apos;mess&apos;,
+ &apos;with&apos;,
+ &apos;your&apos;,
+ &apos;head&apos;,
+ &apos;and&apos;,
+ &apos;such&apos;,
+ &apos;(&apos;,
+ &apos;lost&apos;,
+ &apos;highway&apos;,
+ &apos;&amp;&apos;,
+ &apos;memento&apos;,
+ &apos;)&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;good&apos;,
+ &apos;and&apos;,
+ &apos;bad&apos;,
+ &apos;ways&apos;,
+ &apos;of&apos;,
+ &apos;making&apos;,
+ &apos;all&apos;,
+ &apos;types&apos;,
+ &apos;of&apos;,
+ &apos;films&apos;,
+ &apos;,&apos;,
+ &apos;and&apos;,
+ &apos;these&apos;,
+ &apos;folks&apos;,
+ &apos;just&apos;,
+ &apos;didn&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;snag&apos;,
+ &apos;this&apos;,
+ &apos;one&apos;,
+ &apos;correctly&apos;,
+ &apos;.&apos;,
+ &apos;they&apos;,
+ &apos;seem&apos;,
+ &apos;to&apos;,
+ &apos;have&apos;,
+ &apos;taken&apos;,
+ &apos;this&apos;,
+ &apos;pretty&apos;,
+ &apos;neat&apos;,
+ &apos;concept&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;executed&apos;,
+ &apos;it&apos;,
+ &apos;terribly&apos;,
+ &apos;.&apos;,
+ &apos;so&apos;,
+ &apos;what&apos;,
+ &apos;are&apos;,
+ &apos;the&apos;,
+ &apos;problems&apos;,
+ &apos;with&apos;,
+ &apos;the&apos;,
+ &apos;movie&apos;,
+ &apos;?&apos;,
+ &apos;well&apos;,
+ &apos;,&apos;,
+ &apos;its&apos;,
+ &apos;main&apos;,
+ &apos;problem&apos;,
+ &apos;is&apos;,
+ &apos;that&apos;,
+ &apos;it&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;simply&apos;,
+ &apos;too&apos;,
+ &apos;jumbled&apos;,
+ &apos;.&apos;,
+ &apos;it&apos;,
+ &apos;starts&apos;,
+ &apos;off&apos;,
+ &apos;&quot;&apos;,
+ &apos;normal&apos;,
+ &apos;&quot;&apos;,
+ &apos;but&apos;,
+ &apos;then&apos;,
+ &apos;downshifts&apos;,
+ &apos;into&apos;,
+ &apos;this&apos;,
+ &apos;&quot;&apos;,
+ &apos;fantasy&apos;,
+ &apos;&quot;&apos;,
+ &apos;world&apos;,
+ &apos;in&apos;,
+ &apos;which&apos;,
+ &apos;you&apos;,
+ &apos;,&apos;,
+ &apos;as&apos;,
+ &apos;an&apos;,
+ &apos;audience&apos;,
+ &apos;member&apos;,
+ &apos;,&apos;,
+ &apos;have&apos;,
+ &apos;no&apos;,
+ &apos;idea&apos;,
+ &apos;what&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;going&apos;,
+ &apos;on&apos;,
+ &apos;.&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;dreams&apos;,
+ &apos;,&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;characters&apos;,
+ &apos;coming&apos;,
+ &apos;back&apos;,
+ &apos;from&apos;,
+ &apos;the&apos;,
+ &apos;dead&apos;,
+ &apos;,&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;others&apos;,
+ &apos;who&apos;,
+ &apos;look&apos;,
+ &apos;like&apos;,
+ &apos;the&apos;,
+ &apos;dead&apos;,
+ &apos;,&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;strange&apos;,
+ &apos;apparitions&apos;,
+ &apos;,&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;disappearances&apos;,
+ &apos;,&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;a&apos;,
+ &apos;looooot&apos;,
+ &apos;of&apos;,
+ &apos;chase&apos;,
+ &apos;scenes&apos;,
+ &apos;,&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;tons&apos;,
+ &apos;of&apos;,
+ &apos;weird&apos;,
+ &apos;things&apos;,
+ &apos;that&apos;,
+ &apos;happen&apos;,
+ &apos;,&apos;,
+ &apos;and&apos;,
+ &apos;most&apos;,
+ &apos;of&apos;,
+ &apos;it&apos;,
+ &apos;is&apos;,
+ &apos;simply&apos;,
+ &apos;not&apos;,
+ &apos;explained&apos;,
+ &apos;.&apos;,
+ &apos;now&apos;,
+ &apos;i&apos;,
+ &apos;personally&apos;,
+ &apos;don&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;mind&apos;,
+ &apos;trying&apos;,
+ &apos;to&apos;,
+ &apos;unravel&apos;,
+ &apos;a&apos;,
+ &apos;film&apos;,
+ &apos;every&apos;,
+ &apos;now&apos;,
+ &apos;and&apos;,
+ &apos;then&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;when&apos;,
+ &apos;all&apos;,
+ &apos;it&apos;,
+ &apos;does&apos;,
+ &apos;is&apos;,
+ &apos;give&apos;,
+ &apos;me&apos;,
+ &apos;the&apos;,
+ &apos;same&apos;,
+ &apos;clue&apos;,
+ &apos;over&apos;,
+ &apos;and&apos;,
+ &apos;over&apos;,
+ &apos;again&apos;,
+ &apos;,&apos;,
+ &apos;i&apos;,
+ &apos;get&apos;,
+ &apos;kind&apos;,
+ &apos;of&apos;,
+ &apos;fed&apos;,
+ &apos;up&apos;,
+ &apos;after&apos;,
+ &apos;a&apos;,
+ &apos;while&apos;,
+ &apos;,&apos;,
+ &apos;which&apos;,
+ &apos;is&apos;,
+ &apos;this&apos;,
+ &apos;film&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;biggest&apos;,
+ &apos;problem&apos;,
+ &apos;.&apos;,
+ &apos;it&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;obviously&apos;,
+ &apos;got&apos;,
+ &apos;this&apos;,
+ &apos;big&apos;,
+ &apos;secret&apos;,
+ &apos;to&apos;,
+ &apos;hide&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;it&apos;,
+ &apos;seems&apos;,
+ &apos;to&apos;,
+ &apos;want&apos;,
+ &apos;to&apos;,
+ &apos;hide&apos;,
+ &apos;it&apos;,
+ &apos;completely&apos;,
+ &apos;until&apos;,
+ &apos;its&apos;,
+ &apos;final&apos;,
+ &apos;five&apos;,
+ &apos;minutes&apos;,
+ &apos;.&apos;,
+ &apos;and&apos;,
+ &apos;do&apos;,
+ &apos;they&apos;,
+ &apos;make&apos;,
+ &apos;things&apos;,
+ &apos;entertaining&apos;,
+ &apos;,&apos;,
+ &apos;thrilling&apos;,
+ &apos;or&apos;,
+ &apos;even&apos;,
+ &apos;engaging&apos;,
+ &apos;,&apos;,
+ &apos;in&apos;,
+ &apos;the&apos;,
+ &apos;meantime&apos;,
+ &apos;?&apos;,
+ &apos;not&apos;,
+ &apos;really&apos;,
+ &apos;.&apos;,
+ &apos;the&apos;,
+ &apos;sad&apos;,
+ &apos;part&apos;,
+ &apos;is&apos;,
+ &apos;that&apos;,
+ &apos;the&apos;,
+ &apos;arrow&apos;,
+ &apos;and&apos;,
+ &apos;i&apos;,
+ &apos;both&apos;,
+ &apos;dig&apos;,
+ &apos;on&apos;,
+ &apos;flicks&apos;,
+ &apos;like&apos;,
+ &apos;this&apos;,
+ &apos;,&apos;,
+ &apos;so&apos;,
+ &apos;we&apos;,
+ &apos;actually&apos;,
+ &apos;figured&apos;,
+ &apos;most&apos;,
+ &apos;of&apos;,
+ &apos;it&apos;,
+ &apos;out&apos;,
+ &apos;by&apos;,
+ &apos;the&apos;,
+ &apos;half&apos;,
+ &apos;-&apos;,
+ &apos;way&apos;,
+ &apos;point&apos;,
+ &apos;,&apos;,
+ &apos;so&apos;,
+ &apos;all&apos;,
+ &apos;of&apos;,
+ &apos;the&apos;,
+ &apos;strangeness&apos;,
+ &apos;after&apos;,
+ &apos;that&apos;,
+ &apos;did&apos;,
+ &apos;start&apos;,
+ &apos;to&apos;,
+ &apos;make&apos;,
+ &apos;a&apos;,
+ &apos;little&apos;,
+ &apos;bit&apos;,
+ &apos;of&apos;,
+ &apos;sense&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;it&apos;,
+ &apos;still&apos;,
+ &apos;didn&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;the&apos;,
+ &apos;make&apos;,
+ &apos;the&apos;,
+ &apos;film&apos;,
+ &apos;all&apos;,
+ &apos;that&apos;,
+ &apos;more&apos;,
+ &apos;entertaining&apos;,
+ &apos;.&apos;,
+ &apos;i&apos;,
+ &apos;guess&apos;,
+ &apos;the&apos;,
+ &apos;bottom&apos;,
+ &apos;line&apos;,
+ &apos;with&apos;,
+ &apos;movies&apos;,
+ &apos;like&apos;,
+ &apos;this&apos;,
+ &apos;is&apos;,
+ &apos;that&apos;,
+ &apos;you&apos;,
+ &apos;should&apos;,
+ &apos;always&apos;,
+ &apos;make&apos;,
+ &apos;sure&apos;,
+ &apos;that&apos;,
+ &apos;the&apos;,
+ &apos;audience&apos;,
+ &apos;is&apos;,
+ &apos;&quot;&apos;,
+ &apos;into&apos;,
+ &apos;it&apos;,
+ &apos;&quot;&apos;,
+ &apos;even&apos;,
+ &apos;before&apos;,
+ &apos;they&apos;,
+ &apos;are&apos;,
+ &apos;given&apos;,
+ &apos;the&apos;,
+ &apos;secret&apos;,
+ &apos;password&apos;,
+ &apos;to&apos;,
+ &apos;enter&apos;,
+ &apos;your&apos;,
+ &apos;world&apos;,
+ &apos;of&apos;,
+ &apos;understanding&apos;,
+ &apos;.&apos;,
+ &apos;i&apos;,
+ &apos;mean&apos;,
+ &apos;,&apos;,
+ &apos;showing&apos;,
+ &apos;melissa&apos;,
+ &apos;sagemiller&apos;,
+ &apos;running&apos;,
+ &apos;away&apos;,
+ &apos;from&apos;,
+ &apos;visions&apos;,
+ &apos;for&apos;,
+ &apos;about&apos;,
+ &apos;20&apos;,
+ &apos;minutes&apos;,
+ &apos;throughout&apos;,
+ &apos;the&apos;,
+ &apos;movie&apos;,
+ &apos;is&apos;,
+ &apos;just&apos;,
+ &apos;plain&apos;,
+ &apos;lazy&apos;,
+ &apos;!&apos;,
+ &apos;!&apos;,
+ &apos;okay&apos;,
+ &apos;,&apos;,
+ &apos;we&apos;,
+ &apos;get&apos;,
+ &apos;it&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;there&apos;,
+ &apos;are&apos;,
+ &apos;people&apos;,
+ &apos;chasing&apos;,
+ &apos;her&apos;,
+ &apos;and&apos;,
+ &apos;we&apos;,
+ &apos;don&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;know&apos;,
+ &apos;who&apos;,
+ &apos;they&apos;,
+ &apos;are&apos;,
+ &apos;.&apos;,
+ &apos;do&apos;,
+ &apos;we&apos;,
+ &apos;really&apos;,
+ &apos;need&apos;,
+ &apos;to&apos;,
+ &apos;see&apos;,
+ &apos;it&apos;,
+ &apos;over&apos;,
+ &apos;and&apos;,
+ &apos;over&apos;,
+ &apos;again&apos;,
+ &apos;?&apos;,
+ &apos;how&apos;,
+ &apos;about&apos;,
+ &apos;giving&apos;,
+ &apos;us&apos;,
+ &apos;different&apos;,
+ &apos;scenes&apos;,
+ &apos;offering&apos;,
+ &apos;further&apos;,
+ &apos;insight&apos;,
+ &apos;into&apos;,
+ &apos;all&apos;,
+ &apos;of&apos;,
+ &apos;the&apos;,
+ &apos;strangeness&apos;,
+ &apos;going&apos;,
+ &apos;down&apos;,
+ &apos;in&apos;,
+ &apos;the&apos;,
+ &apos;movie&apos;,
+ &apos;?&apos;,
+ &apos;apparently&apos;,
+ &apos;,&apos;,
+ &apos;the&apos;,
+ &apos;studio&apos;,
+ &apos;took&apos;,
+ &apos;this&apos;,
+ &apos;film&apos;,
+ &apos;away&apos;,
+ &apos;from&apos;,
+ &apos;its&apos;,
+ &apos;director&apos;,
+ &apos;and&apos;,
+ &apos;chopped&apos;,
+ &apos;it&apos;,
+ &apos;up&apos;,
+ &apos;themselves&apos;,
+ &apos;,&apos;,
+ &apos;and&apos;,
+ &apos;it&apos;,
+ &apos;shows&apos;,
+ &apos;.&apos;,
+ &apos;there&apos;,
+ &apos;might&apos;,
+ &quot;&apos;&quot;,
+ &apos;ve&apos;,
+ &apos;been&apos;,
+ &apos;a&apos;,
+ &apos;pretty&apos;,
+ &apos;decent&apos;,
+ &apos;teen&apos;,
+ &apos;mind&apos;,
+ &apos;-&apos;,
+ &apos;fuck&apos;,
+ &apos;movie&apos;,
+ &apos;in&apos;,
+ &apos;here&apos;,
+ &apos;somewhere&apos;,
+ &apos;,&apos;,
+ &apos;but&apos;,
+ &apos;i&apos;,
+ &apos;guess&apos;,
+ &apos;&quot;&apos;,
+ &apos;the&apos;,
+ &apos;suits&apos;,
+ &apos;&quot;&apos;,
+ &apos;decided&apos;,
+ &apos;that&apos;,
+ &apos;turning&apos;,
+ &apos;it&apos;,
+ &apos;into&apos;,
+ &apos;a&apos;,
+ &apos;music&apos;,
+ &apos;video&apos;,
+ &apos;with&apos;,
+ &apos;little&apos;,
+ &apos;edge&apos;,
+ &apos;,&apos;,
+ &apos;would&apos;,
+ &apos;make&apos;,
+ &apos;more&apos;,
+ &apos;sense&apos;,
+ &apos;.&apos;,
+ &apos;the&apos;,
+ &apos;actors&apos;,
+ &apos;are&apos;,
+ &apos;pretty&apos;,
+ &apos;good&apos;,
+ &apos;for&apos;,
+ &apos;the&apos;,
+ &apos;most&apos;,
+ &apos;part&apos;,
+ &apos;,&apos;,
+ &apos;although&apos;,
+ &apos;wes&apos;,
+ &apos;bentley&apos;,
+ &apos;just&apos;,
+ &apos;seemed&apos;,
+ &apos;to&apos;,
+ &apos;be&apos;,
+ &apos;playing&apos;,
+ &apos;the&apos;,
+ &apos;exact&apos;,
+ &apos;same&apos;,
+ &apos;character&apos;,
+ &apos;that&apos;,
+ &apos;he&apos;,
+ &apos;did&apos;,
+ &apos;in&apos;,
+ &apos;american&apos;,
+ &apos;beauty&apos;,
+ &apos;,&apos;,
+ &apos;only&apos;,
+ &apos;in&apos;,
+ &apos;a&apos;,
+ &apos;new&apos;,
+ &apos;neighborhood&apos;,
+ &apos;.&apos;,
+ &apos;but&apos;,
+ &apos;my&apos;,
+ &apos;biggest&apos;,
+ &apos;kudos&apos;,
+ &apos;go&apos;,
+ &apos;out&apos;,
+ &apos;to&apos;,
+ &apos;sagemiller&apos;,
+ &apos;,&apos;,
+ &apos;who&apos;,
+ &apos;holds&apos;,
+ &apos;her&apos;,
+ &apos;own&apos;,
+ &apos;throughout&apos;,
+ &apos;the&apos;,
+ &apos;entire&apos;,
+ &apos;film&apos;,
+ &apos;,&apos;,
+ &apos;and&apos;,
+ &apos;actually&apos;,
+ &apos;has&apos;,
+ &apos;you&apos;,
+ &apos;feeling&apos;,
+ &apos;her&apos;,
+ &apos;character&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;unraveling&apos;,
+ &apos;.&apos;,
+ &apos;overall&apos;,
+ &apos;,&apos;,
+ &apos;the&apos;,
+ &apos;film&apos;,
+ &apos;doesn&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;stick&apos;,
+ &apos;because&apos;,
+ &apos;it&apos;,
+ &apos;doesn&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;entertain&apos;,
+ &apos;,&apos;,
+ &apos;it&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;confusing&apos;,
+ &apos;,&apos;,
+ &apos;it&apos;,
+ &apos;rarely&apos;,
+ &apos;excites&apos;,
+ &apos;and&apos;,
+ &apos;it&apos;,
+ &apos;feels&apos;,
+ &apos;pretty&apos;,
+ &apos;redundant&apos;,
+ &apos;for&apos;,
+ &apos;most&apos;,
+ &apos;of&apos;,
+ &apos;its&apos;,
+ &apos;runtime&apos;,
+ &apos;,&apos;,
+ &apos;despite&apos;,
+ &apos;a&apos;,
+ &apos;pretty&apos;,
+ &apos;cool&apos;,
+ &apos;ending&apos;,
+ &apos;and&apos;,
+ &apos;explanation&apos;,
+ &apos;to&apos;,
+ &apos;all&apos;,
+ &apos;of&apos;,
+ &apos;the&apos;,
+ &apos;craziness&apos;,
+ &apos;that&apos;,
+ &apos;came&apos;,
+ &apos;before&apos;,
+ &apos;it&apos;,
+ &apos;.&apos;,
+ &apos;oh&apos;,
+ &apos;,&apos;,
+ &apos;and&apos;,
+ &apos;by&apos;,
+ &apos;the&apos;,
+ &apos;way&apos;,
+ &apos;,&apos;,
+ &apos;this&apos;,
+ &apos;is&apos;,
+ &apos;not&apos;,
+ &apos;a&apos;,
+ &apos;horror&apos;,
+ &apos;or&apos;,
+ &apos;teen&apos;,
+ &apos;slasher&apos;,
+ &apos;flick&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;it&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;just&apos;,
+ &apos;packaged&apos;,
+ &apos;to&apos;,
+ &apos;look&apos;,
+ &apos;that&apos;,
+ &apos;way&apos;,
+ &apos;because&apos;,
+ &apos;someone&apos;,
+ &apos;is&apos;,
+ &apos;apparently&apos;,
+ &apos;assuming&apos;,
+ &apos;that&apos;,
+ &apos;the&apos;,
+ &apos;genre&apos;,
+ &apos;is&apos;,
+ &apos;still&apos;,
+ &apos;hot&apos;,
+ &apos;with&apos;,
+ &apos;the&apos;,
+ &apos;kids&apos;,
+ &apos;.&apos;,
+ &apos;it&apos;,
+ &apos;also&apos;,
+ &apos;wrapped&apos;,
+ &apos;production&apos;,
+ &apos;two&apos;,
+ &apos;years&apos;,
+ &apos;ago&apos;,
+ &apos;and&apos;,
+ &apos;has&apos;,
+ &apos;been&apos;,
+ &apos;sitting&apos;,
+ &apos;on&apos;,
+ &apos;the&apos;,
+ &apos;shelves&apos;,
+ &apos;ever&apos;,
+ &apos;since&apos;,
+ &apos;.&apos;,
+ &apos;whatever&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;skip&apos;,
+ &apos;it&apos;,
+ &apos;!&apos;,
+ &apos;where&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;joblo&apos;,
+ &apos;coming&apos;,
+ &apos;from&apos;,
+ &apos;?&apos;,
+ &apos;a&apos;,
+ &apos;nightmare&apos;,
+ &apos;of&apos;,
+ &apos;elm&apos;,
+ &apos;street&apos;,
+ &apos;3&apos;,
+ &apos;(&apos;,
+ &apos;7&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;blair&apos;,
+ &apos;witch&apos;,
+ &apos;2&apos;,
+ &apos;(&apos;,
+ &apos;7&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;the&apos;,
+ &apos;crow&apos;,
+ &apos;(&apos;,
+ &apos;9&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;the&apos;,
+ &apos;crow&apos;,
+ &apos;:&apos;,
+ &apos;salvation&apos;,
+ &apos;(&apos;,
+ &apos;4&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;lost&apos;,
+ &apos;highway&apos;,
+ &apos;(&apos;,
+ &apos;10&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;memento&apos;,
+ &apos;(&apos;,
+ &apos;10&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;the&apos;,
+ &apos;others&apos;,
+ &apos;(&apos;,
+ &apos;9&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;-&apos;,
+ &apos;stir&apos;,
+ &apos;of&apos;,
+ &apos;echoes&apos;,
+ &apos;(&apos;,
+ &apos;8&apos;,
+ &apos;/&apos;,
+ &apos;10&apos;,
+ &apos;)&apos;,
+ &apos;the&apos;,
+ &apos;happy&apos;,
+ &apos;bastard&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;quick&apos;,
+ &apos;movie&apos;,
+ &apos;review&apos;,
+ &apos;damn&apos;,
+ &apos;that&apos;,
+ &apos;y2k&apos;,
+ &apos;bug&apos;,
+ &apos;.&apos;,
+ &apos;it&apos;,
+ &quot;&apos;&quot;,
+ &apos;s&apos;,
+ &apos;got&apos;,
+ &apos;a&apos;,
+ &apos;head&apos;,
+ &apos;start&apos;,
+ &apos;in&apos;,
+ &apos;this&apos;,
+ &apos;movie&apos;,
+ &apos;starring&apos;,
+ &apos;jamie&apos;,
+ &apos;lee&apos;,
+ &apos;curtis&apos;,
+ &apos;and&apos;,
+ &apos;another&apos;,
+ &apos;baldwin&apos;,
+ &apos;brother&apos;,
+ &apos;(&apos;,
+ &apos;william&apos;,
+ &apos;this&apos;,
+ &apos;time&apos;,
+ &apos;)&apos;,
+ &apos;in&apos;,
+ &apos;a&apos;,
+ &apos;story&apos;,
+ &apos;regarding&apos;,
+ &apos;a&apos;,
+ &apos;crew&apos;,
+ &apos;of&apos;,
+ &apos;a&apos;,
+ &apos;tugboat&apos;,
+ &apos;that&apos;,
+ &apos;comes&apos;,
+ &apos;across&apos;,
+ &apos;a&apos;,
+ &apos;deserted&apos;,
+ &apos;russian&apos;,
+ &apos;tech&apos;,
+ &apos;ship&apos;,
+ &apos;that&apos;,
+ &apos;has&apos;,
+ &apos;a&apos;,
+ &apos;strangeness&apos;,
+ &apos;to&apos;,
+ &apos;it&apos;,
+ &apos;when&apos;,
+ &apos;they&apos;,
+ &apos;kick&apos;,
+ &apos;the&apos;,
+ &apos;power&apos;,
+ &apos;back&apos;,
+ &apos;on&apos;,
+ &apos;.&apos;,
+ &apos;little&apos;,
+ &apos;do&apos;,
+ &apos;they&apos;,
+ &apos;know&apos;,
+ &apos;the&apos;,
+ &apos;power&apos;,
+ &apos;within&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;.&apos;,
+ &apos;going&apos;,
+ &apos;for&apos;,
+ &apos;the&apos;,
+ &apos;gore&apos;,
+ &apos;and&apos;,
+ &apos;bringing&apos;,
+ &apos;on&apos;,
+ &apos;a&apos;,
+ &apos;few&apos;,
+ &apos;action&apos;,
+ &apos;sequences&apos;,
+ &apos;here&apos;,
+ &apos;and&apos;,
+ &apos;there&apos;,
+ &apos;,&apos;,
+ &apos;virus&apos;,
+ &apos;still&apos;,
+ &apos;feels&apos;,
+ &apos;very&apos;,
+ &apos;empty&apos;,
+ &apos;,&apos;,
+ &apos;like&apos;,
+ &apos;a&apos;,
+ &apos;movie&apos;,
+ &apos;going&apos;,
+ &apos;for&apos;,
+ &apos;all&apos;,
+ &apos;flash&apos;,
+ &apos;and&apos;,
+ &apos;no&apos;,
+ &apos;substance&apos;,
+ &apos;.&apos;,
+ &apos;we&apos;,
+ &apos;don&apos;,
+ &quot;&apos;&quot;,
+ &apos;t&apos;,
+ &apos;know&apos;,
+ &apos;why&apos;,
+ &apos;the&apos;,
+ &apos;crew&apos;,
+ &apos;was&apos;,
+ &apos;really&apos;,
+ &apos;out&apos;,
+ &apos;in&apos;,
+ ...]
+</code></pre><p><strong>Warning</strong>:At the begining, I just writed the follow codes like this:<code>new_all_words = [w for w in all_words if w not in nltk.corpus.stopwords.words(&#39;english&#39;)</code>,however the code couldn’t complite successfully even I had been waiting for several minites. Finally, I found that the I/O operations can be 1583820 times, and the operation system read data from the hark disk again and again without saying any thing,it was so stupid.So when we programming,we should set the I/O resources as a variable if it will be used for several times. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stopwords = nltk.corpus.stopwords.words(<span class="string">'english'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_all_words = [w <span class="keyword">for</span> w <span class="keyword">in</span> all_words <span class="keyword">if</span> w <span class="keyword">not</span> <span class="keyword">in</span> stopwords]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_all_words = [w <span class="keyword">for</span> w <span class="keyword">in</span> new_all_words <span class="keyword">if</span> w.isalpha()]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(all_words)</span><br></pre></td></tr></table></figure>
+<pre><code>1583820
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(nltk.corpus.stopwords.words(<span class="string">'english'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>179
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nltk.corpus.stopwords.words(<span class="string">'english'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;i&apos;,
+ &apos;me&apos;,
+ &apos;my&apos;,
+ &apos;myself&apos;,
+ &apos;we&apos;,
+ &apos;our&apos;,
+ &apos;ours&apos;,
+ &apos;ourselves&apos;,
+ &apos;you&apos;,
+ &quot;you&apos;re&quot;,
+ &quot;you&apos;ve&quot;,
+ &quot;you&apos;ll&quot;,
+ &quot;you&apos;d&quot;,
+ &apos;your&apos;,
+ &apos;yours&apos;,
+ &apos;yourself&apos;,
+ &apos;yourselves&apos;,
+ &apos;he&apos;,
+ &apos;him&apos;,
+ &apos;his&apos;,
+ &apos;himself&apos;,
+ &apos;she&apos;,
+ &quot;she&apos;s&quot;,
+ &apos;her&apos;,
+ &apos;hers&apos;,
+ &apos;herself&apos;,
+ &apos;it&apos;,
+ &quot;it&apos;s&quot;,
+ &apos;its&apos;,
+ &apos;itself&apos;,
+ &apos;they&apos;,
+ &apos;them&apos;,
+ &apos;their&apos;,
+ &apos;theirs&apos;,
+ &apos;themselves&apos;,
+ &apos;what&apos;,
+ &apos;which&apos;,
+ &apos;who&apos;,
+ &apos;whom&apos;,
+ &apos;this&apos;,
+ &apos;that&apos;,
+ &quot;that&apos;ll&quot;,
+ &apos;these&apos;,
+ &apos;those&apos;,
+ &apos;am&apos;,
+ &apos;is&apos;,
+ &apos;are&apos;,
+ &apos;was&apos;,
+ &apos;were&apos;,
+ &apos;be&apos;,
+ &apos;been&apos;,
+ &apos;being&apos;,
+ &apos;have&apos;,
+ &apos;has&apos;,
+ &apos;had&apos;,
+ &apos;having&apos;,
+ &apos;do&apos;,
+ &apos;does&apos;,
+ &apos;did&apos;,
+ &apos;doing&apos;,
+ &apos;a&apos;,
+ &apos;an&apos;,
+ &apos;the&apos;,
+ &apos;and&apos;,
+ &apos;but&apos;,
+ &apos;if&apos;,
+ &apos;or&apos;,
+ &apos;because&apos;,
+ &apos;as&apos;,
+ &apos;until&apos;,
+ &apos;while&apos;,
+ &apos;of&apos;,
+ &apos;at&apos;,
+ &apos;by&apos;,
+ &apos;for&apos;,
+ &apos;with&apos;,
+ &apos;about&apos;,
+ &apos;against&apos;,
+ &apos;between&apos;,
+ &apos;into&apos;,
+ &apos;through&apos;,
+ &apos;during&apos;,
+ &apos;before&apos;,
+ &apos;after&apos;,
+ &apos;above&apos;,
+ &apos;below&apos;,
+ &apos;to&apos;,
+ &apos;from&apos;,
+ &apos;up&apos;,
+ &apos;down&apos;,
+ &apos;in&apos;,
+ &apos;out&apos;,
+ &apos;on&apos;,
+ &apos;off&apos;,
+ &apos;over&apos;,
+ &apos;under&apos;,
+ &apos;again&apos;,
+ &apos;further&apos;,
+ &apos;then&apos;,
+ &apos;once&apos;,
+ &apos;here&apos;,
+ &apos;there&apos;,
+ &apos;when&apos;,
+ &apos;where&apos;,
+ &apos;why&apos;,
+ &apos;how&apos;,
+ &apos;all&apos;,
+ &apos;any&apos;,
+ &apos;both&apos;,
+ &apos;each&apos;,
+ &apos;few&apos;,
+ &apos;more&apos;,
+ &apos;most&apos;,
+ &apos;other&apos;,
+ &apos;some&apos;,
+ &apos;such&apos;,
+ &apos;no&apos;,
+ &apos;nor&apos;,
+ &apos;not&apos;,
+ &apos;only&apos;,
+ &apos;own&apos;,
+ &apos;same&apos;,
+ &apos;so&apos;,
+ &apos;than&apos;,
+ &apos;too&apos;,
+ &apos;very&apos;,
+ &apos;s&apos;,
+ &apos;t&apos;,
+ &apos;can&apos;,
+ &apos;will&apos;,
+ &apos;just&apos;,
+ &apos;don&apos;,
+ &quot;don&apos;t&quot;,
+ &apos;should&apos;,
+ &quot;should&apos;ve&quot;,
+ &apos;now&apos;,
+ &apos;d&apos;,
+ &apos;ll&apos;,
+ &apos;m&apos;,
+ &apos;o&apos;,
+ &apos;re&apos;,
+ &apos;ve&apos;,
+ &apos;y&apos;,
+ &apos;ain&apos;,
+ &apos;aren&apos;,
+ &quot;aren&apos;t&quot;,
+ &apos;couldn&apos;,
+ &quot;couldn&apos;t&quot;,
+ &apos;didn&apos;,
+ &quot;didn&apos;t&quot;,
+ &apos;doesn&apos;,
+ &quot;doesn&apos;t&quot;,
+ &apos;hadn&apos;,
+ &quot;hadn&apos;t&quot;,
+ &apos;hasn&apos;,
+ &quot;hasn&apos;t&quot;,
+ &apos;haven&apos;,
+ &quot;haven&apos;t&quot;,
+ &apos;isn&apos;,
+ &quot;isn&apos;t&quot;,
+ &apos;ma&apos;,
+ &apos;mightn&apos;,
+ &quot;mightn&apos;t&quot;,
+ &apos;mustn&apos;,
+ &quot;mustn&apos;t&quot;,
+ &apos;needn&apos;,
+ &quot;needn&apos;t&quot;,
+ &apos;shan&apos;,
+ &quot;shan&apos;t&quot;,
+ &apos;shouldn&apos;,
+ &quot;shouldn&apos;t&quot;,
+ &apos;wasn&apos;,
+ &quot;wasn&apos;t&quot;,
+ &apos;weren&apos;,
+ &quot;weren&apos;t&quot;,
+ &apos;won&apos;,
+ &quot;won&apos;t&quot;,
+ &apos;wouldn&apos;,
+ &quot;wouldn&apos;t&quot;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">words_freqlist = nltk.FreqDist(new_all_words)</span><br><span class="line">print(words_freqlist.most_common(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>[(&apos;film&apos;, 9517), (&apos;one&apos;, 5852), (&apos;movie&apos;, 5771), (&apos;like&apos;, 3690), (&apos;even&apos;, 2565), (&apos;good&apos;, 2411), (&apos;time&apos;, 2411), (&apos;story&apos;, 2169), (&apos;would&apos;, 2109), (&apos;much&apos;, 2049)]
+</code></pre><h3 id="12-Words-as-Features-for-Learning-用来学习的特征词汇"><a href="#12-Words-as-Features-for-Learning-用来学习的特征词汇" class="headerlink" title="12. Words as Features for Learning(用来学习的特征词汇)"></a>12. Words as Features for Learning(用来学习的特征词汇)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_features = list(words_freqlist.keys())[:<span class="number">3000</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_features</span><span class="params">(document)</span>:</span></span><br><span class="line">    words = set(document)</span><br><span class="line">    features = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> word_features:</span><br><span class="line">        features[w] = (w <span class="keyword">in</span> words)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> features</span><br><span class="line">featuresets = [(find_features(rev), category) <span class="keyword">for</span> (rev, category) <span class="keyword">in</span> documents]</span><br></pre></td></tr></table></figure>
+<h3 id="13-Naive-Bayes-朴素贝叶斯"><a href="#13-Naive-Bayes-朴素贝叶斯" class="headerlink" title="13. Naive Bayes(朴素贝叶斯)"></a>13. Naive Bayes(朴素贝叶斯)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">training_set = featuresets[:<span class="number">1900</span>]</span><br><span class="line">testing_set = featuresets[<span class="number">1900</span>:]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classifier = nltk.NaiveBayesClassifier.train(training_set)</span><br><span class="line">print(<span class="string">"Naive Bayes Algo accuracy:"</span>,(nltk.classify.accuracy(classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Naive Bayes Algo accuracy: 84.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classifier.show_most_informative_features(<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Most Informative Features
+                   sucks = True              neg : pos    =      8.7 : 1.0
+                  annual = True              pos : neg    =      8.2 : 1.0
+                 frances = True              pos : neg    =      8.2 : 1.0
+           unimaginative = True              neg : pos    =      7.8 : 1.0
+                 idiotic = True              neg : pos    =      7.3 : 1.0
+              schumacher = True              neg : pos    =      7.1 : 1.0
+                    mena = True              neg : pos    =      7.1 : 1.0
+               atrocious = True              neg : pos    =      7.1 : 1.0
+             silverstone = True              neg : pos    =      7.1 : 1.0
+                  suvari = True              neg : pos    =      7.1 : 1.0
+                  turkey = True              neg : pos    =      6.7 : 1.0
+                  regard = True              pos : neg    =      6.5 : 1.0
+                 kidding = True              neg : pos    =      6.4 : 1.0
+                  crappy = True              neg : pos    =      6.4 : 1.0
+                  shoddy = True              neg : pos    =      6.4 : 1.0
+</code></pre><h3 id="14-Save-Classifier-with-Pickle-使用Pickle保存分类器"><a href="#14-Save-Classifier-with-Pickle-使用Pickle保存分类器" class="headerlink" title="14. Save Classifier with Pickle(使用Pickle保存分类器)"></a>14. Save Classifier with Pickle(使用Pickle保存分类器)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">'naivebayes.pickle'</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">classifier_f = open(<span class="string">'naivebayes.pickle'</span>,<span class="string">"rb"</span>)</span><br><span class="line">classifier = pickle.load(classifier_f)</span><br><span class="line">classifier_f.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Naive Bayes Algo accuracy:"</span>,(nltk.classify.accuracy(classifier,testing_set))*<span class="number">100</span>)</span><br><span class="line">classifier.show_most_informative_features(<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Naive Bayes Algo accuracy: 84.0
+Most Informative Features
+                   sucks = True              neg : pos    =      8.7 : 1.0
+                  annual = True              pos : neg    =      8.2 : 1.0
+                 frances = True              pos : neg    =      8.2 : 1.0
+           unimaginative = True              neg : pos    =      7.8 : 1.0
+                 idiotic = True              neg : pos    =      7.3 : 1.0
+              schumacher = True              neg : pos    =      7.1 : 1.0
+                    mena = True              neg : pos    =      7.1 : 1.0
+               atrocious = True              neg : pos    =      7.1 : 1.0
+             silverstone = True              neg : pos    =      7.1 : 1.0
+                  suvari = True              neg : pos    =      7.1 : 1.0
+                  turkey = True              neg : pos    =      6.7 : 1.0
+                  regard = True              pos : neg    =      6.5 : 1.0
+                 kidding = True              neg : pos    =      6.4 : 1.0
+                  crappy = True              neg : pos    =      6.4 : 1.0
+                  shoddy = True              neg : pos    =      6.4 : 1.0
+</code></pre><p>training again</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">random.shuffle(documents)</span><br><span class="line">all_words = [w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> movie_reviews.words()]</span><br><span class="line">new_all_words = [w <span class="keyword">for</span> w <span class="keyword">in</span> all_words <span class="keyword">if</span> w <span class="keyword">not</span> <span class="keyword">in</span> stopwords]</span><br><span class="line">new_all_words = [w <span class="keyword">for</span> w <span class="keyword">in</span> new_all_words <span class="keyword">if</span> w.isalpha()]</span><br><span class="line">words_freqlist = nltk.FreqDist(new_all_words)</span><br><span class="line">word_features = list(words_freqlist.keys())[:<span class="number">3000</span>]</span><br><span class="line">training_set = featuresets[:<span class="number">1900</span>]</span><br><span class="line">testing_set = featuresets[<span class="number">1900</span>:]</span><br><span class="line">classifier = nltk.NaiveBayesClassifier.train(training_set)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Naive Bayes Algo accuracy:"</span>,(nltk.classify.accuracy(classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Naive Bayes Algo accuracy: 84.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">classifier_f = open(<span class="string">'naivebayes.pickle'</span>,<span class="string">"rb"</span>)</span><br><span class="line">classifier = pickle.load(classifier_f)</span><br><span class="line">classifier_f.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Naive Bayes Algo accuracy:"</span>,(nltk.classify.accuracy(classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Naive Bayes Algo accuracy: 84.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Naive Bayes Algo accuracy:"</span>,(nltk.classify.accuracy(classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Naive Bayes Algo accuracy: 84.0
+</code></pre><h3 id="15-Scikit-Learn-incorporation"><a href="#15-Scikit-Learn-incorporation" class="headerlink" title="15. Scikit-Learn incorporation()"></a>15. Scikit-Learn incorporation()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.classify.scikitlearn <span class="keyword">import</span> SklearnClassifier</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB, GaussianNB, BernoulliNB</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MNB_classifier = SklearnClassifier(MultinomialNB())</span><br><span class="line">MNB_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"MNB_classifier accuracy percent:"</span>,(nltk.classify.accuracy(MNB_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>MNB_classifier accuracy percent: 82.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这段代码有问题，不可以运行。</span></span><br><span class="line">GNB_classifier = SklearnClassifier(GaussianNB())</span><br><span class="line">GNB_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"GNB_classifier accuracy percent:"</span>,(nltk.classify.accuracy(GNB_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-149-dbf69e211330&gt; in &lt;module&gt;()
+      1 GNB_classifier = SklearnClassifier(GaussianNB())
+----&gt; 2 GNB_classifier.train(training_set)
+      3 print(&quot;GNB_classifier accuracy percent:&quot;,(nltk.classify.accuracy(GNB_classifier,testing_set))*100)
+
+
+C:\Program Files\Anaconda3\lib\site-packages\nltk\classify\scikitlearn.py in train(self, labeled_featuresets)
+    117         X = self._vectorizer.fit_transform(X)
+    118         y = self._encoder.fit_transform(y)
+--&gt; 119         self._clf.fit(X, y)
+    120 
+    121         return self
+
+
+C:\Program Files\Anaconda3\lib\site-packages\sklearn\naive_bayes.py in fit(self, X, y, sample_weight)
+    180             Returns self.
+    181         &quot;&quot;&quot;
+--&gt; 182         X, y = check_X_y(X, y)
+    183         return self._partial_fit(X, y, np.unique(y), _refit=True,
+    184                                  sample_weight=sample_weight)
+
+
+C:\Program Files\Anaconda3\lib\site-packages\sklearn\utils\validation.py in check_X_y(X, y, accept_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, warn_on_dtype, estimator)
+    519     X = check_array(X, accept_sparse, dtype, order, copy, force_all_finite,
+    520                     ensure_2d, allow_nd, ensure_min_samples,
+--&gt; 521                     ensure_min_features, warn_on_dtype, estimator)
+    522     if multi_output:
+    523         y = check_array(y, &apos;csr&apos;, force_all_finite=True, ensure_2d=False,
+
+
+C:\Program Files\Anaconda3\lib\site-packages\sklearn\utils\validation.py in check_array(array, accept_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)
+    378     if sp.issparse(array):
+    379         array = _ensure_sparse_format(array, accept_sparse, dtype, copy,
+--&gt; 380                                       force_all_finite)
+    381     else:
+    382         array = np.array(array, dtype=dtype, order=order, copy=copy)
+
+
+C:\Program Files\Anaconda3\lib\site-packages\sklearn\utils\validation.py in _ensure_sparse_format(spmatrix, accept_sparse, dtype, copy, force_all_finite)
+    241     &quot;&quot;&quot;
+    242     if accept_sparse in [None, False]:
+--&gt; 243         raise TypeError(&apos;A sparse matrix was passed, but dense &apos;
+    244                         &apos;data is required. Use X.toarray() to &apos;
+    245                         &apos;convert to a dense numpy array.&apos;)
+
+
+TypeError: A sparse matrix was passed, but dense data is required. Use X.toarray() to convert to a dense numpy array.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BNB_classifier = SklearnClassifier(BernoulliNB())</span><br><span class="line">BNB_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"BNB_classifier accuracy percent:"</span>,(nltk.classify.accuracy(BNB_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>BNB_classifier accuracy percent: 84.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression, SGDClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC, LinearSVC, NuSVC</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LogisticRegression_classifier = SklearnClassifier(LogisticRegression())</span><br><span class="line">LogisticRegression_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"LogisticRegression_classifier accuracy percent:"</span>,(nltk.classify.accuracy(LogisticRegression_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>LogisticRegression_classifier accuracy percent: 82.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SGDClassifier_classifier = SklearnClassifier(SGDClassifier())</span><br><span class="line">SGDClassifier_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"SGDClassifier_classifier accuracy percent:"</span>,(nltk.classify.accuracy(SGDClassifier_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>SGDClassifier_classifier accuracy percent: 82.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SVC_classifier = SklearnClassifier(SVC())</span><br><span class="line">SVC_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"SVC_classifier accuracy percent:"</span>,(nltk.classify.accuracy(SVC_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>SVC_classifier accuracy percent: 82.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LinearSVC_classifier = SklearnClassifier(LinearSVC())</span><br><span class="line">LinearSVC_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"LinearSVC_classifier accuracy percent:"</span>,(nltk.classify.accuracy(LinearSVC_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>LinearSVC_classifier accuracy percent: 80.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NuSVC_classifier = SklearnClassifier(NuSVC())</span><br><span class="line">NuSVC_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"NuSVC_classifier accuracy percent:"</span>,(nltk.classify.accuracy(NuSVC_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>NuSVC_classifier accuracy percent: 82.0
+</code></pre><h3 id="16-Combining-Algos-with-a-Vote"><a href="#16-Combining-Algos-with-a-Vote" class="headerlink" title="16. Combining Algos with a Vote"></a>16. Combining Algos with a Vote</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.classify <span class="keyword">import</span> ClassifierI</span><br><span class="line"><span class="keyword">from</span> statistics <span class="keyword">import</span> mode</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VoteClassifier</span><span class="params">(ClassifierI)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *classifiers)</span>:</span></span><br><span class="line">        self._classifiers = classifiers</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">classify</span><span class="params">(self, features)</span>:</span></span><br><span class="line">        votes = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self._classifiers:</span><br><span class="line">            v = c.classify(features)</span><br><span class="line">            votes.append(v)</span><br><span class="line">        <span class="keyword">return</span> mode(votes)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">confidence</span><span class="params">(self,features)</span>:</span></span><br><span class="line">        votes = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self._classifiers:</span><br><span class="line">            v = c.classify(features)</span><br><span class="line">            votes.append(v)</span><br><span class="line">        </span><br><span class="line">        choice_votes = votes.count(mode(votes))</span><br><span class="line">        conf = choice_votes / len(votes)</span><br><span class="line">        <span class="keyword">return</span> conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">voted_classifier = VoteClassifier(classifier,</span><br><span class="line">                                  MNB_classifier,</span><br><span class="line">                                  BNB_classifier,</span><br><span class="line">                                  LogisticRegression_classifier,</span><br><span class="line">                                  SGDClassifier_classifier,</span><br><span class="line">                                 <span class="comment">#SVC_classifier,视频中没有这个，况且如果不注释掉就会报统计错误，说有两个相同的值。</span></span><br><span class="line">                                 <span class="comment">#如： http://blog.csdn.net/dongfuguo/article/details/50163757 中 mode错误一般</span></span><br><span class="line">                                 LinearSVC_classifier,</span><br><span class="line">                                 NuSVC_classifier)</span><br><span class="line">print(<span class="string">"voted_classifier accuracy percent:"</span>,(nltk.classify.accuracy(voted_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>voted_classifier accuracy percent: 81.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">0</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">0</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: neg Confidence %: 100.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">1</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">1</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: pos Confidence %: 100.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">2</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">2</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: pos Confidence %: 100.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">3</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">3</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: neg Confidence %: 87.5
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">4</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">4</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: pos Confidence %: 100.0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">5</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">5</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: neg Confidence %: 75.0
+</code></pre><h3 id="17-Investigating-Bias"><a href="#17-Investigating-Bias" class="headerlink" title="17. Investigating Bias()"></a>17. Investigating Bias()</h3><h3 id="18-Better-training-data"><a href="#18-Better-training-data" class="headerlink" title="18. Better training data()"></a>18. Better training data()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">short_pos = open(<span class="string">"short_reviews/positive.txt"</span>,<span class="string">"r"</span>,encoding=<span class="string">"unicode-escape"</span>).read()</span><br><span class="line">short_neg = open(<span class="string">"short_reviews/negative.txt"</span>,<span class="string">"r"</span>,encoding=<span class="string">"unicode-escape"</span>).read()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">short_pos[:<span class="number">300</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>&apos;the rock is destined to be the 21st century\&apos;s new &quot; conan &quot; and that he\&apos;s going to make a splash even greater than arnold schwarzenegger , jean-claud van damme or steven segal . \nthe gorgeously elaborate continuation of &quot; the lord of the rings &quot; trilogy is so huge that a column of words cannot adequ&apos;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">documents = []</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># map(lambda r : document.append(r,'pos'), [r for r in short_pos.split('\n')])</span></span><br><span class="line"><span class="comment"># 本来想通过类似foreach实现类似的功能，不过好像并不能成功，目前原因还不清楚。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">documents.extend([(r,<span class="string">"pos"</span>) <span class="keyword">for</span> r <span class="keyword">in</span> short_pos.split(<span class="string">'\n'</span>)])</span><br><span class="line"><span class="comment"># 和下面语句的作用是一样的，不过不知道哪个效率更高一些</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> short_pos.split(<span class="string">'\n'</span>):</span><br><span class="line">    documents.append((r,<span class="string">'pos'</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">documents[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>(&apos;the rock is destined to be the 21st century\&apos;s new &quot; conan &quot; and that he\&apos;s going to make a splash even greater than arnold schwarzenegger , jean-claud van damme or steven segal . &apos;,
+ &apos;pos&apos;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">documents.extend([(r,<span class="string">"neg"</span>) <span class="keyword">for</span> r <span class="keyword">in</span> short_neg.split(<span class="string">'\n'</span>)])</span><br><span class="line"><span class="comment"># 和下面语句的作用是一样的，不过不知道哪个效率更高一些</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> short_neg.split(<span class="string">'\n'</span>):</span><br><span class="line">    documents.append(w.lower())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="comment"># 这里之所以再次导入，仅仅是因为我是几次使用这个notebook，懒得运行前面的cell了。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">all_words = []</span><br><span class="line">short_pos_words = nltk.word_tokenize(short_pos)</span><br><span class="line">short_neg_words = nltk.word_tokenize(short_neg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all_words.extend([w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> short_pos_words])</span><br><span class="line">all_words.extend([w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> short_neg_words])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以上代码应该也可以写成：</span></span><br><span class="line">all_words = [w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> short_pos_words] + [w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> short_pos_words]</span><br><span class="line"><span class="comment">#甚至是这样：</span></span><br><span class="line">all_words = [w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> short_pos_words+short_neg_words]</span><br><span class="line"><span class="comment"># 不过如果先：</span></span><br><span class="line">all_words = short_pos_words + short_neg_words</span><br><span class="line"><span class="comment"># 再：</span></span><br><span class="line">all_words = [w.lower() <span class="keyword">for</span> w <span class="keyword">in</span> all_words]</span><br><span class="line"><span class="comment"># 可能效率更高一些吧？</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stopwords = nltk.corpus.stopwords.words(<span class="string">'english'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all_words = [w <span class="keyword">for</span> w <span class="keyword">in</span> all_words <span class="keyword">if</span> w <span class="keyword">not</span> <span class="keyword">in</span> stopwords]</span><br><span class="line"><span class="comment"># 我自己添加的去除停用词等无关信息，以使得特征提取和训练的效率更高</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all_words = nltk.FreqDist(all_words)</span><br><span class="line">word_features = list(all_words.keys())[:<span class="number">5000</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_features</span><span class="params">(document)</span>:</span></span><br><span class="line">    words = nltk.word_tokenize(document)</span><br><span class="line">    features = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> word_features:</span><br><span class="line">        features[w] = (w <span class="keyword">in</span> words)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> features</span><br><span class="line">featuresets = [(find_features(rev), category) <span class="keyword">for</span> (rev, category) <span class="keyword">in</span> documents]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">random.shuffle(featuresets)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">training_set = featuresets[:<span class="number">10000</span>]</span><br><span class="line">testing_set = featuresets[<span class="number">10000</span>:]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classifier = nltk.NaiveBayesClassifier.train(training_set)</span><br><span class="line">print(<span class="string">"Naive Bayes Algo accuracy:"</span>,(nltk.classify.accuracy(classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Naive Bayes Algo accuracy: 68.82530120481928
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.classify.scikitlearn <span class="keyword">import</span> SklearnClassifier</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB, GaussianNB, BernoulliNB</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MNB_classifier = SklearnClassifier(MultinomialNB())</span><br><span class="line">MNB_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"MNB_classifier accuracy percent:"</span>,(nltk.classify.accuracy(MNB_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>MNB_classifier accuracy percent: 67.46987951807229
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这段代码有问题，不可以运行</span></span><br><span class="line">GNB_classifier = SklearnClassifier(GaussianNB())</span><br><span class="line">GNB_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"GNB_classifier accuracy percent:"</span>,(nltk.classify.accuracy(GNB_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BNB_classifier = SklearnClassifier(BernoulliNB())</span><br><span class="line">BNB_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"BNB_classifier accuracy percent:"</span>,(nltk.classify.accuracy(BNB_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>BNB_classifier accuracy percent: 68.97590361445783
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression, SGDClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC, LinearSVC, NuSVC</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LogisticRegression_classifier = SklearnClassifier(LogisticRegression())</span><br><span class="line">LogisticRegression_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"LogisticRegression_classifier accuracy percent:"</span>,(nltk.classify.accuracy(LogisticRegression_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>LogisticRegression_classifier accuracy percent: 70.78313253012048
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SGDClassifier_classifier = SklearnClassifier(SGDClassifier())</span><br><span class="line">SGDClassifier_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"SGDClassifier_classifier accuracy percent:"</span>,(nltk.classify.accuracy(SGDClassifier_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>SGDClassifier_classifier accuracy percent: 66.1144578313253
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SVC_classifier = SklearnClassifier(SVC())</span><br><span class="line">SVC_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"SVC_classifier accuracy percent:"</span>,(nltk.classify.accuracy(SVC_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>SVC_classifier accuracy percent: 49.096385542168676
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LinearSVC_classifier = SklearnClassifier(LinearSVC())</span><br><span class="line">LinearSVC_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"LinearSVC_classifier accuracy percent:"</span>,(nltk.classify.accuracy(LinearSVC_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>LinearSVC_classifier accuracy percent: 70.48192771084338
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NuSVC_classifier = SklearnClassifier(NuSVC())</span><br><span class="line">NuSVC_classifier.train(training_set)</span><br><span class="line">print(<span class="string">"NuSVC_classifier accuracy percent:"</span>,(nltk.classify.accuracy(NuSVC_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>NuSVC_classifier accuracy percent: 69.7289156626506
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.classify <span class="keyword">import</span> ClassifierI</span><br><span class="line"><span class="keyword">from</span> statistics <span class="keyword">import</span> mode</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VoteClassifier</span><span class="params">(ClassifierI)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *classifiers)</span>:</span></span><br><span class="line">        self._classifiers = classifiers</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">classify</span><span class="params">(self, features)</span>:</span></span><br><span class="line">        votes = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self._classifiers:</span><br><span class="line">            v = c.classify(features)</span><br><span class="line">            votes.append(v)</span><br><span class="line">        <span class="keyword">return</span> mode(votes)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">confidence</span><span class="params">(self,features)</span>:</span></span><br><span class="line">        votes = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self._classifiers:</span><br><span class="line">            v = c.classify(features)</span><br><span class="line">            votes.append(v)</span><br><span class="line">        </span><br><span class="line">        choice_votes = votes.count(mode(votes))</span><br><span class="line">        conf = choice_votes / len(votes)</span><br><span class="line">        <span class="keyword">return</span> conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">voted_classifier = VoteClassifier(classifier,</span><br><span class="line">                                  MNB_classifier,</span><br><span class="line">                                  BNB_classifier,</span><br><span class="line">                                  LogisticRegression_classifier,</span><br><span class="line">                                  SGDClassifier_classifier,</span><br><span class="line">                                 <span class="comment">#SVC_classifier,视频中没有这个，况且如果不注释掉就会报统计错误，说有两个相同的值。</span></span><br><span class="line">                                 <span class="comment">#如： http://blog.csdn.net/dongfuguo/article/details/50163757 中 mode错误一般</span></span><br><span class="line">                                 LinearSVC_classifier,</span><br><span class="line">                                 NuSVC_classifier)</span><br><span class="line">print(<span class="string">"voted_classifier accuracy percent:"</span>,(nltk.classify.accuracy(voted_classifier,testing_set))*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>voted_classifier accuracy percent: 69.42771084337349
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Classification:"</span>,voted_classifier.classify(testing_set[<span class="number">0</span>][<span class="number">0</span>]),<span class="string">"Confidence %:"</span>,voted_classifier.confidence(testing_set[<span class="number">0</span>][<span class="number">0</span>])*<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Classification: pos Confidence %: 100.0
+</code></pre><h3 id="19-Sentiment-Analysis-Module"><a href="#19-Sentiment-Analysis-Module" class="headerlink" title="19. Sentiment Analysis Module()"></a>19. Sentiment Analysis Module()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all_words = []</span><br><span class="line">documents = []</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allowed_word_types = [<span class="string">"J"</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> short_pos.split(<span class="string">'\n'</span>):</span><br><span class="line">    documents.append((p,<span class="string">"pos"</span>))</span><br><span class="line">    words = nltk.word_tokenize(p)</span><br><span class="line">    pos = nltk.pos_tag(words)</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> pos:</span><br><span class="line">        <span class="keyword">if</span> w[<span class="number">1</span>][<span class="number">0</span>] <span class="keyword">in</span> allowed_word_types:</span><br><span class="line">            all_words.append(w[<span class="number">0</span>].lower())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> short_neg.split(<span class="string">'\n'</span>):</span><br><span class="line">    documents.append((p,<span class="string">"neg"</span>))</span><br><span class="line">    words = nltk.word_tokenize(p)</span><br><span class="line">    neg = nltk.pos_tag(words)</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> neg:</span><br><span class="line">        <span class="keyword">if</span> w[<span class="number">1</span>][<span class="number">0</span>] <span class="keyword">in</span> allowed_word_types:</span><br><span class="line">            all_words.append(w[<span class="number">0</span>].lower())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br></pre></td></tr></table></figure>
+<p>提醒一下：直接运行以下的cell 会报错，应该先创建一个pickled_algos文件夹，然后再运行cell</p>
+<p>保存文档</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_documents = open(<span class="string">'pickled_algos/documents.pickle'</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(documents, save_documents)</span><br><span class="line">save_documents.close()</span><br></pre></td></tr></table></figure>
+<p>保存文本特征</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all_words = nltk.FreqDist(all_words)</span><br><span class="line">word_features = list(all_words.keys())[:<span class="number">5000</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_word_features = open(<span class="string">'pickled_algos/word_features5k.pickle'</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(word_features,save_word_features)</span><br><span class="line">save_word_features.close()</span><br></pre></td></tr></table></figure>
+<p>保存朴素贝叶斯算法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">"pickled_algos/originalnaivebayes5k.pickle"</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<p>保存MultinomialNB算法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">"pickled_algos/MNB_classifier5k.pickle"</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(MNB_classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<p>保存BernoulliNB算法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">"pickled_algos/BNB_classifier5k.pickle"</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(BNB_classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<p>保存LogisticRegression算法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">"pickled_algos/LogisticRegression_classifier5k.pickle"</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(LogisticRegression_classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<p>保存LinearSVC算法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">"pickled_algos/LinearSVC_classifier5k.pickle"</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(LinearSVC_classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<p>保存SGDC算法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_classifier = open(<span class="string">"pickled_algos/SGDClassifier_classifier5k.pickle"</span>,<span class="string">"wb"</span>)</span><br><span class="line">pickle.dump(SGDClassifier_classifier,save_classifier)</span><br><span class="line">save_classifier.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">voted_classifier = VoteClassifier(classifier,</span><br><span class="line">                                 LinearSVC_classifier,</span><br><span class="line">                                 MNB_classifier,</span><br><span class="line">                                 BNB_classifier,</span><br><span class="line">                                 LogisticRegression_classifier)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sentiment</span><span class="params">(text)</span>:</span></span><br><span class="line">    feats = find_features(text)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> voted_classifier.classify(feats)</span><br></pre></td></tr></table></figure>
+<p>最终我们编写的模块长成这个样子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#File: sentiment_mod.py 只是一个文件名而已，可以按照自己的想法取，但应做到见名知意</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> nltk</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> nltk.classify.scikitlearn <span class="keyword">import</span> SklearnClassifier</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB,BernoulliNB</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression,SGDClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC, LinearSVC,NuSVC</span><br><span class="line"><span class="keyword">from</span> nltk.classify <span class="keyword">import</span> ClassifierI</span><br><span class="line"><span class="keyword">from</span> statistics <span class="keyword">import</span> mode</span><br><span class="line"><span class="keyword">from</span> nltk.tokenize <span class="keyword">import</span> word_tokenize</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以上许多类模块虽然在代码中看似并没有用到，可是在用pickle还原为相关实例在被外部调用执行的时候还是需要的。</span></span><br><span class="line"><span class="comment"># 这里由于我们之前已经训练好了几个分类器，并且已经将文档内容和文本特征等通过pickle持久化保存起来了，所以在此模块中直接用pickle还原就可以直接拿来用了，而不是再次训练。</span></span><br><span class="line"><span class="comment"># 并且该模块仅当同一路径下的pickled_algos文件夹及里面的各pickle文件同时存在时才可以正常使用，当然，项目中也要导入本模块需要使用的一些基础模块，如nltk等等。</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VoteClassifier</span><span class="params">(ClassifierI)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *classifiers)</span>:</span></span><br><span class="line">        self._classifiers = classifiers</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">classify</span><span class="params">(self, features)</span>:</span></span><br><span class="line">        votes = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self._classifiers:</span><br><span class="line">            v = c.classify(features)</span><br><span class="line">            votes.append(v)</span><br><span class="line">        <span class="keyword">return</span> mode(votes)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">confidence</span><span class="params">(self,features)</span>:</span></span><br><span class="line">        votes = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> self._classifiers:</span><br><span class="line">            v = c.classify(features)</span><br><span class="line">            votes.append(v)</span><br><span class="line">        </span><br><span class="line">        choice_votes = votes.count(mode(votes))</span><br><span class="line">        conf = choice_votes / len(votes)</span><br><span class="line">        <span class="keyword">return</span> conf </span><br><span class="line"></span><br><span class="line">documents_f = open(<span class="string">'pickled_algos/documents.pickle'</span>,<span class="string">"rb"</span>)</span><br><span class="line">documents = pickle.load(documents_f)</span><br><span class="line">documents_f.close()</span><br><span class="line"></span><br><span class="line">word_features5k_f = open(<span class="string">'pickled_algos/word_features5k.pickle'</span>,<span class="string">"rb"</span>)</span><br><span class="line">word_features = pickle.load(word_features5k_f)</span><br><span class="line">word_features5k_f.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_features</span><span class="params">(document)</span>:</span></span><br><span class="line">    words = nltk.word_tokenize(document)</span><br><span class="line">    features = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> word_features:</span><br><span class="line">        features[w] = (w <span class="keyword">in</span> words)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> features</span><br><span class="line"></span><br><span class="line">open_file = open(<span class="string">"pickled_algos/originalnaivebayes5k.pickle"</span>,<span class="string">"rb"</span>)</span><br><span class="line">classifier = pickle.load(open_file)</span><br><span class="line">open_file.close()</span><br><span class="line"></span><br><span class="line">open_file = open(<span class="string">"pickled_algos/MNB_classifier5k.pickle"</span>,<span class="string">"rb"</span>)</span><br><span class="line">MNB_classifier = pickle.load(open_file)</span><br><span class="line">open_file.close()</span><br><span class="line"></span><br><span class="line">open_file = open(<span class="string">"pickled_algos/BNB_classifier5k.pickle"</span>,<span class="string">"rb"</span>)</span><br><span class="line">BNB_classifier = pickle.load(open_file)</span><br><span class="line">open_file.close()</span><br><span class="line"></span><br><span class="line">open_file = open(<span class="string">"pickled_algos/LogisticRegression_classifier5k.pickle"</span>,<span class="string">"rb"</span>)</span><br><span class="line">LogisticRegression_classifier = pickle.load(open_file)</span><br><span class="line">open_file.close()</span><br><span class="line"></span><br><span class="line">open_file = open(<span class="string">"pickled_algos/LinearSVC_classifier5k.pickle"</span>,<span class="string">"rb"</span>)</span><br><span class="line">LinearSVC_classifier = pickle.load(open_file)</span><br><span class="line">open_file.close()</span><br><span class="line"></span><br><span class="line">open_file = open(<span class="string">"pickled_algos/SGDClassifier_classifier5k.pickle"</span>,<span class="string">"rb"</span>)</span><br><span class="line">SGDClassifier_classifier = pickle.load(open_file)</span><br><span class="line">open_file.close()</span><br><span class="line"></span><br><span class="line">voted_classifier = VoteClassifier(</span><br><span class="line">                                 classifier,</span><br><span class="line">                                 LinearSVC_classifier,</span><br><span class="line">                                 MNB_classifier,</span><br><span class="line">                                 BNB_classifier,</span><br><span class="line">                                 LogisticRegression_classifier)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sentiment</span><span class="params">(text)</span>:</span></span><br><span class="line">    feats = find_features(text)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> voted_classifier.classify(feats),voted_classifier.confidence(feats)</span><br><span class="line"></span><br><span class="line"><span class="comment"># save me as sentiment_mod.py</span></span><br></pre></td></tr></table></figure>
+<p>下面来使用一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sentiment_mod <span class="keyword">as</span> s</span><br><span class="line"></span><br><span class="line">print(s.sentiment(<span class="string">"This movie was awesome! The acting was great, plot was wonderful, and there were pythons...so yea!"</span>))</span><br><span class="line"></span><br><span class="line">print(s.sentiment(<span class="string">"This movie was utter junk. There were absolutely 0 pythons. I don't see what the point was at all. Horrible movie, 0/10"</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>(&apos;pos&apos;, 1.0)
+(&apos;neg&apos;, 1.0)
+</code></pre><p>好吧，接下来的实践要使用Twitter 创建APP，可能还要使用个人网站，有点麻烦，所以接下来我只是看了看并没有照着实践。<br>总之，在这一系列的跟着敲代码的过程中，自己初步建立起了很浅的自然语言处理的概念~</p>
+<h3 id="20-Twitter-Sentiment-Analysis"><a href="#20-Twitter-Sentiment-Analysis" class="headerlink" title="20. Twitter Sentiment Analysis()"></a>20. Twitter Sentiment Analysis()</h3><h3 id="21-Graphing-Live-Twitter-Sentiment"><a href="#21-Graphing-Live-Twitter-Sentiment" class="headerlink" title="21. Graphing Live Twitter Sentiment()"></a>21. Graphing Live Twitter Sentiment()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
 
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>lightsmile &copy; 2015 - 2019</span>
-            <span>
+        
+            <div class="full-width auto-padding tags">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
+                    <a href="/tags/Python/"><i class="fas fa-hashtag fa-fw"></i>Python</a>
+                
+                    <a href="/tags/自然语言处理/"><i class="fas fa-hashtag fa-fw"></i>自然语言处理</a>
+                
+                    <a href="/tags/NLTK/"><i class="fas fa-hashtag fa-fw"></i>NLTK</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+      
+    
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/2018/03/05/常见10种自然语言处理技术（转载）/">
+              
+                  常见10种自然语言处理技术（转载）
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-03-05
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/自然语言处理/">自然语言处理</a>
     </div>
+
+
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <p><a href="https://www.felayman.com/articles/2018/02/28/1519818174444.html" title="点击查看原文" target="_blank" rel="noopener">原文</a></p>
+<p><a href="https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/" target="_blank" rel="noopener">该作者也是翻译的外文，英文原文链接</a></p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>自然语言处理（NLP）是一种艺术与科学的结合，旨在从文本数据中提取信息。在它的帮助下，我们从文本中提炼出适用于计算机算法的信息。从自动翻译、文本分类到情绪分析，自然语言处理成为所有数据科学家的必备技能之一。</p>
+<p>常见的10个NLP任务如下：</p>
+<ol>
+<li><code>词干提取</code></li>
+<li><code>词形还原</code></li>
+<li><code>词向量化</code></li>
+<li><code>词性标注</code></li>
+<li><code>命名实体消岐</code></li>
+<li><code>命名实体识别</code></li>
+<li><code>情感分析</code></li>
+<li><code>文本语义相似分析</code></li>
+<li><code>语种辨识</code></li>
+<li><code>文本总结</code></li>
+</ol>
+<h3 id="以下将详细展开："><a href="#以下将详细展开：" class="headerlink" title="以下将详细展开："></a>以下将详细展开：</h3><h1 id="1-词干提取"><a href="#1-词干提取" class="headerlink" title="1.词干提取"></a>1.词干提取</h1><p>什么是词干提取？词干提取是将词语去除变化或衍生形式，转换为词干或原型形式的过程。词干提取的目标是将相关词语还原为同样的词干，哪怕词干并非词典的词目。例如，英文中:</p>
+<ol>
+<li>beautiful和beautifully的词干同为beauti</li>
+<li>Good,better和best 的词干分别为good,better和best。</li>
+</ol>
+<p>相关论文：<a href="https://tartarus.org/martin/PorterStemmer/def.txt" target="_blank" rel="noopener">Martin Porter的波特词干算法原文</a></p>
+<p>相关算法：<a href="https://bitbucket.org/mchaput/stemming/src/5c242aa592a6d4f0e9a0b2e1afdca4fd757b8e8a/stemming/porter2.py?at=default&amp;fileviewer=file-view-default" target="_blank" rel="noopener">Porter2词干算法的Python实现</a></p>
+<p>程序实现：Porter2算法做词干提取的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install stemming</span></span><br><span class="line"><span class="keyword">from</span> stemming.porter2 <span class="keyword">import</span> stem</span><br><span class="line">stem(<span class="string">"casually"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="2-词形还原"><a href="#2-词形还原" class="headerlink" title="2. 词形还原"></a>2. 词形还原</h1><p>什么是词形还原？ 词形还原是将一组词语还原为词源或词典的词目形式的过程。还原过程考虑到了POS问题，即词语在句中的语义，词语对相邻语句的语义等。例如，英语中：</p>
+<ol>
+<li>beautiful和beautifully被分别还原为beautiful和beautifully。</li>
+<li>good, better和best被分别还原为good, good和good</li>
+</ol>
+<p>相关论文1: <a href="http://www.ijrat.org/downloads/icatest2015/ICATEST-2015127.pdf" target="_blank" rel="noopener">这篇文章详细讨论了词形还原的不同方法。想要了解传统词形还原的工作原理必读。</a></p>
+<p>相关论文2: <a href="https://academic.oup.com/dsh/article-abstract/doi/10.1093/llc/fqw034/2669790/Lemmatization-for-variation-rich-languages-using" target="_blank" rel="noopener">这篇论文非常出色，讨论了运用深度学习对变化丰富的语种做词形还原时会遇到的问题。</a></p>
+<p>数据集: <a href="https://catalog.ldc.upenn.edu/ldc99t42" target="_blank" rel="noopener">这里是Treebank-3数据集的链接，你可以使用它创建一个自己的词形还原工具。</a></p>
+<p>程序实现：下面给出了在spacy上的英语词形还原代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#python -m spacy download en</span></span><br><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">"en"</span>)</span><br><span class="line">doc=<span class="string">"good better best"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(doc):</span><br><span class="line">    print(token,token.lemma_)</span><br></pre></td></tr></table></figure>
+<h1 id="3-词向量化"><a href="#3-词向量化" class="headerlink" title="3. 词向量化"></a>3. 词向量化</h1><p>什么是词向量化？词向量化是用一组实数构成的向量代表自然语言的叫法。这种技术非常实用，因为电脑无法处理自然语言。词向量化可以捕捉到自然语言和实数间的本质关系。通过词向量化，一个词语或者一段短语可以用一个定维的向量表示，例如向量的长度可以为100。</p>
+<p>例如：<code>Man</code>这个词语可以用一个五维向量表示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/word-vector.png" alt="Man" title="">
+                </div>
+                <div class="image-caption">Man</div>
+            </figure>
+<p>这里的每个数字代表了词语在某个特定方向上的量级。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/Word-Vectors.png" alt="word-vectors" title="">
+                </div>
+                <div class="image-caption">word-vectors</div>
+            </figure></p>
+<p>相关博文：<a href="https://www.analyticsvidhya.com/blog/2017/06/word-embeddings-count-word2veec/" target="_blank" rel="noopener">这篇文章详细解释了词向量化</a></p>
+<p>相关论文：<a href="https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/" target="_blank" rel="noopener">这篇论文解释了词向量化的细节。深入理解词向量化必读。</a></p>
+<p>相关工具：<a href="https://ronxin.github.io/wevi/" target="_blank" rel="noopener">这是个基于浏览器的词向量可视化工具。</a></p>
+<p>预训练词向量：<a href="https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md?spm=a2c4e.11153959.blogcont236723.10.1a815c301CEF2o&amp;file=pretrained-vectors.md" target="_blank" rel="noopener">这里有一份facebook的预训练词向量列表，包含294种语言。</a></p>
+<p><a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit" target="_blank" rel="noopener">这里可以下载google news的预训练词向量。</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install gensim</span></span><br><span class="line"><span class="keyword">from</span> gensim.models.keyedvectors <span class="keyword">import</span> KeyedVectors</span><br><span class="line">word_vectors=KeyedVectors.load_word2vec_format(<span class="string">'GoogleNews-vectors-negative300.bin'</span>,binary=<span class="keyword">True</span>)</span><br><span class="line">word_vectors[<span class="string">'human'</span>]</span><br></pre></td></tr></table></figure>
+<p>程序实现：这段代码可以用gensim训练你自己的词向量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sentence=[[<span class="string">'first'</span>,<span class="string">'sentence'</span>],[<span class="string">'second'</span>,<span class="string">'sentence'</span>]]</span><br><span class="line">model = gensim.models.Word2Vec(sentence, min_count=<span class="number">1</span>,size=<span class="number">300</span>,workers=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="4-词性标注"><a href="#4-词性标注" class="headerlink" title="4.词性标注"></a>4.词性标注</h1><p>什么事词性标注？简单来说，词性标注是对句子中的词语标注为名字、动词、形容词、副词等的过程。例如，对句子“Ashok killed the snake with a stick”，词性标注会识别：</p>
+<ul>
+<li>Ashok 代词</li>
+<li>killed 动词</li>
+<li>the 限定词</li>
+<li>snake 名词</li>
+<li>with 连词</li>
+<li>a 限定词</li>
+<li>stick 名词</li>
+<li>. 标点</li>
+</ul>
+<p>论文1：<a href="https://aclweb.org/anthology/N16-1031.pdf" target="_blank" rel="noopener">choi aptly的这篇《The Last Gist to theState-of-the-Art 》介绍了一种叫动态特征归纳的新方法。这是目前词性标注最先进的方法。</a></p>
+<p>论文2：<a href="https://transacl.org/ojs/index.php/tacl/article/viewFile/837/192" target="_blank" rel="noopener">这篇文章介绍了通过隐马尔科夫模型做无监督词性标注学习的方法。</a></p>
+<p>程序实现：这段代码可以在spacy上做词性标注</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#!python -m spacy download en </span></span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)</span><br><span class="line">sentence=<span class="string">"Ashok killed the snake with a stick"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token,token.pos_)</span><br></pre></td></tr></table></figure>
+<h1 id="5-命名实体消歧"><a href="#5-命名实体消歧" class="headerlink" title="5. 命名实体消歧"></a>5. 命名实体消歧</h1><p>什么是命名实体消岐？命名实体消岐是对句子中的提到的实体识别的过程。例如，对句子“Apple earned a revenue of 200 Billion USD in 2016”，命名实体消岐会推断出句子中的Apple是苹果公司而不是指一种水果。一般来说，命名实体要求有一个实体知识库，能够将句子中提到的实体和知识库联系起来。</p>
+<p>论文1：<a href="https://arxiv.org/pdf/1504.07678.pdf" target="_blank" rel="noopener">Huang的这篇论文运用了基于深度神经网络和知识库的深层语义关联模型，在命名实体消岐上达到了领先水平。</a></p>
+<p>论文2：<a href="https://arxiv.org/pdf/1704.04920.pdf" target="_blank" rel="noopener">Ganea and Hofmann的这篇文章运用了局部神经关注模型和词向量化，没有人为设置特征。</a></p>
+<h1 id="6-命名实体识别"><a href="#6-命名实体识别" class="headerlink" title="6. 命名实体识别"></a>6. 命名实体识别</h1><p>体识别是识别一个句子中有特定意义的实体并将其区分为人名，机构名，日期，地名，时间等类别的任务。例如，一个NER会将一个这样的句子：</p>
+<blockquote>
+<p>“Ram of Apple Inc. travelled to Sydney on 5th October 2017”</p>
+</blockquote>
+<p>返回如下的结果：</p>
+<blockquote>
+<p>Ram<br>of<br>Apple ORG<br>Inc. ORG<br>travelled<br>to<br>Sydney GPE<br>on<br>5th DATE<br>October DATE<br>2017 DATE</p>
+</blockquote>
+<p>这里，ORG代表机构组织名，GPE代表地名。</p>
+<p>然而，当NER被用在不同于该NER被训练的数据领域时，即使是最先进的NER也往往表现不佳。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/ner.png" alt="ner" title="">
+                </div>
+                <div class="image-caption">ner</div>
+            </figure>
+<p>论文：<a href="https://arxiv.org/pdf/1603.01360.pdf" target="_blank" rel="noopener">这篇优秀的论文使用双向LSTM（长短期记忆网络）神经网络结合监督学习和非监督学习方法，在4种语言领域实现了命名实体识别的最新成果。</a></p>
+<p>程序实现：以下使用spacy执行命名实体识别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)sentence=<span class="string">"Ram of Apple Inc. travelled to Sydney on 5th October 2017"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token, token.ent_type_)</span><br></pre></td></tr></table></figure>
+<h1 id="7-情感分析"><a href="#7-情感分析" class="headerlink" title="7. 情感分析"></a>7. 情感分析</h1><p>什么是情感分析？情感分析是一种广泛的主观分析，它使用自然语言处理技术来识别客户评论的语义情感，语句表达的情绪正负面以及通过语音分析或书面文字判断其表达的情感等等。例如：</p>
+<p>“我不喜欢巧克力冰淇淋”—是对该冰淇淋的负面评价。</p>
+<p>“我并不讨厌巧克力冰激凌”—可以被认为是一种中性的评价。</p>
+<p>从使用LSTMs和Word嵌入来计算一个句子中的正负词数开始，有很多方法都可以用来进行情感分析。</p>
+<p>博文1：<a href="https://www.analyticsvidhya.com/blog/2016/02/step-step-guide-building-sentiment-analysis-model-graphlab/" target="_blank" rel="noopener">本文重点对电影推文进行情感分析。</a></p>
+<p>博文2：<a href="https://www.analyticsvidhya.com/blog/2017/01/sentiment-analysis-of-twitter-posts-on-chennai-floods-using-python/" target="_blank" rel="noopener">本文重点对印度金奈洪水期间的推文进行情感分析。</a></p>
+<p>论文1：<a href="https://arxiv.org/pdf/1305.6143.pdf" target="_blank" rel="noopener">本文采用朴素贝叶斯的监督学习方法对IMDB评论进行分类。</a></p>
+<p>论文2：<a href="http://www.cs.cmu.edu/~yohanj/research/papers/WSDM11.pdf" target="_blank" rel="noopener">本文利用LDA的无监督学习方法来识别用户生成评论的观点和情感。本文在解决注释评论短缺的问题上表现突出。</a></p>
+<p>资料库：<a href="https://github.com/xiamx/awesome-sentiment-analysis" target="_blank" rel="noopener">这是一个很好的包含相关研究论文和各种语言情感分析程序实现的资料库。</a></p>
+<p>数据集1<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/" target="_blank" rel="noopener">：多域情感数据集版本2.0</a></p>
+<p>数据集2：<a href="http://www.sananalytics.com/lab/twitter-sentiment/" target="_blank" rel="noopener">Twitter情感分析数据集</a></p>
+<p>竞赛：<a href="https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews" target="_blank" rel="noopener">一个非常好的比赛，你可以检查你的模型在烂番茄电影评论的情感分析任务中的表现。</a></p>
+<h1 id="8-语义文本相似度"><a href="#8-语义文本相似度" class="headerlink" title="8. 语义文本相似度"></a>8. 语义文本相似度</h1><p>什么是语义文本相似度分析？语义文本相似度分析是对两段文本的意义和本质之间的相似度进行分析的过程。注意，相似性与相关性是不同的。</p>
+<p>例如：</p>
+<blockquote>
+<p>汽车和公共汽车是相似的，但是汽车和燃料是相关的。</p>
+</blockquote>
+<p>论文1：<a href="https://pdfs.semanticscholar.org/5b5c/a878c534aee3882a038ef9e82f46e102131b.pdf" target="_blank" rel="noopener">本文详细介绍了文本相似度测量的不同方法。是一篇可以一站式了解目前所有方法的必读文章。</a></p>
+<p>论文2：<a href="http://casa.disi.unitn.it/~moschitt/since2013/2015_SIGIR_Severyn_LearningRankShort.pdf" target="_blank" rel="noopener">本文介绍了用CNN神经网络去比对两个短文本。</a></p>
+<p>论文3：<a href="https://nlp.stanford.edu/pubs/tai-socher-manning-acl2015.pdf" target="_blank" rel="noopener">本文利用Tree-LSTMs方法得到了文本的语义相关和语义分类的最新成果。</a></p>
+<h1 id="9-语言识别"><a href="#9-语言识别" class="headerlink" title="9. 语言识别"></a>9. 语言识别</h1><p>什么是语言识别？语言识别指的是将不同语言的文本区分出来。其利用语言的统计和语法属性来执行此任务。语言识别也可以被认为是文本分类的特殊情况。</p>
+<p>博文：<a href="https://fasttext.cc/blog/2017/10/02/blog-post.html" target="_blank" rel="noopener">在这篇由fastText撰写的博文中介绍了一种新的工具，其可以在1MB的内存使用情况下识别170种语言。</a></p>
+<p>论文1：<a href="http://www.ep.liu.se/ecp/131/021/ecp17131021.pdf" target="_blank" rel="noopener">本文讨论了285种语言的7种语言识别方法。</a></p>
+<p>论文2：<a href="https://repositorio.uam.es/bitstream/handle/10486/666848/automatic_lopez-moreno_ICASSP_2014_ps.pdf?sequence=1" target="_blank" rel="noopener">本文描述了如何使用深度神经网络来实现自动语言识别的最新成果。</a></p>
+<h1 id="10-文本摘要"><a href="#10-文本摘要" class="headerlink" title="10. 文本摘要"></a>10. 文本摘要</h1><p>什么是文本摘要？文本摘要是通过识别文本的重点并使用这些要点创建摘要来缩短文本的过程。文本摘要的目的是在不改变文本含义的前提下最大限度地缩短文本。</p>
+<p>论文1：<a href="https://arxiv.org/pdf/1509.00685.pdf" target="_blank" rel="noopener">本文描述了基于神经注意模型的抽象语句梗概方法。</a></p>
+<p>论文2：<a href="https://arxiv.org/pdf/1602.06023.pdf" target="_blank" rel="noopener">本文描述了使用序列到序列的RNN在文本摘要中达到的最新结果。</a></p>
+<p>资料库：<a href="https://github.com/tensorflow/models/tree/master/research/textsum" target="_blank" rel="noopener">Google Brain团队的这个资料库拥有使用为文本摘要定制的序列到序列模型的代码。该模型在Gigaword数据集上进行训练。</a></p>
+<p>应用程序：<a href="https://www.reddit.com/r/autotldr/comments/31b9fm/faq_autotldr_bot/" target="_blank" rel="noopener">Reddit的autotldr机器人使用文本摘要来梗概从文章到帖子的各种评论。这个功能在Reddit用户中非常有名。</a></p>
+<p>程序实现：以下是如何用gensim包快速实现文本摘要。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fromgensim.summarization <span class="keyword">import</span> summarize</span><br><span class="line">sentence=<span class="string">"Automatic summarization is the process of shortening a text document with software, in order to create a summary with the major points of the original document. Technologies that can make a coherent summary take into account variables such as length, writing style and syntax.Automatic data summarization is part of machine learning and data mining. The main idea of summarization is to find a subset of data which contains the information of the entire set. Such techniques are widely used in industry today. Search engines are an example; others include summarization of documents, image collections and videos. Document summarization tries to create a representative summary or abstract of the entire document, by finding the most informative sentences, while in image summarization the system finds the most representative and important (i.e. salient) images. For surveillance videos, one might want to extract the important events from the uneventful context.There are two general approaches to automatic summarization: extraction and abstraction. Extractive methods work by selecting a subset of existing words, phrases, or sentences in the original text to form the summary. In contrast, abstractive methods build an internal semantic representation and then use natural language generation techniques to create a summary that is closer to what a human might express. Such a summary might include verbal innovations. Research to date has focused primarily on extractive methods, which are appropriate for image collection summarization and video summarization."</span></span><br><span class="line">summarize(sentence)</span><br></pre></td></tr></table></figure>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>以上所有是最流行的NLP任务以及相关的博客、研究论文、资料库、应用等资源。</p>
+<p>祝你学习愉快！</p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/自然语言处理/"><i class="fas fa-hashtag fa-fw"></i>自然语言处理</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+      
+    
+</section>
+
+
+
+<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+
+
+
+
+        </div>
+        <aside class='l_side'>
+            
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/tags/自然语言处理/&title=lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/tags/自然语言处理/&title=lightsmile's Blog&source=this is a description" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/tags/自然语言处理/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=lightsmile's Blog&url=http://www.iamlightsmile.com/tags/自然语言处理/&via=http://www.iamlightsmile.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/tags/自然语言处理/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQXLDIAwF0N7/0um2nRbnS+DMGB6rjpMAzwsVCX19xeP1Z4w+/fkkn3P0ZPHAwMB4LON1OaqM0Sby316vO1wFAwPjAMZo4d53kldw/TxfFwMDA+N6W0lYHAXZ5FiJgYGBcQdjVUqMgYGB0Uti1x4Hr5E35uIYGBgPZOQh8vN/33K/gYGB8SjGqziqwfGOIPvPKhgYGFsz5hsjeo0U+avJ58fAwDiNkbdZ9L6fF9eSkhwGBsbejE+WvaotZUnJ79cJFwMDY2tGEkyTTfQOdnm7WPNGFAMD4+GManNDnpTOBOvmURUDA2NTRl7Wr6adSVI6E6ybtxMYGBiPZawq2VeDdZ42v3lNGBgYxzB6PVd5KS0/YlaPpBgYGHsz8rBY/bQ6Q57Kvnn1GBgY2zGqATG/Nuhtt9kohoGBcQCj2mxxd2qazz/VM4KBgfEQxqoDXK95YlXrBgYGxpmMXtE/JyWHzvJuMTAwjmHkaWpeycuR1xuNrgQwMDC2ZvTaLK6Xqc5cSFlHARcDA+MARpJ2Joe5+V9VL1kxMDDOYcwU7vOjZLmU1vu/gYGBsQXjVRzL2iPiho9oXQwMjK0Z1WBXKH4Vy3ar0loMDIxdGTNBtno9eUdzBgYGxjmMQltDMXKvbbkYBm4MDAyMOJj2kAvSVAwMDIzpcDkfZG8JuBgYGI9i5IllPnWSiObFuDdXrRgYGFsz5s9deZEuL7El7R0YGBgHML4BYiki4IA296YAAAAASUVORK5CYII=" alt="微信分享二维码">
-</div>
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+    <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-<!-- mathjax config similar to math.stackexchange -->
 
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
+  MathJax.Hub.Queue(function() {
     var all = MathJax.Hub.getAllJax(), i;
     for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
+      all[i].SourceElement().parentNode.className += ' has-jax';
     }
-});
+  });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '客官慢走！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '欢迎光临！';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
-
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

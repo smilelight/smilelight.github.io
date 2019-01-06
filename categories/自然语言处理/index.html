@@ -1,412 +1,473 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'true', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!-- End Google Analytics -->
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Category: 自然语言处理 | lightsmile&#39;s Blog</title>
+  
+  <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+  
+  
+  <meta name="description" content="this is a description">
+  
+
+  <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
 
 
-    
 
-    
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-
-
-    <meta charset="utf-8">
-    
-    <meta name="google-site-verification" content="true">
-    
-    
-    
-    <title>类别: 自然语言处理 | lightsmile&#39;s Blog | lightsmile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
-    <meta name="description" content="this is a description">
-<meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lightsmile&#39;s Blog">
-<meta property="og:url" content="http://www.iamlightsmile.com/categories/自然语言处理/index.html">
-<meta property="og:site_name" content="lightsmile&#39;s Blog">
-<meta property="og:description" content="this is a description">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lightsmile&#39;s Blog">
-<meta name="twitter:description" content="this is a description">
-    
-        <link rel="alternate" type="application/atom+xml" title="lightsmile&#39;s Blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
-
+  
+  
 </head>
 
 <body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
-
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/lightsmile.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">lightsmile</h5>
-          <a href="mailto:1459679436@qq.com" title="1459679436@qq.com" class="mail">1459679436@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                档案
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect active">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                类别
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/smilelight" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://weibo.com/p/1005055392510271" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                微博
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/custom"  >
-                <i class="icon icon-lg icon-link"></i>
-                测试
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">类别: 自然语言处理</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header categories-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">类别: 自然语言处理</h1>
-        <h5 class="subtitle">
-            
-        </h5>
-    </div>
-
-    
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/categories" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">全部</a>
-        
-
-            <a href="/categories/Python/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">Python</a>
-
-        
-
-            <a href="/categories/计算机/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">计算机</a>
-
-        
-
-            <a href="/categories/哲学/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">哲学</a>
-
-        
-
-            <a href="/categories/lua/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">lua</a>
-
-        
-
-            <a href="/categories/数学/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">数学</a>
-
-        
-
-            <a href="/categories/自然语言处理/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">自然语言处理</a>
-
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
 </div>
 
-
-
-</header>
-
-<div class="container body-wrap fade">
-    
-            <div class="waterfall">
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          lightsmile's Blog
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
           
+				</ul>
+			</div>
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-03-05 15:28:41" datetime="2018-03-05T07:28:41.000Z"  itemprop="datePublished">2018-03-05</time>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
 
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            
+    <script>
+        window.subData= { title:'所有分类 : 自然语言处理'}
+    </script>
+
+
+<section class="post-list">
+    
       
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/自然语言处理/">自然语言处理</a></li></ul>
-
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/05/常见10种自然语言处理技术（转载）/">常见10种自然语言处理技术（转载）</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自然语言处理/">自然语言处理</a></li></ul>
-
-    </div>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
-  </article>
-</div>
+    
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/2018/03/05/常见10种自然语言处理技术（转载）/">
+              
+                  常见10种自然语言处理技术（转载）
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-03-05
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/自然语言处理/">自然语言处理</a>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <p><a href="https://www.felayman.com/articles/2018/02/28/1519818174444.html" title="点击查看原文" target="_blank" rel="noopener">原文</a></p>
+<p><a href="https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/" target="_blank" rel="noopener">该作者也是翻译的外文，英文原文链接</a></p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>自然语言处理（NLP）是一种艺术与科学的结合，旨在从文本数据中提取信息。在它的帮助下，我们从文本中提炼出适用于计算机算法的信息。从自动翻译、文本分类到情绪分析，自然语言处理成为所有数据科学家的必备技能之一。</p>
+<p>常见的10个NLP任务如下：</p>
+<ol>
+<li><code>词干提取</code></li>
+<li><code>词形还原</code></li>
+<li><code>词向量化</code></li>
+<li><code>词性标注</code></li>
+<li><code>命名实体消岐</code></li>
+<li><code>命名实体识别</code></li>
+<li><code>情感分析</code></li>
+<li><code>文本语义相似分析</code></li>
+<li><code>语种辨识</code></li>
+<li><code>文本总结</code></li>
+</ol>
+<h3 id="以下将详细展开："><a href="#以下将详细展开：" class="headerlink" title="以下将详细展开："></a>以下将详细展开：</h3><h1 id="1-词干提取"><a href="#1-词干提取" class="headerlink" title="1.词干提取"></a>1.词干提取</h1><p>什么是词干提取？词干提取是将词语去除变化或衍生形式，转换为词干或原型形式的过程。词干提取的目标是将相关词语还原为同样的词干，哪怕词干并非词典的词目。例如，英文中:</p>
+<ol>
+<li>beautiful和beautifully的词干同为beauti</li>
+<li>Good,better和best 的词干分别为good,better和best。</li>
+</ol>
+<p>相关论文：<a href="https://tartarus.org/martin/PorterStemmer/def.txt" target="_blank" rel="noopener">Martin Porter的波特词干算法原文</a></p>
+<p>相关算法：<a href="https://bitbucket.org/mchaput/stemming/src/5c242aa592a6d4f0e9a0b2e1afdca4fd757b8e8a/stemming/porter2.py?at=default&amp;fileviewer=file-view-default" target="_blank" rel="noopener">Porter2词干算法的Python实现</a></p>
+<p>程序实现：Porter2算法做词干提取的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install stemming</span></span><br><span class="line"><span class="keyword">from</span> stemming.porter2 <span class="keyword">import</span> stem</span><br><span class="line">stem(<span class="string">"casually"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="2-词形还原"><a href="#2-词形还原" class="headerlink" title="2. 词形还原"></a>2. 词形还原</h1><p>什么是词形还原？ 词形还原是将一组词语还原为词源或词典的词目形式的过程。还原过程考虑到了POS问题，即词语在句中的语义，词语对相邻语句的语义等。例如，英语中：</p>
+<ol>
+<li>beautiful和beautifully被分别还原为beautiful和beautifully。</li>
+<li>good, better和best被分别还原为good, good和good</li>
+</ol>
+<p>相关论文1: <a href="http://www.ijrat.org/downloads/icatest2015/ICATEST-2015127.pdf" target="_blank" rel="noopener">这篇文章详细讨论了词形还原的不同方法。想要了解传统词形还原的工作原理必读。</a></p>
+<p>相关论文2: <a href="https://academic.oup.com/dsh/article-abstract/doi/10.1093/llc/fqw034/2669790/Lemmatization-for-variation-rich-languages-using" target="_blank" rel="noopener">这篇论文非常出色，讨论了运用深度学习对变化丰富的语种做词形还原时会遇到的问题。</a></p>
+<p>数据集: <a href="https://catalog.ldc.upenn.edu/ldc99t42" target="_blank" rel="noopener">这里是Treebank-3数据集的链接，你可以使用它创建一个自己的词形还原工具。</a></p>
+<p>程序实现：下面给出了在spacy上的英语词形还原代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#python -m spacy download en</span></span><br><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">"en"</span>)</span><br><span class="line">doc=<span class="string">"good better best"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(doc):</span><br><span class="line">    print(token,token.lemma_)</span><br></pre></td></tr></table></figure>
+<h1 id="3-词向量化"><a href="#3-词向量化" class="headerlink" title="3. 词向量化"></a>3. 词向量化</h1><p>什么是词向量化？词向量化是用一组实数构成的向量代表自然语言的叫法。这种技术非常实用，因为电脑无法处理自然语言。词向量化可以捕捉到自然语言和实数间的本质关系。通过词向量化，一个词语或者一段短语可以用一个定维的向量表示，例如向量的长度可以为100。</p>
+<p>例如：<code>Man</code>这个词语可以用一个五维向量表示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/word-vector.png" alt="Man" title="">
+                </div>
+                <div class="image-caption">Man</div>
+            </figure>
+<p>这里的每个数字代表了词语在某个特定方向上的量级。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/Word-Vectors.png" alt="word-vectors" title="">
+                </div>
+                <div class="image-caption">word-vectors</div>
+            </figure></p>
+<p>相关博文：<a href="https://www.analyticsvidhya.com/blog/2017/06/word-embeddings-count-word2veec/" target="_blank" rel="noopener">这篇文章详细解释了词向量化</a></p>
+<p>相关论文：<a href="https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/" target="_blank" rel="noopener">这篇论文解释了词向量化的细节。深入理解词向量化必读。</a></p>
+<p>相关工具：<a href="https://ronxin.github.io/wevi/" target="_blank" rel="noopener">这是个基于浏览器的词向量可视化工具。</a></p>
+<p>预训练词向量：<a href="https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md?spm=a2c4e.11153959.blogcont236723.10.1a815c301CEF2o&amp;file=pretrained-vectors.md" target="_blank" rel="noopener">这里有一份facebook的预训练词向量列表，包含294种语言。</a></p>
+<p><a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit" target="_blank" rel="noopener">这里可以下载google news的预训练词向量。</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install gensim</span></span><br><span class="line"><span class="keyword">from</span> gensim.models.keyedvectors <span class="keyword">import</span> KeyedVectors</span><br><span class="line">word_vectors=KeyedVectors.load_word2vec_format(<span class="string">'GoogleNews-vectors-negative300.bin'</span>,binary=<span class="keyword">True</span>)</span><br><span class="line">word_vectors[<span class="string">'human'</span>]</span><br></pre></td></tr></table></figure>
+<p>程序实现：这段代码可以用gensim训练你自己的词向量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sentence=[[<span class="string">'first'</span>,<span class="string">'sentence'</span>],[<span class="string">'second'</span>,<span class="string">'sentence'</span>]]</span><br><span class="line">model = gensim.models.Word2Vec(sentence, min_count=<span class="number">1</span>,size=<span class="number">300</span>,workers=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="4-词性标注"><a href="#4-词性标注" class="headerlink" title="4.词性标注"></a>4.词性标注</h1><p>什么事词性标注？简单来说，词性标注是对句子中的词语标注为名字、动词、形容词、副词等的过程。例如，对句子“Ashok killed the snake with a stick”，词性标注会识别：</p>
+<ul>
+<li>Ashok 代词</li>
+<li>killed 动词</li>
+<li>the 限定词</li>
+<li>snake 名词</li>
+<li>with 连词</li>
+<li>a 限定词</li>
+<li>stick 名词</li>
+<li>. 标点</li>
+</ul>
+<p>论文1：<a href="https://aclweb.org/anthology/N16-1031.pdf" target="_blank" rel="noopener">choi aptly的这篇《The Last Gist to theState-of-the-Art 》介绍了一种叫动态特征归纳的新方法。这是目前词性标注最先进的方法。</a></p>
+<p>论文2：<a href="https://transacl.org/ojs/index.php/tacl/article/viewFile/837/192" target="_blank" rel="noopener">这篇文章介绍了通过隐马尔科夫模型做无监督词性标注学习的方法。</a></p>
+<p>程序实现：这段代码可以在spacy上做词性标注</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#!python -m spacy download en </span></span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)</span><br><span class="line">sentence=<span class="string">"Ashok killed the snake with a stick"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token,token.pos_)</span><br></pre></td></tr></table></figure>
+<h1 id="5-命名实体消歧"><a href="#5-命名实体消歧" class="headerlink" title="5. 命名实体消歧"></a>5. 命名实体消歧</h1><p>什么是命名实体消岐？命名实体消岐是对句子中的提到的实体识别的过程。例如，对句子“Apple earned a revenue of 200 Billion USD in 2016”，命名实体消岐会推断出句子中的Apple是苹果公司而不是指一种水果。一般来说，命名实体要求有一个实体知识库，能够将句子中提到的实体和知识库联系起来。</p>
+<p>论文1：<a href="https://arxiv.org/pdf/1504.07678.pdf" target="_blank" rel="noopener">Huang的这篇论文运用了基于深度神经网络和知识库的深层语义关联模型，在命名实体消岐上达到了领先水平。</a></p>
+<p>论文2：<a href="https://arxiv.org/pdf/1704.04920.pdf" target="_blank" rel="noopener">Ganea and Hofmann的这篇文章运用了局部神经关注模型和词向量化，没有人为设置特征。</a></p>
+<h1 id="6-命名实体识别"><a href="#6-命名实体识别" class="headerlink" title="6. 命名实体识别"></a>6. 命名实体识别</h1><p>体识别是识别一个句子中有特定意义的实体并将其区分为人名，机构名，日期，地名，时间等类别的任务。例如，一个NER会将一个这样的句子：</p>
+<blockquote>
+<p>“Ram of Apple Inc. travelled to Sydney on 5th October 2017”</p>
+</blockquote>
+<p>返回如下的结果：</p>
+<blockquote>
+<p>Ram<br>of<br>Apple ORG<br>Inc. ORG<br>travelled<br>to<br>Sydney GPE<br>on<br>5th DATE<br>October DATE<br>2017 DATE</p>
+</blockquote>
+<p>这里，ORG代表机构组织名，GPE代表地名。</p>
+<p>然而，当NER被用在不同于该NER被训练的数据领域时，即使是最先进的NER也往往表现不佳。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/ner.png" alt="ner" title="">
+                </div>
+                <div class="image-caption">ner</div>
+            </figure>
+<p>论文：<a href="https://arxiv.org/pdf/1603.01360.pdf" target="_blank" rel="noopener">这篇优秀的论文使用双向LSTM（长短期记忆网络）神经网络结合监督学习和非监督学习方法，在4种语言领域实现了命名实体识别的最新成果。</a></p>
+<p>程序实现：以下使用spacy执行命名实体识别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)sentence=<span class="string">"Ram of Apple Inc. travelled to Sydney on 5th October 2017"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token, token.ent_type_)</span><br></pre></td></tr></table></figure>
+<h1 id="7-情感分析"><a href="#7-情感分析" class="headerlink" title="7. 情感分析"></a>7. 情感分析</h1><p>什么是情感分析？情感分析是一种广泛的主观分析，它使用自然语言处理技术来识别客户评论的语义情感，语句表达的情绪正负面以及通过语音分析或书面文字判断其表达的情感等等。例如：</p>
+<p>“我不喜欢巧克力冰淇淋”—是对该冰淇淋的负面评价。</p>
+<p>“我并不讨厌巧克力冰激凌”—可以被认为是一种中性的评价。</p>
+<p>从使用LSTMs和Word嵌入来计算一个句子中的正负词数开始，有很多方法都可以用来进行情感分析。</p>
+<p>博文1：<a href="https://www.analyticsvidhya.com/blog/2016/02/step-step-guide-building-sentiment-analysis-model-graphlab/" target="_blank" rel="noopener">本文重点对电影推文进行情感分析。</a></p>
+<p>博文2：<a href="https://www.analyticsvidhya.com/blog/2017/01/sentiment-analysis-of-twitter-posts-on-chennai-floods-using-python/" target="_blank" rel="noopener">本文重点对印度金奈洪水期间的推文进行情感分析。</a></p>
+<p>论文1：<a href="https://arxiv.org/pdf/1305.6143.pdf" target="_blank" rel="noopener">本文采用朴素贝叶斯的监督学习方法对IMDB评论进行分类。</a></p>
+<p>论文2：<a href="http://www.cs.cmu.edu/~yohanj/research/papers/WSDM11.pdf" target="_blank" rel="noopener">本文利用LDA的无监督学习方法来识别用户生成评论的观点和情感。本文在解决注释评论短缺的问题上表现突出。</a></p>
+<p>资料库：<a href="https://github.com/xiamx/awesome-sentiment-analysis" target="_blank" rel="noopener">这是一个很好的包含相关研究论文和各种语言情感分析程序实现的资料库。</a></p>
+<p>数据集1<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/" target="_blank" rel="noopener">：多域情感数据集版本2.0</a></p>
+<p>数据集2：<a href="http://www.sananalytics.com/lab/twitter-sentiment/" target="_blank" rel="noopener">Twitter情感分析数据集</a></p>
+<p>竞赛：<a href="https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews" target="_blank" rel="noopener">一个非常好的比赛，你可以检查你的模型在烂番茄电影评论的情感分析任务中的表现。</a></p>
+<h1 id="8-语义文本相似度"><a href="#8-语义文本相似度" class="headerlink" title="8. 语义文本相似度"></a>8. 语义文本相似度</h1><p>什么是语义文本相似度分析？语义文本相似度分析是对两段文本的意义和本质之间的相似度进行分析的过程。注意，相似性与相关性是不同的。</p>
+<p>例如：</p>
+<blockquote>
+<p>汽车和公共汽车是相似的，但是汽车和燃料是相关的。</p>
+</blockquote>
+<p>论文1：<a href="https://pdfs.semanticscholar.org/5b5c/a878c534aee3882a038ef9e82f46e102131b.pdf" target="_blank" rel="noopener">本文详细介绍了文本相似度测量的不同方法。是一篇可以一站式了解目前所有方法的必读文章。</a></p>
+<p>论文2：<a href="http://casa.disi.unitn.it/~moschitt/since2013/2015_SIGIR_Severyn_LearningRankShort.pdf" target="_blank" rel="noopener">本文介绍了用CNN神经网络去比对两个短文本。</a></p>
+<p>论文3：<a href="https://nlp.stanford.edu/pubs/tai-socher-manning-acl2015.pdf" target="_blank" rel="noopener">本文利用Tree-LSTMs方法得到了文本的语义相关和语义分类的最新成果。</a></p>
+<h1 id="9-语言识别"><a href="#9-语言识别" class="headerlink" title="9. 语言识别"></a>9. 语言识别</h1><p>什么是语言识别？语言识别指的是将不同语言的文本区分出来。其利用语言的统计和语法属性来执行此任务。语言识别也可以被认为是文本分类的特殊情况。</p>
+<p>博文：<a href="https://fasttext.cc/blog/2017/10/02/blog-post.html" target="_blank" rel="noopener">在这篇由fastText撰写的博文中介绍了一种新的工具，其可以在1MB的内存使用情况下识别170种语言。</a></p>
+<p>论文1：<a href="http://www.ep.liu.se/ecp/131/021/ecp17131021.pdf" target="_blank" rel="noopener">本文讨论了285种语言的7种语言识别方法。</a></p>
+<p>论文2：<a href="https://repositorio.uam.es/bitstream/handle/10486/666848/automatic_lopez-moreno_ICASSP_2014_ps.pdf?sequence=1" target="_blank" rel="noopener">本文描述了如何使用深度神经网络来实现自动语言识别的最新成果。</a></p>
+<h1 id="10-文本摘要"><a href="#10-文本摘要" class="headerlink" title="10. 文本摘要"></a>10. 文本摘要</h1><p>什么是文本摘要？文本摘要是通过识别文本的重点并使用这些要点创建摘要来缩短文本的过程。文本摘要的目的是在不改变文本含义的前提下最大限度地缩短文本。</p>
+<p>论文1：<a href="https://arxiv.org/pdf/1509.00685.pdf" target="_blank" rel="noopener">本文描述了基于神经注意模型的抽象语句梗概方法。</a></p>
+<p>论文2：<a href="https://arxiv.org/pdf/1602.06023.pdf" target="_blank" rel="noopener">本文描述了使用序列到序列的RNN在文本摘要中达到的最新结果。</a></p>
+<p>资料库：<a href="https://github.com/tensorflow/models/tree/master/research/textsum" target="_blank" rel="noopener">Google Brain团队的这个资料库拥有使用为文本摘要定制的序列到序列模型的代码。该模型在Gigaword数据集上进行训练。</a></p>
+<p>应用程序：<a href="https://www.reddit.com/r/autotldr/comments/31b9fm/faq_autotldr_bot/" target="_blank" rel="noopener">Reddit的autotldr机器人使用文本摘要来梗概从文章到帖子的各种评论。这个功能在Reddit用户中非常有名。</a></p>
+<p>程序实现：以下是如何用gensim包快速实现文本摘要。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fromgensim.summarization <span class="keyword">import</span> summarize</span><br><span class="line">sentence=<span class="string">"Automatic summarization is the process of shortening a text document with software, in order to create a summary with the major points of the original document. Technologies that can make a coherent summary take into account variables such as length, writing style and syntax.Automatic data summarization is part of machine learning and data mining. The main idea of summarization is to find a subset of data which contains the information of the entire set. Such techniques are widely used in industry today. Search engines are an example; others include summarization of documents, image collections and videos. Document summarization tries to create a representative summary or abstract of the entire document, by finding the most informative sentences, while in image summarization the system finds the most representative and important (i.e. salient) images. For surveillance videos, one might want to extract the important events from the uneventful context.There are two general approaches to automatic summarization: extraction and abstraction. Extractive methods work by selecting a subset of existing words, phrases, or sentences in the original text to form the summary. In contrast, abstractive methods build an internal semantic representation and then use natural language generation techniques to create a summary that is closer to what a human might express. Such a summary might include verbal innovations. Research to date has focused primarily on extractive methods, which are appropriate for image collection summarization and video summarization."</span></span><br><span class="line">summarize(sentence)</span><br></pre></td></tr></table></figure>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>以上所有是最流行的NLP任务以及相关的博客、研究论文、资料库、应用等资源。</p>
+<p>祝你学习愉快！</p>
 
         
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/自然语言处理/"><i class="fas fa-hashtag fa-fw"></i>自然语言处理</a>
+                
             </div>
         
+    </section>
+</article>
+
+        </div>
+      
     
+</section>
+
+
+
+<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+
+
+
+
+        </div>
+        <aside class='l_side'>
+            
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
-
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>lightsmile &copy; 2015 - 2019</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
 
 
 
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/categories/自然语言处理/&title=lightsmile's Blog&pic=http://www.iamlightsmile.com/img/lightsmile.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/categories/自然语言处理/&title=lightsmile's Blog&source=this is a description" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.iamlightsmile.com/categories/自然语言处理/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=lightsmile's Blog&url=http://www.iamlightsmile.com/categories/自然语言处理/&via=http://www.iamlightsmile.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.iamlightsmile.com/categories/自然语言处理/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aO27DMBAFQN//0k4bIAj1HikVIkeVETsSx8V6f59PfH2nrt//O77z36d8nrgwMDBey8iP8t9jVt4dfyY5GwYGxjmMJBTmnxljkqPnz8XAwMBobz0XXjEwMDCeZswVn8n9MTAwMNoitm2ZjcvacSB+sBbHwMB4IeOJ4HjX60fmGxgYGK9irIwkx2G0DcFLg1IMDIytGXmAa1PGPMmbC7gYGBinMerG1nIRmw9K2zIYAwNjV8bc+ldOzYNs2/L793cDAwPjAEZy6DnSXFmbBGsMDIxzGOMSNA/Q7d/nviYMDIwTGPlCWJveJV9QMnKIViswMDC2ZkSt9vjd/M53jSIudtwwMDC2YLQtsDwsrgTlvMGHgYFxGqM9SpLwFW39IIhfLIRhYGBsysgL2rsC7lzKeNvOCAYGxmsZ7UBxbhUjTzTbpTEMDIy9Gfmx5oaU+cih/X24KGIxMDA2YuRjwnuHkVE5GpwEAwPjHEbbOGtHj23j7LYtEgwMjI0Yc7dry9p25FDvjGBgYBzDSDDJu0lS2K6X1ZEeAwNjO0ZeLt678tUCLlJDDAyM7Rjf8soL3XbZok0Ki8obAwPj5YyV9LFtxs0liHMDTgwMjP0YbQBdaZPlAbpexcDAwDiA0RaZ4zFAO05YGZFiYGBgtI2z9g635bMYGBgYC2sW65V0VDxjYGAcwMiHARcT0RIzN87EwMA4jZGHvLw1NreWsR7EMTAwtmP8AB+yiYejBvQ0AAAAAElFTkSuQmCC" alt="微信分享二维码">
-</div>
 
 
 
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
-
-
+    <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-<!-- mathjax config similar to math.stackexchange -->
 
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
+  MathJax.Hub.Queue(function() {
     var all = MathJax.Hub.getAllJax(), i;
     for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
+      all[i].SourceElement().parentNode.className += ' has-jax';
     }
-});
+  });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '客官慢走！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '欢迎光临！';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
-
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
