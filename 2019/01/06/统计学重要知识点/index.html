@@ -269,23 +269,17 @@
 <ul>
 <li>共同点：都是用来描述独立同分布（i.i.d）的随机变量的和的渐近表现（asymptotic behavior）</li>
 <li>区别：它们描述的是在不同的收敛速度（convergence rate）之下的表现，其次LLN前提条件弱一点：$E(|X|) &lt; \infty$，CLT条件强一点:$E(X^2) &lt; \infty$。</li>
-<li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X) \underrightarrow{P} 0$.中心极限定理说的是$\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D}N(0,E)$.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li>
+<li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X) \underrightarrow{P} 0$.中心极限定理说的是<script type="math/tex">\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D}N(0,E)</script>.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li>
 </ul>
-</blockquote>
-<blockquote>
 <p>大数定律讨论的是依概率收敛，中心极限定理涉及按分布收敛（按分布收敛比点点收敛弱很多啊）。私以为搞清楚随机变量序列的收敛性就是为了方便在样本量很大情况下计算概率。。。</p>
 <ul>
 <li>大数定律是说随机变量序列的算术平均以概率收敛到其均值的算术平均。比较经典的运用就是用频率确定概率，比如估计不合格品率，抽样的不合格品比例就是可以作为总体的不合格品率估计值。</li>
 <li>中心极限定理说的是给出随机变量和的分布函数在什么条件下收敛到正太分布。比较熟悉的比如用来估计误差，误差基本上都是由这样那样大大小小微小因素叠加的，这些个因素相加就是总的误差，这个时候就要用到参数估计和假设检验了，在认为误差近似正太分布情况下，给出误差上限下限，置信度，判断质量是否达到要求等等工作就可以做了。<br>作者：yyylll；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155488114" target="_blank" rel="noopener">原文链接</a></li>
 </ul>
-</blockquote>
-<blockquote>
 <p>大数定律揭示了大量随机变量的平均结果，但没有涉及到随即变量的分布的问题。而中心极限定理说明的是在一定条件下，大量随机独立变量的平均数是以正态分布为极限的。</p>
 </blockquote>
 <h3 id="3-泊松分布的现实意义"><a href="#3-泊松分布的现实意义" class="headerlink" title="3. 泊松分布的现实意义"></a>3. 泊松分布的现实意义</h3><blockquote>
 <p>马同学的讲解：<a href="https://www.zhihu.com/question/26441147/answer/429569625" target="_blank" rel="noopener">泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a></p>
-</blockquote>
-<blockquote>
 <p>先说结论：泊松分布是二项分布n很大而p很小时的一种极限形式二项分布是说，已知某件事情发生的概率是p，那么做n次试验，事情发生的次数就服从于二项分布。泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个p很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此n(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。作者：ctian；来源：知乎；<a href="https://www.zhihu.com/question/26441147/answer/82350992" target="_blank" rel="noopener">原文链接</a></p>
 </blockquote>
 <h3 id="4-理解概率分布函数和概率密度函数"><a href="#4-理解概率分布函数和概率密度函数" class="headerlink" title="4. 理解概率分布函数和概率密度函数"></a>4. 理解概率分布函数和概率密度函数</h3><blockquote>
@@ -305,7 +299,7 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-01-06T12:52:01+08:00" content="2019-01-06"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-01-06T16:01:00+08:00" content="2019-01-06"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2019-01-06
               </time>
             
