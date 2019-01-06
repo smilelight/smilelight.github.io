@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Scrapy爬取知乎数据小试 | lightsmile&#39;s Blog</title>
+  
+  <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+  
+  
+  <meta name="description" content="this is a description">
+  
+
+  <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  
+  <meta name="theme-color" content="#f24e32">
+  
+  <meta name="msapplication-TileColor" content="#f24e32">
+  
+  <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/browserconfig.xml">
+  
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+  
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicon.ico"
+   type="image/x-icon"
+  
+  
+  
+  >
+  
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/favicon-32x32.png"
+   type="image/x-icon"
+   sizes="32x32"
+  
+  
+  >
+  
+  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/apple-touch-icon.png"
+   type="image/png"
+   sizes="180x180"
+  
+  
+  >
+  
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/safari-pinned-tab.svg"
+  
+  
+  
+  
+   color="#f24e32">
+  
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/site.webmanifest"
+  
+  
+  
+  
+  >
+  
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+  
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          lightsmile's Blog
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:www.iamlightsmile.com"
+								 class="nav flat-box" href="https://www.iamlightsmile.com/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="friends"
+								 class="nav flat-box" href="/friends/">
+									<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:www.iamlightsmile.com" class="nav flat-box" href="https://www.iamlightsmile.com/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="friends" class="nav flat-box" href="/friends/">
+											<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Scrapy爬取知乎数据小试</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-04-06
+      </time>
+    
+
+    
+      
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>啊啊啊，没时间写啦，以后有时间再写吧！</p>
+<p>。。。发现今天是周五，不熄灯。。。</p>
+<p>前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。</p>
+<p>自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Demo练了练小手。</p>
+<p>B站真是个好地方，上面有不少免费的好的视频可以看，虽然版权这方面%<em>&amp;@#￥</em>！@￥……@#￥%……#@￥%##￥@</p>
+<p><a href="https://www.bilibili.com/video/av18202461" target="_blank" rel="noopener">这是学习爬虫的视频链接</a></p>
+<p>作者是拿轮子哥vczh作为start_user的，当时还愣了一下，可以的，会玩，想当年自己也关注过轮子哥一段时间，不过看他经常给美女们点赞、抖机灵，后来便取关了。</p>
+<p>废话少说，言归正传：</p>
+<ol>
+<li><strong>爬虫</strong>：请求网站并提取数据的自动化程序。</li>
+<li>爬虫的基本流程：<ul>
+<li><strong>发起请求</strong>：通过HTTP库向目标站点发起请求,即发送一个Request,情况请可以包含额外的headers等信息,等待服务器响应。</li>
+<li><strong>获取响应内容</strong>：如果服务器能正常响应，会得到一个Response，Response的内容便是所要获取的页面内容，内容可能有HTML，Json字符串，二进制数据（如图片视频）等类型。</li>
+<li><strong>解析内容</strong>：得到的内容可能是HTML，可以用正则表达式、网页解析库进行解析，可呢是Json，可以直接转为Json对象解析，可能是二进制数据，可以做保存或者进一步的处理。</li>
+<li><strong>保存数据</strong>：保存形式多样，可以存为文本，也可以保存至数据库，或者保存特定格式的文件。</li>
+</ul>
+</li>
+</ol>
+<p>项目所实现的是从首个著名知乎用户（本项目中为vczh）个人信息及其所有关注人、所有粉丝相关信息爬取开始、一直延伸整个关注网，并将结果数据集保存在MongoDB中。</p>
+<p>具体来说就是先爬轮子哥的个人信息数据，然后依次爬取他的所有关注人的个人信息以及他的所有粉丝们的个人信息，这样的策略应用到每一个爬虫经过的用户上，从而实现数据的遍历抽取。单纯从Python代码的角度上讲，类似于会重复的深度优先遍历，然而具体的Scrapy引擎内部会如何调度这些Request队列就是人家内部的算法了。</p>
+<p>视频的上传时间是18年1月11日，当时从网页中获取到的用户信息相对比较简单、集中、丰富，今天我试了又试，发现可获取到的直接信息变少了。由于只是初步尝试，所以也就按部就班的照样执行，没有做得不偿失的优化了。</p>
+<p>Scrapy引擎的框架大致如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy%E6%9E%B6%E6%9E%84.jpg" alt="scrapy架构" title="">
+                </div>
+                <div class="image-caption">scrapy架构</div>
+            </figure>
+<p>我们可以看到整个引擎主要是由四部分组成：</p>
+<ul>
+<li>Scheduler（调度器）</li>
+<li>Downloader（下载器）</li>
+<li>Spiders（爬虫）</li>
+<li>Item Pipeline（项目 管道）</li>
+</ul>
+<p>其中Spider中定义了具体的爬虫逻辑，比如我们要怎么爬，爬什么，后面跟着的s表明这通常不是一个Spider，而是通常有多个Spider，我们可以根据不同的具体需求编写对应的Spider。</p>
+<p>Spiders之上的是一些Spider Middlewares（即爬虫中间件），有点类似于Python中函数的修饰器，可以对函数进行一些增强和拓展，同样的，我们可以通过这些Spider中间件来丰富和拓展我们编写的小Spider，让它们表现的更给力一些，同时这也可以简化我们的编写逻辑，因为我们只需要在之上套些中间件就可以了，套什么中间件视具体需求而定，比如说冬天穿大衣、夏天穿衬衫等。</p>
+<p>当Spider生成好之后，引擎会开始执行这个Spider的内部逻辑，如start_requests方法，和parse方法等等，具体的它会将HTTP的Request请求交给Downloader完成，由Downloader完成从Internet上下载资源数据的具体任务，而Downloader也可以有自己的中间件也就是Downloader Middlewares，可以对Downloader进行改装，增强。</p>
+<p>Downloader完成下载后，Scrapy引擎会将Downloader的成果Responses交给之前的Spider，执行它的解析方法。之后视具体情况，Spider可能会爬取更多的数据，相应的会产生更多的Request请求，或者将Response中的数据进行处理，处理为Item，然后转交给Item Pipeline做最后的数据处理工作。</p>
+<p>因为爬虫一般不是一个一个的爬，而是通常成百上千乃至上万的爬，Scheduler的主要作用类似于CPU的处理器对这些请求做一个规划调度，先做哪个，后做哪个等等。</p>
+<p>Item Pipline 中，Item可以视为一个数据对象的容器，而Pipline则类似Unix系统中的管道，或者更通俗点，就像流水线的的工人，从网上获取原材料之后，Spider这个工人进行加工处理，之后这些Pipline们做做类似贴标签的工作，最终提交正式的产品。</p>
+<p>因为我们爬虫的编写都是具有针对性的，知己知彼百战不殆嘛。所以首先要分析知乎相关的数据流通状况：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-user.png" alt="scrapy-user" title="">
+                </div>
+                <div class="image-caption">scrapy-user</div>
+            </figure>
+<p>以上是轮子哥的知乎页面。</p>
+<p>首先必须要按F12打开开发者工具，查看Network页面。</p>
+<p>对于某个用户的具体信息，如关注人或粉丝列表中的，我们只需要将鼠标请放在某个人的图像上，知乎就会通过Ajax去请求这个人的数据，以Json对象的格式返回给浏览器，同样的，当我们查看关注人列表和粉丝列表时，知乎也是通过Ajax请求返回这些数据对象的，具体的如以下几张图片：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-info.png" alt="scrapy-info" title="">
+                </div>
+                <div class="image-caption">scrapy-info</div>
+            </figure>
+<p>这是轮子哥关注的某个人的信息，观看图右侧我们发现这个人相关信息就在这个Json对象中。而如果要获取到这个Response体中的Json对象，我们只要执行最上面的网络请求就可以了：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-user.png" alt="scrapy-request-user" title="">
+                </div>
+                <div class="image-caption">scrapy-request-user</div>
+            </figure>
+<p>还有类似的关注人列表和粉丝列表也都是大概类似的情况，不过情况的url中的参数和内容稍有不同罢了。</p>
+<p>关注人列表：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followees.png" alt="scrapy-followees" title="">
+                </div>
+                <div class="image-caption">scrapy-followees</div>
+            </figure>
+<p>相关请求：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followees.png" alt="scrapy-request-followees" title="">
+                </div>
+                <div class="image-caption">scrapy-request-followees</div>
+            </figure>
+<p>粉丝列表：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followers.png" alt="scrapy-followers" title="">
+                </div>
+                <div class="image-caption">scrapy-followers</div>
+            </figure>
+<p>相关请求：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followers.png" alt="scrapy-request-followers" title="">
+                </div>
+                <div class="image-caption">scrapy-request-followers</div>
+            </figure>
+<p>其实爬虫这个东西的基本原理很简单，就是执行HTTP请求，处理响应的数据，将这个过程重复化自动化而已。</p>
+<p>而基于前面我们所提到的爬取信息的相关策略，我们要做的就是爬轮子哥的数据，然后请求两个列表中其他人的数据，并拓展开来。</p>
+<p>整个项目的结构如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/project-structure.png" alt="project-structure" title="">
+                </div>
+                <div class="image-caption">project-structure</div>
+            </figure>
+<p>这里我们需要编写的是zhihu.py、items.py、piplines.py、settings.py</p>
+<p>在settings.py中我们进行了请求头、Item Pipline中间件和MongoDB相关的配置。</p>
+<p>如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">DEFAULT_REQUEST_HEADERS = &#123;</span><br><span class="line">  <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,</span><br><span class="line">  <span class="string">'Accept-Language'</span>: <span class="string">'en'</span>,</span><br><span class="line">  <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; W…) Gecko/20100101 Firefox/57.0'</span>,</span><br><span class="line">  <span class="string">'authorization'</span>:<span class="string">' oauth c3cef7c66a1843f8b3a9e6a1e3160e20'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">'zhihuUser.pipelines.MongoPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MONGO_URI = <span class="string">'localhost'</span></span><br><span class="line">MONGO_DATABASE = <span class="string">'zhihu'</span></span><br></pre></td></tr></table></figure>
+<p>我们针对Json对象的内容编写的ZhihuUserItem对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Item,Field</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuUserItem</span><span class="params">(Item)</span>:</span></span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    id = Field()</span><br><span class="line">    is_followed = Field()</span><br><span class="line">    avatar_url_template = Field()</span><br><span class="line">    user_type = Field()</span><br><span class="line">    answer_count = Field()</span><br><span class="line">    is_following = Field()</span><br><span class="line">    url = Field()</span><br><span class="line">    url_token = Field()</span><br><span class="line">    allow_message = Field()</span><br><span class="line">    articles_count = Field()</span><br><span class="line">    is_blocking = Field()</span><br><span class="line">    name = Field()</span><br><span class="line">    headline = Field()</span><br><span class="line">    badge = Field()</span><br><span class="line">    is_advertiser = Field()</span><br><span class="line">    avatar_url = Field()</span><br><span class="line">    is_org = Field()</span><br><span class="line">    gender = Field()</span><br><span class="line">    follower_count = Field()</span><br><span class="line">    employments = Field()</span><br><span class="line">    type = Field()</span><br></pre></td></tr></table></figure>
+<p>因为要将数据存储到MongoDB中，所以要进行MongoDB的Item Pipline中间件的编写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MongoPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    collection_name = <span class="string">'user_info'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, mongo_uri, mongo_db)</span>:</span></span><br><span class="line">        self.mongo_uri = mongo_uri</span><br><span class="line">        self.mongo_db = mongo_db</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_crawler</span><span class="params">(cls, crawler)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(</span><br><span class="line">            mongo_uri=crawler.settings.get(<span class="string">'MONGO_URI'</span>),</span><br><span class="line">            mongo_db=crawler.settings.get(<span class="string">'MONGO_DATABASE'</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client = pymongo.MongoClient(self.mongo_uri)</span><br><span class="line">        self.db = self.client[self.mongo_db]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.db[self.collection_name].insert_one(dict(item))</span><br><span class="line">        <span class="comment"># self.db[self.collection_name].update(&#123;'url_token': item['url_token']&#125;,&#123;'$set': item&#125;,True)</span></span><br></pre></td></tr></table></figure>
+<p>最后是zhihu.py 中 ZhihuSpider的编写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Request</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> zhihuUser.items <span class="keyword">import</span> ZhihuUserItem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'zhihu'</span></span><br><span class="line">    allowed_domains = [<span class="string">'www.zhihu.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://www.zhihu.com/'</span>]</span><br><span class="line"></span><br><span class="line">    start_user = <span class="string">'excited-vczh'</span></span><br><span class="line"></span><br><span class="line">    user_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;?include=&#123;include&#125;'</span></span><br><span class="line">    user_query = <span class="string">'allow_message,is_followed,is_following,is_org,is_blocking,employments,answer_count,follower_count,articles_count,gender,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followees_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followees?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followees_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followers_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followers?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followers_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">yield</span> Request(self.user_url.format(user=self.start_user,include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="comment"># yield Request(self.followees_url.format(user=self.start_user,include=self.followees_query,offset=0,limit=20),callback=self.parse_followees)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_user</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        item = ZhihuUserItem()</span><br><span class="line">        <span class="keyword">for</span> field <span class="keyword">in</span> item.fields:</span><br><span class="line">            <span class="keyword">if</span> field <span class="keyword">in</span> result.keys():</span><br><span class="line">                item[field] = result.get(field)</span><br><span class="line">        <span class="keyword">yield</span> item</span><br><span class="line">        <span class="keyword">yield</span> Request(self.followees_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followees_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">                      callback=self.parse_followees)</span><br><span class="line">        <span class="keyword">yield</span> Request(</span><br><span class="line">            self.followers_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followers_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">            callback=self.parse_followees)</span><br><span class="line">        <span class="comment"># print(json.loads(response.text))</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followees</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="keyword">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followees)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followers</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="keyword">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followers)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>在终端下执行<code>scrapy crawl zhihu</code>后，爬虫便会开始启动，由于这个工程一直爬一直爬，所以让它爬一会做个样子就行了，通过<code>Ctrl+C</code>停止当前任务，随后我们可以通过可视化工具查看到存入MongoDB中的数据：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-mongo-data.png" alt="scrapy-mongo-data" title="">
+                </div>
+                <div class="image-caption">scrapy-mongo-data</div>
+            </figure>
+<p>大功告成！虽然超级简单。。。</p>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2018-04-07T18:50:26+08:00" content="2018-04-07"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2018-04-07
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/爬虫/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;爬虫</a></div> <div class="metatag tags"><a class="tag" href="/tags/Scrapy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Scrapy</a></div>
+            
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2018/04/07/哈工大ltp小试/" rel="prev" title="哈工大ltp小试">
+                                  
+                                      哈工大ltp小试
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Python/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Python</a> <a class="tag" href="/tags/自然语言处理/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>自然语言处理</a> <a class="tag" href="/tags/ltp/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>ltp</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/03/28/微信小程序探索随笔/" rel="prev" title="微信小程序的component">
+                                    
+                                        微信小程序的component
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/微信小程序/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>微信小程序</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;相关文章</h4>
+        <ul>
+            
+                <li><a href="http://www.iamlightsmile.com/2018/04/17/学习Python设计模式/">学习Python设计模式</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/2018/04/07/哈工大ltp小试/">哈工大ltp小试</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/2018/03/28/微信小程序探索随笔/">微信小程序的component</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/2018/03/19/learnNLTKbyWatchVideo/">learnNLTKbyWatchVideo</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Scrapy爬取知乎数据小试',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/avatar/avatar.png'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">lightsmile's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:iamlightsmile@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/smilelight" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/m/user/home?id=515917285" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;注意啦～</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://xaoxuu.com/wiki/material-x/"
+    title="https://xaoxuu.com/wiki/material-x/">
+    <i class="fas fa-question-circle fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <p>本站使用 <a href="https://xaoxuu.com/wiki/material-x/">Material X</a> 作为主题，喜欢这个主题的朋友可以阅读文档进行安装哦，超喜欢的话还可以安利给身边的朋友哦～</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/lua/" href="/categories/lua/"><div class='name'>lua</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/哲学/" href="/categories/哲学/"><div class='name'>哲学</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数学/" href="/categories/数学/"><div class='name'>数学</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/自然语言处理/" href="/categories/自然语言处理/"><div class='name'>自然语言处理</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/计算机/" href="/categories/计算机/"><div class='name'>计算机</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 24px; color: #555">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 14px; color: #999">抽象</a> <a href="/tags/数学/" style="font-size: 14px; color: #999">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 17.33px; color: #828282">浏览器插件</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 17.33px; color: #828282">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 20.67px; color: #6c6c6c">自然语言处理</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;精选项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://xaoxuu.com/projects/"
+    title="https://xaoxuu.com/projects/">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/axkit/" href="https://xaoxuu.com/wiki/axkit/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;AXKit
+          </div>
+          
+            <div class='badge'>(iOS开源库)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/noticeboard/" href="https://xaoxuu.com/wiki/noticeboard/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;NoticeBoard
+          </div>
+          
+            <div class='badge'>(iOS开源库)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/heartmate/" href="https://xaoxuu.com/heartmate/">
+          <div class='name'>
+            
+              <i class="fas fa-heartbeat fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;HeartMate
+          </div>
+          
+            <div class='badge'>(iOS应用程序)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Material X
+          </div>
+          
+            <div class='badge'>(Hexo博客主题)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;特别链接</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://www.iamlightsmile.com/about/" href="https://www.iamlightsmile.com/about/">
+          <div class='name'>
+            
+              <i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;关于我 / 留言板
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="746319661"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:iamlightsmile@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/smilelight" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/m/user/home?id=515917285" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
