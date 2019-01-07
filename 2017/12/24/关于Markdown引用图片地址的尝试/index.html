@@ -261,28 +261,16 @@
 <ol>
 <li>首先在GitHub上新建自己的图片仓库，以后的图片都可以放到这个里面。</li>
 </ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/my_images_repository.png" alt="我的图片仓库" title="">
-                </div>
-                <div class="image-caption">我的图片仓库</div>
-            </figure>
-<ol start="2">
+<p><img src="https://github.com/smilelight/images/raw/master/my_images_repository.png" alt="我的图片仓库"></p>
+<ol>
 <li>随后可以把仓库克隆到本地计算机文件系统中，需要添加图片时，可以通过创建相关文件夹，然后在里面放入需要链接的图片。</li>
 </ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/local_images_repository.png" alt="本地图片仓库" title="">
-                </div>
-                <div class="image-caption">本地图片仓库</div>
-            </figure>
-<ol start="3">
+<p><img src="https://github.com/smilelight/images/raw/master/local_images_repository.png" alt="本地图片仓库"></p>
+<ol>
 <li>通过Git命令实现仓库的提交。</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"change the images"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<ol start="4">
+<ol>
 <li>通过对应GitHub上图片资源绝对地址的引用实现自己Markdown文章图片的引用工作。 </li>
 </ol>
 <p><img src="https://github.com/smilelight/images/raw/master/use_images_in_markdown.png" alt="引用图片"></p>
@@ -292,38 +280,14 @@
 <p>这三步，所以很容易可以想到通过编写批处理文件来完成这样重复的工作。</p>
 <p>所以我们可以创建一个名字为<code>auto.bat</code>的文件放到本地仓库的根目录下，里面的内容就是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"change the images"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
 <p>经过测试发现，如果能把命令行的显示尽量隐藏掉就好了，于是可以在开头加上一个<code>@echo off</code>关闭命令的回显，然而毕竟Git提交是将本地数据提交到远端，需要有一个过程，同时也应该有一个结果提示，所以基本上不可避免的还是会弹出显示上传结果的shell界面，如：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/git_push_result.png" alt="提交结果" title="">
-                </div>
-                <div class="image-caption">提交结果</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/git_push_result.png" alt="提交结果"></p>
 <p>然而，其工作一旦完成，便自动退出，也算可以接受的吧。</p>
 <p>以后把要上传的图片放进该文件夹下，然后双击<code>auto.bat</code>文件就可以啦！</p>
 <p>而在第4步下，发现直接通过右键获取图片链接地址，得到的并不是图片的绝对链接地址，不是很准确，直接拿来引用的话不行，我们还需要对路径进行进一步的处理才可以。</p>
-<p>如：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/a_image.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这张图片，如果直接复制的话，我们将得到的路径为:<code>https://github.com/smilelight/images/blob/master/lightsmile.png</code>(通过右击链接)或者<code>https://github.com/smilelight/images/blob/master/lightsmile.png?raw=true</code>(通过右击图片)，而其实际路径可以为：<code>https://github.com/smilelight/images/raw/master/lightsmile.png</code>或者<code>https://raw.githubusercontent.com/smilelight/images/master/lightsmile.png</code>或者<code>https://github.com/smilelight/images/blob/master/lightsmile.png?raw=true</code>。因此我们具体要做的工作也很简单，就是原本得到的路径转化为有效的绝对路径，我这里采取的策略是将其转化为第一种有效路径，即如果路径带有<code>?raw=true</code>，我就把它去掉，然后通过字符串替换，将<code>blob</code>替换为<code>raw</code>。工作是知道怎么做，可是到底怎么具体实现呢？写一个桌面小程序？之前查看知乎上有人就自己写了插件，我想我也可以试一试啊！说做就做，于是就上网寻找关于编写<code>chormium</code>拓展插件的博客教程和视频资源，经过一系列的尝试和探索之后，终于完成了功能简洁、有时还会报错的小插件。。。</p>
-<p>如图：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/my_extension_in_qqbrowser.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>如：<br><img src="https://github.com/smilelight/images/raw/master/a_image.png" alt=""><br>这张图片，如果直接复制的话，我们将得到的路径为:<code>https://github.com/smilelight/images/blob/master/lightsmile.png</code>(通过右击链接)或者<code>https://github.com/smilelight/images/blob/master/lightsmile.png?raw=true</code>(通过右击图片)，而其实际路径可以为：<code>https://github.com/smilelight/images/raw/master/lightsmile.png</code>或者<code>https://raw.githubusercontent.com/smilelight/images/master/lightsmile.png</code>或者<code>https://github.com/smilelight/images/blob/master/lightsmile.png?raw=true</code>。因此我们具体要做的工作也很简单，就是原本得到的路径转化为有效的绝对路径，我这里采取的策略是将其转化为第一种有效路径，即如果路径带有<code>?raw=true</code>，我就把它去掉，然后通过字符串替换，将<code>blob</code>替换为<code>raw</code>。工作是知道怎么做，可是到底怎么具体实现呢？写一个桌面小程序？之前查看知乎上有人就自己写了插件，我想我也可以试一试啊！说做就做，于是就上网寻找关于编写<code>chormium</code>拓展插件的博客教程和视频资源，经过一系列的尝试和探索之后，终于完成了功能简洁、有时还会报错的小插件。。。</p>
+<p>如图：<br><img src="https://github.com/smilelight/images/raw/master/my_extension_in_qqbrowser.png" alt=""></p>
 <p>这是在测试右键菜单的小插件的基础上编写的，名字懒得改了，反正也是自己用着玩的。<br>它的功能是在GitHub网站下右击链接或图片，可以复制该图片的有效地址到剪贴板中，同时在浏览器的右下角或者左下角弹出notification(通知)如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/360%E6%88%AA%E5%9B%BE170010279111897.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/360%E6%88%AA%E5%9B%BE170010279111897.png" alt=""></p>
 <p>经过测试发现确实是可以工作的，并且在不是GitHub下的网站下，右键是不会弹出这个菜单项的。<br>关于我的具体的插件编写工作请参考我的另外一篇博文。</p>
 
       </div>

@@ -273,112 +273,34 @@
 <p>获取到e（event）事件的具体信息，这里的handOrderTag只是自定义的函数，e.target和e.currentTarget分别代表不同的对象。</p>
 <p>其中target是指事件的原触发对象，而currentTarget是指当前事件的触发对象，这是与事件的冒泡捕获机制相关的。</p>
 <p>而不以“data-”开头，也不是如class、id、style等其他的属性如在上例中属性名为test的是页面传递给组件对象的信息，这里的test对应着组件对象之前设定的test属性，即在2中提到的暴露的属性名</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image1.png" alt="Image1" title="">
-                </div>
-                <div class="image-caption">Image1</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image1.png" alt="Image1"></p>
 <p>而“=”号后面的“”和“”则均是属于当前页面的逻辑层Page对象内部的数据，即this.data.test和this.tata.orders（其中的this指代的是当前对象），也就是说，在与Component组件或页面Page对象对应的wxml中，其中的永远都是指的当前组件或页面对象，无法外指和内值，即在Component对应wxml中无法引用外部Page的对象（这个很合理，因为组件本来就是要被复用的，不应该出现还可以引用外部的数据的情况），Page对应的wxml中也无法引用内部Component对象的内部属性，而如果要使用内部的值，一种方法是内部定义触发的方法然后再使用如this.triggerEvent(‘change’, this)<br>触发外部的change事件，这样组件外部就可以使用bindchange=”方法名”进行handle处理了。<br>如下几个阶段：</p>
 <pre><code>1. 在Page的wxml中使用组件order-by,绑定了自定义事件MyEvent，这样在MyEvent事件被触发时，Page对象的handleMyEvent方法就会被执行。
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image2.png" alt="Image2" title="">
-                </div>
-                <div class="image-caption">Image2</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image2.png" alt="Image2"></p>
 <pre><code>2. handleMyEvent方法的内容如下：
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image3.png" alt="Image3" title="">
-                </div>
-                <div class="image-caption">Image3</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image3.png" alt="Image3"></p>
 <pre><code>3.Component的wxml中的text组件绑定tap事件到Component对象的myEvent方法
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image4.png" alt="Image4" title="">
-                </div>
-                <div class="image-caption">Image4</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image4.png" alt="Image4"></p>
 <pre><code>4.myEvent方法的内容如下：
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image5.png" alt="Image5" title="">
-                </div>
-                <div class="image-caption">Image5</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image5.png" alt="Image5"></p>
 <p>因此整个的流程应当为：当我点击text文本的时候，会触发tap事件，这样它绑定的myEvent方法会被执行，然后方法内部又会主动引发MyEvent事件，这样在Page页面对其绑定的handleMyEvent方法会被执行，而该方法定义在Page对象内部。（注意不要搞混事件和方法，虽然我这里的名字比较混乱）控制台输出的结果为：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image6.png" alt="Image6" title="">
-                </div>
-                <div class="image-caption">Image6</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image6.png" alt="Image6"></p>
 <p>即先触发tap事件，再触发MyEvent自定义事件，下面我们来看一看内部传递的东西：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image7.png" alt="Image7" title="">
-                </div>
-                <div class="image-caption">Image7</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image7.png" alt="Image7"></p>
 <p>从中我们可以发现第一个事件e的currentTarget属性的dataset属性是一个空对象，对应着我们并没有在wxml的text组件内部填写“data-xx”属性，而第二个事件e的currentTarget属性的dataset属性是一个包含了fuck、order、tes三个属性的对象，尽管其中order和tes的内容为空（因为对应的数据在Page对象中没有，我错误的写成了Component对象内部的了，发现获取不到，这才有了这篇文章）。</p>
 <p>因此一般情况下，我们可以通过这种事件的方式来实现数据的传递工作，并且 this.triggerEvent() 方法接收自定义事件名称外，还接收两个对象，eventDetail 和 eventOptions。这也就是说，我们完全可以不传递this，而传递任意自己定义的对象数据，比如在myEvent中我可以不传this，接着传e，我也可以定义只与业务相关的数据对象来处理，由于方法定义在页面或组件对象内部，可以访问内部数据，而通过事件传递后可以通过参数访问数据，以此就实现了组件向页面的数据传递工作。</p>
 <p>当然，这样的一个特点是事件绑定是放在视图view层，而事件处理传递是放在逻辑js层，可能在做一些其他业务时还是需要相应的业务转化工作才可以，不够直接和方便，因为页面还是无法做到直接访问组件数据。</p>
 <p>后来发现果然页面提供了这么一个方法：this.selectComponent(“#fuck”)<br>可以在页面js中使用selectComponent选择某个component组件对象的实例，在此之上可以继续访问到它的data属性、dataset属性和properties属性，分别对应的是组件的properties属性、data属性和properties属性，如下图所示：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image8.png" alt="Image8" title="">
-                </div>
-                <div class="image-caption">Image8</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image8.png" alt="Image8"></p>
 <p>这里我们将组件的id设为fuck，handleOrderTap方法的内容如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image9.png" alt="Image9" title="">
-                </div>
-                <div class="image-caption">Image9</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image9.png" alt="Image9"></p>
 <p>打印的内容为：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image10.png" alt="Image10" title="">
-                </div>
-                <div class="image-caption">Image10</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image10.png" alt="Image10"></p>
 <p>我们可以发现它的id是自己定义的fuck,而is是项目的绝对路径，还有上面提到的data、properties、dataset属性（显而易见，properties和data属性指向同一个属性对象）（然而，经过测试发现虽然内容相同，不过并非指向同一个对象，如下图所示：真是奇了怪了。。。）。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image11.png" alt="Image11" title="">
-                </div>
-                <div class="image-caption">Image11</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image11.png" alt="Image11"></p>
 <p>如果打开<strong>proto</strong>属性，会发现更多的东西，比如说方法：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image12.png" alt="Image12" title="">
-                </div>
-                <div class="image-caption">Image12</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image13.png" alt="Image13" title="">
-                </div>
-                <div class="image-caption">Image13</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image12.png" alt="Image12"></p>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image13.png" alt="Image13"></p>
 <p>通过this.fuck.loghaha()即可完成对方法的调用，当然了，这里获取完全可以写成let fuck = this.selectComponent(“#fuck”)，然后通过fuck.loghaha()来调用，这里简单沿袭了网上搜的文章的实例。以上，也算自己学习的小经历总结吧。</p>
 
       </div>

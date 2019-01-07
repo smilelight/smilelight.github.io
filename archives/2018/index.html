@@ -287,6 +287,8 @@
       
         
       
+        
+      
     
     
       
@@ -1020,13 +1022,7 @@
 <p>具体来说就是先爬轮子哥的个人信息数据，然后依次爬取他的所有关注人的个人信息以及他的所有粉丝们的个人信息，这样的策略应用到每一个爬虫经过的用户上，从而实现数据的遍历抽取。单纯从Python代码的角度上讲，类似于会重复的深度优先遍历，然而具体的Scrapy引擎内部会如何调度这些Request队列就是人家内部的算法了。</p>
 <p>视频的上传时间是18年1月11日，当时从网页中获取到的用户信息相对比较简单、集中、丰富，今天我试了又试，发现可获取到的直接信息变少了。由于只是初步尝试，所以也就按部就班的照样执行，没有做得不偿失的优化了。</p>
 <p>Scrapy引擎的框架大致如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy%E6%9E%B6%E6%9E%84.jpg" alt="scrapy架构" title="">
-                </div>
-                <div class="image-caption">scrapy架构</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy%E6%9E%B6%E6%9E%84.jpg" alt="scrapy架构"></p>
 <p>我们可以看到整个引擎主要是由四部分组成：</p>
 <ul>
 <li>Scheduler（调度器）</li>
@@ -1041,74 +1037,26 @@
 <p>因为爬虫一般不是一个一个的爬，而是通常成百上千乃至上万的爬，Scheduler的主要作用类似于CPU的处理器对这些请求做一个规划调度，先做哪个，后做哪个等等。</p>
 <p>Item Pipline 中，Item可以视为一个数据对象的容器，而Pipline则类似Unix系统中的管道，或者更通俗点，就像流水线的的工人，从网上获取原材料之后，Spider这个工人进行加工处理，之后这些Pipline们做做类似贴标签的工作，最终提交正式的产品。</p>
 <p>因为我们爬虫的编写都是具有针对性的，知己知彼百战不殆嘛。所以首先要分析知乎相关的数据流通状况：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-user.png" alt="scrapy-user" title="">
-                </div>
-                <div class="image-caption">scrapy-user</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-user.png" alt="scrapy-user"></p>
 <p>以上是轮子哥的知乎页面。</p>
 <p>首先必须要按F12打开开发者工具，查看Network页面。</p>
 <p>对于某个用户的具体信息，如关注人或粉丝列表中的，我们只需要将鼠标请放在某个人的图像上，知乎就会通过Ajax去请求这个人的数据，以Json对象的格式返回给浏览器，同样的，当我们查看关注人列表和粉丝列表时，知乎也是通过Ajax请求返回这些数据对象的，具体的如以下几张图片：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-info.png" alt="scrapy-info" title="">
-                </div>
-                <div class="image-caption">scrapy-info</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-info.png" alt="scrapy-info"></p>
 <p>这是轮子哥关注的某个人的信息，观看图右侧我们发现这个人相关信息就在这个Json对象中。而如果要获取到这个Response体中的Json对象，我们只要执行最上面的网络请求就可以了：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-user.png" alt="scrapy-request-user" title="">
-                </div>
-                <div class="image-caption">scrapy-request-user</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-user.png" alt="scrapy-request-user"></p>
 <p>还有类似的关注人列表和粉丝列表也都是大概类似的情况，不过情况的url中的参数和内容稍有不同罢了。</p>
 <p>关注人列表：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followees.png" alt="scrapy-followees" title="">
-                </div>
-                <div class="image-caption">scrapy-followees</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followees.png" alt="scrapy-followees"></p>
 <p>相关请求：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followees.png" alt="scrapy-request-followees" title="">
-                </div>
-                <div class="image-caption">scrapy-request-followees</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followees.png" alt="scrapy-request-followees"></p>
 <p>粉丝列表：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followers.png" alt="scrapy-followers" title="">
-                </div>
-                <div class="image-caption">scrapy-followers</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followers.png" alt="scrapy-followers"></p>
 <p>相关请求：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followers.png" alt="scrapy-request-followers" title="">
-                </div>
-                <div class="image-caption">scrapy-request-followers</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followers.png" alt="scrapy-request-followers"></p>
 <p>其实爬虫这个东西的基本原理很简单，就是执行HTTP请求，处理响应的数据，将这个过程重复化自动化而已。</p>
 <p>而基于前面我们所提到的爬取信息的相关策略，我们要做的就是爬轮子哥的数据，然后请求两个列表中其他人的数据，并拓展开来。</p>
 <p>整个项目的结构如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/project-structure.png" alt="project-structure" title="">
-                </div>
-                <div class="image-caption">project-structure</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/project-structure.png" alt="project-structure"></p>
 <p>这里我们需要编写的是zhihu.py、items.py、piplines.py、settings.py</p>
 <p>在settings.py中我们进行了请求头、Item Pipline中间件和MongoDB相关的配置。</p>
 <p>如下：</p>
@@ -1120,13 +1068,7 @@
 <p>最后是zhihu.py 中 ZhihuSpider的编写：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Request</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> zhihuUser.items <span class="keyword">import</span> ZhihuUserItem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'zhihu'</span></span><br><span class="line">    allowed_domains = [<span class="string">'www.zhihu.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://www.zhihu.com/'</span>]</span><br><span class="line"></span><br><span class="line">    start_user = <span class="string">'excited-vczh'</span></span><br><span class="line"></span><br><span class="line">    user_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;?include=&#123;include&#125;'</span></span><br><span class="line">    user_query = <span class="string">'allow_message,is_followed,is_following,is_org,is_blocking,employments,answer_count,follower_count,articles_count,gender,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followees_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followees?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followees_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followers_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followers?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followers_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">yield</span> Request(self.user_url.format(user=self.start_user,include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="comment"># yield Request(self.followees_url.format(user=self.start_user,include=self.followees_query,offset=0,limit=20),callback=self.parse_followees)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_user</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        item = ZhihuUserItem()</span><br><span class="line">        <span class="keyword">for</span> field <span class="keyword">in</span> item.fields:</span><br><span class="line">            <span class="keyword">if</span> field <span class="keyword">in</span> result.keys():</span><br><span class="line">                item[field] = result.get(field)</span><br><span class="line">        <span class="keyword">yield</span> item</span><br><span class="line">        <span class="keyword">yield</span> Request(self.followees_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followees_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">                      callback=self.parse_followees)</span><br><span class="line">        <span class="keyword">yield</span> Request(</span><br><span class="line">            self.followers_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followers_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">            callback=self.parse_followees)</span><br><span class="line">        <span class="comment"># print(json.loads(response.text))</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followees</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="keyword">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followees)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followers</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="keyword">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followers)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <p>在终端下执行<code>scrapy crawl zhihu</code>后，爬虫便会开始启动，由于这个工程一直爬一直爬，所以让它爬一会做个样子就行了，通过<code>Ctrl+C</code>停止当前任务，随后我们可以通过可视化工具查看到存入MongoDB中的数据：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-mongo-data.png" alt="scrapy-mongo-data" title="">
-                </div>
-                <div class="image-caption">scrapy-mongo-data</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-mongo-data.png" alt="scrapy-mongo-data"></p>
 <p>大功告成！虽然超级简单。。。</p>
 
         
@@ -1199,112 +1141,34 @@
 <p>获取到e（event）事件的具体信息，这里的handOrderTag只是自定义的函数，e.target和e.currentTarget分别代表不同的对象。</p>
 <p>其中target是指事件的原触发对象，而currentTarget是指当前事件的触发对象，这是与事件的冒泡捕获机制相关的。</p>
 <p>而不以“data-”开头，也不是如class、id、style等其他的属性如在上例中属性名为test的是页面传递给组件对象的信息，这里的test对应着组件对象之前设定的test属性，即在2中提到的暴露的属性名</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image1.png" alt="Image1" title="">
-                </div>
-                <div class="image-caption">Image1</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image1.png" alt="Image1"></p>
 <p>而“=”号后面的“”和“”则均是属于当前页面的逻辑层Page对象内部的数据，即this.data.test和this.tata.orders（其中的this指代的是当前对象），也就是说，在与Component组件或页面Page对象对应的wxml中，其中的永远都是指的当前组件或页面对象，无法外指和内值，即在Component对应wxml中无法引用外部Page的对象（这个很合理，因为组件本来就是要被复用的，不应该出现还可以引用外部的数据的情况），Page对应的wxml中也无法引用内部Component对象的内部属性，而如果要使用内部的值，一种方法是内部定义触发的方法然后再使用如this.triggerEvent(‘change’, this)<br>触发外部的change事件，这样组件外部就可以使用bindchange=”方法名”进行handle处理了。<br>如下几个阶段：</p>
 <pre><code>1. 在Page的wxml中使用组件order-by,绑定了自定义事件MyEvent，这样在MyEvent事件被触发时，Page对象的handleMyEvent方法就会被执行。
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image2.png" alt="Image2" title="">
-                </div>
-                <div class="image-caption">Image2</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image2.png" alt="Image2"></p>
 <pre><code>2. handleMyEvent方法的内容如下：
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image3.png" alt="Image3" title="">
-                </div>
-                <div class="image-caption">Image3</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image3.png" alt="Image3"></p>
 <pre><code>3.Component的wxml中的text组件绑定tap事件到Component对象的myEvent方法
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image4.png" alt="Image4" title="">
-                </div>
-                <div class="image-caption">Image4</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image4.png" alt="Image4"></p>
 <pre><code>4.myEvent方法的内容如下：
-</code></pre><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image5.png" alt="Image5" title="">
-                </div>
-                <div class="image-caption">Image5</div>
-            </figure>
+</code></pre><p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image5.png" alt="Image5"></p>
 <p>因此整个的流程应当为：当我点击text文本的时候，会触发tap事件，这样它绑定的myEvent方法会被执行，然后方法内部又会主动引发MyEvent事件，这样在Page页面对其绑定的handleMyEvent方法会被执行，而该方法定义在Page对象内部。（注意不要搞混事件和方法，虽然我这里的名字比较混乱）控制台输出的结果为：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image6.png" alt="Image6" title="">
-                </div>
-                <div class="image-caption">Image6</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image6.png" alt="Image6"></p>
 <p>即先触发tap事件，再触发MyEvent自定义事件，下面我们来看一看内部传递的东西：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image7.png" alt="Image7" title="">
-                </div>
-                <div class="image-caption">Image7</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image7.png" alt="Image7"></p>
 <p>从中我们可以发现第一个事件e的currentTarget属性的dataset属性是一个空对象，对应着我们并没有在wxml的text组件内部填写“data-xx”属性，而第二个事件e的currentTarget属性的dataset属性是一个包含了fuck、order、tes三个属性的对象，尽管其中order和tes的内容为空（因为对应的数据在Page对象中没有，我错误的写成了Component对象内部的了，发现获取不到，这才有了这篇文章）。</p>
 <p>因此一般情况下，我们可以通过这种事件的方式来实现数据的传递工作，并且 this.triggerEvent() 方法接收自定义事件名称外，还接收两个对象，eventDetail 和 eventOptions。这也就是说，我们完全可以不传递this，而传递任意自己定义的对象数据，比如在myEvent中我可以不传this，接着传e，我也可以定义只与业务相关的数据对象来处理，由于方法定义在页面或组件对象内部，可以访问内部数据，而通过事件传递后可以通过参数访问数据，以此就实现了组件向页面的数据传递工作。</p>
 <p>当然，这样的一个特点是事件绑定是放在视图view层，而事件处理传递是放在逻辑js层，可能在做一些其他业务时还是需要相应的业务转化工作才可以，不够直接和方便，因为页面还是无法做到直接访问组件数据。</p>
 <p>后来发现果然页面提供了这么一个方法：this.selectComponent(“#fuck”)<br>可以在页面js中使用selectComponent选择某个component组件对象的实例，在此之上可以继续访问到它的data属性、dataset属性和properties属性，分别对应的是组件的properties属性、data属性和properties属性，如下图所示：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image8.png" alt="Image8" title="">
-                </div>
-                <div class="image-caption">Image8</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image8.png" alt="Image8"></p>
 <p>这里我们将组件的id设为fuck，handleOrderTap方法的内容如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image9.png" alt="Image9" title="">
-                </div>
-                <div class="image-caption">Image9</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image9.png" alt="Image9"></p>
 <p>打印的内容为：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image10.png" alt="Image10" title="">
-                </div>
-                <div class="image-caption">Image10</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image10.png" alt="Image10"></p>
 <p>我们可以发现它的id是自己定义的fuck,而is是项目的绝对路径，还有上面提到的data、properties、dataset属性（显而易见，properties和data属性指向同一个属性对象）（然而，经过测试发现虽然内容相同，不过并非指向同一个对象，如下图所示：真是奇了怪了。。。）。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image11.png" alt="Image11" title="">
-                </div>
-                <div class="image-caption">Image11</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image11.png" alt="Image11"></p>
 <p>如果打开<strong>proto</strong>属性，会发现更多的东西，比如说方法：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image12.png" alt="Image12" title="">
-                </div>
-                <div class="image-caption">Image12</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image13.png" alt="Image13" title="">
-                </div>
-                <div class="image-caption">Image13</div>
-            </figure>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image12.png" alt="Image12"></p>
+<p><img src="https://github.com/smilelight/images/raw/master/wxapp_component/Image13.png" alt="Image13"></p>
 <p>通过this.fuck.loghaha()即可完成对方法的调用，当然了，这里获取完全可以写成let fuck = this.selectComponent(“#fuck”)，然后通过fuck.loghaha()来调用，这里简单沿袭了网上搜的文章的实例。以上，也算自己学习的小经历总结吧。</p>
 
         
