@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2019-01-07T03:11:01.330Z</updated>
+  <updated>2019-01-20T01:51:59.959Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.iamlightsmile.com/2019/01/07/%E4%B8%AA%E6%80%A7%E5%8C%96hexo%E4%B8%BB%E9%A2%98/"/>
     <id>http://www.iamlightsmile.com/2019/01/07/个性化hexo主题/</id>
     <published>2019-01-07T02:48:35.000Z</published>
-    <updated>2019-01-07T03:11:01.330Z</updated>
+    <updated>2019-01-20T01:51:59.959Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="个性化hexo主题"><a href="#个性化hexo主题" class="headerlink" title="个性化hexo主题"></a>个性化hexo主题</h1><h2 id="1-换Material-X主题"><a href="#1-换Material-X主题" class="headerlink" title="1. 换Material X主题"></a>1. 换Material X主题</h2><p>原来自己用的是indigo主题，还是蛮material的，只是后来发现material x的主题更好看，插件更加丰富一些，于是就探索切换了一番，哈哈哈。</p><a id="more"></a><h3 id="1-下载主题，设置切换"><a href="#1-下载主题，设置切换" class="headerlink" title="1. 下载主题，设置切换"></a>1. 下载主题，设置切换</h3><p>首先把主题下下来，然后在config文件里设置</p><h3 id="2-参考使用文档，添加小部件"><a href="#2-参考使用文档，添加小部件" class="headerlink" title="2. 参考使用文档，添加小部件"></a>2. 参考使用文档，添加小部件</h3><h2 id="2-增加Google统计"><a href="#2-增加Google统计" class="headerlink" title="2. 增加Google统计"></a>2. 增加Google统计</h2><p>之前看别人的博客下面有网站运行时间，很是羡慕，猜测是统计插件的原因，后来按照教程探索增加Google Analytics 统计功能，发现并不是这个原因，不过可以更详致的统计网站信息了，虽然现在只有自己看。。。</p><h2 id="3-增加运行时间"><a href="#3-增加运行时间" class="headerlink" title="3. 增加运行时间"></a>3. 增加运行时间</h2><p>网上搜索到教程，然后照搬小改完成，原来只是增加一个script脚本，逐渐理解其原理。</p><h2 id="4-增加转载说明"><a href="#4-增加转载说明" class="headerlink" title="4. 增加转载说明"></a>4. 增加转载说明</h2><p>参考别人写的个性化hexo博客里有一部分提到了此节，于是将其迁到了ejs中，发现只不过是一段模板代码，初步理解一小点hexo框架原理</p><h2 id="5-增加点击红心功能"><a href="#5-增加点击红心功能" class="headerlink" title="5. 增加点击红心功能"></a>5. 增加点击红心功能</h2><p>也是照搬教程，原来也是一段script脚本而已。</p><h2 id="6-增加canvas以及3D效果"><a href="#6-增加canvas以及3D效果" class="headerlink" title="6. 增加canvas以及3D效果"></a>6. 增加canvas以及3D效果</h2><p>这个也可以实现，不过考虑实用，并没有加入</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="个性化hexo主题"><a href="#个性化hexo主题" class="headerlink" title="个性化hexo主题"></a>个性化hexo主题</h1><h2 id="1-换Material-X主题"><a href="#1-换Material-X主题" class="headerlink" title="1. 换Material X主题"></a>1. 换Material X主题</h2><p>原来自己用的是indigo主题，还是蛮material的，只是后来发现material x的主题更好看，插件更加丰富一些，于是就探索切换了一番，哈哈哈。</p><a id="more"></a><h3 id="1-下载主题，设置切换"><a href="#1-下载主题，设置切换" class="headerlink" title="1. 下载主题，设置切换"></a>1. 下载主题，设置切换</h3><p>首先把主题下下来，然后在config文件里设置</p><h3 id="2-参考使用文档，添加小部件"><a href="#2-参考使用文档，添加小部件" class="headerlink" title="2. 参考使用文档，添加小部件"></a>2. 参考使用文档，添加小部件</h3><h2 id="2-增加Google统计"><a href="#2-增加Google统计" class="headerlink" title="2. 增加Google统计"></a>2. 增加Google统计</h2><p>之前看别人的博客下面有网站运行时间，很是羡慕，猜测是统计插件的原因，后来按照教程探索增加Google Analytics 统计功能，发现并不是这个原因，不过可以更详致的统计网站信息了，虽然现在只有自己看。。。</p><h2 id="3-增加运行时间"><a href="#3-增加运行时间" class="headerlink" title="3. 增加运行时间"></a>3. 增加运行时间</h2><p>网上搜索到教程，然后照搬小改完成，原来只是增加一个script脚本，逐渐理解其原理。</p><h2 id="4-增加转载说明"><a href="#4-增加转载说明" class="headerlink" title="4. 增加转载说明"></a>4. 增加转载说明</h2><p>参考别人写的个性化hexo博客里有一部分提到了此节，于是将其迁到了ejs中，发现只不过是一段模板代码，初步理解一小点hexo框架原理</p><h2 id="5-增加点击红心功能"><a href="#5-增加点击红心功能" class="headerlink" title="5. 增加点击红心功能"></a>5. 增加点击红心功能</h2><p>也是照搬教程，原来也是一段script脚本而已。</p><h2 id="6-增加canvas以及3D效果"><a href="#6-增加canvas以及3D效果" class="headerlink" title="6. 增加canvas以及3D效果"></a>6. 增加canvas以及3D效果</h2><p>这个也可以实现，不过考虑实用，并没有加入</p><h2 id="7-增加live2d看板娘效果"><a href="#7-增加live2d看板娘效果" class="headerlink" title="7. 增加live2d看板娘效果"></a>7. 增加live2d看板娘效果</h2><p>此技术看起来还是不错的，由于自己本身并不是二次元爱好者，所以就不考虑加入此功能了。</p><p>参考网址：</p><ul><li><a href="https://www.zhangxinxu.com/wordpress/2018/05/live2d-web-webgl-js/" target="_blank" rel="noopener">二次元live2d看板娘效果中的web前端技术</a></li><li><a href="https://tilin.gitee.io/2018/08/12/hexo/live2d/" target="_blank" rel="noopener">给hexo博客增加live2d看板卡通人物动画</a></li></ul>]]></content>
     
     <summary type="html">
     
