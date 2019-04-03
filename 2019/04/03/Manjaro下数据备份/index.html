@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Manjaro下数据备份 | lightsmile&#39;s Blog</title>
+  
+  <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+  
+  
+  <meta name="description" content="this is a description">
+  
+
+  <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  
+  <meta name="theme-color" content="#f24e32">
+  
+  <meta name="msapplication-TileColor" content="#f24e32">
+  
+  <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/browserconfig.xml">
+  
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+  
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicon.ico"
+   type="image/x-icon"
+  
+  
+  
+  >
+  
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/favicon-32x32.png"
+   type="image/x-icon"
+   sizes="32x32"
+  
+  
+  >
+  
+  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/apple-touch-icon.png"
+   type="image/png"
+   sizes="180x180"
+  
+  
+  >
+  
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/safari-pinned-tab.svg"
+  
+  
+  
+  
+   color="#f24e32">
+  
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/site.webmanifest"
+  
+  
+  
+  
+  >
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@1.0/css/style.css">
+    
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-131799461-1', 'www.iamlightsmile.com');
+      ga('send', 'pageview');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 小红心 -->
+    <script type="text/javascript" src="/js/love.js"></script>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          lightsmile's Blog
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:www.iamlightsmile.com"
+								 class="nav flat-box" href="https://www.iamlightsmile.com/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="friends"
+								 class="nav flat-box" href="/friends/">
+									<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about"
+								 class="nav flat-box" href="/about/">
+									<i class='fas fa-user fa-fw'></i>&nbsp;关于
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:www.iamlightsmile.com" class="nav flat-box" href="https://www.iamlightsmile.com/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="friends" class="nav flat-box" href="/friends/">
+											<i class='fas fa-users fa-fw'></i>&nbsp;朋友
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">Manjaro下数据备份</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-03
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Manjaro/">Manjaro</a>
+    </div>
+
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Linux一时爽，崩后火葬场；<br>Manjaro一时爽，一直用一直爽。</p>
+</blockquote>
+<p>以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。<br>其中自己编写的使用流程如下</p>
+<ul>
+<li>使用百度云盘+ baidupcs-go</li>
+<li>使用Google Drive</li>
+<li>MEGA</li>
+<li>使用sftp直连<h1 id="数据备份方案"><a href="#数据备份方案" class="headerlink" title="数据备份方案"></a>数据备份方案</h1></li>
+<li>物理介质</li>
+<li>自己搭建私有云</li>
+<li>选择网盘服务商</li>
+<li>其他方案</li>
+</ul>
+<a id="more"></a>
+<h2 id="物理介质"><a href="#物理介质" class="headerlink" title="物理介质"></a>物理介质</h2><h4 id="1-移动硬盘"><a href="#1-移动硬盘" class="headerlink" title="1. 移动硬盘"></a>1. 移动硬盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p>
+<h4 id="2-移动U盘"><a href="#2-移动U盘" class="headerlink" title="2. 移动U盘"></a>2. 移动U盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p>
+<h2 id="自己搭建私有云"><a href="#自己搭建私有云" class="headerlink" title="自己搭建私有云"></a>自己搭建私有云</h2><h4 id="1-Owncloud"><a href="#1-Owncloud" class="headerlink" title="1. Owncloud"></a>1. Owncloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/b42453959fae" target="_blank" rel="noopener">如何搭建私密云存储之ownCloud</a></li>
+</ol>
+<h4 id="2-NextCloud"><a href="#2-NextCloud" class="headerlink" title="2. NextCloud"></a>2. NextCloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程:</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/a0db4c1bfaea" target="_blank" rel="noopener">Ubuntu16.04 搭建NextCloud私有云</a><h4 id="3-Seafile"><a href="#3-Seafile" class="headerlink" title="3. Seafile"></a>3. Seafile</h4>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</li>
+<li><a href="https://www.jianshu.com/p/fcf12afe7c68" target="_blank" rel="noopener">部署Seafile搭建自己的网盘</a></li>
+</ol>
+<h2 id="选择网盘服务商"><a href="#选择网盘服务商" class="headerlink" title="选择网盘服务商"></a>选择网盘服务商</h2><h4 id="1-百度网盘"><a href="#1-百度网盘" class="headerlink" title="1. 百度网盘"></a>1. 百度网盘</h4><p>优势：容量大<br>劣势：限速，建议使用 <strong><a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></strong>工具进行管理</p>
+<h4 id="2-Google-Drive"><a href="#2-Google-Drive" class="headerlink" title="2. Google Drive"></a>2. Google Drive</h4><p>优势：跨平台<br>劣势：需要翻墙，容量小</p>
+<h4 id="3-MEGA"><a href="#3-MEGA" class="headerlink" title="3. MEGA"></a>3. MEGA</h4><p>优势：Linux下使用体验好<br>劣势：</p>
+<h4 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h4><p>优势：<br>劣势：容量小</p>
+<h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h4 id="1-有道云笔记（VIP版）"><a href="#1-有道云笔记（VIP版）" class="headerlink" title="1. 有道云笔记（VIP版）"></a>1. 有道云笔记（VIP版）</h4><p>和印象笔记相比，虽然网页剪裁的功能弱了一些，但是在界面上和markdown支持上都是要优于印象笔记的<br>优势：<br>劣势：</p>
+<h4 id="2-使用sftp连接远程服务器"><a href="#2-使用sftp连接远程服务器" class="headerlink" title="2. 使用sftp连接远程服务器"></a>2. 使用sftp连接远程服务器</h4><p>优势：<br>劣势：</p>
+<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="百度网盘-BaiduPCS-Go"><a href="#百度网盘-BaiduPCS-Go" class="headerlink" title="百度网盘+BaiduPCS-Go"></a>百度网盘+<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></h2><h4 id="安装baidupcs-go"><a href="#安装baidupcs-go" class="headerlink" title="安装baidupcs-go"></a>安装baidupcs-go</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidupcs-go-bin</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidupcs</span><br></pre></td></tr></table></figure>
+<p>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ccb334ca6bc5bd6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs"></p>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; login</span><br></pre></td></tr></table></figure>
+<p>然后输入自己的账号密码，进行验证之后便登录成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbd0720f058f2790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs_login"></p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>输入<code>-h</code>可查看相关指令，下载起来速度很快。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; -h</span><br></pre></td></tr></table></figure></p>
+<h4 id="可参考"><a href="#可参考" class="headerlink" title="可参考"></a>可参考</h4><ol>
+<li><a href="https://www.jianshu.com/p/c37a124a0f55" target="_blank" rel="noopener">BaiduPCS-Go | 百度网盘命令行工具（基于 Go）</a></li>
+</ol>
+<h2 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h2><h4 id="安装kio-gdrive"><a href="#安装kio-gdrive" class="headerlink" title="安装kio-gdrive"></a>安装<code>kio-gdrive</code></h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S kio-gdrive</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>在安装成功后，此时再打开Dolphin（即文件管理器），会发现远程网络中多了一个文件夹，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8fcacbb848420ad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google 云端硬盘"><br>之后我们双击它，得到如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-e4d1ecb98a9648d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_2"><br>上图左侧的账号是我之前添加的，此时也可点击 下方<code>+</code>添加Google账号<br>然后选中要同步的账号，选中，如下图所示，然后点击确定。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-539cb60abe895442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_3.png"><br>之后右下角提示正在同步文件夹，稍等片刻便可同步成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1d7ce651c0328b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_4.png"></p>
+<h4 id="可参考-1"><a href="#可参考-1" class="headerlink" title="可参考"></a>可参考</h4><ol>
+<li><a href="https://community.kde.org/KIO_GDrive#Arch_Linux" target="_blank" rel="noopener">KIO GDrive</a><h2 id="MEGA"><a href="#MEGA" class="headerlink" title="MEGA"></a>MEGA</h2><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4>登录<a href="https://mega.nz/register" target="_blank" rel="noopener">官网</a>注册账号，填写个人信息，然后打开邮箱进行验证，随后下载客户端应用（对于manjaro来说，直接通过<code>pacman</code>下载就可以，就是这么方便，当然也可以先下载安装包，然后通过<code>pacman -U</code>来安装）</li>
+</ol>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S megasync</span><br></pre></td></tr></table></figure>
+<h4 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h4><p>首先<code>[Alt] + [Space]</code>打开<code>plasma</code>搜索，输入<code>megasync</code>打开MEGA客户端，然后输入邮箱密码，接着设置同步目录，其他设置自己看情况。<br>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ed5086fa3d3bd1e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MEGA Settings"></p>
+<h4 id="可参考-2"><a href="#可参考-2" class="headerlink" title="可参考"></a>可参考</h4><ol>
+<li><a href="https://www.jianshu.com/p/44741a9e243f" target="_blank" rel="noopener">网盘可以良心到什么程度? 试试MEGA吧!</a></li>
+</ol>
+<h2 id="使用sftp直连"><a href="#使用sftp直连" class="headerlink" title="使用sftp直连"></a>使用sftp直连</h2><p>使用方式很简单，如下图：<br>双击<code>连接网络文件夹</code>，选择<code>安全Shell</code>，点击<code>Next</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-7e3ad9a31453d3ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network.png"><br>填写网络文件夹信息，然后点击<code>保存并连接</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-983794d294610356.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_2.png"><br>如果填写无误的话，就连接成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-21ca15b4472c8822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_3.png"></p>
+
+      </div>
+      <div align="center">
+        <div class="copyright">
+            <p><span>
+                <br /><b>本文地址：</b><a href="/2019/04/03/Manjaro下数据备份/" title="Manjaro下数据备份">Manjaro下数据备份</a><br /><b>转载请注明出处，谢谢！</b>
+            </span></p>
+            </div>
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-04-03T14:27:52+08:00" content="2019-04-03"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-04-03
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/Manjaro/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Manjaro</a></div>
+            
+            
+              
+  <div class='metatag share -mob-share-list'>
+    <i class="left fas fa-share-alt fa-fw" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+            
+            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/2019/04/03/Manjaro下数据备份/&title=Manjaro下数据备份 | lightsmile's Blog&summary=
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择网盘服务商
+其他方案
+"
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+            
+            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/2019/04/03/Manjaro下数据备份/&title=Manjaro下数据备份 | lightsmile's Blog&summary=
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择网盘服务商
+其他方案
+"
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3aQW4bMQwF0Nz/0inQVRa1/EmK4xR4XhkTj6SnhaiQ/PqKP99/P6+e//y8+uv5rfM45zVc+ODh4eG1ln6e5jz0q9+fnyQbkYz2Zmvw8PDw1njngzjnJYu4xYuCBx4eHt5HecnleHLjzUl4eHh4/wtvcgXPt6b6HQ8PD+9TvGS5eTL3fNxXt6C3xXh4eHh7vGoB7Dd8X6zv4eHh4Q2q6nmoqJbHqrP3VouHh4e3wUuuy9VTdzsYVNsa8PDw8DZ4efm/96Sa6k2Wm6c88PDw8O7yqknVasIiv0ZXG60Kl2k8PDy8q7xJAjchVXl5gLmWt8bDw8Nb4OVX2wkyT/uutA7g4eHhDZqukoHyNqneoqsb+madeHh4eFd5+WSTANALD71NLLyGh4eHN8jBFhqYigmFyfb12hrexD08PDy8MS9vluqdutWcQDXZEbUO4OHh4V3lnY/yWwuapCp6wQYPDw9vj5eHgTxIVBsL8nnLo+Hh4eEt8OZRpVo2q5bTJmA8PDy8Z3i9FECvlNVL9ZbLaXh4eHhXeb2B8gl65atJ4xceHh7eNi/vL6ge6PM2r952FHrN8PDw8C7xelfe81U7L/lvpI/x8PDwNnj58TpvHUiyI9WR32wcHh4e3iO8fLg88twqbuXJXDw8PLw9Xv5vf7Vp4FaKtvcuHh4e3h7vbltVXhKbpDDyizgeHh7eM7x5sSo/7vOQ0CuM4eHh4d3l9Q7uCTV/Uk1J/GM9eHh4eAu8ZiRpTVwtquWX+3kgwcPDw6vyegmCPCTMG7aqgQEPDw/vGV4v/9krUG2kId4EBjw8PLyP8m5dfwtLjH+Jh4eH99t4yfTzwtgEhoeHh/ckL0kNVJurqltWDTCXcy14eHh4l0pf8xJ+/m4vwZEHLTw8PLwx7w+2P5xxIZ3PVgAAAABJRU5ErkJggg=='>
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+          
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+            
+            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/2019/04/03/Manjaro下数据备份/&title=Manjaro下数据备份 | lightsmile's Blog&summary=
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择网盘服务商
+其他方案
+"
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+        
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3aQW4bMQwF0Nz/0inQVRa1/EmK4xR4XhkTj6SnhaiQ/PqKP99/P6+e//y8+uv5rfM45zVc+ODh4eG1ln6e5jz0q9+fnyQbkYz2Zmvw8PDw1njngzjnJYu4xYuCBx4eHt5HecnleHLjzUl4eHh4/wtvcgXPt6b6HQ8PD+9TvGS5eTL3fNxXt6C3xXh4eHh7vGoB7Dd8X6zv4eHh4Q2q6nmoqJbHqrP3VouHh4e3wUuuy9VTdzsYVNsa8PDw8DZ4efm/96Sa6k2Wm6c88PDw8O7yqknVasIiv0ZXG60Kl2k8PDy8q7xJAjchVXl5gLmWt8bDw8Nb4OVX2wkyT/uutA7g4eHhDZqukoHyNqneoqsb+madeHh4eFd5+WSTANALD71NLLyGh4eHN8jBFhqYigmFyfb12hrexD08PDy8MS9vluqdutWcQDXZEbUO4OHh4V3lnY/yWwuapCp6wQYPDw9vj5eHgTxIVBsL8nnLo+Hh4eEt8OZRpVo2q5bTJmA8PDy8Z3i9FECvlNVL9ZbLaXh4eHhXeb2B8gl65atJ4xceHh7eNi/vL6ge6PM2r952FHrN8PDw8C7xelfe81U7L/lvpI/x8PDwNnj58TpvHUiyI9WR32wcHh4e3iO8fLg88twqbuXJXDw8PLw9Xv5vf7Vp4FaKtvcuHh4e3h7vbltVXhKbpDDyizgeHh7eM7x5sSo/7vOQ0CuM4eHh4d3l9Q7uCTV/Uk1J/GM9eHh4eAu8ZiRpTVwtquWX+3kgwcPDw6vyegmCPCTMG7aqgQEPDw/vGV4v/9krUG2kId4EBjw8PLyP8m5dfwtLjH+Jh4eH99t4yfTzwtgEhoeHh/ckL0kNVJurqltWDTCXcy14eHh4l0pf8xJ+/m4vwZEHLTw8PLwx7w+2P5xxIZ3PVgAAAABJRU5ErkJggg=='>
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+          
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/04/03/Manjaro下vscode中zsh乱码/" rel="prev" title="Manjaro下vscode中zsh乱码">
+                                    
+                                        Manjaro下vscode中zsh乱码
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Manjaro/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Manjaro</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;相关文章</h4>
+        <ul>
+            
+                <li><a href="http://www.iamlightsmile.com/2019/04/03/Manjaro下vscode中zsh乱码/">Manjaro下vscode中zsh乱码</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/2019/04/03/torchtext安装/">torchtext安装</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/2019/04/03/Manjaro下截屏及设置快捷键/">Manjaro下截屏及设置快捷键</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/2019/04/03/Manjaro下安装使用kenlm/">Manjaro下安装使用kenlm</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: 'Manjaro下数据备份',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://github.com/smilelight/images/raw/master/new_icon.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">lightsmile's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:iamlightsmile@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/smilelight" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/m/user/home?id=515917285" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.zhihu.com/people/qian-xiao-80" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-zhihu" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='pure'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;注意啦～</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://xaoxuu.com/wiki/material-x/"
+    title="https://xaoxuu.com/wiki/material-x/">
+    <i class="fas fa-question-circle fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <p>本站使用 <a href="https://xaoxuu.com/wiki/material-x/">Material X</a> 作为主题，喜欢这个主题的朋友可以阅读文档进行安装哦，超喜欢的话还可以安利给身边的朋友哦～</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据备份方案"><span class="toc-text">数据备份方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#物理介质"><span class="toc-text">物理介质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-移动硬盘"><span class="toc-text">1. 移动硬盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-移动U盘"><span class="toc-text">2. 移动U盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己搭建私有云"><span class="toc-text">自己搭建私有云</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Owncloud"><span class="toc-text">1. Owncloud</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-NextCloud"><span class="toc-text">2. NextCloud</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Seafile"><span class="toc-text">3. Seafile</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择网盘服务商"><span class="toc-text">选择网盘服务商</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-百度网盘"><span class="toc-text">1. 百度网盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Google-Drive"><span class="toc-text">2. Google Drive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-MEGA"><span class="toc-text">3. MEGA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#坚果云"><span class="toc-text">坚果云</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他方案"><span class="toc-text">其他方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-有道云笔记（VIP版）"><span class="toc-text">1. 有道云笔记（VIP版）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用sftp连接远程服务器"><span class="toc-text">2. 使用sftp连接远程服务器</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用流程"><span class="toc-text">使用流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#百度网盘-BaiduPCS-Go"><span class="toc-text">百度网盘+BaiduPCS-Go</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装baidupcs-go"><span class="toc-text">安装baidupcs-go</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可参考"><span class="toc-text">可参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-Drive"><span class="toc-text">Google Drive</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装kio-gdrive"><span class="toc-text">安装kio-gdrive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-1"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可参考-1"><span class="toc-text">可参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MEGA"><span class="toc-text">MEGA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册账号"><span class="toc-text">注册账号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置个人信息"><span class="toc-text">设置个人信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可参考-2"><span class="toc-text">可参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用sftp直连"><span class="toc-text">使用sftp直连</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Manjaro/" href="/categories/Manjaro/"><div class='name'>Manjaro</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/lua/" href="/categories/lua/"><div class='name'>lua</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/哲学/" href="/categories/哲学/"><div class='name'>哲学</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数学/" href="/categories/数学/"><div class='name'>数学</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/深度学习/" href="/categories/深度学习/"><div class='name'>深度学习</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/自然语言处理/" href="/categories/自然语言处理/"><div class='name'>自然语言处理</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/计算机/" href="/categories/计算机/"><div class='name'>计算机</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 14px; color: #999">NLP</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 22px; color: #636363">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 14px; color: #999">抽象</a> <a href="/tags/数学/" style="font-size: 14px; color: #999">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 16px; color: #8b8b8b">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 16px; color: #8b8b8b">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 18px; color: #7e7e7e">自然语言处理</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;我的项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://github.com/smilelight?tab=repositories"
+    title="https://github.com/smilelight?tab=repositories">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/todolist/" href="https://github.com/smilelight/todolist/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;微计划日程管理
+          </div>
+          
+            <div class='badge'>(微信小程序)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/GithubImagePace/" href="https://github.com/smilelight/GithubImagePace/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;chrome插件
+          </div>
+          
+            <div class='badge'>(chromium)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/SchoolInfoPublishSystem/" href="https://github.com/smilelight/SchoolInfoPublishSystem/">
+          <div class='name'>
+            
+              <i class="fas fa-heartbeat fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;校园信息发布系统
+          </div>
+          
+            <div class='badge'>(Android)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/MyShoppingWeb/" href="https://github.com/smilelight/MyShoppingWeb/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;网上购物系统
+          </div>
+          
+            <div class='badge'>(aardio)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='pure'>
+  <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;特别链接</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://www.iamlightsmile.com/about/" href="https://www.iamlightsmile.com/about/">
+          <div class='name'>
+            
+              <i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;关于我 / 留言板
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/m/user/home?id=515917285"
+    title="https://music.163.com/m/user/home?id=515917285">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2384415913"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:iamlightsmile@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/smilelight" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/m/user/home?id=515917285" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://www.zhihu.com/people/qian-xiao-80" class="social fab fa-zhihu flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("12/22/2017 00:00:00");
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本小站已苟延残喘 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+    setInterval("createtime()",250);
+    </script>
+    </div>
+</footer>
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+
+  
+  
+  
+  
+    
+    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@1.0/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@1.0/js/search.js"></script>
+    
+  
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+</html>

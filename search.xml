@@ -4,6 +4,210 @@
   
     
     <entry>
+      <title>Manjaro下数据备份</title>
+      <link href="/2019/04/03/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/"/>
+      <url>/2019/04/03/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Linux一时爽，崩后火葬场；<br>Manjaro一时爽，一直用一直爽。</p></blockquote><p>以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。<br>其中自己编写的使用流程如下</p><ul><li>使用百度云盘+ baidupcs-go</li><li>使用Google Drive</li><li>MEGA</li><li>使用sftp直连<h1 id="数据备份方案"><a href="#数据备份方案" class="headerlink" title="数据备份方案"></a>数据备份方案</h1></li><li>物理介质</li><li>自己搭建私有云</li><li>选择网盘服务商</li><li>其他方案</li></ul><a id="more"></a><h2 id="物理介质"><a href="#物理介质" class="headerlink" title="物理介质"></a>物理介质</h2><h4 id="1-移动硬盘"><a href="#1-移动硬盘" class="headerlink" title="1. 移动硬盘"></a>1. 移动硬盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p><h4 id="2-移动U盘"><a href="#2-移动U盘" class="headerlink" title="2. 移动U盘"></a>2. 移动U盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p><h2 id="自己搭建私有云"><a href="#自己搭建私有云" class="headerlink" title="自己搭建私有云"></a>自己搭建私有云</h2><h4 id="1-Owncloud"><a href="#1-Owncloud" class="headerlink" title="1. Owncloud"></a>1. Owncloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</p><ol><li><a href="https://www.jianshu.com/p/b42453959fae" target="_blank" rel="noopener">如何搭建私密云存储之ownCloud</a></li></ol><h4 id="2-NextCloud"><a href="#2-NextCloud" class="headerlink" title="2. NextCloud"></a>2. NextCloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程:</p><ol><li><a href="https://www.jianshu.com/p/a0db4c1bfaea" target="_blank" rel="noopener">Ubuntu16.04 搭建NextCloud私有云</a><h4 id="3-Seafile"><a href="#3-Seafile" class="headerlink" title="3. Seafile"></a>3. Seafile</h4>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</li><li><a href="https://www.jianshu.com/p/fcf12afe7c68" target="_blank" rel="noopener">部署Seafile搭建自己的网盘</a></li></ol><h2 id="选择网盘服务商"><a href="#选择网盘服务商" class="headerlink" title="选择网盘服务商"></a>选择网盘服务商</h2><h4 id="1-百度网盘"><a href="#1-百度网盘" class="headerlink" title="1. 百度网盘"></a>1. 百度网盘</h4><p>优势：容量大<br>劣势：限速，建议使用 <strong><a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></strong>工具进行管理</p><h4 id="2-Google-Drive"><a href="#2-Google-Drive" class="headerlink" title="2. Google Drive"></a>2. Google Drive</h4><p>优势：跨平台<br>劣势：需要翻墙，容量小</p><h4 id="3-MEGA"><a href="#3-MEGA" class="headerlink" title="3. MEGA"></a>3. MEGA</h4><p>优势：Linux下使用体验好<br>劣势：</p><h4 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h4><p>优势：<br>劣势：容量小</p><h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h4 id="1-有道云笔记（VIP版）"><a href="#1-有道云笔记（VIP版）" class="headerlink" title="1. 有道云笔记（VIP版）"></a>1. 有道云笔记（VIP版）</h4><p>和印象笔记相比，虽然网页剪裁的功能弱了一些，但是在界面上和markdown支持上都是要优于印象笔记的<br>优势：<br>劣势：</p><h4 id="2-使用sftp连接远程服务器"><a href="#2-使用sftp连接远程服务器" class="headerlink" title="2. 使用sftp连接远程服务器"></a>2. 使用sftp连接远程服务器</h4><p>优势：<br>劣势：</p><h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="百度网盘-BaiduPCS-Go"><a href="#百度网盘-BaiduPCS-Go" class="headerlink" title="百度网盘+BaiduPCS-Go"></a>百度网盘+<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></h2><h4 id="安装baidupcs-go"><a href="#安装baidupcs-go" class="headerlink" title="安装baidupcs-go"></a>安装baidupcs-go</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidupcs-go-bin</span><br></pre></td></tr></table></figure><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidupcs</span><br></pre></td></tr></table></figure><p>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ccb334ca6bc5bd6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs"></p><h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; login</span><br></pre></td></tr></table></figure><p>然后输入自己的账号密码，进行验证之后便登录成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbd0720f058f2790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs_login"></p><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>输入<code>-h</code>可查看相关指令，下载起来速度很快。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; -h</span><br></pre></td></tr></table></figure></p><h4 id="可参考"><a href="#可参考" class="headerlink" title="可参考"></a>可参考</h4><ol><li><a href="https://www.jianshu.com/p/c37a124a0f55" target="_blank" rel="noopener">BaiduPCS-Go | 百度网盘命令行工具（基于 Go）</a></li></ol><h2 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h2><h4 id="安装kio-gdrive"><a href="#安装kio-gdrive" class="headerlink" title="安装kio-gdrive"></a>安装<code>kio-gdrive</code></h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S kio-gdrive</span></span><br></pre></td></tr></table></figure><h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>在安装成功后，此时再打开Dolphin（即文件管理器），会发现远程网络中多了一个文件夹，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8fcacbb848420ad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google 云端硬盘"><br>之后我们双击它，得到如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-e4d1ecb98a9648d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_2"><br>上图左侧的账号是我之前添加的，此时也可点击 下方<code>+</code>添加Google账号<br>然后选中要同步的账号，选中，如下图所示，然后点击确定。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-539cb60abe895442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_3.png"><br>之后右下角提示正在同步文件夹，稍等片刻便可同步成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1d7ce651c0328b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_4.png"></p><h4 id="可参考-1"><a href="#可参考-1" class="headerlink" title="可参考"></a>可参考</h4><ol><li><a href="https://community.kde.org/KIO_GDrive#Arch_Linux" target="_blank" rel="noopener">KIO GDrive</a><h2 id="MEGA"><a href="#MEGA" class="headerlink" title="MEGA"></a>MEGA</h2><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4>登录<a href="https://mega.nz/register" target="_blank" rel="noopener">官网</a>注册账号，填写个人信息，然后打开邮箱进行验证，随后下载客户端应用（对于manjaro来说，直接通过<code>pacman</code>下载就可以，就是这么方便，当然也可以先下载安装包，然后通过<code>pacman -U</code>来安装）</li></ol><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S megasync</span><br></pre></td></tr></table></figure><h4 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h4><p>首先<code>[Alt] + [Space]</code>打开<code>plasma</code>搜索，输入<code>megasync</code>打开MEGA客户端，然后输入邮箱密码，接着设置同步目录，其他设置自己看情况。<br>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ed5086fa3d3bd1e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MEGA Settings"></p><h4 id="可参考-2"><a href="#可参考-2" class="headerlink" title="可参考"></a>可参考</h4><ol><li><a href="https://www.jianshu.com/p/44741a9e243f" target="_blank" rel="noopener">网盘可以良心到什么程度? 试试MEGA吧!</a></li></ol><h2 id="使用sftp直连"><a href="#使用sftp直连" class="headerlink" title="使用sftp直连"></a>使用sftp直连</h2><p>使用方式很简单，如下图：<br>双击<code>连接网络文件夹</code>，选择<code>安全Shell</code>，点击<code>Next</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-7e3ad9a31453d3ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network.png"><br>填写网络文件夹信息，然后点击<code>保存并连接</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-983794d294610356.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_2.png"><br>如果填写无误的话，就连接成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-21ca15b4472c8822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_3.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Manjaro下vscode中zsh乱码</title>
+      <link href="/2019/04/03/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/"/>
+      <url>/2019/04/03/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><a id="more"></a><ol><li><p>下载<code>Menlo for Powerline</code>字体</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/abertsch/Menlo-for-Powerline.git</span><br></pre></td></tr></table></figure></li><li><p>将字体放到ttf文件夹中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Menlo-for-Powerline</span><br><span class="line">sudo cp *.ttf* /usr/share/fonts/TTF/</span><br><span class="line">sudo <span class="built_in">fc</span>-cache -f -v <span class="comment"># 刷新字体</span></span><br></pre></td></tr></table></figure></li><li><p>设置vscode中终端的字体为<code>Menlo for Powerline</code></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3></li><li><a href="https://ywnz.com/linuxjc/3250.html" target="_blank" rel="noopener">在Ubuntu 18.04系统下vscode中zsh乱码的解决方法</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>torchtext安装</title>
+      <link href="/2019/04/03/torchtext%E5%AE%89%E8%A3%85/"/>
+      <url>/2019/04/03/torchtext%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<p>使用如下命令安装<code>torchtext</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https://github.com/pytorch/text/archive/master.zip</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NLP </tag>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Manjaro下截屏及设置快捷键</title>
+      <link href="/2019/04/03/Manjaro%E4%B8%8B%E6%88%AA%E5%B1%8F%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+      <url>/2019/04/03/Manjaro%E4%B8%8B%E6%88%AA%E5%B1%8F%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      
+        <content type="html"><![CDATA[<p>我认为当前Manjaro下最好的截屏工具要属<code>deepin-screenshot</code>了。</p><a id="more"></a><ol><li><p>下载安装</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S deepin-screenshot</span></span><br></pre></td></tr></table></figure></li><li><p>配置系统快捷键<br>在【系统设置】-【工作区】-【自定义快捷键】中，点击【编辑】-【新建】-【全局快捷键】-【命令/URL：】<br>然后填写动作名称，如我这里是<code>Deepin截图</code>,然后分别填写注释（非必须）、触发器和动作，<br>如下图：</p></li></ol><p><img src="https://upload-images.jianshu.io/upload_images/5410339-65ef5ef062c11a5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置系统快捷键"><br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbe8ca8b43041840.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="快捷键触发器配置"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-d6b61bcb24daa799.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="快捷键动作配置"></p><p>然后就可以尽情使用啦，不得不感慨deepin真的挺强挺好的！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Manjaro下安装使用kenlm</title>
+      <link href="/2019/04/03/Manjaro%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8kenlm/"/>
+      <url>/2019/04/03/Manjaro%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8kenlm/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://github.com/kpu/kenlm" target="_blank" rel="noopener">kenlm</a>是一个linux下快速轻量的语言模型训练工具。</p><a id="more"></a><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/kpu/kenlm.git</span><br></pre></td></tr></table></figure><p>或者<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>kheafield.com<span class="regexp">/code/</span>kenlm.tar.gz | tar xz</span><br></pre></td></tr></table></figure></p><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S boost eigen</span><br></pre></td></tr></table></figure><h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p>以上两种来源区别我也不是很清楚，没有细究。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir kenlm/build</span><br><span class="line"><span class="built_in">cd</span> kenlm/build</span><br><span class="line">cmake ..</span><br><span class="line">make -j8</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p><h2 id="安装Python库"><a href="#安装Python库" class="headerlink" title="安装Python库"></a>安装Python库</h2><p>以上下载的文件中有python安装脚本<code>setup.py</code>文件，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p><p>或者，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https://github.com/kpu/kenlm/archive/master.zip</span><br></pre></td></tr></table></figure></p><p>或者从pypi源安装，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install kenlm</span><br></pre></td></tr></table></figure></p><h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><h4 id="准备训练数据"><a href="#准备训练数据" class="headerlink" title="准备训练数据"></a>准备训练数据</h4><p>首先我们需要有一个分好词的语料文件，如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-d64febb4833bff96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分词训练语料"></p><h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><p>然后使用以下命令训练：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lmplz -o 3 &lt;pku_training.utf8&gt; lm_ng3.arpa</span><br></pre></td></tr></table></figure></p><p>其中<code>-o</code>参数指明n-gram语法为3，<code>&lt;&gt;</code>中的为训练语料路径，后面跟模型保存路径</p><h4 id="模型压缩"><a href="#模型压缩" class="headerlink" title="模型压缩"></a>模型压缩</h4><p>对模型压缩可以提高加载速度，不压缩也可以<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">build_binary -s lm_ng3.arpa lm_ng3.bin</span><br></pre></td></tr></table></figure></p><h2 id="使用Python接口"><a href="#使用Python接口" class="headerlink" title="使用Python接口"></a>使用Python接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import kenlm</span><br><span class="line">import jieba</span><br><span class="line">model = kenlm.LanguageModel(&apos;./lm_ng3.bin&apos;)</span><br><span class="line">sent_1 = &apos;哈哈，我是李磊，你好呀&apos;</span><br><span class="line">sent_2 = &apos;安赛飞啊，诶爱尔兰&apos;</span><br><span class="line">def process(sent):</span><br><span class="line">  return &apos; &apos;.join(jieba.cut(sent))</span><br><span class="line">print(model.score(process(sent_1))</span><br><span class="line">print(model.score(process(sent_2))</span><br></pre></td></tr></table></figure><p>结果输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-40.40456008911133</span><br><span class="line">-47.40667724609375</span><br></pre></td></tr></table></figure></p><p>其中，分数越小，句子分数越低，越”不像“一个句子。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/kpu/kenlm" target="_blank" rel="noopener">kenlm</a></li><li><a href="https://blog.csdn.net/luoyexuge/article/details/82109526" target="_blank" rel="noopener">kenlm语言模型相关，c++、python相关接口</a></li><li><a href="https://mooc.study.163.com/smartSpec/detail/1001477005.htm" target="_blank" rel="noopener">网易云课堂-微专业-AI工程师（自然语言处理方向）</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Manjaro系统报错集锦</title>
+      <link href="/2019/04/03/Manjaro%E7%B3%BB%E7%BB%9F%E6%8A%A5%E9%94%99%E9%9B%86%E9%94%A6/"/>
+      <url>/2019/04/03/Manjaro%E7%B3%BB%E7%BB%9F%E6%8A%A5%E9%94%99%E9%9B%86%E9%94%A6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="以下是自己在使用manjaro系统中遇到的错误和相应的解决方案"><a href="#以下是自己在使用manjaro系统中遇到的错误和相应的解决方案" class="headerlink" title="以下是自己在使用manjaro系统中遇到的错误和相应的解决方案"></a>以下是自己在使用manjaro系统中遇到的错误和相应的解决方案</h2><ol><li><code>unable to initialize decompress status for section .debug_info</code>以及<code>file not recognized: file format not recognized</code></li><li>进入<code>grub rescue</code>模式</li></ol><a id="more"></a><h3 id="1-unable-to-initialize-decompress-status-for-section-debug-info以及file-not-recognized-file-format-not-recognized"><a href="#1-unable-to-initialize-decompress-status-for-section-debug-info以及file-not-recognized-file-format-not-recognized" class="headerlink" title="1. unable to initialize decompress status for section .debug_info以及file not recognized: file format not recognized"></a>1. <code>unable to initialize decompress status for section .debug_info</code>以及<code>file not recognized: file format not recognized</code></h3><h4 id="错误出处"><a href="#错误出处" class="headerlink" title="错误出处"></a>错误出处</h4><p>在安装kenlm库以及allennlp时报的安装错误</p><h4 id="报错截图"><a href="#报错截图" class="headerlink" title="报错截图"></a>报错截图</h4><p><img src="https://upload-images.jianshu.io/upload_images/5410339-dfb7bebfd5990222.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报的错误"></p><h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>从<a href="https://archive.archlinux.org/packages/" target="_blank" rel="noopener">arch包源</a>下载旧版的bintools,然后降级安装,如图:<br><img src="https://upload-images.jianshu.io/upload_images/5410339-f4124b6081a18307.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="降级安装bintools"></p><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol><li><a href="https://bbs.archlinux.org/viewtopic.php?id=242682" target="_blank" rel="noopener">[SOLVED]unable to initialize decompress status for section .debug_info</a></li></ol><h3 id="2-进入grub-rescue模式"><a href="#2-进入grub-rescue模式" class="headerlink" title="2. 进入grub rescue模式"></a>2. 进入<code>grub rescue</code>模式</h3><h4 id="错误出处-1"><a href="#错误出处-1" class="headerlink" title="错误出处"></a>错误出处</h4><p>在系统启动过程中由于目录分区映射及挂载失败导致</p><h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><p><strong>注意</strong>:我这里boot目录和根目录分别挂载在不同分区,所以后续路径可能和其他参考有所不同，在使用时视实际情况而定</p><ol><li>确定boot目录和根目录位置<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls查看一下设备状态，可使用tab键自动补全，并有各分区提示信息</span></span><br><span class="line">grub rescue&gt; <span class="keyword">ls</span> </span><br><span class="line">hd0, <span class="params">(hd0, gpt1)</span>, <span class="params">(hd0, gpt2)</span>, <span class="params">(hd0, gpt3)</span></span><br><span class="line">grub rescue&gt; <span class="keyword">ls</span> <span class="params">(hd0,gpt3)</span>/</span><br><span class="line"><span class="string">./</span>  <span class="string">../</span>  lost+found/</span><br></pre></td></tr></table></figure></li></ol><p>通过查看找到boot目录和root目录所在分区，比如分别为gpt1和gpt2</p><ol><li><p>设置grub的启动分区和路径</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="builtin-name">set</span> root=(hd0,gpt1)               #设置grub启动分区</span><br><span class="line">grub rescue&gt; <span class="builtin-name">set</span> prefix=(hd0,gpt1)/grub  #设置grub启动路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一下设置情况,直接输入set可以查看root和prefix的配置</span></span><br><span class="line">grub rescue&gt; set</span><br><span class="line">prefix=(hd0,gpt1)/grub</span><br><span class="line"><span class="attribute">root</span>=hd0,gpt1</span><br></pre></td></tr></table></figure></li><li><p>加载基本模块</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="keyword">insmod </span><span class="keyword">normal </span>      <span class="comment">#加载基本模块</span></span><br></pre></td></tr></table></figure></li><li><p>进入正常模式</p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub <span class="keyword">rescue</span>&gt; normal  <span class="comment">#进入普通模式，出现菜单，如果加载grub.cfg（错误的）可能出现问题，按shift可以出现菜单，之后按c键进入控制台</span></span><br></pre></td></tr></table></figure></li></ol><p>进入正常模式后就会出现grub&gt;这样的提示符，在这里支持的命令就非常多了。</p><ol><li><p>引导系统</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash"> <span class="built_in">set</span> root=(hd0,gpt1)  <span class="comment">#设置正常启动分区</span></span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"> linux /vmlinuz-4.19-x86_64  ro text root=/dev/sda2  <span class="comment">#加载内核，进入控制台模式</span></span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"> initrd /intel-ucode.img /initramfs-4.19-x86_64.img <span class="comment">#加载initrd.img</span></span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"> boot <span class="comment">#引导</span></span></span><br></pre></td></tr></table></figure></li><li><p>更新grub</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入系统后，先更新grub</span></span><br><span class="line">update-grub            <span class="comment">#更新</span></span><br><span class="line"><span class="comment"># 修改grub.cfg后，再执行install</span></span><br><span class="line">grub-install <span class="regexp">/dev/</span>sda  <span class="comment">#安装</span></span><br></pre></td></tr></table></figure></li></ol><p><strong>注意</strong>:注意上面的是sda，硬盘号，而不是具体某个分区号，如sda1</p><h4 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h4><ol><li><a href="http://xstarcd.github.io/wiki/Linux/grub_rescue.html" target="_blank" rel="noopener">grub rescue救援模式的处理</a></li><li><a href="https://blog.csdn.net/wangtingyao1990/article/details/52368699" target="_blank" rel="noopener">Ubuntu开机出现grub rescue模式修复方法</a></li><li><a href="https://www.cnblogs.com/samcn/archive/2011/03/30/1999615.html" target="_blank" rel="noopener">Ubuntu启动问题以及Grub Rescue修复方法</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Tensorflow编译血泪史</title>
+      <link href="/2019/04/03/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/"/>
+      <url>/2019/04/03/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/</url>
+      
+        <content type="html"><![CDATA[<p>为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。</p><a id="more"></a><p>本人笔记本电脑有一个256 SSD和1TB机械硬盘，固态装C盘，机械硬盘装D、E和F，各330G，系统为Win10，显卡为NVIDIA1060。后来打算装manjaro双系统，进行编程和机器学习、深度学习的开发工作，于是F盘分了一半约160G给manjaro系统，其中根目录和家目录等单独划分分区挂载，根目录分区大小为30G，此是前话。</p><p>在安装tensorflow之前自己先装了pytorch，因为觉得这个框架代码更优雅，代码风格自己更喜欢。后来在安装tensorflow时发现还挺麻烦，需要独立cuda和cudnn库，不同版本的tensorflow依赖于不同版本的cuda和cudnn，而cuda和cudnn依赖于gcc，如下图所示。</p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-157b54d0e4ed1564.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tensorflow编译配置"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-277ce10b73dee9d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装cuda9.1包依赖gcc6"></p><p>而manjaro系统属于arch系，各软件包滚动更新速度很快，基本总是保持最新，比如系统默认python环境竟然时3.7.2，我的个乖乖，自己的系统里安装的gcc是此时最新的8.2.1，与cuda所需的gcc6冲突，如果要装gcc6还要卸载gcc8，而其他软件包会依赖于gcc8，况且安装旧版本包这种行为一点都不arch，于是使用tensorflow官方预编译好的whl文件安装就不太现实了，只能自己在本机上编译构建了，幸好网上搜到了一篇最近的、讲得很好很详细、和自己情况正相符的一篇帖子：<a href="https://www.solarck.com/compile-tensorflow-gpu.html" target="_blank" rel="noopener">编译 Tensorflow 1.10 + CUDA9.2 + MKL</a>，在这里向作者由衷的表示感谢！</p><p>于是便红红火火按照教程开始来装了，于是问题旧开始出现了。<br>首先问题是当下载了tensorflow源码之后发现自己不能切换安装版本，如果选择默认master以外的分支，则报<code>无法引用到/tensorflow/tools/bazel.rc文件</code>的错误，于是只能在master分支装吧，不管了。<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-b954de608370ef44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bazel.png"></p><p>同时发现自己访问github下载文件的速度太慢了，导致bazel程序运行失败，后来找到了相关博客如<a href="https://blog.csdn.net/shahuhu000/article/details/83965642" target="_blank" rel="noopener">git clone速度太慢的解决办法</a>进行配置，发现还是未解决，自己在命令前加proxychains代理也不行，因为是程序内部调用系统网络去下载文件，代理命令无效，经过多次尝试后，自己打算通过浏览器下载一个文件试试，如<code>https://github.com/bazelbuild/rules_closure/archive/9889e2348259a5aad7e805547c1a0cf311cfcd91.tar.gz</code>,发现下载的挺快的，是因为代理，而自己直接调用wget命令发现好慢，同时还发现了该文件的最终下载域名为：<code>codeload.github.com</code>，后来自己参考那个教程在<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a>里搜索得到了对应的ip并将其和ip加到hosts文件中，如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-fd9a41f6f7f22dd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts文件相关内容"><br>速度一下就快了不少，虽说只有几十k，但是也比之前的几十几百b强，同时安装也不报下载文件失败访问不了文件的错误了。</p><p>后来又遇到：<code>invalid conversion from &#39;const char*&#39; to &#39;char*&#39;</code>这样的代码error，于是网上找到了<a href="http://www.voidcn.com/article/p-kcvnjpwx-bcm.html" target="_blank" rel="noopener">invalid conversion from ‘const char<em>‘ to ‘char</em>‘ 的解决方法</a>这篇文章，于是便修改了报错处的源码，重新继续编译，看着编译进行的挺顺利，自己还蛮开心的，可谁知命运给自己开的玩笑才刚刚开始。</p><p>经过了漫长的编译时间，突然又报错了，说是什么文件访问失败，没有剩余空间了，当时我就蒙了，这是咋回事，后来发现：根目录所在分区满了，安装过程中所有文件都保存在根目录所在分区，即已经到了30G了，使用<code>df -h</code>命令查看所在分区使用率已经到了100%，我擦！！！</p><p>这可如何是好，没想到编译个tensorflow这么占存储空间，后来网上查找相关案例和解决方案，暂时只是把用不到的大软件卸载了，如Clion，发现效果不明显，还是占用了29G多，于是心想：老子不装了，不装了还不行吗，回归pytorch，pytorch才是老纸的真爱，卸载之后发现：使用率还是90%，这这这，后来想到满了那就扩充啊，于是就在网上找扩充根目录分区的方法教程，然而历史说明正是这一步开始使我踏进了深渊。</p><p>网上搜了不少方法，发现许多都不好使，同时分区满了我装个软件都装不了了，感觉要炸！发现有个说法说在拓展分区之前要先挂载，于是我就尝试着把根目录所在分区给挂载掉了，在卸载时还提示错误，说<code>device is busy</code>，于是网上找到类似如<a href="https://blog.csdn.net/hello5orld/article/details/12048323" target="_blank" rel="noopener">linux umount命令介绍与device is busy解决方法</a>的答案，于是敲下了罪恶的<code>umount -l /</code>，后来系统崩了，重启，发现又好了，哈哈。</p><p>后来就想着硬盘F盘还有剩余空间，想划分出来给根目录所在分区，经过尝试之后发现直接划分不行，因为自己没有搞lvm，不能通过卷组或逻辑卷相关的指令操作来进行，后来发现了一个可行的法子是把硬盘中根目录所在分区位置后面的空间腾出来，然后便可以扩充了，把原来的数据放到其他位置就可以了，于是通过这样的操作进行了var挂载分区的移动，感觉还不错，其中主要参考的是<a href="https://blog.csdn.net/u010359398/article/details/83024585" target="_blank" rel="noopener">linux(manjaro)磁盘迁移/opt /home</a>,而在进行boot分区的移动时发现自己未成功进行boot分区的重新挂载，于是系统又崩了，重启也报错了，进入grub rescue模式中，此时有点慌了，后来找到类似该篇博客<a href="http://xstarcd.github.io/wiki/Linux/grub_rescue.html" target="_blank" rel="noopener">grub rescue救援模式的处理</a>所说内容,重新挂载了boot目录，并且重新生成grub配置文件，于是问题解决了。</p><p>之后在进行home分区的操作时自己忘记了备份，直接挂载和格式化掉了（通过 <code>mkfs.ext4 /dev/sda*</code>)，发现出了问题之后重新登录都登录不了，因为相关用户信息都没了，只能进入命令行界面，同时home目录为空，后来在各分区找了半天发现没有找到备份，这时自己真的慌掉了，还有不少数据呢，比如项目代码、还有博客环境配置和博客原文件等，找了半天都没能找到可行的办法，因为系统都登录不进去，连修复软件啥的都安装不了，况且天色已晚，于是就先睡了。</p><p>等到第二天自己想到可以在window系统上安装然后修复那个分区的数据吧？于是先尝试了DiskGenius软件，发现好像它识别的分区不全，并且也只能恢复文件，会丢失文件名等信息，这样也仅是得到一些文件，不是整体的恢复分区，而后又下载了testdisk软件，经过一阵蒙蔽的操作之后，发现自己的D盘和E盘也不见了，赶忙重启发现还是没有，由于许多软件都是安装在D盘上，所以导致window系统下的环境也出问题了，要炸啊，幸亏自己的chrome浏览器在C盘装的，又下载了DiskGenius，发现还要注册，还挺麻烦，于是又尝试下了绿色破解版，经过扫描，找到了丢失的D盘和E盘，只是其他数据全部都没有了（指manjaro系统下全部信息）。哎，一声长叹之后只能重新再装系统了。</p><p>只是可惜了当时探索了不少软件，同时还有不少有用的数据资料，还有自己最新的代码，以及最新的博客环境配置文件和最新的博客原文件。</p><p>而后再划分分区安装的时候，有了之前的教训和探索，自己对分区的理解更加深刻，于是在划分时感觉熟悉了好多，把整个300G空间全部给新系统了，同时多分配了一些空间给根目录和var目录所在分区。<br>后来重装系统，还好自己当时写了安装记录的博客在网上可以看，于是又重新安装配置环境，配置NVIDIA独显，配置科学上网，后来心想以后再做记录先只在简书和有道上吧，自己的博客先不管了吧，毕竟环境也丢了，能找到的是好久之前的了，要配置还挺麻烦，博客内容自己自己也增删改的比较多，再捡起来比较耗时，于是暂时就不考虑维护自己的博客了，之前也尝试在知乎专栏和简书上写文章，发现简书支持Markdown效果很好，而知乎则导入效果很差，于是便最终选择了简书作为最终的自己发布内容的平台啦。</p><p>后来重新参考之前提到的编译tensorflow的那篇文章，还是只能master分支，还是要配置hosts文件中github对应域名和ip，不过编译的还挺顺利的，不过还是要好久，最终吃了个晚饭，回来发现又报错了，我真的快要崩溃了，报<code>ImportError: No module named keras.preprocessing</code>的错误，后来我就想是不是版本问题，于是切换r1.12和r1.10，发现还是报bazel.rc文件的错，于是又切换回master分支，继续网上找相关问题和答案，并在github上成功找到了答案：<a href="https://github.com/tensorflow/tensorflow/issues/21518" target="_blank" rel="noopener">1.10 build fails with “No module named ‘keras_applications’” </a>,即通过pip安装<code>keras_applications</code>和<code>keras_preprocessing</code>这两个库。</p><p>后来重新执行编译命令，又等待了好一会儿（比之前快多了，因为有缓存之前的编译结果），终于成功了哈哈哈！后来经过测试，发现编译成功，tensorflow已经被正常安装在自己的pip列表中了。<br>以下是耗时截图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-3ba18c678c7dac3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="首次编译失败"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-83509b2c57fff653.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="重新编译再次报错"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-70ee9366ed2f06f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终编译成功"></p><p>安装tensorflow的whl包后，发现安装的就是现行版r1.12。。。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-3a3842b594259304.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tensorflow_whl文件.png"></p><p>这里是分区使用率截图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-54ced4e0add7f3a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分区使用率截图"></p><p>相比而言，pytorch安装就要简单许多了，并且提供了许多预编译好的可选。</p><p>在这里自己简单记录一下心酸的历程，也提醒各位看客同样需要编译tensorflow时留意自己的分区使用率～</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+            <tag> Tensorflow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Manjaro下使用图床工具PicGo</title>
+      <link href="/2019/04/03/Manjaro%E4%B8%8B%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7PicGo/"/>
+      <url>/2019/04/03/Manjaro%E4%B8%8B%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7PicGo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p>在这里简单吐槽以下简书的锁定文章的功能，真是日了狗了！</p><p>因为觉得简书的锁定的文章的功能太恶心，不想受制于人，于是想回到自己的个人博客-Github Pages + Hexo，于是此时图床的问题就来了，原来自己的主要实现逻辑是将图片首先先上传到Github的一个仓库中，写了一个<code>auto_run.sh</code>，然后在浏览器中右击图片得到Markdown格式下的图片连接（自己写了一个<a href="https://github.com/smilelight/GithubImagePace" target="_blank" rel="noopener">浏览器插件</a>），但是还是有些麻烦。</p><a id="more"></a><p>后来网上搜索相关图床工具，得到的方案如下：</p><ol><li>搭建私有图床<br>如：<a href="https://canmipai.com/index.php/2017/12/05/setup_chevereto_free_image_host/" target="_blank" rel="noopener">使用Chevereto搭建免费私有图床</a></li><li>使用付费图床或免费图床，同时可以配合开源跨平台的的工具<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a><br>付费的如：又拍云、腾讯云、阿里云、七牛云、微博<br>免费的如：Github</li><li>其他相对非主流方案</li></ol><p>权衡之后选择使用第二种方案，对于图床而言，自己选择Github，因为有的图床存储还要求备案，如七牛云，很是麻烦。</p><h1 id="1-下载安装PicGo"><a href="#1-下载安装PicGo" class="headerlink" title="1. 下载安装PicGo"></a>1. 下载安装<code>PicGo</code></h1><p>使用如下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S picgo-appimage</span></span><br></pre></td></tr></table></figure></p><p>这里对于arch系来说不算友好，因为如Windows平台、Mac平台以及其他主流Linux系统如Ubuntu等等都有预编译安装包，而对于arch而言要自己下载编译得到<code>appimage</code>形式的可执行软件包。</p><h1 id="2-设置Github仓库"><a href="#2-设置Github仓库" class="headerlink" title="2. 设置Github仓库"></a>2. 设置Github仓库</h1><p>略，可参考最后链接给出文章。</p><h1 id="3-设置仓库信息"><a href="#3-设置仓库信息" class="headerlink" title="3. 设置仓库信息"></a>3. 设置仓库信息</h1><p>略，可参考最后链接给出文章。<br>不过我这里不知为何设置网络代理并没有成功,同时实际使用时复制速度挺慢的，不知为何。</p><h1 id="4-上传测试"><a href="#4-上传测试" class="headerlink" title="4. 上传测试"></a>4. 上传测试</h1><p><img src="https://upload-images.jianshu.io/upload_images/5410339-d0b6dc8b410c52ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="相册"></p><h1 id="5-下载其他依赖"><a href="#5-下载其他依赖" class="headerlink" title="5. 下载其他依赖"></a>5. 下载其他依赖</h1><p>如果要使用快捷上传的粘贴板功能时，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-402bc8afdf924375.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="粘贴板功能"></p><p>还需要下载<code>xclip</code>包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S xclip</span><br></pre></td></tr></table></figure></p><h1 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h1><p>发现PicGo这个软件还真是挺不错的，同时还了解了<a href="https://appimage.org/" target="_blank" rel="noopener">appimage</a>这种软件形式</p><h1 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h1><ol><li><a href="https://superuser.com/questions/1306621/install-appimage-under-arch-linux" target="_blank" rel="noopener">Install Appimage under Arch Linux</a></li><li><a href="https://www.jianshu.com/p/9d91355e8418" target="_blank" rel="noopener">图床工具的使用—-PicGo</a></li><li><a href="https://www.jianshu.com/p/2756724a5dee" target="_blank" rel="noopener">PicGo+GitHub图床，让Markdown飞</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python库打包分发</title>
       <link href="/2019/02/02/python%E5%BA%93%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/"/>
       <url>/2019/02/02/python%E5%BA%93%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/</url>
@@ -21,29 +225,6 @@
         <tags>
             
             <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Linux下使用百度网盘</title>
-      <link href="/2019/01/25/Linux%E4%B8%8B%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
-      <url>/2019/01/25/Linux%E4%B8%8B%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/</url>
-      
-        <content type="html"><![CDATA[<p>之后补充……</p><a id="more"></a>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-            <tag> Manjaro </tag>
-            
-            <tag> 百度网盘 </tag>
             
         </tags>
       
@@ -119,7 +300,7 @@
       <link href="/2019/01/06/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
       <url>/2019/01/06/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<h1 id="统计学重要知识点"><a href="#统计学重要知识点" class="headerlink" title="统计学重要知识点"></a>统计学重要知识点</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><ul><li><strong>概率</strong>：概率是一个事件发生、一种情况出现的可能性大小的数量指标，介于0与1之间。</li><li><strong>分布</strong>：分布包括离散分布和连续分布，用来表述随机变量取值的概率规律。</li><li><strong>概率密度函数</strong>（probability density function，PDF）： 在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。当概率密度函数存在时，累计分布函数式概率密度函数的积分。</li><li><strong>累积分布函数</strong>（cumulative distribution function，CDF）：又叫分布函数，是概率密度函数的积分，能完整描述一个实随机变量X的概率分布，一般以大写“CDF”标记。</li><li><strong>伯努利分布</strong>（零一分布、两点分布、0-1分布）伯努利试验成功的次数服从伯努利分布</li><li><strong>二项分布</strong>： 重复n次独立的伯努利试验</li><li><strong>泊松分布</strong>: 在二项分布的伯努利试验中，如果试验次数n很大，二项分布的概率p很小，且乘积$\lambda=np$比较适中，则事件出现的次数的概率可以用泊松分布来逼近。事实上，二项分布可以看做泊松分布在离散时间上的对应物。同样的，泊松分布也可看为二项分布在特殊情况下的极限。</li><li><strong>大数定律</strong>: 在数学与统计学中，大数定律又称大数法则、大数律，是描述相当多次数重复实验的结果的定律。根据这个定律知道，样本数量越多，则其算术平均值就有越高的概率接近期望值。大数定律很重要，因为它“说明”了一些随机事件的均值的长期稳定性。</li><li><strong>正态分布</strong>: 正态分布又名高斯分布，是一个非常常见的连续概率分布。正态分布是自然科学与行为科学的定量现象的一个方便模型。各种各样的心理学测试分数和物理现象比如光子计数都被发现近似地服从正态分布，尽管这些现象的根本原因经常是未知的，理论上可以证明如果把许多小作用加起来看做一个变量，那么这个变量服从正态分布。</li><li><strong>中心极限定理</strong>： 中心极限定理是指概率论中讨论随机变量序列部分和分布渐进于正态分布的一类定理。这组定理是数理统计学和误差分析的理论基础，指出了大量随机变量近似服从正态分布的条件。它是概率论中最重要的一类定理，有广泛的实际应用背景。在自然界与生产中，一些现象受到许多相互独立的随机因素的影响，如果每个因素所产生的影响都很微小时，总的影响可以看作是服从正态分布的。中心极限定理就是从数学上证明了这一现象。</li><li><strong>离散分布</strong>：离散分布描述离散随机变量的每个值的发生概率，如伯努利分布、二项分布、泊松分布。离散随机变量是指具有可计数的值的随机变量，例如非负整数的列表。在离散概率分布中，离散随机变量的每个可能值可与一个非零概率想关联。因此，离散概率分布通常具有表格形式。</li><li><strong>连续分布</strong>：连续分布描述连续随机变量的可能值的概率，例如正太分布。连续随机变量是一组无限且不可计数的可能值（称为范围）的随机变量。连续随机变量（X）的概率被定义为其PDF曲线下的面积。因此，只有值范围才能具有非零的概率。连续随机变量等于某个值的概率始终为零。</li></ul><a id="more"></a><h2 id="2-相关"><a href="#2-相关" class="headerlink" title="2. 相关"></a>2. 相关</h2><h3 id="1-概率分布的种类"><a href="#1-概率分布的种类" class="headerlink" title="1. 概率分布的种类"></a>1. 概率分布的种类</h3><blockquote><p>概率分布要么是连续概率分布，要么是离散概率分布，这取决于它们是定理连续变量还是离散变量的概率。</p></blockquote><h3 id="2-大数定理和中心极限定理的联系和区别"><a href="#2-大数定理和中心极限定理的联系和区别" class="headerlink" title="2. 大数定理和中心极限定理的联系和区别"></a>2. 大数定理和中心极限定理的联系和区别</h3><blockquote><p>大数定律（LLN）和中心极限定理（CLT）的联系与区别在于：</p><ul><li>共同点：都是用来描述独立同分布（i.i.d）的随机变量的和的渐近表现（asymptotic behavior）</li><li>区别：它们描述的是在不同的收敛速度（convergence rate）之下的表现，其次LLN前提条件弱一点：$E(|X|) &lt; \infty$，CLT条件强一点:$E(X^2) &lt; \infty$。</li><li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X)  \underrightarrow{P}  0$.中心极限定理说的是$\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D} N(0,E)$.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律讨论的是依概率收敛，中心极限定理涉及按分布收敛（按分布收敛比点点收敛弱很多啊）。私以为搞清楚随机变量序列的收敛性就是为了方便在样本量很大情况下计算概率。。。</p><ul><li>大数定律是说随机变量序列的算术平均以概率收敛到其均值的算术平均。比较经典的运用就是用频率确定概率，比如估计不合格品率，抽样的不合格品比例就是可以作为总体的不合格品率估计值。</li><li>中心极限定理说的是给出随机变量和的分布函数在什么条件下收敛到正太分布。比较熟悉的比如用来估计误差，误差基本上都是由这样那样大大小小微小因素叠加的，这些个因素相加就是总的误差，这个时候就要用到参数估计和假设检验了，在认为误差近似正太分布情况下，给出误差上限下限，置信度，判断质量是否达到要求等等工作就可以做了。<br>作者：yyylll；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155488114" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律揭示了大量随机变量的平均结果，但没有涉及到随即变量的分布的问题。而中心极限定理说明的是在一定条件下，大量随机独立变量的平均数是以正态分布为极限的。</p></blockquote><h3 id="3-泊松分布的现实意义"><a href="#3-泊松分布的现实意义" class="headerlink" title="3. 泊松分布的现实意义"></a>3. 泊松分布的现实意义</h3><blockquote><p>马同学的讲解：<a href="https://www.zhihu.com/question/26441147/answer/429569625" target="_blank" rel="noopener">泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a></p><p>先说结论：泊松分布是二项分布n很大而p很小时的一种极限形式二项分布是说，已知某件事情发生的概率是p，那么做n次试验，事情发生的次数就服从于二项分布。泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个p很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此n(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。作者：ctian；来源：知乎；<a href="https://www.zhihu.com/question/26441147/answer/82350992" target="_blank" rel="noopener">原文链接</a></p></blockquote><h3 id="4-理解概率分布函数和概率密度函数"><a href="#4-理解概率分布函数和概率密度函数" class="headerlink" title="4. 理解概率分布函数和概率密度函数"></a>4. 理解概率分布函数和概率密度函数</h3><blockquote><p>产品经理马忠信的讲解： <a href="https://www.jianshu.com/p/b570b1ba92bb" target="_blank" rel="noopener">应该如何理解概率分布函数和概率密度函数？</a></p></blockquote><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h2><ul><li><a href="https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/probability-distributions-and-random-data/supporting-topics/basics/continuous-and-discrete-probability-distributions/" target="_blank" rel="noopener">连续和离散分布</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88" target="_blank" rel="noopener">泊松分布</a></li><li><a href="https://www.zhihu.com/question/48256489" target="_blank" rel="noopener">为什么我觉得大数定理和中心极限定理是矛盾的？</a></li><li><a href="https://wiki.mbalib.com/wiki/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a></li><li><a href="http://hongyitong.github.io/2016/11/13/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E3%80%81%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E3%80%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/" target="_blank" rel="noopener">二项分布、泊松分布、正态分布的关系</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="统计学重要知识点"><a href="#统计学重要知识点" class="headerlink" title="统计学重要知识点"></a>统计学重要知识点</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><ul><li><strong>概率</strong>：概率是一个事件发生、一种情况出现的可能性大小的数量指标，介于0与1之间。</li><li><strong>分布</strong>：分布包括离散分布和连续分布，用来表述随机变量取值的概率规律。</li><li><strong>概率密度函数</strong>（probability density function，PDF）： 在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。当概率密度函数存在时，累计分布函数式概率密度函数的积分。</li><li><strong>累积分布函数</strong>（cumulative distribution function，CDF）：又叫分布函数，是概率密度函数的积分，能完整描述一个实随机变量X的概率分布，一般以大写“CDF”标记。</li></ul><a id="more"></a><ul><li><strong>伯努利分布</strong>（零一分布、两点分布、0-1分布）伯努利试验成功的次数服从伯努利分布</li><li><strong>二项分布</strong>： 重复n次独立的伯努利试验</li><li><strong>泊松分布</strong>: 在二项分布的伯努利试验中，如果试验次数n很大，二项分布的概率p很小，且乘积$\lambda=np$比较适中，则事件出现的次数的概率可以用泊松分布来逼近。事实上，二项分布可以看做泊松分布在离散时间上的对应物。同样的，泊松分布也可看为二项分布在特殊情况下的极限。</li><li><strong>大数定律</strong>: 在数学与统计学中，大数定律又称大数法则、大数律，是描述相当多次数重复实验的结果的定律。根据这个定律知道，样本数量越多，则其算术平均值就有越高的概率接近期望值。大数定律很重要，因为它“说明”了一些随机事件的均值的长期稳定性。</li><li><strong>正态分布</strong>: 正态分布又名高斯分布，是一个非常常见的连续概率分布。正态分布是自然科学与行为科学的定量现象的一个方便模型。各种各样的心理学测试分数和物理现象比如光子计数都被发现近似地服从正态分布，尽管这些现象的根本原因经常是未知的，理论上可以证明如果把许多小作用加起来看做一个变量，那么这个变量服从正态分布。</li><li><strong>中心极限定理</strong>： 中心极限定理是指概率论中讨论随机变量序列部分和分布渐进于正态分布的一类定理。这组定理是数理统计学和误差分析的理论基础，指出了大量随机变量近似服从正态分布的条件。它是概率论中最重要的一类定理，有广泛的实际应用背景。在自然界与生产中，一些现象受到许多相互独立的随机因素的影响，如果每个因素所产生的影响都很微小时，总的影响可以看作是服从正态分布的。中心极限定理就是从数学上证明了这一现象。</li><li><strong>离散分布</strong>：离散分布描述离散随机变量的每个值的发生概率，如伯努利分布、二项分布、泊松分布。离散随机变量是指具有可计数的值的随机变量，例如非负整数的列表。在离散概率分布中，离散随机变量的每个可能值可与一个非零概率想关联。因此，离散概率分布通常具有表格形式。</li><li><strong>连续分布</strong>：连续分布描述连续随机变量的可能值的概率，例如正太分布。连续随机变量是一组无限且不可计数的可能值（称为范围）的随机变量。连续随机变量（X）的概率被定义为其PDF曲线下的面积。因此，只有值范围才能具有非零的概率。连续随机变量等于某个值的概率始终为零。</li></ul><h2 id="2-相关"><a href="#2-相关" class="headerlink" title="2. 相关"></a>2. 相关</h2><h3 id="1-概率分布的种类"><a href="#1-概率分布的种类" class="headerlink" title="1. 概率分布的种类"></a>1. 概率分布的种类</h3><blockquote><p>概率分布要么是连续概率分布，要么是离散概率分布，这取决于它们是定理连续变量还是离散变量的概率。</p></blockquote><h3 id="2-大数定理和中心极限定理的联系和区别"><a href="#2-大数定理和中心极限定理的联系和区别" class="headerlink" title="2. 大数定理和中心极限定理的联系和区别"></a>2. 大数定理和中心极限定理的联系和区别</h3><blockquote><p>大数定律（LLN）和中心极限定理（CLT）的联系与区别在于：</p><ul><li>共同点：都是用来描述独立同分布（i.i.d）的随机变量的和的渐近表现（asymptotic behavior）</li><li>区别：它们描述的是在不同的收敛速度（convergence rate）之下的表现，其次LLN前提条件弱一点：$E(|X|) &lt; \infty$，CLT条件强一点:$E(X^2) &lt; \infty$。</li><li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X)  \underrightarrow{P}  0$.中心极限定理说的是$\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D} N(0,E)$.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律讨论的是依概率收敛，中心极限定理涉及按分布收敛（按分布收敛比点点收敛弱很多啊）。私以为搞清楚随机变量序列的收敛性就是为了方便在样本量很大情况下计算概率。。。</p><ul><li>大数定律是说随机变量序列的算术平均以概率收敛到其均值的算术平均。比较经典的运用就是用频率确定概率，比如估计不合格品率，抽样的不合格品比例就是可以作为总体的不合格品率估计值。</li><li>中心极限定理说的是给出随机变量和的分布函数在什么条件下收敛到正太分布。比较熟悉的比如用来估计误差，误差基本上都是由这样那样大大小小微小因素叠加的，这些个因素相加就是总的误差，这个时候就要用到参数估计和假设检验了，在认为误差近似正太分布情况下，给出误差上限下限，置信度，判断质量是否达到要求等等工作就可以做了。<br>作者：yyylll；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155488114" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律揭示了大量随机变量的平均结果，但没有涉及到随即变量的分布的问题。而中心极限定理说明的是在一定条件下，大量随机独立变量的平均数是以正态分布为极限的。</p></blockquote><h3 id="3-泊松分布的现实意义"><a href="#3-泊松分布的现实意义" class="headerlink" title="3. 泊松分布的现实意义"></a>3. 泊松分布的现实意义</h3><blockquote><p>马同学的讲解：<a href="https://www.zhihu.com/question/26441147/answer/429569625" target="_blank" rel="noopener">泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a></p><p>先说结论：泊松分布是二项分布n很大而p很小时的一种极限形式二项分布是说，已知某件事情发生的概率是p，那么做n次试验，事情发生的次数就服从于二项分布。泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个p很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此n(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。作者：ctian；来源：知乎；<a href="https://www.zhihu.com/question/26441147/answer/82350992" target="_blank" rel="noopener">原文链接</a></p></blockquote><h3 id="4-理解概率分布函数和概率密度函数"><a href="#4-理解概率分布函数和概率密度函数" class="headerlink" title="4. 理解概率分布函数和概率密度函数"></a>4. 理解概率分布函数和概率密度函数</h3><blockquote><p>产品经理马忠信的讲解： <a href="https://www.jianshu.com/p/b570b1ba92bb" target="_blank" rel="noopener">应该如何理解概率分布函数和概率密度函数？</a></p></blockquote><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h2><ul><li><a href="https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/probability-distributions-and-random-data/supporting-topics/basics/continuous-and-discrete-probability-distributions/" target="_blank" rel="noopener">连续和离散分布</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88" target="_blank" rel="noopener">泊松分布</a></li><li><a href="https://www.zhihu.com/question/48256489" target="_blank" rel="noopener">为什么我觉得大数定理和中心极限定理是矛盾的？</a></li><li><a href="https://wiki.mbalib.com/wiki/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a></li><li><a href="http://hongyitong.github.io/2016/11/13/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E3%80%81%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E3%80%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/" target="_blank" rel="noopener">二项分布、泊松分布、正态分布的关系</a></li></ul>]]></content>
       
       
       <categories>
