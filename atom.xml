@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2019-01-20T01:51:59.959Z</updated>
+  <updated>2019-04-03T05:10:46.897Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人生苦短，我用Manjaro！</title>
+    <link href="http://www.iamlightsmile.com/2019/04/03/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/"/>
+    <id>http://www.iamlightsmile.com/2019/04/03/人生苦短，我用Manjaro！/</id>
+    <published>2019-04-03T05:10:46.000Z</published>
+    <updated>2019-04-03T05:10:46.897Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python库打包分发</title>
+    <link href="http://www.iamlightsmile.com/2019/02/02/python%E5%BA%93%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/"/>
+    <id>http://www.iamlightsmile.com/2019/02/02/python库打包分发/</id>
+    <published>2019-02-02T05:11:46.000Z</published>
+    <updated>2019-04-03T05:29:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python库打包分发"><a href="#Python库打包分发" class="headerlink" title="Python库打包分发"></a>Python库打包分发</h1><p>主要有以下步骤：</p><ol><li>注册PyPI账号（执行一次）</li><li>安装打包分发工具（执行一次）</li><li>编写setup.py文件</li><li>通过命令打包分发</li></ol><h2 id="1-注册PyPI账号"><a href="#1-注册PyPI账号" class="headerlink" title="1.注册PyPI账号"></a>1.注册PyPI账号</h2><p>进入<a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a>的官网，进去注册账号密码，绑定邮箱等。</p><p>在成功注册账号之后，创建<code>～/.pypirc</code>文件，在文件中配置自己的PyPI访问地址和账号密码等信息，如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[distutils]</span><br><span class="line">index-servers = pypi</span><br><span class="line"></span><br><span class="line">[pypi]</span><br><span class="line">username:xxx</span><br><span class="line">password:xxx</span><br></pre></td></tr></table></figure><h2 id="2-安装打包分发工具"><a href="#2-安装打包分发工具" class="headerlink" title="2.安装打包分发工具"></a>2.安装打包分发工具</h2><p>这里通过twine来打包安装。</p><p>通过以下命令下载：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install twine</span><br></pre></td></tr></table></figure><h2 id="3-编写setup-py文件"><a href="#3-编写setup-py文件" class="headerlink" title="3.编写setup.py文件"></a>3.编写setup.py文件</h2><p>格式不再详述，具体查看参考1. 举例如：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">import</span> setuptools</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./README.md'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    long_description = f.read()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./requirements.txt'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    install_requires = list(map(<span class="keyword">lambda</span> x: x.strip(), f.readlines()))</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">'lightNLP'</span>,</span><br><span class="line">    version=<span class="string">'0.3.2.0'</span>,</span><br><span class="line">    description=<span class="string">"lightsmile's nlp library"</span>,</span><br><span class="line">    author=<span class="string">'lightsmile'</span>,</span><br><span class="line">    author_email=<span class="string">'iamlightsmile@gmail.com'</span>,</span><br><span class="line">    url=<span class="string">'https://github.com/smilelight/lightNLP'</span>,</span><br><span class="line">    packages=setuptools.find_packages(),</span><br><span class="line">    install_requires=install_requires,</span><br><span class="line">    long_description=long_description,</span><br><span class="line">    long_description_content_type=<span class="string">'text/markdown'</span>,</span><br><span class="line">    license=<span class="string">'Apache-2.0'</span>,</span><br><span class="line">    classifiers=[</span><br><span class="line">        <span class="string">'Development Status :: 4 - Beta'</span>,</span><br><span class="line">        <span class="string">'Operating System :: OS Independent'</span>,</span><br><span class="line">        <span class="string">'Intended Audience :: Developers'</span>,</span><br><span class="line">        <span class="string">'License :: OSI Approved :: BSD License'</span>,</span><br><span class="line">        <span class="string">'Programming Language :: Python'</span>,</span><br><span class="line">        <span class="string">'Programming Language :: Python :: 3'</span>,</span><br><span class="line">        <span class="string">'Programming Language :: Python :: 3.6'</span>,</span><br><span class="line">        <span class="string">'Programming Language :: Python :: 3.7'</span>,</span><br><span class="line">        <span class="string">'Topic :: Software Development :: Libraries'</span></span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h2 id="4-通过命令打包分发"><a href="#4-通过命令打包分发" class="headerlink" title="4.通过命令打包分发"></a>4.通过命令打包分发</h2><h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><p>在setup.py文件目录下执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure><h3 id="分发"><a href="#分发" class="headerlink" title="分发"></a>分发</h3><p>在setup.py文件目录下执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twine upload dist/*</span><br></pre></td></tr></table></figure><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>之后便可以登录PyPI网站查看自己的projects了。需要注意的是新建包的名字不能在忽视大小写情况下和其他包重复。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="http://blog.konghy.cn/2018/04/29/setup-dot-py/" target="_blank" rel="noopener">Python 库打包分发(setup.py 编写)简易指南</a></li><li><a href="https://pypi.org/project/twine/" target="_blank" rel="noopener">pypi twine</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Python库打包分发&quot;&gt;&lt;a href=&quot;#Python库打包分发&quot; class=&quot;headerlink&quot; title=&quot;Python库打包分发&quot;&gt;&lt;/a&gt;Python库打包分发&lt;/h1&gt;&lt;p&gt;主要有以下步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注册PyPI账号（执行一
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://www.iamlightsmile.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://www.iamlightsmile.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下使用百度网盘</title>
+    <link href="http://www.iamlightsmile.com/2019/01/25/Linux%E4%B8%8B%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+    <id>http://www.iamlightsmile.com/2019/01/25/Linux下使用百度网盘/</id>
+    <published>2019-01-25T05:11:27.000Z</published>
+    <updated>2019-04-03T05:20:07.257Z</updated>
+    
+    <content type="html"><![CDATA[<p>之后补充……</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;之后补充……&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
+    
+      <category term="Linux" scheme="http://www.iamlightsmile.com/tags/Linux/"/>
+    
+      <category term="百度网盘" scheme="http://www.iamlightsmile.com/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Manjaro设置交换分区</title>
+    <link href="http://www.iamlightsmile.com/2019/01/24/Manjaro%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/"/>
+    <id>http://www.iamlightsmile.com/2019/01/24/Manjaro设置交换分区/</id>
+    <published>2019-01-24T05:11:13.000Z</published>
+    <updated>2019-04-03T05:20:16.086Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>在安装Manjaro系统的时候发现自己没有设置交换分区，用<code>htop</code>命令发现是空的，所以这里通过后续的命令配置交换分区。</p><h1 id="1-查看磁盘信息"><a href="#1-查看磁盘信息" class="headerlink" title="1.查看磁盘信息"></a>1.查看磁盘信息</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure><p>得到如下信息：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-306e66037dbfb4e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_fdisk.png"></p><h1 id="2-查看挂载状态"><a href="#2-查看挂载状态" class="headerlink" title="2.查看挂载状态"></a>2.查看挂载状态</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -o list</span><br></pre></td></tr></table></figure><p>得到如下信息：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-930b0da13da48867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_blkid.png"></p><h1 id="3-设置交换分区"><a href="#3-设置交换分区" class="headerlink" title="3.设置交换分区"></a>3.设置交换分区</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sd**</span><br></pre></td></tr></table></figure><p>其中**用具体某个分区名替换，如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8b075fa024b217f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_mkswap.png"></p><h1 id="4-启用交换分区"><a href="#4-启用交换分区" class="headerlink" title="4.启用交换分区"></a>4.启用交换分区</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /dev/sd**</span><br></pre></td></tr></table></figure><p>其中**用具体某个分区名替换，如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-536acb23d33857d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_swapon.png"></p><h1 id="5-查看交换分区状态"><a href="#5-查看交换分区状态" class="headerlink" title="5.查看交换分区状态"></a>5.查看交换分区状态</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon -s</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure><p>如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-79bc3c558b359112.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_swapon_s.png"></p><h1 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h1><p>至此便设置交换分区成功了。</p><h1 id="7-参考"><a href="#7-参考" class="headerlink" title="7.参考"></a>7.参考</h1><ul><li><a href="https://wiki.archlinux.org/index.php/Swap_\(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87\" target="_blank" rel="noopener">Swap (简体中文)</a>)</li><li><a href="https://blog.sbot.io/articles/7" target="_blank" rel="noopener">Linux系统下如何查看所有存储设备（磁盘分区）</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h1&gt;&lt;p&gt;在安装Manjaro系统的时候发现自己没有设置交换分区，用&lt;code&gt;htop&lt;/code&gt;命令发现是空的，所以这里通过后续
+      
+    
+    </summary>
+    
+      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
+    
+    
+      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
+    
+  </entry>
   
   <entry>
     <title>个性化hexo主题</title>
@@ -381,111 +475,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>常见10种自然语言处理技术（转载）</title>
-    <link href="http://www.iamlightsmile.com/2018/03/05/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/"/>
-    <id>http://www.iamlightsmile.com/2018/03/05/常见10种自然语言处理技术（转载）/</id>
-    <published>2018-03-05T07:28:41.000Z</published>
-    <updated>2019-01-07T03:15:31.431Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.felayman.com/articles/2018/02/28/1519818174444.html" title="点击查看原文" target="_blank" rel="noopener">原文</a></p><p><a href="https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/" target="_blank" rel="noopener">该作者也是翻译的外文，英文原文链接</a></p><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>自然语言处理（NLP）是一种艺术与科学的结合，旨在从文本数据中提取信息。在它的帮助下，我们从文本中提炼出适用于计算机算法的信息。从自动翻译、文本分类到情绪分析，自然语言处理成为所有数据科学家的必备技能之一。</p><p>常见的10个NLP任务如下：</p><ol><li><code>词干提取</code></li><li><code>词形还原</code></li><li><code>词向量化</code></li><li><code>词性标注</code></li><li><code>命名实体消岐</code></li><li><code>命名实体识别</code></li><li><code>情感分析</code></li><li><code>文本语义相似分析</code></li><li><code>语种辨识</code></li><li><code>文本总结</code></li></ol><a id="more"></a><h3 id="以下将详细展开："><a href="#以下将详细展开：" class="headerlink" title="以下将详细展开："></a>以下将详细展开：</h3><h1 id="1-词干提取"><a href="#1-词干提取" class="headerlink" title="1.词干提取"></a>1.词干提取</h1><p>什么是词干提取？词干提取是将词语去除变化或衍生形式，转换为词干或原型形式的过程。词干提取的目标是将相关词语还原为同样的词干，哪怕词干并非词典的词目。例如，英文中:</p><ol><li>beautiful和beautifully的词干同为beauti</li><li>Good,better和best 的词干分别为good,better和best。</li></ol><p>相关论文：<a href="https://tartarus.org/martin/PorterStemmer/def.txt" target="_blank" rel="noopener">Martin Porter的波特词干算法原文</a></p><p>相关算法：<a href="https://bitbucket.org/mchaput/stemming/src/5c242aa592a6d4f0e9a0b2e1afdca4fd757b8e8a/stemming/porter2.py?at=default&amp;fileviewer=file-view-default" target="_blank" rel="noopener">Porter2词干算法的Python实现</a></p><p>程序实现：Porter2算法做词干提取的代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install stemming</span></span><br><span class="line"><span class="keyword">from</span> stemming.porter2 <span class="keyword">import</span> stem</span><br><span class="line">stem(<span class="string">"casually"</span>)</span><br></pre></td></tr></table></figure><h1 id="2-词形还原"><a href="#2-词形还原" class="headerlink" title="2. 词形还原"></a>2. 词形还原</h1><p>什么是词形还原？ 词形还原是将一组词语还原为词源或词典的词目形式的过程。还原过程考虑到了POS问题，即词语在句中的语义，词语对相邻语句的语义等。例如，英语中：</p><ol><li>beautiful和beautifully被分别还原为beautiful和beautifully。</li><li>good, better和best被分别还原为good, good和good</li></ol><p>相关论文1: <a href="http://www.ijrat.org/downloads/icatest2015/ICATEST-2015127.pdf" target="_blank" rel="noopener">这篇文章详细讨论了词形还原的不同方法。想要了解传统词形还原的工作原理必读。</a></p><p>相关论文2: <a href="https://academic.oup.com/dsh/article-abstract/doi/10.1093/llc/fqw034/2669790/Lemmatization-for-variation-rich-languages-using" target="_blank" rel="noopener">这篇论文非常出色，讨论了运用深度学习对变化丰富的语种做词形还原时会遇到的问题。</a></p><p>数据集: <a href="https://catalog.ldc.upenn.edu/ldc99t42" target="_blank" rel="noopener">这里是Treebank-3数据集的链接，你可以使用它创建一个自己的词形还原工具。</a></p><p>程序实现：下面给出了在spacy上的英语词形还原代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#python -m spacy download en</span></span><br><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">"en"</span>)</span><br><span class="line">doc=<span class="string">"good better best"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(doc):</span><br><span class="line">    print(token,token.lemma_)</span><br></pre></td></tr></table></figure><h1 id="3-词向量化"><a href="#3-词向量化" class="headerlink" title="3. 词向量化"></a>3. 词向量化</h1><p>什么是词向量化？词向量化是用一组实数构成的向量代表自然语言的叫法。这种技术非常实用，因为电脑无法处理自然语言。词向量化可以捕捉到自然语言和实数间的本质关系。通过词向量化，一个词语或者一段短语可以用一个定维的向量表示，例如向量的长度可以为100。</p><p>例如：<code>Man</code>这个词语可以用一个五维向量表示。</p><p><img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/word-vector.png" alt="Man"></p><p>这里的每个数字代表了词语在某个特定方向上的量级。<br><img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/Word-Vectors.png" alt="word-vectors"></p><p>相关博文：<a href="https://www.analyticsvidhya.com/blog/2017/06/word-embeddings-count-word2veec/" target="_blank" rel="noopener">这篇文章详细解释了词向量化</a></p><p>相关论文：<a href="https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/" target="_blank" rel="noopener">这篇论文解释了词向量化的细节。深入理解词向量化必读。</a></p><p>相关工具：<a href="https://ronxin.github.io/wevi/" target="_blank" rel="noopener">这是个基于浏览器的词向量可视化工具。</a></p><p>预训练词向量：<a href="https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md?spm=a2c4e.11153959.blogcont236723.10.1a815c301CEF2o&amp;file=pretrained-vectors.md" target="_blank" rel="noopener">这里有一份facebook的预训练词向量列表，包含294种语言。</a></p><p><a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit" target="_blank" rel="noopener">这里可以下载google news的预训练词向量。</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install gensim</span></span><br><span class="line"><span class="keyword">from</span> gensim.models.keyedvectors <span class="keyword">import</span> KeyedVectors</span><br><span class="line">word_vectors=KeyedVectors.load_word2vec_format(<span class="string">'GoogleNews-vectors-negative300.bin'</span>,binary=<span class="keyword">True</span>)</span><br><span class="line">word_vectors[<span class="string">'human'</span>]</span><br></pre></td></tr></table></figure><p>程序实现：这段代码可以用gensim训练你自己的词向量</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sentence=[[<span class="string">'first'</span>,<span class="string">'sentence'</span>],[<span class="string">'second'</span>,<span class="string">'sentence'</span>]]</span><br><span class="line">model = gensim.models.Word2Vec(sentence, min_count=<span class="number">1</span>,size=<span class="number">300</span>,workers=<span class="number">4</span>)</span><br></pre></td></tr></table></figure><h1 id="4-词性标注"><a href="#4-词性标注" class="headerlink" title="4.词性标注"></a>4.词性标注</h1><p>什么事词性标注？简单来说，词性标注是对句子中的词语标注为名字、动词、形容词、副词等的过程。例如，对句子“Ashok killed the snake with a stick”，词性标注会识别：</p><ul><li>Ashok 代词</li><li>killed 动词</li><li>the 限定词</li><li>snake 名词</li><li>with 连词</li><li>a 限定词</li><li>stick 名词</li><li>. 标点</li></ul><p>论文1：<a href="https://aclweb.org/anthology/N16-1031.pdf" target="_blank" rel="noopener">choi aptly的这篇《The Last Gist to theState-of-the-Art 》介绍了一种叫动态特征归纳的新方法。这是目前词性标注最先进的方法。</a></p><p>论文2：<a href="https://transacl.org/ojs/index.php/tacl/article/viewFile/837/192" target="_blank" rel="noopener">这篇文章介绍了通过隐马尔科夫模型做无监督词性标注学习的方法。</a></p><p>程序实现：这段代码可以在spacy上做词性标注</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#!python -m spacy download en </span></span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)</span><br><span class="line">sentence=<span class="string">"Ashok killed the snake with a stick"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token,token.pos_)</span><br></pre></td></tr></table></figure><h1 id="5-命名实体消歧"><a href="#5-命名实体消歧" class="headerlink" title="5. 命名实体消歧"></a>5. 命名实体消歧</h1><p>什么是命名实体消岐？命名实体消岐是对句子中的提到的实体识别的过程。例如，对句子“Apple earned a revenue of 200 Billion USD in 2016”，命名实体消岐会推断出句子中的Apple是苹果公司而不是指一种水果。一般来说，命名实体要求有一个实体知识库，能够将句子中提到的实体和知识库联系起来。</p><p>论文1：<a href="https://arxiv.org/pdf/1504.07678.pdf" target="_blank" rel="noopener">Huang的这篇论文运用了基于深度神经网络和知识库的深层语义关联模型，在命名实体消岐上达到了领先水平。</a></p><p>论文2：<a href="https://arxiv.org/pdf/1704.04920.pdf" target="_blank" rel="noopener">Ganea and Hofmann的这篇文章运用了局部神经关注模型和词向量化，没有人为设置特征。</a></p><h1 id="6-命名实体识别"><a href="#6-命名实体识别" class="headerlink" title="6. 命名实体识别"></a>6. 命名实体识别</h1><p>体识别是识别一个句子中有特定意义的实体并将其区分为人名，机构名，日期，地名，时间等类别的任务。例如，一个NER会将一个这样的句子：</p><blockquote><p>“Ram of Apple Inc. travelled to Sydney on 5th October 2017”</p></blockquote><p>返回如下的结果：</p><blockquote><p>Ram<br>of<br>Apple ORG<br>Inc. ORG<br>travelled<br>to<br>Sydney GPE<br>on<br>5th DATE<br>October DATE<br>2017 DATE</p></blockquote><p>这里，ORG代表机构组织名，GPE代表地名。</p><p>然而，当NER被用在不同于该NER被训练的数据领域时，即使是最先进的NER也往往表现不佳。</p><p><img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/ner.png" alt="ner"></p><p>论文：<a href="https://arxiv.org/pdf/1603.01360.pdf" target="_blank" rel="noopener">这篇优秀的论文使用双向LSTM（长短期记忆网络）神经网络结合监督学习和非监督学习方法，在4种语言领域实现了命名实体识别的最新成果。</a></p><p>程序实现：以下使用spacy执行命名实体识别。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)sentence=<span class="string">"Ram of Apple Inc. travelled to Sydney on 5th October 2017"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token, token.ent_type_)</span><br></pre></td></tr></table></figure><h1 id="7-情感分析"><a href="#7-情感分析" class="headerlink" title="7. 情感分析"></a>7. 情感分析</h1><p>什么是情感分析？情感分析是一种广泛的主观分析，它使用自然语言处理技术来识别客户评论的语义情感，语句表达的情绪正负面以及通过语音分析或书面文字判断其表达的情感等等。例如：</p><p>“我不喜欢巧克力冰淇淋”—是对该冰淇淋的负面评价。</p><p>“我并不讨厌巧克力冰激凌”—可以被认为是一种中性的评价。</p><p>从使用LSTMs和Word嵌入来计算一个句子中的正负词数开始，有很多方法都可以用来进行情感分析。</p><p>博文1：<a href="https://www.analyticsvidhya.com/blog/2016/02/step-step-guide-building-sentiment-analysis-model-graphlab/" target="_blank" rel="noopener">本文重点对电影推文进行情感分析。</a></p><p>博文2：<a href="https://www.analyticsvidhya.com/blog/2017/01/sentiment-analysis-of-twitter-posts-on-chennai-floods-using-python/" target="_blank" rel="noopener">本文重点对印度金奈洪水期间的推文进行情感分析。</a></p><p>论文1：<a href="https://arxiv.org/pdf/1305.6143.pdf" target="_blank" rel="noopener">本文采用朴素贝叶斯的监督学习方法对IMDB评论进行分类。</a></p><p>论文2：<a href="http://www.cs.cmu.edu/~yohanj/research/papers/WSDM11.pdf" target="_blank" rel="noopener">本文利用LDA的无监督学习方法来识别用户生成评论的观点和情感。本文在解决注释评论短缺的问题上表现突出。</a></p><p>资料库：<a href="https://github.com/xiamx/awesome-sentiment-analysis" target="_blank" rel="noopener">这是一个很好的包含相关研究论文和各种语言情感分析程序实现的资料库。</a></p><p>数据集1<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/" target="_blank" rel="noopener">：多域情感数据集版本2.0</a></p><p>数据集2：<a href="http://www.sananalytics.com/lab/twitter-sentiment/" target="_blank" rel="noopener">Twitter情感分析数据集</a></p><p>竞赛：<a href="https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews" target="_blank" rel="noopener">一个非常好的比赛，你可以检查你的模型在烂番茄电影评论的情感分析任务中的表现。</a></p><h1 id="8-语义文本相似度"><a href="#8-语义文本相似度" class="headerlink" title="8. 语义文本相似度"></a>8. 语义文本相似度</h1><p>什么是语义文本相似度分析？语义文本相似度分析是对两段文本的意义和本质之间的相似度进行分析的过程。注意，相似性与相关性是不同的。</p><p>例如：</p><blockquote><p>汽车和公共汽车是相似的，但是汽车和燃料是相关的。</p></blockquote><p>论文1：<a href="https://pdfs.semanticscholar.org/5b5c/a878c534aee3882a038ef9e82f46e102131b.pdf" target="_blank" rel="noopener">本文详细介绍了文本相似度测量的不同方法。是一篇可以一站式了解目前所有方法的必读文章。</a></p><p>论文2：<a href="http://casa.disi.unitn.it/~moschitt/since2013/2015_SIGIR_Severyn_LearningRankShort.pdf" target="_blank" rel="noopener">本文介绍了用CNN神经网络去比对两个短文本。</a></p><p>论文3：<a href="https://nlp.stanford.edu/pubs/tai-socher-manning-acl2015.pdf" target="_blank" rel="noopener">本文利用Tree-LSTMs方法得到了文本的语义相关和语义分类的最新成果。</a></p><h1 id="9-语言识别"><a href="#9-语言识别" class="headerlink" title="9. 语言识别"></a>9. 语言识别</h1><p>什么是语言识别？语言识别指的是将不同语言的文本区分出来。其利用语言的统计和语法属性来执行此任务。语言识别也可以被认为是文本分类的特殊情况。</p><p>博文：<a href="https://fasttext.cc/blog/2017/10/02/blog-post.html" target="_blank" rel="noopener">在这篇由fastText撰写的博文中介绍了一种新的工具，其可以在1MB的内存使用情况下识别170种语言。</a></p><p>论文1：<a href="http://www.ep.liu.se/ecp/131/021/ecp17131021.pdf" target="_blank" rel="noopener">本文讨论了285种语言的7种语言识别方法。</a></p><p>论文2：<a href="https://repositorio.uam.es/bitstream/handle/10486/666848/automatic_lopez-moreno_ICASSP_2014_ps.pdf?sequence=1" target="_blank" rel="noopener">本文描述了如何使用深度神经网络来实现自动语言识别的最新成果。</a></p><h1 id="10-文本摘要"><a href="#10-文本摘要" class="headerlink" title="10. 文本摘要"></a>10. 文本摘要</h1><p>什么是文本摘要？文本摘要是通过识别文本的重点并使用这些要点创建摘要来缩短文本的过程。文本摘要的目的是在不改变文本含义的前提下最大限度地缩短文本。</p><p>论文1：<a href="https://arxiv.org/pdf/1509.00685.pdf" target="_blank" rel="noopener">本文描述了基于神经注意模型的抽象语句梗概方法。</a></p><p>论文2：<a href="https://arxiv.org/pdf/1602.06023.pdf" target="_blank" rel="noopener">本文描述了使用序列到序列的RNN在文本摘要中达到的最新结果。</a></p><p>资料库：<a href="https://github.com/tensorflow/models/tree/master/research/textsum" target="_blank" rel="noopener">Google Brain团队的这个资料库拥有使用为文本摘要定制的序列到序列模型的代码。该模型在Gigaword数据集上进行训练。</a></p><p>应用程序：<a href="https://www.reddit.com/r/autotldr/comments/31b9fm/faq_autotldr_bot/" target="_blank" rel="noopener">Reddit的autotldr机器人使用文本摘要来梗概从文章到帖子的各种评论。这个功能在Reddit用户中非常有名。</a></p><p>程序实现：以下是如何用gensim包快速实现文本摘要。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fromgensim.summarization <span class="keyword">import</span> summarize</span><br><span class="line">sentence=<span class="string">"Automatic summarization is the process of shortening a text document with software, in order to create a summary with the major points of the original document. Technologies that can make a coherent summary take into account variables such as length, writing style and syntax.Automatic data summarization is part of machine learning and data mining. The main idea of summarization is to find a subset of data which contains the information of the entire set. Such techniques are widely used in industry today. Search engines are an example; others include summarization of documents, image collections and videos. Document summarization tries to create a representative summary or abstract of the entire document, by finding the most informative sentences, while in image summarization the system finds the most representative and important (i.e. salient) images. For surveillance videos, one might want to extract the important events from the uneventful context.There are two general approaches to automatic summarization: extraction and abstraction. Extractive methods work by selecting a subset of existing words, phrases, or sentences in the original text to form the summary. In contrast, abstractive methods build an internal semantic representation and then use natural language generation techniques to create a summary that is closer to what a human might express. Such a summary might include verbal innovations. Research to date has focused primarily on extractive methods, which are appropriate for image collection summarization and video summarization."</span></span><br><span class="line">summarize(sentence)</span><br></pre></td></tr></table></figure><h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>以上所有是最流行的NLP任务以及相关的博客、研究论文、资料库、应用等资源。</p><p>祝你学习愉快！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://www.felayman.com/articles/2018/02/28/1519818174444.html&quot; title=&quot;点击查看原文&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.analyticsvidhya.com/blog/2017/10/essential-nlp-guide-data-scientists-top-10-nlp-tasks/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;该作者也是翻译的外文，英文原文链接&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;自然语言处理（NLP）是一种艺术与科学的结合，旨在从文本数据中提取信息。在它的帮助下，我们从文本中提炼出适用于计算机算法的信息。从自动翻译、文本分类到情绪分析，自然语言处理成为所有数据科学家的必备技能之一。&lt;/p&gt;
-&lt;p&gt;常见的10个NLP任务如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;词干提取&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;词形还原&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;词向量化&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;词性标注&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;命名实体消岐&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;命名实体识别&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;情感分析&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;文本语义相似分析&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;语种辨识&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;文本总结&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="自然语言处理" scheme="http://www.iamlightsmile.com/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="自然语言处理" scheme="http://www.iamlightsmile.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>朕的感情史-编程语言篇！</title>
-    <link href="http://www.iamlightsmile.com/2018/03/05/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/"/>
-    <id>http://www.iamlightsmile.com/2018/03/05/朕的感情史-编程语言篇！/</id>
-    <published>2018-03-05T01:16:32.000Z</published>
-    <updated>2019-01-07T03:17:00.492Z</updated>
-    
-    <content type="html"><![CDATA[<p>对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。</p><p>古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。</p><p>好吧，接下来我要正式介绍一下朕的后宫！</p><a id="more"></a><p><code>第一任</code>：<code>C++</code></p><p>大一学习编程语言最开始上手的就是C++，不过学了半天也没学出个所以然来，经常挣扎于混杂的概念之中，却又缺少电脑无法有效开展实战编程。后来随着考试结束，我和她的感情也就慢慢的越来越淡了。</p><p>好吧，不过呢，作为系统编程和游戏开发的无可替代的语言，她的高性能与开发效率综合而言目前怕是所有所有的都比不上。</p><p>大部分企业面试笔试好像都会问到C++，感觉不会点C++真的不配说自己是程序员，但是我觉得人生苦短，何必找死呢。感觉C++是我等屁民不可轻易染指的高冷女神。</p><p><code>第二任</code>：<code>C</code></p><p>为了更好的学习C++，曾经又跑去学了C，因为我觉得她是C++的姐姐吧。不过还是由于驱动力不足之类的原因吧，最终也没能学出个卵子，不过也在某种程度上理解了C++相对于C而言做的改进，例如多态、名称空间、类等对于结构化的编程还是挺有用的吧。</p><p>C语言也可以做的很吊，但是由于语言的设计里本身并没有许多高级概念，所以用起来不是很直接方便，搞系统编程或者其他对效率要求极高的才会用吧。看上去没有C++的高冷，但是也不好追，并且语言特性相对低级，自己本身不太喜欢。</p><p><code>第三任</code>：<code>Java</code></p><p>Java这门语言其实真的是相当不错的。如所有的类都有一个共同的基类，只能继承自一个父类，其他的通过接口来实现，相对于C++的名称空间来说要好不少。</p><p>Java的语言世界里，程序总是在一个个实例化的类或类本身中的属性和方法中穿梭，某种程度上来说其实挺好的。相比C++而言，普通的人很容易上手并能培养起初步良好的编程习惯。</p><p>我在Java实验课程中手撸一个什么系统，在此过程中，初步培养起了软件编程的极初始的经验体会。后来学习Android过程中，由于也要用到Java，所以功底还算可以。</p><p>但是在定义和使用的过程中，还是会感觉到比较冗杂，当然规矩多了某种程度上也算好事。那些之后在JVM之上出现的其他语言，也是同样在JVM上运行程序，但是相对而言可能更简洁、更少束缚、更强表现力，如Scala、Kotlin等等。</p><p>曾经问我家邻居学软件怎么入手，他说你就学Java吧。Java语言在企业级应用系统开发中的主导地位怕是很难被动摇的。</p><p>无论什么时候，Java都是一个值得选择拥抱的小姐姐。</p><p><code>第四任</code>：<code>C#</code></p><p>C#开发最初的目的可能是微软用于应对Java吧。</p><p>C#这门语言在面向对象的语言家族中还是很不错的，某些设计理念比Java还要先进。然而正如以前的VBScript等更多的是被捆绑在Windows操作系统中，不开源，在某种程度上也算束缚了它的发展进步。虽说现在开源了，但是由于Java已经占领了大部分市场，C#的份额还是挺小的了。</p><p>因课结缘，课完缘尽。<br>定位和Java类似，但是对Java更有好感。</p><p><code>第五任</code>：<code>Lua</code></p><p>不得不说，Lua真的是个好语言，只是之前没怎么好好学，并且它上手极为简单容易。现在的话，很少接触，因为基本上用不到。对于它的C源码还是有必要看一下的。感觉很有好感的小妹妹。</p><p><code>第六任</code>：<code>Python</code></p><p>Python的设计哲学现在看来真的是极好，这些年的发展壮大足以说明一切，在大部分编程应用领域里几乎都有了它的身影。极强的代码阅读性，上手很容易。于我而言，她现在是一个贤妻良母型的。</p><p><code>第七任</code>：<code>Ruby</code></p><p>Python和Ruby各领风骚，许多爱好者各爱各的好。Ruby我以前也学过一下下，Ruby好像是基于对象的，里面啥都是对象。相对而言，用法超级灵活，而且比较简洁炫酷，但是可能因为用的少，我看着Ruby代码好像阅读起来不是很爽，比Python而言差远了。开发效率极高，Ruby on Rails嘛，但是好像项目做大之后就会受限于它的运行效率。现在也早就分了。感觉Ruby和我三观不符，私人感觉Ruby是一个比较追求时尚新颖的女生，比较开放外向。</p><p><code>第八任</code>：<code>Scala</code></p><p>我曾经学习过很短时间的Scala，网上的说法是学习起来很复杂，我当时感觉还不错，后来因为用不到也没在学了，可能还是不太感兴趣吧。也是一个不错的小姐姐，但是如果太专情于此，怕是不好吃饭。。。</p><p><code>第九任</code>：<code>aardio</code></p><p>最爱，没有之一。虽然它生于Windows，长于Windows，最终也将死于Windows，但是这还是无法阻挠我对它的喜爱，况且正是由于仅限于Windows平台，她的美才更加表现出来。她的不开源我也理解，是我我也不开源，正是一鹤校长非常爱她，才不允许其他误解开源精神的染指搞事情。</p><p>动态语言，快速开发，名称空间、类，句法灵活，调用简单，几行代码就可以实现复杂的功能，并且很方便的就可以开发出控制台、桌面、网络、后台程序，可以方便与其他语言实现互相调用。</p><p>自从无意间了解到这门语言之后，感觉一下子就被吸引到了，因为她当时完全符合我对编程语言的所有需求，他妈的当时把老纸激动坏了，差点一宿没睡着。当时学了编程两年多，都写不出个什么桌面程序来，用Java写的太丑，用C#开发的还得运行在.Net框架上。一点成就感都没有，我对可视化的界面还是很执着的。</p><p>后来花钱报了班，看视频学习，有时会在群里探讨问题，有时会直接向校长询问，感觉真的很值。后来我数据库实验、编译原理实验、操作系统实验等等全都是用的aardio语言，因为用起来实在是太爽了。</p><p>于我而言，aardio是我的初恋，是我第一门喜欢上的语言，虽然现在由于没有需求已经暂停和她失去了联系，但是我会永远喜欢她！</p><p><code>第十任</code>：<code>Processing</code></p><p>Processing这门语言用来做艺术设计以及自然模拟都是很不错的，并且跨平台，可以生成可执行程序，本身使用Java语言写的，同时也有JavaScript版和Python版，也是用不到所以没在用了。在我看来，像是一个很可爱的萝莉。</p><p><code>第十一任</code>：<code>JavaScript</code></p><p>个人感觉，JavaScript最屌了。它的语言哲学相对来说和我的三观最为符合，原型继承，闭包等等概念都很不错。随着es6的出现，它的语法规范感觉十分高级，个人十分喜欢，在某种程度上，部分设计已经超越了aardio（感觉aardio是集许多好的语言的特性于一身）。事件驱动、非阻塞I/O、回调的NodeJs感觉也很棒。是一个我非常想深入学习的语言，对我来说是一个极具诱惑力的女神。</p><p><code>第十二任</code>：<code>Racket</code></p><p>Racket是Scheme的一种方言，而Scheme则是Lisp的一种方言，语言中处处都是函数式编程，感觉非常新颖且高大上，但是程序复杂起来了之后阅读体验极差，远远比不上Python。接下来打算有时间接触一下下，多吸取里面的先进思想。</p><p><code>第十三任</code>：<code>Julia</code></p><p>2018/3/5刚接触Julia语言，感觉真的挺厉害的，元编程，并行计算，超高性能，语法像Python、用法像Lisp、速度像C，渍渍，真是厉害了~</p><p><code>第十四任</code>：<code>？</code></p><p><code>第十五任</code>：<code>？</code></p><p><code>第十六任</code>：<code>？</code></p><p><code>第十七任</code>：<code>？</code></p><p>……</p><p>接下来的语言还没出现或者还没接触到，可能今后才会冒出来，或者是我自己设计定义实现的吧……</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。&lt;/p&gt;
-&lt;p&gt;古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。&lt;/p&gt;
-&lt;p&gt;好吧，接下来我要正式介绍一下朕的后宫！&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python学习笔记（1）骚操作之Unicode编码</title>
-    <link href="http://www.iamlightsmile.com/2018/03/04/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E9%AA%9A%E6%93%8D%E4%BD%9C%E4%B9%8BUnicode%E7%BC%96%E7%A0%81/"/>
-    <id>http://www.iamlightsmile.com/2018/03/04/Python学习笔记（1）骚操作之Unicode编码/</id>
-    <published>2018-03-04T11:53:42.000Z</published>
-    <updated>2019-01-07T03:13:50.024Z</updated>
-    
-    <content type="html"><![CDATA[<p>Python3内部使用的是Unicode编码，所以在变量定义的时候或许可以搞点事情。</p><a id="more"></a><p>例如创建一个文件,名为：<code>人.py</code>，里面的代码是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 人<span class="params">(object)</span>:</span></span><br><span class="line">    性别 = <span class="string">"男"</span></span><br></pre></td></tr></table></figure></p><p>然后同目录下创建一个<code>test.py</code>文件，里面内容为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 人 <span class="keyword">import</span> 人</span><br><span class="line">李明 = 人()</span><br><span class="line">print(李明.性别)</span><br></pre></td></tr></table></figure></p><p>结果输出：<code>男</code>，是不是有点骚~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Python3内部使用的是Unicode编码，所以在变量定义的时候或许可以搞点事情。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://www.iamlightsmile.com/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://www.iamlightsmile.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《和谐辩证法》笔记与心得（3）吾之平衡辩证法</title>
-    <link href="http://www.iamlightsmile.com/2018/03/04/%E3%80%8A%E5%92%8C%E8%B0%90%E8%BE%A9%E8%AF%81%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0%E4%B8%8E%E5%BF%83%E5%BE%97%EF%BC%883%EF%BC%89%E5%90%BE%E4%B9%8B%E5%B9%B3%E8%A1%A1%E8%BE%A9%E8%AF%81%E6%B3%95/"/>
-    <id>http://www.iamlightsmile.com/2018/03/04/《和谐辩证法》笔记与心得（3）吾之平衡辩证法/</id>
-    <published>2018-03-04T01:14:31.000Z</published>
-    <updated>2019-01-07T03:12:07.745Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>吾之所见为，宇宙的发展其实就是<strong>能量间从不平衡状态到平衡状态的迁移</strong>罢了。</li><li>事物的稳定与不稳定两种状态可理解为运动之趋势变化抑或不变耳。</li><li>事物总是从不平衡的状态朝向平衡的状态运动和发展的，而之所以运动不止，发展不断，则是由于外界的作用又使得事物可能从平衡又趋于不平衡。</li></ol><a id="more"></a><ol><li>事物内部或事物之间的平衡或不平衡的状态实际上就是指在没有外物的作用下，事物之间或事物内部各要素之间能否保持稳定而不变化的状态，对应的是时刻，状态或趋势。而运动或静止对应的是时间，过程或阶段。平衡或不平衡是决定事物或事物之间运动以相互作用的决定因素，而运动与静止则是从不平衡态向平衡态迁移或平衡态迁移到不平衡态的实现过程。</li><li>然而吾仍不解的是宇宙之始态为何，宇宙之终态又为何，同时为什么能量非要从不平衡态迁移到平衡态。</li><li>举例如：生产关系之调整是生产关系与生产力从不平衡到平衡的过程；生产力之进步是生产力与人类生存发展不平衡到平衡的过程；人类之生存发展是理想与现实之不平衡到平衡的过程；但理想之追求非平衡，而是贪念和占有，故此之平衡终为不可持续之平衡，故马克思理想之共产主义社会终究不会实现与持久，缘何？人类与大自然和环境之极大不平衡也。<br>当然，最好的结果自然是人类延续，欲望无休止，继续开采资源直至到其他星球为止。最坏的结果当为人类自掘坟墓、自取灭亡。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;吾之所见为，宇宙的发展其实就是&lt;strong&gt;能量间从不平衡状态到平衡状态的迁移&lt;/strong&gt;罢了。&lt;/li&gt;
-&lt;li&gt;事物的稳定与不稳定两种状态可理解为运动之趋势变化抑或不变耳。&lt;/li&gt;
-&lt;li&gt;事物总是从不平衡的状态朝向平衡的状态运动和发展的，而之所以运动不止，发展不断，则是由于外界的作用又使得事物可能从平衡又趋于不平衡。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="哲学" scheme="http://www.iamlightsmile.com/categories/%E5%93%B2%E5%AD%A6/"/>
-    
-    
-      <category term="哲学" scheme="http://www.iamlightsmile.com/tags/%E5%93%B2%E5%AD%A6/"/>
     
   </entry>
   
