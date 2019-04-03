@@ -961,7 +961,8 @@ unable to initialize decompress status for section .debug_info以及file not rec
             // this.width = this.$container.width();
             // this.height = this.$container.height();
             this.width = this.$window.width();
-            this.height = this.$window.height();
+            // this.height = this.$window.height();
+            this.height = $(document).body.scrollHeight
             this.$canvas.attr({width : this.width, height : this.height});
             this.distance = Math.sqrt(Math.pow(this.width / 2, 2) + Math.pow(this.height / 2, 2));
             this.createParticles();
