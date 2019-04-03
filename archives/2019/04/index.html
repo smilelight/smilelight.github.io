@@ -332,7 +332,83 @@
       
         
       
+        
+      
     
+    
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/2019/04/04/Hexo主题继续优化/">
+              
+                  Hexo主题继续优化
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-04
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Hexo/">Hexo</a>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <p>本次优化的方向主要围绕以下几点来展开：</p>
+<ol>
+<li>自定义背景文字颜色</li>
+<li>添加雪花特效</li>
+<li>添加爆炸特效</li>
+</ol>
+<p>我当前使用的主题还是比较流行、作者一直在维护的主题<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material-X</a>.</p>
+<h3 id="自定义背景文字颜色"><a href="#自定义背景文字颜色" class="headerlink" title="自定义背景文字颜色"></a>自定义背景文字颜色</h3><p>参见<a href="https://xaoxuu.com/wiki/material-x/style/index.html" target="_blank" rel="noopener">Material-X doc</a>中配色描述，将背景和文字颜色设置为暗色主题，同时将主题设置为深绿色，效果如图所示：</p>
+<p><strong>注意</strong>：如果是单纯修改以上内容，其实并不能生效，还要关闭主题的<code>_config.yml</code>文件中的cdn服务，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/关闭cdn服务.png" alt="关闭cdn服务"></p>
+<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/hexo主题设置.png" alt="hexo主题设置"></p>
+<h3 id="添加雪花特效"><a href="#添加雪花特效" class="headerlink" title="添加雪花特效"></a>添加雪花特效</h3><p>从站长之家找到的<a href="http://sc.chinaz.com/jiaoben/181229224430.htm" target="_blank" rel="noopener">JS制作雪花飘落背景动画特效</a>, 下载后将两个js放入<code>source</code>目录下的<code>js</code>目录中，并在<code>layout</code>目录下的<code>layout.ejs</code>中添加相关script路径，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/雪花特效.png" alt="雪花特效"></p>
+<h3 id="添加爆炸特效"><a href="#添加爆炸特效" class="headerlink" title="添加爆炸特效"></a>添加爆炸特效</h3><p>发现<a href="http://www.zhuimeng.online/" target="_blank" rel="noopener">生如夏花</a>的博客的点击效果比较炫酷，查看其发布的文章并没有介绍具体实现，于是查看其网页源码，得到了对应的<code>fireworks.js</code>文件，同<strong>雪花特效</strong>一样添加到指定路径并配置路径，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/爆炸特效.png" alt="爆炸特效"></p>
+<p>经过以上步骤，hexo主题又得到了进一步的自定义优化。</p>
+<p>ps：花了许多时间排查看板娘插件是如何出现的，自己只是安装的依赖库，并没有配置，然而却被渲染到最终的生成页面中，真是百思不得其解，由于个人不太喜欢二次元，同时手机端看起来体验不好（占了很大的空间），最终选择将依赖库移除从而去除掉了看板娘效果。</p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/Hexo/"><i class="fas fa-hashtag fa-fw"></i>Hexo</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+      
     
       
         <div class='post-wrapper'>
@@ -971,6 +1047,8 @@
     <div class='content material'>
       <ul class="entry">
         
+          <li><a class="flat-box" title="/categories/Hexo/" href="/categories/Hexo/"><div class='name'>Hexo</div><div class='badge'>(1)</div></a></li>
+        
           <li><a class="flat-box" title="/categories/Manjaro/" href="/categories/Manjaro/"><div class='name'>Manjaro</div><div class='badge'>(9)</div></a></li>
         
           <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(2)</div></a></li>
@@ -1007,7 +1085,7 @@
 </header>
 
     <div class='content material'>
-      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 14px; color: #999">NLP</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 22px; color: #636363">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 14px; color: #999">抽象</a> <a href="/tags/数学/" style="font-size: 14px; color: #999">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 16px; color: #8b8b8b">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 16px; color: #8b8b8b">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 18px; color: #7e7e7e">自然语言处理</a>
+      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 14px; color: #999">NLP</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 22px; color: #636363">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 14px; color: #999">抽象</a> <a href="/tags/数学/" style="font-size: 14px; color: #999">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 16px; color: #8b8b8b">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 16px; color: #8b8b8b">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 18px; color: #7e7e7e">自然语言处理</a>
     </div>
   </section>
 
