@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2019-04-22T06:41:30.764Z</updated>
+  <updated>2019-04-22T08:33:36.562Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,130 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何理解WordEmbedding？</title>
+    <link href="http://www.iamlightsmile.com/2019/04/22/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/"/>
+    <id>http://www.iamlightsmile.com/2019/04/22/如何理解WordEmbedding？/</id>
+    <published>2019-04-22T08:15:12.000Z</published>
+    <updated>2019-04-22T08:33:36.562Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。</p><p>不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。</p><a id="more"></a><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><p>《深度学习》一书中有以下几句话，略有小改：</p><blockquote><ul><li>简单的机器学习算法的性能在很大程度上依赖于给定数据的表示。</li><li>使用机器学习来发掘表示本身的方法即表示学习。</li><li>从原始数据中提取高层次、抽象的特征是非常困难的。</li><li>深度学习通过其他较简单的表示来表达复杂表示。</li><li>我们可以认为不同数学函数的每一次应用都为输入提供了新的表示。</li><li>分布式表示的思想是系统的每一个输入都应该由多个特征表示，并且每一个特征都应该参与到多个可能输入的表示。</li><li>联结主义的中心思想是当网络把大量简单的计算单元连接在一起时可以实现智能行为。</li><li>万能近似定理表明，神经网络可以近似从任何有限离散空间映射到另一个的任意函数。</li></ul></blockquote><p>其实我认为深度学习的应用核心就是上面几句话。</p><p>接下来我拿传统的确定性算法、机器学习和深度学习做一个简单的对比。</p><p>原来对于一些流程比较清晰简单的任务，我们的做法是编写确定性的算法来实现，而对于那些很复杂的，难以用简单的规则去说明的任务通常束手无策。</p><p>机器学习的作用则是直接从数据中去学习，总结规律，但通常我们要花费大量的精力在特征工程上面，同时对于许多任务来说，我们很难知道应该提取哪些特征。<br>而深度学习则表示：特征不用你们整，只要你们给的数据足够好，我保证给你们一个更好的模型。</p><p>上面这句话的意思是，原来特征工程的累活我们不用做了，深度学习可以自己学到好的特征，同时万能近似定理也确保了深度神经网络可以保证模型学习效果的上限很高，当前前提是我们给的数据比较好。</p><p>以上交代了下背景，接下来言归正传。</p><p>自然语言要作为神经网络模型的输入之前，我们首先需要将其映射为计算机可以表示的形式。</p><p>独热编码最简单，将每一个字或者词都唯一编码成了01向量，除了维度灾难，我认为最大的缺点就是在这一映射过程中丢掉了许多词或者字的词义和语义特征，除了表示唯一以外，不包含任意其它信息。</p><p>这时我们应该思考：那什么样的表示才算好的表示？表示中应该保留哪些特征又如何保留这些特征呢？</p><p>怀着对上面问题的疑问，我们来看一下他山之石。</p><h2 id="2-卷积神经网络的工作原理"><a href="#2-卷积神经网络的工作原理" class="headerlink" title="2.卷积神经网络的工作原理"></a>2.卷积神经网络的工作原理</h2><p>我们都知道卷积神经网络中最主要的部分：卷积层、池化层、激活层的作用就是提取和匹配局部特征，将特征提取结果作为全连接层的输入从而得到最终的输出。</p><p>其中的每一个卷积核都可以被视为一个特征过滤器，卷积神经网络通过依次的扫描输入并进行卷积运算提取得到哪些位置可能包含哪些特征的信息，随后这些特征位置信息被进一步的提取从而得到更高级、更抽象的特征。</p><p>举个例子，如在识别图片中是否包含人时，卷积神经网络大致的作用原理如首先提取出某些位置是否是横线、竖线还是斜线以及颜色等特征，然后对这些特征进一步组合以得到哪些位置是否包含人脸、上肢、下肢等特征，通过提取到的这些特征，神经网络就可以做出决策得到图片中是否包含人的结果。</p><p>通过了解卷积神经网络的工作原理，我们可以知道卷积神经网络的最大作用就是可以自动学习并提取局部特征。对于计算机视觉中的图片而言，最微小的组成单元是一个个的像素点，然后局部组合就得到了线条和颜色块等信息特征；而对于自然语言处理而言，最小的组成单元则是一个个的字符，如英文中的‘a’、汉字中的‘我’等。</p><p>许多计算机视觉的预训练模型都是通用的，对于具体任务，我们只需要finetune（精调）或者只学习后面的层就可以了。这其中的原理是学到的模型提取特征的能力是可复用的，不依赖于某一具体任务。同样的，如果我们可以从语料中学到词或者字的词义和语义特征就好了，之后可以直接作为词或者字的表示用于模型训练和预测，这就是词的预训练。两者有异曲同工之妙。</p><h2 id="3-Harris提出的分布式假说及Firth对此的阐述和论证"><a href="#3-Harris提出的分布式假说及Firth对此的阐述和论证" class="headerlink" title="3.Harris提出的分布式假说及Firth对此的阐述和论证"></a>3.Harris提出的分布式假说及Firth对此的阐述和论证</h2><p>Harris曾于1954年提出分布式假说：“上下文相似的词，其语义也相似”，后来又经过Firth对该假说进行阐述和论证，“词的语义由其上下文确定”。基于该思想，我们可以从该词在语料中的上下文学习得到该词的语义，同时也可以得到相同上下文下不同的词之间的联系。</p><p>结合上文提到的分布式表示的思想，我们可以想到：我们可以用某个词以及该词所指代的实体所具备的属性和特征来表示该词。</p><p>再举个不恰当例子：</p><p>如何表示“程序猿”和“单身狗”这两个词呢？假设我们有以下特征向量序列：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"><span class="string">"有头发"</span>,</span><br><span class="line"><span class="string">"人傻"</span>,</span><br><span class="line"><span class="string">"钱多"</span>,</span><br><span class="line"><span class="string">"死得快"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>我们可以设定:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">程序猿 = [<span class="number">0.3</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0.6</span>]</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">同样的，我们可以设定：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">单身狗 = [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.3</span>, <span class="number">0.5</span>]</span><br></pre></td></tr></table></figure><p>基于此，我们便得到了“程序猿”和“单身狗”的语义相似度为：</p><script type="math/tex; mode=display">\sqrt{( 1 - \left| 0.3 - 0.6 \right|)^2 +( 1 - \left| 0.6 - 0.7 \right|)^2 + ( 1 - \left| 0.6 - 0.3 \right|)^2 + ( 1 - \left| 0.6 - 0.5 \right|)^2} = 0.72</script><p>从中我们可以得到“程序猿”和“单身狗”这两个词还是挺接近的。</p><p>注意：以上具体数值和计算公式是自己瞎掰的。</p><p>具体到属性特征有哪些以及具体每个词的分量数值应该是多少，这个神经网络是可以自己去学的，只不过学到的可以被视为潜在语义信息，并不是直观的”有头发”, “人傻”, “钱多”, “死得快”等特征，通常都是不可解释的。</p><p>总之，通过类似以上的方式，单词的语义信息就被比较有效的编码和表示起来了。<br>这时我们再回顾一下之前的Word2Vec和最近非常火的BERT，则可以被视为以上思想的工程实践。只不过训练方式和优化目标愈加完善，使得词表示可以包含更多更好的语义表示罢了。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>机器学习也好，深度学习也罢，其任务目标都是想要学习现实世界中某些量与某些量之间的映射变化关系。只不过有的关系是线性的，比较简单，而有的则极其复杂。对于这些复杂的问题，才是深度学习的用武之地。</p><p>许多任务都可以被看作是回归或分类问题，正如老子云：“天下皆知美之为美，斯恶已。”，美丑两端即定义一个维度。</p><p>对于神经网络的理解，也可以从还原论的哲学思想来入手。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html#sphx-glr-beginner-nlp-word-embeddings-tutorial-py" target="_blank" rel="noopener">Word Embeddings: Encoding Lexical Semantics</a></li><li><a href="https://www.jianshu.com/p/fe428f0b32c1" target="_blank" rel="noopener">[透析]卷积神经网络CNN究竟是怎样一步一步工作的？</a></li><li><a href="https://www.jianshu.com/p/471d9bfbd72f" target="_blank" rel="noopener">通俗理解word2vec</a></li><li><a href="https://www.jianshu.com/p/7bdbc1395406" target="_blank" rel="noopener">自然语言处理—-文本表示</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。&lt;/p&gt;
+&lt;p&gt;不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="http://www.iamlightsmile.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="NLP" scheme="http://www.iamlightsmile.com/tags/NLP/"/>
+    
+      <category term="深度学习" scheme="http://www.iamlightsmile.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大学数学与深度学习</title>
+    <link href="http://www.iamlightsmile.com/2019/04/22/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://www.iamlightsmile.com/2019/04/22/大学数学与深度学习/</id>
+    <published>2019-04-22T07:45:42.000Z</published>
+    <updated>2019-04-22T08:31:34.082Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们都知道，世间的万事万物都是彼此联系和不断发展的。而我们要生存发展进步，则要不断地去尝试探索理解彼此之间到底是如何联系和发展的，要得到那些定性和定量的规律，哲学和数学以及其他学问在此基础上产生不断进化繁衍。</p><p>而事物与事物之间的关联法则与映射关系即对应于数学中函数这一概念，函数即是定义和研究自变量和因变量之间的映射关系的。</p><a id="more"></a><p>事物之间的联系有简单线性的，也有复杂非线性的，对于简单线性的，古人们通过初等数学等知识即可求解，而复杂非线性的则常常无能为力。</p><p>而微积分，作为复杂函数计算的有力工具，使得我们可以解决原本无法使用初等数学知识无法解决的问题，进而极大地推动了科学的发展和技术的进步。</p><p>然而尽管如此，许多现实中的复杂问题即使是微积分也无能为力，因为我们甚至无法得到其可以用数学公式表达的形式，同时数学作为研究数与形的学问也并非能解决所有问题。</p><p>虽然不能直捣黄龙，理解许多世界中的本质规律，但是我们可以通过抽象近似和归纳统计等方式另觅它径，以达曲径通幽之妙。</p><ul><li>如通过“以直代曲”的核心思想，我们可以把许多非线性问题近似看作线性问题，从而使用线性代数来研究其规律。</li><li>同时我们也可以使用统计学和概率学知识不去细微探索直接探究其本质关联规律，而是在基于统计的基础上跳出局部站在比较宏观的角度建立起现象与现象之间的数学关系，从而得到表层的统计规律。</li><li>再如最近很火的神经网络、深度学习等，其本质则是用含有大量参数的神经网络模型不断地优化更新参数，来去尽可能地拟合变量之间的对应关系。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们都知道，世间的万事万物都是彼此联系和不断发展的。而我们要生存发展进步，则要不断地去尝试探索理解彼此之间到底是如何联系和发展的，要得到那些定性和定量的规律，哲学和数学以及其他学问在此基础上产生不断进化繁衍。&lt;/p&gt;
+&lt;p&gt;而事物与事物之间的关联法则与映射关系即对应于数学中函数这一概念，函数即是定义和研究自变量和因变量之间的映射关系的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数理统计学</title>
+    <link href="http://www.iamlightsmile.com/2019/04/22/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    <id>http://www.iamlightsmile.com/2019/04/22/数理统计学/</id>
+    <published>2019-04-22T07:28:33.000Z</published>
+    <updated>2019-04-22T07:29:44.814Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>数理统计学只是从数量表现的层面上来分析问题，完全不触及问题的专业内涵。</li><li>数理统计方法是一个中立性的工具，这“中立”的含义是，它既不在任何问题上有何主张，也不维护任何利益或在任何学科中坚持任何学理。</li><li>由于数理统计方法只是从表面上的数量关系来分析问题，其结论不可混同于因果关系。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;数理统计学只是从数量表现的层面上来分析问题，完全不触及问题的专业内涵。&lt;/li&gt;
+&lt;li&gt;数理统计方法是一个中立性的工具，这“中立”的含义是，它既不在任何问题上有何主张，也不维护任何利益或在任何学科中坚持任何学理。&lt;/li&gt;
+&lt;li&gt;由于数理统计方法只是从表面上
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>向量与矩阵</title>
+    <link href="http://www.iamlightsmile.com/2019/04/22/%E5%90%91%E9%87%8F%E4%B8%8E%E7%9F%A9%E9%98%B5/"/>
+    <id>http://www.iamlightsmile.com/2019/04/22/向量与矩阵/</id>
+    <published>2019-04-22T07:10:37.000Z</published>
+    <updated>2019-04-22T08:32:17.552Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>线性代数的基本研究单位是向量。</li><li>向量可以视为存储信息和结构的基本量。</li><li>矩阵既可以视为一组向量的集合，也可以视为一组向量的映射关系。</li></ol><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;线性代数的基本研究单位是向量。&lt;/li&gt;
+&lt;li&gt;向量可以视为存储信息和结构的基本量。&lt;/li&gt;
+&lt;li&gt;矩阵既可以视为一组向量的集合，也可以视为一组向量的映射关系。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大学数学基础体系脉络</title>
+    <link href="http://www.iamlightsmile.com/2019/04/22/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%BD%93%E7%B3%BB%E8%84%89%E7%BB%9C/"/>
+    <id>http://www.iamlightsmile.com/2019/04/22/大学数学基础体系脉络/</id>
+    <published>2019-04-22T06:50:35.000Z</published>
+    <updated>2019-04-22T08:32:26.067Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。</p><a id="more"></a><p>以下是来自万门大学童哲校长在<a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">线性代数两日特训班</a>中所画的简单说明图：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/大学数学基础体系脉络.png" alt="大学数学基础体系脉络"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>整体论与还原论</title>
@@ -45,12 +169,21 @@
     <link href="http://www.iamlightsmile.com/2019/04/22/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     <id>http://www.iamlightsmile.com/2019/04/22/线性代数/</id>
     <published>2019-04-22T06:26:05.000Z</published>
-    <updated>2019-04-22T06:26:05.145Z</updated>
+    <updated>2019-04-22T08:32:44.298Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>线性代数是研究线性空间及其线性映射的，或者说各种线性结构和态射。</p><h2 id="价值"><a href="#价值" class="headerlink" title="价值"></a>价值</h2><p>由于线性结构非常常见，所以线性代数的价值也相当大。</p><a id="more"></a><h2 id="意义和地位"><a href="#意义和地位" class="headerlink" title="意义和地位"></a>意义和地位</h2><p>线性代数在数学、物理学和技术学科中有各种重要应用，因而它在各种代数分支中占居首要地位。在计算机广泛应用的今天，计算机图形学、计算机辅助设计、密码学、虚拟现实等技术无不以线性代数为其理论和算法基础的一部分。线性代数所体现的几何观念与代数方法之间的联系，从具体概念抽象出来的公理化方法以及严谨的逻辑推证、巧妙的归纳综合等，对于强化人们的数学训练，增益科学智能是非常有用的。随着科学的发展，我们不仅要研究单个变量之间的关系，还要进一步研究多个变量之间的关系，各种实际问题在大多数情况下可以线性化，而由于计算机的发展，线性化了的问题又可以被计算出来，线性代数正是解决这些问题的有力工具。线性代数的计算方法也是计算数学里一个很重要的内容。<br>线性代数的含义随数学的发展而不断扩大。线性代数的理论和方法已经渗透到数学的许多分支，同时也是理论物理和理论化学所不可缺少的代数基础知识。</p><p>“以直代曲”是人们处理很多数学问题时一个很自然的思想。很多实际问题的处理，最后往往归结为线性问题，它比较容易处理。因此，线性代数在工程技术和国民经济的许多领域都有着广泛的应用，是一门基本的和重要的学科。</p><p>如果进入科研领域，你就会发现，只要不是线性的东西，我们基本都不会！线性是人类少数可以研究得非常透彻的数学基础性框架。学好线性代数，你就掌握了绝大多数可解问题的钥匙。有了这把钥匙，再加上相应的知识补充，你就可以求解相应的问题。可以说，不学线性代数，你就漏过了95%的人类智慧！非线性的问题极为困难，我们并没有足够多的通用的性质和定理用于求解具体问题。如果能够把非线性的问题化为线性的，这是我们一定要走的方向！</p><p>事实上，微积分“以直代曲”的思想就是将整体非线性化为局部线性的一个经典的例子，尽管高等数学在定义微分时并没有用到一点线性代数的内容。许多非线性问题的处理――譬如流形、微分几何等，最后往往转化为线性问题。包括科学研究中，非线性模型通常也可以被近似为线性模型。随着研究对象的复杂化与抽象化，对非线性问题线性化，以及对线性问题的求解，就难免涉及到线性代数的术语和方法了。从这个意义上，线性代数可以被认为是许多近、现代数学分支的共同基础。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800" target="_blank" rel="noopener">线性代数</a></li><li><a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">把非线性转化成线性</a></li></ul>]]></content>
     
     <summary type="html">
     
+      &lt;h2 id=&quot;基本介绍&quot;&gt;&lt;a href=&quot;#基本介绍&quot; class=&quot;headerlink&quot; title=&quot;基本介绍&quot;&gt;&lt;/a&gt;基本介绍&lt;/h2&gt;&lt;p&gt;线性代数是研究线性空间及其线性映射的，或者说各种线性结构和态射。&lt;/p&gt;
+&lt;h2 id=&quot;价值&quot;&gt;&lt;a href=&quot;#价值&quot; class=&quot;headerlink&quot; title=&quot;价值&quot;&gt;&lt;/a&gt;价值&lt;/h2&gt;&lt;p&gt;由于线性结构非常常见，所以线性代数的价值也相当大。&lt;/p&gt;
+    
     </summary>
     
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -59,12 +192,20 @@
     <link href="http://www.iamlightsmile.com/2019/04/22/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
     <id>http://www.iamlightsmile.com/2019/04/22/概率论与数理统计/</id>
     <published>2019-04-22T06:25:41.000Z</published>
-    <updated>2019-04-22T06:25:41.533Z</updated>
+    <updated>2019-04-22T08:32:38.823Z</updated>
+    
+    <content type="html"><![CDATA[<p>概率论与数理统计的核心是<strong>利用微积分工具研究随机现象背后的客观规律性</strong>。</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;概率论与数理统计的核心是&lt;strong&gt;利用微积分工具研究随机现象背后的客观规律性&lt;/strong&gt;。&lt;/p&gt;
+    
     </summary>
     
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -73,12 +214,22 @@
     <link href="http://www.iamlightsmile.com/2019/04/22/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
     <id>http://www.iamlightsmile.com/2019/04/22/微积分/</id>
     <published>2019-04-22T04:04:24.000Z</published>
-    <updated>2019-04-22T04:04:24.391Z</updated>
+    <updated>2019-04-22T08:31:55.188Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-极限"><a href="#1-极限" class="headerlink" title="1.极限"></a>1.极限</h2><p>设函数$f(x)$在点$x_0$的某一去心邻域内有定义。若存在常数$A$，对于任意给定的$\epsilon&gt;0$（不论它多么小），总存在正数$\delta$，使得当$0&lt;|x-x_0|&lt;\delta$时，对应的函数值$f(x)$都满足不等式$|f(x)-A|&lt;\epsilon$，则$A$就叫函数$f(x)$当$x\to x_0$时的极限，记为</p><script type="math/tex; mode=display">\lim_{x\to x_0}f(x)=A</script><p>或</p><script type="math/tex; mode=display">f(x)\to A,(x\to x_0)</script><p>写成$\epsilon-\delta$语言是：$\lim_{x\to x_0}f(x)=A\Leftrightarrow \forall \epsilon&gt;0,\exists \delta&gt;0$，当$0&lt;|x-x_0|&lt;\delta$时，$|f(x)-A|&lt;\epsilon$。</p><a id="more"></a><h2 id="2-导数"><a href="#2-导数" class="headerlink" title="2.导数"></a>2.导数</h2><p>参见《高数18讲》p51页 1.导数的概念。</p><h2 id="3-增量"><a href="#3-增量" class="headerlink" title="3.增量"></a>3.增量</h2><p><strong>增量</strong>亦称改变<strong>量</strong>，指的是在一段时间内，自变量取不同的值所对应的函数值之差。</p><h2 id="4-微分"><a href="#4-微分" class="headerlink" title="4.微分"></a>4.微分</h2><p>参见《高数18讲》p53页 5.微分的概念。</p><h3 id="自己的浅解"><a href="#自己的浅解" class="headerlink" title="自己的浅解"></a>自己的浅解</h3><p>微分是相对于某点而言，变量的线形近似增量。</p><h3 id="微分的意义"><a href="#微分的意义" class="headerlink" title="微分的意义"></a>微分的意义</h3><p>参见《高数18讲》p53页中 6.可微的判别【注】(1)。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://www.zhihu.com/question/26490937/answer/498740422" target="_blank" rel="noopener">微分符号 dx、dy 表示什么含义？ - 马同学的回答 - 知乎</a></li><li><a href="https://www.guokr.com/question/588518/" target="_blank" rel="noopener">积分中dx的意义是什么？</a></li></ul><h2 id="5-积分"><a href="#5-积分" class="headerlink" title="5.积分"></a>5.积分</h2><p>参见《高数18讲》p110页 1.原函数与不定积分。</p><h3 id="自己浅解"><a href="#自己浅解" class="headerlink" title="自己浅解"></a>自己浅解</h3><p>微分之和即积分</p><h2 id="6-微积分基本定理"><a href="#6-微积分基本定理" class="headerlink" title="6.微积分基本定理"></a>6.微积分基本定理</h2><h3 id="自己浅解-1"><a href="#自己浅解-1" class="headerlink" title="自己浅解"></a>自己浅解</h3><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/微积分1.jpg" alt="微积分1"></p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/微积分2.jpg" alt="微积分2"></p>]]></content>
     
     <summary type="html">
     
+      &lt;h2 id=&quot;1-极限&quot;&gt;&lt;a href=&quot;#1-极限&quot; class=&quot;headerlink&quot; title=&quot;1.极限&quot;&gt;&lt;/a&gt;1.极限&lt;/h2&gt;&lt;p&gt;设函数$f(x)$在点$x_0$的某一去心邻域内有定义。若存在常数$A$，对于任意给定的$\epsilon&amp;gt;0$（不论它多么小），总存在正数$\delta$，使得当$0&amp;lt;|x-x_0|&amp;lt;\delta$时，对应的函数值$f(x)$都满足不等式$|f(x)-A|&amp;lt;\epsilon$，则$A$就叫函数$f(x)$当$x\to x_0$时的极限，记为&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lim_{x\to x_0}f(x)=A&lt;/script&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x)\to A,(x\to x_0)&lt;/script&gt;&lt;p&gt;写成$\epsilon-\delta$语言是：$\lim_{x\to x_0}f(x)=A\Leftrightarrow \forall \epsilon&amp;gt;0,\exists \delta&amp;gt;0$，当$0&amp;lt;|x-x_0|&amp;lt;\delta$时，$|f(x)-A|&amp;lt;\epsilon$。&lt;/p&gt;
+    
     </summary>
     
+      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -358,120 +509,6 @@
     
     
       <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人生苦短，我用Manjaro！</title>
-    <link href="http://www.iamlightsmile.com/2019/01/23/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/"/>
-    <id>http://www.iamlightsmile.com/2019/01/23/人生苦短，我用Manjaro！/</id>
-    <published>2019-01-23T05:10:46.000Z</published>
-    <updated>2019-04-03T05:36:03.730Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>想必每一个程序员心里都有一个Linux。</p></blockquote><p><strong>更新</strong>:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。</p><a id="more"></a><h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>一直想学Linux，之前尝试了Ubuntu和centos，虽然两者非常大众化只是觉得有点丑，后来通过搜索了解到了Arch Linux和Manjaro，简单查看之后，觉得非常喜欢Manjaro的众多特性，于是就想着自己装一下，作为自己以后常用的Linux系统来工作。</p><p>关于Manjaro的桌面主题，主要有XFce、Gnome、KDE，同时还有社区版Deepin等，简单的对比之后，决定使用KDE，因为感觉功能更丰富。</p><p>之前在公司自己尝试着使用虚拟机装了一版，简单尝试了一下，体验还不错，只是不能使用Nvidia显卡来跑GPU程序，这就比较不爽了，毕竟是虚拟机里的东西，到底不如真机下爽快。</p><p>趁着这段时间在家相对空闲，同时Windows10下面的Pytorch突然报错（后来通过pip重新安装已修复），有点不能忍，于是打算在自己的电脑上折腾一下双系统：Windows 10 + Manjaro（KDE）。</p><p>根据我的个人体验而言，如果机子配置还可以的话，还是选择KDE版本吧，使用起来比Gnome版还是要方便高级，deepin的没试，不过风格也还不错的。</p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-72e3d9352345cfc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="系统信息"></p><!--more--><p>整体下来流程如下：</p><ul><li>下载Manjaro系统镜像文件</li><li>制作启动盘及划分efi分区</li><li>安装系统</li><li>基本配置</li><li>安装常用应用</li><li>科学上网</li><li>使用Nvidia独显</li><li>系统安装过程中常见问题</li><li>更换主题</li><li>添加桌面小部件</li></ul><h1 id="1-下载Manjaro系统镜像文件"><a href="#1-下载Manjaro系统镜像文件" class="headerlink" title="1.下载Manjaro系统镜像文件"></a>1.下载Manjaro系统镜像文件</h1><p>从此处选择下载：<a href="https://www.manjaro.cn/153" target="_blank" rel="noopener">https://www.manjaro.cn/153</a></p><p>建议选择中科大的镜像源，好像清华的有些时间没更新了呢。</p><h1 id="2-制作启动盘及划分efi分区"><a href="#2-制作启动盘及划分efi分区" class="headerlink" title="2.制作启动盘及划分efi分区"></a>2.制作启动盘及划分efi分区</h1><p>此处仅介绍Windows环境下</p><ol><li>从<a href="https://rufus.ie/" target="_blank" rel="noopener">rufus</a>官网下载启动盘刻录工具</li><li>选择ISO镜像刻录到U盘，注意选择DD模式</li><li>使用<code>diskpart</code>划分efi分区</li></ol><p>详情可参考此教程：<a href="https://zhuanlan.zhihu.com/p/35663653" target="_blank" rel="noopener">manjaro双系统双硬盘的安装</a></p><h1 id="3-安装系统"><a href="#3-安装系统" class="headerlink" title="3.安装系统"></a>3.安装系统</h1><ol><li>在电脑启动时，按F2进入BIOS系统设置，设置boot启动顺序</li><li>随后F10启动系统，按F12后选择USB启动</li><li>在进入Manjaro的boot页面时，可以选择lang为中文，driver这里我选择不开源的nonfree版本好像不行，所以我选择了默认的free版本</li><li>在分区划分时可以选择并存安装或取代一个分区，这里自己选择手动分区，划分以下分区：</li></ol><div class="table-container"><table><thead><tr><th>挂载路径</th><th>中文目录</th><th>建议大小(至少)</th><th>其他说明</th></tr></thead><tbody><tr><td>/</td><td>根目录</td><td>40G</td><td>略</td></tr><tr><td>/boot</td><td>启动目录</td><td>500M</td><td>略</td></tr><tr><td>/boot/efi</td><td>啥意思不重要</td><td>10M</td><td>略</td></tr><tr><td>/home</td><td>家目录</td><td>40G</td><td>平时自己的数据资料等都放下这个目录下面</td></tr><tr><td>/var</td><td>变量分区</td><td>30G</td><td>存放在正常运行的系统中其内容不断变化的文件</td></tr><tr><td>/srv</td><td>服务进程相关</td><td>10G</td><td>存放服务进程所需的数据文件和一些服务的执行脚本</td></tr><tr><td>/opt</td><td>其他软件安装目录</td><td>30G</td><td>发行版附加的一些软件包，如anaconda、pycharm的安装目录</td></tr></tbody></table></div><p><strong>注意</strong>：</p><ol><li>不要单独挂载<code>/usr</code>目录到单独的分区，我就是因为这个导致了错误重装系统</li><li>如果要安装一些比较大型的软件和包时，那么建议多划分一些磁盘大小给根目录，我有两次是因为拓展根目录重装的系统</li><li>注意保留一个分区作为swap交换分区，空间大小为内存大小的一半比较合适（其实我也不是很清楚，好像其他资料有这么说）</li></ol><p>系统安装流程可以主要参考：<a href="https://zhuanlan.zhihu.com/p/35663653" target="_blank" rel="noopener">manjaro双系统双硬盘的安装</a>。</p><p>关于磁盘分配可参考：<a href="https://blog.csdn.net/lj402159806/article/details/80218360" target="_blank" rel="noopener">manjaro 安装分区以及配置方案</a></p><h1 id="4-基本配置"><a href="#4-基本配置" class="headerlink" title="4.基本配置"></a>4.基本配置</h1><p>在安装完系统后重启可能进不去桌面，此时可以在Grub菜单启动界面按[E]编辑，并在后面加上（注意空格）<code>nouveau.modeset=1 acpi_osi=! acpi_osi=&#39;Windows 2009&#39;</code>，然后按F10进入系统，在进入系统之后，修改grub的配置文件<code>sudo nano /etc/default/grub</code>，比如我的系统中部分参数如下：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-dd32c351d9aa4898.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="grub部分参数">，随后使用<code>sudo update-grub</code>命令更新grub文件，在之后使用如果还是不能进入系统甚至进入grub rescue模式，原因可能是分区挂载映射问题等，可以参考我的另一篇文章。</p><p>在进入系统后要做一些常规配置。</p><h4 id="配置更新源并更新系统"><a href="#配置更新源并更新系统" class="headerlink" title="配置更新源并更新系统"></a>配置更新源并更新系统</h4><ol><li>配置中国mirrors<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure></li></ol><p>随后在出现的窗口中选择更新源，我选择了所有。。。哈哈</p><ol><li><p>添加archlinuxcn和antergos库<br>在<code>/etc/pacman.conf</code>后面添加以下内容：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxcn]</span></span><br><span class="line"><span class="attr">SigLevel</span> = TrustAll</span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="section">[antergos]</span></span><br><span class="line"><span class="attr">SigLevel</span> = TrustAll</span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/antergos/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></li><li><p>同步并更新系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure></li><li><p>安装archlinuxcn签名钥匙&amp;antergos签名钥匙</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S  archlinuxcn-keyring antergos-keyring</span><br></pre></td></tr></table></figure></li></ol><h4 id="安装配置中文输入法"><a href="#安装配置中文输入法" class="headerlink" title="安装配置中文输入法"></a>安装配置中文输入法</h4><ol><li><p>安装搜狗拼音输入法和fcitx管理工具:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-sougoupinyin</span><br><span class="line">sudo pacman -S fcitx-im</span><br><span class="line">sudo pacman -S fcitx-configtool</span><br></pre></td></tr></table></figure></li><li><p>添加配置<code>~/.xprofile</code>文件：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">GTK_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">XMODIFIERS</span>=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure></li></ol><p>可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p><h1 id="5-安装常见应用"><a href="#5-安装常见应用" class="headerlink" title="5.安装常见应用"></a>5.安装常见应用</h1><p>可参考：<a href="https://www.cnblogs.com/haohao77/p/9034499.html" target="_blank" rel="noopener">Manjaro安装后你需要这样做</a></p><p>以下是一些我的常用应用列表：</p><div class="table-container"><table><thead><tr><th>软件名称</th><th>软件说明</th></tr></thead><tbody><tr><td>typora</td><td>Markdown编辑软件</td></tr><tr><td>deepin-screenshot</td><td>Deepin截图工具，相对很好用</td></tr><tr><td>latte-dock</td><td>Dock栏</td></tr><tr><td>tmux</td><td>终端复用工具</td></tr><tr><td>bat</td><td>终端文件查看工具</td></tr><tr><td>gitkraken</td><td>跨平台git可视化操作软件</td></tr><tr><td>shadowsocks-qt5</td><td>科学上网</td></tr><tr><td>visual-studio-code-bin</td><td>VSCode</td></tr><tr><td>htop</td><td>进程查看工具</td></tr><tr><td>neofetch</td><td>终端查看配置</td></tr><tr><td>zsh</td><td>好用的shell</td></tr><tr><td>yay</td><td>比pacman更全更好用</td></tr><tr><td>google-chrome</td><td>chrome浏览器</td></tr><tr><td>pycharm</td><td>强大的Python集成开发环境</td></tr><tr><td>anaconda</td><td>数据科学集成环境</td></tr><tr><td>electronic-wechat</td><td>Linux下的微信</td></tr><tr><td>netease-cloud-music</td><td>网易云音乐</td></tr></tbody></table></div><p>其他的还可以安装deepin系列的微信、QQ和迅雷，只不过我这里不知为何没有安装成功。</p><p>如果有道云笔记有Linux版就爽歪歪了。</p><h1 id="6-科学上网"><a href="#6-科学上网" class="headerlink" title="6.科学上网"></a>6.科学上网</h1><ol><li>使用<code>yay -S shadowsocks-qt5</code>安装shadowsocks软件，选择qt时直接enter选择所有</li><li>打开shadowsocks软件，填写配置信息，或者从图片导入等，然后测试延迟，点击连接，对于某一个连接，可以选择程序启动时自动连接，并且可以设置程序在系统登录时启动。如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-250e34cfca37856d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="shadowsocks-qt5截图"></li></ol><h2 id="Shadowsocks-pac代理"><a href="#Shadowsocks-pac代理" class="headerlink" title="Shadowsocks pac代理"></a>Shadowsocks pac代理</h2><ol><li><p>安装genpac</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> genpac</span><br></pre></td></tr></table></figure></li><li><p>命令行生成pac文件</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac <span class="params">--proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--gfwlist-proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> -o autoproxy.pac <span class="params">--gfwlist-url=</span><span class="string">"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"</span></span><br></pre></td></tr></table></figure></li><li><p>设置系统自动代理<br>在设置—&gt;网络设置—&gt;代理设置中选择自动代理，URL填写生成的PAC文件地址，file://文件路径/文件名(可以直接把文件拖到URL栏),如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1bfcc9a79de01d63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置自动代理"><br>不过说实在的，不知为何我这里并没有代理成功，玉于是选择了全局代理：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-cd412b6e265a34ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="全局代理"><br>可参考：<a href="https://blog.csdn.net/ZOKEKAI/article/details/74740685" target="_blank" rel="noopener">Manjaro17.0.1(xfce)+SS+PAC模式配置笔记</a><a href="https://www.jianshu.com/p/f85b8b5cd647" target="_blank" rel="noopener">linux PAC 自动代理 规则设置</a></p></li></ol><h2 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h2><ol><li><p>安装Proxychains</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S proxychains-ng</span></span><br></pre></td></tr></table></figure></li><li><p>编辑proxychains配置<br>将最后面的socks4 127.0.0.1 9095 改为 socks5 127.0.0.1 1080<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-d005888e50139496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编辑proxychains配置"></p></li></ol><p>可参考： <a href="https://www.jianshu.com/p/1a1208e37f2a" target="_blank" rel="noopener">Manjaro安装记录</a></p><h1 id="7-使用Nvidia独显"><a href="#7-使用Nvidia独显" class="headerlink" title="7.使用Nvidia独显"></a>7.使用Nvidia独显</h1><h2 id="使用bumblebee版"><a href="#使用bumblebee版" class="headerlink" title="使用bumblebee版"></a>使用bumblebee版</h2><h5 id="1-安装驱动及第三方程序"><a href="#1-安装驱动及第三方程序" class="headerlink" title="1. 安装驱动及第三方程序"></a>1. 安装驱动及第三方程序</h5><p>在[系统设置]-[硬件设定]里面选择紫色框住的<code>video-hybrid-intel-nvidia-bumblebee</code>，右键点击安装（不得不提真的超方便啊，和其他系统或发行版相比；注意我这里的显卡是1060，如果是9*0的版本，可能安装的是下面390xx的那个版本）<br><img src="https://upload-images.jianshu.io/upload_images/5410339-c6c0f007210c099d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装video-hybrid-intel-nvidia-bumblebee"></p><h5 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2. 修改配置文件"></a>2. 修改配置文件</h5><ol><li>修改<code>/etc/bumblebee/bumblebee.conf</code>文件<br>将Driver的值设置为<code>nvidia</code>，来让其使用nvidia驱动，其次将nvidia配置下的PMMethod的值设置为<code>bbswitch</code>，让它使用刚刚安装的bbswitch来进行显卡的切换。</li><li>修改（没有则新建）<code>/etc/modprobe.d/bbswitch.conf</code>文件<br>添加<code>options bbswitch load_state=0 unload_state=0</code>来设置bbswitch的状态。</li><li>重启电脑，不然系统还不知道bbswitch模块</li><li><p>加载bbswitch模块</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">modprobe bbswitch</span></span><br></pre></td></tr></table></figure></li><li><p>将用户添加到bumblebee组中</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -<span class="selector-tag">a</span> username bumblebee</span><br></pre></td></tr></table></figure></li></ol><p>上面的<code>username</code>替换为自己的用户名，如我的是<code>lightsmile</code></p><ol><li><p>设置bumblebeed服务为开机自启</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> bumblebeed</span><br></pre></td></tr></table></figure></li><li><p>启用bumblebeed服务</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> bumblebeed</span><br></pre></td></tr></table></figure></li><li><p>切换使用独显和集显。</p><ul><li><p>打开独立显卡命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; ON</span><br></pre></td></tr></table></figure></li><li><p>关闭独立显卡命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; OFF</span><br></pre></td></tr></table></figure></li></ul></li><li><p>查看nvidia显卡相关信息</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvidia-smi</span></span><br></pre></td></tr></table></figure></li></ol><p>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-b71b55c3e78be5a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查看nvidia显卡信息"></p><p>可参考：<a href="https://dclunatic.github.io/2018/09/10/%E7%8B%AC%E6%98%BE/" target="_blank" rel="noopener">arch如何使用独显</a>和<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p><h1 id="8-系统安装过程中常见问题"><a href="#8-系统安装过程中常见问题" class="headerlink" title="8.系统安装过程中常见问题"></a>8.系统安装过程中常见问题</h1><p>常见问题可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p><h1 id="9-更换主题"><a href="#9-更换主题" class="headerlink" title="9.更换主题"></a>9.更换主题</h1><p>自己探索<br>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-c47596f97abe2522.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="更换主题"></p><h1 id="10-添加桌面小部件"><a href="#10-添加桌面小部件" class="headerlink" title="10.添加桌面小部件"></a>10.添加桌面小部件</h1><p>自己探索<br>桌面右键，选择添加部件，然后在左侧的部件栏中自行选择想要添加的部件，然后可以在桌面中拖放，选择位置，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-b80644097e3d4ed6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置桌面小部件"></p><h1 id="11-小彩蛋"><a href="#11-小彩蛋" class="headerlink" title="11.小彩蛋"></a>11.小彩蛋</h1><h3 id="1-吃豆人"><a href="#1-吃豆人" class="headerlink" title="1. 吃豆人"></a>1. 吃豆人</h3><ol><li>打开<code>/etc/pacman.conf</code>文件</li><li>在“# Misc options”部分，去掉“Color”前的“#”。</li><li>添加“ILoveCandy”。<h1 id="12-后记"><a href="#12-后记" class="headerlink" title="12.后记"></a>12.后记</h1></li></ol><h4 id="最初后记"><a href="#最初后记" class="headerlink" title="最初后记"></a>最初后记</h4><p>安装系统容易，不过配置nvidia驱动则比较麻烦，笔者前前后后重装了不下十余次系统，苦心人天不负，最终得以成功安装，真是坑了个爹啦！</p><p>不过最终桌面效果如下，也算小有所获啦～</p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-138b58f4e998d722.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="my_manjaro_desktop.png"></p><h4 id="新版后记"><a href="#新版后记" class="headerlink" title="新版后记"></a>新版后记</h4><p>Linux一时爽，崩后火葬场。望大家小心谨慎使用系统，注意及时数据备份，要不是用于编程开发，还是Windows爸爸管着好啊！</p><h1 id="12-参考"><a href="#12-参考" class="headerlink" title="12.参考"></a>12.参考</h1><ul><li><a href="https://my.oschina.net/langxSpirit/blog/1647000" target="_blank" rel="noopener">Manjaro安装与基本配置</a></li><li><a href="https://www.jianshu.com/p/f85b8b5cd647" target="_blank" rel="noopener">linux PAC 自动代理 规则设置</a></li><li><a href="https://blog.csdn.net/u014044812/article/details/78727496" target="_blank" rel="noopener">pyCharm最新2019激活码</a></li><li><a href="https://www.cnblogs.com/smlile-you-me/p/8830949.html" target="_blank" rel="noopener">manjaro安装及设置</a></li><li><a href="https://zhuanlan.zhihu.com/p/50918522" target="_blank" rel="noopener">人生苦短，我用Manjaro</a></li><li><a href="https://wiki.archlinux.org/index.php/Bumblebee_\(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87\" target="_blank" rel="noopener">Bumblebee (简体中文)</a>#%E7%94%A8%E6%B3%95)</li><li><a href="https://juejin.im/post/5a6b1b3651882573443cea61" target="_blank" rel="noopener">Manjaro安装以及美化教程</a></li><li><a href="https://www.cnblogs.com/haohao77/p/9034499.html" target="_blank" rel="noopener">Manjaro安装后你需要这样做</a></li><li><a href="https://zhuanlan.zhihu.com/p/43442012" target="_blank" rel="noopener">Manjaro Deepin安装使用分享</a></li><li><a href="https://www.jianshu.com/p/838f405f0773" target="_blank" rel="noopener">安装Arch Linux之后要做的几件事情</a></li><li><a href="https://gianthard.rocks/a/39" target="_blank" rel="noopener">我的 Manjaro🐧 - 网上冲浪指南</a></li><li><a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></li><li><a href="https://dclunatic.github.io/2018/09/10/%E7%8B%AC%E6%98%BE/" target="_blank" rel="noopener">arch如何使用独显</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;想必每一个程序员心里都有一个Linux。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;更新&lt;/strong&gt;:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个性化hexo主题</title>
-    <link href="http://www.iamlightsmile.com/2019/01/07/%E4%B8%AA%E6%80%A7%E5%8C%96hexo%E4%B8%BB%E9%A2%98/"/>
-    <id>http://www.iamlightsmile.com/2019/01/07/个性化hexo主题/</id>
-    <published>2019-01-07T02:48:35.000Z</published>
-    <updated>2019-01-20T01:51:59.959Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="个性化hexo主题"><a href="#个性化hexo主题" class="headerlink" title="个性化hexo主题"></a>个性化hexo主题</h1><h2 id="1-换Material-X主题"><a href="#1-换Material-X主题" class="headerlink" title="1. 换Material X主题"></a>1. 换Material X主题</h2><p>原来自己用的是indigo主题，还是蛮material的，只是后来发现material x的主题更好看，插件更加丰富一些，于是就探索切换了一番，哈哈哈。</p><a id="more"></a><h3 id="1-下载主题，设置切换"><a href="#1-下载主题，设置切换" class="headerlink" title="1. 下载主题，设置切换"></a>1. 下载主题，设置切换</h3><p>首先把主题下下来，然后在config文件里设置</p><h3 id="2-参考使用文档，添加小部件"><a href="#2-参考使用文档，添加小部件" class="headerlink" title="2. 参考使用文档，添加小部件"></a>2. 参考使用文档，添加小部件</h3><h2 id="2-增加Google统计"><a href="#2-增加Google统计" class="headerlink" title="2. 增加Google统计"></a>2. 增加Google统计</h2><p>之前看别人的博客下面有网站运行时间，很是羡慕，猜测是统计插件的原因，后来按照教程探索增加Google Analytics 统计功能，发现并不是这个原因，不过可以更详致的统计网站信息了，虽然现在只有自己看。。。</p><h2 id="3-增加运行时间"><a href="#3-增加运行时间" class="headerlink" title="3. 增加运行时间"></a>3. 增加运行时间</h2><p>网上搜索到教程，然后照搬小改完成，原来只是增加一个script脚本，逐渐理解其原理。</p><h2 id="4-增加转载说明"><a href="#4-增加转载说明" class="headerlink" title="4. 增加转载说明"></a>4. 增加转载说明</h2><p>参考别人写的个性化hexo博客里有一部分提到了此节，于是将其迁到了ejs中，发现只不过是一段模板代码，初步理解一小点hexo框架原理</p><h2 id="5-增加点击红心功能"><a href="#5-增加点击红心功能" class="headerlink" title="5. 增加点击红心功能"></a>5. 增加点击红心功能</h2><p>也是照搬教程，原来也是一段script脚本而已。</p><h2 id="6-增加canvas以及3D效果"><a href="#6-增加canvas以及3D效果" class="headerlink" title="6. 增加canvas以及3D效果"></a>6. 增加canvas以及3D效果</h2><p>这个也可以实现，不过考虑实用，并没有加入</p><h2 id="7-增加live2d看板娘效果"><a href="#7-增加live2d看板娘效果" class="headerlink" title="7. 增加live2d看板娘效果"></a>7. 增加live2d看板娘效果</h2><p>此技术看起来还是不错的，由于自己本身并不是二次元爱好者，所以就不考虑加入此功能了。</p><p>参考网址：</p><ul><li><a href="https://www.zhangxinxu.com/wordpress/2018/05/live2d-web-webgl-js/" target="_blank" rel="noopener">二次元live2d看板娘效果中的web前端技术</a></li><li><a href="https://tilin.gitee.io/2018/08/12/hexo/live2d/" target="_blank" rel="noopener">给hexo博客增加live2d看板卡通人物动画</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;个性化hexo主题&quot;&gt;&lt;a href=&quot;#个性化hexo主题&quot; class=&quot;headerlink&quot; title=&quot;个性化hexo主题&quot;&gt;&lt;/a&gt;个性化hexo主题&lt;/h1&gt;&lt;h2 id=&quot;1-换Material-X主题&quot;&gt;&lt;a href=&quot;#1-换Material-X主题&quot; class=&quot;headerlink&quot; title=&quot;1. 换Material X主题&quot;&gt;&lt;/a&gt;1. 换Material X主题&lt;/h2&gt;&lt;p&gt;原来自己用的是indigo主题，还是蛮material的，只是后来发现material x的主题更好看，插件更加丰富一些，于是就探索切换了一番，哈哈哈。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>统计学重要知识点</title>
-    <link href="http://www.iamlightsmile.com/2019/01/06/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>http://www.iamlightsmile.com/2019/01/06/统计学重要知识点/</id>
-    <published>2019-01-06T04:36:57.000Z</published>
-    <updated>2019-04-03T06:28:58.396Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="统计学重要知识点"><a href="#统计学重要知识点" class="headerlink" title="统计学重要知识点"></a>统计学重要知识点</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><ul><li><strong>概率</strong>：概率是一个事件发生、一种情况出现的可能性大小的数量指标，介于0与1之间。</li><li><strong>分布</strong>：分布包括离散分布和连续分布，用来表述随机变量取值的概率规律。</li><li><strong>概率密度函数</strong>（probability density function，PDF）： 在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。当概率密度函数存在时，累计分布函数式概率密度函数的积分。</li><li><strong>累积分布函数</strong>（cumulative distribution function，CDF）：又叫分布函数，是概率密度函数的积分，能完整描述一个实随机变量X的概率分布，一般以大写“CDF”标记。</li></ul><a id="more"></a><ul><li><strong>伯努利分布</strong>（零一分布、两点分布、0-1分布）伯努利试验成功的次数服从伯努利分布</li><li><strong>二项分布</strong>： 重复n次独立的伯努利试验</li><li><strong>泊松分布</strong>: 在二项分布的伯努利试验中，如果试验次数n很大，二项分布的概率p很小，且乘积$\lambda=np$比较适中，则事件出现的次数的概率可以用泊松分布来逼近。事实上，二项分布可以看做泊松分布在离散时间上的对应物。同样的，泊松分布也可看为二项分布在特殊情况下的极限。</li><li><strong>大数定律</strong>: 在数学与统计学中，大数定律又称大数法则、大数律，是描述相当多次数重复实验的结果的定律。根据这个定律知道，样本数量越多，则其算术平均值就有越高的概率接近期望值。大数定律很重要，因为它“说明”了一些随机事件的均值的长期稳定性。</li><li><strong>正态分布</strong>: 正态分布又名高斯分布，是一个非常常见的连续概率分布。正态分布是自然科学与行为科学的定量现象的一个方便模型。各种各样的心理学测试分数和物理现象比如光子计数都被发现近似地服从正态分布，尽管这些现象的根本原因经常是未知的，理论上可以证明如果把许多小作用加起来看做一个变量，那么这个变量服从正态分布。</li><li><strong>中心极限定理</strong>： 中心极限定理是指概率论中讨论随机变量序列部分和分布渐进于正态分布的一类定理。这组定理是数理统计学和误差分析的理论基础，指出了大量随机变量近似服从正态分布的条件。它是概率论中最重要的一类定理，有广泛的实际应用背景。在自然界与生产中，一些现象受到许多相互独立的随机因素的影响，如果每个因素所产生的影响都很微小时，总的影响可以看作是服从正态分布的。中心极限定理就是从数学上证明了这一现象。</li><li><strong>离散分布</strong>：离散分布描述离散随机变量的每个值的发生概率，如伯努利分布、二项分布、泊松分布。离散随机变量是指具有可计数的值的随机变量，例如非负整数的列表。在离散概率分布中，离散随机变量的每个可能值可与一个非零概率想关联。因此，离散概率分布通常具有表格形式。</li><li><strong>连续分布</strong>：连续分布描述连续随机变量的可能值的概率，例如正太分布。连续随机变量是一组无限且不可计数的可能值（称为范围）的随机变量。连续随机变量（X）的概率被定义为其PDF曲线下的面积。因此，只有值范围才能具有非零的概率。连续随机变量等于某个值的概率始终为零。</li></ul><h2 id="2-相关"><a href="#2-相关" class="headerlink" title="2. 相关"></a>2. 相关</h2><h3 id="1-概率分布的种类"><a href="#1-概率分布的种类" class="headerlink" title="1. 概率分布的种类"></a>1. 概率分布的种类</h3><blockquote><p>概率分布要么是连续概率分布，要么是离散概率分布，这取决于它们是定理连续变量还是离散变量的概率。</p></blockquote><h3 id="2-大数定理和中心极限定理的联系和区别"><a href="#2-大数定理和中心极限定理的联系和区别" class="headerlink" title="2. 大数定理和中心极限定理的联系和区别"></a>2. 大数定理和中心极限定理的联系和区别</h3><blockquote><p>大数定律（LLN）和中心极限定理（CLT）的联系与区别在于：</p><ul><li>共同点：都是用来描述独立同分布（i.i.d）的随机变量的和的渐近表现（asymptotic behavior）</li><li>区别：它们描述的是在不同的收敛速度（convergence rate）之下的表现，其次LLN前提条件弱一点：$E(|X|) &lt; \infty$，CLT条件强一点:$E(X^2) &lt; \infty$。</li><li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X)  \underrightarrow{P}  0$.中心极限定理说的是$\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D} N(0,E)$.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律讨论的是依概率收敛，中心极限定理涉及按分布收敛（按分布收敛比点点收敛弱很多啊）。私以为搞清楚随机变量序列的收敛性就是为了方便在样本量很大情况下计算概率。。。</p><ul><li>大数定律是说随机变量序列的算术平均以概率收敛到其均值的算术平均。比较经典的运用就是用频率确定概率，比如估计不合格品率，抽样的不合格品比例就是可以作为总体的不合格品率估计值。</li><li>中心极限定理说的是给出随机变量和的分布函数在什么条件下收敛到正太分布。比较熟悉的比如用来估计误差，误差基本上都是由这样那样大大小小微小因素叠加的，这些个因素相加就是总的误差，这个时候就要用到参数估计和假设检验了，在认为误差近似正太分布情况下，给出误差上限下限，置信度，判断质量是否达到要求等等工作就可以做了。<br>作者：yyylll；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155488114" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律揭示了大量随机变量的平均结果，但没有涉及到随即变量的分布的问题。而中心极限定理说明的是在一定条件下，大量随机独立变量的平均数是以正态分布为极限的。</p></blockquote><h3 id="3-泊松分布的现实意义"><a href="#3-泊松分布的现实意义" class="headerlink" title="3. 泊松分布的现实意义"></a>3. 泊松分布的现实意义</h3><blockquote><p>马同学的讲解：<a href="https://www.zhihu.com/question/26441147/answer/429569625" target="_blank" rel="noopener">泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a></p><p>先说结论：泊松分布是二项分布n很大而p很小时的一种极限形式二项分布是说，已知某件事情发生的概率是p，那么做n次试验，事情发生的次数就服从于二项分布。泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个p很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此n(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。作者：ctian；来源：知乎；<a href="https://www.zhihu.com/question/26441147/answer/82350992" target="_blank" rel="noopener">原文链接</a></p></blockquote><h3 id="4-理解概率分布函数和概率密度函数"><a href="#4-理解概率分布函数和概率密度函数" class="headerlink" title="4. 理解概率分布函数和概率密度函数"></a>4. 理解概率分布函数和概率密度函数</h3><blockquote><p>产品经理马忠信的讲解： <a href="https://www.jianshu.com/p/b570b1ba92bb" target="_blank" rel="noopener">应该如何理解概率分布函数和概率密度函数？</a></p></blockquote><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h2><ul><li><a href="https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/probability-distributions-and-random-data/supporting-topics/basics/continuous-and-discrete-probability-distributions/" target="_blank" rel="noopener">连续和离散分布</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88" target="_blank" rel="noopener">泊松分布</a></li><li><a href="https://www.zhihu.com/question/48256489" target="_blank" rel="noopener">为什么我觉得大数定理和中心极限定理是矛盾的？</a></li><li><a href="https://wiki.mbalib.com/wiki/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a></li><li><a href="http://hongyitong.github.io/2016/11/13/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E3%80%81%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E3%80%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/" target="_blank" rel="noopener">二项分布、泊松分布、正态分布的关系</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;统计学重要知识点&quot;&gt;&lt;a href=&quot;#统计学重要知识点&quot; class=&quot;headerlink&quot; title=&quot;统计学重要知识点&quot;&gt;&lt;/a&gt;统计学重要知识点&lt;/h1&gt;&lt;h2 id=&quot;1-概念&quot;&gt;&lt;a href=&quot;#1-概念&quot; class=&quot;headerlink&quot; title=&quot;1. 概念&quot;&gt;&lt;/a&gt;1. 概念&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;概率&lt;/strong&gt;：概率是一个事件发生、一种情况出现的可能性大小的数量指标，介于0与1之间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分布&lt;/strong&gt;：分布包括离散分布和连续分布，用来表述随机变量取值的概率规律。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;概率密度函数&lt;/strong&gt;（probability density function，PDF）： 在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。当概率密度函数存在时，累计分布函数式概率密度函数的积分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;累积分布函数&lt;/strong&gt;（cumulative distribution function，CDF）：又叫分布函数，是概率密度函数的积分，能完整描述一个实随机变量X的概率分布，一般以大写“CDF”标记。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="统计学" scheme="http://www.iamlightsmile.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>概念集锦</title>
-    <link href="http://www.iamlightsmile.com/2019/01/05/%E6%A6%82%E5%BF%B5%E9%9B%86%E9%94%A6/"/>
-    <id>http://www.iamlightsmile.com/2019/01/05/概念集锦/</id>
-    <published>2019-01-05T09:54:10.000Z</published>
-    <updated>2019-01-07T03:17:15.326Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h5><blockquote><p>数学是利用符号研究数量、结构、变化以及空间等概念的一门学科，从某种角度看属于形式科学的一种。数学透过抽象化和逻辑推理的使用，由计数、计算、量度和对物体形状及运动的观察而产生。数学家们拓展这些概念，为了公式化新的猜想以及从选定的公理及定理中建立起严谨推导出的定理。</p></blockquote><a id="more"></a><h5 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h5><blockquote><p>函数，在数学中，为两集合间的一种对应关系：输入值集合中的每项元素皆能对应唯一一项输入值集合中的元素。</p></blockquote><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Function_machine2.svg/330px-Function_machine2.svg.png" alt="函数f()就像机器或黑箱，给予输入值x便产生唯一输入值f(x)"></p><h5 id="决定论"><a href="#决定论" class="headerlink" title="决定论"></a>决定论</h5><blockquote><p><strong>决定论</strong>，是一种哲学立场，认为每个事件的发生，包括人类的认知、举止、决定和行动，都有条件决定它发生，而非另外的事件发生。<br>决定论认为，自然界和人类世界中普遍存在一种客观规律和因果关系。一切结果都是由先前的某种原因导致的，或者是可以根据前提条件来预测未来可能出现的结果。<br>其重要观点即是：“有其因必有其果。”或黑格尔的“凡是合乎理性的东西都是现实的，凡是现实的东西都是合乎理性的。”</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;数学&quot;&gt;&lt;a href=&quot;#数学&quot; class=&quot;headerlink&quot; title=&quot;数学&quot;&gt;&lt;/a&gt;数学&lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;数学是利用符号研究数量、结构、变化以及空间等概念的一门学科，从某种角度看属于形式科学的一种。数学透过抽象化和逻辑推理的使用，由计数、计算、量度和对物体形状及运动的观察而产生。数学家们拓展这些概念，为了公式化新的猜想以及从选定的公理及定理中建立起严谨推导出的定理。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="哲学" scheme="http://www.iamlightsmile.com/tags/%E5%93%B2%E5%AD%A6/"/>
-    
-      <category term="概念" scheme="http://www.iamlightsmile.com/tags/%E6%A6%82%E5%BF%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你好，2019</title>
-    <link href="http://www.iamlightsmile.com/2019/01/01/%E4%BD%A0%E5%A5%BD%EF%BC%8C2019/"/>
-    <id>http://www.iamlightsmile.com/2019/01/01/你好，2019/</id>
-    <published>2019-01-01T14:41:46.000Z</published>
-    <updated>2019-01-07T03:14:21.008Z</updated>
-    
-    <content type="html"><![CDATA[<p>再见，2018.</p><a id="more"></a><p>终于领悟到，自己早就已经成年，已经步入社会，该是个成熟的成年人了，不再是小孩子了。</p><p>要学会一个人照顾好自己，经营好自己，不要发脾气，不要因畏惧而胆怯。</p><p>要学会先做应该做的事，再做自己想做的事。</p><p>独自在外，要有一个人远航的心理准备，没有家和学校这样的避风港，许多事就算不想做也要去做，不要再想当然的随意而为了，要学会对自己负责，称为真正心理成熟的成年人。</p><p>凡事要做好规划，目标要明确，要有强大的执行力作为支撑，要有强大的意志力做燃料。</p><p>不要再去讲黑白对错了，社会永远都是森林法则，弱肉强食，规律如此，何来对错？学会适应这个法则吧，努力变强，什么都会有的。</p><p>不要再执念于过去了，回忆再美好也只是曾经，现在再悔恨也于事无补，把视角向前看吧。</p><p>不要再惦记喜欢的人了，现在的你配不上她。</p><p>不喜欢的饭就算难以下胃也要吃下去，不要饿肚子。</p><p>不要只有想法而不付出行动，想法谁都有，最终还是行动说明一切。</p><p>该向游戏和网络小说说再见了，不要再把精力放到没有意义的事情上去了。</p><p>过去曾经幼稚的孩子，也该死掉了。</p><p>你好，2019.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;再见，2018.&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   

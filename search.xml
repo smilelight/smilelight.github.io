@@ -4,6 +4,133 @@
   
     
     <entry>
+      <title>如何理解WordEmbedding？</title>
+      <link href="/2019/04/22/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/"/>
+      <url>/2019/04/22/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/</url>
+      
+        <content type="html"><![CDATA[<p>之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。</p><p>不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。</p><a id="more"></a><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><p>《深度学习》一书中有以下几句话，略有小改：</p><blockquote><ul><li>简单的机器学习算法的性能在很大程度上依赖于给定数据的表示。</li><li>使用机器学习来发掘表示本身的方法即表示学习。</li><li>从原始数据中提取高层次、抽象的特征是非常困难的。</li><li>深度学习通过其他较简单的表示来表达复杂表示。</li><li>我们可以认为不同数学函数的每一次应用都为输入提供了新的表示。</li><li>分布式表示的思想是系统的每一个输入都应该由多个特征表示，并且每一个特征都应该参与到多个可能输入的表示。</li><li>联结主义的中心思想是当网络把大量简单的计算单元连接在一起时可以实现智能行为。</li><li>万能近似定理表明，神经网络可以近似从任何有限离散空间映射到另一个的任意函数。</li></ul></blockquote><p>其实我认为深度学习的应用核心就是上面几句话。</p><p>接下来我拿传统的确定性算法、机器学习和深度学习做一个简单的对比。</p><p>原来对于一些流程比较清晰简单的任务，我们的做法是编写确定性的算法来实现，而对于那些很复杂的，难以用简单的规则去说明的任务通常束手无策。</p><p>机器学习的作用则是直接从数据中去学习，总结规律，但通常我们要花费大量的精力在特征工程上面，同时对于许多任务来说，我们很难知道应该提取哪些特征。<br>而深度学习则表示：特征不用你们整，只要你们给的数据足够好，我保证给你们一个更好的模型。</p><p>上面这句话的意思是，原来特征工程的累活我们不用做了，深度学习可以自己学到好的特征，同时万能近似定理也确保了深度神经网络可以保证模型学习效果的上限很高，当前前提是我们给的数据比较好。</p><p>以上交代了下背景，接下来言归正传。</p><p>自然语言要作为神经网络模型的输入之前，我们首先需要将其映射为计算机可以表示的形式。</p><p>独热编码最简单，将每一个字或者词都唯一编码成了01向量，除了维度灾难，我认为最大的缺点就是在这一映射过程中丢掉了许多词或者字的词义和语义特征，除了表示唯一以外，不包含任意其它信息。</p><p>这时我们应该思考：那什么样的表示才算好的表示？表示中应该保留哪些特征又如何保留这些特征呢？</p><p>怀着对上面问题的疑问，我们来看一下他山之石。</p><h2 id="2-卷积神经网络的工作原理"><a href="#2-卷积神经网络的工作原理" class="headerlink" title="2.卷积神经网络的工作原理"></a>2.卷积神经网络的工作原理</h2><p>我们都知道卷积神经网络中最主要的部分：卷积层、池化层、激活层的作用就是提取和匹配局部特征，将特征提取结果作为全连接层的输入从而得到最终的输出。</p><p>其中的每一个卷积核都可以被视为一个特征过滤器，卷积神经网络通过依次的扫描输入并进行卷积运算提取得到哪些位置可能包含哪些特征的信息，随后这些特征位置信息被进一步的提取从而得到更高级、更抽象的特征。</p><p>举个例子，如在识别图片中是否包含人时，卷积神经网络大致的作用原理如首先提取出某些位置是否是横线、竖线还是斜线以及颜色等特征，然后对这些特征进一步组合以得到哪些位置是否包含人脸、上肢、下肢等特征，通过提取到的这些特征，神经网络就可以做出决策得到图片中是否包含人的结果。</p><p>通过了解卷积神经网络的工作原理，我们可以知道卷积神经网络的最大作用就是可以自动学习并提取局部特征。对于计算机视觉中的图片而言，最微小的组成单元是一个个的像素点，然后局部组合就得到了线条和颜色块等信息特征；而对于自然语言处理而言，最小的组成单元则是一个个的字符，如英文中的‘a’、汉字中的‘我’等。</p><p>许多计算机视觉的预训练模型都是通用的，对于具体任务，我们只需要finetune（精调）或者只学习后面的层就可以了。这其中的原理是学到的模型提取特征的能力是可复用的，不依赖于某一具体任务。同样的，如果我们可以从语料中学到词或者字的词义和语义特征就好了，之后可以直接作为词或者字的表示用于模型训练和预测，这就是词的预训练。两者有异曲同工之妙。</p><h2 id="3-Harris提出的分布式假说及Firth对此的阐述和论证"><a href="#3-Harris提出的分布式假说及Firth对此的阐述和论证" class="headerlink" title="3.Harris提出的分布式假说及Firth对此的阐述和论证"></a>3.Harris提出的分布式假说及Firth对此的阐述和论证</h2><p>Harris曾于1954年提出分布式假说：“上下文相似的词，其语义也相似”，后来又经过Firth对该假说进行阐述和论证，“词的语义由其上下文确定”。基于该思想，我们可以从该词在语料中的上下文学习得到该词的语义，同时也可以得到相同上下文下不同的词之间的联系。</p><p>结合上文提到的分布式表示的思想，我们可以想到：我们可以用某个词以及该词所指代的实体所具备的属性和特征来表示该词。</p><p>再举个不恰当例子：</p><p>如何表示“程序猿”和“单身狗”这两个词呢？假设我们有以下特征向量序列：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"><span class="string">"有头发"</span>,</span><br><span class="line"><span class="string">"人傻"</span>,</span><br><span class="line"><span class="string">"钱多"</span>,</span><br><span class="line"><span class="string">"死得快"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>我们可以设定:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">程序猿 = [<span class="number">0.3</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0.6</span>]</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">同样的，我们可以设定：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">单身狗 = [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.3</span>, <span class="number">0.5</span>]</span><br></pre></td></tr></table></figure><p>基于此，我们便得到了“程序猿”和“单身狗”的语义相似度为：</p><script type="math/tex; mode=display">\sqrt{( 1 - \left| 0.3 - 0.6 \right|)^2 +( 1 - \left| 0.6 - 0.7 \right|)^2 + ( 1 - \left| 0.6 - 0.3 \right|)^2 + ( 1 - \left| 0.6 - 0.5 \right|)^2} = 0.72</script><p>从中我们可以得到“程序猿”和“单身狗”这两个词还是挺接近的。</p><p>注意：以上具体数值和计算公式是自己瞎掰的。</p><p>具体到属性特征有哪些以及具体每个词的分量数值应该是多少，这个神经网络是可以自己去学的，只不过学到的可以被视为潜在语义信息，并不是直观的”有头发”, “人傻”, “钱多”, “死得快”等特征，通常都是不可解释的。</p><p>总之，通过类似以上的方式，单词的语义信息就被比较有效的编码和表示起来了。<br>这时我们再回顾一下之前的Word2Vec和最近非常火的BERT，则可以被视为以上思想的工程实践。只不过训练方式和优化目标愈加完善，使得词表示可以包含更多更好的语义表示罢了。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>机器学习也好，深度学习也罢，其任务目标都是想要学习现实世界中某些量与某些量之间的映射变化关系。只不过有的关系是线性的，比较简单，而有的则极其复杂。对于这些复杂的问题，才是深度学习的用武之地。</p><p>许多任务都可以被看作是回归或分类问题，正如老子云：“天下皆知美之为美，斯恶已。”，美丑两端即定义一个维度。</p><p>对于神经网络的理解，也可以从还原论的哲学思想来入手。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html#sphx-glr-beginner-nlp-word-embeddings-tutorial-py" target="_blank" rel="noopener">Word Embeddings: Encoding Lexical Semantics</a></li><li><a href="https://www.jianshu.com/p/fe428f0b32c1" target="_blank" rel="noopener">[透析]卷积神经网络CNN究竟是怎样一步一步工作的？</a></li><li><a href="https://www.jianshu.com/p/471d9bfbd72f" target="_blank" rel="noopener">通俗理解word2vec</a></li><li><a href="https://www.jianshu.com/p/7bdbc1395406" target="_blank" rel="noopener">自然语言处理—-文本表示</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NLP </tag>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大学数学与深度学习</title>
+      <link href="/2019/04/22/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2019/04/22/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<p>我们都知道，世间的万事万物都是彼此联系和不断发展的。而我们要生存发展进步，则要不断地去尝试探索理解彼此之间到底是如何联系和发展的，要得到那些定性和定量的规律，哲学和数学以及其他学问在此基础上产生不断进化繁衍。</p><p>而事物与事物之间的关联法则与映射关系即对应于数学中函数这一概念，函数即是定义和研究自变量和因变量之间的映射关系的。</p><a id="more"></a><p>事物之间的联系有简单线性的，也有复杂非线性的，对于简单线性的，古人们通过初等数学等知识即可求解，而复杂非线性的则常常无能为力。</p><p>而微积分，作为复杂函数计算的有力工具，使得我们可以解决原本无法使用初等数学知识无法解决的问题，进而极大地推动了科学的发展和技术的进步。</p><p>然而尽管如此，许多现实中的复杂问题即使是微积分也无能为力，因为我们甚至无法得到其可以用数学公式表达的形式，同时数学作为研究数与形的学问也并非能解决所有问题。</p><p>虽然不能直捣黄龙，理解许多世界中的本质规律，但是我们可以通过抽象近似和归纳统计等方式另觅它径，以达曲径通幽之妙。</p><ul><li>如通过“以直代曲”的核心思想，我们可以把许多非线性问题近似看作线性问题，从而使用线性代数来研究其规律。</li><li>同时我们也可以使用统计学和概率学知识不去细微探索直接探究其本质关联规律，而是在基于统计的基础上跳出局部站在比较宏观的角度建立起现象与现象之间的数学关系，从而得到表层的统计规律。</li><li>再如最近很火的神经网络、深度学习等，其本质则是用含有大量参数的神经网络模型不断地优化更新参数，来去尽可能地拟合变量之间的对应关系。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数理统计学</title>
+      <link href="/2019/04/22/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+      <url>/2019/04/22/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<ol><li>数理统计学只是从数量表现的层面上来分析问题，完全不触及问题的专业内涵。</li><li>数理统计方法是一个中立性的工具，这“中立”的含义是，它既不在任何问题上有何主张，也不维护任何利益或在任何学科中坚持任何学理。</li><li>由于数理统计方法只是从表面上的数量关系来分析问题，其结论不可混同于因果关系。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>向量与矩阵</title>
+      <link href="/2019/04/22/%E5%90%91%E9%87%8F%E4%B8%8E%E7%9F%A9%E9%98%B5/"/>
+      <url>/2019/04/22/%E5%90%91%E9%87%8F%E4%B8%8E%E7%9F%A9%E9%98%B5/</url>
+      
+        <content type="html"><![CDATA[<ol><li>线性代数的基本研究单位是向量。</li><li>向量可以视为存储信息和结构的基本量。</li><li>矩阵既可以视为一组向量的集合，也可以视为一组向量的映射关系。</li></ol><a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>大学数学基础体系脉络</title>
+      <link href="/2019/04/22/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%BD%93%E7%B3%BB%E8%84%89%E7%BB%9C/"/>
+      <url>/2019/04/22/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%BD%93%E7%B3%BB%E8%84%89%E7%BB%9C/</url>
+      
+        <content type="html"><![CDATA[<p>一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。</p><a id="more"></a><p>以下是来自万门大学童哲校长在<a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">线性代数两日特训班</a>中所画的简单说明图：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/大学数学基础体系脉络.png" alt="大学数学基础体系脉络"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>整体论与还原论</title>
       <link href="/2019/04/22/%E6%95%B4%E4%BD%93%E8%AE%BA%E4%B8%8E%E8%BF%98%E5%8E%9F%E8%AE%BA/"/>
       <url>/2019/04/22/%E6%95%B4%E4%BD%93%E8%AE%BA%E4%B8%8E%E8%BF%98%E5%8E%9F%E8%AE%BA/</url>
@@ -35,9 +162,21 @@
       <link href="/2019/04/22/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
       <url>/2019/04/22/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>线性代数是研究线性空间及其线性映射的，或者说各种线性结构和态射。</p><h2 id="价值"><a href="#价值" class="headerlink" title="价值"></a>价值</h2><p>由于线性结构非常常见，所以线性代数的价值也相当大。</p><a id="more"></a><h2 id="意义和地位"><a href="#意义和地位" class="headerlink" title="意义和地位"></a>意义和地位</h2><p>线性代数在数学、物理学和技术学科中有各种重要应用，因而它在各种代数分支中占居首要地位。在计算机广泛应用的今天，计算机图形学、计算机辅助设计、密码学、虚拟现实等技术无不以线性代数为其理论和算法基础的一部分。线性代数所体现的几何观念与代数方法之间的联系，从具体概念抽象出来的公理化方法以及严谨的逻辑推证、巧妙的归纳综合等，对于强化人们的数学训练，增益科学智能是非常有用的。随着科学的发展，我们不仅要研究单个变量之间的关系，还要进一步研究多个变量之间的关系，各种实际问题在大多数情况下可以线性化，而由于计算机的发展，线性化了的问题又可以被计算出来，线性代数正是解决这些问题的有力工具。线性代数的计算方法也是计算数学里一个很重要的内容。<br>线性代数的含义随数学的发展而不断扩大。线性代数的理论和方法已经渗透到数学的许多分支，同时也是理论物理和理论化学所不可缺少的代数基础知识。</p><p>“以直代曲”是人们处理很多数学问题时一个很自然的思想。很多实际问题的处理，最后往往归结为线性问题，它比较容易处理。因此，线性代数在工程技术和国民经济的许多领域都有着广泛的应用，是一门基本的和重要的学科。</p><p>如果进入科研领域，你就会发现，只要不是线性的东西，我们基本都不会！线性是人类少数可以研究得非常透彻的数学基础性框架。学好线性代数，你就掌握了绝大多数可解问题的钥匙。有了这把钥匙，再加上相应的知识补充，你就可以求解相应的问题。可以说，不学线性代数，你就漏过了95%的人类智慧！非线性的问题极为困难，我们并没有足够多的通用的性质和定理用于求解具体问题。如果能够把非线性的问题化为线性的，这是我们一定要走的方向！</p><p>事实上，微积分“以直代曲”的思想就是将整体非线性化为局部线性的一个经典的例子，尽管高等数学在定义微分时并没有用到一点线性代数的内容。许多非线性问题的处理――譬如流形、微分几何等，最后往往转化为线性问题。包括科学研究中，非线性模型通常也可以被近似为线性模型。随着研究对象的复杂化与抽象化，对非线性问题线性化，以及对线性问题的求解，就难免涉及到线性代数的术语和方法了。从这个意义上，线性代数可以被认为是许多近、现代数学分支的共同基础。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800" target="_blank" rel="noopener">线性代数</a></li><li><a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">把非线性转化成线性</a></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -48,9 +187,21 @@
       <link href="/2019/04/22/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"/>
       <url>/2019/04/22/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>概率论与数理统计的核心是<strong>利用微积分工具研究随机现象背后的客观规律性</strong>。</p><a id="more"></a>]]></content>
       
       
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -61,9 +212,21 @@
       <link href="/2019/04/22/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
       <url>/2019/04/22/%E5%BE%AE%E7%A7%AF%E5%88%86/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="1-极限"><a href="#1-极限" class="headerlink" title="1.极限"></a>1.极限</h2><p>设函数$f(x)$在点$x_0$的某一去心邻域内有定义。若存在常数$A$，对于任意给定的$\epsilon&gt;0$（不论它多么小），总存在正数$\delta$，使得当$0&lt;|x-x_0|&lt;\delta$时，对应的函数值$f(x)$都满足不等式$|f(x)-A|&lt;\epsilon$，则$A$就叫函数$f(x)$当$x\to x_0$时的极限，记为</p><script type="math/tex; mode=display">\lim_{x\to x_0}f(x)=A</script><p>或</p><script type="math/tex; mode=display">f(x)\to A,(x\to x_0)</script><p>写成$\epsilon-\delta$语言是：$\lim_{x\to x_0}f(x)=A\Leftrightarrow \forall \epsilon&gt;0,\exists \delta&gt;0$，当$0&lt;|x-x_0|&lt;\delta$时，$|f(x)-A|&lt;\epsilon$。</p><a id="more"></a><h2 id="2-导数"><a href="#2-导数" class="headerlink" title="2.导数"></a>2.导数</h2><p>参见《高数18讲》p51页 1.导数的概念。</p><h2 id="3-增量"><a href="#3-增量" class="headerlink" title="3.增量"></a>3.增量</h2><p><strong>增量</strong>亦称改变<strong>量</strong>，指的是在一段时间内，自变量取不同的值所对应的函数值之差。</p><h2 id="4-微分"><a href="#4-微分" class="headerlink" title="4.微分"></a>4.微分</h2><p>参见《高数18讲》p53页 5.微分的概念。</p><h3 id="自己的浅解"><a href="#自己的浅解" class="headerlink" title="自己的浅解"></a>自己的浅解</h3><p>微分是相对于某点而言，变量的线形近似增量。</p><h3 id="微分的意义"><a href="#微分的意义" class="headerlink" title="微分的意义"></a>微分的意义</h3><p>参见《高数18讲》p53页中 6.可微的判别【注】(1)。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://www.zhihu.com/question/26490937/answer/498740422" target="_blank" rel="noopener">微分符号 dx、dy 表示什么含义？ - 马同学的回答 - 知乎</a></li><li><a href="https://www.guokr.com/question/588518/" target="_blank" rel="noopener">积分中dx的意义是什么？</a></li></ul><h2 id="5-积分"><a href="#5-积分" class="headerlink" title="5.积分"></a>5.积分</h2><p>参见《高数18讲》p110页 1.原函数与不定积分。</p><h3 id="自己浅解"><a href="#自己浅解" class="headerlink" title="自己浅解"></a>自己浅解</h3><p>微分之和即积分</p><h2 id="6-微积分基本定理"><a href="#6-微积分基本定理" class="headerlink" title="6.微积分基本定理"></a>6.微积分基本定理</h2><h3 id="自己浅解-1"><a href="#自己浅解-1" class="headerlink" title="自己浅解"></a>自己浅解</h3><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/微积分1.jpg" alt="微积分1"></p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/微积分2.jpg" alt="微积分2"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
       
     </entry>
     
