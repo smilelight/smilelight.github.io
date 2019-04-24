@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>如何理解WordEmbedding？ | lightsmile&#39;s Blog</title>
+  
+  <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
+  
+  
+  <meta name="description" content="this is a description">
+  
+
+  <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  
+  <meta name="theme-color" content="#f24e32">
+  
+  <meta name="msapplication-TileColor" content="#f24e32">
+  
+  <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/browserconfig.xml">
+  
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+  
+  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicon.ico"
+   type="image/x-icon"
+  
+  
+  
+  >
+  
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/favicon-32x32.png"
+   type="image/x-icon"
+   sizes="32x32"
+  
+  
+  >
+  
+  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/apple-touch-icon.png"
+   type="image/png"
+   sizes="180x180"
+  
+  
+  >
+  
+  <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/safari-pinned-tab.svg"
+  
+  
+  
+  
+   color="#f24e32">
+  
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@18.12.27/favicon/favicons/site.webmanifest"
+  
+  
+  
+  
+  >
+  
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-131799461-1', 'www.iamlightsmile.com');
+      ga('send', 'pageview');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 小红心 -->
+    <script type="text/javascript" src="/js/clicklove.js"></script>
+
+    <!-- 雪花特效 -->
+    <script type="text/javascript" src="/js/snowflakes.min.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+
+    <!-- 输入特效 -->
+    <script type="text/javascript" src="/js/cooltext.js"></script>
+
+    <!-- 爆炸特效 -->
+    <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="material"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header material">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          lightsmile's Blog
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:www.iamlightsmile.com"
+								 class="nav flat-box" href="https://www.iamlightsmile.com/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="home"
+								 class="nav flat-box" href="/">
+									<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="projects"
+								 class="nav flat-box" href="/projects/">
+									<i class='fas fa-code fa-fw'></i>&nbsp;项目
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about"
+								 class="nav flat-box" href="/about/">
+									<i class='fas fa-user fa-fw'></i>&nbsp;关于
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:www.iamlightsmile.com" class="nav flat-box" href="https://www.iamlightsmile.com/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="home" class="nav flat-box" href="/">
+											<i class='fas fa-rss fa-fw'></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="projects" class="nav flat-box" href="/projects/">
+											<i class='fas fa-code fa-fw'></i>&nbsp;项目
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class='fas fa-user fa-fw'></i>&nbsp;关于
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">如何理解WordEmbedding？</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-22
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/深度学习/">深度学习</a>
+    </div>
+
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。</p>
+<p>不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。</p>
+<a id="more"></a>
+<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><p>《深度学习》一书中有以下几句话，略有小改：</p>
+<blockquote>
+<ul>
+<li>简单的机器学习算法的性能在很大程度上依赖于给定数据的表示。</li>
+<li>使用机器学习来发掘表示本身的方法即表示学习。</li>
+<li>从原始数据中提取高层次、抽象的特征是非常困难的。</li>
+<li>深度学习通过其他较简单的表示来表达复杂表示。</li>
+<li>我们可以认为不同数学函数的每一次应用都为输入提供了新的表示。</li>
+<li>分布式表示的思想是系统的每一个输入都应该由多个特征表示，并且每一个特征都应该参与到多个可能输入的表示。</li>
+<li>联结主义的中心思想是当网络把大量简单的计算单元连接在一起时可以实现智能行为。</li>
+<li>万能近似定理表明，神经网络可以近似从任何有限离散空间映射到另一个的任意函数。</li>
+</ul>
+</blockquote>
+<p>其实我认为深度学习的应用核心就是上面几句话。</p>
+<p>接下来我拿传统的确定性算法、机器学习和深度学习做一个简单的对比。</p>
+<p>原来对于一些流程比较清晰简单的任务，我们的做法是编写确定性的算法来实现，而对于那些很复杂的，难以用简单的规则去说明的任务通常束手无策。</p>
+<p>机器学习的作用则是直接从数据中去学习，总结规律，但通常我们要花费大量的精力在特征工程上面，同时对于许多任务来说，我们很难知道应该提取哪些特征。<br>而深度学习则表示：特征不用你们整，只要你们给的数据足够好，我保证给你们一个更好的模型。</p>
+<p>上面这句话的意思是，原来特征工程的累活我们不用做了，深度学习可以自己学到好的特征，同时万能近似定理也确保了深度神经网络可以保证模型学习效果的上限很高，当前前提是我们给的数据比较好。</p>
+<p>以上交代了下背景，接下来言归正传。</p>
+<p>自然语言要作为神经网络模型的输入之前，我们首先需要将其映射为计算机可以表示的形式。</p>
+<p>独热编码最简单，将每一个字或者词都唯一编码成了01向量，除了维度灾难，我认为最大的缺点就是在这一映射过程中丢掉了许多词或者字的词义和语义特征，除了表示唯一以外，不包含任意其它信息。</p>
+<p>这时我们应该思考：那什么样的表示才算好的表示？表示中应该保留哪些特征又如何保留这些特征呢？</p>
+<p>怀着对上面问题的疑问，我们来看一下他山之石。</p>
+<h2 id="2-卷积神经网络的工作原理"><a href="#2-卷积神经网络的工作原理" class="headerlink" title="2.卷积神经网络的工作原理"></a>2.卷积神经网络的工作原理</h2><p>我们都知道卷积神经网络中最主要的部分：卷积层、池化层、激活层的作用就是提取和匹配局部特征，将特征提取结果作为全连接层的输入从而得到最终的输出。</p>
+<p>其中的每一个卷积核都可以被视为一个特征过滤器，卷积神经网络通过依次的扫描输入并进行卷积运算提取得到哪些位置可能包含哪些特征的信息，随后这些特征位置信息被进一步的提取从而得到更高级、更抽象的特征。</p>
+<p>举个例子，如在识别图片中是否包含人时，卷积神经网络大致的作用原理如首先提取出某些位置是否是横线、竖线还是斜线以及颜色等特征，然后对这些特征进一步组合以得到哪些位置是否包含人脸、上肢、下肢等特征，通过提取到的这些特征，神经网络就可以做出决策得到图片中是否包含人的结果。</p>
+<p>通过了解卷积神经网络的工作原理，我们可以知道卷积神经网络的最大作用就是可以自动学习并提取局部特征。对于计算机视觉中的图片而言，最微小的组成单元是一个个的像素点，然后局部组合就得到了线条和颜色块等信息特征；而对于自然语言处理而言，最小的组成单元则是一个个的字符，如英文中的‘a’、汉字中的‘我’等。</p>
+<p>许多计算机视觉的预训练模型都是通用的，对于具体任务，我们只需要finetune（精调）或者只学习后面的层就可以了。这其中的原理是学到的模型提取特征的能力是可复用的，不依赖于某一具体任务。同样的，如果我们可以从语料中学到词或者字的词义和语义特征就好了，之后可以直接作为词或者字的表示用于模型训练和预测，这就是词的预训练。两者有异曲同工之妙。</p>
+<h2 id="3-Harris提出的分布式假说及Firth对此的阐述和论证"><a href="#3-Harris提出的分布式假说及Firth对此的阐述和论证" class="headerlink" title="3.Harris提出的分布式假说及Firth对此的阐述和论证"></a>3.Harris提出的分布式假说及Firth对此的阐述和论证</h2><p>Harris曾于1954年提出分布式假说：“上下文相似的词，其语义也相似”，后来又经过Firth对该假说进行阐述和论证，“词的语义由其上下文确定”。基于该思想，我们可以从该词在语料中的上下文学习得到该词的语义，同时也可以得到相同上下文下不同的词之间的联系。</p>
+<p>结合上文提到的分布式表示的思想，我们可以想到：我们可以用某个词以及该词所指代的实体所具备的属性和特征来表示该词。</p>
+<p>再举个不恰当例子：</p>
+<p>如何表示“程序猿”和“单身狗”这两个词呢？假设我们有以下特征向量序列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"><span class="string">"有头发"</span>,</span><br><span class="line"><span class="string">"人傻"</span>,</span><br><span class="line"><span class="string">"钱多"</span>,</span><br><span class="line"><span class="string">"死得快"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>我们可以设定:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">程序猿 = [<span class="number">0.3</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0.6</span>]</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">同样的，我们可以设定：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">单身狗 = [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.3</span>, <span class="number">0.5</span>]</span><br></pre></td></tr></table></figure>
+<p>基于此，我们便得到了“程序猿”和“单身狗”的语义相似度为：</p>
+<script type="math/tex; mode=display">\sqrt{( 1 - \left| 0.3 - 0.6 \right|)^2 +( 1 - \left| 0.6 - 0.7 \right|)^2 + ( 1 - \left| 0.6 - 0.3 \right|)^2 + ( 1 - \left| 0.6 - 0.5 \right|)^2} = 0.72</script><p>从中我们可以得到“程序猿”和“单身狗”这两个词还是挺接近的。</p>
+<p>注意：以上具体数值和计算公式是自己瞎掰的。</p>
+<p>具体到属性特征有哪些以及具体每个词的分量数值应该是多少，这个神经网络是可以自己去学的，只不过学到的可以被视为潜在语义信息，并不是直观的”有头发”, “人傻”, “钱多”, “死得快”等特征，通常都是不可解释的。</p>
+<p>总之，通过类似以上的方式，单词的语义信息就被比较有效的编码和表示起来了。<br>这时我们再回顾一下之前的Word2Vec和最近非常火的BERT，则可以被视为以上思想的工程实践。只不过训练方式和优化目标愈加完善，使得词表示可以包含更多更好的语义表示罢了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>机器学习也好，深度学习也罢，其任务目标都是想要学习现实世界中某些量与某些量之间的映射变化关系。只不过有的关系是线性的，比较简单，而有的则极其复杂。对于这些复杂的问题，才是深度学习的用武之地。</p>
+<p>许多任务都可以被看作是回归或分类问题，正如老子云：“天下皆知美之为美，斯恶已。”，美丑两端即定义一个维度。</p>
+<p>对于神经网络的理解，也可以从还原论的哲学思想来入手。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html#sphx-glr-beginner-nlp-word-embeddings-tutorial-py" target="_blank" rel="noopener">Word Embeddings: Encoding Lexical Semantics</a></li>
+<li><a href="https://www.jianshu.com/p/fe428f0b32c1" target="_blank" rel="noopener">[透析]卷积神经网络CNN究竟是怎样一步一步工作的？</a></li>
+<li><a href="https://www.jianshu.com/p/471d9bfbd72f" target="_blank" rel="noopener">通俗理解word2vec</a></li>
+<li><a href="https://www.jianshu.com/p/7bdbc1395406" target="_blank" rel="noopener">自然语言处理—-文本表示</a></li>
+</ul>
+
+      </div>
+      <div align="center">
+        <div class="copyright">
+            <p><span>
+                <br /><b>本文地址：</b><a href="/articles/如何理解WordEmbedding？/" title="如何理解WordEmbedding？">如何理解WordEmbedding？</a><br /><b>转载请注明出处，谢谢！</b>
+            </span></p>
+            </div>
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-04-22T16:33:36+08:00" content="2019-04-22"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-04-22
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/NLP/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;NLP</a></div> <div class="metatag tags"><a class="tag" href="/tags/深度学习/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;深度学习</a></div>
+            
+            
+              
+  <div class='metatag share -mob-share-list'>
+    <i class="left fas fa-share-alt fa-fw" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+            
+            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/如何理解WordEmbedding？/&title=如何理解WordEmbedding？ | lightsmile's Blog&summary=之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。"
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
+          </a>
+        
+      
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+            
+            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/如何理解WordEmbedding？/&title=如何理解WordEmbedding？ | lightsmile's Blog&summary=之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。"
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW7CQAwFUO5/6XZbCQjf9jii0suqAgLzshi73/N4xNfPnyv5ZHLX87vX9ya/3rzw8PDwBkt/vt595pqU46/XkDy467vw8PDw9nj5UvICMFl0dT1vX8fDw8P7Gl719ZxRbb7x8PDwvp+X/J2310k5ubUw4OHh4cW8JIxIPt+LGPLPLGYteHh4eDEvb2q/5++V+R4eHh7eeKqebPe9+HVeHqLV4uHh4S3w8g232uxO7kqCicI68fDw8I7yqhHD/NBVPiqrFqQXa8DDw8Nb4+WDq94GPXlw+SCtXM3w8PDwxry8/a0eGsjLRl4MosMKeHh4eDfyJrHs5BhBeeu/Lld4eHh4y7x8Wz+19MkhrejoFR4eHt4Cb7IF5wP+5N5q250fC8PDw8Pb45394TwgPtXQfyhFeHh4eGu8/JUJoPqL84EcHh4e3inepEUeBazxN/dGay+yFjw8PLyjvLND/VNNcz4e+xBA4OHh4S3w8gCi2hbnsB6+fOgKDw8Pb41XDU+r7W9SinorfHsyAg8PD+8Qrxeh9gpJb+Sfl6XmAAwPDw+vyOuFtpNtetJSN+seHh4e3gKvuuFeLyV/pRpw5AWmmbXg4eHhFXnXm+9kK8+b7Oqvf3gXDw8Pb4GXD/h70W011Mjb8SRWxsPDw9vj5eOrBFktFdXjVsnY7JE/RTw8PLxDvCqjF932DlSVvxkPDw9vjTd/ZTIkexy9XrTUeHh4eId4k9AhP26VP+necQQ8PDy8O3ln/6PvhbbVQCQvS3h4eHh7vDx6SApAr41eDIjx8PDw1njVdjlvZKtt+uELDw8P7wt4px5ErzyUHzEeHh7ev+IlS8+/J2/68fDw8O7hVY9YJWFEHiXkYW65f8bDw8Nb4FVv642peuHvTeEFHh4eXnr9AgemDQFjz5BoAAAAAElFTkSuQmCC'>
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+          
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+            
+            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/如何理解WordEmbedding？/&title=如何理解WordEmbedding？ | lightsmile's Blog&summary=之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。"
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+        
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW7CQAwFUO5/6XZbCQjf9jii0suqAgLzshi73/N4xNfPnyv5ZHLX87vX9ya/3rzw8PDwBkt/vt595pqU46/XkDy467vw8PDw9nj5UvICMFl0dT1vX8fDw8P7Gl719ZxRbb7x8PDwvp+X/J2310k5ubUw4OHh4cW8JIxIPt+LGPLPLGYteHh4eDEvb2q/5++V+R4eHh7eeKqebPe9+HVeHqLV4uHh4S3w8g232uxO7kqCicI68fDw8I7yqhHD/NBVPiqrFqQXa8DDw8Nb4+WDq94GPXlw+SCtXM3w8PDwxry8/a0eGsjLRl4MosMKeHh4eDfyJrHs5BhBeeu/Lld4eHh4y7x8Wz+19MkhrejoFR4eHt4Cb7IF5wP+5N5q250fC8PDw8Pb45394TwgPtXQfyhFeHh4eGu8/JUJoPqL84EcHh4e3inepEUeBazxN/dGay+yFjw8PLyjvLND/VNNcz4e+xBA4OHh4S3w8gCi2hbnsB6+fOgKDw8Pb41XDU+r7W9SinorfHsyAg8PD+8Qrxeh9gpJb+Sfl6XmAAwPDw+vyOuFtpNtetJSN+seHh4e3gKvuuFeLyV/pRpw5AWmmbXg4eHhFXnXm+9kK8+b7Oqvf3gXDw8Pb4GXD/h70W011Mjb8SRWxsPDw9vj5eOrBFktFdXjVsnY7JE/RTw8PLxDvCqjF932DlSVvxkPDw9vjTd/ZTIkexy9XrTUeHh4eId4k9AhP26VP+necQQ8PDy8O3ln/6PvhbbVQCQvS3h4eHh7vDx6SApAr41eDIjx8PDw1njVdjlvZKtt+uELDw8P7wt4px5ErzyUHzEeHh7ev+IlS8+/J2/68fDw8O7hVY9YJWFEHiXkYW65f8bDw8Nb4FVv642peuHvTeEFHh4eXnr9AgemDQFjz5BoAAAAAElFTkSuQmCC'>
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+          
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/articles/大学数学与深度学习/" rel="prev" title="大学数学与深度学习">
+                                    
+                                        大学数学与深度学习
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/数学/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数学</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;相关文章</h4>
+        <ul>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/大学数学与深度学习/">大学数学与深度学习</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/数理统计学/">数理统计学</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/向量与矩阵/">向量与矩阵</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/大学数学基础体系脉络/">大学数学基础体系脉络</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '如何理解WordEmbedding？',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://github.com/smilelight/images/raw/master/new_icon.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">lightsmile's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:iamlightsmile@qq.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/smilelight" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/m/user/home?id=515917285" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://www.zhihu.com/people/qian-xiao-80" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-zhihu" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        <section class='plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;个人简介</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://www.iamlightsmile.com/"
+    title="https://www.iamlightsmile.com/">
+    <i class="fas fa-user fa-fw"></i></a>
+  
+</header>
+
+  <div class='content material'>
+    <p>对自然语言处理和知识图谱领域很感兴趣，希望能够有所成就！</p>
+
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背景"><span class="toc-text">1.背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-卷积神经网络的工作原理"><span class="toc-text">2.卷积神经网络的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Harris提出的分布式假说及Firth对此的阐述和论证"><span class="toc-text">3.Harris提出的分布式假说及Firth对此的阐述和论证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;所有分类</div>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Hexo/" href="/categories/Hexo/"><div class='name'>Hexo</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Manjaro/" href="/categories/Manjaro/"><div class='name'>Manjaro</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/lua/" href="/categories/lua/"><div class='name'>lua</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/哲学/" href="/categories/哲学/"><div class='name'>哲学</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/数学/" href="/categories/数学/"><div class='name'>数学</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/深度学习/" href="/categories/深度学习/"><div class='name'>深度学习</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/自然语言处理/" href="/categories/自然语言处理/"><div class='name'>自然语言处理</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/计算机/" href="/categories/计算机/"><div class='name'>计算机</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 16px; color: #8b8b8b">NLP</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 22px; color: #636363">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 16px; color: #8b8b8b">抽象</a> <a href="/tags/数学/" style="font-size: 22px; color: #636363">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 16px; color: #8b8b8b">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 16px; color: #8b8b8b">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 16px; color: #8b8b8b">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 18px; color: #7e7e7e">自然语言处理</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='material'>
+  <div><i class="fas fa-medal fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;我的项目</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://github.com/smilelight?tab=repositories"
+    title="https://github.com/smilelight?tab=repositories">
+    <i class="fas fa-arrow-right fa-fw"></i></a>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/lightNLP/" href="https://github.com/smilelight/lightNLP/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;lightNLP
+          </div>
+          
+            <div class='badge'>(自然语言处理框架)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/lightKG/" href="https://github.com/smilelight/lightKG/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;lightKG
+          </div>
+          
+            <div class='badge'>(知识图谱框架)</div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/smilelight/todolist/" href="https://github.com/smilelight/todolist/">
+          <div class='name'>
+            
+              <i class="fas fa-cube fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;todolist
+          </div>
+          
+            <div class='badge'>(微信小程序)</div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        <section class='list'>
+  
+<header class='material'>
+  <div><i class="fas fa-link fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;特别链接</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="https://www.iamlightsmile.com/about/" href="https://www.iamlightsmile.com/about/">
+          <div class='name'>
+            
+              <i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;关于我 / 留言板
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+
+
+  <section class='music'>
+    
+<header class='material'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/m/user/home?id=515917285"
+    title="https://music.163.com/m/user/home?id=515917285">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2384415913"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:iamlightsmile@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/smilelight" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://music.163.com/m/user/home?id=515917285" class="social fas fa-music flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://www.zhihu.com/people/qian-xiao-80" class="social fab fa-zhihu flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+  </div>
+  <div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("12/22/2017 00:00:00");
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本小站已苟延残喘 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+    setInterval("createtime()",250);
+    </script>
+  </div>
+</footer>
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
