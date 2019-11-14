@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.iamlightsmile.com/about/index.html</loc>
+    
+    <lastmod>2019-11-14T12:57:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.iamlightsmile.com/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/</loc>
     
     <lastmod>2019-11-14T03:20:43.762Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://www.iamlightsmile.com/projects/index.html</loc>
     
     <lastmod>2019-04-04T01:42:21.040Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.iamlightsmile.com/about/index.html</loc>
-    
-    <lastmod>2019-04-03T06:43:36.703Z</lastmod>
     
   </url>
   
