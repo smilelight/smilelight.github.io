@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2019-04-22T08:33:36.562Z</updated>
+  <updated>2019-12-24T13:48:42.106Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最新说明！</title>
+    <link href="http://www.iamlightsmile.com/articles/%E6%9C%80%E6%96%B0%E8%AF%B4%E6%98%8E%EF%BC%81/"/>
+    <id>http://www.iamlightsmile.com/articles/最新说明！/</id>
+    <published>2019-12-24T13:46:22.000Z</published>
+    <updated>2019-12-24T13:48:42.106Z</updated>
+    
+    <content type="html"><![CDATA[<p>感觉单纯写博客而言，简书已经挺不错了，所以计划今后的文章会只发到简书中，个人博客站点就先这样吧~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;感觉单纯写博客而言，简书已经挺不错了，所以计划今后的文章会只发到简书中，个人博客站点就先这样吧~&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>如何理解WordEmbedding？</title>
@@ -487,28 +509,6 @@
     
     
       <category term="Python" scheme="http://www.iamlightsmile.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro设置交换分区</title>
-    <link href="http://www.iamlightsmile.com/articles/Manjaro%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/"/>
-    <id>http://www.iamlightsmile.com/articles/Manjaro设置交换分区/</id>
-    <published>2019-01-24T05:11:13.000Z</published>
-    <updated>2019-04-03T05:36:20.482Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>在安装Manjaro系统的时候发现自己没有设置交换分区，用<code>htop</code>命令发现是空的，所以这里通过后续的命令配置交换分区。</p><a id="more"></a><h1 id="1-查看磁盘信息"><a href="#1-查看磁盘信息" class="headerlink" title="1.查看磁盘信息"></a>1.查看磁盘信息</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure><p>得到如下信息：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-306e66037dbfb4e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_fdisk.png"></p><h1 id="2-查看挂载状态"><a href="#2-查看挂载状态" class="headerlink" title="2.查看挂载状态"></a>2.查看挂载状态</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -o list</span><br></pre></td></tr></table></figure><p>得到如下信息：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-930b0da13da48867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_blkid.png"></p><h1 id="3-设置交换分区"><a href="#3-设置交换分区" class="headerlink" title="3.设置交换分区"></a>3.设置交换分区</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sd**</span><br></pre></td></tr></table></figure><p>其中**用具体某个分区名替换，如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8b075fa024b217f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_mkswap.png"></p><h1 id="4-启用交换分区"><a href="#4-启用交换分区" class="headerlink" title="4.启用交换分区"></a>4.启用交换分区</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /dev/sd**</span><br></pre></td></tr></table></figure><p>其中**用具体某个分区名替换，如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-536acb23d33857d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_swapon.png"></p><h1 id="5-查看交换分区状态"><a href="#5-查看交换分区状态" class="headerlink" title="5.查看交换分区状态"></a>5.查看交换分区状态</h1><p>使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon -s</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure><p>如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-79bc3c558b359112.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cmd_swapon_s.png"></p><h1 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h1><p>至此便设置交换分区成功了。</p><h1 id="7-参考"><a href="#7-参考" class="headerlink" title="7.参考"></a>7.参考</h1><ul><li><a href="https://wiki.archlinux.org/index.php/Swap_\(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87\" target="_blank" rel="noopener">Swap (简体中文)</a>)</li><li><a href="https://blog.sbot.io/articles/7" target="_blank" rel="noopener">Linux系统下如何查看所有存储设备（磁盘分区）</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h1&gt;&lt;p&gt;在安装Manjaro系统的时候发现自己没有设置交换分区，用&lt;code&gt;htop&lt;/code&gt;命令发现是空的，所以这里通过后续的命令配置交换分区。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
     
   </entry>
   
