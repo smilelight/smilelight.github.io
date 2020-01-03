@@ -323,6 +323,10 @@
         
       
         
+      
+        
+      
+        
           <div class='post-wrapper'>
             <article class="post reveal ">
     
@@ -333,7 +337,7 @@
       <h2 class="title">
           <a href="/articles/最新说明！/">
               
-                  最新说明！
+                  置顶说明！
               
           </a>
       </h2>
@@ -362,8 +366,7 @@
 </section>
 
     <section class="article typo">
-        <p>感觉单纯写博客而言，简书已经挺不错了，所以计划今后的文章会只发到简书中，个人博客站点就先这样吧~</p>
-<p>个人链接：<a href="https://www.jianshu.com/u/c2f2d90e2973" target="_blank" rel="noopener">iamlightsmile - 简书</a></p>
+        <p>置顶说明~</p>
 
         
 
@@ -407,6 +410,135 @@
         
       
     
+    
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/articles/常用自然语言处理框架之StanfordNLP使用/">
+              
+                  常用自然语言处理框架之StanfordNLP使用
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/NLP/">NLP</a>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stanfordnlp</span><br><span class="line"><span class="comment"># stanfordnlp.download('zh') 从网络上下载模型文件，超级慢</span></span><br><span class="line"></span><br><span class="line">zh_nlp = stanfordnlp.Pipeline(lang=<span class="string">'zh'</span>, models_dir=<span class="string">r"D:\Data\NLP\model\stanfordnlp"</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">zh_doc = zh_nlp(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, sent <span class="keyword">in</span> enumerate(zh_doc.sentences):</span><br><span class="line">    print(<span class="string">"[Sentence &#123;&#125;]"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> sent.words:</span><br><span class="line">        print(<span class="string">"&#123;:12s&#125;\t&#123;:12s&#125;\t&#123;:6s&#125;\t&#123;:d&#125;\t&#123;:12s&#125;"</span>.format(\</span><br><span class="line">              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+<p>首先应该先下载模型，然而如果是直接运行<code>stanfordnlp.download(&#39;zh&#39;)</code>命令，那么下载速度实在是太慢了，后来把它的源码下载下来，找到了对应了文件下载地址，然后使用Chrome下载，发现速度有所提升但是也很慢，最后尝试了一下先使用Xshell登录代理浏览器下载模型，然后使用Xftp将模型传输到本地，结果速度变快了好多，尤其是代理浏览器下载模型的速度超级快，达80M/s，太惊人了。</p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/NLP/"><i class="fas fa-hashtag fa-fw"></i>NLP</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+      
+    
+      
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/articles/常用自然语言处理框架之StanfordCoreNLP使用/">
+              
+                  常用自然语言处理框架之StanfordCoreNLP使用
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/NLP/">NLP</a>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li>
+<li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li>
+</ul>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p>
+<pre><code>nitializing native server...
+INFO:root:java -Xmx4g -cp &quot;F:\space\wingide\stanfordnlp\*&quot; edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000
+INFO:root:Server shell PID: 8504
+INFO:root:Waiting until the server is available.
+INFO:root:Waiting until the server is available.
+</code></pre><p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p>
+<p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/NLP/"><i class="fas fa-hashtag fa-fw"></i>NLP</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+      
     
       
         <div class='post-wrapper'>
@@ -843,137 +975,6 @@
         </div>
       
     
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/整体论与还原论/">
-              
-                  整体论与还原论
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-22
-      </time>
-    
-
-    
-      
-    
-    <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/哲学/">哲学</a>
-    </div>
-
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <h2 id="还原论"><a href="#还原论" class="headerlink" title="还原论"></a>还原论</h2><p>所谓还原，是一种把复杂的系统（或者现象、过程）层层分解为其组成部分的过程。<strong>还原论</strong>认为，复杂系统可以通过它各个组成部分的行为及其相互作用来加以解释。还原论方法是迄今为止自然科学研究的最基本的方法，人们习惯于以“静止的、孤立的”观点考察组成系统诸要素的行为和性质，然后将这些性质“组装”起来形成对整个系统的描述。例如，为了考察生命，我们首先考察神经系统、消化系统、免疫系统等各个部分的功能和作用，在考察这些系统的时候我们又要了解组成它们的各个器官，要了解器官又必须考察组织，直到最后是对细胞、蛋白质、遗传物质、分子、原子等的考察。现代科学的高度发达表明，还原论是比较合理的研究方法，寻找并研究物质的最基本构件的做法当然是有价值的。</p>
-        
-            <div class="readmore">
-                <a href="/articles/整体论与还原论/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/哲学/"><i class="fas fa-hashtag fa-fw"></i>哲学</a>
-                
-                    <a href="/tags/抽象/"><i class="fas fa-hashtag fa-fw"></i>抽象</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/线性代数/">
-              
-                  线性代数
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-22
-      </time>
-    
-
-    
-      
-    
-    <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/数学/">数学</a>
-    </div>
-
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>线性代数是研究线性空间及其线性映射的，或者说各种线性结构和态射。</p>
-<h2 id="价值"><a href="#价值" class="headerlink" title="价值"></a>价值</h2><p>由于线性结构非常常见，所以线性代数的价值也相当大。</p>
-        
-            <div class="readmore">
-                <a href="/articles/线性代数/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/数学/"><i class="fas fa-hashtag fa-fw"></i>数学</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-      
-    
 </section>
 
 
@@ -1100,6 +1101,8 @@
         
           <li><a class="flat-box" title="/categories/Manjaro/" href="/categories/Manjaro/"><div class='name'>Manjaro</div><div class='badge'>(9)</div></a></li>
         
+          <li><a class="flat-box" title="/categories/NLP/" href="/categories/NLP/"><div class='name'>NLP</div><div class='badge'>(2)</div></a></li>
+        
           <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box" title="/categories/lua/" href="/categories/lua/"><div class='name'>lua</div><div class='badge'>(1)</div></a></li>
@@ -1134,7 +1137,7 @@
 </header>
 
     <div class='content material'>
-      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 16px; color: #8b8b8b">NLP</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 22px; color: #636363">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 16px; color: #8b8b8b">抽象</a> <a href="/tags/数学/" style="font-size: 22px; color: #636363">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 16px; color: #8b8b8b">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 16px; color: #8b8b8b">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 16px; color: #8b8b8b">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 18px; color: #7e7e7e">自然语言处理</a>
+      <a href="/tags/GitHub/" style="font-size: 14px; color: #999">GitHub</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 20px; color: #707070">NLP</a> <a href="/tags/NLTK/" style="font-size: 14px; color: #999">NLTK</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/哲学/" style="font-size: 22px; color: #636363">哲学</a> <a href="/tags/图片绝对地址/" style="font-size: 14px; color: #999">图片绝对地址</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 16px; color: #8b8b8b">抽象</a> <a href="/tags/数学/" style="font-size: 22px; color: #636363">数学</a> <a href="/tags/概念/" style="font-size: 14px; color: #999">概念</a> <a href="/tags/浏览器插件/" style="font-size: 16px; color: #8b8b8b">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 16px; color: #8b8b8b">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/算法/" style="font-size: 16px; color: #8b8b8b">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/自然语言处理/" style="font-size: 18px; color: #7e7e7e">自然语言处理</a>
     </div>
   </section>
 

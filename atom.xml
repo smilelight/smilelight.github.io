@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2019-12-31T04:12:12.272Z</updated>
+  <updated>2020-01-03T02:40:38.057Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用自然语言处理框架之StanfordNLP使用</title>
+    <link href="http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordNLP%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.iamlightsmile.com/articles/常用自然语言处理框架之StanfordNLP使用/</id>
+    <published>2020-01-03T02:37:57.000Z</published>
+    <updated>2020-01-03T02:40:38.057Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stanfordnlp</span><br><span class="line"><span class="comment"># stanfordnlp.download('zh') 从网络上下载模型文件，超级慢</span></span><br><span class="line"></span><br><span class="line">zh_nlp = stanfordnlp.Pipeline(lang=<span class="string">'zh'</span>, models_dir=<span class="string">r"D:\Data\NLP\model\stanfordnlp"</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">zh_doc = zh_nlp(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, sent <span class="keyword">in</span> enumerate(zh_doc.sentences):</span><br><span class="line">    print(<span class="string">"[Sentence &#123;&#125;]"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> sent.words:</span><br><span class="line">        print(<span class="string">"&#123;:12s&#125;\t&#123;:12s&#125;\t&#123;:6s&#125;\t&#123;:d&#125;\t&#123;:12s&#125;"</span>.format(\</span><br><span class="line">              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure><p>首先应该先下载模型，然而如果是直接运行<code>stanfordnlp.download(&#39;zh&#39;)</code>命令，那么下载速度实在是太慢了，后来把它的源码下载下来，找到了对应了文件下载地址，然后使用Chrome下载，发现速度有所提升但是也很慢，最后尝试了一下先使用Xshell登录代理浏览器下载模型，然后使用Xftp将模型传输到本地，结果速度变快了好多，尤其是代理浏览器下载模型的速度超级快，达80M/s，太惊人了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+      
+    
+    </summary>
+    
+      <category term="NLP" scheme="http://www.iamlightsmile.com/categories/NLP/"/>
+    
+    
+      <category term="NLP" scheme="http://www.iamlightsmile.com/tags/NLP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用自然语言处理框架之StanfordCoreNLP使用</title>
+    <link href="http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordCoreNLP%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.iamlightsmile.com/articles/常用自然语言处理框架之StanfordCoreNLP使用/</id>
+    <published>2020-01-03T02:26:54.000Z</published>
+    <updated>2020-01-03T02:37:26.768Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li></ul><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p><pre><code>nitializing native server...INFO:root:java -Xmx4g -cp &quot;F:\space\wingide\stanfordnlp\*&quot; edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000INFO:root:Server shell PID: 8504INFO:root:Waiting until the server is available.INFO:root:Waiting until the server is available.</code></pre><p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p><p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+      
+    
+    </summary>
+    
+      <category term="NLP" scheme="http://www.iamlightsmile.com/categories/NLP/"/>
+    
+    
+      <category term="NLP" scheme="http://www.iamlightsmile.com/tags/NLP/"/>
+    
+  </entry>
   
   <entry>
     <title>Github上开源Python仓库维护流程</title>
@@ -54,20 +104,20 @@
   </entry>
   
   <entry>
-    <title>最新说明！</title>
+    <title>置顶说明！</title>
     <link href="http://www.iamlightsmile.com/articles/%E6%9C%80%E6%96%B0%E8%AF%B4%E6%98%8E%EF%BC%81/"/>
     <id>http://www.iamlightsmile.com/articles/最新说明！/</id>
     <published>2019-12-24T13:46:22.000Z</published>
-    <updated>2019-12-30T13:29:02.353Z</updated>
+    <updated>2020-01-03T02:41:51.929Z</updated>
     
-    <content type="html"><![CDATA[<p>感觉单纯写博客而言，简书已经挺不错了，所以计划今后的文章会只发到简书中，个人博客站点就先这样吧~</p><p>个人链接：<a href="https://www.jianshu.com/u/c2f2d90e2973" target="_blank" rel="noopener">iamlightsmile - 简书</a></p>]]></content>
+    <content type="html"><![CDATA[<p>置顶说明~</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;感觉单纯写博客而言，简书已经挺不错了，所以计划今后的文章会只发到简书中，个人博客站点就先这样吧~&lt;/p&gt;
-&lt;p&gt;个人链接：&lt;a href=&quot;https://www.jianshu.com/u/c2f2d90e2973&quot; target=&quot;_blank&quot; rel=&quot;noopen
+        &lt;p&gt;置顶说明~&lt;/p&gt;
+
       
     
     </summary>
@@ -446,55 +496,6 @@
     
     
       <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro系统报错集锦</title>
-    <link href="http://www.iamlightsmile.com/articles/Manjaro%E7%B3%BB%E7%BB%9F%E6%8A%A5%E9%94%99%E9%9B%86%E9%94%A6/"/>
-    <id>http://www.iamlightsmile.com/articles/Manjaro系统报错集锦/</id>
-    <published>2019-04-03T06:17:26.000Z</published>
-    <updated>2019-10-23T10:47:13.850Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="以下是自己在使用manjaro系统中遇到的错误和相应的解决方案"><a href="#以下是自己在使用manjaro系统中遇到的错误和相应的解决方案" class="headerlink" title="以下是自己在使用manjaro系统中遇到的错误和相应的解决方案"></a>以下是自己在使用manjaro系统中遇到的错误和相应的解决方案</h2><ol><li><code>unable to initialize decompress status for section .debug_info</code>以及<code>file not recognized: file format not recognized</code></li><li>进入<code>grub rescue</code>模式</li></ol><a id="more"></a><h3 id="1-unable-to-initialize-decompress-status-for-section-debug-info以及file-not-recognized-file-format-not-recognized"><a href="#1-unable-to-initialize-decompress-status-for-section-debug-info以及file-not-recognized-file-format-not-recognized" class="headerlink" title="1. unable to initialize decompress status for section .debug_info以及file not recognized: file format not recognized"></a>1. <code>unable to initialize decompress status for section .debug_info</code>以及<code>file not recognized: file format not recognized</code></h3><h4 id="错误出处"><a href="#错误出处" class="headerlink" title="错误出处"></a>错误出处</h4><p>在安装kenlm库以及allennlp时报的安装错误;</p><p><strong>更新</strong>：在安装scrapy框架及其依赖库twisted时也报了同样的错误，解决方法一样。</p><h4 id="报错截图"><a href="#报错截图" class="headerlink" title="报错截图"></a>报错截图</h4><p><img src="https://upload-images.jianshu.io/upload_images/5410339-dfb7bebfd5990222.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报的错误"></p><h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>从<a href="https://archive.archlinux.org/packages/" target="_blank" rel="noopener">arch包源</a>下载旧版的bintools,然后降级安装,如图:<br><img src="https://upload-images.jianshu.io/upload_images/5410339-f4124b6081a18307.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="降级安装bintools"></p><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol><li><a href="https://bbs.archlinux.org/viewtopic.php?id=242682" target="_blank" rel="noopener">[SOLVED]unable to initialize decompress status for section .debug_info</a></li></ol><h3 id="2-进入grub-rescue模式"><a href="#2-进入grub-rescue模式" class="headerlink" title="2. 进入grub rescue模式"></a>2. 进入<code>grub rescue</code>模式</h3><h4 id="错误出处-1"><a href="#错误出处-1" class="headerlink" title="错误出处"></a>错误出处</h4><p>在系统启动过程中由于目录分区映射及挂载失败导致</p><h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><p><strong>注意</strong>:我这里boot目录和根目录分别挂载在不同分区,所以后续路径可能和其他参考有所不同，在使用时视实际情况而定</p><ol><li>确定boot目录和根目录位置<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls查看一下设备状态，可使用tab键自动补全，并有各分区提示信息</span></span><br><span class="line">grub rescue&gt; <span class="keyword">ls</span> </span><br><span class="line">hd0, <span class="params">(hd0, gpt1)</span>, <span class="params">(hd0, gpt2)</span>, <span class="params">(hd0, gpt3)</span></span><br><span class="line">grub rescue&gt; <span class="keyword">ls</span> <span class="params">(hd0,gpt3)</span>/</span><br><span class="line"><span class="string">./</span>  <span class="string">../</span>  lost+found/</span><br></pre></td></tr></table></figure></li></ol><p>通过查看找到boot目录和root目录所在分区，比如分别为gpt1和gpt2</p><ol><li><p>设置grub的启动分区和路径</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="builtin-name">set</span> root=(hd0,gpt1)               #设置grub启动分区</span><br><span class="line">grub rescue&gt; <span class="builtin-name">set</span> prefix=(hd0,gpt1)/grub  #设置grub启动路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一下设置情况,直接输入set可以查看root和prefix的配置</span></span><br><span class="line">grub rescue&gt; set</span><br><span class="line">prefix=(hd0,gpt1)/grub</span><br><span class="line"><span class="attribute">root</span>=hd0,gpt1</span><br></pre></td></tr></table></figure></li><li><p>加载基本模块</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="keyword">insmod </span><span class="keyword">normal </span>      <span class="comment">#加载基本模块</span></span><br></pre></td></tr></table></figure></li><li><p>进入正常模式</p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub <span class="keyword">rescue</span>&gt; normal  <span class="comment">#进入普通模式，出现菜单，如果加载grub.cfg（错误的）可能出现问题，按shift可以出现菜单，之后按c键进入控制台</span></span><br></pre></td></tr></table></figure></li></ol><p>进入正常模式后就会出现grub&gt;这样的提示符，在这里支持的命令就非常多了。</p><ol><li><p>引导系统</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">grub&gt;</span><span class="bash"> <span class="built_in">set</span> root=(hd0,gpt1)  <span class="comment">#设置正常启动分区</span></span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"> linux /vmlinuz-4.19-x86_64  ro text root=/dev/sda2  <span class="comment">#加载内核，进入控制台模式</span></span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"> initrd /intel-ucode.img /initramfs-4.19-x86_64.img <span class="comment">#加载initrd.img</span></span></span><br><span class="line"><span class="meta">grub&gt;</span><span class="bash"> boot <span class="comment">#引导</span></span></span><br></pre></td></tr></table></figure></li><li><p>更新grub</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入系统后，先更新grub</span></span><br><span class="line">update-grub            <span class="comment">#更新</span></span><br><span class="line"><span class="comment"># 修改grub.cfg后，再执行install</span></span><br><span class="line">grub-install <span class="regexp">/dev/</span>sda  <span class="comment">#安装</span></span><br></pre></td></tr></table></figure></li></ol><p><strong>注意</strong>:注意上面的是sda，硬盘号，而不是具体某个分区号，如sda1</p><h4 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h4><ol><li><a href="http://xstarcd.github.io/wiki/Linux/grub_rescue.html" target="_blank" rel="noopener">grub rescue救援模式的处理</a></li><li><a href="https://blog.csdn.net/wangtingyao1990/article/details/52368699" target="_blank" rel="noopener">Ubuntu开机出现grub rescue模式修复方法</a></li><li><a href="https://www.cnblogs.com/samcn/archive/2011/03/30/1999615.html" target="_blank" rel="noopener">Ubuntu启动问题以及Grub Rescue修复方法</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;以下是自己在使用manjaro系统中遇到的错误和相应的解决方案&quot;&gt;&lt;a href=&quot;#以下是自己在使用manjaro系统中遇到的错误和相应的解决方案&quot; class=&quot;headerlink&quot; title=&quot;以下是自己在使用manjaro系统中遇到的错误和相应的解决方案&quot;&gt;&lt;/a&gt;以下是自己在使用manjaro系统中遇到的错误和相应的解决方案&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;unable to initialize decompress status for section .debug_info&lt;/code&gt;以及&lt;code&gt;file not recognized: file format not recognized&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;进入&lt;code&gt;grub rescue&lt;/code&gt;模式&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow编译血泪史</title>
-    <link href="http://www.iamlightsmile.com/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/"/>
-    <id>http://www.iamlightsmile.com/articles/Tensorflow编译血泪史/</id>
-    <published>2019-04-03T06:14:59.000Z</published>
-    <updated>2019-04-03T06:16:39.422Z</updated>
-    
-    <content type="html"><![CDATA[<p>为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。</p><a id="more"></a><p>本人笔记本电脑有一个256 SSD和1TB机械硬盘，固态装C盘，机械硬盘装D、E和F，各330G，系统为Win10，显卡为NVIDIA1060。后来打算装manjaro双系统，进行编程和机器学习、深度学习的开发工作，于是F盘分了一半约160G给manjaro系统，其中根目录和家目录等单独划分分区挂载，根目录分区大小为30G，此是前话。</p><p>在安装tensorflow之前自己先装了pytorch，因为觉得这个框架代码更优雅，代码风格自己更喜欢。后来在安装tensorflow时发现还挺麻烦，需要独立cuda和cudnn库，不同版本的tensorflow依赖于不同版本的cuda和cudnn，而cuda和cudnn依赖于gcc，如下图所示。</p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-157b54d0e4ed1564.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tensorflow编译配置"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-277ce10b73dee9d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装cuda9.1包依赖gcc6"></p><p>而manjaro系统属于arch系，各软件包滚动更新速度很快，基本总是保持最新，比如系统默认python环境竟然时3.7.2，我的个乖乖，自己的系统里安装的gcc是此时最新的8.2.1，与cuda所需的gcc6冲突，如果要装gcc6还要卸载gcc8，而其他软件包会依赖于gcc8，况且安装旧版本包这种行为一点都不arch，于是使用tensorflow官方预编译好的whl文件安装就不太现实了，只能自己在本机上编译构建了，幸好网上搜到了一篇最近的、讲得很好很详细、和自己情况正相符的一篇帖子：<a href="https://www.solarck.com/compile-tensorflow-gpu.html" target="_blank" rel="noopener">编译 Tensorflow 1.10 + CUDA9.2 + MKL</a>，在这里向作者由衷的表示感谢！</p><p>于是便红红火火按照教程开始来装了，于是问题旧开始出现了。<br>首先问题是当下载了tensorflow源码之后发现自己不能切换安装版本，如果选择默认master以外的分支，则报<code>无法引用到/tensorflow/tools/bazel.rc文件</code>的错误，于是只能在master分支装吧，不管了。<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-b954de608370ef44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bazel.png"></p><p>同时发现自己访问github下载文件的速度太慢了，导致bazel程序运行失败，后来找到了相关博客如<a href="https://blog.csdn.net/shahuhu000/article/details/83965642" target="_blank" rel="noopener">git clone速度太慢的解决办法</a>进行配置，发现还是未解决，自己在命令前加proxychains代理也不行，因为是程序内部调用系统网络去下载文件，代理命令无效，经过多次尝试后，自己打算通过浏览器下载一个文件试试，如<code>https://github.com/bazelbuild/rules_closure/archive/9889e2348259a5aad7e805547c1a0cf311cfcd91.tar.gz</code>,发现下载的挺快的，是因为代理，而自己直接调用wget命令发现好慢，同时还发现了该文件的最终下载域名为：<code>codeload.github.com</code>，后来自己参考那个教程在<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a>里搜索得到了对应的ip并将其和ip加到hosts文件中，如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-fd9a41f6f7f22dd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts文件相关内容"><br>速度一下就快了不少，虽说只有几十k，但是也比之前的几十几百b强，同时安装也不报下载文件失败访问不了文件的错误了。</p><p>后来又遇到：<code>invalid conversion from &#39;const char*&#39; to &#39;char*&#39;</code>这样的代码error，于是网上找到了<a href="http://www.voidcn.com/article/p-kcvnjpwx-bcm.html" target="_blank" rel="noopener">invalid conversion from ‘const char<em>‘ to ‘char</em>‘ 的解决方法</a>这篇文章，于是便修改了报错处的源码，重新继续编译，看着编译进行的挺顺利，自己还蛮开心的，可谁知命运给自己开的玩笑才刚刚开始。</p><p>经过了漫长的编译时间，突然又报错了，说是什么文件访问失败，没有剩余空间了，当时我就蒙了，这是咋回事，后来发现：根目录所在分区满了，安装过程中所有文件都保存在根目录所在分区，即已经到了30G了，使用<code>df -h</code>命令查看所在分区使用率已经到了100%，我擦！！！</p><p>这可如何是好，没想到编译个tensorflow这么占存储空间，后来网上查找相关案例和解决方案，暂时只是把用不到的大软件卸载了，如Clion，发现效果不明显，还是占用了29G多，于是心想：老子不装了，不装了还不行吗，回归pytorch，pytorch才是老纸的真爱，卸载之后发现：使用率还是90%，这这这，后来想到满了那就扩充啊，于是就在网上找扩充根目录分区的方法教程，然而历史说明正是这一步开始使我踏进了深渊。</p><p>网上搜了不少方法，发现许多都不好使，同时分区满了我装个软件都装不了了，感觉要炸！发现有个说法说在拓展分区之前要先挂载，于是我就尝试着把根目录所在分区给挂载掉了，在卸载时还提示错误，说<code>device is busy</code>，于是网上找到类似如<a href="https://blog.csdn.net/hello5orld/article/details/12048323" target="_blank" rel="noopener">linux umount命令介绍与device is busy解决方法</a>的答案，于是敲下了罪恶的<code>umount -l /</code>，后来系统崩了，重启，发现又好了，哈哈。</p><p>后来就想着硬盘F盘还有剩余空间，想划分出来给根目录所在分区，经过尝试之后发现直接划分不行，因为自己没有搞lvm，不能通过卷组或逻辑卷相关的指令操作来进行，后来发现了一个可行的法子是把硬盘中根目录所在分区位置后面的空间腾出来，然后便可以扩充了，把原来的数据放到其他位置就可以了，于是通过这样的操作进行了var挂载分区的移动，感觉还不错，其中主要参考的是<a href="https://blog.csdn.net/u010359398/article/details/83024585" target="_blank" rel="noopener">linux(manjaro)磁盘迁移/opt /home</a>,而在进行boot分区的移动时发现自己未成功进行boot分区的重新挂载，于是系统又崩了，重启也报错了，进入grub rescue模式中，此时有点慌了，后来找到类似该篇博客<a href="http://xstarcd.github.io/wiki/Linux/grub_rescue.html" target="_blank" rel="noopener">grub rescue救援模式的处理</a>所说内容,重新挂载了boot目录，并且重新生成grub配置文件，于是问题解决了。</p><p>之后在进行home分区的操作时自己忘记了备份，直接挂载和格式化掉了（通过 <code>mkfs.ext4 /dev/sda*</code>)，发现出了问题之后重新登录都登录不了，因为相关用户信息都没了，只能进入命令行界面，同时home目录为空，后来在各分区找了半天发现没有找到备份，这时自己真的慌掉了，还有不少数据呢，比如项目代码、还有博客环境配置和博客原文件等，找了半天都没能找到可行的办法，因为系统都登录不进去，连修复软件啥的都安装不了，况且天色已晚，于是就先睡了。</p><p>等到第二天自己想到可以在window系统上安装然后修复那个分区的数据吧？于是先尝试了DiskGenius软件，发现好像它识别的分区不全，并且也只能恢复文件，会丢失文件名等信息，这样也仅是得到一些文件，不是整体的恢复分区，而后又下载了testdisk软件，经过一阵蒙蔽的操作之后，发现自己的D盘和E盘也不见了，赶忙重启发现还是没有，由于许多软件都是安装在D盘上，所以导致window系统下的环境也出问题了，要炸啊，幸亏自己的chrome浏览器在C盘装的，又下载了DiskGenius，发现还要注册，还挺麻烦，于是又尝试下了绿色破解版，经过扫描，找到了丢失的D盘和E盘，只是其他数据全部都没有了（指manjaro系统下全部信息）。哎，一声长叹之后只能重新再装系统了。</p><p>只是可惜了当时探索了不少软件，同时还有不少有用的数据资料，还有自己最新的代码，以及最新的博客环境配置文件和最新的博客原文件。</p><p>而后再划分分区安装的时候，有了之前的教训和探索，自己对分区的理解更加深刻，于是在划分时感觉熟悉了好多，把整个300G空间全部给新系统了，同时多分配了一些空间给根目录和var目录所在分区。<br>后来重装系统，还好自己当时写了安装记录的博客在网上可以看，于是又重新安装配置环境，配置NVIDIA独显，配置科学上网，后来心想以后再做记录先只在简书和有道上吧，自己的博客先不管了吧，毕竟环境也丢了，能找到的是好久之前的了，要配置还挺麻烦，博客内容自己自己也增删改的比较多，再捡起来比较耗时，于是暂时就不考虑维护自己的博客了，之前也尝试在知乎专栏和简书上写文章，发现简书支持Markdown效果很好，而知乎则导入效果很差，于是便最终选择了简书作为最终的自己发布内容的平台啦。</p><p>后来重新参考之前提到的编译tensorflow的那篇文章，还是只能master分支，还是要配置hosts文件中github对应域名和ip，不过编译的还挺顺利的，不过还是要好久，最终吃了个晚饭，回来发现又报错了，我真的快要崩溃了，报<code>ImportError: No module named keras.preprocessing</code>的错误，后来我就想是不是版本问题，于是切换r1.12和r1.10，发现还是报bazel.rc文件的错，于是又切换回master分支，继续网上找相关问题和答案，并在github上成功找到了答案：<a href="https://github.com/tensorflow/tensorflow/issues/21518" target="_blank" rel="noopener">1.10 build fails with “No module named ‘keras_applications’” </a>,即通过pip安装<code>keras_applications</code>和<code>keras_preprocessing</code>这两个库。</p><p>后来重新执行编译命令，又等待了好一会儿（比之前快多了，因为有缓存之前的编译结果），终于成功了哈哈哈！后来经过测试，发现编译成功，tensorflow已经被正常安装在自己的pip列表中了。<br>以下是耗时截图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-3ba18c678c7dac3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="首次编译失败"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-83509b2c57fff653.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="重新编译再次报错"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-70ee9366ed2f06f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终编译成功"></p><p>安装tensorflow的whl包后，发现安装的就是现行版r1.12。。。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-3a3842b594259304.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tensorflow_whl文件.png"></p><p>这里是分区使用率截图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-54ced4e0add7f3a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分区使用率截图"></p><p>相比而言，pytorch安装就要简单许多了，并且提供了许多预编译好的可选。</p><p>在这里自己简单记录一下心酸的历程，也提醒各位看客同样需要编译tensorflow时留意自己的分区使用率～</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-      <category term="Tensorflow" scheme="http://www.iamlightsmile.com/tags/Tensorflow/"/>
     
   </entry>
   
