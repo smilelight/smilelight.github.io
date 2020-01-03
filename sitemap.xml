@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.iamlightsmile.com/articles/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E6%B3%A8%E6%84%8F%E9%A2%88%E6%A4%8E%E4%BF%9D%E6%8A%A4/</loc>
+    
+    <lastmod>2020-01-03T13:01:00.832Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8ReadtheDocs%E7%BB%99%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E6%95%99%E7%A8%8B%E6%96%87%E6%A1%A3/</loc>
     
     <lastmod>2020-01-03T12:54:06.042Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://www.iamlightsmile.com/articles/%E7%AE%80%E5%8D%95%E8%B0%83%E7%A0%94%E6%93%8D%E4%BD%9CNeo4j%E7%9A%84Python%E5%BA%93/</loc>
     
     <lastmod>2020-01-03T12:53:57.273Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.iamlightsmile.com/articles/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E6%B3%A8%E6%84%8F%E9%A2%88%E6%A4%8E%E4%BF%9D%E6%8A%A4/</loc>
-    
-    <lastmod>2020-01-03T12:53:33.183Z</lastmod>
     
   </url>
   
