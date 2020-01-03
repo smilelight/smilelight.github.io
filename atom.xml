@@ -204,28 +204,6 @@
   </entry>
   
   <entry>
-    <title>置顶说明！</title>
-    <link href="http://www.iamlightsmile.com/articles/%E6%9C%80%E6%96%B0%E8%AF%B4%E6%98%8E%EF%BC%81/"/>
-    <id>http://www.iamlightsmile.com/articles/最新说明！/</id>
-    <published>2019-12-24T13:46:22.000Z</published>
-    <updated>2020-01-03T02:41:51.929Z</updated>
-    
-    <content type="html"><![CDATA[<p>置顶说明~</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;置顶说明~&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>如何理解WordEmbedding？</title>
     <link href="http://www.iamlightsmile.com/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/"/>
     <id>http://www.iamlightsmile.com/articles/如何理解WordEmbedding？/</id>
@@ -498,6 +476,28 @@
 &lt;li&gt;选择网盘服务商&lt;/li&gt;
 &lt;li&gt;其他方案&lt;/li&gt;
 &lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
+    
+    
+      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Manjaro下vscode中zsh乱码</title>
+    <link href="http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/"/>
+    <id>http://www.iamlightsmile.com/articles/Manjaro下vscode中zsh乱码/</id>
+    <published>2019-04-03T06:24:25.000Z</published>
+    <updated>2019-04-03T06:28:36.842Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><a id="more"></a><ol><li><p>下载<code>Menlo for Powerline</code>字体</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/abertsch/Menlo-for-Powerline.git</span><br></pre></td></tr></table></figure></li><li><p>将字体放到ttf文件夹中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Menlo-for-Powerline</span><br><span class="line">sudo cp *.ttf* /usr/share/fonts/TTF/</span><br><span class="line">sudo <span class="built_in">fc</span>-cache -f -v <span class="comment"># 刷新字体</span></span><br></pre></td></tr></table></figure></li><li><p>设置vscode中终端的字体为<code>Menlo for Powerline</code></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3></li><li><a href="https://ywnz.com/linuxjc/3250.html" target="_blank" rel="noopener">在Ubuntu 18.04系统下vscode中zsh乱码的解决方法</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h3&gt;
     
     </summary>
     
