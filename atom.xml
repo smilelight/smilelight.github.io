@@ -71,7 +71,7 @@
     <link href="http://www.iamlightsmile.com/articles/Github%E4%B8%8A%E5%BC%80%E6%BA%90Python%E4%BB%93%E5%BA%93%E7%BB%B4%E6%8A%A4%E6%B5%81%E7%A8%8B/"/>
     <id>http://www.iamlightsmile.com/articles/Github上开源Python仓库维护流程/</id>
     <published>2019-12-31T03:51:25.000Z</published>
-    <updated>2019-12-31T04:12:12.272Z</updated>
+    <updated>2020-01-03T02:47:39.154Z</updated>
     
     <content type="html"><![CDATA[<h2 id="steps"><a href="#steps" class="headerlink" title="steps"></a>steps</h2><h3 id="step1：-明确更新缘由"><a href="#step1：-明确更新缘由" class="headerlink" title="step1： 明确更新缘由"></a>step1： 明确更新缘由</h3><p>比如说有用户提出bug的issue，则可以考虑在空闲时分析问题甚至重现问题以寻找到bug，然后修改代码修复bug。</p><p>又如对项目进行重构或增加新的feature等，也相应的修改代码。</p><a id="more"></a><h3 id="step2：对修改后代码进行测试"><a href="#step2：对修改后代码进行测试" class="headerlink" title="step2：对修改后代码进行测试"></a>step2：对修改后代码进行测试</h3><p>对修改后的项目代码进行测试，以确保问题修复，或代码的修改完善并未影响其他的代码的正常运行。</p><h3 id="step3-根据需要修改项目配置和说明文件"><a href="#step3-根据需要修改项目配置和说明文件" class="headerlink" title="step3: 根据需要修改项目配置和说明文件"></a>step3: 根据需要修改项目配置和说明文件</h3><ol><li>在<code>README.md</code>中做说明。</li><li>修改<code>setup.py</code>文件中版本号</li></ol><h3 id="step4-提交代码到Github仓库"><a href="#step4-提交代码到Github仓库" class="headerlink" title="step4: 提交代码到Github仓库"></a>step4: 提交代码到Github仓库</h3><p>git的<code>add</code>、<code>commit</code>、<code>push</code>三连。</p><h3 id="step5-编译项目并更新到pypi源中"><a href="#step5-编译项目并更新到pypi源中" class="headerlink" title="step5: 编译项目并更新到pypi源中"></a>step5: 编译项目并更新到pypi源中</h3><p>参考我的另一篇文章：<a href="http://www.iamlightsmile.com/articles/python%E5%BA%93%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/">python库打包分发 | lightsmile’s Blog</a></p><h3 id="step6-友好回复提出问题的用户"><a href="#step6-友好回复提出问题的用户" class="headerlink" title="step6: 友好回复提出问题的用户"></a>step6: 友好回复提出问题的用户</h3><p>遵守“<strong>富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善</strong>”社会主义核心价值观，和用户进行友好沟通，告知用户已解决问题或其他说明。</p>]]></content>
     
@@ -83,6 +83,8 @@
     </summary>
     
     
+      <category term="Github" scheme="http://www.iamlightsmile.com/tags/Github/"/>
+    
   </entry>
   
   <entry>
@@ -90,7 +92,7 @@
     <link href="http://www.iamlightsmile.com/articles/2019%E5%9B%9E%E5%BF%86%E6%80%BB%E7%BB%93%E5%BD%95/"/>
     <id>http://www.iamlightsmile.com/articles/2019回忆总结录/</id>
     <published>2019-12-30T12:00:48.000Z</published>
-    <updated>2019-12-30T13:26:28.382Z</updated>
+    <updated>2020-01-03T02:44:27.349Z</updated>
     
     <content type="html"><![CDATA[<p>时光匆匆如流水，眨眼间，2019年就这么过去了。距离<a href="http://www.iamlightsmile.com/articles/%E4%BD%A0%E5%A5%BD%EF%BC%8C2019/">你好，2019</a>也马上就一年整了。</p><a id="more"></a><p>总体回顾这一年，也算奋斗和荒废都有。由于要考研以及积累学习，所以在2018年12月底辞职，然后回家。</p><p>在1月份，主要是学习Pytorch和torchtext，开始探索看项目源码。同时计划当一个网上的家教老师，平台是掌门，准备了一段时间，结果面试没有通过，妈了个巴子的。</p><p>在2月份开始鼓捣Manjaro，期间重装系统多次，真是痛并快乐着，现在回想起来：一方面在探索的过程中遇到困难，解决困难的历程很爽；另一方面说实在的，并没有积累到太多实用的计算机技术，有点浪费时间了（ps：Linux系统还是单独装吧，装个双系统放在普通硬盘里实在是挺慢的，可能和KDE环境占用内存较大也有关系；最近出于学习效率还是回到了Windows的怀抱，啊好香啊）。其间报了个上海的创意编程（就是教Scratch）老师，也经历了准备面试、远程面试通过等过程，然而在培训过程中感觉不太好于是主动退出了）</p><p>到了3月份，之前在网易云课堂报的自然语言处理工程师微专业开班了，于是主要是学习课程资源，积累相关知识；同时开始在Github上寻觅使用Pytorch实现的nlp任务的实现（最开始是文本分类，之后是命名实体识别），开始了不断学习源码之路；其间萌生了用torchtext照着实现一遍以增进自己对任务的理解、以及提升自己的实践动手能力的想法，便有了最初的lightNLP。同时也想着开发其他框架供自己使用，如lightKG、lightText、lightUtils。当时的定位主要是：</p><ul><li>lightNLP：lightNLP基于Pytorch和torchtext是一个深度学习自然语言处理框架，实现了如文本分类、命名实体识别、语句相似度、文本蕴涵、依存句法分析等功能。</li><li>lightKG：lightsmile个人的知识图谱框架</li><li>lightUtils：lightsmile个人的工具类库</li><li>lightText：lightText是中文文本处理框架，在设计上会包含各种词典资源，一些算法的传统或机器学习实现，包含广泛且更高级的功能，如对文本进行分析，抽取出关键词、分类、进行信息抽取等功能，会依赖于lightNLP的深度学习自然语言处理框架、lightKG的知识图谱框架、lightUitls的其他工具类库，以及包含一些词典资源等等各种资源。</li></ul><p>到了4月份，还是继续学习网易云课堂的自然语言处理课程，当然重心已经发生了转移，因为感觉自己在Github上寻找各nlp基础任务的简单实现并阅读源码的过程中学到挺多的，更甚于网易云课堂每周一更的录制课程，所以主要还是看代码，重新实现，以及学习微专业课程。</p><p>到了5月份，家里有人生病住院，我相对空闲所以去陪护，用去了一段时间。其他主要是继续上课，和看代码和敲代码，以及一些其他娱乐活动？忘了。</p><p>剩下的6~12月份，主要是复习备考，期间有认真复习的日子，也有荒废游戏的日子，甚至于连续几天熬夜打游戏，也有熬夜看小说，并没有多刻苦，也并没有很好地执行计划并坚决执行，甚至到了后期每天的真正学习时间反而更短了。</p><p>等考完后，发现心情一般，可能是发挥的一般，尤其是数学，考的极差，做了几套往年的真题，感觉还蛮简单的，于是就放松懈怠了，导致有的大题没写，有的只写了第一问，填空和选择也有不会的；也可能是因为自己平时就没有多努力，多刻苦，所以并没有放松解脱自由的感觉。</p><p>感谢学妹临考前每天的鼓励，真的挺感动的。</p><p>等考完后，本来想说玩游戏放松，可是不知道玩什么；本来想说看小说，可是备考期间也看了；那些本应该在考完后放松的事情让我在备考期间做了个遍，真想狠狠地扇自己！</p><p>同时自己也有太多想做的事，比如学习Vue、学习爬虫、继续完善lightNLP、继续丰富lightKG、学习fastNLP源码、学习Neo4j、阅读知识图谱技术相关论文、阅读自然语言处理相关论文等等，奈何精力有限，只能一步步慢慢来。</p><p>不得不说，这一路走来，有奋斗、也有颓废。关于内心的变化，感觉自己变得比以前更现实了，甚至是相当现实了，比去年还是满脑子空想的我相比现实的太多了。心态也更加平和、冷静，抗干扰能力有所提升，内心不会因为外界的言语有多少波动。不会再把精力浪费在认为不值得的人、不值得的事上面。把名看得更淡，把利看得更多。世界观也更加健全完善，看到世界上发生的许多事情新闻都已经很平静了。尽管几乎去年一整年没有和社会打交道，同样积累了些许人生道理。</p><p>不管满意与否，今年的历程对今后的道路会有什么影响，路都已经走过了，也不能再回头了。</p><p>无论等一个多月之后公布的考研初试成绩如何，无论在今后找工作的道路上遇到多少艰难险阻，我都会继续追求我的自然语言处理和知识图谱的理想永不放弃。</p><p>脑子里又回想起当时那个面临继续工作还是辞职考研两个选择的自己，我可以回答他：这条路走的不后悔。毕竟在月亮和六便士面前，我曾经选择了月亮。</p><p>2020，继续冲鸭！</p>]]></content>
     
@@ -100,6 +102,8 @@
     
     </summary>
     
+    
+      <category term="个人" scheme="http://www.iamlightsmile.com/tags/%E4%B8%AA%E4%BA%BA/"/>
     
   </entry>
   
@@ -347,7 +351,7 @@
     <link href="http://www.iamlightsmile.com/articles/Hexo%E4%B8%BB%E9%A2%98%E7%BB%A7%E7%BB%AD%E4%BC%98%E5%8C%96/"/>
     <id>http://www.iamlightsmile.com/articles/Hexo主题继续优化/</id>
     <published>2019-04-03T16:13:11.000Z</published>
-    <updated>2019-04-04T03:16:24.750Z</updated>
+    <updated>2020-01-03T02:47:54.478Z</updated>
     
     <content type="html"><![CDATA[<p>本次优化的方向主要围绕以下几点来展开：</p><ol><li>自定义背景文字颜色</li><li>添加雪花特效</li><li>添加爆炸特效</li><li>添加输入特效</li></ol><p>我当前使用的主题还是比较流行、作者一直在维护的主题<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material-X</a>.</p><a id="more"></a><h3 id="自定义背景文字颜色"><a href="#自定义背景文字颜色" class="headerlink" title="自定义背景文字颜色"></a>自定义背景文字颜色</h3><p>参见<a href="https://xaoxuu.com/wiki/material-x/style/index.html" target="_blank" rel="noopener">Material-X doc</a>中配色描述，将背景和文字颜色设置为暗色主题，同时将主题设置为深绿色，效果如图所示：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/hexo主题设置.png" alt="hexo主题设置"></p><p><strong>注意</strong>：如果是单纯修改以上内容，其实并不能生效，还要关闭主题的<code>_config.yml</code>文件中的cdn服务，如下图所示：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/关闭cdn服务.png" alt="关闭cdn服务"></p><h3 id="添加雪花特效"><a href="#添加雪花特效" class="headerlink" title="添加雪花特效"></a>添加雪花特效</h3><p>从站长之家找到的<a href="http://sc.chinaz.com/jiaoben/181229224430.htm" target="_blank" rel="noopener">JS制作雪花飘落背景动画特效</a>, 下载后将两个js放入<code>source</code>目录下的<code>js</code>目录中，并在<code>layout</code>目录下的<code>layout.ejs</code>中添加相关script路径，如下图所示：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/雪花特效.png" alt="雪花特效"></p><h3 id="添加爆炸特效"><a href="#添加爆炸特效" class="headerlink" title="添加爆炸特效"></a>添加爆炸特效</h3><p>发现<a href="http://www.zhuimeng.online/" target="_blank" rel="noopener">生如夏花</a>的博客的点击效果比较炫酷，查看其发布的文章并没有介绍具体实现，于是查看其网页源码，得到了对应的<code>fireworks.js</code>文件，同<strong>雪花特效</strong>一样添加到指定路径并配置路径，如下图所示：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/爆炸特效.png" alt="爆炸特效"></p><h3 id="添加输入特效"><a href="#添加输入特效" class="headerlink" title="添加输入特效"></a>添加输入特效</h3><p>发现<a href="https://blog.treelo.xin/" target="_blank" rel="noopener">搅拌糖</a>对主题进行了炫酷的DIY，如背景切换，滑动栏自定义等，同上查看了其网页源码，得到<code>cooltext.js</code>文件，同<strong>雪花特效</strong>一样添加到指定路径并配置路径，如下图所示：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/输入特效.png" alt="输入特效"></p><p>经过以上步骤，hexo主题又得到了进一步的自定义优化。</p><p>ps：花了许多时间排查看板娘插件是如何出现的，自己只是安装的依赖库，并没有配置，然而却被渲染到最终的生成页面中，真是百思不得其解，由于个人不太喜欢二次元，同时手机端看起来体验不好（占了很大的空间），最终选择将依赖库移除从而去除掉了看板娘效果。</p>]]></content>
     
@@ -368,6 +372,8 @@
     
     
       <category term="Hexo" scheme="http://www.iamlightsmile.com/tags/Hexo/"/>
+    
+      <category term="blog" scheme="http://www.iamlightsmile.com/tags/blog/"/>
     
   </entry>
   
@@ -433,7 +439,7 @@
     <link href="http://www.iamlightsmile.com/articles/torchtext%E5%AE%89%E8%A3%85/"/>
     <id>http://www.iamlightsmile.com/articles/torchtext安装/</id>
     <published>2019-04-03T06:20:52.000Z</published>
-    <updated>2019-04-03T06:21:33.097Z</updated>
+    <updated>2020-01-03T02:48:40.395Z</updated>
     
     <content type="html"><![CDATA[<p>使用如下命令安装<code>torchtext</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https://github.com/pytorch/text/archive/master.zip</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -452,6 +458,8 @@
       <category term="NLP" scheme="http://www.iamlightsmile.com/tags/NLP/"/>
     
       <category term="深度学习" scheme="http://www.iamlightsmile.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Pytorch" scheme="http://www.iamlightsmile.com/tags/Pytorch/"/>
     
   </entry>
   
