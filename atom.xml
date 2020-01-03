@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2020-01-03T02:52:11.399Z</updated>
+  <updated>2020-01-03T12:53:33.183Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序猿注意颈椎保护</title>
+    <link href="http://www.iamlightsmile.com/articles/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E6%B3%A8%E6%84%8F%E9%A2%88%E6%A4%8E%E4%BF%9D%E6%8A%A4/"/>
+    <id>http://www.iamlightsmile.com/articles/程序猿注意颈椎保护/</id>
+    <published>2020-01-03T12:51:42.000Z</published>
+    <updated>2020-01-03T12:53:33.183Z</updated>
+    
+    <content type="html"><![CDATA[<p>下面是一些视频网址和文字教程，在这里分享一下：</p><ul><li><a href="https://zhuanlan.zhihu.com/p/26272432" target="_blank" rel="noopener">亲身实践，颈椎病自愈法 - 知乎</a></li><li><a href="https://www.bilibili.com/video/av45286925?from=search&amp;seid=10143354984380683087" target="_blank" rel="noopener">老中医治疗你的颈椎病_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li><li><a href="https://www.bilibili.com/video/av24999820?from=search&amp;seid=10143354984380683087" target="_blank" rel="noopener">10分钟颈椎操颈椎病的自我治疗，每天10分钟，轻松20年！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;下面是一些视频网址和文字教程，在这里分享一下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/26272432&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;亲身实践，颈椎病自愈法 - 知乎&lt;/a&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="颈椎病" scheme="http://www.iamlightsmile.com/tags/%E9%A2%88%E6%A4%8E%E7%97%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单调研操作Neo4j的Python库</title>
+    <link href="http://www.iamlightsmile.com/articles/%E7%AE%80%E5%8D%95%E8%B0%83%E7%A0%94%E6%93%8D%E4%BD%9CNeo4j%E7%9A%84Python%E5%BA%93/"/>
+    <id>http://www.iamlightsmile.com/articles/简单调研操作Neo4j的Python库/</id>
+    <published>2020-01-03T12:49:41.000Z</published>
+    <updated>2020-01-03T12:53:57.273Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如<a href="https://neo4j.com/developer/python/" target="_blank" rel="noopener">官网</a>所述，目前用于操作Neo4j的Python库主要包括如下几种：</p><ul><li>Neo4j Python Driver（官方提供，长期更新支持）</li><li>Py2neo（非官方看网上教程多数都是这个）</li><li>Neomodel（也是社区版）</li></ul><a id="more"></a><h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><div class="table-container"><table><thead><tr><th>对比\模型</th><th>Neo4j Driver</th><th>Py2neo</th><th>Neomodel</th></tr></thead><tbody><tr><td>代码活跃程度</td><td>最近更新于一个月内</td><td>最近更新于8个月前</td><td>不明</td></tr><tr><td>国内适用范围</td><td>较少</td><td>很多</td><td>不明</td></tr><tr><td>代码特性</td><td>一般</td><td>简洁</td><td>一般</td></tr><tr><td>说明文档内容</td><td>较少</td><td>一般</td><td>不明</td></tr><tr><td>配套文档版本</td><td>最新</td><td>最新源码和文档有冲突</td><td>不明</td></tr></tbody></table></div><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>经过对比，还是先结合源码来学习Py2neo吧。大家都用，并且代码用起来确实比较舒服~并且，本质上也只是一个使用Neo4j的接口，无非语句不通而已，但最终执行的增删改查都是一样的。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://py2neo.org/v4/index.html" target="_blank" rel="noopener">The Py2neo v4 Handbook — The Py2neo v4 Handbook</a></li><li><a href="https://www.jianshu.com/p/69f6ecafe563" target="_blank" rel="noopener">Neo4j系列-新手入门（二） - 简书</a></li><li><a href="https://cuiqingcai.com/4778.html" target="_blank" rel="noopener">Neo4j简介及Py2Neo的用法 | 静觅</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;如&lt;a href=&quot;https://neo4j.com/developer/python/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官网&lt;/a&gt;所述，目前用于操作Neo4j的Python库主要包括如下几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Neo4j Python Driver（官方提供，长期更新支持）&lt;/li&gt;
+&lt;li&gt;Py2neo（非官方看网上教程多数都是这个）&lt;/li&gt;
+&lt;li&gt;Neomodel（也是社区版）&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://www.iamlightsmile.com/tags/Python/"/>
+    
+      <category term="Neo4j" scheme="http://www.iamlightsmile.com/tags/Neo4j/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用ReadtheDocs给项目添加教程文档</title>
+    <link href="http://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8ReadtheDocs%E7%BB%99%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E6%95%99%E7%A8%8B%E6%96%87%E6%A1%A3/"/>
+    <id>http://www.iamlightsmile.com/articles/使用ReadtheDocs给项目添加教程文档/</id>
+    <published>2020-01-03T12:43:18.000Z</published>
+    <updated>2020-01-03T12:54:06.042Z</updated>
+    
+    <content type="html"><![CDATA[<p>当开源项目的内容比较多、比较杂的时候，就需要将一些说明性的东西、如教程、文档等东西从<code>README.md</code>文件中剥离出来搞一个文档，许多项目都是如此，于是自己也简单学了一下使用ReadtheDocs。</p><a id="more"></a><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-从ReadtheDocs官网注册账号并连接到Github"><a href="#1-从ReadtheDocs官网注册账号并连接到Github" class="headerlink" title="1.从ReadtheDocs官网注册账号并连接到Github"></a>1.从ReadtheDocs官网注册账号并连接到Github</h3><p>ReadtheDocs官网地址：<a href="https://readthedocs.org/" target="_blank" rel="noopener">首页 | Read the Docs</a></p><p>在注册成功后在<code>设置-&gt;已连接的服务</code>中点击<code>Connect to Github</code>：<br><img src="https://s2.ax1x.com/2020/01/03/la76ts.jpg" alt="la76ts.jpg"></p><h3 id="2-在Github上创建一个项目，如test-cookbook，并将其克隆到本地。"><a href="#2-在Github上创建一个项目，如test-cookbook，并将其克隆到本地。" class="headerlink" title="2.在Github上创建一个项目，如test-cookbook，并将其克隆到本地。"></a>2.在Github上创建一个项目，如<code>test-cookbook</code>，并将其克隆到本地。</h3><h3 id="3-安装Sphinx"><a href="#3-安装Sphinx" class="headerlink" title="3.安装Sphinx"></a>3.安装Sphinx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sphinx</span><br></pre></td></tr></table></figure><h3 id="4-创建工程"><a href="#4-创建工程" class="headerlink" title="4.创建工程"></a>4.创建工程</h3><p>将路径切换到项目根目录下，执行以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sphinx-quickstart</span></span><br></pre></td></tr></table></figure></p><h3 id="5-对工程进程配置"><a href="#5-对工程进程配置" class="headerlink" title="5.对工程进程配置"></a>5.对工程进程配置</h3><p>项目的配置，主要是更改<code>source/conf.py</code>文件。</p><h4 id="5-1-更改主题"><a href="#5-1-更改主题" class="headerlink" title="5.1 更改主题"></a>5.1 更改主题</h4><p>在项目中更改或添加以下代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sphinx_rtd_theme</span><br><span class="line">html_theme = <span class="string">"sphinx_rtd_theme"</span></span><br><span class="line">html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]</span><br></pre></td></tr></table></figure></p><h4 id="5-2-添加markdown支持"><a href="#5-2-添加markdown支持" class="headerlink" title="5.2 添加markdown支持"></a>5.2 添加markdown支持</h4><p>首先安装<code>recommonmark</code><br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> recommonmark</span><br></pre></td></tr></table></figure></p><p>并在项目中增加以下代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> recommonmark.parser <span class="keyword">import</span> CommonMarkParser</span><br><span class="line">source_parsers = &#123;</span><br><span class="line">    <span class="string">'.md'</span>: CommonMarkParser,</span><br><span class="line">&#125;</span><br><span class="line">source_suffix = [<span class="string">'.rst'</span>, <span class="string">'.md'</span>]</span><br></pre></td></tr></table></figure></p><h3 id="6-导入到ReadtheDocs"><a href="#6-导入到ReadtheDocs" class="headerlink" title="6.导入到ReadtheDocs"></a>6.导入到ReadtheDocs</h3><p>在ReadtheDocs个人面板点击<code>Import a Project</code>：<br><img src="https://s2.ax1x.com/2020/01/03/la7BnS.jpg" alt="la7BnS.jpg"><br>然后选择对应的项目，如果项目列表为空或者未显示当前项目，点击右上角等待刷新项目即可：</p><p><img src="https://s2.ax1x.com/2020/01/03/la7fXT.jpg" alt="la7fXT.jpg"></p><p>之后可以对项目进行一些设置，如图：</p><p><img src="https://s2.ax1x.com/2020/01/03/la7HhR.jpg" alt="la7HhR.jpg"></p><h3 id="7-向工程中添加实际教程和文档"><a href="#7-向工程中添加实际教程和文档" class="headerlink" title="7.向工程中添加实际教程和文档"></a>7.向工程中添加实际教程和文档</h3><p>如新建<code>.rst</code>或<code>.md</code>文件，并修改项目的<code>index.rst</code>等，具体请参考最后的参考链接。</p><h3 id="8-生成文档"><a href="#8-生成文档" class="headerlink" title="8.生成文档"></a>8.生成文档</h3><p>在项目根目录执行<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make html</span></span><br></pre></td></tr></table></figure></p><p>以生成html格式的文档。</p><p>可能在生成文档会失败，如遇到<code>Sphinx error: master file [..]/checkouts/latest/contents.rst not found</code>这样的错误，可以参考<a href="https://github.com/readthedocs/readthedocs.org/issues/2569" target="_blank" rel="noopener">Sphinx error: master file [..]/checkouts/latest/contents.rst not found · Issue #2569 · readthedocs/readthedocs.org</a>来解决。</p><h3 id="9-预览效果"><a href="#9-预览效果" class="headerlink" title="9.预览效果"></a>9.预览效果</h3><p>进入<code>build/html</code>目录下用浏览器打开其中的<code>index.html</code>来预览项目文档。如：<br><img src="https://s2.ax1x.com/2020/01/03/la7vnO.jpg" alt="la7vnO.jpg"></p><h3 id="10-push到Github仓库"><a href="#10-push到Github仓库" class="headerlink" title="10.push到Github仓库"></a>10.push到Github仓库</h3><p>三连<code>git</code>：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line"><span class="bash">git commit -m <span class="string">"update cookbook"</span></span></span><br><span class="line"><span class="bash">git push</span></span><br></pre></td></tr></table></figure></p><h3 id="11-查看在线效果"><a href="#11-查看在线效果" class="headerlink" title="11.查看在线效果"></a>11.查看在线效果</h3><p>在ReadtheDocs的项目主页点击<code>阅读文档</code>以查看实际效果：<br><img src="https://s2.ax1x.com/2020/01/03/laHF3t.jpg" alt="laHF3t.jpg"></p><p>效果如：<br><img src="https://s2.ax1x.com/2020/01/03/laHpAH.jpg" alt="laHpAH.jpg"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.jianshu.com/p/78e9e1b8553a" target="_blank" rel="noopener">如何用 ReadtheDocs、Sphinx 快速搭建写书环境 - 简书</a></li><li><a href="https://www.xncoding.com/2017/01/22/fullstack/readthedoc.html" target="_blank" rel="noopener">使用ReadtheDocs托管文档 | 飞污熊博客</a></li><li><a href="https://github.com/readthedocs/readthedocs.org/issues/2569" target="_blank" rel="noopener">Sphinx error: master file [..]/checkouts/latest/contents.rst not found · Issue #2569 · readthedocs/readthedocs.org</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当开源项目的内容比较多、比较杂的时候，就需要将一些说明性的东西、如教程、文档等东西从&lt;code&gt;README.md&lt;/code&gt;文件中剥离出来搞一个文档，许多项目都是如此，于是自己也简单学了一下使用ReadtheDocs。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>实用命令行工具-Gow</title>
+    <link href="http://www.iamlightsmile.com/articles/%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-Gow/"/>
+    <id>http://www.iamlightsmile.com/articles/实用命令行工具-Gow/</id>
+    <published>2020-01-03T12:37:36.000Z</published>
+    <updated>2020-01-03T12:42:26.995Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Windows和Linux对于程序员来说，就像张爱玲笔下的红玫瑰和白玫瑰。对于有钱的成年人来说，选择自然是“我全都要”，然而对于目前经济窘迫、只有一台爱机的我，鱼和熊掌也许并不是那么容易兼得。</p></blockquote><a id="more"></a><p><img src="https://s2.ax1x.com/2020/01/03/laTxFs.jpg" alt="laTxFs.jpg"></p><h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>Windows除了开发感觉干啥都很方便，而Linux除了开发感觉啥都不方便。<br>Linux的很大的一个很大的优点就在于有大量丰富的命令行工具，能够在命令行里敲几个字就能解决的事情为什么要费力用鼠标点来点去呢？使用键盘的比例越高，往往说明生产效率越高。<br>所以选择Windows作为平时的生活开发系统而言，如果Windows上也能很方便的使用那些命令行工具就很完美了，比如说<code>head</code>、<code>tail</code>等命令。<br>而<a href="https://github.com/bmatzelle/gow" target="_blank" rel="noopener">Gow(Gnu On Windows)</a>恰恰是满足了这一需求点的近乎完美工具。</p><h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><blockquote><p>Gow (Gnu On Windows)是Cygwin的轻量级替代品。它使用了一个方便的Windows安装程序，安装了大约130个非常有用的开源UNIX应用程序，这些程序编译为本机win32二进制文件。它被设计为尽可能小，大约10 MB，而Cygwin根据不同的选项可以运行超过100 MB。</p><h1 id="2-下载"><a href="#2-下载" class="headerlink" title="2.下载"></a>2.下载</h1><p>下载页：<a href="https://github.com/bmatzelle/gow/releases" target="_blank" rel="noopener">Releases · bmatzelle/gow</a><br>如图：<img src="https://s2.ax1x.com/2020/01/03/la79S0.jpg" alt="la79S0.jpg">点击红框中的链接下载然后双击安装即可，非常简单易用~</p><h1 id="3-使用示例"><a href="#3-使用示例" class="headerlink" title="3.使用示例"></a>3.使用示例</h1><p>如图：<img src="https://s2.ax1x.com/2020/01/03/la7ETJ.jpg" alt="la7ETJ.jpg"></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Windows和Linux对于程序员来说，就像张爱玲笔下的红玫瑰和白玫瑰。对于有钱的成年人来说，选择自然是“我全都要”，然而对于目前经济窘迫、只有一台爱机的我，鱼和熊掌也许并不是那么容易兼得。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="开发工具" scheme="http://www.iamlightsmile.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Windows" scheme="http://www.iamlightsmile.com/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>常用自然语言处理框架之StanfordNLP使用</title>
@@ -404,101 +498,6 @@
 &lt;li&gt;选择网盘服务商&lt;/li&gt;
 &lt;li&gt;其他方案&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro下vscode中zsh乱码</title>
-    <link href="http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/"/>
-    <id>http://www.iamlightsmile.com/articles/Manjaro下vscode中zsh乱码/</id>
-    <published>2019-04-03T06:24:25.000Z</published>
-    <updated>2019-04-03T06:28:36.842Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><a id="more"></a><ol><li><p>下载<code>Menlo for Powerline</code>字体</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/abertsch/Menlo-for-Powerline.git</span><br></pre></td></tr></table></figure></li><li><p>将字体放到ttf文件夹中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Menlo-for-Powerline</span><br><span class="line">sudo cp *.ttf* /usr/share/fonts/TTF/</span><br><span class="line">sudo <span class="built_in">fc</span>-cache -f -v <span class="comment"># 刷新字体</span></span><br></pre></td></tr></table></figure></li><li><p>设置vscode中终端的字体为<code>Menlo for Powerline</code></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3></li><li><a href="https://ywnz.com/linuxjc/3250.html" target="_blank" rel="noopener">在Ubuntu 18.04系统下vscode中zsh乱码的解决方法</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>torchtext安装</title>
-    <link href="http://www.iamlightsmile.com/articles/torchtext%E5%AE%89%E8%A3%85/"/>
-    <id>http://www.iamlightsmile.com/articles/torchtext安装/</id>
-    <published>2019-04-03T06:20:52.000Z</published>
-    <updated>2020-01-03T02:48:40.395Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用如下命令安装<code>torchtext</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https://github.com/pytorch/text/archive/master.zip</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;使用如下命令安装&lt;code&gt;torchtext&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="http://www.iamlightsmile.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="NLP" scheme="http://www.iamlightsmile.com/tags/NLP/"/>
-    
-      <category term="深度学习" scheme="http://www.iamlightsmile.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="Pytorch" scheme="http://www.iamlightsmile.com/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro下截屏及设置快捷键</title>
-    <link href="http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%88%AA%E5%B1%8F%E5%8F%8A%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://www.iamlightsmile.com/articles/Manjaro下截屏及设置快捷键/</id>
-    <published>2019-04-03T06:19:40.000Z</published>
-    <updated>2019-04-03T06:28:09.740Z</updated>
-    
-    <content type="html"><![CDATA[<p>我认为当前Manjaro下最好的截屏工具要属<code>deepin-screenshot</code>了。</p><a id="more"></a><ol><li><p>下载安装</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S deepin-screenshot</span></span><br></pre></td></tr></table></figure></li><li><p>配置系统快捷键<br>在【系统设置】-【工作区】-【自定义快捷键】中，点击【编辑】-【新建】-【全局快捷键】-【命令/URL：】<br>然后填写动作名称，如我这里是<code>Deepin截图</code>,然后分别填写注释（非必须）、触发器和动作，<br>如下图：</p></li></ol><p><img src="https://upload-images.jianshu.io/upload_images/5410339-65ef5ef062c11a5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置系统快捷键"><br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbe8ca8b43041840.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="快捷键触发器配置"></p><p><img src="https://upload-images.jianshu.io/upload_images/5410339-d6b61bcb24daa799.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="快捷键动作配置"></p><p>然后就可以尽情使用啦，不得不感慨deepin真的挺强挺好的！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我认为当前Manjaro下最好的截屏工具要属&lt;code&gt;deepin-screenshot&lt;/code&gt;了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro下安装使用kenlm</title>
-    <link href="http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8kenlm/"/>
-    <id>http://www.iamlightsmile.com/articles/Manjaro下安装使用kenlm/</id>
-    <published>2019-04-03T06:18:33.000Z</published>
-    <updated>2019-04-03T06:28:22.471Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/kpu/kenlm" target="_blank" rel="noopener">kenlm</a>是一个linux下快速轻量的语言模型训练工具。</p><a id="more"></a><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/kpu/kenlm.git</span><br></pre></td></tr></table></figure><p>或者<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>kheafield.com<span class="regexp">/code/</span>kenlm.tar.gz | tar xz</span><br></pre></td></tr></table></figure></p><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S boost eigen</span><br></pre></td></tr></table></figure><h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p>以上两种来源区别我也不是很清楚，没有细究。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir kenlm/build</span><br><span class="line"><span class="built_in">cd</span> kenlm/build</span><br><span class="line">cmake ..</span><br><span class="line">make -j8</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p><h2 id="安装Python库"><a href="#安装Python库" class="headerlink" title="安装Python库"></a>安装Python库</h2><p>以上下载的文件中有python安装脚本<code>setup.py</code>文件，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p><p>或者，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https://github.com/kpu/kenlm/archive/master.zip</span><br></pre></td></tr></table></figure></p><p>或者从pypi源安装，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install kenlm</span><br></pre></td></tr></table></figure></p><h2 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h2><h4 id="准备训练数据"><a href="#准备训练数据" class="headerlink" title="准备训练数据"></a>准备训练数据</h4><p>首先我们需要有一个分好词的语料文件，如：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-d64febb4833bff96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分词训练语料"></p><h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><p>然后使用以下命令训练：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lmplz -o 3 &lt;pku_training.utf8&gt; lm_ng3.arpa</span><br></pre></td></tr></table></figure></p><p>其中<code>-o</code>参数指明n-gram语法为3，<code>&lt;&gt;</code>中的为训练语料路径，后面跟模型保存路径</p><h4 id="模型压缩"><a href="#模型压缩" class="headerlink" title="模型压缩"></a>模型压缩</h4><p>对模型压缩可以提高加载速度，不压缩也可以<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">build_binary -s lm_ng3.arpa lm_ng3.bin</span><br></pre></td></tr></table></figure></p><h2 id="使用Python接口"><a href="#使用Python接口" class="headerlink" title="使用Python接口"></a>使用Python接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import kenlm</span><br><span class="line">import jieba</span><br><span class="line">model = kenlm.LanguageModel(&apos;./lm_ng3.bin&apos;)</span><br><span class="line">sent_1 = &apos;哈哈，我是李磊，你好呀&apos;</span><br><span class="line">sent_2 = &apos;安赛飞啊，诶爱尔兰&apos;</span><br><span class="line">def process(sent):</span><br><span class="line">  return &apos; &apos;.join(jieba.cut(sent))</span><br><span class="line">print(model.score(process(sent_1))</span><br><span class="line">print(model.score(process(sent_2))</span><br></pre></td></tr></table></figure><p>结果输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-40.40456008911133</span><br><span class="line">-47.40667724609375</span><br></pre></td></tr></table></figure></p><p>其中，分数越小，句子分数越低，越”不像“一个句子。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/kpu/kenlm" target="_blank" rel="noopener">kenlm</a></li><li><a href="https://blog.csdn.net/luoyexuge/article/details/82109526" target="_blank" rel="noopener">kenlm语言模型相关，c++、python相关接口</a></li><li><a href="https://mooc.study.163.com/smartSpec/detail/1001477005.htm" target="_blank" rel="noopener">网易云课堂-微专业-AI工程师（自然语言处理方向）</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/kpu/kenlm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;kenlm&lt;/a&gt;是一个linux下快速轻量的语言模型训练工具。&lt;/p&gt;
     
     </summary>
     
