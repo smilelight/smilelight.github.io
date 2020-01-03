@@ -285,7 +285,8 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stanfordnlp</span><br><span class="line"><span class="comment"># stanfordnlp.download('zh') 从网络上下载模型文件，超级慢</span></span><br><span class="line"></span><br><span class="line">zh_nlp = stanfordnlp.Pipeline(lang=<span class="string">'zh'</span>, models_dir=<span class="string">r"D:\Data\NLP\model\stanfordnlp"</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">zh_doc = zh_nlp(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, sent <span class="keyword">in</span> enumerate(zh_doc.sentences):</span><br><span class="line">    print(<span class="string">"[Sentence &#123;&#125;]"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> sent.words:</span><br><span class="line">        print(<span class="string">"&#123;:12s&#125;\t&#123;:12s&#125;\t&#123;:6s&#125;\t&#123;:d&#125;\t&#123;:12s&#125;"</span>.format(\</span><br><span class="line">              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stanfordnlp</span><br><span class="line"><span class="comment"># stanfordnlp.download('zh') 从网络上下载模型文件，超级慢</span></span><br><span class="line"></span><br><span class="line">zh_nlp = stanfordnlp.Pipeline(lang=<span class="string">'zh'</span>, models_dir=<span class="string">r"D:\Data\NLP\model\stanfordnlp"</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">zh_doc = zh_nlp(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, sent <span class="keyword">in</span> enumerate(zh_doc.sentences):</span><br><span class="line">    print(<span class="string">"[Sentence &#123;&#125;]"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> sent.words:</span><br><span class="line">        print(<span class="string">"&#123;:12s&#125;\t&#123;:12s&#125;\t&#123;:6s&#125;\t&#123;:d&#125;\t&#123;:12s&#125;"</span>.format(\</span><br><span class="line">              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
 <p>首先应该先下载模型，然而如果是直接运行<code>stanfordnlp.download(&#39;zh&#39;)</code>命令，那么下载速度实在是太慢了，后来把它的源码下载下来，找到了对应了文件下载地址，然后使用Chrome下载，发现速度有所提升但是也很慢，最后尝试了一下先使用Xshell登录代理浏览器下载模型，然后使用Xftp将模型传输到本地，结果速度变快了好多，尤其是代理浏览器下载模型的速度超级快，达80M/s，太惊人了。</p>
 
       </div>
@@ -299,7 +300,7 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-03T10:40:38+08:00" content="2020-01-03"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-03T10:52:11+08:00" content="2020-01-03"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2020-01-03
               </time>
             
@@ -859,6 +860,21 @@
 
 
 
-    <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

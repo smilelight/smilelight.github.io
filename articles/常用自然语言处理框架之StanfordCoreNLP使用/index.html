@@ -285,7 +285,8 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li>
 <li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li>
@@ -310,7 +311,7 @@ INFO:root:Waiting until the server is available.
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-03T10:37:26+08:00" content="2020-01-03"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-03T10:52:04+08:00" content="2020-01-03"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2020-01-03
               </time>
             
@@ -889,6 +890,21 @@ INFO:root:Waiting until the server is available.
 
 
 
-    <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

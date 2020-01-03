@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordNLP%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2020-01-03T02:52:11.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordCoreNLP%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2020-01-03T02:52:04.942Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.iamlightsmile.com/articles/torchtext%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2020-01-03T02:48:40.395Z</lastmod>
@@ -124,20 +138,6 @@
     <loc>http://www.iamlightsmile.com/articles/%E6%9C%80%E6%96%B0%E8%AF%B4%E6%98%8E%EF%BC%81/</loc>
     
     <lastmod>2020-01-03T02:41:51.929Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordNLP%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2020-01-03T02:40:38.057Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordCoreNLP%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2020-01-03T02:37:26.768Z</lastmod>
     
   </url>
   
