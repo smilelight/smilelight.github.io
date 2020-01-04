@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>高速下载国外数据软件</title>
+      <link href="/articles/%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E5%9B%BD%E5%A4%96%E6%95%B0%E6%8D%AE%E8%BD%AF%E4%BB%B6/"/>
+      <url>/articles/%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E5%9B%BD%E5%A4%96%E6%95%B0%E6%8D%AE%E8%BD%AF%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>很多时候要下载国外网站的数据和软件包的时候默认浏览器下载速度极慢，甚至可能到几k/s，要下载个几M的东西都要花好长时间。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>突然想到自己有办理搬瓦工的服务器呀~。使用代理服务器下载想要的数据，然后再传到自己的电脑不就好了嘛。</p><h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><h3 id="1-获取下载链接地址"><a href="#1-获取下载链接地址" class="headerlink" title="1.获取下载链接地址"></a>1.获取下载链接地址</h3><p>如图，使用Chrome浏览器下载，然后右键点击URL选择“复制链接地址”。<br><img src="https://s2.ax1x.com/2020/01/04/lwmEdO.jpg" alt="lwmEdO.jpg"></p><h3 id="2-使用代理服务器下载数据"><a href="#2-使用代理服务器下载数据" class="headerlink" title="2.使用代理服务器下载数据"></a>2.使用代理服务器下载数据</h3><p>如图，使用Xshell等终端软件登录代理服务器，执行<code>wget xxx</code>命令：<br><img src="https://s2.ax1x.com/2020/01/04/lwmKSA.jpg" alt="lwmKSA.jpg"></p><h3 id="3-将数据从代理服务器传至本机"><a href="#3-将数据从代理服务器传至本机" class="headerlink" title="3.将数据从代理服务器传至本机"></a>3.将数据从代理服务器传至本机</h3><p>如图，使用Xftp等文件传输软件连接至代理服务器，将下载文件传输到本地：<br><img src="https://s2.ax1x.com/2020/01/04/lwm3ef.jpg" alt="lwm3ef.jpg"></p><h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>虽然在将文件从代理服务器传输到本机的过程中可能速度也不快，但是起码可用了，200k也算可以接受了。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>程序猿注意颈椎保护</title>
       <link href="/articles/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E6%B3%A8%E6%84%8F%E9%A2%88%E6%A4%8E%E4%BF%9D%E6%8A%A4/"/>
       <url>/articles/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E6%B3%A8%E6%84%8F%E9%A2%88%E6%A4%8E%E4%BF%9D%E6%8A%A4/</url>
