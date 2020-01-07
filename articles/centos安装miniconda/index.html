@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Archives: 2020 | lightsmile&#39;s Blog</title>
+  <title>centos安装miniconda | lightsmile&#39;s Blog</title>
   
   <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
   
@@ -243,217 +243,15 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            
-	
-    <script>
-        window.subData= { title:'year : 2020'}
-    </script>
-
-
-<section class="post-list">
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-    
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
 <section class='meta'>
   
   <div class="meta" id="header-meta">
     
-      <h2 class="title">
-          <a href="/articles/程序猿注意颈椎保护/">
-              
-                  程序猿注意颈椎保护
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
-      </time>
-    
-
-    
       
-
-    
-
-    
-
-    
-      <div class="metatag top">
-        <i class="fas fa-angle-double-up fa-fw" aria-hidden="true"></i>&nbsp;置顶
-      </div>
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <p>下面是一些视频网址和文字教程，在这里分享一下：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/26272432" target="_blank" rel="noopener">亲身实践，颈椎病自愈法 - 知乎</a></li>
-<li><a href="https://www.bilibili.com/video/av45286925?from=search&amp;seid=10143354984380683087" target="_blank" rel="noopener">老中医治疗你的颈椎病_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/av24999820?from=search&amp;seid=10143354984380683087" target="_blank" rel="noopener">10分钟颈椎操颈椎病的自我治疗，每天10分钟，轻松20年！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li>
-</ul>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/颈椎病/"><i class="fas fa-hashtag fa-fw"></i>颈椎病</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-          </div>
-        
+          <h1 class="title">centos安装miniconda</h1>
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/centos安装miniconda/">
-              
-                  centos安装miniconda
-              
-          </a>
-      </h2>
     
 
     
@@ -468,6 +266,12 @@
     
 
     
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
 
     
 
@@ -475,462 +279,172 @@
 </section>
 
     <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
         <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-下载miniconda"><a href="#1-下载miniconda" class="headerlink" title="1. 下载miniconda"></a>1. 下载miniconda</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; mkdir tmp &amp;&amp; <span class="built_in">cd</span> tmp</span><br><span class="line">wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
 <h3 id="2-运行miniconda安装脚本"><a href="#2-运行miniconda安装脚本" class="headerlink" title="2. 运行miniconda安装脚本"></a>2. 运行miniconda安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
 <h3 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda -V</span><br></pre></td></tr></table></figure>
 <p>若输出类似<code>conda 4.7.12</code>，说明安装conda环境成功。如提示：<code>zsh：command not find:conda</code>，则需要将<code>conda</code>配置到路径变量中，详情参考<a href="https://www.jianshu.com/p/13f5d20e61f8" target="_blank" rel="noopener">zsh：command not find:conda 的详细解决办法 - 简书</a></p>
 
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/CentOS/"><i class="fas fa-hashtag fa-fw"></i>CentOS</a>
-                
+      </div>
+      <div align="center">
+        <div class="copyright">
+            <p><span>
+                <br /><b>本文地址：</b><a href="/articles/centos安装miniconda/" title="centos安装miniconda">centos安装miniconda</a><br /><b>转载请注明出处，谢谢！</b>
+            </span></p>
             </div>
+      </div>
         
-    </section>
-</article>
-
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/购买国内云服务器与备案注册/">
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-07T16:16:01+08:00" content="2020-01-07"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2020-01-07
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/CentOS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;CentOS</a></div>
+            
+            
               
-                  购买国内云服务器与备案注册
-              
+  <div class='metatag share -mob-share-list'>
+    <i class="left fas fa-share-alt fa-fw" aria-hidden="true"></i>
+    <div class="-mob-share-list share-body">
+      
+        
+          <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+            
+            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/centos安装miniconda/&title=centos安装miniconda | lightsmile's Blog&summary="
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+            
           </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-07
-      </time>
-    
-
-    
+        
       
-
-    
-
-    
-
-    
-
+        
+          <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+            
+            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/centos安装miniconda/&title=centos安装miniconda | lightsmile's Blog&summary="
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+            
+          </a>
+        
+      
+        
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3aQW7DMAwEwPz/0+kDWjtLUjRSYHwKHFjR+CAxS71e8fX+dV19mzx7P87VmFfjH7jw8PDwxlO/Gvr+/tXI94Acdj+fy5ng4eHhrfHuJ3e/KOdLfD713nzw8PDwvpP3jq9k+6lWxXh4eHj/kVctc5OpJ8EHHh4e3rfxksI3DyZORb2PZi14eHh4MS8var/n80p/Dw8PD2/cVU8W3Oo2MCnEy7PFw8PDW+DlC241os1JeSRRnSceHh7eM7zewn1/f/uQwYeXhYeHh7fGS6byfBmdz+RyBDw8PLyjvGqja1IWnzpcVXgReHh4eAu8auGbF8RJC60ZLkx6d3h4eHiHeL3wtIqpbgPVF1r+94CHh4fX4iWFcq/Flbe+ek246IXi4eHhLfNy2OSgwChvjp/Cw8PD2+M16+5iW+u+aO5tBoUx8fDw8I7yelFCNVStbi15Of4Bj4eHh7fG6x1+mufH1QA3OijQy6Tx8PDwimt4Ho8mBwvyUjt/NaNNCw8PD2+Bl399tvythhF5OPLhZAQeHh7egJcUtdWFOD8cUB2/WpTj4eHh7fHyxTqPX6vPVuPd6D4eHh7eAi8/BFANWPP4Nd8ecvbloSs8PDy8Ma/a1K82+/OQt7roR1EvHh4e3gIvafNX44ZqfJC3ynpHtfDw8PD2eNWDUHlrar7Q94JjPDw8vGd41VB1Et0mv5hf0caAh4eHt8xLgtdes2q+tbzmuxAeHh7eADZZfJMgNQ8OTh1cKKTUeHh4eK2cs7fGVjeAatiRP7uyheDh4eENKs/ez7yPXvkr/mM+eHh4eGu8fEGftKYWM5VexoyHh4f3IK9XWPdijvy3jm0MeHh4eEd5+QaQ3Km+vqTox8PDw3uGN1+y5w2zeXNrlLXg4eHh1f6aF/7R55tEjjx8FAAPDw9vi/cDDPjkKagdrKsAAAAASUVORK5CYII='>
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+          
+          </a>
+        
+      
+        
+          <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+            
+            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/centos安装miniconda/&title=centos安装miniconda | lightsmile's Blog&summary="
+            
+            >
+            
+              <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+            
+          </a>
+        
+      
+        
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3aQW7DMAwEwPz/0+kDWjtLUjRSYHwKHFjR+CAxS71e8fX+dV19mzx7P87VmFfjH7jw8PDwxlO/Gvr+/tXI94Acdj+fy5ng4eHhrfHuJ3e/KOdLfD713nzw8PDwvpP3jq9k+6lWxXh4eHj/kVctc5OpJ8EHHh4e3rfxksI3DyZORb2PZi14eHh4MS8var/n80p/Dw8PD2/cVU8W3Oo2MCnEy7PFw8PDW+DlC241os1JeSRRnSceHh7eM7zewn1/f/uQwYeXhYeHh7fGS6byfBmdz+RyBDw8PLyjvGqja1IWnzpcVXgReHh4eAu8auGbF8RJC60ZLkx6d3h4eHiHeL3wtIqpbgPVF1r+94CHh4fX4iWFcq/Flbe+ek246IXi4eHhLfNy2OSgwChvjp/Cw8PD2+M16+5iW+u+aO5tBoUx8fDw8I7yelFCNVStbi15Of4Bj4eHh7fG6x1+mufH1QA3OijQy6Tx8PDwimt4Ho8mBwvyUjt/NaNNCw8PD2+Bl399tvythhF5OPLhZAQeHh7egJcUtdWFOD8cUB2/WpTj4eHh7fHyxTqPX6vPVuPd6D4eHh7eAi8/BFANWPP4Nd8ecvbloSs8PDy8Ma/a1K82+/OQt7roR1EvHh4e3gIvafNX44ZqfJC3ynpHtfDw8PD2eNWDUHlrar7Q94JjPDw8vGd41VB1Et0mv5hf0caAh4eHt8xLgtdes2q+tbzmuxAeHh7eADZZfJMgNQ8OTh1cKKTUeHh4eK2cs7fGVjeAatiRP7uyheDh4eENKs/ez7yPXvkr/mM+eHh4eGu8fEGftKYWM5VexoyHh4f3IK9XWPdijvy3jm0MeHh4eEd5+QaQ3Km+vqTox8PDw3uGN1+y5w2zeXNrlLXg4eHh1f6aF/7R55tEjjx8FAAPDw9vi/cDDPjkKagdrKsAAAAASUVORK5CYII='>
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+          
+          </a>
+        
+      
+    </div>
   </div>
-</section>
 
-    <section class="article typo">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。</p>
-        
-            <div class="readmore">
-                <a href="/articles/购买国内云服务器与备案注册/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
+
+            
+          </section>
         
 
         
-            <div class="full-width auto-padding tags">
+            <div class="prev-next">
                 
-                    <a href="/tags/CentOS/"><i class="fas fa-hashtag fa-fw"></i>CentOS</a>
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/articles/购买国内云服务器与备案注册/" rel="prev" title="购买国内云服务器与备案注册">
+                                    
+                                        购买国内云服务器与备案注册
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/CentOS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CentOS</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
                 
             </div>
         
+
     </section>
+
 </article>
 
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/高速下载国外数据软件/">
-              
-                  高速下载国外数据软件
-              
-          </a>
-      </h2>
-    
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-04
-      </time>
-    
 
-    
-      
+<br>
 
-    
+<!-- 显示推荐文章和评论 -->
 
-    
 
-    
 
-  </div>
-</section>
-
+  <article class="post white-box comments">
     <section class="article typo">
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>很多时候要下载国外网站的数据和软件包的时候默认浏览器下载速度极慢，甚至可能到几k/s，要下载个几M的东西都要花好长时间。</p>
-        
-            <div class="readmore">
-                <a href="/articles/高速下载国外数据软件/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
 
-        
-    </section>
-</article>
-
-        </div>
       
-    
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/简单调研操作Neo4j的Python库/">
-              
-                  简单调研操作Neo4j的Python库
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
-      </time>
-    
-
-    
-      
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如<a href="https://neo4j.com/developer/python/" target="_blank" rel="noopener">官网</a>所述，目前用于操作Neo4j的Python库主要包括如下几种：</p>
-<ul>
-<li>Neo4j Python Driver（官方提供，长期更新支持）</li>
-<li>Py2neo（非官方看网上教程多数都是这个）</li>
-<li>Neomodel（也是社区版）</li>
-</ul>
-        
-            <div class="readmore">
-                <a href="/articles/简单调研操作Neo4j的Python库/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
         
 
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/Python/"><i class="fas fa-hashtag fa-fw"></i>Python</a>
-                
-                    <a href="/tags/Neo4j/"><i class="fas fa-hashtag fa-fw"></i>Neo4j</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/使用ReadtheDocs给项目添加教程文档/">
-              
-                  使用ReadtheDocs给项目添加教程文档
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
-      </time>
-    
-
-    
-      
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <p>当开源项目的内容比较多、比较杂的时候，就需要将一些说明性的东西、如教程、文档等东西从<code>README.md</code>文件中剥离出来搞一个文档，许多项目都是如此，于是自己也简单学了一下使用ReadtheDocs。</p>
-        
-            <div class="readmore">
-                <a href="/articles/使用ReadtheDocs给项目添加教程文档/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
-
-        
-    </section>
-</article>
-
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/实用命令行工具-Gow/">
-              
-                  实用命令行工具-Gow
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
-      </time>
-    
-
-    
-      
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <blockquote>
-<p>Windows和Linux对于程序员来说，就像张爱玲笔下的红玫瑰和白玫瑰。对于有钱的成年人来说，选择自然是“我全都要”，然而对于目前经济窘迫、只有一台爱机的我，鱼和熊掌也许并不是那么容易兼得。</p>
-</blockquote>
-        
-            <div class="readmore">
-                <a href="/articles/实用命令行工具-Gow/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    阅读全文
-                </a>
-            </div>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/开发工具/"><i class="fas fa-hashtag fa-fw"></i>开发工具</a>
-                
-                    <a href="/tags/Windows/"><i class="fas fa-hashtag fa-fw"></i>Windows</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/常用自然语言处理框架之StanfordNLP使用/">
-              
-                  常用自然语言处理框架之StanfordNLP使用
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
-      </time>
-    
-
-    
-      
-    
-    <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/NLP/">NLP</a>
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;相关文章</h4>
+        <ul>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/购买国内云服务器与备案注册/">购买国内云服务器与备案注册</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/高速下载国外数据软件/">高速下载国外数据软件</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/程序猿注意颈椎保护/">程序猿注意颈椎保护</a></li>
+            
+                <li><a href="http://www.iamlightsmile.com/articles/简单调研操作Neo4j的Python库/">简单调研操作Neo4j的Python库</a></li>
+            
+        </ul>
     </div>
 
 
-    
+      
 
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <a id="more"></a>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stanfordnlp</span><br><span class="line"><span class="comment"># stanfordnlp.download('zh') 从网络上下载模型文件，超级慢</span></span><br><span class="line"></span><br><span class="line">zh_nlp = stanfordnlp.Pipeline(lang=<span class="string">'zh'</span>, models_dir=<span class="string">r"D:\Data\NLP\model\stanfordnlp"</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">zh_doc = zh_nlp(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, sent <span class="keyword">in</span> enumerate(zh_doc.sentences):</span><br><span class="line">    print(<span class="string">"[Sentence &#123;&#125;]"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> sent.words:</span><br><span class="line">        print(<span class="string">"&#123;:12s&#125;\t&#123;:12s&#125;\t&#123;:6s&#125;\t&#123;:d&#125;\t&#123;:12s&#125;"</span>.format(\</span><br><span class="line">              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
-<p>首先应该先下载模型，然而如果是直接运行<code>stanfordnlp.download(&#39;zh&#39;)</code>命令，那么下载速度实在是太慢了，后来把它的源码下载下来，找到了对应了文件下载地址，然后使用Chrome下载，发现速度有所提升但是也很慢，最后尝试了一下先使用Xshell登录代理浏览器下载模型，然后使用Xftp将模型传输到本地，结果速度变快了好多，尤其是代理浏览器下载模型的速度超级快，达80M/s，太惊人了。</p>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/NLP/"><i class="fas fa-hashtag fa-fw"></i>NLP</a>
-                
-            </div>
-        
+      
     </section>
-</article>
-
-        </div>
-      
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/常用自然语言处理框架之StanfordCoreNLP使用/">
-              
-                  常用自然语言处理框架之StanfordCoreNLP使用
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-03
-      </time>
-    
-
-    
-      
-    
-    <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/NLP/">NLP</a>
-    </div>
-
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <a id="more"></a>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li>
-<li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li>
-</ul>
-<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p>
-<pre><code>nitializing native server...
-INFO:root:java -Xmx4g -cp &quot;F:\space\wingide\stanfordnlp\*&quot; edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000
-INFO:root:Server shell PID: 8504
-INFO:root:Waiting until the server is available.
-INFO:root:Waiting until the server is available.
-</code></pre><p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p>
-<p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/NLP/"><i class="fas fa-hashtag fa-fw"></i>NLP</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-      
-    
-</section>
+  </article>
 
 
 
-<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-
-
-
-
+<script>
+    window.subData = {
+        title: 'centos安装miniconda',
+        tools: true
+    }
+</script>
 
 
         </div>
@@ -1008,6 +522,20 @@ INFO:root:Waiting until the server is available.
       
       
         
+  <section class='toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-下载miniconda"><span class="toc-text">1. 下载miniconda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-运行miniconda安装脚本"><span class="toc-text">2. 运行miniconda安装脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-验证是否安装成功"><span class="toc-text">3. 验证是否安装成功</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
 
       
     
@@ -1169,6 +697,39 @@ INFO:root:Waiting until the server is available.
       
         
 
+
+  <section class='music'>
+    
+<header class='material'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn" target="_blank"
+    rel="external nofollow noopener noreferrer"
+    href="https://music.163.com/m/user/home?id=515917285"
+    title="https://music.163.com/m/user/home?id=515917285">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2384415913"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
 
 
       
