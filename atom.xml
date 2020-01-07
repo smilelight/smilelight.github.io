@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2020-01-04T05:51:58.499Z</updated>
+  <updated>2020-01-07T07:26:52.267Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>购买国内云服务器与备案注册</title>
+    <link href="http://www.iamlightsmile.com/articles/%E8%B4%AD%E4%B9%B0%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%A4%87%E6%A1%88%E6%B3%A8%E5%86%8C/"/>
+    <id>http://www.iamlightsmile.com/articles/购买国内云服务器与备案注册/</id>
+    <published>2020-01-07T06:50:32.000Z</published>
+    <updated>2020-01-07T07:26:52.267Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。</p><a id="more"></a><h2 id="调研"><a href="#调研" class="headerlink" title="调研"></a>调研</h2><p>这里主要是比较各厂商（主要是阿里云、腾讯云两家）的云服务器产品的性能和价格。发现网上阿里口碑不错，如果不差钱就选阿里好了，而腾讯云价格相对较低一些，毕竟起步较晚，一些布局和服务等没有阿里云那么完善，只能在价格上搞搞事情了。</p><p>虽然各厂商都对新用户有比较大的力度优惠，然而奈何自己都不是。在阿里云上买过域名和OSS，也在腾讯云上买过域名。</p><p>下面是阿里云的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l6fWvR.jpg" alt="l6fWvR.jpg"></p><p>链接地址为：<a href="https://promotion.aliyun.com/ntms/act/qwbk.html?spm=5176.13727575.J_7116760870.4.57c93b5afY11df&amp;aly_as=dk6i2qQ0" target="_blank" rel="noopener">全民云计算_云服务器促销_便宜云服务器活动_阿里云</a></p><p>优惠链接地址：<a href="https://www.dute.me/aliyun/" target="_blank" rel="noopener">阿里云2020年1月最新优惠信息 - 独特优惠码</a></p><p>下面是腾讯云的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l6hEMn.jpg" alt="l6hEMn.jpg"></p><p>链接地址为：<a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank" rel="noopener">云服务器选购 - 腾讯云</a></p><p>优惠链接地址：<a href="https://cloud.tencent.com/act/vouchers/list?fromSource=gwzcw.2477393.2477393.2477393&amp;utm_medium=cpc&amp;utm_id=gwzcw.2477393.2477393.2477393&amp;from=console&amp;cps_key=2d38bc39c4bd798861417be7ca167f7c" target="_blank" rel="noopener">腾讯云优惠券_代金券_云服务器折扣券-腾讯云</a></p><p>其中里面一些优惠确实算是挺大的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l64vAf.jpg" alt="l64vAf.jpg"></p><p>最终左右权衡之后，觉得确实腾讯云的性价比更高一些，况且适合自己以后部署爬虫等需要长时间消耗CPU等资源的应用。</p><h2 id="购买域名及备案"><a href="#购买域名及备案" class="headerlink" title="购买域名及备案"></a>购买域名及备案</h2><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>自己其实已经有3个域名了，但是都不太合适作为新服务器的域名，于是自己又买了一个域名：lightsmile.cn。哎，感叹一下lightsmile.com这个域名早就被别人买了，并且价格还挺高，所以自己看来短期内无法把它搞到手。</p><p>域名买了之后需要实名注册，然后设置解析，具体不表。</p><h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><p>备案的话，现在其实都算挺方便的。无论是阿里云还是腾讯云，直接在电脑上操作或者使用微信小程序操作，然后上传一些资料，比如个人身份证件图片以及一些必要的备案信息等，然后就可以默默等待审核结果了。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>不得不说，买个云服务器确实还挺贵的，自己也没有什么资金收入，还得找家里一直要钱。客观对比一下，我发现自己其实和一些大学生年轻人是一样的，只不过他们喜欢把钱投资到喜欢的衣服和鞋子，而我则喜欢购买互联网产品，充一些有助于自己成长的平台的会员。但归根结底都是图自己爽。</p><p>虽然有了自己的云服务器之后又可以有一番作为，但是确实还是很肉疼啊。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.vpsss.net/16214.html" target="_blank" rel="noopener">1核 2G云服务器选择腾讯云还是阿里云？-魏艾斯博客</a></li><li><a href="https://www.jianshu.com/p/03b099a5d1f0" target="_blank" rel="noopener">阿里云和腾讯云哪个好？云服务器如何选择？ - 简书</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="http://www.iamlightsmile.com/tags/CentOS/"/>
+    
+  </entry>
   
   <entry>
     <title>高速下载国外数据软件</title>
@@ -466,41 +486,6 @@
       <category term="Hexo" scheme="http://www.iamlightsmile.com/tags/Hexo/"/>
     
       <category term="blog" scheme="http://www.iamlightsmile.com/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro下数据备份</title>
-    <link href="http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/"/>
-    <id>http://www.iamlightsmile.com/articles/Manjaro下数据备份/</id>
-    <published>2019-04-03T06:25:51.000Z</published>
-    <updated>2019-04-03T06:27:52.874Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>Linux一时爽，崩后火葬场；<br>Manjaro一时爽，一直用一直爽。</p></blockquote><p>以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。<br>其中自己编写的使用流程如下</p><ul><li>使用百度云盘+ baidupcs-go</li><li>使用Google Drive</li><li>MEGA</li><li>使用sftp直连<h1 id="数据备份方案"><a href="#数据备份方案" class="headerlink" title="数据备份方案"></a>数据备份方案</h1></li><li>物理介质</li><li>自己搭建私有云</li><li>选择网盘服务商</li><li>其他方案</li></ul><a id="more"></a><h2 id="物理介质"><a href="#物理介质" class="headerlink" title="物理介质"></a>物理介质</h2><h4 id="1-移动硬盘"><a href="#1-移动硬盘" class="headerlink" title="1. 移动硬盘"></a>1. 移动硬盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p><h4 id="2-移动U盘"><a href="#2-移动U盘" class="headerlink" title="2. 移动U盘"></a>2. 移动U盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p><h2 id="自己搭建私有云"><a href="#自己搭建私有云" class="headerlink" title="自己搭建私有云"></a>自己搭建私有云</h2><h4 id="1-Owncloud"><a href="#1-Owncloud" class="headerlink" title="1. Owncloud"></a>1. Owncloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</p><ol><li><a href="https://www.jianshu.com/p/b42453959fae" target="_blank" rel="noopener">如何搭建私密云存储之ownCloud</a></li></ol><h4 id="2-NextCloud"><a href="#2-NextCloud" class="headerlink" title="2. NextCloud"></a>2. NextCloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程:</p><ol><li><a href="https://www.jianshu.com/p/a0db4c1bfaea" target="_blank" rel="noopener">Ubuntu16.04 搭建NextCloud私有云</a><h4 id="3-Seafile"><a href="#3-Seafile" class="headerlink" title="3. Seafile"></a>3. Seafile</h4>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</li><li><a href="https://www.jianshu.com/p/fcf12afe7c68" target="_blank" rel="noopener">部署Seafile搭建自己的网盘</a></li></ol><h2 id="选择网盘服务商"><a href="#选择网盘服务商" class="headerlink" title="选择网盘服务商"></a>选择网盘服务商</h2><h4 id="1-百度网盘"><a href="#1-百度网盘" class="headerlink" title="1. 百度网盘"></a>1. 百度网盘</h4><p>优势：容量大<br>劣势：限速，建议使用 <strong><a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></strong>工具进行管理</p><h4 id="2-Google-Drive"><a href="#2-Google-Drive" class="headerlink" title="2. Google Drive"></a>2. Google Drive</h4><p>优势：跨平台<br>劣势：需要翻墙，容量小</p><h4 id="3-MEGA"><a href="#3-MEGA" class="headerlink" title="3. MEGA"></a>3. MEGA</h4><p>优势：Linux下使用体验好<br>劣势：</p><h4 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h4><p>优势：<br>劣势：容量小</p><h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h4 id="1-有道云笔记（VIP版）"><a href="#1-有道云笔记（VIP版）" class="headerlink" title="1. 有道云笔记（VIP版）"></a>1. 有道云笔记（VIP版）</h4><p>和印象笔记相比，虽然网页剪裁的功能弱了一些，但是在界面上和markdown支持上都是要优于印象笔记的<br>优势：<br>劣势：</p><h4 id="2-使用sftp连接远程服务器"><a href="#2-使用sftp连接远程服务器" class="headerlink" title="2. 使用sftp连接远程服务器"></a>2. 使用sftp连接远程服务器</h4><p>优势：<br>劣势：</p><h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="百度网盘-BaiduPCS-Go"><a href="#百度网盘-BaiduPCS-Go" class="headerlink" title="百度网盘+BaiduPCS-Go"></a>百度网盘+<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></h2><h4 id="安装baidupcs-go"><a href="#安装baidupcs-go" class="headerlink" title="安装baidupcs-go"></a>安装baidupcs-go</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidupcs-go-bin</span><br></pre></td></tr></table></figure><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidupcs</span><br></pre></td></tr></table></figure><p>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ccb334ca6bc5bd6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs"></p><h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; login</span><br></pre></td></tr></table></figure><p>然后输入自己的账号密码，进行验证之后便登录成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbd0720f058f2790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs_login"></p><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>输入<code>-h</code>可查看相关指令，下载起来速度很快。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; -h</span><br></pre></td></tr></table></figure></p><h4 id="可参考"><a href="#可参考" class="headerlink" title="可参考"></a>可参考</h4><ol><li><a href="https://www.jianshu.com/p/c37a124a0f55" target="_blank" rel="noopener">BaiduPCS-Go | 百度网盘命令行工具（基于 Go）</a></li></ol><h2 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h2><h4 id="安装kio-gdrive"><a href="#安装kio-gdrive" class="headerlink" title="安装kio-gdrive"></a>安装<code>kio-gdrive</code></h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S kio-gdrive</span></span><br></pre></td></tr></table></figure><h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>在安装成功后，此时再打开Dolphin（即文件管理器），会发现远程网络中多了一个文件夹，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8fcacbb848420ad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google 云端硬盘"><br>之后我们双击它，得到如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-e4d1ecb98a9648d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_2"><br>上图左侧的账号是我之前添加的，此时也可点击 下方<code>+</code>添加Google账号<br>然后选中要同步的账号，选中，如下图所示，然后点击确定。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-539cb60abe895442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_3.png"><br>之后右下角提示正在同步文件夹，稍等片刻便可同步成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1d7ce651c0328b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_4.png"></p><h4 id="可参考-1"><a href="#可参考-1" class="headerlink" title="可参考"></a>可参考</h4><ol><li><a href="https://community.kde.org/KIO_GDrive#Arch_Linux" target="_blank" rel="noopener">KIO GDrive</a><h2 id="MEGA"><a href="#MEGA" class="headerlink" title="MEGA"></a>MEGA</h2><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4>登录<a href="https://mega.nz/register" target="_blank" rel="noopener">官网</a>注册账号，填写个人信息，然后打开邮箱进行验证，随后下载客户端应用（对于manjaro来说，直接通过<code>pacman</code>下载就可以，就是这么方便，当然也可以先下载安装包，然后通过<code>pacman -U</code>来安装）</li></ol><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S megasync</span><br></pre></td></tr></table></figure><h4 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h4><p>首先<code>[Alt] + [Space]</code>打开<code>plasma</code>搜索，输入<code>megasync</code>打开MEGA客户端，然后输入邮箱密码，接着设置同步目录，其他设置自己看情况。<br>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ed5086fa3d3bd1e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MEGA Settings"></p><h4 id="可参考-2"><a href="#可参考-2" class="headerlink" title="可参考"></a>可参考</h4><ol><li><a href="https://www.jianshu.com/p/44741a9e243f" target="_blank" rel="noopener">网盘可以良心到什么程度? 试试MEGA吧!</a></li></ol><h2 id="使用sftp直连"><a href="#使用sftp直连" class="headerlink" title="使用sftp直连"></a>使用sftp直连</h2><p>使用方式很简单，如下图：<br>双击<code>连接网络文件夹</code>，选择<code>安全Shell</code>，点击<code>Next</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-7e3ad9a31453d3ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network.png"><br>填写网络文件夹信息，然后点击<code>保存并连接</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-983794d294610356.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_2.png"><br>如果填写无误的话，就连接成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-21ca15b4472c8822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_3.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Linux一时爽，崩后火葬场；&lt;br&gt;Manjaro一时爽，一直用一直爽。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。&lt;br&gt;其中自己编写的使用流程如下&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用百度云盘+ baidupcs-go&lt;/li&gt;
-&lt;li&gt;使用Google Drive&lt;/li&gt;
-&lt;li&gt;MEGA&lt;/li&gt;
-&lt;li&gt;使用sftp直连&lt;h1 id=&quot;数据备份方案&quot;&gt;&lt;a href=&quot;#数据备份方案&quot; class=&quot;headerlink&quot; title=&quot;数据备份方案&quot;&gt;&lt;/a&gt;数据备份方案&lt;/h1&gt;&lt;/li&gt;
-&lt;li&gt;物理介质&lt;/li&gt;
-&lt;li&gt;自己搭建私有云&lt;/li&gt;
-&lt;li&gt;选择网盘服务商&lt;/li&gt;
-&lt;li&gt;其他方案&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/categories/Manjaro/"/>
-    
-    
-      <category term="Manjaro" scheme="http://www.iamlightsmile.com/tags/Manjaro/"/>
     
   </entry>
   
