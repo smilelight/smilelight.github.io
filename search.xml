@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>本博客分类详情</title>
+      <link href="/articles/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%88%86%E7%B1%BB%E8%AF%A6%E6%83%85/"/>
+      <url>/articles/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%88%86%E7%B1%BB%E8%AF%A6%E6%83%85/</url>
+      
+        <content type="html"><![CDATA[<p>本博客暂定分类如下：</p><ol><li>Linux</li><li>NLP</li><li>知识图谱</li><li>Python</li><li>深度学习</li><li>计算机</li><li>随念</li><li>其他</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>light系列库设想架构</title>
       <link href="/articles/light%E7%B3%BB%E5%88%97%E5%BA%93%E8%AE%BE%E6%83%B3%E6%9E%B6%E6%9E%84/"/>
       <url>/articles/light%E7%B3%BB%E5%88%97%E5%BA%93%E8%AE%BE%E6%83%B3%E6%9E%B6%E6%9E%84/</url>
@@ -113,7 +138,7 @@
       
       <categories>
           
-          <category> 程序人生 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -135,6 +160,12 @@
       
         <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如<a href="https://neo4j.com/developer/python/" target="_blank" rel="noopener">官网</a>所述，目前用于操作Neo4j的Python库主要包括如下几种：</p><ul><li>Neo4j Python Driver（官方提供，长期更新支持）</li><li>Py2neo（非官方看网上教程多数都是这个）</li><li>Neomodel（也是社区版）</li></ul><a id="more"></a><h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><div class="table-container"><table><thead><tr><th>对比\模型</th><th>Neo4j Driver</th><th>Py2neo</th><th>Neomodel</th></tr></thead><tbody><tr><td>代码活跃程度</td><td>最近更新于一个月内</td><td>最近更新于8个月前</td><td>不明</td></tr><tr><td>国内适用范围</td><td>较少</td><td>很多</td><td>不明</td></tr><tr><td>代码特性</td><td>一般</td><td>简洁</td><td>一般</td></tr><tr><td>说明文档内容</td><td>较少</td><td>一般</td><td>不明</td></tr><tr><td>配套文档版本</td><td>最新</td><td>最新源码和文档有冲突</td><td>不明</td></tr></tbody></table></div><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>经过对比，还是先结合源码来学习Py2neo吧。大家都用，并且代码用起来确实比较舒服~并且，本质上也只是一个使用Neo4j的接口，无非语句不通而已，但最终执行的增删改查都是一样的。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://py2neo.org/v4/index.html" target="_blank" rel="noopener">The Py2neo v4 Handbook — The Py2neo v4 Handbook</a></li><li><a href="https://www.jianshu.com/p/69f6ecafe563" target="_blank" rel="noopener">Neo4j系列-新手入门（二） - 简书</a></li><li><a href="https://cuiqingcai.com/4778.html" target="_blank" rel="noopener">Neo4j简介及Py2Neo的用法 | 静觅</a></li></ol>]]></content>
       
+      
+      <categories>
+          
+          <category> 知识图谱 </category>
+          
+      </categories>
       
       
         <tags>
@@ -159,7 +190,7 @@
       
       <categories>
           
-          <category> 开源 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -184,7 +215,7 @@
       
       <categories>
           
-          <category> 工具 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -261,7 +292,7 @@
       
       <categories>
           
-          <category> Github </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -338,7 +369,7 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -388,7 +419,7 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -413,7 +444,7 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -438,7 +469,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -465,7 +496,7 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -490,7 +521,7 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -515,7 +546,7 @@
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -540,7 +571,7 @@
       
       <categories>
           
-          <category> Hexo </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -567,7 +598,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -592,7 +623,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -646,7 +677,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -671,7 +702,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -696,7 +727,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -721,7 +752,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -748,7 +779,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -798,7 +829,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -823,7 +854,7 @@
       
       <categories>
           
-          <category> Manjaro </category>
+          <category> Linux </category>
           
       </categories>
       
@@ -848,7 +879,7 @@
       
       <categories>
           
-          <category> blog </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -870,12 +901,12 @@
       <link href="/articles/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
       <url>/articles/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<h1 id="统计学重要知识点"><a href="#统计学重要知识点" class="headerlink" title="统计学重要知识点"></a>统计学重要知识点</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><ul><li><strong>概率</strong>：概率是一个事件发生、一种情况出现的可能性大小的数量指标，介于0与1之间。</li><li><strong>分布</strong>：分布包括离散分布和连续分布，用来表述随机变量取值的概率规律。</li><li><strong>概率密度函数</strong>（probability density function，PDF）： 在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。当概率密度函数存在时，累计分布函数式概率密度函数的积分。</li><li><strong>累积分布函数</strong>（cumulative distribution function，CDF）：又叫分布函数，是概率密度函数的积分，能完整描述一个实随机变量X的概率分布，一般以大写“CDF”标记。</li></ul><a id="more"></a><ul><li><strong>伯努利分布</strong>（零一分布、两点分布、0-1分布）伯努利试验成功的次数服从伯努利分布</li><li><strong>二项分布</strong>： 重复n次独立的伯努利试验</li><li><strong>泊松分布</strong>: 在二项分布的伯努利试验中，如果试验次数n很大，二项分布的概率p很小，且乘积$\lambda=np$比较适中，则事件出现的次数的概率可以用泊松分布来逼近。事实上，二项分布可以看做泊松分布在离散时间上的对应物。同样的，泊松分布也可看为二项分布在特殊情况下的极限。</li><li><strong>大数定律</strong>: 在数学与统计学中，大数定律又称大数法则、大数律，是描述相当多次数重复实验的结果的定律。根据这个定律知道，样本数量越多，则其算术平均值就有越高的概率接近期望值。大数定律很重要，因为它“说明”了一些随机事件的均值的长期稳定性。</li><li><strong>正态分布</strong>: 正态分布又名高斯分布，是一个非常常见的连续概率分布。正态分布是自然科学与行为科学的定量现象的一个方便模型。各种各样的心理学测试分数和物理现象比如光子计数都被发现近似地服从正态分布，尽管这些现象的根本原因经常是未知的，理论上可以证明如果把许多小作用加起来看做一个变量，那么这个变量服从正态分布。</li><li><strong>中心极限定理</strong>： 中心极限定理是指概率论中讨论随机变量序列部分和分布渐进于正态分布的一类定理。这组定理是数理统计学和误差分析的理论基础，指出了大量随机变量近似服从正态分布的条件。它是概率论中最重要的一类定理，有广泛的实际应用背景。在自然界与生产中，一些现象受到许多相互独立的随机因素的影响，如果每个因素所产生的影响都很微小时，总的影响可以看作是服从正态分布的。中心极限定理就是从数学上证明了这一现象。</li><li><strong>离散分布</strong>：离散分布描述离散随机变量的每个值的发生概率，如伯努利分布、二项分布、泊松分布。离散随机变量是指具有可计数的值的随机变量，例如非负整数的列表。在离散概率分布中，离散随机变量的每个可能值可与一个非零概率想关联。因此，离散概率分布通常具有表格形式。</li><li><strong>连续分布</strong>：连续分布描述连续随机变量的可能值的概率，例如正太分布。连续随机变量是一组无限且不可计数的可能值（称为范围）的随机变量。连续随机变量（X）的概率被定义为其PDF曲线下的面积。因此，只有值范围才能具有非零的概率。连续随机变量等于某个值的概率始终为零。</li></ul><h2 id="2-相关"><a href="#2-相关" class="headerlink" title="2. 相关"></a>2. 相关</h2><h3 id="1-概率分布的种类"><a href="#1-概率分布的种类" class="headerlink" title="1. 概率分布的种类"></a>1. 概率分布的种类</h3><blockquote><p>概率分布要么是连续概率分布，要么是离散概率分布，这取决于它们是定理连续变量还是离散变量的概率。</p></blockquote><h3 id="2-大数定理和中心极限定理的联系和区别"><a href="#2-大数定理和中心极限定理的联系和区别" class="headerlink" title="2. 大数定理和中心极限定理的联系和区别"></a>2. 大数定理和中心极限定理的联系和区别</h3><blockquote><p>大数定律（LLN）和中心极限定理（CLT）的联系与区别在于：</p><ul><li>共同点：都是用来描述独立同分布（i.i.d）的随机变量的和的渐近表现（asymptotic behavior）</li><li>区别：它们描述的是在不同的收敛速度（convergence rate）之下的表现，其次LLN前提条件弱一点：$E(|X|) &lt; \infty$，CLT条件强一点:$E(X^2) &lt; \infty$。</li><li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X)  \underrightarrow{P}  0$.中心极限定理说的是$\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D} N(0,E)$.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律讨论的是依概率收敛，中心极限定理涉及按分布收敛（按分布收敛比点点收敛弱很多啊）。私以为搞清楚随机变量序列的收敛性就是为了方便在样本量很大情况下计算概率。。。</p><ul><li>大数定律是说随机变量序列的算术平均以概率收敛到其均值的算术平均。比较经典的运用就是用频率确定概率，比如估计不合格品率，抽样的不合格品比例就是可以作为总体的不合格品率估计值。</li><li>中心极限定理说的是给出随机变量和的分布函数在什么条件下收敛到正太分布。比较熟悉的比如用来估计误差，误差基本上都是由这样那样大大小小微小因素叠加的，这些个因素相加就是总的误差，这个时候就要用到参数估计和假设检验了，在认为误差近似正太分布情况下，给出误差上限下限，置信度，判断质量是否达到要求等等工作就可以做了。<br>作者：yyylll；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155488114" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律揭示了大量随机变量的平均结果，但没有涉及到随即变量的分布的问题。而中心极限定理说明的是在一定条件下，大量随机独立变量的平均数是以正态分布为极限的。</p></blockquote><h3 id="3-泊松分布的现实意义"><a href="#3-泊松分布的现实意义" class="headerlink" title="3. 泊松分布的现实意义"></a>3. 泊松分布的现实意义</h3><blockquote><p>马同学的讲解：<a href="https://www.zhihu.com/question/26441147/answer/429569625" target="_blank" rel="noopener">泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a></p><p>先说结论：泊松分布是二项分布n很大而p很小时的一种极限形式二项分布是说，已知某件事情发生的概率是p，那么做n次试验，事情发生的次数就服从于二项分布。泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个p很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此n(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。作者：ctian；来源：知乎；<a href="https://www.zhihu.com/question/26441147/answer/82350992" target="_blank" rel="noopener">原文链接</a></p></blockquote><h3 id="4-理解概率分布函数和概率密度函数"><a href="#4-理解概率分布函数和概率密度函数" class="headerlink" title="4. 理解概率分布函数和概率密度函数"></a>4. 理解概率分布函数和概率密度函数</h3><blockquote><p>产品经理马忠信的讲解： <a href="https://www.jianshu.com/p/b570b1ba92bb" target="_blank" rel="noopener">应该如何理解概率分布函数和概率密度函数？</a></p></blockquote><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h2><ul><li><a href="https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/probability-distributions-and-random-data/supporting-topics/basics/continuous-and-discrete-probability-distributions/" target="_blank" rel="noopener">连续和离散分布</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88" target="_blank" rel="noopener">泊松分布</a></li><li><a href="https://www.zhihu.com/question/48256489" target="_blank" rel="noopener">为什么我觉得大数定理和中心极限定理是矛盾的？</a></li><li><a href="https://wiki.mbalib.com/wiki/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a></li><li><a href="http://hongyitong.github.io/2016/11/13/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E3%80%81%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E3%80%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/" target="_blank" rel="noopener">二项分布、泊松分布、正态分布的关系</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="统计学重要知识点"><a href="#统计学重要知识点" class="headerlink" title="统计学重要知识点"></a>统计学重要知识点</h2><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h2><ul><li><strong>概率</strong>：概率是一个事件发生、一种情况出现的可能性大小的数量指标，介于0与1之间。</li><li><strong>分布</strong>：分布包括离散分布和连续分布，用来表述随机变量取值的概率规律。</li><li><strong>概率密度函数</strong>（probability density function，PDF）： 在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。当概率密度函数存在时，累计分布函数式概率密度函数的积分。</li><li><strong>累积分布函数</strong>（cumulative distribution function，CDF）：又叫分布函数，是概率密度函数的积分，能完整描述一个实随机变量X的概率分布，一般以大写“CDF”标记。</li></ul><a id="more"></a><ul><li><strong>伯努利分布</strong>（零一分布、两点分布、0-1分布）伯努利试验成功的次数服从伯努利分布</li><li><strong>二项分布</strong>： 重复n次独立的伯努利试验</li><li><strong>泊松分布</strong>: 在二项分布的伯努利试验中，如果试验次数n很大，二项分布的概率p很小，且乘积$\lambda=np$比较适中，则事件出现的次数的概率可以用泊松分布来逼近。事实上，二项分布可以看做泊松分布在离散时间上的对应物。同样的，泊松分布也可看为二项分布在特殊情况下的极限。</li><li><strong>大数定律</strong>: 在数学与统计学中，大数定律又称大数法则、大数律，是描述相当多次数重复实验的结果的定律。根据这个定律知道，样本数量越多，则其算术平均值就有越高的概率接近期望值。大数定律很重要，因为它“说明”了一些随机事件的均值的长期稳定性。</li><li><strong>正态分布</strong>: 正态分布又名高斯分布，是一个非常常见的连续概率分布。正态分布是自然科学与行为科学的定量现象的一个方便模型。各种各样的心理学测试分数和物理现象比如光子计数都被发现近似地服从正态分布，尽管这些现象的根本原因经常是未知的，理论上可以证明如果把许多小作用加起来看做一个变量，那么这个变量服从正态分布。</li><li><strong>中心极限定理</strong>： 中心极限定理是指概率论中讨论随机变量序列部分和分布渐进于正态分布的一类定理。这组定理是数理统计学和误差分析的理论基础，指出了大量随机变量近似服从正态分布的条件。它是概率论中最重要的一类定理，有广泛的实际应用背景。在自然界与生产中，一些现象受到许多相互独立的随机因素的影响，如果每个因素所产生的影响都很微小时，总的影响可以看作是服从正态分布的。中心极限定理就是从数学上证明了这一现象。</li><li><strong>离散分布</strong>：离散分布描述离散随机变量的每个值的发生概率，如伯努利分布、二项分布、泊松分布。离散随机变量是指具有可计数的值的随机变量，例如非负整数的列表。在离散概率分布中，离散随机变量的每个可能值可与一个非零概率想关联。因此，离散概率分布通常具有表格形式。</li><li><strong>连续分布</strong>：连续分布描述连续随机变量的可能值的概率，例如正太分布。连续随机变量是一组无限且不可计数的可能值（称为范围）的随机变量。连续随机变量（X）的概率被定义为其PDF曲线下的面积。因此，只有值范围才能具有非零的概率。连续随机变量等于某个值的概率始终为零。</li></ul><h2 id="2-相关"><a href="#2-相关" class="headerlink" title="2. 相关"></a>2. 相关</h2><h3 id="1-概率分布的种类"><a href="#1-概率分布的种类" class="headerlink" title="1. 概率分布的种类"></a>1. 概率分布的种类</h3><blockquote><p>概率分布要么是连续概率分布，要么是离散概率分布，这取决于它们是定理连续变量还是离散变量的概率。</p></blockquote><h3 id="2-大数定理和中心极限定理的联系和区别"><a href="#2-大数定理和中心极限定理的联系和区别" class="headerlink" title="2. 大数定理和中心极限定理的联系和区别"></a>2. 大数定理和中心极限定理的联系和区别</h3><blockquote><p>大数定律（LLN）和中心极限定理（CLT）的联系与区别在于：</p><ul><li>共同点：都是用来描述独立同分布（i.i.d）的随机变量的和的渐近表现（asymptotic behavior）</li><li>区别：它们描述的是在不同的收敛速度（convergence rate）之下的表现，其次LLN前提条件弱一点：$E(|X|) &lt; \infty$，CLT条件强一点:$E(X^2) &lt; \infty$。</li><li>假设有n个i.i.d的随机变量，令它们的和为$S_p = \sum^{n}_{i=1}X_i$.大数定律（以其中弱大数定律为例）说的是$\frac{1}{n}S_n - E(X)  \underrightarrow{P}  0$.中心极限定理说的是$\sqrt{n}(\frac{1}{n}S_n - E(X)) \underrightarrow{D} N(0,E)$.<br>作者：Detian Deng；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155031090" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律讨论的是依概率收敛，中心极限定理涉及按分布收敛（按分布收敛比点点收敛弱很多啊）。私以为搞清楚随机变量序列的收敛性就是为了方便在样本量很大情况下计算概率。。。</p><ul><li>大数定律是说随机变量序列的算术平均以概率收敛到其均值的算术平均。比较经典的运用就是用频率确定概率，比如估计不合格品率，抽样的不合格品比例就是可以作为总体的不合格品率估计值。</li><li>中心极限定理说的是给出随机变量和的分布函数在什么条件下收敛到正太分布。比较熟悉的比如用来估计误差，误差基本上都是由这样那样大大小小微小因素叠加的，这些个因素相加就是总的误差，这个时候就要用到参数估计和假设检验了，在认为误差近似正太分布情况下，给出误差上限下限，置信度，判断质量是否达到要求等等工作就可以做了。<br>作者：yyylll；来源：知乎；<a href="https://www.zhihu.com/question/48256489/answer/155488114" target="_blank" rel="noopener">原文链接</a></li></ul><p>大数定律揭示了大量随机变量的平均结果，但没有涉及到随即变量的分布的问题。而中心极限定理说明的是在一定条件下，大量随机独立变量的平均数是以正态分布为极限的。</p></blockquote><h3 id="3-泊松分布的现实意义"><a href="#3-泊松分布的现实意义" class="headerlink" title="3. 泊松分布的现实意义"></a>3. 泊松分布的现实意义</h3><blockquote><p>马同学的讲解：<a href="https://www.zhihu.com/question/26441147/answer/429569625" target="_blank" rel="noopener">泊松分布的现实意义是什么，为什么现实生活多数服从于泊松分布？</a></p><p>先说结论：泊松分布是二项分布n很大而p很小时的一种极限形式二项分布是说，已知某件事情发生的概率是p，那么做n次试验，事情发生的次数就服从于二项分布。泊松分布是指某段连续的时间内某件事情发生的次数，而且“某件事情”发生所用的时间是可以忽略的。例如，在五分钟内，电子元件遭受脉冲的次数，就服从于泊松分布。假如你把“连续的时间”分割成无数小份，那么每个小份之间都是相互独立的。在每个很小的时间区间内，电子元件都有可能“遭受到脉冲”或者“没有遭受到脉冲”，这就可以被认为是一个p很小的二项分布。而因为“连续的时间”被分割成无穷多份，因此n(试验次数)很大。所以，泊松分布可以认为是二项分布的一种极限形式。因为二项分布其实就是一个最最简单的“发生”与“不发生”的分布，它可以描述非常多的随机的自然界现象，因此其极限形式泊松分布自然也是非常有用的。作者：ctian；来源：知乎；<a href="https://www.zhihu.com/question/26441147/answer/82350992" target="_blank" rel="noopener">原文链接</a></p></blockquote><h3 id="4-理解概率分布函数和概率密度函数"><a href="#4-理解概率分布函数和概率密度函数" class="headerlink" title="4. 理解概率分布函数和概率密度函数"></a>4. 理解概率分布函数和概率密度函数</h3><blockquote><p>产品经理马忠信的讲解： <a href="https://www.jianshu.com/p/b570b1ba92bb" target="_blank" rel="noopener">应该如何理解概率分布函数和概率密度函数？</a></p></blockquote><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h2><ul><li><a href="https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/probability-distributions-and-random-data/supporting-topics/basics/continuous-and-discrete-probability-distributions/" target="_blank" rel="noopener">连续和离散分布</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%B3%8A%E6%9D%BE%E5%88%86%E4%BD%88" target="_blank" rel="noopener">泊松分布</a></li><li><a href="https://www.zhihu.com/question/48256489" target="_blank" rel="noopener">为什么我觉得大数定理和中心极限定理是矛盾的？</a></li><li><a href="https://wiki.mbalib.com/wiki/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">中心极限定理</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a></li><li><a href="http://hongyitong.github.io/2016/11/13/%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E3%80%81%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E3%80%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83/" target="_blank" rel="noopener">二项分布、泊松分布、正态分布的关系</a></li></ul>]]></content>
       
       
       <categories>
           
-          <category> 数学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -902,7 +933,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -910,8 +941,6 @@
         <tags>
             
             <tag> 哲学 </tag>
-            
-            <tag> 概念 </tag>
             
         </tags>
       
@@ -929,7 +958,7 @@
       
       <categories>
           
-          <category> 随想 </category>
+          <category> 随念 </category>
           
       </categories>
       
@@ -1079,7 +1108,7 @@
       
       <categories>
           
-          <category> Github </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1127,6 +1156,12 @@
         <content type="html"><![CDATA[<p>今天开始探索学习使用哈工大的LTP（Language Technology Platform）。</p><p>这里是<a href="http://ltp.ai/" target="_blank" rel="noopener">官网地址</a></p><p>这里是<a href="https://github.com/HIT-SCIR/ltp" target="_blank" rel="noopener">GitHub地址</a></p><p>这里是<a href="http://pyltp.readthedocs.io/zh_CN/latest/api.html" target="_blank" rel="noopener">pyltp的使用文档</a></p><p>平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Python版本是3.6。</p><a id="more"></a><p>使用流程很简单：</p><ol><li>下载最新版本的<a href="http://ltp.ai/download.html" target="_blank" rel="noopener">模型</a>（目前是3.4）</li><li>安装pyltp，在命令行输入指令：<code>pip install pyltp</code>。<br>不过我的一直安装失败，总是不成功，后来从网上找了pyltp 3.6的<a href="http://mlln.cn/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/pyltp-0.2.1-cp36-cp36m-win_amd64.whl" target="_blank" rel="noopener">whl</a>文件，然后通过<code>pip install pyltp-0.2.1-cp36-cp36m-win_amd64.whl</code>成功了。</li></ol><p>这里有一篇<a href="http://mlln.cn/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener">博客</a>专门讲安装的，发现他的界面有点黑客风，挺炫酷的哈~</p><p>通过PyCharm新建Python项目后，整个工程长成这个样子：</p><p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/project-structure.png" alt="project-structure"></p><p>不过其中的data文件夹、source文件夹和test文件夹是自己新创建的，其中data文件夹内放置下载的模型，source文件夹放置那个其实也没啥东西的txt文件，test中放置编写的Python代码。</p><p>照着使用文档敲的<code>testltp.py</code>内容如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyltp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分句</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SentenceSplitter</span><br><span class="line">sents = SentenceSplitter.split(<span class="string">'元芳你怎么看？我就趴窗口上看呗！'</span>)</span><br><span class="line">print(<span class="string">'\n'</span>.join(sents))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Segmentor</span><br><span class="line">segmentor = Segmentor()</span><br><span class="line">segmentor.load(<span class="string">'../data/cws.model'</span>)</span><br><span class="line">words = segmentor.segment(<span class="string">"元芳你怎么看"</span>)</span><br><span class="line">segmentor.release()</span><br><span class="line">print(list(words))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 词性标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Postagger</span><br><span class="line">postagger = Postagger()</span><br><span class="line">postagger.load(<span class="string">'../data/pos.model'</span>)</span><br><span class="line">posts = postagger.postag(list(words))</span><br><span class="line">postagger.release()</span><br><span class="line">print(list(zip(list(words),list(posts))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#命名实体识别</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> NamedEntityRecognizer</span><br><span class="line">recognizer = NamedEntityRecognizer()</span><br><span class="line">recognizer.load(<span class="string">'../data/ner.model'</span>)</span><br><span class="line">nettags = recognizer.recognize(list(words),list(posts))</span><br><span class="line">recognizer.release()</span><br><span class="line">print(list(zip(list(words),list(nettags))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#依存语法分析</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Parser</span><br><span class="line">parer = Parser()</span><br><span class="line">parer.load(<span class="string">'../data/parser.model'</span>)</span><br><span class="line">arcs = parer.parse(list(words),list(posts))</span><br><span class="line">parer.release()</span><br><span class="line">print(list(zip(list(words),[(arc.head,arc.relation) <span class="keyword">for</span> arc <span class="keyword">in</span> arcs])))</span><br><span class="line"></span><br><span class="line"><span class="comment">#语义角色标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SementicRoleLabeller</span><br><span class="line">labeller = SementicRoleLabeller()</span><br><span class="line">labeller.load(<span class="string">'../data/pisrl_win.model'</span>)</span><br><span class="line">roles = labeller.label(list(words),list(posts),arcs)</span><br><span class="line">labeller.release()</span><br><span class="line"><span class="keyword">for</span> role <span class="keyword">in</span> roles:</span><br><span class="line">    print(role.index, <span class="string">""</span>.join(</span><br><span class="line">        [<span class="string">"%s:(%d,%d)"</span> % (arg.name, arg.range.start, arg.range.end) <span class="keyword">for</span> arg <span class="keyword">in</span> role.arguments]))</span><br></pre></td></tr></table></figure><p>其中我的pyltp不知道怎么安装的，竟然成了build-in里的东西了，而不是在site-packages里面。</p><p>执行以上代码的结果为：</p><p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltp-result.png" alt="testltp-result"></p><p>其中要注意的是这里在语义角色标注中使用的并非pisrl.model而是pisrl_win.model，前者会报错的。</p><p>同时由于文档中提到：</p><p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/no-support.png" alt="no-support"></p><p>于是我又去申请了哈工大的<a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">语言云</a>个人账号,经过邮箱激活之后，按照人家的<a href="https://www.ltp-cloud.com/document/" target="_blank" rel="noopener">使用文档</a>就要探索一下，不过没想到出现了问题。。。</p><p>由于官网提供的Python示例代码使用的是2.7版本，所以这里我使用的是另外的一个网络请求模块：<code>requests</code>，最终的代码<code>testltpCloud.py</code>长成这样：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> APIKEY</span><br><span class="line"></span><br><span class="line">url_get_base = <span class="string">"http://api.ltp-cloud.com/analysis/"</span></span><br><span class="line">args = &#123;</span><br><span class="line">    <span class="string">'api_key'</span>: APIKEY,</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">'我是中国人。'</span>,</span><br><span class="line">    <span class="string">'pattern'</span>: <span class="string">'dp'</span>,</span><br><span class="line">    <span class="string">'format'</span>: <span class="string">'plain'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># result = urllib.request.urlopen(url_get_base, urllib.parse.urlencode(args))  # POST method</span></span><br><span class="line">result = requests.post(url_get_base,args)</span><br><span class="line">print(result.text)</span><br></pre></td></tr></table></figure><p>在同路径下的<code>settings.py</code>的内容为：</p><p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/apikey.png" alt="apikey"></p><p>其中APIKEY的内容是邮件发给你的api_key字符串。</p><p>不过运行的结果为：</p><p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltpCloud-result.png" alt="testltpCloud-result"></p><p>显示未授权用户，但是我的账户类型是免费的，刚注册的啊，为啥这样，搜了搜没搜出个啥，就先这样吧。</p><p>又向目标迈进了一步，嘿嘿，加油！</p>]]></content>
       
       
+      <categories>
+          
+          <category> NLP </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -1152,7 +1187,7 @@
       
       <categories>
           
-          <category> 爬虫 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1229,7 +1264,7 @@
       
       <categories>
           
-          <category> 程序人生 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1279,7 +1314,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1304,7 +1339,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1329,7 +1364,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1354,7 +1389,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1379,7 +1414,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1399,12 +1434,12 @@
       <link href="/articles/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E6%95%B0%E7%BB%84/"/>
       <url>/articles/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E6%95%B0%E7%BB%84/</url>
       
-        <content type="html"><![CDATA[<h1 id="学习自B站算法面试精讲"><a href="#学习自B站算法面试精讲" class="headerlink" title="学习自B站算法面试精讲"></a>学习自B站算法面试精讲</h1><ul><li>查找和排序<ul><li>二分查找</li><li>元素交换</li><li>排序，中位数</li><li>归并</li><li>位运算</li><li>前缀和的应用</li></ul></li><li>动态规划</li><li>排列组合</li></ul><a id="more"></a>]]></content>
+        <content type="html"><![CDATA[<h2 id="学习自B站算法面试精讲"><a href="#学习自B站算法面试精讲" class="headerlink" title="学习自B站算法面试精讲"></a>学习自B站算法面试精讲</h2><ul><li>查找和排序<ul><li>二分查找</li><li>元素交换</li><li>排序，中位数</li><li>归并</li><li>位运算</li><li>前缀和的应用</li></ul></li><li>动态规划</li><li>排列组合</li></ul><a id="more"></a>]]></content>
       
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1429,7 +1464,7 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1454,7 +1489,7 @@
       
       <categories>
           
-          <category> 工具 </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1479,7 +1514,7 @@
       
       <categories>
           
-          <category> markdown </category>
+          <category> 计算机 </category>
           
       </categories>
       
@@ -1508,7 +1543,7 @@
       
       <categories>
           
-          <category> 哲学 </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1535,7 +1570,7 @@
       
       <categories>
           
-          <category> lua </category>
+          <category> 计算机 </category>
           
       </categories>
       
