@@ -57,7 +57,7 @@
     <link href="http://www.iamlightsmile.com/articles/light%E7%B3%BB%E5%88%97%E5%BA%93%E8%AE%BE%E6%83%B3%E6%9E%B6%E6%9E%84/"/>
     <id>http://www.iamlightsmile.com/articles/light系列库设想架构/</id>
     <published>2020-01-08T12:22:20.000Z</published>
-    <updated>2020-01-18T11:09:40.030Z</updated>
+    <updated>2020-01-18T12:16:18.291Z</updated>
     
     <content type="html"><![CDATA[<p>自己开发或整合的一系列light库之间的架构组织关系如图所示：</p><p><img src="https://s2.ax1x.com/2020/01/08/l2Tfne.png" alt="l2Tfne.png"></p><a id="more"></a><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p>如上图所示，整个light系列库之间的组织架构共分为：</p><ul><li>工具层<ul><li>lightSpider</li><li>lightUtils</li><li>lightDict</li><li>其他light库</li><li>其他工具库</li></ul></li><li>算法层<ul><li>lightNLP</li><li>lightKG</li><li>通用神经网络模型算法</li><li>其他NLP框架</li><li>其他KG框架</li></ul></li><li>业务层<ul><li>lightText</li><li>lightKB</li><li>其他相关业务</li></ul></li><li>界面层<ul><li>浏览器前端</li></ul></li></ul><p>整个架构的中心都是围绕着自然语言处理和知识图谱两个大的方向。目的是搭一个比较通用的架子，然后可以在上面展开一些尝试性、探索性的实验和业务，根本上是作为自己想法的舞台。</p><h2 id="工具层"><a href="#工具层" class="headerlink" title="工具层"></a>工具层</h2><p>工具层包括<a href="https://github.com/smilelight/lightSpider" target="_blank" rel="noopener"><code>lightSpider</code></a>、<a href="https://github.com/smilelight/lightUtils" target="_blank" rel="noopener"><code>lightUtils</code></a>、<a href="https://github.com/smilelight/lightDict" target="_blank" rel="noopener"><code>lightDict</code></a>、其他light库以及其他工具库（如NLTK）。</p><p>其中<a href="https://github.com/smilelight/lightSpider" target="_blank" rel="noopener"><code>lightSpider</code></a>是用来获取网上的知识（以网上各网站的公开语料）。<a href="https://github.com/smilelight/lightUtils" target="_blank" rel="noopener"><code>lightUtils</code></a>则是一些较通用的工具类库，包含了比如说日志打印、获取系统可用tcp端口等功能。<a href="https://github.com/smilelight/lightDict" target="_blank" rel="noopener"><code>lightDict</code></a>则包含了一些在网上搜集到的中文的字典词典资料，并且构建了一个lib以方便使用。其他light库则视以后需求增加。</p><h2 id="算法层"><a href="#算法层" class="headerlink" title="算法层"></a>算法层</h2><p>算法层包括<a href="https://github.com/smilelight/lightNLP" target="_blank" rel="noopener"><code>lightNLP</code></a>、<a href="https://github.com/smilelight/lightKG" target="_blank" rel="noopener"><code>lightKG</code></a>、其他NLP框架（比如说<a href="https://github.com/fastnlp/fastNLP" target="_blank" rel="noopener"><code>fastNLP</code></a>）、其他KG框架（比如说<a href="https://github.com/thunlp/OpenNRE" target="_blank" rel="noopener"><code>OpenNRE</code></a>）以及其他通用神经网络模型算法，包括但不限于强化学习、对抗学习、终生学习等。</p><h2 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h2><p>业务层构建于算法层之上包括各种知识图谱任务和自然语言处理技术，比如关键词抽取、文本摘要、文本分类、命名实体识别、信息抽取、文本生成、实体链接、本体分类与构建、知识存储等功能，会用到各种算法知识和技术，包括基于深度学习的、基于机器学习的、基于规则的，基于监督学习的、基于弱监督学习的、基于无监督学习的等等。</p><h2 id="界面层（用户层）"><a href="#界面层（用户层）" class="headerlink" title="界面层（用户层）"></a>界面层（用户层）</h2><p>用户层则主要考虑采用Vue+Flask等技术，在可视化方面主要采用2D层面，但在一些本体与事件展示时更倾向于使用3D效果。</p>]]></content>
     
@@ -68,7 +68,7 @@
     
     </summary>
     
-      <category term="light" scheme="http://www.iamlightsmile.com/categories/light/"/>
+      <category term="NLP" scheme="http://www.iamlightsmile.com/categories/NLP/"/>
     
     
       <category term="light系列库" scheme="http://www.iamlightsmile.com/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/"/>
@@ -399,7 +399,7 @@
     <link href="http://www.iamlightsmile.com/articles/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     <id>http://www.iamlightsmile.com/articles/数理统计学/</id>
     <published>2019-04-22T07:28:33.000Z</published>
-    <updated>2019-04-22T07:29:44.814Z</updated>
+    <updated>2020-01-18T12:15:54.678Z</updated>
     
     <content type="html"><![CDATA[<ol><li>数理统计学只是从数量表现的层面上来分析问题，完全不触及问题的专业内涵。</li><li>数理统计方法是一个中立性的工具，这“中立”的含义是，它既不在任何问题上有何主张，也不维护任何利益或在任何学科中坚持任何学理。</li><li>由于数理统计方法只是从表面上的数量关系来分析问题，其结论不可混同于因果关系。</li></ol>]]></content>
     
@@ -415,7 +415,7 @@
     
     </summary>
     
-      <category term="数学" scheme="http://www.iamlightsmile.com/categories/%E6%95%B0%E5%AD%A6/"/>
+      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
     
     
       <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
