@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2020-01-08T13:21:33.645Z</updated>
+  <updated>2020-01-18T11:09:40.030Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.iamlightsmile.com/articles/light%E7%B3%BB%E5%88%97%E5%BA%93%E8%AE%BE%E6%83%B3%E6%9E%B6%E6%9E%84/"/>
     <id>http://www.iamlightsmile.com/articles/light系列库设想架构/</id>
     <published>2020-01-08T12:22:20.000Z</published>
-    <updated>2020-01-08T13:21:33.645Z</updated>
+    <updated>2020-01-18T11:09:40.030Z</updated>
     
     <content type="html"><![CDATA[<p>自己开发或整合的一系列light库之间的架构组织关系如图所示：</p><p><img src="https://s2.ax1x.com/2020/01/08/l2Tfne.png" alt="l2Tfne.png"></p><a id="more"></a><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p>如上图所示，整个light系列库之间的组织架构共分为：</p><ul><li>工具层<ul><li>lightSpider</li><li>lightUtils</li><li>lightDict</li><li>其他light库</li><li>其他工具库</li></ul></li><li>算法层<ul><li>lightNLP</li><li>lightKG</li><li>通用神经网络模型算法</li><li>其他NLP框架</li><li>其他KG框架</li></ul></li><li>业务层<ul><li>lightText</li><li>lightKB</li><li>其他相关业务</li></ul></li><li>界面层<ul><li>浏览器前端</li></ul></li></ul><p>整个架构的中心都是围绕着自然语言处理和知识图谱两个大的方向。目的是搭一个比较通用的架子，然后可以在上面展开一些尝试性、探索性的实验和业务，根本上是作为自己想法的舞台。</p><h2 id="工具层"><a href="#工具层" class="headerlink" title="工具层"></a>工具层</h2><p>工具层包括<a href="https://github.com/smilelight/lightSpider" target="_blank" rel="noopener"><code>lightSpider</code></a>、<a href="https://github.com/smilelight/lightUtils" target="_blank" rel="noopener"><code>lightUtils</code></a>、<a href="https://github.com/smilelight/lightDict" target="_blank" rel="noopener"><code>lightDict</code></a>、其他light库以及其他工具库（如NLTK）。</p><p>其中<a href="https://github.com/smilelight/lightSpider" target="_blank" rel="noopener"><code>lightSpider</code></a>是用来获取网上的知识（以网上各网站的公开语料）。<a href="https://github.com/smilelight/lightUtils" target="_blank" rel="noopener"><code>lightUtils</code></a>则是一些较通用的工具类库，包含了比如说日志打印、获取系统可用tcp端口等功能。<a href="https://github.com/smilelight/lightDict" target="_blank" rel="noopener"><code>lightDict</code></a>则包含了一些在网上搜集到的中文的字典词典资料，并且构建了一个lib以方便使用。其他light库则视以后需求增加。</p><h2 id="算法层"><a href="#算法层" class="headerlink" title="算法层"></a>算法层</h2><p>算法层包括<a href="https://github.com/smilelight/lightNLP" target="_blank" rel="noopener"><code>lightNLP</code></a>、<a href="https://github.com/smilelight/lightKG" target="_blank" rel="noopener"><code>lightKG</code></a>、其他NLP框架（比如说<a href="https://github.com/fastnlp/fastNLP" target="_blank" rel="noopener"><code>fastNLP</code></a>）、其他KG框架（比如说<a href="https://github.com/thunlp/OpenNRE" target="_blank" rel="noopener"><code>OpenNRE</code></a>）以及其他通用神经网络模型算法，包括但不限于强化学习、对抗学习、终生学习等。</p><h2 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h2><p>业务层构建于算法层之上包括各种知识图谱任务和自然语言处理技术，比如关键词抽取、文本摘要、文本分类、命名实体识别、信息抽取、文本生成、实体链接、本体分类与构建、知识存储等功能，会用到各种算法知识和技术，包括基于深度学习的、基于机器学习的、基于规则的，基于监督学习的、基于弱监督学习的、基于无监督学习的等等。</p><h2 id="界面层（用户层）"><a href="#界面层（用户层）" class="headerlink" title="界面层（用户层）"></a>界面层（用户层）</h2><p>用户层则主要考虑采用Vue+Flask等技术，在可视化方面主要采用2D层面，但在一些本体与事件展示时更倾向于使用3D效果。</p>]]></content>
     
@@ -31,6 +31,8 @@
 &lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/01/08/l2Tfne.png&quot; alt=&quot;l2Tfne.png&quot;&gt;&lt;/p&gt;
     
     </summary>
+    
+      <category term="light" scheme="http://www.iamlightsmile.com/categories/light/"/>
     
     
       <category term="light系列库" scheme="http://www.iamlightsmile.com/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/"/>
@@ -42,7 +44,7 @@
     <link href="http://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85miniconda/"/>
     <id>http://www.iamlightsmile.com/articles/centos安装miniconda/</id>
     <published>2020-01-07T08:06:09.000Z</published>
-    <updated>2020-01-07T08:16:01.021Z</updated>
+    <updated>2020-01-18T11:10:36.754Z</updated>
     
     <content type="html"><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-下载miniconda"><a href="#1-下载miniconda" class="headerlink" title="1. 下载miniconda"></a>1. 下载miniconda</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; mkdir tmp &amp;&amp; <span class="built_in">cd</span> tmp</span><br><span class="line">wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><h3 id="2-运行miniconda安装脚本"><a href="#2-运行miniconda安装脚本" class="headerlink" title="2. 运行miniconda安装脚本"></a>2. 运行miniconda安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><h3 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda -V</span><br></pre></td></tr></table></figure><p>若输出类似<code>conda 4.7.12</code>，说明安装conda环境成功。如提示：<code>zsh：command not find:conda</code>，则需要将<code>conda</code>配置到路径变量中，详情参考<a href="https://www.jianshu.com/p/13f5d20e61f8" target="_blank" rel="noopener">zsh：command not find:conda 的详细解决办法 - 简书</a></p>]]></content>
     
@@ -55,6 +57,8 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://www.iamlightsmile.com/categories/Linux/"/>
+    
     
       <category term="CentOS" scheme="http://www.iamlightsmile.com/tags/CentOS/"/>
     
@@ -65,7 +69,7 @@
     <link href="http://www.iamlightsmile.com/articles/%E8%B4%AD%E4%B9%B0%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%A4%87%E6%A1%88%E6%B3%A8%E5%86%8C/"/>
     <id>http://www.iamlightsmile.com/articles/购买国内云服务器与备案注册/</id>
     <published>2020-01-07T06:50:32.000Z</published>
-    <updated>2020-01-07T10:01:11.231Z</updated>
+    <updated>2020-01-18T11:14:19.374Z</updated>
     
     <content type="html"><![CDATA[<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>我真傻，真的。没想到腾讯云有120元/年，同样配置的学生优惠活动：<a href="https://cloud.tencent.com/act/campus" target="_blank" rel="noopener">腾讯云学生服务器_学生机_云服务器优惠套餐-云+校园 - 腾讯云</a>，只是主机只能选上海或者深圳。并且25岁以下免学生认证，立马我就把之前用了500优惠券+600多买的云服务器给退了。。。</p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。</p><a id="more"></a><h2 id="调研"><a href="#调研" class="headerlink" title="调研"></a>调研</h2><p>这里主要是比较各厂商（主要是阿里云、腾讯云两家）的云服务器产品的性能和价格。发现网上阿里口碑不错，如果不差钱就选阿里好了，而腾讯云价格相对较低一些，毕竟起步较晚，一些布局和服务等没有阿里云那么完善，只能在价格上搞搞事情了。</p><p>虽然各厂商都对新用户有比较大的力度优惠，然而奈何自己都不是。在阿里云上买过域名和OSS，也在腾讯云上买过域名。</p><p>下面是阿里云的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l6fWvR.jpg" alt="l6fWvR.jpg"></p><p>链接地址为：<a href="https://promotion.aliyun.com/ntms/act/qwbk.html?spm=5176.13727575.J_7116760870.4.57c93b5afY11df&amp;aly_as=dk6i2qQ0" target="_blank" rel="noopener">全民云计算_云服务器促销_便宜云服务器活动_阿里云</a></p><p>优惠链接地址：<a href="https://www.dute.me/aliyun/" target="_blank" rel="noopener">阿里云2020年1月最新优惠信息 - 独特优惠码</a></p><p>下面是腾讯云的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l6hEMn.jpg" alt="l6hEMn.jpg"></p><p>链接地址为：<a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank" rel="noopener">云服务器选购 - 腾讯云</a></p><p>优惠链接地址：<a href="https://cloud.tencent.com/act/vouchers/list?fromSource=gwzcw.2477393.2477393.2477393&amp;utm_medium=cpc&amp;utm_id=gwzcw.2477393.2477393.2477393&amp;from=console&amp;cps_key=2d38bc39c4bd798861417be7ca167f7c" target="_blank" rel="noopener">腾讯云优惠券_代金券_云服务器折扣券-腾讯云</a></p><p>其中里面一些优惠确实算是挺大的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l64vAf.jpg" alt="l64vAf.jpg"></p><p>最终左右权衡之后，觉得确实腾讯云的性价比更高一些，况且适合自己以后部署爬虫等需要长时间消耗CPU等资源的应用。</p><h2 id="购买域名及备案"><a href="#购买域名及备案" class="headerlink" title="购买域名及备案"></a>购买域名及备案</h2><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>自己其实已经有3个域名了，但是都不太合适作为新服务器的域名，于是自己又买了一个域名：lightsmile.cn。哎，感叹一下lightsmile.com这个域名早就被别人买了，并且价格还挺高，所以自己看来短期内无法把它搞到手。</p><p>域名买了之后需要实名注册，然后设置解析，具体不表。</p><h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><p>备案的话，现在其实都算挺方便的。无论是阿里云还是腾讯云，直接在电脑上操作或者使用微信小程序操作，然后上传一些资料，比如个人身份证件图片以及一些必要的备案信息等，然后就可以默默等待审核结果了。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>不得不说，买个云服务器确实还挺贵的，自己也没有什么资金收入，还得找家里一直要钱。客观对比一下，我发现自己其实和一些大学生年轻人是一样的，只不过他们喜欢把钱投资到喜欢的衣服和鞋子，而我则喜欢购买互联网产品，充一些有助于自己成长的平台的会员。但归根结底都是图自己爽。</p><p>虽然有了自己的云服务器之后又可以有一番作为，但是确实还是很肉疼啊。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.vpsss.net/16214.html" target="_blank" rel="noopener">1核 2G云服务器选择腾讯云还是阿里云？-魏艾斯博客</a></li><li><a href="https://www.jianshu.com/p/03b099a5d1f0" target="_blank" rel="noopener">阿里云和腾讯云哪个好？云服务器如何选择？ - 简书</a></li></ol>]]></content>
     
@@ -75,6 +79,8 @@
 &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。&lt;/p&gt;
     
     </summary>
+    
+      <category term="Linux" scheme="http://www.iamlightsmile.com/categories/Linux/"/>
     
     
       <category term="CentOS" scheme="http://www.iamlightsmile.com/tags/CentOS/"/>
@@ -86,7 +92,7 @@
     <link href="http://www.iamlightsmile.com/articles/%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD%E5%9B%BD%E5%A4%96%E6%95%B0%E6%8D%AE%E8%BD%AF%E4%BB%B6/"/>
     <id>http://www.iamlightsmile.com/articles/高速下载国外数据软件/</id>
     <published>2020-01-04T05:34:01.000Z</published>
-    <updated>2020-01-04T05:51:58.499Z</updated>
+    <updated>2020-01-18T11:13:40.963Z</updated>
     
     <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>很多时候要下载国外网站的数据和软件包的时候默认浏览器下载速度极慢，甚至可能到几k/s，要下载个几M的东西都要花好长时间。</p><a id="more"></a><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>突然想到自己有办理搬瓦工的服务器呀~。使用代理服务器下载想要的数据，然后再传到自己的电脑不就好了嘛。</p><h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><h3 id="1-获取下载链接地址"><a href="#1-获取下载链接地址" class="headerlink" title="1.获取下载链接地址"></a>1.获取下载链接地址</h3><p>如图，使用Chrome浏览器下载，然后右键点击URL选择“复制链接地址”。<br><img src="https://s2.ax1x.com/2020/01/04/lwmEdO.jpg" alt="lwmEdO.jpg"></p><h3 id="2-使用代理服务器下载数据"><a href="#2-使用代理服务器下载数据" class="headerlink" title="2.使用代理服务器下载数据"></a>2.使用代理服务器下载数据</h3><p>如图，使用Xshell等终端软件登录代理服务器，执行<code>wget xxx</code>命令：<br><img src="https://s2.ax1x.com/2020/01/04/lwmKSA.jpg" alt="lwmKSA.jpg"></p><h3 id="3-将数据从代理服务器传至本机"><a href="#3-将数据从代理服务器传至本机" class="headerlink" title="3.将数据从代理服务器传至本机"></a>3.将数据从代理服务器传至本机</h3><p>如图，使用Xftp等文件传输软件连接至代理服务器，将下载文件传输到本地：<br><img src="https://s2.ax1x.com/2020/01/04/lwm3ef.jpg" alt="lwm3ef.jpg"></p><h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>虽然在将文件从代理服务器传输到本机的过程中可能速度也不快，但是起码可用了，200k也算可以接受了。</p>]]></content>
     
@@ -96,6 +102,10 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="小窍门" scheme="http://www.iamlightsmile.com/tags/%E5%B0%8F%E7%AA%8D%E9%97%A8/"/>
     
   </entry>
   
@@ -104,7 +114,7 @@
     <link href="http://www.iamlightsmile.com/articles/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E6%B3%A8%E6%84%8F%E9%A2%88%E6%A4%8E%E4%BF%9D%E6%8A%A4/"/>
     <id>http://www.iamlightsmile.com/articles/程序猿注意颈椎保护/</id>
     <published>2020-01-03T12:51:42.000Z</published>
-    <updated>2020-01-03T13:01:00.832Z</updated>
+    <updated>2020-01-18T11:13:03.441Z</updated>
     
     <content type="html"><![CDATA[<p>下面是一些视频网址和文字教程，在这里分享一下：</p><ul><li><a href="https://zhuanlan.zhihu.com/p/26272432" target="_blank" rel="noopener">亲身实践，颈椎病自愈法 - 知乎</a></li><li><a href="https://www.bilibili.com/video/av45286925?from=search&amp;seid=10143354984380683087" target="_blank" rel="noopener">老中医治疗你的颈椎病_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li><li><a href="https://www.bilibili.com/video/av24999820?from=search&amp;seid=10143354984380683087" target="_blank" rel="noopener">10分钟颈椎操颈椎病的自我治疗，每天10分钟，轻松20年！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li></ul>]]></content>
     
@@ -118,6 +128,8 @@
       
     
     </summary>
+    
+      <category term="程序人生" scheme="http://www.iamlightsmile.com/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
     
     
       <category term="颈椎病" scheme="http://www.iamlightsmile.com/tags/%E9%A2%88%E6%A4%8E%E7%97%85/"/>
@@ -250,7 +262,7 @@
     <link href="http://www.iamlightsmile.com/articles/Github%E4%B8%8A%E5%BC%80%E6%BA%90Python%E4%BB%93%E5%BA%93%E7%BB%B4%E6%8A%A4%E6%B5%81%E7%A8%8B/"/>
     <id>http://www.iamlightsmile.com/articles/Github上开源Python仓库维护流程/</id>
     <published>2019-12-31T03:51:25.000Z</published>
-    <updated>2020-01-03T02:47:39.154Z</updated>
+    <updated>2020-01-18T11:10:20.336Z</updated>
     
     <content type="html"><![CDATA[<h2 id="steps"><a href="#steps" class="headerlink" title="steps"></a>steps</h2><h3 id="step1：-明确更新缘由"><a href="#step1：-明确更新缘由" class="headerlink" title="step1： 明确更新缘由"></a>step1： 明确更新缘由</h3><p>比如说有用户提出bug的issue，则可以考虑在空闲时分析问题甚至重现问题以寻找到bug，然后修改代码修复bug。</p><p>又如对项目进行重构或增加新的feature等，也相应的修改代码。</p><a id="more"></a><h3 id="step2：对修改后代码进行测试"><a href="#step2：对修改后代码进行测试" class="headerlink" title="step2：对修改后代码进行测试"></a>step2：对修改后代码进行测试</h3><p>对修改后的项目代码进行测试，以确保问题修复，或代码的修改完善并未影响其他的代码的正常运行。</p><h3 id="step3-根据需要修改项目配置和说明文件"><a href="#step3-根据需要修改项目配置和说明文件" class="headerlink" title="step3: 根据需要修改项目配置和说明文件"></a>step3: 根据需要修改项目配置和说明文件</h3><ol><li>在<code>README.md</code>中做说明。</li><li>修改<code>setup.py</code>文件中版本号</li></ol><h3 id="step4-提交代码到Github仓库"><a href="#step4-提交代码到Github仓库" class="headerlink" title="step4: 提交代码到Github仓库"></a>step4: 提交代码到Github仓库</h3><p>git的<code>add</code>、<code>commit</code>、<code>push</code>三连。</p><h3 id="step5-编译项目并更新到pypi源中"><a href="#step5-编译项目并更新到pypi源中" class="headerlink" title="step5: 编译项目并更新到pypi源中"></a>step5: 编译项目并更新到pypi源中</h3><p>参考我的另一篇文章：<a href="http://www.iamlightsmile.com/articles/python%E5%BA%93%E6%89%93%E5%8C%85%E5%88%86%E5%8F%91/">python库打包分发 | lightsmile’s Blog</a></p><h3 id="step6-友好回复提出问题的用户"><a href="#step6-友好回复提出问题的用户" class="headerlink" title="step6: 友好回复提出问题的用户"></a>step6: 友好回复提出问题的用户</h3><p>遵守“<strong>富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善</strong>”社会主义核心价值观，和用户进行友好沟通，告知用户已解决问题或其他说明。</p>]]></content>
     
@@ -260,6 +272,8 @@
 &lt;p&gt;又如对项目进行重构或增加新的feature等，也相应的修改代码。&lt;/p&gt;
     
     </summary>
+    
+      <category term="Github" scheme="http://www.iamlightsmile.com/categories/Github/"/>
     
     
       <category term="Github" scheme="http://www.iamlightsmile.com/tags/Github/"/>
@@ -271,7 +285,7 @@
     <link href="http://www.iamlightsmile.com/articles/2019%E5%9B%9E%E5%BF%86%E6%80%BB%E7%BB%93%E5%BD%95/"/>
     <id>http://www.iamlightsmile.com/articles/2019回忆总结录/</id>
     <published>2019-12-30T12:00:48.000Z</published>
-    <updated>2020-01-03T02:44:27.349Z</updated>
+    <updated>2020-01-18T11:06:08.993Z</updated>
     
     <content type="html"><![CDATA[<p>时光匆匆如流水，眨眼间，2019年就这么过去了。距离<a href="http://www.iamlightsmile.com/articles/%E4%BD%A0%E5%A5%BD%EF%BC%8C2019/">你好，2019</a>也马上就一年整了。</p><a id="more"></a><p>总体回顾这一年，也算奋斗和荒废都有。由于要考研以及积累学习，所以在2018年12月底辞职，然后回家。</p><p>在1月份，主要是学习Pytorch和torchtext，开始探索看项目源码。同时计划当一个网上的家教老师，平台是掌门，准备了一段时间，结果面试没有通过，妈了个巴子的。</p><p>在2月份开始鼓捣Manjaro，期间重装系统多次，真是痛并快乐着，现在回想起来：一方面在探索的过程中遇到困难，解决困难的历程很爽；另一方面说实在的，并没有积累到太多实用的计算机技术，有点浪费时间了（ps：Linux系统还是单独装吧，装个双系统放在普通硬盘里实在是挺慢的，可能和KDE环境占用内存较大也有关系；最近出于学习效率还是回到了Windows的怀抱，啊好香啊）。其间报了个上海的创意编程（就是教Scratch）老师，也经历了准备面试、远程面试通过等过程，然而在培训过程中感觉不太好于是主动退出了）</p><p>到了3月份，之前在网易云课堂报的自然语言处理工程师微专业开班了，于是主要是学习课程资源，积累相关知识；同时开始在Github上寻觅使用Pytorch实现的nlp任务的实现（最开始是文本分类，之后是命名实体识别），开始了不断学习源码之路；其间萌生了用torchtext照着实现一遍以增进自己对任务的理解、以及提升自己的实践动手能力的想法，便有了最初的lightNLP。同时也想着开发其他框架供自己使用，如lightKG、lightText、lightUtils。当时的定位主要是：</p><ul><li>lightNLP：lightNLP基于Pytorch和torchtext是一个深度学习自然语言处理框架，实现了如文本分类、命名实体识别、语句相似度、文本蕴涵、依存句法分析等功能。</li><li>lightKG：lightsmile个人的知识图谱框架</li><li>lightUtils：lightsmile个人的工具类库</li><li>lightText：lightText是中文文本处理框架，在设计上会包含各种词典资源，一些算法的传统或机器学习实现，包含广泛且更高级的功能，如对文本进行分析，抽取出关键词、分类、进行信息抽取等功能，会依赖于lightNLP的深度学习自然语言处理框架、lightKG的知识图谱框架、lightUitls的其他工具类库，以及包含一些词典资源等等各种资源。</li></ul><p>到了4月份，还是继续学习网易云课堂的自然语言处理课程，当然重心已经发生了转移，因为感觉自己在Github上寻找各nlp基础任务的简单实现并阅读源码的过程中学到挺多的，更甚于网易云课堂每周一更的录制课程，所以主要还是看代码，重新实现，以及学习微专业课程。</p><p>到了5月份，家里有人生病住院，我相对空闲所以去陪护，用去了一段时间。其他主要是继续上课，和看代码和敲代码，以及一些其他娱乐活动？忘了。</p><p>剩下的6~12月份，主要是复习备考，期间有认真复习的日子，也有荒废游戏的日子，甚至于连续几天熬夜打游戏，也有熬夜看小说，并没有多刻苦，也并没有很好地执行计划并坚决执行，甚至到了后期每天的真正学习时间反而更短了。</p><p>等考完后，发现心情一般，可能是发挥的一般，尤其是数学，考的极差，做了几套往年的真题，感觉还蛮简单的，于是就放松懈怠了，导致有的大题没写，有的只写了第一问，填空和选择也有不会的；也可能是因为自己平时就没有多努力，多刻苦，所以并没有放松解脱自由的感觉。</p><p>感谢学妹临考前每天的鼓励，真的挺感动的。</p><p>等考完后，本来想说玩游戏放松，可是不知道玩什么；本来想说看小说，可是备考期间也看了；那些本应该在考完后放松的事情让我在备考期间做了个遍，真想狠狠地扇自己！</p><p>同时自己也有太多想做的事，比如学习Vue、学习爬虫、继续完善lightNLP、继续丰富lightKG、学习fastNLP源码、学习Neo4j、阅读知识图谱技术相关论文、阅读自然语言处理相关论文等等，奈何精力有限，只能一步步慢慢来。</p><p>不得不说，这一路走来，有奋斗、也有颓废。关于内心的变化，感觉自己变得比以前更现实了，甚至是相当现实了，比去年还是满脑子空想的我相比现实的太多了。心态也更加平和、冷静，抗干扰能力有所提升，内心不会因为外界的言语有多少波动。不会再把精力浪费在认为不值得的人、不值得的事上面。把名看得更淡，把利看得更多。世界观也更加健全完善，看到世界上发生的许多事情新闻都已经很平静了。尽管几乎去年一整年没有和社会打交道，同样积累了些许人生道理。</p><p>不管满意与否，今年的历程对今后的道路会有什么影响，路都已经走过了，也不能再回头了。</p><p>无论等一个多月之后公布的考研初试成绩如何，无论在今后找工作的道路上遇到多少艰难险阻，我都会继续追求我的自然语言处理和知识图谱的理想永不放弃。</p><p>脑子里又回想起当时那个面临继续工作还是辞职考研两个选择的自己，我可以回答他：这条路走的不后悔。毕竟在月亮和六便士面前，我曾经选择了月亮。</p><p>2020，继续冲鸭！</p>]]></content>
     
@@ -280,6 +294,8 @@
       &lt;p&gt;时光匆匆如流水，眨眼间，2019年就这么过去了。距离&lt;a href=&quot;http://www.iamlightsmile.com/articles/%E4%BD%A0%E5%A5%BD%EF%BC%8C2019/&quot;&gt;你好，2019&lt;/a&gt;也马上就一年整了。&lt;/p&gt;
     
     </summary>
+    
+      <category term="随念" scheme="http://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
     
     
       <category term="个人" scheme="http://www.iamlightsmile.com/tags/%E4%B8%AA%E4%BA%BA/"/>
