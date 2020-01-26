@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2020-01-18T12:01:33.167Z</updated>
+  <updated>2020-01-26T13:34:11.231Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《NLP基础任务之新词发现探索之路》</title>
+    <link href="http://www.iamlightsmile.com/articles/%E3%80%8ANLP%E5%9F%BA%E7%A1%80%E4%BB%BB%E5%8A%A1%E4%B9%8B%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0%E6%8E%A2%E7%B4%A2%E4%B9%8B%E8%B7%AF%E3%80%8B/"/>
+    <id>http://www.iamlightsmile.com/articles/《NLP基础任务之新词发现探索之路》/</id>
+    <published>2020-01-26T09:53:09.000Z</published>
+    <updated>2020-01-26T13:34:11.231Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="step1：寻找综述"><a href="#step1：寻找综述" class="headerlink" title="step1：寻找综述"></a>step1：寻找综述</h2><p>没找到太好的综述。</p><h2 id="step2：寻找技术博客文章"><a href="#step2：寻找技术博客文章" class="headerlink" title="step2：寻找技术博客文章"></a>step2：寻找技术博客文章</h2><p>如寻找技术博客（如CSDN与个人博客站点）与文章（如知乎、简书），具体到新词发现任务，如：</p><ol><li><a href="https://www.hankcs.com/nlp/extraction-and-identification-of-mutual-information-about-the-phrase-based-on-information-entropy.html" target="_blank" rel="noopener">基于互信息和左右信息熵的短语提取识别-码农场</a></li><li><a href="http://www.matrix67.com/blog/archives/5044" target="_blank" rel="noopener">互联网时代的社会语言学：基于SNS的文本数据挖掘 | Matrix67: The Aha Moments</a></li><li><a href="https://www.jianshu.com/p/e9313fd692ef" target="_blank" rel="noopener">python3实现互信息和左右熵的新词发现 - 简书</a></li></ol><h2 id="step3：寻找已有实现"><a href="#step3：寻找已有实现" class="headerlink" title="step3：寻找已有实现"></a>step3：寻找已有实现</h2><p>如从Github上搜索与筛选相关开源项目，如：</p><ol><li><a href="https://github.com/xylander23/New-Word-Detection" target="_blank" rel="noopener">xylander23/New-Word-Detection: 新词发现算法(NewWordDetection)</a></li><li><a href="https://github.com/zhanzecheng/Chinese_segment_augment" target="_blank" rel="noopener">zhanzecheng/Chinese_segment_augment: python3实现互信息和左右熵的新词发现</a></li></ol><h2 id="step4：结合知识点研读开源项目"><a href="#step4：结合知识点研读开源项目" class="headerlink" title="step4：结合知识点研读开源项目"></a>step4：结合知识点研读开源项目</h2><h3 id="算法初始思路"><a href="#算法初始思路" class="headerlink" title="算法初始思路"></a>算法初始思路</h3><p>经过研究以上代码与相关文章，发现主要有2种思路：</p><ol><li>不依赖分词，直接进行新词发现，如上面开源项目1</li><li>在原有分词基础上进行，如上面开源项目2</li></ol><p>相比而言（更多的是感性认识，并没有对比观察多少数据从而建立起有依据的推论），不依赖分词能够避免原有分词错误而引起的后面的错误，而在原有分词基础上进行则更加准确，因为可以依赖于分词结果作为输入特征，个人认为可能方案2（即在原有分词基础上进行）可能会更好些，当然这又受限于分词的准确率。</p><h3 id="相关特征"><a href="#相关特征" class="headerlink" title="相关特征"></a>相关特征</h3><p>识别新词即确定两个词（或多个）是否能够组合成为一个词，主要看词内部的凝固度以及词外部的自由度，其中内部的凝固度可以用<code>点间互信息</code>来衡量，而自由度则可以用<code>左右邻的信息熵</code>来衡量。</p><h3 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h3><p>对于所有的候选新词分别计算以上两个特征，通过某种方式组合在一起，或线性加和或幂次乘积来给候选新词打分，同时设定一些阈值过滤掉不符合条件的候选词，并将所有过滤后的候选词按分数高低降序排序，从而得到最终的结果。</p><h2 id="step5：改进与整合原有项目"><a href="#step5：改进与整合原有项目" class="headerlink" title="step5：改进与整合原有项目"></a>step5：改进与整合原有项目</h2><p>自己主要参考项目2，但发现存在一些不足，如：</p><ol><li>没有实现开箱即用的接口</li><li>数据结构设计不合理，比如遍历自定义的类所组成的列表进行匹配查找，耗时较多</li><li>虽然将引入外部词典数据进行初始化构建的模型进行了pickle持久化操作，但是其实没必要</li><li>不能很好地多次调用，每次调用都需要初始化或读取持久化的对象，耗时较长。</li></ol><p>经过不断实践与探索，基本上比较好地解决了以上问题，同时在过程中也考虑了很多问题，如：</p><ol><li>基于分词还是不基于分词</li><li>是否引入外部词典作为结果排序矫正</li><li>是否提供用户自定义词典以及自定义停用词接口</li><li>采用何种数据结构，是否照搬项目中数据结构，还是进行优化改进</li><li>在每次调用时都需要进行对外部词典数据初始化的过程，使用pickle文件写入读取持久化还是使用deepcopy进行对象拷贝，怎样更快</li><li>如何对如互信息与信息熵等统计特征进行加权组合，参数如何选取调整</li><li>如何引入其他信息增强发现能力以及矫正能力，比如词性信息（然而结巴的那个词典里面许多词性信息都不准确，比如说将<code>知识</code>的词性标注为动词）</li><li>设计一个什么样的接口才能使用户很方便的使用</li><li>如何将该新词发现模块与分词系统等较好地整合在一起</li><li>如何更好地融入人工校验机制</li><li>是否加入机器学习、深度学习等算法，包括有监督、无监督、强化学习、在线学习等</li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><a href="https://github.com/smilelight/lightText" target="_blank" rel="noopener">smilelight/lightText: 文本处理相关库，目前包括新词发现等功能。</a></p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>当今nlp各任务的各种实现从传统规则到机器学习再到深度学习比比皆是，层出不穷，然而根本就没有完美的算法，没有完美的系统，有的只是不断地改进和优化。</p><h2 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h2><p>在进行系统设计时，前期一定要对项目有一个比较清晰的规划，比如它的定位是什么、有哪些可以参考借鉴的已有实现，重要的搭一个能够跑起来的架子，不论啥效果；在中期优化过程中，则需要综合考虑时间空间硬件精度等多种因素，在一方面有所得有时必须建立在在其它某些方面有所失，比如各种时间空间互换、精度与时间空间互换等，在不同的时期不同的场景下主要矛盾不同，因此所对应的最佳策略也不唯一；在整个项目的生命周期中都需要不断考虑项目的拓展性，许多时候多写几个函数，多整几个文件来将不确定的、复杂的实现解耦，便于后续的排查调整。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>略</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;step1：寻找综述&quot;&gt;&lt;a href=&quot;#step1：寻找综述&quot; class=&quot;headerlink&quot; title=&quot;step1：寻找综述&quot;&gt;&lt;/a&gt;step1：寻找综述&lt;/h2&gt;&lt;p&gt;没找到太好的综述。&lt;/p&gt;
+&lt;h2 id=&quot;step2：寻找技术博客文章&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="NLP" scheme="http://www.iamlightsmile.com/categories/NLP/"/>
+    
+    
+      <category term="NLP, 新词发现" scheme="http://www.iamlightsmile.com/tags/NLP-%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《国士无双-林俊德》</title>
+    <link href="http://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E6%9E%97%E4%BF%8A%E5%BE%B7%E3%80%8B/"/>
+    <id>http://www.iamlightsmile.com/articles/《国士无双-林俊德》/</id>
+    <published>2020-01-22T08:33:56.000Z</published>
+    <updated>2020-01-22T08:37:05.651Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="人物简介"><a href="#人物简介" class="headerlink" title="人物简介"></a>人物简介</h2><p>林俊德（1938年3月13日—2012年5月31日），男，福建永春人，中国爆炸力学与核试验工程领域著名专家、总装备部某试验训练基地研究员，1960年毕业于浙江大学机械系，1993年晋升为少将军衔，2001年当选为中国工程院院士。2018年，经中央军委批准，增加“献身国防科技事业杰出科学家”林俊德为全军挂像英模。</p><p>2019年9月25日，入选“最美奋斗者”个人名单。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://baike.baidu.com/item/%E6%9E%97%E4%BF%8A%E5%BE%B7/5202612" target="_blank" rel="noopener">林俊德（中国工程院院士）_百度百科</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;人物简介&quot;&gt;&lt;a href=&quot;#人物简介&quot; class=&quot;headerlink&quot; title=&quot;人物简介&quot;&gt;&lt;/a&gt;人物简介&lt;/h2&gt;&lt;p&gt;林俊德（1938年3月13日—2012年5月31日），男，福建永春人，中国爆炸力学与核试验工程领域著名专家、总装备部某试验训
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="国士无双" scheme="http://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《国士无双-黄旭华》</title>
+    <link href="http://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E9%BB%84%E6%97%AD%E5%8D%8E%E3%80%8B/"/>
+    <id>http://www.iamlightsmile.com/articles/《国士无双-黄旭华》/</id>
+    <published>2020-01-22T08:27:28.000Z</published>
+    <updated>2020-01-22T08:29:44.834Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="人物简介"><a href="#人物简介" class="headerlink" title="人物简介"></a>人物简介</h2><p>黄旭华，1924年2月24日出生于广东省汕尾市海丰县田墘镇，中国核潜艇之父，原籍广东省揭阳市揭东区玉湖镇新寮村，交通大学1949届校友，中船重工集团公司719研究所研究员、名誉所长，中国第一代攻击型核潜艇和战略导弹核潜艇总设计师。开拓了中国核潜艇的研制领域， 1994年当选为中国工程院院士。湖北省科协荣誉委员，曾任前中国船舶工业总公司719研究所副总工程师、副所长、所长兼代理党委书记、以及核潜艇工程副总设计师、总设计师、研究员、高级工程师等职。</p><p>2014年1月，黄旭华当选中国中央电视台2013年度感动中国十大人物。2017年10月25日，获2017年度何梁何利基金科学与技术成就奖。11月9日，获得第六届全国道德模范敬业奉献类奖项。</p><p>黄旭华为中国核潜艇事业的发展做出了重要贡献，在核潜艇水下发射运载火箭的多次海上试验任务中，作为核潜艇工程总设计师、副指挥，开拓了中国核潜艇的研制领域，被誉为中国核潜艇之父。</p><p>2020年1月10日，获国家最高科学技术奖。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://baike.baidu.com/item/%E9%BB%84%E6%97%AD%E5%8D%8E/4445012" target="_blank" rel="noopener">黄旭华（中国核潜艇之父）_百度百科</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;人物简介&quot;&gt;&lt;a href=&quot;#人物简介&quot; class=&quot;headerlink&quot; title=&quot;人物简介&quot;&gt;&lt;/a&gt;人物简介&lt;/h2&gt;&lt;p&gt;黄旭华，1924年2月24日出生于广东省汕尾市海丰县田墘镇，中国核潜艇之父，原籍广东省揭阳市揭东区玉湖镇新寮村，交通大学19
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="国士无双" scheme="http://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《国士无双-于敏》</title>
+    <link href="http://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E4%BA%8E%E6%95%8F%E3%80%8B/"/>
+    <id>http://www.iamlightsmile.com/articles/《国士无双-于敏》/</id>
+    <published>2020-01-22T08:17:11.000Z</published>
+    <updated>2020-01-22T08:19:10.791Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="人物简介"><a href="#人物简介" class="headerlink" title="人物简介"></a>人物简介</h2><p>于敏（1926年8月16日—2019年1月16日），出生于河北省宁河县（今天津市宁河区）芦台镇，核物理学家，国家最高科技奖获得者。</p><p>1949年毕业于北京大学物理系。1980年当选为中国科学院学部委员（院士）。 原中国工程物理研究院副院长、研究员、高级科学顾问。</p><p>在中国氢弹原理突破中解决了一系列基础问题，提出了从原理到构形基本完整的设想，起了关键作用。此后长期领导核武器理论研究、设计，解决了大量理论问题。对中国核武器进一步发展到国际先进水平作出了重要贡献。从20世纪70年代起，在倡导、推动若干高科技项目研究中，发挥了重要作用。 1982年获国家自然科学奖一等奖。1985年、1987年和1989年三次获国家科技进步奖特等奖。1994年获求是基金杰出科学家奖。1999年被国家授予“两弹一星”功勋奖章。1985年荣获“五一劳动奖章”。1987年获“全国劳动模范”称号。2015年获2014年度国家最高科技奖。2018年12月18日，党中央、国务院授予于敏同志改革先锋称号，颁授改革先锋奖章，并获评“国防科技事业改革发展的重要推动者”。2019年1月16日，于敏在北京逝世，享年93岁。2019年9月17日，国家主席习近平签署主席令，授予于敏“共和国勋章”。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://baike.baidu.com/item/%E4%BA%8E%E6%95%8F/22358" target="_blank" rel="noopener">于敏（中国“氢弹之父”）_百度百科</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;人物简介&quot;&gt;&lt;a href=&quot;#人物简介&quot; class=&quot;headerlink&quot; title=&quot;人物简介&quot;&gt;&lt;/a&gt;人物简介&lt;/h2&gt;&lt;p&gt;于敏（1926年8月16日—2019年1月16日），出生于河北省宁河县（今天津市宁河区）芦台镇，核物理学家，国家最高科技奖获
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="国士无双" scheme="http://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《国士无双-张伯驹》</title>
+    <link href="http://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E5%BC%A0%E4%BC%AF%E9%A9%B9%E3%80%8B/"/>
+    <id>http://www.iamlightsmile.com/articles/《国士无双-张伯驹》/</id>
+    <published>2020-01-22T08:04:22.000Z</published>
+    <updated>2020-01-22T08:12:22.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>张伯驹（1898年3月14日—1982年2月26日），原名张家骐，字家骐，号丛碧，别号游春主人、好好先生，河南项城人。爱国民主人士，收藏鉴赏家、书画家、诗词学家、京剧艺术研究家。</p><p>曾任故宫博物院专门委员、国家文物局鉴定委员会委员，吉林省博物馆副研究员、副馆长，中央文史馆馆员，任燕京大学国文系中国艺术史名誉导师，北京中国画研究会名誉会长，中国书法家协会名誉理事等职。建国初期，张伯驹将多件珍贵文物捐献给国家。</p><p>主要著作有《丛碧词》《春游词》《秦游词》《雾中词》《无名词》《续断词》和《氍毹纪梦诗》《氍毹纪梦诗注》《洪宪纪事诗注》及《乱弹音韵辑要》《丛碧书画录》《素月楼联语》等。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://baike.baidu.com/item/%E5%BC%A0%E4%BC%AF%E9%A9%B9#1" target="_blank" rel="noopener">张伯驹_百度百科</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;个人简介&quot;&gt;&lt;a href=&quot;#个人简介&quot; class=&quot;headerlink&quot; title=&quot;个人简介&quot;&gt;&lt;/a&gt;个人简介&lt;/h2&gt;&lt;p&gt;张伯驹（1898年3月14日—1982年2月26日），原名张家骐，字家骐，号丛碧，别号游春主人、好好先生，河南项城人。爱国民
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="国士无双" scheme="http://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>本博客分类详情</title>
@@ -280,9 +406,9 @@
     <link href="http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordCoreNLP%E4%BD%BF%E7%94%A8/"/>
     <id>http://www.iamlightsmile.com/articles/常用自然语言处理框架之StanfordCoreNLP使用/</id>
     <published>2020-01-03T02:26:54.000Z</published>
-    <updated>2020-01-03T02:52:04.942Z</updated>
+    <updated>2020-01-18T14:37:23.128Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li></ul><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p><pre><code>nitializing native server...INFO:root:java -Xmx4g -cp &quot;F:\space\wingide\stanfordnlp\*&quot; edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000INFO:root:Server shell PID: 8504INFO:root:Waiting until the server is available.INFO:root:Waiting until the server is available.</code></pre><p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p><p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li></ul><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nitializing native server...</span><br><span class="line">INFO:root:java -Xmx4g -cp <span class="string">"F:\space\wingide\stanfordnlp\*"</span> edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000</span><br><span class="line">INFO:root:Server shell PID: 8504</span><br><span class="line">INFO:root:Waiting until the server is available.</span><br><span class="line">INFO:root:Waiting until the server is available.</span><br></pre></td></tr></table></figure><p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p><p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>]]></content>
     
     <summary type="html">
     
@@ -384,129 +510,6 @@
     
       &lt;p&gt;我们都知道，世间的万事万物都是彼此联系和不断发展的。而我们要生存发展进步，则要不断地去尝试探索理解彼此之间到底是如何联系和发展的，要得到那些定性和定量的规律，哲学和数学以及其他学问在此基础上产生不断进化繁衍。&lt;/p&gt;
 &lt;p&gt;而事物与事物之间的关联法则与映射关系即对应于数学中函数这一概念，函数即是定义和研究自变量和因变量之间的映射关系的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数理统计学</title>
-    <link href="http://www.iamlightsmile.com/articles/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
-    <id>http://www.iamlightsmile.com/articles/数理统计学/</id>
-    <published>2019-04-22T07:28:33.000Z</published>
-    <updated>2020-01-18T12:15:54.678Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>数理统计学只是从数量表现的层面上来分析问题，完全不触及问题的专业内涵。</li><li>数理统计方法是一个中立性的工具，这“中立”的含义是，它既不在任何问题上有何主张，也不维护任何利益或在任何学科中坚持任何学理。</li><li>由于数理统计方法只是从表面上的数量关系来分析问题，其结论不可混同于因果关系。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;数理统计学只是从数量表现的层面上来分析问题，完全不触及问题的专业内涵。&lt;/li&gt;
-&lt;li&gt;数理统计方法是一个中立性的工具，这“中立”的含义是，它既不在任何问题上有何主张，也不维护任何利益或在任何学科中坚持任何学理。&lt;/li&gt;
-&lt;li&gt;由于数理统计方法只是从表面上
-      
-    
-    </summary>
-    
-      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>向量与矩阵</title>
-    <link href="http://www.iamlightsmile.com/articles/%E5%90%91%E9%87%8F%E4%B8%8E%E7%9F%A9%E9%98%B5/"/>
-    <id>http://www.iamlightsmile.com/articles/向量与矩阵/</id>
-    <published>2019-04-22T07:10:37.000Z</published>
-    <updated>2020-01-18T11:55:38.446Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>线性代数的基本研究单位是向量。</li><li>向量可以视为存储信息和结构的基本量。</li><li>矩阵既可以视为一组向量的集合，也可以视为一组向量的映射关系。</li></ol><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;线性代数的基本研究单位是向量。&lt;/li&gt;
-&lt;li&gt;向量可以视为存储信息和结构的基本量。&lt;/li&gt;
-&lt;li&gt;矩阵既可以视为一组向量的集合，也可以视为一组向量的映射关系。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大学数学基础体系脉络</title>
-    <link href="http://www.iamlightsmile.com/articles/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E4%BD%93%E7%B3%BB%E8%84%89%E7%BB%9C/"/>
-    <id>http://www.iamlightsmile.com/articles/大学数学基础体系脉络/</id>
-    <published>2019-04-22T06:50:35.000Z</published>
-    <updated>2020-01-18T11:50:50.604Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。</p><a id="more"></a><p>以下是来自万门大学童哲校长在<a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">线性代数两日特训班</a>中所画的简单说明图：</p><p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/大学数学基础体系脉络.png" alt="大学数学基础体系脉络"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="数学" scheme="http://www.iamlightsmile.com/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>整体论与还原论</title>
-    <link href="http://www.iamlightsmile.com/articles/%E6%95%B4%E4%BD%93%E8%AE%BA%E4%B8%8E%E8%BF%98%E5%8E%9F%E8%AE%BA/"/>
-    <id>http://www.iamlightsmile.com/articles/整体论与还原论/</id>
-    <published>2019-04-22T06:26:43.000Z</published>
-    <updated>2020-01-18T11:56:13.415Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="还原论"><a href="#还原论" class="headerlink" title="还原论"></a>还原论</h2><p>所谓还原，是一种把复杂的系统（或者现象、过程）层层分解为其组成部分的过程。<strong>还原论</strong>认为，复杂系统可以通过它各个组成部分的行为及其相互作用来加以解释。还原论方法是迄今为止自然科学研究的最基本的方法，人们习惯于以“静止的、孤立的”观点考察组成系统诸要素的行为和性质，然后将这些性质“组装”起来形成对整个系统的描述。例如，为了考察生命，我们首先考察神经系统、消化系统、免疫系统等各个部分的功能和作用，在考察这些系统的时候我们又要了解组成它们的各个器官，要了解器官又必须考察组织，直到最后是对细胞、蛋白质、遗传物质、分子、原子等的考察。现代科学的高度发达表明，还原论是比较合理的研究方法，寻找并研究物质的最基本构件的做法当然是有价值的。</p><a id="more"></a><h2 id="整体论"><a href="#整体论" class="headerlink" title="整体论"></a>整体论</h2><p>与还原论相反的是<strong>整体论</strong>，这种哲学认为，将系统打碎成为它的组成部分的做法是受限制的，对于高度复杂的系统，这种做法就行不通，因此我们应该以整体的系统论观点来考察事物。比如考察一台复杂的机器，还原论者可能会立即拿起螺丝刀和扳手将机器拆散成几千、几万个零部件，并分别进行考察，这显然耗时费力，效果还不一定很理想。整体论者不这么干，他们采取比较简单一些的办法，不拆散机器，而是试图启动运行这台机器，输入一些指令性的操作，观察机器的反应，从而建立起输入──输出之间的联系，这样就能了解整台机器的功能。整体论基本上是功能主义者，他们试图了解的主要是系统的整体功能，但对系统如何实现这些功能并不过分操心。这样做可以将问题简化，但当然也有可能会丢失一些比较重要的信息。</p><h2 id="还原论与整体论的关系"><a href="#还原论与整体论的关系" class="headerlink" title="还原论与整体论的关系"></a>还原论与整体论的关系</h2><p>还原论与整体论之争由来已久，并且激发了脑研究和人工智能领域内的大争论。还原论方法将大脑还原为神经元，然后设法将神经元组装成大脑。人工智能的一个学派认为，通过创造元数字电路，我们能够建造越来越复杂的电路，直到我们创造人工智能。这个学派沿着现代电子计算机这条思路，对“智能”的模仿取得了初步的成功，但深入下去就比较令人失望，因为它甚至连模仿大脑的最简单功能，比如模糊记忆，都无法做到。面对人工智能研究的窘境，一些科学家从研究方法上进行反思，认为还原论方法在人工智能的研究方面没有前途，应设法采取一种更加整体的方法对待大脑，不必纠缠于人脑运作中的一些细小环节，应该建立起把大脑视为整体的模型，将大脑的一些基本功能从一开始就建造在这个模型系统里。神经网络理论基本上就是基于这样一种方法而建立起来的理论模型，这是一种功能主义的整体研究方式。这种方式现在看来也是困难重重，不过它才刚刚起步，其未来的前途如何尚未可知。</p><p>我的观点是，还原论与整体论作为两种不同的研究方法，它们本身无所谓优劣之分，我们具体选择哪种方法，这完全视乎具体情形，并取决于我们个人的喜好。在某种情形下我们采取还原的方法，在另外的情形下我们可能会采取整体论的方法，这都是可以的。但是，在大多数情况下，人们倾向于采用还原论方法，这比较可靠，也比较能够满足我们寻根究底的好奇心，所以只要有可能，人们总是乐于使用它。</p><p>事实上整体论总是只能进行一些初步的研究，一旦深入下去就必须使用还原论的方法。因此，对待自然界，我们总是首先了解其大致的、整体的规律，这是整体论的方法，接着一定要再对它层层进行还原分解，以此考察和研究它的深层次本质规律。例如为了研究人体的生物性状，我们首先了解各个系统，如消化系统、神经系统、免疫系统等的功能，这时候我们是将各个系统当作一个整体来予以研究的；而接着，我们要继续研究组成系统的各器官的功能，再接着是组织、细胞、分子、原子等层面，这便是一个逐层还原的过程。随着层层还原过程的深入，我们对人体的机制就能够得到越来越多的了解。</p><p>是的，对那些过于复杂的系统，比如人的大脑，还原论方法到达一定地步之后就会显得异常繁难，人类的心智看来根本就无法做到将其彻底还原，这时候我们不得不退而求其次，对系统的某些细节忽略不计，从而引进一种比较整体的功能主义研究方式。类似地，对于像“视窗”这样复杂的软件系统，整个系统的逻辑是非常复杂的，如果有人想要模拟而不是剽窃这个系统，最好的办法是：在了解它的功能后再另行编制一个具有几乎相同功能的系统。如果妄想将一台装有“视窗”系统的电脑拆散，从物理的角度了解整个系统的逻辑结构，然后再一一复制出来，这肯定极其艰难甚至劳而无功。所以，对人的大脑采取功能主义的整体论方式进行模拟将比还原论方法也许更为行之有效。</p><p>但是，即使对复杂系统的研究，人类的心智有时候会变得一筹莫展，这也并不意味着还原论就没有价值。因为我们需要知道：系统的表现为什么会是这样？如果我们将一部哪怕最简单的计算器拿到古代，古代的科学家也可能被迫采取整体论的方式对它进行研究，他们或许能了解其主要功能，知道它可以用于数字计算，但他们必然不清楚：它为什么会是这样的呢？这时候，他们将会多么的遗憾。对人体的研究，虽然我们很难用原子和分子的行为来计算和推导出人的行为，但我们至少希望通过原子和分子的行为来解释和理解人的行为。很显然，我们需要能够直接描述复杂系统的整体定律，所以我们有化学定律、有混沌定律、有经济学定律和社会学定律，但这些定律不会是最基本的定律，我们会问为什么？为什么这些定律是这个样子？这时候，这些定律需要用个体行为来进行解释，需要用 “部分”的行为来进行解释。</p><p>还原论的方法肯定是最基本的科学方法。但由于混沌学说的巨大成功，一些人对整体论产生了过分的自信，在今天的很大部分科学哲学家眼里，还原论变成了坏东西，他们为整体论欢呼雀跃，却想法设法要与还原论划清界限。他们走得太远了，他们将整体论的作用过于夸大了，我们有些哲学家甚至还将整体论当作哲学本体论概念来进行介绍，煞有介事地探讨起“世界是简单还是复杂的”这样一些哲学命题来。他们的道理是，整体不等于部分之和，因此自然界是不可彻底还原的，因此整体论才是最优等的哲学。</p><p>有这样一个关于还原论的笑话：老师带学生走进实验室，指着一排玻璃仪器，说那是一个人，因为玻璃瓶里装着人的所有组成物质，包括水、碳、脂肪、蛋白质……。这个笑话的实质是说，还原论者只会将“部分”简单地累加起来形成整体，却愚蠢地并不考虑“部分”之间的相互作用。</p><p>我以为，认为还原论忽视了部分之间的相互作用，这样的指责毫无根据。还原论并不忽视“部分”之间的相互作用，相反，还原的目的正是为了更好地考察这种相互作用。通过还原，“部分”之间的相互作用变成了每个“部分”的边界条件，变成了每个“部分”的输入和输出，这使得我们能更精确地考察这种作用，并建立起将这些相互作用联系起来的方程。整体确实不等于部分之和，但整体必定等于部分及其相互作用之和。</p><p>有些人认为整体论的定律才是最基本的定律，而个体的行为要通过整体的行为来解释，甚至对人类社会也必须采取整体论的方法，认为如果只考察个体，则可能忽略掉人类社会这个群体的一些性质。这种说法是相当奇怪的，人类社会的所有性质归根结底都可以从个体性质及其相互作用而得到解释，虽然我们为了方便起见，可能采取整体论的研究方式，但肯定只有这种整体论的方式才有可能丢失一些重要的信息，而还原论的方式不会。</p><p>我们经常听到这样的训诫：使用还原论要谨慎从事。使用整体论更需谨慎从事。如果只是弄出一个整体论的定律，而个体层次发生的事情都以这个整体的行为来进行解释，这样的理论体系是难以令人信服的。</p><p>不过，还原论方法虽为我们所偏爱，但还原的过程必然只能进行到一定的层次，这不仅仅因为我们的心智不够，还有更重要的原因：自然界是不可以彻底还原的。</p><p>我们知道，世界是普遍联系的，世界上每个事物都和其他每个事物联系着。但事物之间的联系是怎样实现的呢？传统观点认为：不同的东西通过大量的中介过程统一起来，这就是说，事物之间的联系是层层递进的，是定域性的，任何物体只和其邻近产生即时联系，事物的超距作用是不可能的。世界的可还原性就建立在这样的宇宙绘景中，在这样的宇宙中，我们原则上可以将任何系统从宇宙中孤立出来进行考察，这个系统的边界条件是稳定的、可知的，我们可以通过边界条件的变化掌握和了解这个系统的性质和运行规律。将系统孤立的过程就是一个还原的过程，我们可以将大系统分割成一个个的小系统，小系统再细分为更小的系统，这样层层细分下去，从而我们所处的世界至少在理论上是可以彻底还原的。</p><p>然而，量子理论表明，世界的联系并不是定域性的。宇宙中的一切物质都存在着即时的普遍联系。在量子理论中，一切事物的运动都应该用波函数来描述，而波函数是遍布整个宇宙的。我现在坐在椅子上，我的身体伴随着有一个波函数，可以肯定这个波函数的值主要集中在我身体占有的空间内，接近100%，但不可能等于100%，在宇宙的其他地方，比如在火星上也会分布有我的波函数，虽然它们的值很小，非常接近于零，但不可能等于零。如果我的身体有任何的运动或变化，比如我动一下手指头，那么伴随我身体的波函数必然也要发生变化，而这个变化产生的影响将会遍布整个宇宙！火星上的一块石头如果“足够”地灵敏，它将会“感受”到这种影响，这种影响虽然非常非常之小，非常非常接近于零，但毕竟不等于零。在这样的宇宙绘景中，宇宙是一个不可分割的整体，如果我们一定要将某个时空孤立起来进行考察，那么由于宇宙中任何的变化都对它有影响，从而它的边界条件将会是整个宇宙！这个边界条件显然是不可知的。而且，外界对系统的作用也并不局限在边界，而是“深入”到系统内的每一个“部分”，这样系统内部的作用“场”也是不可知的。因此，这样的分割还原就变得没有任何实质性的意义。</p><p>所以，当我们用还原论的方法对事物进行考察的时候，我们实际上忽略了事物之间联系的量子效应。这样的“忽略”在通常情况下不会有什么问题，毕竟我的波函数在离开我身体哪怕只有一微米的地方就将衰减到几乎为零，它太小了，完全可以忽略不计。但是在那些必须考虑量子效应的地方，比如亚原子领域、比如宇宙“创生”的过程，这样的忽略就不能允许，这时候我们不能再采用还原论的研究方法，我们必须将整个宇宙都作为一个整体来考察。</p><p>很显然，只有在局域性不能忽略的地方，还原论才原则上不可行；在不必考虑局域性的地方，还原论原则上可行！</p><p>那么，在还原论原则上不可行的亚原子领域，还原论就没有价值了吗？<br>我认为，还原论仍然有重大的价值。因为，即便是存在非局域性，导致还原论原则上不可行的领域，我们还是需要了解个体的性质，要通过个体的行为来理解（而不是推导）整体的行为。</p><h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h2><ul><li><a href="https://baike.baidu.com/item/%E6%95%B4%E4%BD%93%E8%AE%BA" target="_blank" rel="noopener">整体论</a></li><li><a href="https://baike.baidu.com/item/%E8%BF%98%E5%8E%9F%E8%AE%BA" target="_blank" rel="noopener">还原论</a></li><li><a href="http://www.pstruc.org/Article/shi/423.html" target="_blank" rel="noopener">刘劲杨：论整体论与还原论之争</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;还原论&quot;&gt;&lt;a href=&quot;#还原论&quot; class=&quot;headerlink&quot; title=&quot;还原论&quot;&gt;&lt;/a&gt;还原论&lt;/h2&gt;&lt;p&gt;所谓还原，是一种把复杂的系统（或者现象、过程）层层分解为其组成部分的过程。&lt;strong&gt;还原论&lt;/strong&gt;认为，复杂系统可以通过它各个组成部分的行为及其相互作用来加以解释。还原论方法是迄今为止自然科学研究的最基本的方法，人们习惯于以“静止的、孤立的”观点考察组成系统诸要素的行为和性质，然后将这些性质“组装”起来形成对整个系统的描述。例如，为了考察生命，我们首先考察神经系统、消化系统、免疫系统等各个部分的功能和作用，在考察这些系统的时候我们又要了解组成它们的各个器官，要了解器官又必须考察组织，直到最后是对细胞、蛋白质、遗传物质、分子、原子等的考察。现代科学的高度发达表明，还原论是比较合理的研究方法，寻找并研究物质的最基本构件的做法当然是有价值的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="哲学" scheme="http://www.iamlightsmile.com/tags/%E5%93%B2%E5%AD%A6/"/>
-    
-      <category term="抽象" scheme="http://www.iamlightsmile.com/tags/%E6%8A%BD%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线性代数</title>
-    <link href="http://www.iamlightsmile.com/articles/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    <id>http://www.iamlightsmile.com/articles/线性代数/</id>
-    <published>2019-04-22T06:26:05.000Z</published>
-    <updated>2020-01-18T11:55:30.373Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>线性代数是研究线性空间及其线性映射的，或者说各种线性结构和态射。</p><h2 id="价值"><a href="#价值" class="headerlink" title="价值"></a>价值</h2><p>由于线性结构非常常见，所以线性代数的价值也相当大。</p><a id="more"></a><h2 id="意义和地位"><a href="#意义和地位" class="headerlink" title="意义和地位"></a>意义和地位</h2><p>线性代数在数学、物理学和技术学科中有各种重要应用，因而它在各种代数分支中占居首要地位。在计算机广泛应用的今天，计算机图形学、计算机辅助设计、密码学、虚拟现实等技术无不以线性代数为其理论和算法基础的一部分。线性代数所体现的几何观念与代数方法之间的联系，从具体概念抽象出来的公理化方法以及严谨的逻辑推证、巧妙的归纳综合等，对于强化人们的数学训练，增益科学智能是非常有用的。随着科学的发展，我们不仅要研究单个变量之间的关系，还要进一步研究多个变量之间的关系，各种实际问题在大多数情况下可以线性化，而由于计算机的发展，线性化了的问题又可以被计算出来，线性代数正是解决这些问题的有力工具。线性代数的计算方法也是计算数学里一个很重要的内容。<br>线性代数的含义随数学的发展而不断扩大。线性代数的理论和方法已经渗透到数学的许多分支，同时也是理论物理和理论化学所不可缺少的代数基础知识。</p><p>“以直代曲”是人们处理很多数学问题时一个很自然的思想。很多实际问题的处理，最后往往归结为线性问题，它比较容易处理。因此，线性代数在工程技术和国民经济的许多领域都有着广泛的应用，是一门基本的和重要的学科。</p><p>如果进入科研领域，你就会发现，只要不是线性的东西，我们基本都不会！线性是人类少数可以研究得非常透彻的数学基础性框架。学好线性代数，你就掌握了绝大多数可解问题的钥匙。有了这把钥匙，再加上相应的知识补充，你就可以求解相应的问题。可以说，不学线性代数，你就漏过了95%的人类智慧！非线性的问题极为困难，我们并没有足够多的通用的性质和定理用于求解具体问题。如果能够把非线性的问题化为线性的，这是我们一定要走的方向！</p><p>事实上，微积分“以直代曲”的思想就是将整体非线性化为局部线性的一个经典的例子，尽管高等数学在定义微分时并没有用到一点线性代数的内容。许多非线性问题的处理――譬如流形、微分几何等，最后往往转化为线性问题。包括科学研究中，非线性模型通常也可以被近似为线性模型。随着研究对象的复杂化与抽象化，对非线性问题线性化，以及对线性问题的求解，就难免涉及到线性代数的术语和方法了。从这个意义上，线性代数可以被认为是许多近、现代数学分支的共同基础。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/800" target="_blank" rel="noopener">线性代数</a></li><li><a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">把非线性转化成线性</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;基本介绍&quot;&gt;&lt;a href=&quot;#基本介绍&quot; class=&quot;headerlink&quot; title=&quot;基本介绍&quot;&gt;&lt;/a&gt;基本介绍&lt;/h2&gt;&lt;p&gt;线性代数是研究线性空间及其线性映射的，或者说各种线性结构和态射。&lt;/p&gt;
-&lt;h2 id=&quot;价值&quot;&gt;&lt;a href=&quot;#价值&quot; class=&quot;headerlink&quot; title=&quot;价值&quot;&gt;&lt;/a&gt;价值&lt;/h2&gt;&lt;p&gt;由于线性结构非常常见，所以线性代数的价值也相当大。&lt;/p&gt;
     
     </summary>
     
