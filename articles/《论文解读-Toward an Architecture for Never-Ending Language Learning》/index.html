@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Hexo主题继续优化 | lightsmile&#39;s Blog</title>
+  <title>《论文解读-Toward an Architecture for Never-Ending Language Learning》 | lightsmile&#39;s Blog</title>
   
   <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
   
@@ -250,13 +250,13 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">Hexo主题继续优化</h1>
+          <h1 class="title">《论文解读-Toward an Architecture for Never-Ending Language Learning》</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-04
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-31
       </time>
     
 
@@ -264,7 +264,7 @@
       
     
     <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/计算机/">计算机</a>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/知识图谱/">知识图谱</a>
     </div>
 
 
@@ -285,46 +285,114 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p>本次优化的方向主要围绕以下几点来展开：</p>
+        <p>当前自己仅是简单翻译一下。</p>
+<h2 id="0-论文出处"><a href="#0-论文出处" class="headerlink" title="0. 论文出处"></a>0. <a href="http://rtw.ml.cmu.edu/papers/carlson-aaai10.pdf" target="_blank" rel="noopener">论文出处</a></h2><h2 id="1-NELL系统概述"><a href="#1-NELL系统概述" class="headerlink" title="1. NELL系统概述"></a>1. NELL系统概述</h2><p>NELL（never-ending language learner）系统每天不间断地执行两个任务：</p>
 <ol>
-<li>自定义背景文字颜色</li>
-<li>添加雪花特效</li>
-<li>添加爆炸特效</li>
-<li>添加输入特效</li>
+<li>阅读任务:从web文本中提取信息，进一步填充结构化事实和知识的不断增长的知识库。</li>
+<li>学习任务:学习阅读，每天都比前一天更好，这是由它的能力证明，回到昨天的文本来源，提取更多的信息更准确</li>
 </ol>
-<p>我当前使用的主题还是比较流行、作者一直在维护的主题<a href="https://xaoxuu.com/wiki/material-x/" target="_blank" rel="noopener">Material-X</a>.</p>
 <a id="more"></a>
-<h3 id="自定义背景文字颜色"><a href="#自定义背景文字颜色" class="headerlink" title="自定义背景文字颜色"></a>自定义背景文字颜色</h3><p>参见<a href="https://xaoxuu.com/wiki/material-x/style/index.html" target="_blank" rel="noopener">Material-X doc</a>中配色描述，将背景和文字颜色设置为暗色主题，同时将主题设置为深绿色，效果如图所示：</p>
-<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/hexo主题设置.png" alt="hexo主题设置"></p>
-<p><strong>注意</strong>：如果是单纯修改以上内容，其实并不能生效，还要关闭主题的<code>_config.yml</code>文件中的cdn服务，如下图所示：</p>
-<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/关闭cdn服务.png" alt="关闭cdn服务"></p>
-<h3 id="添加雪花特效"><a href="#添加雪花特效" class="headerlink" title="添加雪花特效"></a>添加雪花特效</h3><p>从站长之家找到的<a href="http://sc.chinaz.com/jiaoben/181229224430.htm" target="_blank" rel="noopener">JS制作雪花飘落背景动画特效</a>, 下载后将两个js放入<code>source</code>目录下的<code>js</code>目录中，并在<code>layout</code>目录下的<code>layout.ejs</code>中添加相关script路径，如下图所示：</p>
-<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/雪花特效.png" alt="雪花特效"></p>
-<h3 id="添加爆炸特效"><a href="#添加爆炸特效" class="headerlink" title="添加爆炸特效"></a>添加爆炸特效</h3><p>发现<a href="http://www.zhuimeng.online/" target="_blank" rel="noopener">生如夏花</a>的博客的点击效果比较炫酷，查看其发布的文章并没有介绍具体实现，于是查看其网页源码，得到了对应的<code>fireworks.js</code>文件，同<strong>雪花特效</strong>一样添加到指定路径并配置路径，如下图所示：</p>
-<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/爆炸特效.png" alt="爆炸特效"></p>
-<h3 id="添加输入特效"><a href="#添加输入特效" class="headerlink" title="添加输入特效"></a>添加输入特效</h3><p>发现<a href="https://blog.treelo.xin/" target="_blank" rel="noopener">搅拌糖</a>对主题进行了炫酷的DIY，如背景切换，滑动栏自定义等，同上查看了其网页源码，得到<code>cooltext.js</code>文件，同<strong>雪花特效</strong>一样添加到指定路径并配置路径，如下图所示：</p>
-<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/输入特效.png" alt="输入特效"></p>
-<p>经过以上步骤，hexo主题又得到了进一步的自定义优化。</p>
-<p>ps：花了许多时间排查看板娘插件是如何出现的，自己只是安装的依赖库，并没有配置，然而却被渲染到最终的生成页面中，真是百思不得其解，由于个人不太喜欢二次元，同时手机端看起来体验不好（占了很大的空间），最终选择将依赖库移除从而去除掉了看板娘效果。</p>
+<h2 id="2-理论基础"><a href="#2-理论基础" class="headerlink" title="2. 理论基础"></a>2. 理论基础</h2><p>网络上庞大的信息冗余(例如，许多事实以不同的方式被多次陈述)将使具有正确学习机制的系统获得成功。</p>
+<h2 id="3-研究定位"><a href="#3-研究定位" class="headerlink" title="3. 研究定位"></a>3. 研究定位</h2><p>这项研究的一个观点是，它是一个终生学习的案例研究。第二种观点认为，这是一种提高自然语言处理艺术水平的尝试。第三种观点认为，这是开发世界上最大的结构化知识库的一种尝试——反映万维网的事实内容，这将对许多人工智能工作有用。</p>
+<h2 id="4-NELL系统掌握的知识类型"><a href="#4-NELL系统掌握的知识类型" class="headerlink" title="4. NELL系统掌握的知识类型"></a>4. NELL系统掌握的知识类型</h2><p>目前，NELL掌握了两种类型的知识:</p>
+<ol>
+<li>关于哪些名词短语指哪些特定语义类别的知识，如城市、公司和运动队;</li>
+<li>关于哪些名词短语对满足哪些特定语义关系的知识，如hasOfficesIn(组织、位置)。</li>
+</ol>
+<h2 id="5-NELL系统的贡献"><a href="#5-NELL系统的贡献" class="headerlink" title="5. NELL系统的贡献"></a>5. NELL系统的贡献</h2><ol>
+<li>构建一个永不停息的学习代理的体系结构的进展，以及一组帮助成功实现该体系结构的设计原则</li>
+<li>对该体系结构实现的web级实验评估</li>
+<li>这是迄今为止规模最大、最成功的bootstrap学习实现之一</li>
+</ol>
+<h2 id="6-系统组成"><a href="#6-系统组成" class="headerlink" title="6. 系统组成"></a>6. 系统组成</h2><ol>
+<li>一个持续增长的共享的知识库</li>
+<li>一系列实现了互补的知识抽取方法的阅读/学习子系统组件</li>
+</ol>
+<h2 id="7-知识库初始定义"><a href="#7-知识库初始定义" class="headerlink" title="7. 知识库初始定义"></a>7. 知识库初始定义</h2><ol>
+<li>1个本体（定义了类别和关系的谓词集合）</li>
+<li>这个本体中每个谓词的一些种子示例(例如，一些个示例城市)。</li>
+</ol>
+<h2 id="8-系统目标"><a href="#8-系统目标" class="headerlink" title="8. 系统目标"></a>8. 系统目标</h2><p>通过阅读不断地增长知识库，并学习更好地阅读。</p>
+<h2 id="9-系统体系结构"><a href="#9-系统体系结构" class="headerlink" title="9. 系统体系结构"></a>9. 系统体系结构</h2><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1580396034044.png" alt="UTOOLS1580396034044png"></p>
+<ul>
+<li>添加到知识库中的类别和关系实例被划分为候选事实和信念。</li>
+<li>子系统组件可以从知识库中读取数据并参考其他外部资源(例如文本库或Internet)，然后提出新的候选事实。</li>
+<li>组件为每个提议的候选提供一个概率，并提供支持它的源证据的摘要。</li>
+<li>知识整合器(KI)检查这些提出的候选事实，并将其中最有力的支持提升到信念状态。</li>
+</ul>
+<h2 id="10-系统工作原理"><a href="#10-系统工作原理" class="headerlink" title="10. 系统工作原理"></a>10. 系统工作原理</h2><ul>
+<li>在我们的初始实现中，这个循环是迭代操作的。在每个迭代中，给定当前的知识库，每个子系统组件都运行到完成，然后KI根据新提出的候选事实做出决定。</li>
+<li>知识库在迭代中不断增长，提供了越来越多的信念，然后每个子系统组件使用这些信念来重新训练自己，以便在下一次迭代中更好地阅读。通过这种方式，我们的方法可以被看作是实现了一种耦合的、半监督的学习方法，在这种方法中，多个组件在KI的监督下学习和共享互补类型的知识。</li>
+<li>可以将此方法视为期望最大化(EM)算法的近似值，其中E步骤涉及迭代地估计共享知识库中非常大的一组虚拟候选信念的真值，M步骤涉及重新培训各种子系统组件提取方法。</li>
+<li>如果标记错误累积，这种迭代学习方法可能会出现问题。为了帮助缓解这个问题，我们将允许系统每天与人进行10-15分钟的交互，以帮助它保持“在正轨上”。“然而，在这里报道的工作中，我们对人力投入的使用有限。</li>
+</ul>
+<h2 id="11-系统设计原则"><a href="#11-系统设计原则" class="headerlink" title="11. 系统设计原则"></a>11. 系统设计原则</h2><ol>
+<li><strong>使用产生不相关错误的子系统组件。</strong> 当多个组件出现不相关的错误时，它们都出现相同错误的概率是它们各自错误概率的乘积，从而导致错误率大大降低。</li>
+<li><strong>学习多种类型的相关知识。</strong> 例如，我们使用一个组件学习从文本资源中提取谓词实例，另一个组件学习从知识库中的其他信念中推断关系实例。这为相同类型的信念提供了多种独立的来源。</li>
+<li><strong>使用耦合半监督学习方法来利用正在学习的谓词之间的约束(Carlson et al. 2010)。</strong> 为了提供耦合的机会，将类别和关系安排到一个分类法中，该分类法定义哪些类别是其他类别的子集，以及哪些类别对是相互排斥的。另外，指定每个关系参数的期望类别以启用类型检查。子系统组件和KI可以从利用耦合的方法中获益。</li>
+<li><strong>将知识库中的高自信信念与低自信候选者区分开来，并保留每种信念的来源证明。</strong></li>
+<li><strong>使用统一的知识库表示来捕获候选事实和促进所有类型的信念，并使用可以在此共享表示上操作的关联推理和学习机制。</strong></li>
+</ol>
+<h2 id="12-系统设计到的知识"><a href="#12-系统设计到的知识" class="headerlink" title="12. 系统设计到的知识"></a>12. 系统设计到的知识</h2><ol>
+<li>半监督学习</li>
+<li>终身学习</li>
+<li>bootstrap学习</li>
+<li>耦合半监督学习</li>
+</ol>
+<h2 id="13-系统子系统组件"><a href="#13-系统子系统组件" class="headerlink" title="13. 系统子系统组件"></a>13. 系统子系统组件</h2><ul>
+<li><strong>耦合模式学习器(Coupled Pattern Learner，CPL)</strong>：一个用于自由文本的提取器，它学习和使用上下文模式，如“市长的X”和“X发挥Y”提取范畴和关系的实例。CPL使用名词短语和上下文模式之间的共现统计(均使用词性标记序列定义)来学习感兴趣的每个谓词的提取模式，然后使用这些模式来查找每个谓词的其他实例。谓词之间的关系用于过滤过于一般化的模式。Carlson等人(2010)对CPL进行了详细描述。CPL提取的候选实例的概率是使用公式1 0.5 c启发式分配的，其中c是提取候选实例的提升模式的数量。在我们的实验中，CPL作为20亿个句子的语料库的输入，这些句子是使用OpenNLP 包从ClueWeb09数据集中的5亿个网页英语部分提取、标记和后置标签句子生成的(Callan和Hoy 2009)。</li>
+<li><strong>耦合密封(Coupled SEAL，CSEAL)</strong>:一个半结构化的提取器，它使用来自每个类别或关系的信念集查询Internet，然后挖掘列表和表来提取相应谓词的新实例。CSEAL使用互斥关系来提供负面示例，这些示例用于过滤掉过于一般的列表和表。CSEAL也由Carlson等人(2010)描述，它基于Wang和科恩(2009)。给定一组种子实例，CSEAL通过对知识库中的信念进行子抽样并在查询中使用这些抽样的种子来执行查询。CSEAL被配置为为每个类别发出5个查询，为每个关系发出10个查询，并为每个查询获取50个web页面。CSEAL提取的候选事实使用与CPL相同的方法分配概率，只不过c是提取实例的未过滤包装器的数量。</li>
+<li><strong>耦合形态分类器(Coupled Morphological Classifier，CMC)</strong>:一组二元l2正则化逻辑回归模型，每个类别一个，根据不同的形态特征(单词、大写字母、词缀、词性等)对名词短语进行分类。来自知识库的信念被用作训练实例，但是在每个迭代中CMC被限制为至少有100个提升实例的谓词。与CSEAL一样，互斥关系用于识别负面实例。CMC检查其他组件提出的候选事实，并在每次迭代中每个谓词分类多达30个新信念，最小后验概率为0.75。这些启发式度量有助于确保较高的精度。</li>
+<li><strong>规则学习器(Rule Learner，RL)</strong>:类似于FOIL (Quinlan和Cameron-Jones 1993)的一阶关系学习算法，它学习概率性的Horn子句。这些学习到的规则用于从知识库中已经存在的其他关系实例中推断新的关系实例。</li>
+</ul>
+<h2 id="14-知识整合器（KI）"><a href="#14-知识整合器（KI）" class="headerlink" title="14. 知识整合器（KI）"></a>14. 知识整合器（KI）</h2><p>我们对知识整合器(KI)的实现使用硬编码的、直观的策略将候选事实提升到信念的状态。从单一来源(后&gt; 0.9)获得高可信度的候选事实将得到提升，而从多个来源获得低可信度的候选事实将得到提升。</p>
+<p>KI通过遵守互斥和类型检查信息来利用谓词之间的关系。特别是,候选类别实例不会被提升如果他们已经属于一个互斥的类别；关系实例同样不会提升,除非他们的论元至少属于候选的合适的类别类型(而不是已经被认为是一个类别的实例与适当的类型相互排斥）。</p>
+<p>在我们当前的实现中，一旦将候选事实提升为信念，它就永远不会降级。KI被配置为每次迭代每个谓词最多提升250个实例，但是在我们的实验中很少达到这个阈值。</p>
+<p>NELL中的KB是基于Tokyo Cabinet2(一种快速、轻量级的键/值存储)的THEO框架表示(Mitchell et al. 1991)的重新实现。知识库可以在一台机器上处理数百万个值。</p>
+<h2 id="15-实验"><a href="#15-实验" class="headerlink" title="15. 实验"></a>15. 实验</h2><p>我们实验中使用的输入本体包括123个类别，每个类别有10-15个种子实例和5个CPL种子模式(源自Hearst模式(Hearst 1992))。 类别包括地点(例如，山脉、湖泊、城市、博物馆)、人(例如，科学家、作家、政治家、音乐家)、动物(例如，爬行动物、鸟类、哺乳动物)、组织(例如，公司、大学、网站、运动队)和其他。其中包括55个关系，还有10-15个种子实例和5个负面实例(通常通过屏蔽种子实例的参数生成)。关系捕获不同类别之间的关系(例如，teamPlaysSport、bookWriter、companyProducesProduct)。</p>
+<p>在我们的实验中，CPL、CSEAL和CMC每次迭代运行一次。RL在每批10次迭代之后运行，并由人工筛选提议的输出规则。手动批准这些规则只需要几分钟。为了估计NELL生成的知识库中的信念的精度，最后知识库中的信念被随机抽样，并由几个人类裁判进行评估。在作出决定之前，对意见不一致的情况进行了详细的讨论。曾经正确但现在不正确的事实(例如，一个运动队的前教练)被认为是正确的评价，因为NELL目前没有处理其信仰的时间范围。虚假的形容词(如《今日芝加哥论坛报》(today ‘s Chicago Tribune)是被允许的，但很少见。</p>
+<h2 id="16-抽取结果示例"><a href="#16-抽取结果示例" class="headerlink" title="16. 抽取结果示例"></a>16. 抽取结果示例</h2><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1580396220983.png" alt="UTOOLS1580396220983png"></p>
+<h2 id="17-结果"><a href="#17-结果" class="headerlink" title="17. 结果"></a>17. 结果</h2><p>略</p>
+<h2 id="18-讨论"><a href="#18-讨论" class="headerlink" title="18. 讨论"></a>18. 讨论</h2><p>尽管NELL的持续学习允许它每天提取更多的事实，但提取事实的准确性随着时间的推移而缓慢下降。部分原因是最简单的提取发生在早期的迭代中，而后期的迭代需要更精确的提取器来达到同样的精度。</p>
+<p>然而，NELL犯的错误也会导致他学会犯更多的错误。虽然我们认为目前的系统很有前途，但还有许多研究工作要做。</p>
+<h2 id="19-总结"><a href="#19-总结" class="headerlink" title="19. 总结"></a>19. 总结</h2><p>我们提出了一个永不停止的语言学习代理的体系结构，并描述了该体系结构的部分实现，它使用四个子系统组件来学习以互补的方式提取知识。在运行了67天之后，这个实现填充了一个包含242,000多个事实的知识库，估计精度为74%。</p>
+<p>这些结果说明了使用一组不同的知识提取方法的好处，这些方法适合于学习，并且一个知识库允许存储候选事实和自信的信念。</p>
+<h2 id="20-可以改进之处"><a href="#20-可以改进之处" class="headerlink" title="20. 可以改进之处"></a>20. 可以改进之处</h2><p>有许多改进的机会,包括:</p>
+<ol>
+<li><p>反省决定下一步该做什么,</p>
+</li>
+<li><p>更有效地利用10的15分钟的日常人际互动,</p>
+</li>
+<li><p>学习新发现的谓词,</p>
+</li>
+<li><p>学习额外的知识类型语言,</p>
+</li>
+<li><p>实体级(而不是string-level)建模</p>
+</li>
+<li><p>更复杂的概率建模的实现。</p>
+</li>
+</ol>
+<h2 id="21-致谢"><a href="#21-致谢" class="headerlink" title="21. 致谢"></a>21. 致谢</h2><p>略</p>
+<h2 id="22-参考"><a href="#22-参考" class="headerlink" title="22. 参考"></a>22. 参考</h2><p>略</p>
 
       </div>
       <div align="center">
         <div class="copyright">
             <p><span>
-                <br /><b>本文地址：</b><a href="/articles/Hexo主题继续优化/" title="Hexo主题继续优化">Hexo主题继续优化</a><br /><b>转载请注明出处，谢谢！</b>
+                <br /><b>本文地址：</b><a href="/articles/《论文解读-Toward an Architecture for Never-Ending Language Learning》/" title="《论文解读-Toward an Architecture for Never-Ending Language Learning》">《论文解读-Toward an Architecture for Never-Ending Language Learning》</a><br /><b>转载请注明出处，谢谢！</b>
             </span></p>
             </div>
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-18T19:56:46+08:00" content="2020-01-18"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2020-01-18
+              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-31T18:30:08+08:00" content="2020-01-31"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2020-01-31
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/Hexo/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Hexo</a></div> <div class="metatag tags"><a class="tag" href="/tags/blog/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;blog</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/知识图谱/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;知识图谱</a></div>
             
             
               
@@ -335,14 +403,12 @@
         
           <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
             
-            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/Hexo主题继续优化/&title=Hexo主题继续优化 | lightsmile's Blog&summary=本次优化的方向主要围绕以下几点来展开：
+            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/《论文解读-Toward an Architecture for Never-Ending Language Learning》/&title=《论文解读-Toward an Architecture for Never-Ending Language Learning》 | lightsmile's Blog&summary=当前自己仅是简单翻译一下。
+0. 论文出处1. NELL系统概述NELL（never-ending language learner）系统每天不间断地执行两个任务：
 
-自定义背景文字颜色
-添加雪花特效
-添加爆炸特效
-添加输入特效
-
-我当前使用的主题还是比较流行、作者一直在维护的主题Material-X."
+阅读任务:从web文本中提取信息，进一步填充结构化事实和知识的不断增长的知识库。
+学习任务:学习阅读，每天都比前一天更好，这是由它的能力证明，回到昨天的文本来源，提取更多的信息更准确
+"
             
             >
             
@@ -354,14 +420,12 @@
         
           <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
             
-            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/Hexo主题继续优化/&title=Hexo主题继续优化 | lightsmile's Blog&summary=本次优化的方向主要围绕以下几点来展开：
+            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/《论文解读-Toward an Architecture for Never-Ending Language Learning》/&title=《论文解读-Toward an Architecture for Never-Ending Language Learning》 | lightsmile's Blog&summary=当前自己仅是简单翻译一下。
+0. 论文出处1. NELL系统概述NELL（never-ending language learner）系统每天不间断地执行两个任务：
 
-自定义背景文字颜色
-添加雪花特效
-添加爆炸特效
-添加输入特效
-
-我当前使用的主题还是比较流行、作者一直在维护的主题Material-X."
+阅读任务:从web文本中提取信息，进一步填充结构化事实和知识的不断增长的知识库。
+学习任务:学习阅读，每天都比前一天更好，这是由它的能力证明，回到昨天的文本来源，提取更多的信息更准确
+"
             
             >
             
@@ -371,7 +435,7 @@
         
       
         
-          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQU7EMAwFUO5/aVgjaOfbjqsZ6XWFoKR5XcSu7a+v+Pr+c13dc/Vff+9J/np15+ELDw8Pb7z1qwdX70meeI/J77l8Lh4eHt4a7/6g7zGSYz0PAFf7eWHBw8PDewNeb4uTFPk+SODh4eF9Fi9Pf3sBo7cmHh4e3jO8pNCQPL66raSg0CuO4OHh4e3x8qT2fX5e6e/h4eHhjbvqyWE9WTkPJ83d4uHh4S3w8gO3OihQHdI6lS7j4eHhbfN6ZYhJUp6PZE3aZnh4eHhP8iah4lQynTfJXuwWDw8Pb5lXxVebVclLuS9DJKv9862Ah4eHt8CrHsGniheT8NPs2uHh4eEd4lUT1l77qvqK8xBy+XQ8PDy8NV6vodVLlHuDCM0yMR4eHt4Cb55qF0oDt7/JE+55mo6Hh4c34SVF2Pk3fg5IXlahTIyHh4e3zOv9nISB3gqT0Ss8PDy8Z3jz5lkVmQePZqDCw8PDW+BNSqJJu6u3xXwULGnX4eHh4W3wqh/51TZYPoIwamtd7QEPDw/vKK+36KRNlZcqDhQv8PDw8BZ4vQP6GWovmX4xQICHh4d3iJcvlzf+5wFgknyXi7l4eHh4MS9PUvdGB6ott/y14uHh4W3w8lGA+QhUtRBcHSZ4kVLj4eHhHeUlR22SWOdFh1PndiGe4OHh4a3xTg0EJMd9EjyqRY2oAYaHh4d3iFcdaeoNYOVF4XmRAg8PD2+DN/n4b77L1kFfHVP4NVOGh4eHd5R3KrZMxq2SM7zaPMPDw8Pb5k2W7o1P5aWK3sgXHh4e3jO8vCmVPLgHOHXh4eHhfQqvOpRQHbqqJvF4eHh478OrNr1yWD6UUAgweHh4eGu8s6MAveGA5M5yiMLDw8Nb4FU/76vl1GoIGXXq5tULPDw8vLvrBxQKzxRKjgjzAAAAAElFTkSuQmCC'>
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjklEQVR42u3aS27cMBAFQN//0g6QlYFkZt7rlpOhXFoZgU1RxQDs38dH/Hz+fr7+/PX583eer/NotefrP9rJo/U3+xw+mDBhwoTpLZnypZPfbD/mqqN6Tt+u85e/xYQJEyZMhzPtt5XQP39vDpev1h7hw3/HhAkTJkw/gOmq9Hj2kbO0Ofl9TJgwYcKEaR8cJAXcpCj8bwq+mDBhwoTpfkz5cp+jJ7/+Z+9KAo52fUyYMGHCdA+mWSvxHj9/+3wTJkyYMGH6r0z7Sz25Pmft0tlQ0SZ1f/gWTJgwYcJ0LFOyxdn9mFy9+cWcl5KLom1bVsaECRMmTMcytY29fBSmXTM5mH1Cnh8/JkyYMGE6nWlD047RPGdti7DJyQ8HdK79H4QJEyZMmN6AaXYNJwXZzeclZdl2n/meH5Z3MWHChAnTUUz5JZ1st01u8xLwJoBoDwMTJkyYMN2PKb+22wu1Hf1JxoBmZeJZy/PFTjBhwoQJ04FMbeKaDNPMkuqiE7turOYhESZMmDBhugdTWyRNLukkONg3Vtv1VwEBJkyYMGF6e6Z9yfWqi3yWrM7S2jalx4QJEyZM5zK1aeHsMk42ummF5pRtuxQTJkyYMN2JKUky21Bgln+3x3Zto/RFQIAJEyZMmI5iysduZi3AdtCnXWdWwG1/xoQJEyZM92Aa9j/jJDm/nlvWWZOywMWECRMmTMcy5WntpsjbDve04ztJ0HBBUo0JEyZMmI5lmjUF28Q4Dy/aD5sd6vDtmDBhwoTpKKbkY2Z8eULbvmsTcAxL2JgwYcKE6RZM7evzQCFJLGefmqyff1eU7mLChAkTpqOYZhdnPriTc2/WbD9+NpaECRMmTJjOZbo2xW03+jF6kjU3hd06esKECRMmTMcyJSlr28LcJKUzjtkbMWHChAnT6UxXpbvJ5pLSbX615zSzQZ8XgzuYMGHChOkQptlYzKwIm3Pn4zv7tmWyT0yYMGHCdC5Tnqy2yWSSUm4S2rzIux8DwoQJEyZM92CajbYkCWfeEJ2VifNUOY+SMGHChAnTXZkSuLwc3I7UzNLdPF1vk21MmDBhwnQ6UzvactXv55d3XrrdDBLlb8eECRMmTOcy5angBddqzDcr/uZF3jY5x4QJEyZMZzHlSW/bSvyOICMPFPIEO/pqTJgwYcJ0C6ak7VfEFCPiGcG1cC/amZgwYcKE6Sim77iMk2Bi1tScNTvrMR1MmDBhwnQjpiQJnJVTkyt/VjLeN0rrcjYmTJgwYboFU365tp+9aUnmR5KHMsluhzM+mDBhwoTpzZg2l2vbmNxf9psDnoU4mDBhwoTpdKbP8pmVdNvCa348VwUKL9bHhAkTJkzHMuVP/gdt0zGhb3Hz48xL1ZgwYcKE6VymWQE03+KGr87dy9AhD24wYcKECdPpTHnRc3ZhDyORUYPzKlxMmDBhwvTTmJLxnVnC3BaFW8o2XHiY+mLChAkTJkyj4uxmndnHJweMCRMmTJjuxJRvd1bq3a+QJLQtQfF2TJgwYcJ0LFObWCbF03wgpi0TX5DELlJlTJgwYcJ0FNMvoArJKo/C7hUAAAAASUVORK5CYII='>
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
           
@@ -381,14 +445,12 @@
         
           <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
             
-            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/Hexo主题继续优化/&title=Hexo主题继续优化 | lightsmile's Blog&summary=本次优化的方向主要围绕以下几点来展开：
+            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/《论文解读-Toward an Architecture for Never-Ending Language Learning》/&title=《论文解读-Toward an Architecture for Never-Ending Language Learning》 | lightsmile's Blog&summary=当前自己仅是简单翻译一下。
+0. 论文出处1. NELL系统概述NELL（never-ending language learner）系统每天不间断地执行两个任务：
 
-自定义背景文字颜色
-添加雪花特效
-添加爆炸特效
-添加输入特效
-
-我当前使用的主题还是比较流行、作者一直在维护的主题Material-X."
+阅读任务:从web文本中提取信息，进一步填充结构化事实和知识的不断增长的知识库。
+学习任务:学习阅读，每天都比前一天更好，这是由它的能力证明，回到昨天的文本来源，提取更多的信息更准确
+"
             
             >
             
@@ -398,7 +460,7 @@
         
       
         
-          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQU7EMAwFUO5/aVgjaOfbjqsZ6XWFoKR5XcSu7a+v+Pr+c13dc/Vff+9J/np15+ELDw8Pb7z1qwdX70meeI/J77l8Lh4eHt4a7/6g7zGSYz0PAFf7eWHBw8PDewNeb4uTFPk+SODh4eF9Fi9Pf3sBo7cmHh4e3jO8pNCQPL66raSg0CuO4OHh4e3x8qT2fX5e6e/h4eHhjbvqyWE9WTkPJ83d4uHh4S3w8gO3OihQHdI6lS7j4eHhbfN6ZYhJUp6PZE3aZnh4eHhP8iah4lQynTfJXuwWDw8Pb5lXxVebVclLuS9DJKv9862Ah4eHt8CrHsGniheT8NPs2uHh4eEd4lUT1l77qvqK8xBy+XQ8PDy8NV6vodVLlHuDCM0yMR4eHt4Cb55qF0oDt7/JE+55mo6Hh4c34SVF2Pk3fg5IXlahTIyHh4e3zOv9nISB3gqT0Ss8PDy8Z3jz5lkVmQePZqDCw8PDW+BNSqJJu6u3xXwULGnX4eHh4W3wqh/51TZYPoIwamtd7QEPDw/vKK+36KRNlZcqDhQv8PDw8BZ4vQP6GWovmX4xQICHh4d3iJcvlzf+5wFgknyXi7l4eHh4MS9PUvdGB6ott/y14uHh4W3w8lGA+QhUtRBcHSZ4kVLj4eHhHeUlR22SWOdFh1PndiGe4OHh4a3xTg0EJMd9EjyqRY2oAYaHh4d3iFcdaeoNYOVF4XmRAg8PD2+DN/n4b77L1kFfHVP4NVOGh4eHd5R3KrZMxq2SM7zaPMPDw8Pb5k2W7o1P5aWK3sgXHh4e3jO8vCmVPLgHOHXh4eHhfQqvOpRQHbqqJvF4eHh478OrNr1yWD6UUAgweHh4eGu8s6MAveGA5M5yiMLDw8Nb4FU/76vl1GoIGXXq5tULPDw8vLvrBxQKzxRKjgjzAAAAAElFTkSuQmCC'>
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjklEQVR42u3aS27cMBAFQN//0g6QlYFkZt7rlpOhXFoZgU1RxQDs38dH/Hz+fr7+/PX583eer/NotefrP9rJo/U3+xw+mDBhwoTpLZnypZPfbD/mqqN6Tt+u85e/xYQJEyZMhzPtt5XQP39vDpev1h7hw3/HhAkTJkw/gOmq9Hj2kbO0Ofl9TJgwYcKEaR8cJAXcpCj8bwq+mDBhwoTpfkz5cp+jJ7/+Z+9KAo52fUyYMGHCdA+mWSvxHj9/+3wTJkyYMGH6r0z7Sz25Pmft0tlQ0SZ1f/gWTJgwYcJ0LFOyxdn9mFy9+cWcl5KLom1bVsaECRMmTMcytY29fBSmXTM5mH1Cnh8/JkyYMGE6nWlD047RPGdti7DJyQ8HdK79H4QJEyZMmN6AaXYNJwXZzeclZdl2n/meH5Z3MWHChAnTUUz5JZ1st01u8xLwJoBoDwMTJkyYMN2PKb+22wu1Hf1JxoBmZeJZy/PFTjBhwoQJ04FMbeKaDNPMkuqiE7turOYhESZMmDBhugdTWyRNLukkONg3Vtv1VwEBJkyYMGF6e6Z9yfWqi3yWrM7S2jalx4QJEyZM5zK1aeHsMk42ummF5pRtuxQTJkyYMN2JKUky21Bgln+3x3Zto/RFQIAJEyZMmI5iysduZi3AdtCnXWdWwG1/xoQJEyZM92Aa9j/jJDm/nlvWWZOywMWECRMmTMcy5WntpsjbDve04ztJ0HBBUo0JEyZMmI5lmjUF28Q4Dy/aD5sd6vDtmDBhwoTpKKbkY2Z8eULbvmsTcAxL2JgwYcKE6RZM7evzQCFJLGefmqyff1eU7mLChAkTpqOYZhdnPriTc2/WbD9+NpaECRMmTJjOZbo2xW03+jF6kjU3hd06esKECRMmTMcyJSlr28LcJKUzjtkbMWHChAnT6UxXpbvJ5pLSbX615zSzQZ8XgzuYMGHChOkQptlYzKwIm3Pn4zv7tmWyT0yYMGHCdC5Tnqy2yWSSUm4S2rzIux8DwoQJEyZM92CajbYkCWfeEJ2VifNUOY+SMGHChAnTXZkSuLwc3I7UzNLdPF1vk21MmDBhwnQ6UzvactXv55d3XrrdDBLlb8eECRMmTOcy5angBddqzDcr/uZF3jY5x4QJEyZMZzHlSW/bSvyOICMPFPIEO/pqTJgwYcJ0C6ak7VfEFCPiGcG1cC/amZgwYcKE6Sim77iMk2Bi1tScNTvrMR1MmDBhwnQjpiQJnJVTkyt/VjLeN0rrcjYmTJgwYboFU365tp+9aUnmR5KHMsluhzM+mDBhwoTpzZg2l2vbmNxf9psDnoU4mDBhwoTpdKbP8pmVdNvCa348VwUKL9bHhAkTJkzHMuVP/gdt0zGhb3Hz48xL1ZgwYcKE6VymWQE03+KGr87dy9AhD24wYcKECdPpTHnRc3ZhDyORUYPzKlxMmDBhwvTTmJLxnVnC3BaFW8o2XHiY+mLChAkTJkyj4uxmndnHJweMCRMmTJjuxJRvd1bq3a+QJLQtQfF2TJgwYcJ0LFObWCbF03wgpi0TX5DELlJlTJgwYcJ0FNMvoArJKo/C7hUAAAAASUVORK5CYII='>
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
           
@@ -420,16 +482,16 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
-                                <a href="/articles/微积分/" rel="prev" title="微积分">
+                                <a href="/articles/《论文解读-Never-Ending-Learning》/" rel="prev" title="《论文解读-Never-Ending Learning》">
                                   
-                                      微积分
+                                      《论文解读-Never-Ending Learning》
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/数学/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数学</a>
+                                    <a class="tag" href="/tags/知识图谱/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>知识图谱</a>
                                 </h6>
                             
                         </span>
@@ -440,16 +502,16 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/articles/Manjaro下数据备份/" rel="prev" title="Manjaro下数据备份">
+                                <a href="/articles/《NLP基础任务之新词发现探索之路》/" rel="prev" title="《NLP基础任务之新词发现探索之路》">
                                     
-                                        Manjaro下数据备份
+                                        《NLP基础任务之新词发现探索之路》
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/Manjaro/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Manjaro</a>
+                                    <a class="tag" href="/tags/NLP-新词发现/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>NLP, 新词发现</a>
                                 </h6>
                             
                         </span>
@@ -481,13 +543,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;相关文章</h4>
         <ul>
             
-                <li><a href="http://www.iamlightsmile.com/articles/概率论与数理统计/">概率论与数理统计</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/《论文解读-Never-Ending-Learning》/">《论文解读-Never-Ending Learning》</a></li>
             
-                <li><a href="http://www.iamlightsmile.com/articles/微积分/">微积分</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/《NLP基础任务之新词发现探索之路》/">《NLP基础任务之新词发现探索之路》</a></li>
             
-                <li><a href="http://www.iamlightsmile.com/articles/Manjaro下数据备份/">Manjaro下数据备份</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/《国士无双-林俊德》/">《国士无双-林俊德》</a></li>
             
-                <li><a href="http://www.iamlightsmile.com/articles/Manjaro下vscode中zsh乱码/">Manjaro下vscode中zsh乱码</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/《国士无双-黄旭华》/">《国士无双-黄旭华》</a></li>
             
         </ul>
     </div>
@@ -503,7 +565,7 @@
 
 <script>
     window.subData = {
-        title: 'Hexo主题继续优化',
+        title: '《论文解读-Toward an Architecture for Never-Ending Language Learning》',
         tools: true
     }
 </script>
@@ -594,7 +656,7 @@
 </header>
 
     <div class='content material'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义背景文字颜色"><span class="toc-text">自定义背景文字颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加雪花特效"><span class="toc-text">添加雪花特效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加爆炸特效"><span class="toc-text">添加爆炸特效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加输入特效"><span class="toc-text">添加输入特效</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-论文出处"><span class="toc-text">0. 论文出处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-NELL系统概述"><span class="toc-text">1. NELL系统概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-理论基础"><span class="toc-text">2. 理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-研究定位"><span class="toc-text">3. 研究定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-NELL系统掌握的知识类型"><span class="toc-text">4. NELL系统掌握的知识类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-NELL系统的贡献"><span class="toc-text">5. NELL系统的贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-系统组成"><span class="toc-text">6. 系统组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-知识库初始定义"><span class="toc-text">7. 知识库初始定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-系统目标"><span class="toc-text">8. 系统目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-系统体系结构"><span class="toc-text">9. 系统体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-系统工作原理"><span class="toc-text">10. 系统工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-系统设计原则"><span class="toc-text">11. 系统设计原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-系统设计到的知识"><span class="toc-text">12. 系统设计到的知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-系统子系统组件"><span class="toc-text">13. 系统子系统组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-知识整合器（KI）"><span class="toc-text">14. 知识整合器（KI）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-实验"><span class="toc-text">15. 实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-抽取结果示例"><span class="toc-text">16. 抽取结果示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-结果"><span class="toc-text">17. 结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-讨论"><span class="toc-text">18. 讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-总结"><span class="toc-text">19. 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-可以改进之处"><span class="toc-text">20. 可以改进之处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-致谢"><span class="toc-text">21. 致谢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-参考"><span class="toc-text">22. 参考</span></a></li></ol>
     </div>
   </section>
 
