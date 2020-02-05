@@ -351,6 +351,12 @@
         
       
         
+      
+        
+      
+        
+      
+        
           <div class='post-wrapper'>
             <article class="post reveal ">
     
@@ -447,11 +453,81 @@
       
         
       
-        
+    
+    
       
-        
+        <div class='post-wrapper'>
+          <article class="post reveal ">
+    
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      <h2 class="title">
+          <a href="/articles/浅谈中文分词与自然语言处理/">
+              
+                  浅谈中文分词与自然语言处理
+              
+          </a>
+      </h2>
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-02-03
+      </time>
+    
+
+    
       
     
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/NLP/">NLP</a>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+        <p>最近出于兴趣和需要，重新回顾中文分词技术，期间有些心得，以及一些关于自然语言处理的浅薄之见，这里简单分享一下。</p>
+<p>首先，<a href="https://baike.baidu.com/item/%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D" target="_blank" rel="noopener">中文分词_百度百科</a>里面简单介绍了其中主要的分词算法以及相应的优缺点，包括字符匹配法、统计法以及理解法，其中字符匹配法和统计法比较流行且可以取到相对不错的效果，而理解法则相对比较复杂高级，但是我认为这才是真正解决中文分词任务的根本算法。</p>
+<p>如今用于中文分词的算法和模型虽算不上比比皆是，但也算是唾手可得，开源的如jieba、ltp、Hanlp等等，提供中文分词服务的如腾讯云、百度大脑、讯飞AI平台等，以及其他如Jiagu等。</p>
+<p>其实这些平台算法的差距并不算太大，分词准确率基本上都是在80%以上，然而在98%以下（这里胡诌个数），在一些不太严格的应用场景下基本已经够用了，只要挑一个在自己的业务场景下表现最好的即可。</p>
+<p>在我看来，对于中文分词这项任务而言，最关键最核心的其实并不是算法模型，这些都不是所谓的瓶颈，最重要的其实是高质量、大规模的词典。对于字符匹配法而言，词典是基础，没有词典自然连分都分不出来；对于统计学习法而言，其效果一方面取决于算法和模型的选择，一方面取决于其训练数据的数量与质量，需要堆人力物力，比如找专门的标注公司标注数据等。但是就算是人标的数据，也难免有所错误遗漏，所以在有错误的训练数据下，模型也不可能学的太好，同时训练数据再大，也难以覆盖全部语料，总会出现OOV，总有些句子会训练不到，此时还强求模型可以做到“举一反三”有些不切实际。</p>
+<p>词条中还提到了关于中文分词的技术难点：歧义识别与新词识别，关于歧义识别，上面并没有提具体的解决思路，对于新词识别而言，这又是自然语言处理领域很基础并且很重要的点，可以参见一下我之前的文章：<a href="http://www.iamlightsmile.com/articles/%E3%80%8ANLP%E5%9F%BA%E7%A1%80%E4%BB%BB%E5%8A%A1%E4%B9%8B%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0%E6%8E%A2%E7%B4%A2%E4%B9%8B%E8%B7%AF%E3%80%8B/">《NLP基础任务之新词发现探索之路》 | lightsmile’s Blog</a>，也有另一个思路，比如说爬取网上一些网站的相关条目，比如百度百科等。</p>
+<p>简单看了一下<a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">jieba</a>、<a href="https://github.com/NLPchina/ansj_seg" target="_blank" rel="noopener">ansj_seg</a>、<a href="https://github.com/ownthink/Jiagu" target="_blank" rel="noopener">Jiagu</a>的分词词典，发现其中jieba的词典质量最差，其中不少词性都是错误的，Jiagu的词典还算不错，就是一些新词不全，ansi_seg的没有细看。</p>
+<p>尽管这些工具在一些评测数据的结果可以达到90以上的成绩，但是在我看来，还是不够的，我觉得中文分词这个基础而又艰巨的任务还是要到99%以上才可以，否则分词都分不对，那些在分词基础之上的任务更是不行，毕竟词是基本的语义单元。</p>
+<p>然而在现在深度学习盛行的潮流下，许多任务如文本分类、命名实体识别等并不一定需要依赖于分词，直接基于字符（char）的Embedding也可以取得不错的效果，并且也可以规避OOV（out of vocabulary words，未登录词）的问题。</p>
+<p>但是深度学习，尤其是监督学习的很关键之处是得有大规模的高质量训练数据，不然巧妇难为无米之炊，再好的模型也难以从垃圾中学到有用的知识。</p>
+<p>话说回来，虽然自然语言处理是计算机科学与其他领域的交叉学科，深度学习、机器学习算是人工智能的一部分，然而许多时候往往十分依赖人工，而所谓的智能其实也不智能。</p>
+<p>无论是计算机视觉领域里的图像分类还是自然语言处理领域的文本分类，其任务都是学习一个从输入$x$映射到输出或者说标签$y$的函数$f$，具体来说就是将$x$表征为多维向量$X$，将$y$表征为多维向量$Y$，然后让$X$进入一个模型进行一系列的运算后得到一个$Y^{‘}$，通过不断地比较$Y^{‘}$和$Y$的值并调整模型的参数使模型的运算结果$Y^{‘}$更为准确即更加贴近$Y$（过程有点类似于<a href="https://www.zhihu.com/question/23875742" target="_blank" rel="noopener">“猜数字”游戏</a>），从而最终得到一个近似函数$f{‘}$，我们就可以用来代替未知的$f$用于预测未来的样本$x$，得到它对应的$y$。</p>
+<p>我们可以发现，以上学习算法确实可以得到能够解决问题的模型，然而局限之处在于它也只能做这个任务，即对输入$x$预测$y$，别的啥也干不了。</p>
+<p>同时在基于深度学习的自然语言处理模型中，基本套路都是Embedding+Encoder+Decoder，其中Embedding是基于字还是基于词，是使用预训练词向量还是随机初始化，这些选择所导致的效果的差异都随着训练轮数的增加而最终减小。然而，由于梯度下降以及解空间的特点，基于bert的效果确实是要比Word2Vec的要好，那些词向量确实比Word2Vec的嵌入了（或者说学到了）更多的语言知识。</p>
+<p>关于模型的选择和取舍，工业界和学术界的标准其实差别很大。学术界里有的论文是开创性的，而许多论文其实都是在原来基础上小修小改，将最近的较新的思想和算法一堆，实验结果比原来指标高一点又是一篇文章，程序运行占用多大内存、跑了多长时间这些都不是主要因素，也就是一切向指标看齐。</p>
+<p>而工业界则更加看重的是性价比，不同的公司、不同的部门、不同的阶段其主要矛盾不同。比如说Facebook之前出的fastText，尽管模型很简单，最终效果可能比不上一些其他复杂的模型，但是其训练速度超快、基于CPU就可以，并且可以很方便地对模型进行压缩。许多时候，一些指标高低差几个点并没有那么关键，模型大小、训练时间、预测时间在很多时候是比较关键的因素，除非由于甲方或客户不满意，或者家大业大，有的是资源，那么这时候效果和指标又成为主要矛盾，这时的优化可能要以一定的时间和空间为代价。</p>
+<p>原来的自然语言处理各任务基本上都构建在分词的基础之上，粗略来说有一个<code>语法</code>、<code>语义</code>到<code>语用</code>的递进的过程。</p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/NLP/"><i class="fas fa-hashtag fa-fw"></i>NLP</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+      
     
       
         <div class='post-wrapper'>
@@ -1047,67 +1123,6 @@
         </div>
       
     
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
-<section class='meta'>
-  
-  <div class="meta" id="header-meta">
-    
-      <h2 class="title">
-          <a href="/articles/centos安装miniconda/">
-              
-                  centos安装miniconda
-              
-          </a>
-      </h2>
-    
-
-    
-      <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-01-07
-      </time>
-    
-
-    
-      
-    
-    <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Linux/">Linux</a>
-    </div>
-
-
-    
-
-    
-
-    
-
-  </div>
-</section>
-
-    <section class="article typo">
-        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-下载miniconda"><a href="#1-下载miniconda" class="headerlink" title="1. 下载miniconda"></a>1. 下载miniconda</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; mkdir tmp &amp;&amp; <span class="built_in">cd</span> tmp</span><br><span class="line">wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<h3 id="2-运行miniconda安装脚本"><a href="#2-运行miniconda安装脚本" class="headerlink" title="2. 运行miniconda安装脚本"></a>2. 运行miniconda安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<h3 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda -V</span><br></pre></td></tr></table></figure>
-<p>若输出类似<code>conda 4.7.12</code>，说明安装conda环境成功。如提示：<code>zsh：command not find:conda</code>，则需要将<code>conda</code>配置到路径变量中，详情参考<a href="https://www.jianshu.com/p/13f5d20e61f8" target="_blank" rel="noopener">zsh：command not find:conda 的详细解决办法 - 简书</a></p>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/CentOS/"><i class="fas fa-hashtag fa-fw"></i>CentOS</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-      
-    
 </section>
 
 
@@ -1232,7 +1247,7 @@
         
           <li><a class="flat-box" title="/categories/Linux/" href="/categories/Linux/"><div class='name'>Linux</div><div class='badge'>(12)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/NLP/" href="/categories/NLP/"><div class='name'>NLP</div><div class='badge'>(9)</div></a></li>
+          <li><a class="flat-box" title="/categories/NLP/" href="/categories/NLP/"><div class='name'>NLP</div><div class='badge'>(10)</div></a></li>
         
           <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(4)</div></a></li>
         
@@ -1266,7 +1281,7 @@
 </header>
 
     <div class='content material'>
-      <a href="/tags/CentOS/" style="font-size: 15.67px; color: #8e8e8e">CentOS</a> <a href="/tags/Github/" style="font-size: 15.67px; color: #8e8e8e">Github</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 24px; color: #555">Manjaro</a> <a href="/tags/NLP/" style="font-size: 24px; color: #555">NLP</a> <a href="/tags/NLP-新词发现/" style="font-size: 14px; color: #999">NLP, 新词发现</a> <a href="/tags/Neo4j/" style="font-size: 14px; color: #999">Neo4j</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/ReadtheDocs/" style="font-size: 14px; color: #999">ReadtheDocs</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/blog/" style="font-size: 17.33px; color: #828282">blog</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/light系列库/" style="font-size: 14px; color: #999">light系列库</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/个人/" style="font-size: 17.33px; color: #828282">个人</a> <a href="/tags/哲学/" style="font-size: 22.33px; color: #606060">哲学</a> <a href="/tags/国士无双/" style="font-size: 19px; color: #777">国士无双</a> <a href="/tags/小窍门/" style="font-size: 14px; color: #999">小窍门</a> <a href="/tags/开发工具/" style="font-size: 14px; color: #999">开发工具</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 15.67px; color: #8e8e8e">抽象</a> <a href="/tags/数学/" style="font-size: 22.33px; color: #606060">数学</a> <a href="/tags/浏览器插件/" style="font-size: 15.67px; color: #8e8e8e">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 15.67px; color: #8e8e8e">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/知识图谱/" style="font-size: 15.67px; color: #8e8e8e">知识图谱</a> <a href="/tags/算法/" style="font-size: 15.67px; color: #8e8e8e">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/编程语言/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/颈椎病/" style="font-size: 14px; color: #999">颈椎病</a>
+      <a href="/tags/CentOS/" style="font-size: 15.43px; color: #8f8f8f">CentOS</a> <a href="/tags/Github/" style="font-size: 15.43px; color: #8f8f8f">Github</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 22.57px; color: #5f5f5f">Manjaro</a> <a href="/tags/NLP/" style="font-size: 24px; color: #555">NLP</a> <a href="/tags/NLP-新词发现/" style="font-size: 14px; color: #999">NLP, 新词发现</a> <a href="/tags/Neo4j/" style="font-size: 14px; color: #999">Neo4j</a> <a href="/tags/Python/" style="font-size: 19.71px; color: #727272">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/ReadtheDocs/" style="font-size: 14px; color: #999">ReadtheDocs</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/blog/" style="font-size: 16.86px; color: #868686">blog</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/light系列库/" style="font-size: 14px; color: #999">light系列库</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/个人/" style="font-size: 16.86px; color: #868686">个人</a> <a href="/tags/哲学/" style="font-size: 21.14px; color: #686868">哲学</a> <a href="/tags/国士无双/" style="font-size: 18.29px; color: #7c7c7c">国士无双</a> <a href="/tags/小窍门/" style="font-size: 14px; color: #999">小窍门</a> <a href="/tags/开发工具/" style="font-size: 14px; color: #999">开发工具</a> <a href="/tags/微信小程序/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/抽象/" style="font-size: 15.43px; color: #8f8f8f">抽象</a> <a href="/tags/数学/" style="font-size: 21.14px; color: #686868">数学</a> <a href="/tags/浏览器插件/" style="font-size: 15.43px; color: #8f8f8f">浏览器插件</a> <a href="/tags/深度学习/" style="font-size: 15.43px; color: #8f8f8f">深度学习</a> <a href="/tags/爬虫/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/知识图谱/" style="font-size: 15.43px; color: #8f8f8f">知识图谱</a> <a href="/tags/算法/" style="font-size: 15.43px; color: #8f8f8f">算法</a> <a href="/tags/统计学/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/编程语言/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/颈椎病/" style="font-size: 14px; color: #999">颈椎病</a>
     </div>
   </section>
 
