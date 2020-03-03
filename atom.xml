@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.iamlightsmile.com/"/>
-  <updated>2020-02-20T12:14:14.754Z</updated>
+  <updated>2020-03-03T12:54:04.501Z</updated>
   <id>http://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小步快跑，快速迭代</title>
+    <link href="http://www.iamlightsmile.com/articles/%E4%BB%8E%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84/"/>
+    <id>http://www.iamlightsmile.com/articles/从工作中学到的/</id>
+    <published>2020-03-03T11:09:46.000Z</published>
+    <updated>2020-03-03T12:54:04.501Z</updated>
+    
+    <content type="html"><![CDATA[<p>自己在18年6月份从学校毕业后去一家位于北京的初创的自然语言处理小公司工作，然后共计工作了半年时间，其间自己收获甚多，今天又有了新的感触理解，这里小小的总结一下，也算是简单的缅怀一下曾经走过的一段路。</p><p>在工作前自己对自然语言处理所理解的十分粗浅，对深度学习和机器学习也只是略懂一点点，算法实现能力也很弱，稍微还算可以的是自己在大学期间也算认真开发过Java和Android项目，所以工程能力和代码阅读能力还算可以。</p><p>所以必须要说明的是自己还是非常感谢Boss张总给我这次工作的机会的，当时在学校通过一次远程面试基本谈妥了。然而我最感谢的人还是我的上司曾总，从他这里我学到了不少东西，虽然还是由于自己的无知和缺陷曾给我们组的工作进展带来了不少的麻烦。</p><p>自己在上一份工作中十分喜欢的是当时组内相对轻松自由的气氛以及上司和蔼可亲和我们打成一片，经常一块去外面聚餐闲聊。</p><p>在工作中也得到了几位前辈的耐心帮助，这也使得自己比较好的度过了适应阶段，学到了非常基础而又十分重要的项目管理、开发工具使用、Linux环境配置等知识。同时自己也认识了好几位非常好的同事，也从他们身上学到了许多有用的知识以及更加关键的做人的道理。</p><p>然而自己毕竟底子薄弱，并且很致命的一点是在工作中遇到了困难无法尽快解决卡在那里也不知道尽快找Boss帮忙，所以常常每周的任务都完成的既不好，也不及时。</p><p>虽然本人的实习工资很低，但是毕竟能做自己很感兴趣的工作就已经很满足了，所以也算乐在其中，同时自己特别不能忍每天花费较多时间在上下班的路程上，所以尽管租房费用相对较高，但是自己还是找了相对比较近的小区租房。自己也在HR那里淘了一辆二手自行车，同时公司规定超过10点以后报销车费，自己刚开始平时也没啥事，所以就在公司经常加班熬夜，比之前段时间很火的996也不相上下甚至犹有过之。但是客观来说，其实自己并没有感觉有多累，一方面我认为其实大家的开发效率可能并没有那么高，另一方面也并不是时时刻刻都在工作，所以精力耗费并没有那么严重。从其他角度考虑则是自己刚毕业工作，正处于快速学习期，并不像那些工作多年需要养家糊口的要分心在许多事情上，同时自己也没有对象，并没有太多必要的时间精力去耗费。最关键的则是，我认为每天工作多长时间甚至于挣多少对于自己并没有那么关键，更重要的则是能够在其中积累和学习到哪些知识能力，这些知识经验能力才是一个人以后发展的根本保证，这些类似道理自己也曾听某位滴滴平台的打车师傅提起，自己虽然也懂，但是他也是谆谆教诲，自己也挺感激。</p><p>我最开始的任务大致是负责一个项目中关键词抽取模块的维护优化工作，大致即不断地寻找bad case，然后根据case总结分析，然后制定相应的规则去过滤和优化结果。最开始我只需要将规则写到固定的地方，并不需要对整个项目有完整的了解，也并不需要认真阅读整个项目的源码。所以自己经常都是朦朦胧胧，一脸懵逼，并且稍微觉得当前的工作和自己之前所期待的不太一样，有点失望。</p><p>后来甲方还是觉得效果不够好，同时自己也对项目有了更多的了解，所以又开始对项目进行小规模的重构并且系统地添加更多的规则、以及引入其他的一些评价指标等。在这个过程中自己许多时候都是谨小慎微的探索尝试，对于工程的实践能力有了可见的提升然而进展缓慢。</p><p>然而关键词抽取效果还是未能让甲方满意，于是公司安排另一名也负责相关任务的同事来协助我推进项目的快速推进，在他的建议和要求之下我们一起整个模块进行了完整的重构，其中我负责大部分内容，不少代码重写，同时也引入了新的内容，自己在这个过程中工程实践能力得到了显著的提高。</p><p>同时自己也参与到一个知识图谱项目中，最开始负责实体识别的优化工作，然而由于个人原因出现较大纰漏，后来转而负责实体链接的相关工作。在这个过程中，自己经常和本组其他同事交流探讨，同时申请其他组提供帮助，以及联系了好几家标注公司洽谈数据标注的工作，自己的各方面能力都有了不小的提升，同时自己逐渐地积累起了初步的将算法模块化、写成库的意识和能力。</p><p>后来由于平时较忙，同时自己对许多自然语言处理任务理解的还是不够，又希望能够在这个领域深造有所成就，后来就有了辞职考研的念头并最终执行。</p><p>现在回想起来自己在短短半年的工作中学到的不算多，但也不算少，和刚去公司相比，无论是对任务项目的理解，还是算法工程实践能力都有了很大的提升。其中，我感触特别深、认为相当重要的一点是“小步快跑，快速迭代”的工程理念，从小了说这是一个更加科学的项目开发模式，从大了说这是更加合理的做人做事的原则方法。</p><p>因为原来的自己总是希望力求完美，凡事多求万事俱备之后才有所行动，这种认知观念曾经给我的学习工作生活带来了很大的困扰，现在回想起来，当时许多错误的决策的根源都是这种思维。</p><p>后来在开发的lightNLP以及其他项目框架的背后都有“小步快跑，快速迭代”的深刻思想，个人受益很多。</p><p>关于“小步快跑，快速迭代”的介绍，简书上有篇文章：<a href="https://www.jianshu.com/p/20e8b1ccb57d" target="_blank" rel="noopener">“小步快跑、快速迭代” 可用于工作的好方法 - 简书</a>。</p><p>这篇随念就先写到这里，以后啥时候有想写的再补充。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;自己在18年6月份从学校毕业后去一家位于北京的初创的自然语言处理小公司工作，然后共计工作了半年时间，其间自己收获甚多，今天又有了新的感触理解，这里小小的总结一下，也算是简单的缅怀一下曾经走过的一段路。&lt;/p&gt;
+&lt;p&gt;在工作前自己对自然语言处理所理解的十分粗浅，对深度学习和机
+      
+    
+    </summary>
+    
+      <category term="随念" scheme="http://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
+    
+    
+      <category term="工程思想" scheme="http://www.iamlightsmile.com/tags/%E5%B7%A5%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>念奴娇-考研失利</title>
@@ -471,32 +497,6 @@
     <updated>2020-01-03T02:52:11.399Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stanfordnlp</span><br><span class="line"><span class="comment"># stanfordnlp.download('zh') 从网络上下载模型文件，超级慢</span></span><br><span class="line"></span><br><span class="line">zh_nlp = stanfordnlp.Pipeline(lang=<span class="string">'zh'</span>, models_dir=<span class="string">r"D:\Data\NLP\model\stanfordnlp"</span>)</span><br><span class="line"></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">zh_doc = zh_nlp(text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, sent <span class="keyword">in</span> enumerate(zh_doc.sentences):</span><br><span class="line">    print(<span class="string">"[Sentence &#123;&#125;]"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> sent.words:</span><br><span class="line">        print(<span class="string">"&#123;:12s&#125;\t&#123;:12s&#125;\t&#123;:6s&#125;\t&#123;:d&#125;\t&#123;:12s&#125;"</span>.format(\</span><br><span class="line">              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure><p>首先应该先下载模型，然而如果是直接运行<code>stanfordnlp.download(&#39;zh&#39;)</code>命令，那么下载速度实在是太慢了，后来把它的源码下载下来，找到了对应了文件下载地址，然后使用Chrome下载，发现速度有所提升但是也很慢，最后尝试了一下先使用Xshell登录代理浏览器下载模型，然后使用Xftp将模型传输到本地，结果速度变快了好多，尤其是代理浏览器下载模型的速度超级快，达80M/s，太惊人了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
-      
-    
-    </summary>
-    
-      <category term="NLP" scheme="http://www.iamlightsmile.com/categories/NLP/"/>
-    
-    
-      <category term="NLP" scheme="http://www.iamlightsmile.com/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用自然语言处理框架之StanfordCoreNLP使用</title>
-    <link href="http://www.iamlightsmile.com/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordCoreNLP%E4%BD%BF%E7%94%A8/"/>
-    <id>http://www.iamlightsmile.com/articles/常用自然语言处理框架之StanfordCoreNLP使用/</id>
-    <published>2020-01-03T02:26:54.000Z</published>
-    <updated>2020-01-18T14:37:23.128Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stanfordcorenlp <span class="keyword">import</span> StanfordCoreNLP</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line">nlp = StanfordCoreNLP(<span class="string">r"D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05"</span>, lang=<span class="string">'zh'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">text = <span class="string">"清华大学是一所中国的一流大学。"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Tokenize:'</span>, nlp.word_tokenize(text))</span><br><span class="line">print(<span class="string">'Part of Speech:'</span>, nlp.pos_tag(text))</span><br><span class="line">print(<span class="string">'Named Entities:'</span>, nlp.ner(text))</span><br><span class="line">print(<span class="string">'Constituency Parsing:'</span>, nlp.parse(text))</span><br><span class="line">print(<span class="string">'Dependency Parsing:'</span>, nlp.dependency_parse(text))</span><br></pre></td></tr></table></figure><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li></ul><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nitializing native server...</span><br><span class="line">INFO:root:java -Xmx4g -cp <span class="string">"F:\space\wingide\stanfordnlp\*"</span> edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000</span><br><span class="line">INFO:root:Server shell PID: 8504</span><br><span class="line">INFO:root:Waiting until the server is available.</span><br><span class="line">INFO:root:Waiting until the server is available.</span><br></pre></td></tr></table></figure><p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p><p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>]]></content>
     
     <summary type="html">
     
