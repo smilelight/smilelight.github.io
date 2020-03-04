@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>大学数学基础体系脉络 | lightsmile&#39;s Blog</title>
+  <title>找轮子 | lightsmile&#39;s Blog</title>
   
   <meta name="keywords" content="Python,哲学,NLP,自然语言处理,lightsmile,李德方">
   
@@ -250,13 +250,13 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">大学数学基础体系脉络</h1>
+          <h1 class="title">找轮子</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-04-22
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2020-03-04
       </time>
     
 
@@ -264,7 +264,7 @@
       
     
     <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/其他/">其他</a>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/计算机/">计算机</a>
     </div>
 
 
@@ -285,29 +285,30 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p>一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。</p>
+        <p>最近接触较多的是工程方面的东西。具体来说，之前计划做一个标注系统，后端要基于Python，而GUI选择前端HTML那一套，通过restful接口通信。</p>
 <a id="more"></a>
-<p>以下是来自万门大学童哲校长在<a href="https://www.wanmen.org/courses/586d23485f07127674135dcb/lectures/586d23535f0712767415a8e0" target="_blank" rel="noopener">线性代数两日特训班</a>中所画的简单说明图：</p>
-<p><img src="https://raw.githubusercontent.com/smilelight/PicImage/master/img/大学数学基础体系脉络.png" alt="大学数学基础体系脉络"></p>
+<p>关于后端框架，有Tornado、Django、Flask，自己相对更熟悉Flask，所以选择了Flask。关于前端框架，大致主要有Vue和React等，自己更喜欢Vue的那一套风格，于是选择了Vue。在选定Flask+Vue之后，google相关教程，找几个案例学习一下就大致知道具体怎么个流程了。</p>
+<p>然而自己觉得当前这种开发效率有些过低，觉得应该是有基于Flask的更符合restful风格的库，而Vue也有更优雅的封装api函数的方式以及业内较多使用的开源组件库，于是通过搜索发现了<code>flask-restful</code>框架，以及<code>Element-UI</code>组件库。后来自己便基于这两个开发了相当简洁的标注框架。目前自己的关注点又到了知识图谱的可视化方面，具体如应该采用什么前端库将图谱的数据展示出来。经过搜索查询，发现了<code>D3.js</code>这个库，可是却发现这个库的api似乎有些过于底层，并不能通过几行代码直接调用比较上层的接口从而实现数据的展示。<strong>经过不断地google搜索</strong>，终于发现了阿里出品的图可视化框架：<a href="https://github.com/antvis/g6" target="_blank" rel="noopener">antvis/G6: ♾ A Graph Visualization Framework in JavaScript</a>，找到了满意的符合自己需求的轮子。</p>
+<p>于是自己有所感，程序员圈经常流行的一句话：“不要重复造轮子”。这句话有其道理，然而这个结论的适应前提有两个：1.有自己造轮子的意愿能力需求 2.有现成的可用的轮子可用。在这两个条件前提都满足时，才能将“不要重复造轮子”作为决策建议。然而有时我们可能不知道有这个轮子，所以由于信息缺失，导致无法做出不重复造轮子的决策，而是自己哼哧哼哧，费心费力，又不能做出比较好的东西。所以这时候就体现出找轮子、知道轮子的重要性了，只有当见多识广，见过接触过更多的轮子之后，我们才能够基于充分的信息做出更加合理的决策，站在巨人前辈的肩膀上，使用他们开发的优秀的工具框架，乘他们的凉。</p>
 
       </div>
       <div align="center">
         <div class="copyright">
             <p><span>
-                <br /><b>本文地址：</b><a href="/articles/大学数学基础体系脉络/" title="大学数学基础体系脉络">大学数学基础体系脉络</a><br /><b>转载请注明出处，谢谢！</b>
+                <br /><b>本文地址：</b><a href="/articles/找轮子/" title="找轮子">找轮子</a><br /><b>转载请注明出处，谢谢！</b>
             </span></p>
             </div>
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2020-01-18T19:50:50+08:00" content="2020-01-18"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2020-01-18
+              <time class="metatag time" itemprop="dateUpdated" datetime="2020-03-04T10:54:36+08:00" content="2020-03-04"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2020-03-04
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/数学/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;数学</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/计算机/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;计算机</a></div>
             
             
               
@@ -318,7 +319,7 @@
         
           <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
             
-            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/大学数学基础体系脉络/&title=大学数学基础体系脉络 | lightsmile's Blog&summary=一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。"
+            href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/找轮子/&title=找轮子 | lightsmile's Blog&summary=最近接触较多的是工程方面的东西。具体来说，之前计划做一个标注系统，后端要基于Python，而GUI选择前端HTML那一套，通过restful接口通信。"
             
             >
             
@@ -330,7 +331,7 @@
         
           <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
             
-            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/大学数学基础体系脉络/&title=大学数学基础体系脉络 | lightsmile's Blog&summary=一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。"
+            href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/找轮子/&title=找轮子 | lightsmile's Blog&summary=最近接触较多的是工程方面的东西。具体来说，之前计划做一个标注系统，后端要基于Python，而GUI选择前端HTML那一套，通过restful接口通信。"
             
             >
             
@@ -340,7 +341,7 @@
         
       
         
-          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3awW4bMQwEUP//T7dATy0Qb2dIKXWBtycjcRQ9HZbEUK9X/Pz49Tz/9vfn3W/frZmv/7rx4OHh4Y22/u5J/v3zdp/xOfV5zbfr4+Hh4V3j5cvtX/rJXz0fTbJnPDw8vE/gPW/xeRPJYeXNOh4eHt7/wkua47zJblfGw8PD+zReEkZsSkj70k/KzOGsBQ8PDy/mtQOwT/h8cb6Hh4eHt5iq50WifZXnxSYvBl/sAQ8PD+8Cb9YEt8XjxsCsuNyAh4eHd5Q3i1k3wW5+uM8rR1Q8PDy8C7x9GNHGB5trWzMqHh4e3lle/u83F61mQ7UEH2UteHh4eNd4e0YSH8ya4NkR4OHh4d3gtaFA2wqfpW6OAA8PD+82r21hzwYNSdtdh7Z4eHh4h3j50u1LuV0nT5fza1h4eHh4N3h5U9teqMpji4TXlhw8PDy8e7z2pZ+f2eZ6VjuWe23yXTw8PLyS125xdkxR4zv6Zj0Aw8PDwzvEy7e+uWqwuXAwa7jx8PDw/hVvVjZmW2lb86g44eHh4R3lzZrgtoGelYEDeDw8PLxv5M3GYLNBWruH5CiLP8bDw8Nb8/Kf7ItKUnLaz3/8BA8PD+8Cr22CN6Ov2VCtbazx8PDwbvPy4f0s9s23e+qSwSuvaXh4eHhrXhLR3hjwJ6Ui4f2lMODh4eEd4s3ChbMj/+RF3xYqPDw8vHu8pAy0w/480m1Dhza2wMPDw7vNa4dSbfi7325dNvDw8PAu8PKn5bXRQ7LO2UPEw8PD2/Bmje/m+3k7nsciw+qHh4eHt+DlxWA/EpvFwW1EgoeHh/cJvPZGU34FoXjRtwM2PDw8vI/kJa/7WUayb7jx8PDw7vHacDaPa/PCkIe/V7IWPDw8vK5HLQZgszJwYBNxPPHaL4qHh4f39fMTz2wr8A/kxxoAAAAASUVORK5CYII='>
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3au27EMAxE0f3/n3aadE6kmaESQOR1tVjAso4Kgg99PvLzvJ73/7/9o6ycvWs/MGDAuJbxLJ81470VZaPZMa33AAMGjAkM/fMKaf1u9nuzZxgwYMAw00ElvVsHWRgwYMCoMNb/6JjKccCAAWMmQyliXYYeQJUG3LFaHAYMGBcysvb9//z+k/kGDBgwrmI85qMEXGX9U/v5Xg0GDBitGVlrLGuK6aRsPzBgwOjKcBdVrkqsC1q3PSeFexgwYIxh6CHPvTSmwLIhwQ8BFwYMGO0YStJWKWuzYac7BIUBA8Y0hhLalKCpB+V6uIcBA0Zvhtt8z4pVKVwuj2PDgwEDRmuGO27Ui0x3IKqsL4V+GDBgDGDUr0q4RWmlMIYBA8YchpuK6WHRbfS7x1rKKGHAgHEJQ0/v3HJUL2vdg7NHAjBgwLicUSlQK0OFyrc2GBgwYDRl6C2tLARnw1H7khkMGDBaM/Rk7lRg1UekdioJAwaM1gylyZWNPPWWnL71zVswYMBox9CbXEqKlgVZd2WpiIUBA0Y7hnupq7Ih98iMfiEMGDAGMOqJ4Kmtr48DBgwYcxhZYHUDohKI1+Feaq7BgAGjKeNUzM6CtX5B1kgQYcCA0ZSRFahnh5RuwDUyXBgwYDRi1K9WuKEzS/s2pSwMGDBgyE1/d1v6F417IjBgwBjMyNpe9SC7OT4YMGAMYLjFZzY2qF9mhQEDxkxGlsBlzbg65lj6CAMGjDsYX/uQxgTcTv0PAAAAAElFTkSuQmCC'>
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
           
@@ -350,7 +351,7 @@
         
           <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
             
-            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/大学数学基础体系脉络/&title=大学数学基础体系脉络 | lightsmile's Blog&summary=一般来说，问题总是可以分成两类：连续问题和离散问题。相应的，大学数学中高等数学（也就是说微积分）是用来解决连续问题的，关心的函数的变量可以都非常小；而线性代数则是用来解决离散问题的，关心的是维度。"
+            href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/找轮子/&title=找轮子 | lightsmile's Blog&summary=最近接触较多的是工程方面的东西。具体来说，之前计划做一个标注系统，后端要基于Python，而GUI选择前端HTML那一套，通过restful接口通信。"
             
             >
             
@@ -360,7 +361,7 @@
         
       
         
-          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3awW4bMQwEUP//T7dATy0Qb2dIKXWBtycjcRQ9HZbEUK9X/Pz49Tz/9vfn3W/frZmv/7rx4OHh4Y22/u5J/v3zdp/xOfV5zbfr4+Hh4V3j5cvtX/rJXz0fTbJnPDw8vE/gPW/xeRPJYeXNOh4eHt7/wkua47zJblfGw8PD+zReEkZsSkj70k/KzOGsBQ8PDy/mtQOwT/h8cb6Hh4eHt5iq50WifZXnxSYvBl/sAQ8PD+8Cb9YEt8XjxsCsuNyAh4eHd5Q3i1k3wW5+uM8rR1Q8PDy8C7x9GNHGB5trWzMqHh4e3lle/u83F61mQ7UEH2UteHh4eNd4e0YSH8ya4NkR4OHh4d3gtaFA2wqfpW6OAA8PD+82r21hzwYNSdtdh7Z4eHh4h3j50u1LuV0nT5fza1h4eHh4N3h5U9teqMpji4TXlhw8PDy8e7z2pZ+f2eZ6VjuWe23yXTw8PLyS125xdkxR4zv6Zj0Aw8PDwzvEy7e+uWqwuXAwa7jx8PDw/hVvVjZmW2lb86g44eHh4R3lzZrgtoGelYEDeDw8PLxv5M3GYLNBWruH5CiLP8bDw8Nb8/Kf7ItKUnLaz3/8BA8PD+8Cr22CN6Ov2VCtbazx8PDwbvPy4f0s9s23e+qSwSuvaXh4eHhrXhLR3hjwJ6Ui4f2lMODh4eEd4s3ChbMj/+RF3xYqPDw8vHu8pAy0w/480m1Dhza2wMPDw7vNa4dSbfi7325dNvDw8PAu8PKn5bXRQ7LO2UPEw8PD2/Bmje/m+3k7nsciw+qHh4eHt+DlxWA/EpvFwW1EgoeHh/cJvPZGU34FoXjRtwM2PDw8vI/kJa/7WUayb7jx8PDw7vHacDaPa/PCkIe/V7IWPDw8vK5HLQZgszJwYBNxPPHaL4qHh4f39fMTz2wr8A/kxxoAAAAASUVORK5CYII='>
+          <a class='qrcode' rel="external nofollow noopener noreferrer" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3au27EMAxE0f3/n3aadE6kmaESQOR1tVjAso4Kgg99PvLzvJ73/7/9o6ycvWs/MGDAuJbxLJ81470VZaPZMa33AAMGjAkM/fMKaf1u9nuzZxgwYMAw00ElvVsHWRgwYMCoMNb/6JjKccCAAWMmQyliXYYeQJUG3LFaHAYMGBcysvb9//z+k/kGDBgwrmI85qMEXGX9U/v5Xg0GDBitGVlrLGuK6aRsPzBgwOjKcBdVrkqsC1q3PSeFexgwYIxh6CHPvTSmwLIhwQ8BFwYMGO0YStJWKWuzYac7BIUBA8Y0hhLalKCpB+V6uIcBA0Zvhtt8z4pVKVwuj2PDgwEDRmuGO27Ui0x3IKqsL4V+GDBgDGDUr0q4RWmlMIYBA8YchpuK6WHRbfS7x1rKKGHAgHEJQ0/v3HJUL2vdg7NHAjBgwLicUSlQK0OFyrc2GBgwYDRl6C2tLARnw1H7khkMGDBaM/Rk7lRg1UekdioJAwaM1gylyZWNPPWWnL71zVswYMBox9CbXEqKlgVZd2WpiIUBA0Y7hnupq7Ih98iMfiEMGDAGMOqJ4Kmtr48DBgwYcxhZYHUDohKI1+Feaq7BgAGjKeNUzM6CtX5B1kgQYcCA0ZSRFahnh5RuwDUyXBgwYDRi1K9WuKEzS/s2pSwMGDBgyE1/d1v6F417IjBgwBjMyNpe9SC7OT4YMGAMYLjFZzY2qF9mhQEDxkxGlsBlzbg65lj6CAMGjDsYX/uQxgTcTv0PAAAAAElFTkSuQmCC'>
           
             <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
           
@@ -378,40 +379,21 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
-                            <h4>
-                                <a href="/articles/向量与矩阵/" rel="prev" title="向量与矩阵">
-                                  
-                                      向量与矩阵
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/数学/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数学</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/articles/整体论与还原论/" rel="prev" title="整体论与还原论">
+                                <a href="/articles/从工作中学到的/" rel="prev" title="从工作中学到的">
                                     
-                                        整体论与还原论
+                                        从工作中学到的
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/哲学/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>哲学</a> <a class="tag" href="/tags/抽象/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>抽象</a>
+                                    <a class="tag" href="/tags/工程思想/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>工程思想</a>
                                 </h6>
                             
                         </span>
@@ -443,13 +425,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;相关文章</h4>
         <ul>
             
-                <li><a href="http://www.iamlightsmile.com/articles/数理统计学/">数理统计学</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/从工作中学到的/">从工作中学到的</a></li>
             
-                <li><a href="http://www.iamlightsmile.com/articles/向量与矩阵/">向量与矩阵</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/念奴娇-考研失利/">念奴娇-考研失利</a></li>
             
-                <li><a href="http://www.iamlightsmile.com/articles/整体论与还原论/">整体论与还原论</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/浅谈中文分词与自然语言处理/">浅谈中文分词与自然语言处理</a></li>
             
-                <li><a href="http://www.iamlightsmile.com/articles/线性代数/">线性代数</a></li>
+                <li><a href="http://www.iamlightsmile.com/articles/《论文解读-Never-Ending-Learning》/">《论文解读-Never-Ending Learning》</a></li>
             
         </ul>
     </div>
@@ -465,7 +447,7 @@
 
 <script>
     window.subData = {
-        title: '大学数学基础体系脉络',
+        title: '找轮子',
         tools: true
     }
 </script>

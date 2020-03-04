@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>找轮子</title>
+      <link href="/articles/%E6%89%BE%E8%BD%AE%E5%AD%90/"/>
+      <url>/articles/%E6%89%BE%E8%BD%AE%E5%AD%90/</url>
+      
+        <content type="html"><![CDATA[<p>最近接触较多的是工程方面的东西。具体来说，之前计划做一个标注系统，后端要基于Python，而GUI选择前端HTML那一套，通过restful接口通信。</p><a id="more"></a><p>关于后端框架，有Tornado、Django、Flask，自己相对更熟悉Flask，所以选择了Flask。关于前端框架，大致主要有Vue和React等，自己更喜欢Vue的那一套风格，于是选择了Vue。在选定Flask+Vue之后，google相关教程，找几个案例学习一下就大致知道具体怎么个流程了。</p><p>然而自己觉得当前这种开发效率有些过低，觉得应该是有基于Flask的更符合restful风格的库，而Vue也有更优雅的封装api函数的方式以及业内较多使用的开源组件库，于是通过搜索发现了<code>flask-restful</code>框架，以及<code>Element-UI</code>组件库。后来自己便基于这两个开发了相当简洁的标注框架。目前自己的关注点又到了知识图谱的可视化方面，具体如应该采用什么前端库将图谱的数据展示出来。经过搜索查询，发现了<code>D3.js</code>这个库，可是却发现这个库的api似乎有些过于底层，并不能通过几行代码直接调用比较上层的接口从而实现数据的展示。<strong>经过不断地google搜索</strong>，终于发现了阿里出品的图可视化框架：<a href="https://github.com/antvis/g6" target="_blank" rel="noopener">antvis/G6: ♾ A Graph Visualization Framework in JavaScript</a>，找到了满意的符合自己需求的轮子。</p><p>于是自己有所感，程序员圈经常流行的一句话：“不要重复造轮子”。这句话有其道理，然而这个结论的适应前提有两个：1.有自己造轮子的意愿能力需求 2.有现成的可用的轮子可用。在这两个条件前提都满足时，才能将“不要重复造轮子”作为决策建议。然而有时我们可能不知道有这个轮子，所以由于信息缺失，导致无法做出不重复造轮子的决策，而是自己哼哧哼哧，费心费力，又不能做出比较好的东西。所以这时候就体现出找轮子、知道轮子的重要性了，只有当见多识广，见过接触过更多的轮子之后，我们才能够基于充分的信息做出更加合理的决策，站在巨人前辈的肩膀上，使用他们开发的优秀的工具框架，乘他们的凉。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从工作中学到的</title>
       <link href="/articles/%E4%BB%8E%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84/"/>
       <url>/articles/%E4%BB%8E%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84/</url>
