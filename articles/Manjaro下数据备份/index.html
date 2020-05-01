@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Manjaro下数据备份 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Manjaro">
+  
+  
+    <meta name="description" content="
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/">
+      Manjaro下数据备份
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Linux/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年4月3日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <blockquote>
+<p>Linux一时爽，崩后火葬场；<br>Manjaro一时爽，一直用一直爽。</p>
+</blockquote>
+<p>以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。<br>其中自己编写的使用流程如下</p>
+<ul>
+<li>使用百度云盘+ baidupcs-go</li>
+<li>使用Google Drive</li>
+<li>MEGA</li>
+<li>使用sftp直连<h1 id="数据备份方案"><a href="#数据备份方案" class="headerlink" title="数据备份方案"></a>数据备份方案</h1></li>
+<li>物理介质</li>
+<li>自己搭建私有云</li>
+<li>选择网盘服务商</li>
+<li>其他方案</li>
+</ul>
+<a id="more"></a>
+<h2 id="物理介质"><a href="#物理介质" class="headerlink" title="物理介质"></a>物理介质</h2><h4 id="1-移动硬盘"><a href="#1-移动硬盘" class="headerlink" title="1. 移动硬盘"></a>1. 移动硬盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p>
+<h4 id="2-移动U盘"><a href="#2-移动U盘" class="headerlink" title="2. 移动U盘"></a>2. 移动U盘</h4><p>优势：离线存储，简洁快速，数据安全<br>劣势：丢失无法找回，不能自动同步</p>
+<h2 id="自己搭建私有云"><a href="#自己搭建私有云" class="headerlink" title="自己搭建私有云"></a>自己搭建私有云</h2><h4 id="1-Owncloud"><a href="#1-Owncloud" class="headerlink" title="1. Owncloud"></a>1. Owncloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/b42453959fae" target="_blank" rel="noopener">如何搭建私密云存储之ownCloud</a></li>
+</ol>
+<h4 id="2-NextCloud"><a href="#2-NextCloud" class="headerlink" title="2. NextCloud"></a>2. NextCloud</h4><p>优势：数据安全<br>劣势：搭建成本高<br>搭建教程:</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/a0db4c1bfaea" target="_blank" rel="noopener">Ubuntu16.04 搭建NextCloud私有云</a><h4 id="3-Seafile"><a href="#3-Seafile" class="headerlink" title="3. Seafile"></a>3. Seafile</h4>优势：数据安全<br>劣势：搭建成本高<br>搭建教程：</li>
+<li><a href="https://www.jianshu.com/p/fcf12afe7c68" target="_blank" rel="noopener">部署Seafile搭建自己的网盘</a></li>
+</ol>
+<h2 id="选择网盘服务商"><a href="#选择网盘服务商" class="headerlink" title="选择网盘服务商"></a>选择网盘服务商</h2><h4 id="1-百度网盘"><a href="#1-百度网盘" class="headerlink" title="1. 百度网盘"></a>1. 百度网盘</h4><p>优势：容量大<br>劣势：限速，建议使用 <strong><a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></strong>工具进行管理</p>
+<h4 id="2-Google-Drive"><a href="#2-Google-Drive" class="headerlink" title="2. Google Drive"></a>2. Google Drive</h4><p>优势：跨平台<br>劣势：需要翻墙，容量小</p>
+<h4 id="3-MEGA"><a href="#3-MEGA" class="headerlink" title="3. MEGA"></a>3. MEGA</h4><p>优势：Linux下使用体验好<br>劣势：</p>
+<h4 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h4><p>优势：<br>劣势：容量小</p>
+<h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h4 id="1-有道云笔记（VIP版）"><a href="#1-有道云笔记（VIP版）" class="headerlink" title="1. 有道云笔记（VIP版）"></a>1. 有道云笔记（VIP版）</h4><p>和印象笔记相比，虽然网页剪裁的功能弱了一些，但是在界面上和markdown支持上都是要优于印象笔记的<br>优势：<br>劣势：</p>
+<h4 id="2-使用sftp连接远程服务器"><a href="#2-使用sftp连接远程服务器" class="headerlink" title="2. 使用sftp连接远程服务器"></a>2. 使用sftp连接远程服务器</h4><p>优势：<br>劣势：</p>
+<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="百度网盘-BaiduPCS-Go"><a href="#百度网盘-BaiduPCS-Go" class="headerlink" title="百度网盘+BaiduPCS-Go"></a>百度网盘+<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></h2><h4 id="安装baidupcs-go"><a href="#安装baidupcs-go" class="headerlink" title="安装baidupcs-go"></a>安装baidupcs-go</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidupcs-go-bin</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidupcs</span><br></pre></td></tr></table></figure>
+<p>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ccb334ca6bc5bd6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs"></p>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; login</span><br></pre></td></tr></table></figure>
+<p>然后输入自己的账号密码，进行验证之后便登录成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbd0720f058f2790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs_login"></p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>输入<code>-h</code>可查看相关指令，下载起来速度很快。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; -h</span><br></pre></td></tr></table></figure></p>
+<h4 id="可参考"><a href="#可参考" class="headerlink" title="可参考"></a>可参考</h4><ol>
+<li><a href="https://www.jianshu.com/p/c37a124a0f55" target="_blank" rel="noopener">BaiduPCS-Go | 百度网盘命令行工具（基于 Go）</a></li>
+</ol>
+<h2 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h2><h4 id="安装kio-gdrive"><a href="#安装kio-gdrive" class="headerlink" title="安装kio-gdrive"></a>安装<code>kio-gdrive</code></h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S kio-gdrive</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>在安装成功后，此时再打开Dolphin（即文件管理器），会发现远程网络中多了一个文件夹，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8fcacbb848420ad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google 云端硬盘"><br>之后我们双击它，得到如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-e4d1ecb98a9648d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_2"><br>上图左侧的账号是我之前添加的，此时也可点击 下方<code>+</code>添加Google账号<br>然后选中要同步的账号，选中，如下图所示，然后点击确定。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-539cb60abe895442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_3.png"><br>之后右下角提示正在同步文件夹，稍等片刻便可同步成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1d7ce651c0328b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_4.png"></p>
+<h4 id="可参考-1"><a href="#可参考-1" class="headerlink" title="可参考"></a>可参考</h4><ol>
+<li><a href="https://community.kde.org/KIO_GDrive#Arch_Linux" target="_blank" rel="noopener">KIO GDrive</a><h2 id="MEGA"><a href="#MEGA" class="headerlink" title="MEGA"></a>MEGA</h2><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4>登录<a href="https://mega.nz/register" target="_blank" rel="noopener">官网</a>注册账号，填写个人信息，然后打开邮箱进行验证，随后下载客户端应用（对于manjaro来说，直接通过<code>pacman</code>下载就可以，就是这么方便，当然也可以先下载安装包，然后通过<code>pacman -U</code>来安装）</li>
+</ol>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S megasync</span><br></pre></td></tr></table></figure>
+<h4 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h4><p>首先<code>[Alt] + [Space]</code>打开<code>plasma</code>搜索，输入<code>megasync</code>打开MEGA客户端，然后输入邮箱密码，接着设置同步目录，其他设置自己看情况。<br>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ed5086fa3d3bd1e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MEGA Settings"></p>
+<h4 id="可参考-2"><a href="#可参考-2" class="headerlink" title="可参考"></a>可参考</h4><ol>
+<li><a href="https://www.jianshu.com/p/44741a9e243f" target="_blank" rel="noopener">网盘可以良心到什么程度? 试试MEGA吧!</a></li>
+</ol>
+<h2 id="使用sftp直连"><a href="#使用sftp直连" class="headerlink" title="使用sftp直连"></a>使用sftp直连</h2><p>使用方式很简单，如下图：<br>双击<code>连接网络文件夹</code>，选择<code>安全Shell</code>，点击<code>Next</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-7e3ad9a31453d3ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network.png"><br>填写网络文件夹信息，然后点击<code>保存并连接</code><br><img src="https://upload-images.jianshu.io/upload_images/5410339-983794d294610356.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_2.png"><br>如果填写无误的话，就连接成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-21ca15b4472c8822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="remote_network_3.png"></p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/>http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:57:51+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Manjaro/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Manjaro</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/&title=Manjaro下数据备份 - lightsmile's Blog&summary=
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择网盘服务商
+其他方案
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/&title=Manjaro下数据备份 - lightsmile's Blog&summary=
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择网盘服务商
+其他方案
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/&title=Manjaro下数据备份 - lightsmile's Blog&summary=
+Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
+
+以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
+
+使用百度云盘+ baidupcs-go
+使用Google Drive
+MEGA
+使用sftp直连数据备份方案
+物理介质
+自己搭建私有云
+选择网盘服务商
+其他方案
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/Hexo%E4%B8%BB%E9%A2%98%E7%BB%A7%E7%BB%AD%E4%BC%98%E5%8C%96/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Hexo主题继续优化</p>
+                <p class='content'>本次优化的方向主要围绕以下几点来展开：
+
+自定义背景文字颜色
+添加雪花特效
+添加爆炸特效
+添加输入特效
+
+我当前使用的主题还是比较流行、作者一直在维护的主题Material-X.
+
+自定义背景文...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/'>
+                <p class='title'>Manjaro下vscode中zsh乱码<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>解决方案
+
+下载Menlo for Powerline字体1git clone https://github.com/abertsch/Menlo-for-Powerline.git
+将字体放到...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Manjaro下数据备份',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#物理介质"><span class="toc-text">物理介质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-移动硬盘"><span class="toc-text">1. 移动硬盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-移动U盘"><span class="toc-text">2. 移动U盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己搭建私有云"><span class="toc-text">自己搭建私有云</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Owncloud"><span class="toc-text">1. Owncloud</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-NextCloud"><span class="toc-text">2. NextCloud</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Seafile"><span class="toc-text">3. Seafile</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择网盘服务商"><span class="toc-text">选择网盘服务商</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-百度网盘"><span class="toc-text">1. 百度网盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Google-Drive"><span class="toc-text">2. Google Drive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-MEGA"><span class="toc-text">3. MEGA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#坚果云"><span class="toc-text">坚果云</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他方案"><span class="toc-text">其他方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-有道云笔记（VIP版）"><span class="toc-text">1. 有道云笔记（VIP版）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用sftp连接远程服务器"><span class="toc-text">2. 使用sftp连接远程服务器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百度网盘-BaiduPCS-Go"><span class="toc-text">百度网盘+BaiduPCS-Go</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装baidupcs-go"><span class="toc-text">安装baidupcs-go</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可参考"><span class="toc-text">可参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-Drive"><span class="toc-text">Google Drive</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装kio-gdrive"><span class="toc-text">安装kio-gdrive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-1"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可参考-1"><span class="toc-text">可参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MEGA"><span class="toc-text">MEGA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册账号"><span class="toc-text">注册账号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置个人信息"><span class="toc-text">设置个人信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可参考-2"><span class="toc-text">可参考</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用sftp直连"><span class="toc-text">使用sftp直连</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

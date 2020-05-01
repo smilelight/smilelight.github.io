@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>学习Python设计模式 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Python">
+  
+  
+    <meta name="description" content="本书主要参阅的书籍是《精通Python设计模式》
+本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+      学习Python设计模式
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Python</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年4月17日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>本书主要参阅的书籍是《精通Python设计模式》</p>
+<p>本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。<br>具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。<br>案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真应该点个赞了！</p>
+<a id="more"></a>
+<p>我们在学习设计模式的时候不应当仅仅立足于软件开发这一角度，同时应该立足于实际，或者以更加抽象的角度来看待这些设计模式背后的思想。比如针对某个设计模式，我们要明白想通过它实现怎么样的功能，这样设计的好处在哪里，我要提供什么输入，我将得到什么输出，即通过函数或黑盒子的视角从外面看待这个设计模式。同时也要将视角放到该设计模式的内部，可以把具体的某个方法视为车间、某个对象视为工人，将之与现实世界某个应用场景映射起来，分析通过怎么样的一个调度实现了业务的功能，其中的结构优势何在，节省了空间还是时间上的资源等。</p>
+<h1 id="笔记摘抄"><a href="#笔记摘抄" class="headerlink" title="笔记摘抄"></a>笔记摘抄</h1><ol>
+<li>设计模式的本质是在已有的方案之上发现更好的方案（而不是全新发明）。</li>
+<li>设计模式并非是某种高大上或者神秘的东西，而是一些常见的软件工程设计问题的最佳实践方案。</li>
+<li>个人认为软件开发技术的学习都应该以实践为前提，只有理解实践过程中遇到的种种问题，才能明白那些技术的本质和目的是什么，因为每种新技术都是因某个/某些问题而出现的。</li>
+<li>设计模式一般是描述如何组织代码和使用最佳实践来解决常见的设计问题。</li>
+</ol>
+<h1 id="书籍结构"><a href="#书籍结构" class="headerlink" title="书籍结构"></a>书籍结构</h1><h3 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h3><p>创建型设计模式处理对象创建相关的问题，目标是当直接创建对象不太方便时，提供更好的方式。</p>
+<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><p>工厂背后的思想是简化对象的创建</p>
+<p>通过将创建对象的代码和使用对象的代码解耦，工场能够降低应用维护的复杂度。</p>
+<p>工厂通常有两种形式：一种是工厂方法，它是一个方法（或以地道的Python数据来说，是一个函数），对不同的输入参数返回不同的对象；第二种是抽象工厂，它是一组用于创建一系列相关事物对象的工厂方法。</p>
+<p>工厂方法可以在必要时创建新的对象，从而提高性能和内存使用率。</p>
+<p>一个抽象工厂是（逻辑上的）一组工厂方法，其中的每个工厂方法负责产生不同种类的对象。</p>
+<p>抽象工厂模式是工厂方法模式的一种泛化。</p>
+<p>通常一开始时使用工厂方法，因为它更简单。</p>
+<p>工厂方法和抽象工厂设计模式可适用于以下场景：</p>
+<ul>
+<li>想要追踪对象莱恩创建时</li>
+<li>想要将对象的创建与使用解耦时</li>
+<li>想要优化应用的性能和资源占用时</li>
+</ul>
+<h4 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h4><p>建造者模式将一个复杂对象的构造过程与其表现分离，这样，同一个构造过程可用于创建多个不同的表现。</p>
+<p>如果我们知道一个对象必须经过多个步骤来创建，并且要求同一个构造过程可以产生不同的表现，就可以使用建造者模式。</p>
+<p>建造者模式可适用于以下场景：</p>
+<ul>
+<li>想要创建一个复杂对象（对象由多个部分构成，且对象的创建要经过多个不同的步骤，这些步骤也许还需遵从特定的顺序）</li>
+<li>要求一个对象能有不同的表现，并希望将对象的构造与表现解耦</li>
+<li>想要在某个时间点创建对象，但在稍后的时间点再访问</li>
+</ul>
+<h4 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h4><p>原型设计模式用于创建对象的完全副本。</p>
+<p>一般创建副本的两种方式：</p>
+<ul>
+<li>当创建一个浅副本时，副本依赖引用</li>
+<li>当创建一个深副本时，副本复制所有东西</li>
+</ul>
+<p>第一种情况下，我们希望提升应用性能和优化内存使用，在对象之间引入数据共享，但需要小心地修改数据，因为所有变更对所有副本都是可见的。</p>
+<p>第二种情况下，我们希望能够对一个副本进行更改而不会影响其他对象。</p>
+<h3 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h3><p>结构型设计模式处理一个系统中不同实体（比如，类和对象）之间的关系，关注的是提供一种简单的对象组合方式来创建新功能。</p>
+<h4 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h4><p>适配器模式帮助我们实现两个不兼容接口之间的兼容</p>
+<p>开放/封闭原则（open/close principle）是面向对象设计的基本原则之一，声明一个软件实体应该对拓展是开放的，对修改则是封闭的。本质上这意味着我们应该无需修改一个软件实体的源码就能拓展其行为。适配器模式遵从开放/封闭原则。</p>
+<p>适配器让一件产品在制造出来之后需要应对新需求之时还能工作。</p>
+<h4 id="修饰器模式"><a href="#修饰器模式" class="headerlink" title="修饰器模式"></a>修饰器模式</h4><p>修饰器模式通常用于拓展一个对象的功能。</p>
+<p>一般来说，应用中有些部件是通用的，可应用于其他部件，这样的部件被看作横切关注点。</p>
+<p>修饰器模式是实现横切关注点的绝佳方案，因为横切关注点通用但不太适合使用面向对象编程范式来实现。</p>
+<p>Python进一步拓展了修饰器的概念，允许我们无需使用继承或组合就能拓展任意可调用对象（函数、方法或类）的行为。</p>
+<h4 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h4><p>外观模式有助于隐藏系统所的内部复杂性，并通过一个简化的接口向客户端暴露必要的部分。本质上，外观（Facade）是在已有复杂系统之上实现的一个抽象层。</p>
+<p>使用外观模式的最常见理由是为一个复杂系统提供单个简单的入口点。</p>
+<p>不把系统的内部功能暴露给客户端代码有一个额外的好处：我们可以改变系统内部代码，但客户端代码不用关心这个改变，也不会受到这个改变的影响。客户端代码不需要进行任何改变。</p>
+<p>如果你的系统包含多层，外观模式也能派上用场。你可以为每一层引入一个外观入口点，并让所有层级通过它们的外观相关通信。这提高了层级之间的松耦合性，尽可能保持层级独立。</p>
+<p>外观模式是一种隐藏系统复杂性的优雅方式，因为多数情况下客户端代码并不应该关心系统的这些细节。</p>
+<h4 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h4><p>作为软件工程师，我们应该编写更好的软件来解决软件问题，而不是要求客户购买更多更好的硬件。</p>
+<p>享元模式通过为相似对象引入数据共享来最小化内存使用，提升性能。</p>
+<p>一个享元（Flyweight）就是一个包含状态独立的不可变（又称固有的）数据的共享对象。</p>
+<p>若想要享元模式有效，需要满足GoF的《设计模式》一书罗列的以下几个条件。</p>
+<ul>
+<li>应用需要使用大量的对象。</li>
+<li>对象太多，存储/渲染它们的代价太大。</li>
+<li>对象ID对于应用不重要。</li>
+</ul>
+<p>一般来说，在应用需要创建大量的计算代价大但共享许多属性的对象时，可以使用享元。</p>
+<h4 id="模型-视图-控制器模式"><a href="#模型-视图-控制器模式" class="headerlink" title="模型-视图-控制器模式"></a>模型-视图-控制器模式</h4><p>关注点分离（Separation of Concerns，SoC）原则是软件工程相关的设计原则之一。</p>
+<p>SoC原则背后的思想是将一个应用切分成不同的部分，每个部分解决一个单独的关注点。</p>
+<p>模型-视图-控制器（Model-View-Controller，MVC）模式是应用到面向对象编程的SOC原则。</p>
+<p>其中，模型是核心的部分，代表着应用的信息本源，包含和管理（业务）逻辑、数据、状态以及应用的规则。视图是模型的可视化表现。视图只是展示数据，并不处理数据。控制器是模型与视图之间的链接/粘附。模型与视图之间的所有通信都通过控制器进行。</p>
+<p>为了实现模型与其表现之间的解耦，每个视图通常都需要属于它的控制器。（我认为作者想表达的是没有控制器也可以，但是由于视图并不具备处理数据的功能，并且通常每个页面所要处理的业务都会不同，因此这样的模型是高度定制的模型，适用性很差）</p>
+<p>在从头开始实现MVC时，请确保创建的模型很智能，控制器很瘦，视图很傻瓜。</p>
+<p>可以将具有以下功能的模型视为智能模型：</p>
+<ul>
+<li>包含所有的校验/业务规则/逻辑</li>
+<li>处理应用的状态</li>
+<li>访问应用数据（数据库、云或其他）</li>
+<li>不依赖UI<br>可以将符合以下条件的控制器视为瘦控制器：</li>
+<li>在用户与视图交互时，更新模型</li>
+<li>在模型改变时，更新视图</li>
+<li>如果需要，在数据传递给模型/视图之前进行处理</li>
+<li>不展示数据</li>
+<li>不直接访问应用数据</li>
+<li>不包含校验/业务规则/逻辑<br>可以将符合以下条件的视图视为傻瓜视图：</li>
+<li>展示数据</li>
+<li>允许用户与其交互</li>
+<li>仅做最小的数据处理，通常由一种模板语言提供处理能力（例如，使用简单的变量和循环控制）</li>
+<li>不存储任何数据</li>
+<li>不直接访问应用数据</li>
+<li>不包含校验/业务规则/逻辑</li>
+</ul>
+<p>使用MVC时，请确保创建智能的模型（核心功能）、瘦控制器（实现视图与模型之间通信的能力）以及傻瓜式的视图（外在表现，最小化逻辑处理）</p>
+<h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><p>四种不同的知名代理类型：</p>
+<ul>
+<li>远程代理：实际存在于不同地址空间（例如，某个网络服务器）的对象在本地的代理者。</li>
+<li>虚拟代理：用于懒初始化，将一个大计算量对象的创建延迟到真正需要的时候进行。</li>
+<li>保护/防护代理：控制对敏感对象的访问。</li>
+<li>智能（引用）代理：在对象被访问时执行额外的动作。此类代理的例子包括引用计数和线程安全检查。</li>
+</ul>
+<p>现实中，，永远不要执行以下操作：</p>
+<ul>
+<li>在源代码中存储密码</li>
+<li>以明文形式存储密码</li>
+<li>使用一种弱（例如，MD5）或自定义加密形式</li>
+</ul>
+<h3 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h3><p>行为型模式处理对象互联和算法的问题</p>
+<h4 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h4><p>责任链（Chain of Responsibility）模式用于让多个对象来处理单个请求时，或者用于预先不知道应该由哪个对象（来自某个对象链）来处理某个特定请求时。其原则如下所示：</p>
+<ol>
+<li>存在一个对象链（链表、树或任何其他便捷的数据结构）。</li>
+<li>我们一开始将请求发送给链中的第一个对象。</li>
+<li>对象决定其是否要处理该请求。</li>
+<li>对象将请求转发给下一个对象。</li>
+<li>重复该过程，直到到达链尾。</li>
+</ol>
+<p>通过使用责任链模式，我们能让许多对象来处理一个特定请求。在我们预先不知道应该由哪个对象来处理某个请求时，这是有用的。另一个责任链可以派上用场的场景是，在我们知道可能会有多个对象都需要对同一个请求进行处理之时。</p>
+<p>这一模式的价值在于解耦。</p>
+<p>客户端与所有处理程序（一个处理程序与所有其他处理程序之间也是如此）之间不再是多对多关系，客户端仅需要知道如何与链的起始节点（标头）进行通信。</p>
+<p>在无法预先知道处理程序的数量和类型时，该模式有助于对请求/处理事件进行建模。适合使用责任链模式的系统例子包括基于事件的系统、采购系统和运输系统。</p>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><p>命令设计模式帮助我们将一个操作（撤销、重做、复制、粘贴）封装成一个对象。简而言之，这意味着创建一个类，包含实现该操作所需要的所有逻辑和方法。</p>
+<p>这样做的优势如下所述参考：</p>
+<ul>
+<li>我们并不需要直接执行一个命令。命令可以按照希望执行。</li>
+<li>调用命令的对象与知道如何执行命令的对象解耦。调用者无需知道命令的任何实现细节。</li>
+<li>如果有意义，可以把多个命令组织起来，这样调用者能够按顺序执行它们。例如，在实现一个多层撤销命令时，这是很有用的。</li>
+</ul>
+<h4 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h4><p>解释器（Interpreter）模式仅能引起应用的高级用户的兴趣。这是因为解释器模式背后的贮存思想是让非初级用户和领域专家使用一门简单的语言来表达想法。</p>
+<p>领域特定语言（Domain Specific Language，DSL）是一种针对一个特定领域的有限表达能力的计算机语言。DSL分为内部DSL和外部DSL。</p>
+<p>内部DSL构建在一个宿主编程语言之上。</p>
+<ul>
+<li>优势：我们不必担心创建、编译及解析语法，因为这些已经被宿主语言解决掉了。</li>
+<li>劣势：会受限于宿主语言的特性。如果宿主语言不具备这些特性，构建一种表达能力强、简洁而且优美的内部DSL是富有挑战性的。</li>
+</ul>
+<p>外部DSL不依赖某种宿主语言。DSL的创建者可以决定语言的方方面面（语法、句法等），但也要负责为其创建一个解析器和编译器。为一种新语言创建解析器和编译器是一个非常复杂、长期而又痛苦的过程。</p>
+<p>解释器模式仅与内部DSL相关。</p>
+<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><p>观察者模式描述单个对象（发布者，又称为主持者或可观察者）与一个或多个对象（订阅者，又称为观察者）之间的发布-订阅关系。</p>
+<p>观察者模式背后的思想等同于MVC和关注点分离原则背后的思想，即降低发布者与订阅者之间的耦合度，从而易于在运行时添加/删除订阅者。此外，发布者不关心它的订阅者是谁。它只是将通知发送给所有订阅者。</p>
+<p>当我们希望在一个对象（主持者/发布者/可观察者）发生变化时通知/更新另一个或多个对象的时候，通常会使用观察者模式。观察者的数量以及谁是观察者可能会有所不同，也可以（在运行时）动态地改变。</p>
+<h4 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h4><p>在很多问题中，有限状态机（通常名为有限状态机）是一个非常方便的状态转换建模（并在必要时以数学方式形式化）工具。</p>
+<p>状态机是一个抽象机器，有两个关键部分，状态和转换。状态是指系统的当前（激活）状况。一个状态机在任意时间点只会有一个激活状态。转换是指从一个状态切换到另一个状态，因某个事件或条件的触发而开始。在一个转换发生之前或之后通常会执行一个或多个动作。</p>
+<p>状态机带一个不错的特性是可以用图来表现（称为状态图），其中每个状态都是一个节点，每个转换都是两个节点之间的边。</p>
+<p>状态模式就是应用到一个特定软件工程问题的状态机。</p>
+<p>使用状态模式本质上相当于实现一个状态机来解决特定领域的一个软件问题。</p>
+<p>状态设计模式解决的是一定上下文中无限数量状态的完全封装，从而实现更好的可维护性和灵活性。</p>
+<h4 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h4><p>策略模式通常用在我们希望对同一个问题透明地使用多种方案时。如果并不存在针对所有输入数据和所有情况的完美算法，那么我们可以使用策略模式，动态地决定在每种情况下应使用哪种算法。</p>
+<h4 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h4><p>编写优秀代码的一个要素是避免冗余。</p>
+<p>模板模式关注的是消除代码冗余，其思想是我们应该无需改变算法结构就能重新定义一个算法的某个部分。</p>
+<h1 id="设计模式是被发现，而不是被发明出来的。"><a href="#设计模式是被发现，而不是被发明出来的。" class="headerlink" title="设计模式是被发现，而不是被发明出来的。"></a>设计模式是被发现，而不是被发明出来的。</h1>
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/>http://www.iamlightsmile.com/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:26:43+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=学习Python设计模式 - lightsmile's Blog&summary=本书主要参阅的书籍是《精通Python设计模式》
+本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真应该点个赞了！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=学习Python设计模式 - lightsmile's Blog&summary=本书主要参阅的书籍是《精通Python设计模式》
+本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真应该点个赞了！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=学习Python设计模式 - lightsmile's Blog&summary=本书主要参阅的书籍是《精通Python设计模式》
+本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真应该点个赞了！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/GithubPages%E6%96%B0%E5%B0%9D%E8%AF%95/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>GithubPages新尝试</p>
+                <p class='content'>由于某些不便明说的原因，我要再申请一个域名，再申请一个GitHub账号，再搞一个GitHub Pages。打算用来记录一些不便明说的东西。
+这次域名的申请不同于之前的在万网的iamlightsm...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/'>
+                <p class='title'>哈工大ltp小试<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>今天开始探索学习使用哈工大的LTP（Language Technology Platform）。
+这里是官网地址
+这里是GitHub地址
+这里是pyltp的使用文档
+平台采用的语言是C++，但是...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '学习Python设计模式',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建型模式"><span class="toc-text">创建型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#工厂模式"><span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#建造者模式"><span class="toc-text">建造者模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原型模式"><span class="toc-text">原型模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构型模式"><span class="toc-text">结构型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#适配器模式"><span class="toc-text">适配器模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修饰器模式"><span class="toc-text">修饰器模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外观模式"><span class="toc-text">外观模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#享元模式"><span class="toc-text">享元模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模型-视图-控制器模式"><span class="toc-text">模型-视图-控制器模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代理模式"><span class="toc-text">代理模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行为型模式"><span class="toc-text">行为型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#责任链模式"><span class="toc-text">责任链模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令模式"><span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解释器模式"><span class="toc-text">解释器模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#观察者模式"><span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#状态模式"><span class="toc-text">状态模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#策略模式"><span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模板模式"><span class="toc-text">模板模式</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>哈工大ltp小试 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Python,NLP,ltp">
+  
+  
+    <meta name="description" content="今天开始探索学习使用哈工大的LTP（Language Technology Platform）。
+这里是官网地址
+这里是GitHub地址
+这里是pyltp的使用文档
+平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/">
+      哈工大ltp小试
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/NLP/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>NLP</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年4月7日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>今天开始探索学习使用哈工大的LTP（Language Technology Platform）。</p>
+<p>这里是<a href="http://ltp.ai/" target="_blank" rel="noopener">官网地址</a></p>
+<p>这里是<a href="https://github.com/HIT-SCIR/ltp" target="_blank" rel="noopener">GitHub地址</a></p>
+<p>这里是<a href="http://pyltp.readthedocs.io/zh_CN/latest/api.html" target="_blank" rel="noopener">pyltp的使用文档</a></p>
+<p>平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Python版本是3.6。</p>
+<a id="more"></a>
+<p>使用流程很简单：</p>
+<ol>
+<li>下载最新版本的<a href="http://ltp.ai/download.html" target="_blank" rel="noopener">模型</a>（目前是3.4）</li>
+<li>安装pyltp，在命令行输入指令：<code>pip install pyltp</code>。<br>不过我的一直安装失败，总是不成功，后来从网上找了pyltp 3.6的<a href="http://mlln.cn/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/pyltp-0.2.1-cp36-cp36m-win_amd64.whl" target="_blank" rel="noopener">whl</a>文件，然后通过<code>pip install pyltp-0.2.1-cp36-cp36m-win_amd64.whl</code>成功了。</li>
+</ol>
+<p>这里有一篇<a href="http://mlln.cn/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener">博客</a>专门讲安装的，发现他的界面有点黑客风，挺炫酷的哈~</p>
+<p>通过PyCharm新建Python项目后，整个工程长成这个样子：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/project-structure.png" alt="project-structure"></p>
+<p>不过其中的data文件夹、source文件夹和test文件夹是自己新创建的，其中data文件夹内放置下载的模型，source文件夹放置那个其实也没啥东西的txt文件，test中放置编写的Python代码。</p>
+<p>照着使用文档敲的<code>testltp.py</code>内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyltp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分句</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SentenceSplitter</span><br><span class="line">sents = SentenceSplitter.split(<span class="string">'元芳你怎么看？我就趴窗口上看呗！'</span>)</span><br><span class="line">print(<span class="string">'\n'</span>.join(sents))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Segmentor</span><br><span class="line">segmentor = Segmentor()</span><br><span class="line">segmentor.load(<span class="string">'../data/cws.model'</span>)</span><br><span class="line">words = segmentor.segment(<span class="string">"元芳你怎么看"</span>)</span><br><span class="line">segmentor.release()</span><br><span class="line">print(list(words))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 词性标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Postagger</span><br><span class="line">postagger = Postagger()</span><br><span class="line">postagger.load(<span class="string">'../data/pos.model'</span>)</span><br><span class="line">posts = postagger.postag(list(words))</span><br><span class="line">postagger.release()</span><br><span class="line">print(list(zip(list(words),list(posts))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#命名实体识别</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> NamedEntityRecognizer</span><br><span class="line">recognizer = NamedEntityRecognizer()</span><br><span class="line">recognizer.load(<span class="string">'../data/ner.model'</span>)</span><br><span class="line">nettags = recognizer.recognize(list(words),list(posts))</span><br><span class="line">recognizer.release()</span><br><span class="line">print(list(zip(list(words),list(nettags))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#依存语法分析</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Parser</span><br><span class="line">parer = Parser()</span><br><span class="line">parer.load(<span class="string">'../data/parser.model'</span>)</span><br><span class="line">arcs = parer.parse(list(words),list(posts))</span><br><span class="line">parer.release()</span><br><span class="line">print(list(zip(list(words),[(arc.head,arc.relation) <span class="keyword">for</span> arc <span class="keyword">in</span> arcs])))</span><br><span class="line"></span><br><span class="line"><span class="comment">#语义角色标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SementicRoleLabeller</span><br><span class="line">labeller = SementicRoleLabeller()</span><br><span class="line">labeller.load(<span class="string">'../data/pisrl_win.model'</span>)</span><br><span class="line">roles = labeller.label(list(words),list(posts),arcs)</span><br><span class="line">labeller.release()</span><br><span class="line"><span class="keyword">for</span> role <span class="keyword">in</span> roles:</span><br><span class="line">    print(role.index, <span class="string">""</span>.join(</span><br><span class="line">        [<span class="string">"%s:(%d,%d)"</span> % (arg.name, arg.range.start, arg.range.end) <span class="keyword">for</span> arg <span class="keyword">in</span> role.arguments]))</span><br></pre></td></tr></table></figure>
+<p>其中我的pyltp不知道怎么安装的，竟然成了build-in里的东西了，而不是在site-packages里面。</p>
+<p>执行以上代码的结果为：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltp-result.png" alt="testltp-result"></p>
+<p>其中要注意的是这里在语义角色标注中使用的并非pisrl.model而是pisrl_win.model，前者会报错的。</p>
+<p>同时由于文档中提到：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/no-support.png" alt="no-support"></p>
+<p>于是我又去申请了哈工大的<a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">语言云</a>个人账号,经过邮箱激活之后，按照人家的<a href="https://www.ltp-cloud.com/document/" target="_blank" rel="noopener">使用文档</a>就要探索一下，不过没想到出现了问题。。。</p>
+<p>由于官网提供的Python示例代码使用的是2.7版本，所以这里我使用的是另外的一个网络请求模块：<code>requests</code>，最终的代码<code>testltpCloud.py</code>长成这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> APIKEY</span><br><span class="line"></span><br><span class="line">url_get_base = <span class="string">"http://api.ltp-cloud.com/analysis/"</span></span><br><span class="line">args = &#123;</span><br><span class="line">    <span class="string">'api_key'</span>: APIKEY,</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">'我是中国人。'</span>,</span><br><span class="line">    <span class="string">'pattern'</span>: <span class="string">'dp'</span>,</span><br><span class="line">    <span class="string">'format'</span>: <span class="string">'plain'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># result = urllib.request.urlopen(url_get_base, urllib.parse.urlencode(args))  # POST method</span></span><br><span class="line">result = requests.post(url_get_base,args)</span><br><span class="line">print(result.text)</span><br></pre></td></tr></table></figure>
+<p>在同路径下的<code>settings.py</code>的内容为：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/apikey.png" alt="apikey"></p>
+<p>其中APIKEY的内容是邮件发给你的api_key字符串。</p>
+<p>不过运行的结果为：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltpCloud-result.png" alt="testltpCloud-result"></p>
+<p>显示未授权用户，但是我的账户类型是免费的，刚注册的啊，为啥这样，搜了搜没搜出个啥，就先这样吧。</p>
+<p>又向目标迈进了一步，嘿嘿，加油！</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/>http://www.iamlightsmile.com/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:52:16+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NLP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NLP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ltp/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>ltp</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/&title=哈工大ltp小试 - lightsmile's Blog&summary=今天开始探索学习使用哈工大的LTP（Language Technology Platform）。
+这里是官网地址
+这里是GitHub地址
+这里是pyltp的使用文档
+平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Python版本是3.6。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/&title=哈工大ltp小试 - lightsmile's Blog&summary=今天开始探索学习使用哈工大的LTP（Language Technology Platform）。
+这里是官网地址
+这里是GitHub地址
+这里是pyltp的使用文档
+平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Python版本是3.6。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/&title=哈工大ltp小试 - lightsmile's Blog&summary=今天开始探索学习使用哈工大的LTP（Language Technology Platform）。
+这里是官网地址
+这里是GitHub地址
+这里是pyltp的使用文档
+平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Python版本是3.6。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>学习Python设计模式</p>
+                <p class='content'>本书主要参阅的书籍是《精通Python设计模式》
+本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/'>
+                <p class='title'>Scrapy爬取知乎数据小试<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>啊啊啊，没时间写啦，以后有时间再写吧！
+。。。发现今天是周五，不熄灯。。。
+前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。
+自...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '哈工大ltp小试',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

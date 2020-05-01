@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>如何理解WordEmbedding？ - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="NLP,深度学习">
+  
+  
+    <meta name="description" content="之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/">
+      如何理解WordEmbedding？
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>深度学习</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年4月22日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。</p>
+<p>不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。</p>
+<a id="more"></a>
+<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><p>《深度学习》一书中有以下几句话，略有小改：</p>
+<blockquote>
+<ul>
+<li>简单的机器学习算法的性能在很大程度上依赖于给定数据的表示。</li>
+<li>使用机器学习来发掘表示本身的方法即表示学习。</li>
+<li>从原始数据中提取高层次、抽象的特征是非常困难的。</li>
+<li>深度学习通过其他较简单的表示来表达复杂表示。</li>
+<li>我们可以认为不同数学函数的每一次应用都为输入提供了新的表示。</li>
+<li>分布式表示的思想是系统的每一个输入都应该由多个特征表示，并且每一个特征都应该参与到多个可能输入的表示。</li>
+<li>联结主义的中心思想是当网络把大量简单的计算单元连接在一起时可以实现智能行为。</li>
+<li>万能近似定理表明，神经网络可以近似从任何有限离散空间映射到另一个的任意函数。</li>
+</ul>
+</blockquote>
+<p>其实我认为深度学习的应用核心就是上面几句话。</p>
+<p>接下来我拿传统的确定性算法、机器学习和深度学习做一个简单的对比。</p>
+<p>原来对于一些流程比较清晰简单的任务，我们的做法是编写确定性的算法来实现，而对于那些很复杂的，难以用简单的规则去说明的任务通常束手无策。</p>
+<p>机器学习的作用则是直接从数据中去学习，总结规律，但通常我们要花费大量的精力在特征工程上面，同时对于许多任务来说，我们很难知道应该提取哪些特征。<br>而深度学习则表示：特征不用你们整，只要你们给的数据足够好，我保证给你们一个更好的模型。</p>
+<p>上面这句话的意思是，原来特征工程的累活我们不用做了，深度学习可以自己学到好的特征，同时万能近似定理也确保了深度神经网络可以保证模型学习效果的上限很高，当前前提是我们给的数据比较好。</p>
+<p>以上交代了下背景，接下来言归正传。</p>
+<p>自然语言要作为神经网络模型的输入之前，我们首先需要将其映射为计算机可以表示的形式。</p>
+<p>独热编码最简单，将每一个字或者词都唯一编码成了01向量，除了维度灾难，我认为最大的缺点就是在这一映射过程中丢掉了许多词或者字的词义和语义特征，除了表示唯一以外，不包含任意其它信息。</p>
+<p>这时我们应该思考：那什么样的表示才算好的表示？表示中应该保留哪些特征又如何保留这些特征呢？</p>
+<p>怀着对上面问题的疑问，我们来看一下他山之石。</p>
+<h2 id="2-卷积神经网络的工作原理"><a href="#2-卷积神经网络的工作原理" class="headerlink" title="2.卷积神经网络的工作原理"></a>2.卷积神经网络的工作原理</h2><p>我们都知道卷积神经网络中最主要的部分：卷积层、池化层、激活层的作用就是提取和匹配局部特征，将特征提取结果作为全连接层的输入从而得到最终的输出。</p>
+<p>其中的每一个卷积核都可以被视为一个特征过滤器，卷积神经网络通过依次的扫描输入并进行卷积运算提取得到哪些位置可能包含哪些特征的信息，随后这些特征位置信息被进一步的提取从而得到更高级、更抽象的特征。</p>
+<p>举个例子，如在识别图片中是否包含人时，卷积神经网络大致的作用原理如首先提取出某些位置是否是横线、竖线还是斜线以及颜色等特征，然后对这些特征进一步组合以得到哪些位置是否包含人脸、上肢、下肢等特征，通过提取到的这些特征，神经网络就可以做出决策得到图片中是否包含人的结果。</p>
+<p>通过了解卷积神经网络的工作原理，我们可以知道卷积神经网络的最大作用就是可以自动学习并提取局部特征。对于计算机视觉中的图片而言，最微小的组成单元是一个个的像素点，然后局部组合就得到了线条和颜色块等信息特征；而对于自然语言处理而言，最小的组成单元则是一个个的字符，如英文中的‘a’、汉字中的‘我’等。</p>
+<p>许多计算机视觉的预训练模型都是通用的，对于具体任务，我们只需要finetune（精调）或者只学习后面的层就可以了。这其中的原理是学到的模型提取特征的能力是可复用的，不依赖于某一具体任务。同样的，如果我们可以从语料中学到词或者字的词义和语义特征就好了，之后可以直接作为词或者字的表示用于模型训练和预测，这就是词的预训练。两者有异曲同工之妙。</p>
+<h2 id="3-Harris提出的分布式假说及Firth对此的阐述和论证"><a href="#3-Harris提出的分布式假说及Firth对此的阐述和论证" class="headerlink" title="3.Harris提出的分布式假说及Firth对此的阐述和论证"></a>3.Harris提出的分布式假说及Firth对此的阐述和论证</h2><p>Harris曾于1954年提出分布式假说：“上下文相似的词，其语义也相似”，后来又经过Firth对该假说进行阐述和论证，“词的语义由其上下文确定”。基于该思想，我们可以从该词在语料中的上下文学习得到该词的语义，同时也可以得到相同上下文下不同的词之间的联系。</p>
+<p>结合上文提到的分布式表示的思想，我们可以想到：我们可以用某个词以及该词所指代的实体所具备的属性和特征来表示该词。</p>
+<p>再举个不恰当例子：</p>
+<p>如何表示“程序猿”和“单身狗”这两个词呢？假设我们有以下特征向量序列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"><span class="string">"有头发"</span>,</span><br><span class="line"><span class="string">"人傻"</span>,</span><br><span class="line"><span class="string">"钱多"</span>,</span><br><span class="line"><span class="string">"死得快"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>我们可以设定:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">程序猿 = [<span class="number">0.3</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0.6</span>]</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">同样的，我们可以设定：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">单身狗 = [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.3</span>, <span class="number">0.5</span>]</span><br></pre></td></tr></table></figure>
+<p>基于此，我们便得到了“程序猿”和“单身狗”的语义相似度为：</p>
+<script type="math/tex; mode=display">\sqrt{( 1 - \left| 0.3 - 0.6 \right|)^2 +( 1 - \left| 0.6 - 0.7 \right|)^2 + ( 1 - \left| 0.6 - 0.3 \right|)^2 + ( 1 - \left| 0.6 - 0.5 \right|)^2} = 0.72</script><p>从中我们可以得到“程序猿”和“单身狗”这两个词还是挺接近的。</p>
+<p>注意：以上具体数值和计算公式是自己瞎掰的。</p>
+<p>具体到属性特征有哪些以及具体每个词的分量数值应该是多少，这个神经网络是可以自己去学的，只不过学到的可以被视为潜在语义信息，并不是直观的”有头发”, “人傻”, “钱多”, “死得快”等特征，通常都是不可解释的。</p>
+<p>总之，通过类似以上的方式，单词的语义信息就被比较有效的编码和表示起来了。<br>这时我们再回顾一下之前的Word2Vec和最近非常火的BERT，则可以被视为以上思想的工程实践。只不过训练方式和优化目标愈加完善，使得词表示可以包含更多更好的语义表示罢了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>机器学习也好，深度学习也罢，其任务目标都是想要学习现实世界中某些量与某些量之间的映射变化关系。只不过有的关系是线性的，比较简单，而有的则极其复杂。对于这些复杂的问题，才是深度学习的用武之地。</p>
+<p>许多任务都可以被看作是回归或分类问题，正如老子云：“天下皆知美之为美，斯恶已。”，美丑两端即定义一个维度。</p>
+<p>对于神经网络的理解，也可以从还原论的哲学思想来入手。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html#sphx-glr-beginner-nlp-word-embeddings-tutorial-py" target="_blank" rel="noopener">Word Embeddings: Encoding Lexical Semantics</a></li>
+<li><a href="https://www.jianshu.com/p/fe428f0b32c1" target="_blank" rel="noopener">[透析]卷积神经网络CNN究竟是怎样一步一步工作的？</a></li>
+<li><a href="https://www.jianshu.com/p/471d9bfbd72f" target="_blank" rel="noopener">通俗理解word2vec</a></li>
+<li><a href="https://www.jianshu.com/p/7bdbc1395406" target="_blank" rel="noopener">自然语言处理—-文本表示</a></li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/>http://www.iamlightsmile.com/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-04-22T16:33:36+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2019年4月22日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NLP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NLP</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>深度学习</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/&title=如何理解WordEmbedding？ - lightsmile's Blog&summary=之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/&title=如何理解WordEmbedding？ - lightsmile's Blog&summary=之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/&title=如何理解WordEmbedding？ - lightsmile's Blog&summary=之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。
+不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/2019%E5%9B%9E%E5%BF%86%E6%80%BB%E7%BB%93%E5%BD%95/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>2019回忆总结录</p>
+                <p class='content'>时光匆匆如流水，眨眼间，2019年就这么过去了。距离你好，2019也马上就一年整了。
+
+总体回顾这一年，也算奋斗和荒废都有。由于要考研以及积累学习，所以在2018年12月底辞职，然后回家。
+在1...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/%E5%A4%A7%E5%AD%A6%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/'>
+                <p class='title'>大学数学与深度学习<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>我们都知道，世间的万事万物都是彼此联系和不断发展的。而我们要生存发展进步，则要不断地去尝试探索理解彼此之间到底是如何联系和发展的，要得到那些定性和定量的规律，哲学和数学以及其他学问在此基础上产生...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '如何理解WordEmbedding？',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背景"><span class="toc-text">1.背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-卷积神经网络的工作原理"><span class="toc-text">2.卷积神经网络的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Harris提出的分布式假说及Firth对此的阐述和论证"><span class="toc-text">3.Harris提出的分布式假说及Firth对此的阐述和论证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

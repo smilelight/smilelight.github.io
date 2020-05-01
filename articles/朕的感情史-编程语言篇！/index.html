@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>朕的感情史-编程语言篇！ - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="编程语言">
+  
+  
+    <meta name="description" content="对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。
+古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。
+好吧，接下来我要正式介绍一下朕的后宫！">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/">
+      朕的感情史-编程语言篇！
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>计算机</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年3月5日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。</p>
+<p>古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。</p>
+<p>好吧，接下来我要正式介绍一下朕的后宫！</p>
+<a id="more"></a>
+<p><code>第一任</code>：<code>C++</code></p>
+<p>大一学习编程语言最开始上手的就是C++，不过学了半天也没学出个所以然来，经常挣扎于混杂的概念之中，却又缺少电脑无法有效开展实战编程。后来随着考试结束，我和她的感情也就慢慢的越来越淡了。</p>
+<p>好吧，不过呢，作为系统编程和游戏开发的无可替代的语言，她的高性能与开发效率综合而言目前怕是所有所有的都比不上。</p>
+<p>大部分企业面试笔试好像都会问到C++，感觉不会点C++真的不配说自己是程序员，但是我觉得人生苦短，何必找死呢。感觉C++是我等屁民不可轻易染指的高冷女神。</p>
+<p><code>第二任</code>：<code>C</code></p>
+<p>为了更好的学习C++，曾经又跑去学了C，因为我觉得她是C++的姐姐吧。不过还是由于驱动力不足之类的原因吧，最终也没能学出个卵子，不过也在某种程度上理解了C++相对于C而言做的改进，例如多态、名称空间、类等对于结构化的编程还是挺有用的吧。</p>
+<p>C语言也可以做的很吊，但是由于语言的设计里本身并没有许多高级概念，所以用起来不是很直接方便，搞系统编程或者其他对效率要求极高的才会用吧。看上去没有C++的高冷，但是也不好追，并且语言特性相对低级，自己本身不太喜欢。</p>
+<p><code>第三任</code>：<code>Java</code></p>
+<p>Java这门语言其实真的是相当不错的。如所有的类都有一个共同的基类，只能继承自一个父类，其他的通过接口来实现，相对于C++的名称空间来说要好不少。</p>
+<p>Java的语言世界里，程序总是在一个个实例化的类或类本身中的属性和方法中穿梭，某种程度上来说其实挺好的。相比C++而言，普通的人很容易上手并能培养起初步良好的编程习惯。</p>
+<p>我在Java实验课程中手撸一个什么系统，在此过程中，初步培养起了软件编程的极初始的经验体会。后来学习Android过程中，由于也要用到Java，所以功底还算可以。</p>
+<p>但是在定义和使用的过程中，还是会感觉到比较冗杂，当然规矩多了某种程度上也算好事。那些之后在JVM之上出现的其他语言，也是同样在JVM上运行程序，但是相对而言可能更简洁、更少束缚、更强表现力，如Scala、Kotlin等等。</p>
+<p>曾经问我家邻居学软件怎么入手，他说你就学Java吧。Java语言在企业级应用系统开发中的主导地位怕是很难被动摇的。</p>
+<p>无论什么时候，Java都是一个值得选择拥抱的小姐姐。</p>
+<p><code>第四任</code>：<code>C#</code></p>
+<p>C#开发最初的目的可能是微软用于应对Java吧。</p>
+<p>C#这门语言在面向对象的语言家族中还是很不错的，某些设计理念比Java还要先进。然而正如以前的VBScript等更多的是被捆绑在Windows操作系统中，不开源，在某种程度上也算束缚了它的发展进步。虽说现在开源了，但是由于Java已经占领了大部分市场，C#的份额还是挺小的了。</p>
+<p>因课结缘，课完缘尽。<br>定位和Java类似，但是对Java更有好感。</p>
+<p><code>第五任</code>：<code>Lua</code></p>
+<p>不得不说，Lua真的是个好语言，只是之前没怎么好好学，并且它上手极为简单容易。现在的话，很少接触，因为基本上用不到。对于它的C源码还是有必要看一下的。感觉很有好感的小妹妹。</p>
+<p><code>第六任</code>：<code>Python</code></p>
+<p>Python的设计哲学现在看来真的是极好，这些年的发展壮大足以说明一切，在大部分编程应用领域里几乎都有了它的身影。极强的代码阅读性，上手很容易。于我而言，她现在是一个贤妻良母型的。</p>
+<p><code>第七任</code>：<code>Ruby</code></p>
+<p>Python和Ruby各领风骚，许多爱好者各爱各的好。Ruby我以前也学过一下下，Ruby好像是基于对象的，里面啥都是对象。相对而言，用法超级灵活，而且比较简洁炫酷，但是可能因为用的少，我看着Ruby代码好像阅读起来不是很爽，比Python而言差远了。开发效率极高，Ruby on Rails嘛，但是好像项目做大之后就会受限于它的运行效率。现在也早就分了。感觉Ruby和我三观不符，私人感觉Ruby是一个比较追求时尚新颖的女生，比较开放外向。</p>
+<p><code>第八任</code>：<code>Scala</code></p>
+<p>我曾经学习过很短时间的Scala，网上的说法是学习起来很复杂，我当时感觉还不错，后来因为用不到也没在学了，可能还是不太感兴趣吧。也是一个不错的小姐姐，但是如果太专情于此，怕是不好吃饭。。。</p>
+<p><code>第九任</code>：<code>aardio</code></p>
+<p>最爱，没有之一。虽然它生于Windows，长于Windows，最终也将死于Windows，但是这还是无法阻挠我对它的喜爱，况且正是由于仅限于Windows平台，她的美才更加表现出来。她的不开源我也理解，是我我也不开源，正是一鹤校长非常爱她，才不允许其他误解开源精神的染指搞事情。</p>
+<p>动态语言，快速开发，名称空间、类，句法灵活，调用简单，几行代码就可以实现复杂的功能，并且很方便的就可以开发出控制台、桌面、网络、后台程序，可以方便与其他语言实现互相调用。</p>
+<p>自从无意间了解到这门语言之后，感觉一下子就被吸引到了，因为她当时完全符合我对编程语言的所有需求，他妈的当时把老纸激动坏了，差点一宿没睡着。当时学了编程两年多，都写不出个什么桌面程序来，用Java写的太丑，用C#开发的还得运行在.Net框架上。一点成就感都没有，我对可视化的界面还是很执着的。</p>
+<p>后来花钱报了班，看视频学习，有时会在群里探讨问题，有时会直接向校长询问，感觉真的很值。后来我数据库实验、编译原理实验、操作系统实验等等全都是用的aardio语言，因为用起来实在是太爽了。</p>
+<p>于我而言，aardio是我的初恋，是我第一门喜欢上的语言，虽然现在由于没有需求已经暂停和她失去了联系，但是我会永远喜欢她！</p>
+<p><code>第十任</code>：<code>Processing</code></p>
+<p>Processing这门语言用来做艺术设计以及自然模拟都是很不错的，并且跨平台，可以生成可执行程序，本身使用Java语言写的，同时也有JavaScript版和Python版，也是用不到所以没在用了。在我看来，像是一个很可爱的萝莉。</p>
+<p><code>第十一任</code>：<code>JavaScript</code></p>
+<p>个人感觉，JavaScript最屌了。它的语言哲学相对来说和我的三观最为符合，原型继承，闭包等等概念都很不错。随着es6的出现，它的语法规范感觉十分高级，个人十分喜欢，在某种程度上，部分设计已经超越了aardio（感觉aardio是集许多好的语言的特性于一身）。事件驱动、非阻塞I/O、回调的NodeJs感觉也很棒。是一个我非常想深入学习的语言，对我来说是一个极具诱惑力的女神。</p>
+<p><code>第十二任</code>：<code>Racket</code></p>
+<p>Racket是Scheme的一种方言，而Scheme则是Lisp的一种方言，语言中处处都是函数式编程，感觉非常新颖且高大上，但是程序复杂起来了之后阅读体验极差，远远比不上Python。接下来打算有时间接触一下下，多吸取里面的先进思想。</p>
+<p><code>第十三任</code>：<code>Julia</code></p>
+<p>2018/3/5刚接触Julia语言，感觉真的挺厉害的，元编程，并行计算，超高性能，语法像Python、用法像Lisp、速度像C，渍渍，真是厉害了~</p>
+<p><code>第十四任</code>：<code>？</code></p>
+<p><code>第十五任</code>：<code>？</code></p>
+<p><code>第十六任</code>：<code>？</code></p>
+<p><code>第十七任</code>：<code>？</code></p>
+<p>……</p>
+<p>接下来的语言还没出现或者还没接触到，可能今后才会冒出来，或者是我自己设计定义实现的吧……</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/>http://www.iamlightsmile.com/articles/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:56:03+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>编程语言</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/&title=朕的感情史-编程语言篇！ - lightsmile's Blog&summary=对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。
+古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。
+好吧，接下来我要正式介绍一下朕的后宫！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/&title=朕的感情史-编程语言篇！ - lightsmile's Blog&summary=对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。
+古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。
+好吧，接下来我要正式介绍一下朕的后宫！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E6%9C%95%E7%9A%84%E6%84%9F%E6%83%85%E5%8F%B2-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AF%87%EF%BC%81/&title=朕的感情史-编程语言篇！ - lightsmile's Blog&summary=对于每一个有理想有追求的程序猿而言，他们可以没有对象，但是不能没有自己的喜欢的语言。
+古言道：兄弟诚可贵，老婆价更高。若为编程故（指死亡之die~），躲也躲不掉。
+好吧，接下来我要正式介绍一下朕的后宫！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>常见10种自然语言处理技术（转载）</p>
+                <p class='content'>原文
+该作者也是翻译的外文，英文原文链接
+引言自然语言处理（NLP）是一种艺术与科学的结合，旨在从文本数据中提取信息。在它的帮助下，我们从文本中提炼出适用于计算机算法的信息。从自动翻译、文本分类...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E9%AA%9A%E6%93%8D%E4%BD%9C%E4%B9%8BUnicode%E7%BC%96%E7%A0%81/'>
+                <p class='title'>Python学习笔记（1）骚操作之Unicode编码<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Python3内部使用的是Unicode编码，所以在变量定义的时候或许可以搞点事情。
+
+例如创建一个文件,名为：人.py，里面的代码是：12class 人(object):    性别 = "男...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '朕的感情史-编程语言篇！',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

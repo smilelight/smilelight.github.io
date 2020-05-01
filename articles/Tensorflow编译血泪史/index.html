@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Tensorflow编译血泪史 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Manjaro,Tensorflow">
+  
+  
+    <meta name="description" content="为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/">
+      Tensorflow编译血泪史
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Linux/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年4月3日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。</p>
+<a id="more"></a>
+<p>本人笔记本电脑有一个256 SSD和1TB机械硬盘，固态装C盘，机械硬盘装D、E和F，各330G，系统为Win10，显卡为NVIDIA1060。后来打算装manjaro双系统，进行编程和机器学习、深度学习的开发工作，于是F盘分了一半约160G给manjaro系统，其中根目录和家目录等单独划分分区挂载，根目录分区大小为30G，此是前话。</p>
+<p>在安装tensorflow之前自己先装了pytorch，因为觉得这个框架代码更优雅，代码风格自己更喜欢。后来在安装tensorflow时发现还挺麻烦，需要独立cuda和cudnn库，不同版本的tensorflow依赖于不同版本的cuda和cudnn，而cuda和cudnn依赖于gcc，如下图所示。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5410339-157b54d0e4ed1564.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tensorflow编译配置"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5410339-277ce10b73dee9d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装cuda9.1包依赖gcc6"></p>
+<p>而manjaro系统属于arch系，各软件包滚动更新速度很快，基本总是保持最新，比如系统默认python环境竟然时3.7.2，我的个乖乖，自己的系统里安装的gcc是此时最新的8.2.1，与cuda所需的gcc6冲突，如果要装gcc6还要卸载gcc8，而其他软件包会依赖于gcc8，况且安装旧版本包这种行为一点都不arch，于是使用tensorflow官方预编译好的whl文件安装就不太现实了，只能自己在本机上编译构建了，幸好网上搜到了一篇最近的、讲得很好很详细、和自己情况正相符的一篇帖子：<a href="https://www.solarck.com/compile-tensorflow-gpu.html" target="_blank" rel="noopener">编译 Tensorflow 1.10 + CUDA9.2 + MKL</a>，在这里向作者由衷的表示感谢！</p>
+<p>于是便红红火火按照教程开始来装了，于是问题旧开始出现了。<br>首先问题是当下载了tensorflow源码之后发现自己不能切换安装版本，如果选择默认master以外的分支，则报<code>无法引用到/tensorflow/tools/bazel.rc文件</code>的错误，于是只能在master分支装吧，不管了。<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-b954de608370ef44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bazel.png"></p>
+<p>同时发现自己访问github下载文件的速度太慢了，导致bazel程序运行失败，后来找到了相关博客如<a href="https://blog.csdn.net/shahuhu000/article/details/83965642" target="_blank" rel="noopener">git clone速度太慢的解决办法</a>进行配置，发现还是未解决，自己在命令前加proxychains代理也不行，因为是程序内部调用系统网络去下载文件，代理命令无效，经过多次尝试后，自己打算通过浏览器下载一个文件试试，如<code>https://github.com/bazelbuild/rules_closure/archive/9889e2348259a5aad7e805547c1a0cf311cfcd91.tar.gz</code>,发现下载的挺快的，是因为代理，而自己直接调用wget命令发现好慢，同时还发现了该文件的最终下载域名为：<code>codeload.github.com</code>，后来自己参考那个教程在<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a>里搜索得到了对应的ip并将其和ip加到hosts文件中，如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-fd9a41f6f7f22dd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hosts文件相关内容"><br>速度一下就快了不少，虽说只有几十k，但是也比之前的几十几百b强，同时安装也不报下载文件失败访问不了文件的错误了。</p>
+<p>后来又遇到：<code>invalid conversion from &#39;const char*&#39; to &#39;char*&#39;</code>这样的代码error，于是网上找到了<a href="http://www.voidcn.com/article/p-kcvnjpwx-bcm.html" target="_blank" rel="noopener">invalid conversion from ‘const char<em>‘ to ‘char</em>‘ 的解决方法</a>这篇文章，于是便修改了报错处的源码，重新继续编译，看着编译进行的挺顺利，自己还蛮开心的，可谁知命运给自己开的玩笑才刚刚开始。</p>
+<p>经过了漫长的编译时间，突然又报错了，说是什么文件访问失败，没有剩余空间了，当时我就蒙了，这是咋回事，后来发现：根目录所在分区满了，安装过程中所有文件都保存在根目录所在分区，即已经到了30G了，使用<code>df -h</code>命令查看所在分区使用率已经到了100%，我擦！！！</p>
+<p>这可如何是好，没想到编译个tensorflow这么占存储空间，后来网上查找相关案例和解决方案，暂时只是把用不到的大软件卸载了，如Clion，发现效果不明显，还是占用了29G多，于是心想：老子不装了，不装了还不行吗，回归pytorch，pytorch才是老纸的真爱，卸载之后发现：使用率还是90%，这这这，后来想到满了那就扩充啊，于是就在网上找扩充根目录分区的方法教程，然而历史说明正是这一步开始使我踏进了深渊。</p>
+<p>网上搜了不少方法，发现许多都不好使，同时分区满了我装个软件都装不了了，感觉要炸！发现有个说法说在拓展分区之前要先挂载，于是我就尝试着把根目录所在分区给挂载掉了，在卸载时还提示错误，说<code>device is busy</code>，于是网上找到类似如<a href="https://blog.csdn.net/hello5orld/article/details/12048323" target="_blank" rel="noopener">linux umount命令介绍与device is busy解决方法</a>的答案，于是敲下了罪恶的<code>umount -l /</code>，后来系统崩了，重启，发现又好了，哈哈。</p>
+<p>后来就想着硬盘F盘还有剩余空间，想划分出来给根目录所在分区，经过尝试之后发现直接划分不行，因为自己没有搞lvm，不能通过卷组或逻辑卷相关的指令操作来进行，后来发现了一个可行的法子是把硬盘中根目录所在分区位置后面的空间腾出来，然后便可以扩充了，把原来的数据放到其他位置就可以了，于是通过这样的操作进行了var挂载分区的移动，感觉还不错，其中主要参考的是<a href="https://blog.csdn.net/u010359398/article/details/83024585" target="_blank" rel="noopener">linux(manjaro)磁盘迁移/opt /home</a>,而在进行boot分区的移动时发现自己未成功进行boot分区的重新挂载，于是系统又崩了，重启也报错了，进入grub rescue模式中，此时有点慌了，后来找到类似该篇博客<a href="http://xstarcd.github.io/wiki/Linux/grub_rescue.html" target="_blank" rel="noopener">grub rescue救援模式的处理</a>所说内容,重新挂载了boot目录，并且重新生成grub配置文件，于是问题解决了。</p>
+<p>之后在进行home分区的操作时自己忘记了备份，直接挂载和格式化掉了（通过 <code>mkfs.ext4 /dev/sda*</code>)，发现出了问题之后重新登录都登录不了，因为相关用户信息都没了，只能进入命令行界面，同时home目录为空，后来在各分区找了半天发现没有找到备份，这时自己真的慌掉了，还有不少数据呢，比如项目代码、还有博客环境配置和博客原文件等，找了半天都没能找到可行的办法，因为系统都登录不进去，连修复软件啥的都安装不了，况且天色已晚，于是就先睡了。</p>
+<p>等到第二天自己想到可以在window系统上安装然后修复那个分区的数据吧？于是先尝试了DiskGenius软件，发现好像它识别的分区不全，并且也只能恢复文件，会丢失文件名等信息，这样也仅是得到一些文件，不是整体的恢复分区，而后又下载了testdisk软件，经过一阵蒙蔽的操作之后，发现自己的D盘和E盘也不见了，赶忙重启发现还是没有，由于许多软件都是安装在D盘上，所以导致window系统下的环境也出问题了，要炸啊，幸亏自己的chrome浏览器在C盘装的，又下载了DiskGenius，发现还要注册，还挺麻烦，于是又尝试下了绿色破解版，经过扫描，找到了丢失的D盘和E盘，只是其他数据全部都没有了（指manjaro系统下全部信息）。哎，一声长叹之后只能重新再装系统了。</p>
+<p>只是可惜了当时探索了不少软件，同时还有不少有用的数据资料，还有自己最新的代码，以及最新的博客环境配置文件和最新的博客原文件。</p>
+<p>而后再划分分区安装的时候，有了之前的教训和探索，自己对分区的理解更加深刻，于是在划分时感觉熟悉了好多，把整个300G空间全部给新系统了，同时多分配了一些空间给根目录和var目录所在分区。<br>后来重装系统，还好自己当时写了安装记录的博客在网上可以看，于是又重新安装配置环境，配置NVIDIA独显，配置科学上网，后来心想以后再做记录先只在简书和有道上吧，自己的博客先不管了吧，毕竟环境也丢了，能找到的是好久之前的了，要配置还挺麻烦，博客内容自己自己也增删改的比较多，再捡起来比较耗时，于是暂时就不考虑维护自己的博客了，之前也尝试在知乎专栏和简书上写文章，发现简书支持Markdown效果很好，而知乎则导入效果很差，于是便最终选择了简书作为最终的自己发布内容的平台啦。</p>
+<p>后来重新参考之前提到的编译tensorflow的那篇文章，还是只能master分支，还是要配置hosts文件中github对应域名和ip，不过编译的还挺顺利的，不过还是要好久，最终吃了个晚饭，回来发现又报错了，我真的快要崩溃了，报<code>ImportError: No module named keras.preprocessing</code>的错误，后来我就想是不是版本问题，于是切换r1.12和r1.10，发现还是报bazel.rc文件的错，于是又切换回master分支，继续网上找相关问题和答案，并在github上成功找到了答案：<a href="https://github.com/tensorflow/tensorflow/issues/21518" target="_blank" rel="noopener">1.10 build fails with “No module named ‘keras_applications’” </a>,即通过pip安装<code>keras_applications</code>和<code>keras_preprocessing</code>这两个库。</p>
+<p>后来重新执行编译命令，又等待了好一会儿（比之前快多了，因为有缓存之前的编译结果），终于成功了哈哈哈！后来经过测试，发现编译成功，tensorflow已经被正常安装在自己的pip列表中了。<br>以下是耗时截图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-3ba18c678c7dac3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="首次编译失败"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5410339-83509b2c57fff653.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="重新编译再次报错"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5410339-70ee9366ed2f06f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终编译成功"></p>
+<p>安装tensorflow的whl包后，发现安装的就是现行版r1.12。。。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-3a3842b594259304.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tensorflow_whl文件.png"></p>
+<p>这里是分区使用率截图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-54ced4e0add7f3a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分区使用率截图"></p>
+<p>相比而言，pytorch安装就要简单许多了，并且提供了许多预编译好的可选。</p>
+<p>在这里自己简单记录一下心酸的历程，也提醒各位看客同样需要编译tensorflow时留意自己的分区使用率～</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/>http://www.iamlightsmile.com/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:58:32+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Manjaro/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Manjaro</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Tensorflow/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Tensorflow</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/&title=Tensorflow编译血泪史 - lightsmile's Blog&summary=为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/&title=Tensorflow编译血泪史 - lightsmile's Blog&summary=为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/Tensorflow%E7%BC%96%E8%AF%91%E8%A1%80%E6%B3%AA%E5%8F%B2/&title=Tensorflow编译血泪史 - lightsmile's Blog&summary=为了安装tensorflow，导致我Linux系统重装，Windows系统差点也没了，哎。。。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/Manjaro%E7%B3%BB%E7%BB%9F%E6%8A%A5%E9%94%99%E9%9B%86%E9%94%A6/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Manjaro系统报错集锦</p>
+                <p class='content'>以下是自己在使用manjaro系统中遇到的错误和相应的解决方案
+unable to initialize decompress status for section .debug_info以及f...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/Manjaro%E4%B8%8B%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7PicGo/'>
+                <p class='title'>Manjaro下使用图床工具PicGo<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>0. 前言在这里简单吐槽以下简书的锁定文章的功能，真是日了狗了！
+因为觉得简书的锁定的文章的功能太恶心，不想受制于人，于是想回到自己的个人博客-Github Pages + Hexo，于是此时图...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Tensorflow编译血泪史',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Scrapy爬取知乎数据小试 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="爬虫,Scrapy">
+  
+  
+    <meta name="description" content="啊啊啊，没时间写啦，以后有时间再写吧！
+。。。发现今天是周五，不熄灯。。。
+前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。
+自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/">
+      Scrapy爬取知乎数据小试
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>计算机</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年4月6日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>啊啊啊，没时间写啦，以后有时间再写吧！</p>
+<p>。。。发现今天是周五，不熄灯。。。</p>
+<p>前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。</p>
+<p>自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Demo练了练小手。</p>
+<a id="more"></a>
+<p>B站真是个好地方，上面有不少免费的好的视频可以看，虽然版权这方面%<em>&amp;@#￥</em>！@￥……@#￥%……#@￥%##￥@</p>
+<p><a href="https://www.bilibili.com/video/av18202461" target="_blank" rel="noopener">这是学习爬虫的视频链接</a></p>
+<p>作者是拿轮子哥vczh作为start_user的，当时还愣了一下，可以的，会玩，想当年自己也关注过轮子哥一段时间，不过看他经常给美女们点赞、抖机灵，后来便取关了。</p>
+<p>废话少说，言归正传：</p>
+<ol>
+<li><strong>爬虫</strong>：请求网站并提取数据的自动化程序。</li>
+<li>爬虫的基本流程：<ul>
+<li><strong>发起请求</strong>：通过HTTP库向目标站点发起请求,即发送一个Request,情况请可以包含额外的headers等信息,等待服务器响应。</li>
+<li><strong>获取响应内容</strong>：如果服务器能正常响应，会得到一个Response，Response的内容便是所要获取的页面内容，内容可能有HTML，Json字符串，二进制数据（如图片视频）等类型。</li>
+<li><strong>解析内容</strong>：得到的内容可能是HTML，可以用正则表达式、网页解析库进行解析，可呢是Json，可以直接转为Json对象解析，可能是二进制数据，可以做保存或者进一步的处理。</li>
+<li><strong>保存数据</strong>：保存形式多样，可以存为文本，也可以保存至数据库，或者保存特定格式的文件。</li>
+</ul>
+</li>
+</ol>
+<p>项目所实现的是从首个著名知乎用户（本项目中为vczh）个人信息及其所有关注人、所有粉丝相关信息爬取开始、一直延伸整个关注网，并将结果数据集保存在MongoDB中。</p>
+<p>具体来说就是先爬轮子哥的个人信息数据，然后依次爬取他的所有关注人的个人信息以及他的所有粉丝们的个人信息，这样的策略应用到每一个爬虫经过的用户上，从而实现数据的遍历抽取。单纯从Python代码的角度上讲，类似于会重复的深度优先遍历，然而具体的Scrapy引擎内部会如何调度这些Request队列就是人家内部的算法了。</p>
+<p>视频的上传时间是18年1月11日，当时从网页中获取到的用户信息相对比较简单、集中、丰富，今天我试了又试，发现可获取到的直接信息变少了。由于只是初步尝试，所以也就按部就班的照样执行，没有做得不偿失的优化了。</p>
+<p>Scrapy引擎的框架大致如下：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy%E6%9E%B6%E6%9E%84.jpg" alt="scrapy架构"></p>
+<p>我们可以看到整个引擎主要是由四部分组成：</p>
+<ul>
+<li>Scheduler（调度器）</li>
+<li>Downloader（下载器）</li>
+<li>Spiders（爬虫）</li>
+<li>Item Pipeline（项目 管道）</li>
+</ul>
+<p>其中Spider中定义了具体的爬虫逻辑，比如我们要怎么爬，爬什么，后面跟着的s表明这通常不是一个Spider，而是通常有多个Spider，我们可以根据不同的具体需求编写对应的Spider。</p>
+<p>Spiders之上的是一些Spider Middlewares（即爬虫中间件），有点类似于Python中函数的修饰器，可以对函数进行一些增强和拓展，同样的，我们可以通过这些Spider中间件来丰富和拓展我们编写的小Spider，让它们表现的更给力一些，同时这也可以简化我们的编写逻辑，因为我们只需要在之上套些中间件就可以了，套什么中间件视具体需求而定，比如说冬天穿大衣、夏天穿衬衫等。</p>
+<p>当Spider生成好之后，引擎会开始执行这个Spider的内部逻辑，如start_requests方法，和parse方法等等，具体的它会将HTTP的Request请求交给Downloader完成，由Downloader完成从Internet上下载资源数据的具体任务，而Downloader也可以有自己的中间件也就是Downloader Middlewares，可以对Downloader进行改装，增强。</p>
+<p>Downloader完成下载后，Scrapy引擎会将Downloader的成果Responses交给之前的Spider，执行它的解析方法。之后视具体情况，Spider可能会爬取更多的数据，相应的会产生更多的Request请求，或者将Response中的数据进行处理，处理为Item，然后转交给Item Pipeline做最后的数据处理工作。</p>
+<p>因为爬虫一般不是一个一个的爬，而是通常成百上千乃至上万的爬，Scheduler的主要作用类似于CPU的处理器对这些请求做一个规划调度，先做哪个，后做哪个等等。</p>
+<p>Item Pipline 中，Item可以视为一个数据对象的容器，而Pipline则类似Unix系统中的管道，或者更通俗点，就像流水线的的工人，从网上获取原材料之后，Spider这个工人进行加工处理，之后这些Pipline们做做类似贴标签的工作，最终提交正式的产品。</p>
+<p>因为我们爬虫的编写都是具有针对性的，知己知彼百战不殆嘛。所以首先要分析知乎相关的数据流通状况：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-user.png" alt="scrapy-user"></p>
+<p>以上是轮子哥的知乎页面。</p>
+<p>首先必须要按F12打开开发者工具，查看Network页面。</p>
+<p>对于某个用户的具体信息，如关注人或粉丝列表中的，我们只需要将鼠标请放在某个人的图像上，知乎就会通过Ajax去请求这个人的数据，以Json对象的格式返回给浏览器，同样的，当我们查看关注人列表和粉丝列表时，知乎也是通过Ajax请求返回这些数据对象的，具体的如以下几张图片：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-info.png" alt="scrapy-info"></p>
+<p>这是轮子哥关注的某个人的信息，观看图右侧我们发现这个人相关信息就在这个Json对象中。而如果要获取到这个Response体中的Json对象，我们只要执行最上面的网络请求就可以了：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-user.png" alt="scrapy-request-user"></p>
+<p>还有类似的关注人列表和粉丝列表也都是大概类似的情况，不过情况的url中的参数和内容稍有不同罢了。</p>
+<p>关注人列表：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followees.png" alt="scrapy-followees"></p>
+<p>相关请求：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followees.png" alt="scrapy-request-followees"></p>
+<p>粉丝列表：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-followers.png" alt="scrapy-followers"></p>
+<p>相关请求：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-request-followers.png" alt="scrapy-request-followers"></p>
+<p>其实爬虫这个东西的基本原理很简单，就是执行HTTP请求，处理响应的数据，将这个过程重复化自动化而已。</p>
+<p>而基于前面我们所提到的爬取信息的相关策略，我们要做的就是爬轮子哥的数据，然后请求两个列表中其他人的数据，并拓展开来。</p>
+<p>整个项目的结构如下：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/project-structure.png" alt="project-structure"></p>
+<p>这里我们需要编写的是zhihu.py、items.py、piplines.py、settings.py</p>
+<p>在settings.py中我们进行了请求头、Item Pipline中间件和MongoDB相关的配置。</p>
+<p>如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">DEFAULT_REQUEST_HEADERS = &#123;</span><br><span class="line">  <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,</span><br><span class="line">  <span class="string">'Accept-Language'</span>: <span class="string">'en'</span>,</span><br><span class="line">  <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; W…) Gecko/20100101 Firefox/57.0'</span>,</span><br><span class="line">  <span class="string">'authorization'</span>:<span class="string">' oauth c3cef7c66a1843f8b3a9e6a1e3160e20'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">'zhihuUser.pipelines.MongoPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MONGO_URI = <span class="string">'localhost'</span></span><br><span class="line">MONGO_DATABASE = <span class="string">'zhihu'</span></span><br></pre></td></tr></table></figure>
+<p>我们针对Json对象的内容编写的ZhihuUserItem对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Item,Field</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuUserItem</span><span class="params">(Item)</span>:</span></span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    id = Field()</span><br><span class="line">    is_followed = Field()</span><br><span class="line">    avatar_url_template = Field()</span><br><span class="line">    user_type = Field()</span><br><span class="line">    answer_count = Field()</span><br><span class="line">    is_following = Field()</span><br><span class="line">    url = Field()</span><br><span class="line">    url_token = Field()</span><br><span class="line">    allow_message = Field()</span><br><span class="line">    articles_count = Field()</span><br><span class="line">    is_blocking = Field()</span><br><span class="line">    name = Field()</span><br><span class="line">    headline = Field()</span><br><span class="line">    badge = Field()</span><br><span class="line">    is_advertiser = Field()</span><br><span class="line">    avatar_url = Field()</span><br><span class="line">    is_org = Field()</span><br><span class="line">    gender = Field()</span><br><span class="line">    follower_count = Field()</span><br><span class="line">    employments = Field()</span><br><span class="line">    type = Field()</span><br></pre></td></tr></table></figure>
+<p>因为要将数据存储到MongoDB中，所以要进行MongoDB的Item Pipline中间件的编写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MongoPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    collection_name = <span class="string">'user_info'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, mongo_uri, mongo_db)</span>:</span></span><br><span class="line">        self.mongo_uri = mongo_uri</span><br><span class="line">        self.mongo_db = mongo_db</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_crawler</span><span class="params">(cls, crawler)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(</span><br><span class="line">            mongo_uri=crawler.settings.get(<span class="string">'MONGO_URI'</span>),</span><br><span class="line">            mongo_db=crawler.settings.get(<span class="string">'MONGO_DATABASE'</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client = pymongo.MongoClient(self.mongo_uri)</span><br><span class="line">        self.db = self.client[self.mongo_db]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.db[self.collection_name].insert_one(dict(item))</span><br><span class="line">        <span class="comment"># self.db[self.collection_name].update(&#123;'url_token': item['url_token']&#125;,&#123;'$set': item&#125;,True)</span></span><br></pre></td></tr></table></figure>
+<p>最后是zhihu.py 中 ZhihuSpider的编写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Request</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> zhihuUser.items <span class="keyword">import</span> ZhihuUserItem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'zhihu'</span></span><br><span class="line">    allowed_domains = [<span class="string">'www.zhihu.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://www.zhihu.com/'</span>]</span><br><span class="line"></span><br><span class="line">    start_user = <span class="string">'excited-vczh'</span></span><br><span class="line"></span><br><span class="line">    user_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;?include=&#123;include&#125;'</span></span><br><span class="line">    user_query = <span class="string">'allow_message,is_followed,is_following,is_org,is_blocking,employments,answer_count,follower_count,articles_count,gender,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followees_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followees?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followees_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followers_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followers?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followers_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">yield</span> Request(self.user_url.format(user=self.start_user,include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="comment"># yield Request(self.followees_url.format(user=self.start_user,include=self.followees_query,offset=0,limit=20),callback=self.parse_followees)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_user</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        item = ZhihuUserItem()</span><br><span class="line">        <span class="keyword">for</span> field <span class="keyword">in</span> item.fields:</span><br><span class="line">            <span class="keyword">if</span> field <span class="keyword">in</span> result.keys():</span><br><span class="line">                item[field] = result.get(field)</span><br><span class="line">        <span class="keyword">yield</span> item</span><br><span class="line">        <span class="keyword">yield</span> Request(self.followees_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followees_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">                      callback=self.parse_followees)</span><br><span class="line">        <span class="keyword">yield</span> Request(</span><br><span class="line">            self.followers_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followers_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">            callback=self.parse_followees)</span><br><span class="line">        <span class="comment"># print(json.loads(response.text))</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followees</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="literal">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followees)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followers</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="literal">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followers)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>在终端下执行<code>scrapy crawl zhihu</code>后，爬虫便会开始启动，由于这个工程一直爬一直爬，所以让它爬一会做个样子就行了，通过<code>Ctrl+C</code>停止当前任务，随后我们可以通过可视化工具查看到存入MongoDB中的数据：</p>
+<p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-mongo-data.png" alt="scrapy-mongo-data"></p>
+<p>大功告成！虽然超级简单。。。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/>http://www.iamlightsmile.com/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:58:23+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%88%AC%E8%99%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>爬虫</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scrapy/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scrapy</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/&title=Scrapy爬取知乎数据小试 - lightsmile's Blog&summary=啊啊啊，没时间写啦，以后有时间再写吧！
+。。。发现今天是周五，不熄灯。。。
+前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。
+自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Demo练了练小手。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/&title=Scrapy爬取知乎数据小试 - lightsmile's Blog&summary=啊啊啊，没时间写啦，以后有时间再写吧！
+。。。发现今天是周五，不熄灯。。。
+前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。
+自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Demo练了练小手。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/&title=Scrapy爬取知乎数据小试 - lightsmile's Blog&summary=啊啊啊，没时间写啦，以后有时间再写吧！
+。。。发现今天是周五，不熄灯。。。
+前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。
+自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Demo练了练小手。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>哈工大ltp小试</p>
+                <p class='content'>今天开始探索学习使用哈工大的LTP（Language Technology Platform）。
+这里是官网地址
+这里是GitHub地址
+这里是pyltp的使用文档
+平台采用的语言是C++，但是...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%A2%E7%B4%A2%E9%9A%8F%E7%AC%94/'>
+                <p class='title'>微信小程序的component<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+我发现无法直接在样式即wxss里通过color属性设置icon组件的颜色，是无效的，只能通过在wxml里设置它的color属性为js传入的变量值或者是通过变量值来控制具体的颜色值。
+
+
+
+我们...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Scrapy爬取知乎数据小试',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

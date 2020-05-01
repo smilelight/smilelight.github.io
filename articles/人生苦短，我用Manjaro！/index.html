@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>人生苦短，我用Manjaro！ - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Manjaro">
+  
+  
+    <meta name="description" content="
+想必每一个程序员心里都有一个Linux。
+
+更新:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/">
+      人生苦短，我用Manjaro！
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Linux/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年1月23日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <blockquote>
+<p>想必每一个程序员心里都有一个Linux。</p>
+</blockquote>
+<p><strong>更新</strong>:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。</p>
+<a id="more"></a>
+<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h1><p>一直想学Linux，之前尝试了Ubuntu和centos，虽然两者非常大众化只是觉得有点丑，后来通过搜索了解到了Arch Linux和Manjaro，简单查看之后，觉得非常喜欢Manjaro的众多特性，于是就想着自己装一下，作为自己以后常用的Linux系统来工作。</p>
+<p>关于Manjaro的桌面主题，主要有XFce、Gnome、KDE，同时还有社区版Deepin等，简单的对比之后，决定使用KDE，因为感觉功能更丰富。</p>
+<p>之前在公司自己尝试着使用虚拟机装了一版，简单尝试了一下，体验还不错，只是不能使用Nvidia显卡来跑GPU程序，这就比较不爽了，毕竟是虚拟机里的东西，到底不如真机下爽快。</p>
+<p>趁着这段时间在家相对空闲，同时Windows10下面的Pytorch突然报错（后来通过pip重新安装已修复），有点不能忍，于是打算在自己的电脑上折腾一下双系统：Windows 10 + Manjaro（KDE）。</p>
+<p>根据我的个人体验而言，如果机子配置还可以的话，还是选择KDE版本吧，使用起来比Gnome版还是要方便高级，deepin的没试，不过风格也还不错的。</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828715326.png" alt="系统信息"></p>
+<!--more-->
+<p>整体下来流程如下：</p>
+<ul>
+<li>下载Manjaro系统镜像文件</li>
+<li>制作启动盘及划分efi分区</li>
+<li>安装系统</li>
+<li>基本配置</li>
+<li>安装常用应用</li>
+<li>科学上网</li>
+<li>使用Nvidia独显</li>
+<li>系统安装过程中常见问题</li>
+<li>更换主题</li>
+<li>添加桌面小部件</li>
+</ul>
+<h1 id="1-下载Manjaro系统镜像文件"><a href="#1-下载Manjaro系统镜像文件" class="headerlink" title="1.下载Manjaro系统镜像文件"></a>1.下载Manjaro系统镜像文件</h1><p>从此处选择下载：<a href="https://www.manjaro.cn/153" target="_blank" rel="noopener">https://www.manjaro.cn/153</a></p>
+<p>建议选择中科大的镜像源，好像清华的有些时间没更新了呢。</p>
+<h1 id="2-制作启动盘及划分efi分区"><a href="#2-制作启动盘及划分efi分区" class="headerlink" title="2.制作启动盘及划分efi分区"></a>2.制作启动盘及划分efi分区</h1><p>此处仅介绍Windows环境下</p>
+<ol>
+<li>从<a href="https://rufus.ie/" target="_blank" rel="noopener">rufus</a>官网下载启动盘刻录工具</li>
+<li>选择ISO镜像刻录到U盘，注意选择DD模式</li>
+<li>使用<code>diskpart</code>划分efi分区</li>
+</ol>
+<p>详情可参考此教程：<a href="https://zhuanlan.zhihu.com/p/35663653" target="_blank" rel="noopener">manjaro双系统双硬盘的安装</a></p>
+<h1 id="3-安装系统"><a href="#3-安装系统" class="headerlink" title="3.安装系统"></a>3.安装系统</h1><ol>
+<li>在电脑启动时，按F2进入BIOS系统设置，设置boot启动顺序</li>
+<li>随后F10启动系统，按F12后选择USB启动</li>
+<li>在进入Manjaro的boot页面时，可以选择lang为中文，driver这里我选择不开源的nonfree版本好像不行，所以我选择了默认的free版本</li>
+<li>在分区划分时可以选择并存安装或取代一个分区，这里自己选择手动分区，划分以下分区：</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>挂载路径</th>
+<th>中文目录</th>
+<th>建议大小(至少)</th>
+<th>其他说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>根目录</td>
+<td>40G</td>
+<td>略</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>启动目录</td>
+<td>500M</td>
+<td>略</td>
+</tr>
+<tr>
+<td>/boot/efi</td>
+<td>啥意思不重要</td>
+<td>10M</td>
+<td>略</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>家目录</td>
+<td>40G</td>
+<td>平时自己的数据资料等都放下这个目录下面</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>变量分区</td>
+<td>30G</td>
+<td>存放在正常运行的系统中其内容不断变化的文件</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>服务进程相关</td>
+<td>10G</td>
+<td>存放服务进程所需的数据文件和一些服务的执行脚本</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>其他软件安装目录</td>
+<td>30G</td>
+<td>发行版附加的一些软件包，如anaconda、pycharm的安装目录</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>不要单独挂载<code>/usr</code>目录到单独的分区，我就是因为这个导致了错误重装系统</li>
+<li>如果要安装一些比较大型的软件和包时，那么建议多划分一些磁盘大小给根目录，我有两次是因为拓展根目录重装的系统</li>
+<li>注意保留一个分区作为swap交换分区，空间大小为内存大小的一半比较合适（其实我也不是很清楚，好像其他资料有这么说）</li>
+</ol>
+<p>系统安装流程可以主要参考：<a href="https://zhuanlan.zhihu.com/p/35663653" target="_blank" rel="noopener">manjaro双系统双硬盘的安装</a>。</p>
+<p>关于磁盘分配可参考：<a href="https://blog.csdn.net/lj402159806/article/details/80218360" target="_blank" rel="noopener">manjaro 安装分区以及配置方案</a></p>
+<h1 id="4-基本配置"><a href="#4-基本配置" class="headerlink" title="4.基本配置"></a>4.基本配置</h1><p>在安装完系统后重启可能进不去桌面，此时可以在Grub菜单启动界面按[E]编辑，并在后面加上（注意空格）<code>nouveau.modeset=1 acpi_osi=! acpi_osi=&#39;Windows 2009&#39;</code>，然后按F10进入系统，在进入系统之后，修改grub的配置文件<code>sudo nano /etc/default/grub</code>，比如我的系统中部分参数如下：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828708269.png" alt="grub部分参数">，随后使用<code>sudo update-grub</code>命令更新grub文件，在之后使用如果还是不能进入系统甚至进入grub rescue模式，原因可能是分区挂载映射问题等，可以参考我的另一篇文章。</p>
+<p>在进入系统后要做一些常规配置。</p>
+<h4 id="配置更新源并更新系统"><a href="#配置更新源并更新系统" class="headerlink" title="配置更新源并更新系统"></a>配置更新源并更新系统</h4><ol>
+<li>配置中国mirrors<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure>
+随后在出现的窗口中选择更新源，我选择了所有。。。哈哈</li>
+<li>添加archlinuxcn和antergos库<br>在<code>/etc/pacman.conf</code>后面添加以下内容：<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxcn]</span></span><br><span class="line"><span class="attr">SigLevel</span> = TrustAll</span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="section">[antergos]</span></span><br><span class="line"><span class="attr">SigLevel</span> = TrustAll</span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/antergos/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></li>
+<li>同步并更新系统<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure></li>
+<li>安装archlinuxcn签名钥匙&amp;antergos签名钥匙<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S  archlinuxcn-keyring antergos-keyring</span><br></pre></td></tr></table></figure>
+<h4 id="安装配置中文输入法"><a href="#安装配置中文输入法" class="headerlink" title="安装配置中文输入法"></a>安装配置中文输入法</h4></li>
+<li>安装搜狗拼音输入法和fcitx管理工具:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-sougoupinyin</span><br><span class="line">sudo pacman -S fcitx-im</span><br><span class="line">sudo pacman -S fcitx-configtool</span><br></pre></td></tr></table></figure></li>
+<li>添加配置<code>~/.xprofile</code>文件：<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">GTK_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">XMODIFIERS</span>=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure>
+可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></li>
+</ol>
+<h1 id="5-安装常见应用"><a href="#5-安装常见应用" class="headerlink" title="5.安装常见应用"></a>5.安装常见应用</h1><p>可参考：<a href="https://www.cnblogs.com/haohao77/p/9034499.html" target="_blank" rel="noopener">Manjaro安装后你需要这样做</a></p>
+<p>以下是一些我的常用应用列表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>软件名称</th>
+<th>软件说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typora</td>
+<td>Markdown编辑软件</td>
+</tr>
+<tr>
+<td>deepin-screenshot</td>
+<td>Deepin截图工具，相对很好用</td>
+</tr>
+<tr>
+<td>latte-dock</td>
+<td>Dock栏</td>
+</tr>
+<tr>
+<td>tmux</td>
+<td>终端复用工具</td>
+</tr>
+<tr>
+<td>bat</td>
+<td>终端文件查看工具</td>
+</tr>
+<tr>
+<td>gitkraken</td>
+<td>跨平台git可视化操作软件</td>
+</tr>
+<tr>
+<td>shadowsocks-qt5</td>
+<td>科学上网</td>
+</tr>
+<tr>
+<td>visual-studio-code-bin</td>
+<td>VSCode</td>
+</tr>
+<tr>
+<td>htop</td>
+<td>进程查看工具</td>
+</tr>
+<tr>
+<td>neofetch</td>
+<td>终端查看配置</td>
+</tr>
+<tr>
+<td>zsh</td>
+<td>好用的shell</td>
+</tr>
+<tr>
+<td>yay</td>
+<td>比pacman更全更好用</td>
+</tr>
+<tr>
+<td>google-chrome</td>
+<td>chrome浏览器</td>
+</tr>
+<tr>
+<td>pycharm</td>
+<td>强大的Python集成开发环境</td>
+</tr>
+<tr>
+<td>anaconda</td>
+<td>数据科学集成环境</td>
+</tr>
+<tr>
+<td>electronic-wechat</td>
+<td>Linux下的微信</td>
+</tr>
+<tr>
+<td>netease-cloud-music</td>
+<td>网易云音乐</td>
+</tr>
+<tr>
+<td>ncdu</td>
+<td>磁盘占用分析器</td>
+</tr>
+<tr>
+<td>xflux</td>
+<td>flux护眼程序</td>
+</tr>
+<tr>
+<td>redshift</td>
+<td>同flux,护眼程序</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其他的还可以安装deepin系列的微信、QQ和迅雷，只不过我这里不知为何没有安装成功。</p>
+<p>如果有道云笔记有Linux版就爽歪歪了。</p>
+<h1 id="6-科学上网"><a href="#6-科学上网" class="headerlink" title="6.科学上网"></a>6.科学上网</h1><ol>
+<li>使用<code>yay -S shadowsocks-qt5</code>安装shadowsocks软件，选择qt时直接enter选择所有</li>
+<li>打开shadowsocks软件，填写配置信息，或者从图片导入等，然后测试延迟，点击连接，对于某一个连接，可以选择程序启动时自动连接，并且可以设置程序在系统登录时启动。如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828699491.png" alt="shadowsocks-qt5截图"></li>
+</ol>
+<h2 id="Shadowsocks-pac代理"><a href="#Shadowsocks-pac代理" class="headerlink" title="Shadowsocks pac代理"></a>Shadowsocks pac代理</h2><ol>
+<li>安装genpac<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> genpac</span><br></pre></td></tr></table></figure></li>
+<li>命令行生成pac文件<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac <span class="params">--proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--gfwlist-proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> -o autoproxy.pac <span class="params">--gfwlist-url=</span><span class="string">"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"</span></span><br></pre></td></tr></table></figure></li>
+<li>设置系统自动代理<br>在设置—&gt;网络设置—&gt;代理设置中选择自动代理，URL填写生成的PAC文件地址，file://文件路径/文件名(可以直接把文件拖到URL栏),如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828694193.png" alt="设置自动代理"><br>不过说实在的，不知为何我这里并没有代理成功，玉于是选择了全局代理：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828689044.png" alt="全局代理"><br>可参考：<a href="https://blog.csdn.net/ZOKEKAI/article/details/74740685" target="_blank" rel="noopener">Manjaro17.0.1(xfce)+SS+PAC模式配置笔记</a><a href="https://www.jianshu.com/p/f85b8b5cd647" target="_blank" rel="noopener">linux PAC 自动代理 规则设置</a></li>
+</ol>
+<h2 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h2><ol>
+<li>安装Proxychains<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S proxychains-ng</span></span><br></pre></td></tr></table></figure></li>
+<li>编辑proxychains配置<br>将最后面的socks4 127.0.0.1 9095 改为 socks5 127.0.0.1 1080<br>如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828673924.png" alt="编辑proxychains配置"></li>
+</ol>
+<p>可参考： <a href="https://www.jianshu.com/p/1a1208e37f2a" target="_blank" rel="noopener">Manjaro安装记录</a></p>
+<h1 id="7-使用Nvidia独显"><a href="#7-使用Nvidia独显" class="headerlink" title="7.使用Nvidia独显"></a>7.使用Nvidia独显</h1><h2 id="使用bumblebee版"><a href="#使用bumblebee版" class="headerlink" title="使用bumblebee版"></a>使用bumblebee版</h2><h5 id="1-安装驱动及第三方程序"><a href="#1-安装驱动及第三方程序" class="headerlink" title="1. 安装驱动及第三方程序"></a>1. 安装驱动及第三方程序</h5><p>在[系统设置]-[硬件设定]里面选择紫色框住的<code>video-hybrid-intel-nvidia-bumblebee</code>，右键点击安装（不得不提真的超方便啊，和其他系统或发行版相比；注意我这里的显卡是1060，如果是9*0的版本，可能安装的是下面390xx的那个版本）<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828664898.png" alt="安装video-hybrid-intel-nvidia-bumblebee"></p>
+<h5 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2. 修改配置文件"></a>2. 修改配置文件</h5><ol>
+<li>修改<code>/etc/bumblebee/bumblebee.conf</code>文件<br>将Driver的值设置为<code>nvidia</code>，来让其使用nvidia驱动，其次将nvidia配置下的PMMethod的值设置为<code>bbswitch</code>，让它使用刚刚安装的bbswitch来进行显卡的切换。</li>
+<li>修改（没有则新建）<code>/etc/modprobe.d/bbswitch.conf</code>文件<br>添加<code>options bbswitch load_state=0 unload_state=0</code>来设置bbswitch的状态。</li>
+<li>重启电脑，不然系统还不知道bbswitch模块</li>
+<li>加载bbswitch模块<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">modprobe bbswitch</span></span><br></pre></td></tr></table></figure></li>
+<li>将用户添加到bumblebee组中<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gpasswd -a username bumblebee</span></span><br></pre></td></tr></table></figure>
+上面的<code>username</code>替换为自己的用户名，如我的是<code>lightsmile</code></li>
+<li>设置bumblebeed服务为开机自启<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> bumblebeed</span><br></pre></td></tr></table></figure></li>
+<li>启用bumblebeed服务<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> bumblebeed</span><br></pre></td></tr></table></figure></li>
+<li>切换使用独显和集显。<ul>
+<li>打开独立显卡命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; ON</span><br></pre></td></tr></table></figure></li>
+<li>关闭独立显卡命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; OFF</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>查看nvidia显卡相关信息<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvidia-smi</span></span><br></pre></td></tr></table></figure>
+如图所示：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828655309.png" alt="查看nvidia显卡信息"></li>
+</ol>
+<p>可参考：<a href="https://dclunatic.github.io/2018/09/10/%E7%8B%AC%E6%98%BE/" target="_blank" rel="noopener">arch如何使用独显</a>和<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p>
+<h1 id="8-系统安装过程中常见问题"><a href="#8-系统安装过程中常见问题" class="headerlink" title="8.系统安装过程中常见问题"></a>8.系统安装过程中常见问题</h1><p>常见问题可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p>
+<h1 id="9-更换主题"><a href="#9-更换主题" class="headerlink" title="9.更换主题"></a>9.更换主题</h1><p>自己探索<br>如图所示：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828622280.png" alt="更换主题"></p>
+<h1 id="10-添加桌面小部件"><a href="#10-添加桌面小部件" class="headerlink" title="10.添加桌面小部件"></a>10.添加桌面小部件</h1><p>自己探索<br>桌面右键，选择添加部件，然后在左侧的部件栏中自行选择想要添加的部件，然后可以在桌面中拖放，选择位置，如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828615169.png" alt="配置桌面小部件"></p>
+<h1 id="11-小彩蛋"><a href="#11-小彩蛋" class="headerlink" title="11.小彩蛋"></a>11.小彩蛋</h1><h3 id="1-吃豆人"><a href="#1-吃豆人" class="headerlink" title="1. 吃豆人"></a>1. 吃豆人</h3><ol>
+<li>打开<code>/etc/pacman.conf</code>文件</li>
+<li>在“# Misc options”部分，去掉“Color”前的“#”。</li>
+<li>添加“ILoveCandy”。<h1 id="12-后记"><a href="#12-后记" class="headerlink" title="12.后记"></a>12.后记</h1></li>
+</ol>
+<h4 id="最初后记"><a href="#最初后记" class="headerlink" title="最初后记"></a>最初后记</h4><p>安装系统容易，不过配置nvidia驱动则比较麻烦，笔者前前后后重装了不下十余次系统，苦心人天不负，最终得以成功安装，真是坑了个爹啦！</p>
+<p>不过最终桌面效果如下，也算小有所获啦～</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828601059.png" alt="my_manjaro_desktop.png"></p>
+<h4 id="新版后记"><a href="#新版后记" class="headerlink" title="新版后记"></a>新版后记</h4><p>Linux一时爽，崩后火葬场。望大家小心谨慎使用系统，注意及时数据备份，要不是用于编程开发，还是Windows爸爸管着好啊！</p>
+<h1 id="13-参考"><a href="#13-参考" class="headerlink" title="13.参考"></a>13.参考</h1><ul>
+<li><a href="https://my.oschina.net/langxSpirit/blog/1647000" target="_blank" rel="noopener">Manjaro安装与基本配置</a></li>
+<li><a href="https://www.jianshu.com/p/f85b8b5cd647" target="_blank" rel="noopener">linux PAC 自动代理 规则设置</a></li>
+<li><a href="https://blog.csdn.net/u014044812/article/details/78727496" target="_blank" rel="noopener">pyCharm最新2019激活码</a></li>
+<li><a href="https://www.cnblogs.com/smlile-you-me/p/8830949.html" target="_blank" rel="noopener">manjaro安装及设置</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/50918522" target="_blank" rel="noopener">人生苦短，我用Manjaro</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Bumblebee_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">Bumblebee (简体中文) - ArchWiki</a>)</li>
+<li><a href="https://juejin.im/post/5a6b1b3651882573443cea61" target="_blank" rel="noopener">Manjaro安装以及美化教程</a></li>
+<li><a href="https://www.cnblogs.com/haohao77/p/9034499.html" target="_blank" rel="noopener">Manjaro安装后你需要这样做</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/43442012" target="_blank" rel="noopener">Manjaro Deepin安装使用分享</a></li>
+<li><a href="https://www.jianshu.com/p/838f405f0773" target="_blank" rel="noopener">安装Arch Linux之后要做的几件事情</a></li>
+<li><a href="https://gianthard.rocks/a/39" target="_blank" rel="noopener">我的 Manjaro🐧 - 网上冲浪指南</a></li>
+<li><a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></li>
+<li><a href="https://dclunatic.github.io/2018/09/10/%E7%8B%AC%E6%98%BE/" target="_blank" rel="noopener">arch如何使用独显</a></li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/>http://www.iamlightsmile.com/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:53:10+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Manjaro/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Manjaro</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/&title=人生苦短，我用Manjaro！ - lightsmile's Blog&summary=
+想必每一个程序员心里都有一个Linux。
+
+更新:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/&title=人生苦短，我用Manjaro！ - lightsmile's Blog&summary=
+想必每一个程序员心里都有一个Linux。
+
+更新:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Manjaro%EF%BC%81/&title=人生苦短，我用Manjaro！ - lightsmile's Blog&summary=
+想必每一个程序员心里都有一个Linux。
+
+更新:为了便于自己下次重装系统时更方便一些，这里再把过程详细记录一下。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/Manjaro%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Manjaro设置交换分区</p>
+                <p class='content'>0.前言在安装Manjaro系统的时候发现自己没有设置交换分区，用htop命令发现是空的，所以这里通过后续的命令配置交换分区。
+
+1.查看磁盘信息使用
+1sudo fdisk -l
+得到如下信息...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/%E4%B8%AA%E6%80%A7%E5%8C%96hexo%E4%B8%BB%E9%A2%98/'>
+                <p class='title'>个性化hexo主题<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>个性化hexo主题1. 换Material X主题原来自己用的是indigo主题，还是蛮material的，只是后来发现material x的主题更好看，插件更加丰富一些，于是就探索切换了一番，...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '人生苦短，我用Manjaro！',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置更新源并更新系统"><span class="toc-text">配置更新源并更新系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装配置中文输入法"><span class="toc-text">安装配置中文输入法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks-pac代理"><span class="toc-text">Shadowsocks pac代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终端代理"><span class="toc-text">终端代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用bumblebee版"><span class="toc-text">使用bumblebee版</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-安装驱动及第三方程序"><span class="toc-text">1. 安装驱动及第三方程序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-修改配置文件"><span class="toc-text">2. 修改配置文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-吃豆人"><span class="toc-text">1. 吃豆人</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#最初后记"><span class="toc-text">最初后记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新版后记"><span class="toc-text">新版后记</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>腾讯云SDKforJS开发实战 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Python">
+  
+  
+    <meta name="description" content="前面曾经提到过的，我想要把自然语言处理相关的技术接入到我的毕设微信小程序里面。
+由于腾讯云未提供JS的SDK，要自己编写HTTP请求来实现，之前觉得比较麻烦，相关说明文档没有整明白，不想尝试，后来觉得既然是自己选择的路，那么无论再苦再累，都要坚持走下去，无论结果是什么，也算对得起当初自己的豪情壮志了。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E8%85%BE%E8%AE%AF%E4%BA%91SDKforJS%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">
+      腾讯云SDKforJS开发实战
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Python</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年4月21日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>前面曾经提到过的，我想要把自然语言处理相关的技术接入到我的毕设微信小程序里面。</p>
+<p>由于腾讯云未提供JS的SDK，要自己编写HTTP请求来实现，之前觉得比较麻烦，相关说明文档没有整明白，不想尝试，后来觉得既然是自己选择的路，那么无论再苦再累，都要坚持走下去，无论结果是什么，也算对得起当初自己的豪情壮志了。</p>
+<a id="more"></a>
+<p>再贴一下我的参考文档：<a href="https://cloud.tencent.com/document/api/271" target="_blank" rel="noopener">腾讯云文智自然语言处理API链接</a></p>
+<p>大致了解了签名方法和技术之后，我就在网上搜关于JS的HmacSHA256加密和Base64编码的函数库，发现了Crypto.js，在官网上吧zip文件下下来之后，参照一篇文章<a href="http://blog.51cto.com/7865145/2090041" target="_blank" rel="noopener">细说CryptoJs使用（微信小程序加密解密)</a>把core.js和sha256.js和enc-base64.js的内容放到一个叫crypto.js文件中，最后再加上module.exports = CryptoJS。（话说我之前看截图里是module.export = CryptoJS，我也就照搬下来，试了半天结果总是不行，后来发现export后面还有个s，真是尬）</p>
+<p>随后测试了一下这个函数库，经过测试发现加密的结果与API文档中的样例一致，然后就开始下一步了。</p>
+<p>关于具体的格式我也不是很清楚，经过大胆尝试之后总是说有问题，后来只能去学习Python SDK的源码了。</p>
+<p>通过源码的探索，我了解到了从最初的传参到生成URL的整体过程，同时也注意到了一些文档中并没有提到的细节和注意事项。然而经过测试之后还是提示说鉴权失败，我真是日了狗了。不过最终我还是成功了，下面是几个记录：</p>
+<ol>
+<li>我下载的SDK是Python SDK，而我要编写的是JS代码。其中的time获取函数不同，其中Python中为int(time.time()),获取到的是整数时间戳，而JS中的则为Date.now()获取到的是以毫秒为单位的所以要做进一步的转化为Math.floor(Date.now()/1000)</li>
+<li>同时要使用SDK必须要带要有版本号如SDK_PYTHON_2.0.13，如果没有则提示错误信息：Exception ‘Version’，而腾讯云中并没有提到这一点，所以我们必须要模拟一个，即加一个这样的参数：RequestClient=SDK_PYTHON_2.0.13</li>
+<li>同时最最他妈的坑爹的一点就是腾讯云中明确提到了签名方式用HmacSHA1或者HmacSHA256都可以，只要参数中说明即可，即加上：SignatureMethod: ‘HmacSHA1’即可，而我之前网上搜的大多使用256，所以我也使用256，但是一直报鉴权失败的问题，可是我的签名方式（拿腾讯云提供的demo测试了一下，得到的签名一致）和参数都没有问题，困扰了好久，最终我把Python的SDK源码改了改，如修改当前时间戳Timestamp、修改随机正整数Nonce等，发现了Timestamp不能乱改，和腾讯云的服务器的时间戳间隔不能超过2小时，同时时间戳一定的情况下Nonce不能重复，后来在Python SDK上尝试使用HmacSHA256发现也报错了！我的哥！又改回HmacSHA1发现又没问题了，不会是现在腾讯云后台不支持256吧，然后我把JS的代码相关部分也改成了使用HmacSHA1，皇天不负有心人，终于他妈的成功了！不行你倒是说一声啊，同时具体的一些细节也不交代清楚。</li>
+</ol>
+<p>同时还有的是JS实现网络调用的库，因为不同的引擎不同的平台所以实现肯定会有所不同，我最终搜索到了Fly.js这个很好用的库。</p>
+<p>简体中文版说明文档链接福利在这里！<a href="https://wendux.github.io/dist/#/doc/flyio/readme" target="_blank" rel="noopener">Flyio帮助文档</a></p>
+<p>不同的环境Fly的入口文件不同。</p>
+<p>前面提到了腾讯云没有JS的SDK，而作为读过了Python SDK的程序员，难以控制自己想要编写自己的SDK的冲动，一方面是也算是一个挑战和尝试，一方面是这样也方便了自己的使用，最后好像是莫名的强迫症，如果不做的话实在是受不了。</p>
+<p>于是大致样式就开始照搬Python SDK的实现，同时由于自己仅仅是小尝试，简单成功就可以了，至于module的健壮性和架构也就忽略掉了。</p>
+<p>我的是在Webstorm上编写调试JS的，引擎是NodeJs。由于报import、from的错，所以只能含泪把es6的语法写成了CommonJS的形式。</p>
+<p>最终的成果长成这么个吊样子，文件名为qcloud.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*不同的应用平台fly.js的引入方式不同，同时fly的内部实现也略有不同</span></span><br><span class="line"><span class="comment">毕竟不同的平台js的引擎也不同，所以相关网络请求访问的底层实现也会有所不同</span></span><br><span class="line"><span class="comment">比如说浏览器环境中是构造XmlHttpRequest执行ajax调用</span></span><br><span class="line"><span class="comment">而微信小程序则是使用底层api：wx.request函数</span></span><br><span class="line"><span class="comment">node环境依赖http模块及net模块的底层实现</span></span><br><span class="line"><span class="comment">详情参见 https://wendux.github.io/dist/#/doc/flyio/readme</span></span><br><span class="line"><span class="comment">不同环境下文件引入实例：</span></span><br><span class="line"><span class="comment">具体文件自己去找，去下</span></span><br><span class="line"><span class="comment">浏览器环境</span></span><br><span class="line"><span class="comment">const Fly = require('./fly.umd.min')</span></span><br><span class="line"><span class="comment">微信小程序环境</span></span><br><span class="line"><span class="comment">const Fly = require('./fly')</span></span><br><span class="line"><span class="comment">node环境</span></span><br><span class="line"><span class="comment">const Fly=require("flyio/src/node")*/</span></span><br><span class="line"><span class="comment">//以下是node环境下引入fly的方式</span></span><br><span class="line"><span class="keyword">const</span> Fly = <span class="built_in">require</span>(<span class="string">"flyio/src/node"</span>);</span><br><span class="line"><span class="keyword">const</span> CryptoJS = <span class="built_in">require</span>(<span class="string">'./crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortKeys</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> newobj = &#123;&#125;;</span><br><span class="line">    <span class="built_in">Object</span>.keys(obj).sort().forEach(<span class="function"><span class="params">value</span> =&gt;</span> newobj[value] = obj[value]);</span><br><span class="line">    <span class="keyword">return</span> newobj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">codeObj</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        arr.push(k + <span class="string">'='</span> + obj[k])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">'&amp;'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QCloud</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.config = &#123;</span><br><span class="line">            protocol:<span class="string">'https://'</span>,</span><br><span class="line">            path:<span class="string">'/v2/index.php'</span>,</span><br><span class="line">            method:<span class="string">'GET'</span>,</span><br><span class="line">            region:<span class="string">'gz'</span>,</span><br><span class="line">            domain:<span class="string">'.api.qcloud.com'</span>,</span><br><span class="line">            requestClient:<span class="string">'SDK_PYTHON_2.0.13'</span>,</span><br><span class="line">            signatureMethod:<span class="string">'HmacSHA1'</span>,</span><br><span class="line">            secretId:<span class="string">''</span>,</span><br><span class="line">            secretKey:<span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.params = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    init(config)&#123;</span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.config,config);</span><br><span class="line">        <span class="keyword">this</span>.fly = <span class="keyword">new</span> Fly;</span><br><span class="line">        <span class="keyword">this</span>.fly.config.baseURL = <span class="keyword">this</span>.config.protocol+<span class="keyword">this</span>.config.module+<span class="keyword">this</span>.config.domain</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getParams() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.config.method+<span class="keyword">this</span>.config.module+<span class="keyword">this</span>.config.domain+</span><br><span class="line">            <span class="keyword">this</span>.config.path+<span class="string">'?'</span>+codeObj(sortKeys(<span class="keyword">this</span>.params))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getUrl(action,params)&#123;</span><br><span class="line">        <span class="keyword">this</span>.initParams();</span><br><span class="line">        <span class="keyword">this</span>.params.Action = action;</span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.params,params);</span><br><span class="line">        <span class="keyword">this</span>.sign();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.config.protocol+<span class="keyword">this</span>.config.module+<span class="keyword">this</span>.config.domain+<span class="keyword">this</span>.config.path+<span class="string">'?'</span>+<span class="keyword">this</span>.getParams()</span><br><span class="line">    &#125;</span><br><span class="line">    use(action,params,fthen,fcatch)&#123;</span><br><span class="line">        <span class="keyword">this</span>.initParams();</span><br><span class="line">        <span class="keyword">this</span>.params.Action = action;</span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.params,params)</span><br><span class="line">        <span class="keyword">this</span>.sign()</span><br><span class="line">        <span class="keyword">this</span>.request(fthen,fcatch)</span><br><span class="line">    &#125;</span><br><span class="line">    sign()&#123;</span><br><span class="line">        <span class="keyword">let</span> pa = <span class="keyword">this</span>.getParams();</span><br><span class="line">        <span class="keyword">let</span> signnature = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(pa,<span class="keyword">this</span>.config.secretKey));</span><br><span class="line">        <span class="keyword">this</span>.params.Signature = signnature</span><br><span class="line">    &#125;</span><br><span class="line">    initParams()&#123;</span><br><span class="line">        <span class="keyword">this</span>.params = &#123;</span><br><span class="line">            Region: <span class="keyword">this</span>.config.region,</span><br><span class="line">            Nonce: <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="built_in">Number</span>.MAX_SAFE_INTEGER),</span><br><span class="line">            Timestamp: <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now()/<span class="number">1000</span>),</span><br><span class="line">            RequestClient: <span class="keyword">this</span>.config.requestClient,</span><br><span class="line">            SignatureMethod: <span class="keyword">this</span>.config.signatureMethod,</span><br><span class="line">            SecretId: <span class="keyword">this</span>.config.secretId,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    request(fthen,fcatch)&#123;</span><br><span class="line">        <span class="keyword">this</span>.fly.get(<span class="keyword">this</span>.config.path,<span class="keyword">this</span>.params).then(fthen).catch(fcatch)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">new</span> QCloud();</span><br></pre></td></tr></table></figure>
+<p>这个不写注释的问题好像确实要改。。。</p>
+<p>下面是测试代码文件（testMyModule.js）：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> QCloud = <span class="built_in">require</span>(<span class="string">'./qclooud'</span>)</span><br><span class="line">QCloud.init(&#123;</span><br><span class="line">    <span class="built_in">module</span>:<span class="string">'wenzhi'</span>,</span><br><span class="line">    secretId:<span class="string">'自己的secretId'</span>,</span><br><span class="line">    secretKey:<span class="string">'自己的secretKey'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> params = &#123;</span><br><span class="line">    <span class="string">'content'</span>:<span class="string">'人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">QCloud.use(<span class="string">'TextClassify'</span>,params,<span class="function"><span class="keyword">function</span> (<span class="params">responce</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(responce.data)</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>下面是输出结果：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"code"</span>:<span class="number">0</span>,<span class="string">"message"</span>:<span class="string">""</span>,<span class="string">"codeDesc"</span>:<span class="string">"Success"</span>,<span class="string">"classes"</span>:[&#123;<span class="string">"class"</span>:<span class="string">"\u6587\u5316"</span>,<span class="string">"class_num"</span>:<span class="number">61</span>,<span class="string">"conf"</span>:<span class="number">0.713</span>&#125;,&#123;<span class="string">"class"</span>:<span class="string">"\u5386\u53f2"</span>,<span class="string">"class_num"</span>:<span class="number">95</span>,<span class="string">"conf"</span>:<span class="number">0.221</span>&#125;,&#123;<span class="string">"class"</span>:<span class="string">"\u672a\u5206\u7c7b"</span>,<span class="string">"class_num"</span>:<span class="number">0</span>,<span class="string">"conf"</span>:<span class="number">0.066</span>&#125;]&#125;</span><br></pre></td></tr></table></figure><br>关于上面\u问题的出现，我们使用eval函数把json string转成json object就可以了，如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">eval</span>(<span class="string">'('</span>+responce.data+<span class="string">')'</span>))</span><br></pre></td></tr></table></figure><br>即可得下面的结果：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">code</span>: <span class="number">0</span>,</span><br><span class="line">  message: <span class="string">''</span>,</span><br><span class="line">  codeDesc: <span class="string">'Success'</span>,</span><br><span class="line">  classes: </span><br><span class="line">   [ &#123; <span class="attr">class</span>: <span class="string">'文化'</span>, <span class="attr">class_num</span>: <span class="number">61</span>, <span class="attr">conf</span>: <span class="number">0.713</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">class</span>: <span class="string">'历史'</span>, <span class="attr">class_num</span>: <span class="number">95</span>, <span class="attr">conf</span>: <span class="number">0.221</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">class</span>: <span class="string">'未分类'</span>, <span class="attr">class_num</span>: <span class="number">0</span>, <span class="attr">conf</span>: <span class="number">0.066</span> &#125; ] &#125;</span><br></pre></td></tr></table></figure><br>因为JS本身异步调用的特点，使得我们对于事件的业务逻辑处理许多时候都是通过回调函数来解决而并非Python常见的同步处理。<br>下面是相关的Python调用示例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> QcloudApi.qcloudapi <span class="keyword">import</span> QcloudApi</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> secretId,secretKey</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">module = <span class="string">'wenzhi'</span></span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    <span class="string">'secretId'</span>: secretId,</span><br><span class="line">    <span class="string">'secretKey'</span>: secretKey,</span><br><span class="line">    <span class="string">'Region'</span>: <span class="string">'gz'</span>,</span><br><span class="line">    <span class="string">'method'</span>: <span class="string">'POST'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">action = <span class="string">'TextClassify'</span> <span class="comment">#文本分类</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'content'</span>:<span class="string">'人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    service = QcloudApi(module,config)</span><br><span class="line"></span><br><span class="line">    print(service.generateUrl(action,params))</span><br><span class="line"></span><br><span class="line">    pprint(json.loads(service.call(action,params)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">'Exception'</span>,e)</span><br></pre></td></tr></table></figure></p>
+<p>看起来我实现的module还是有点样子的嘛哈哈！</p>
+<p>我已经把相关的源码放到了<a href="https://github.com/smilelight/QCloudforSDKJS" target="_blank" rel="noopener">我的GitHub</a>上，欢迎各位有需要的看客们下载使用！</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91SDKforJS%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/>http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91SDKforJS%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:27:41+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91SDKforJS%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/&title=腾讯云SDKforJS开发实战 - lightsmile's Blog&summary=前面曾经提到过的，我想要把自然语言处理相关的技术接入到我的毕设微信小程序里面。
+由于腾讯云未提供JS的SDK，要自己编写HTTP请求来实现，之前觉得比较麻烦，相关说明文档没有整明白，不想尝试，后来觉得既然是自己选择的路，那么无论再苦再累，都要坚持走下去，无论结果是什么，也算对得起当初自己的豪情壮志了。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91SDKforJS%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/&title=腾讯云SDKforJS开发实战 - lightsmile's Blog&summary=前面曾经提到过的，我想要把自然语言处理相关的技术接入到我的毕设微信小程序里面。
+由于腾讯云未提供JS的SDK，要自己编写HTTP请求来实现，之前觉得比较麻烦，相关说明文档没有整明白，不想尝试，后来觉得既然是自己选择的路，那么无论再苦再累，都要坚持走下去，无论结果是什么，也算对得起当初自己的豪情壮志了。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91SDKforJS%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/&title=腾讯云SDKforJS开发实战 - lightsmile's Blog&summary=前面曾经提到过的，我想要把自然语言处理相关的技术接入到我的毕设微信小程序里面。
+由于腾讯云未提供JS的SDK，要自己编写HTTP请求来实现，之前觉得比较麻烦，相关说明文档没有整明白，不想尝试，后来觉得既然是自己选择的路，那么无论再苦再累，都要坚持走下去，无论结果是什么，也算对得起当初自己的豪情壮志了。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>自然语言处理（1）基本概念</p>
+                <p class='content'>
+自然语言处理（Natural Language Processing，NLP）：自然语言处理是人工智能和语言学领域的分支学科，主要研究如何让计算机处理和运用自然语言。
+
+自然语言处理广义上分为...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/%E7%A7%91%E6%8A%80%E5%8F%91%E5%B1%95%E4%B9%8B%E5%B0%8F%E6%84%9F%E6%85%A8/'>
+                <p class='title'>科技发展之小感慨<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>现在真的是越来越理解“人生而有涯而知也无涯”了。
+现在科技发展的速度这么快，技术更迭周期越来越短，我们这些将来要搞编程的到时候真的是活到老学到老啊！
+比如近几年来大火的人工智能、云计算、大数据、...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '腾讯云SDKforJS开发实战',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

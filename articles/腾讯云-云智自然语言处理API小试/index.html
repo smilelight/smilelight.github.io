@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>腾讯云-云智自然语言处理API小试 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="NLP">
+  
+  
+    <meta name="description" content="前述（妈耶！这是昨天的文章了，昨天晚上写着写着突然断电，而我的电脑是台式机。。。）
+今天在忙毕设的事情，毕设项目是做一个微计划日程管理的小程序，目前已经完成了大部分的功能。
+其中包括图表统计、时间轴、四象限、小卡片、数据备份和数据还原等功能。不过今天刚通知了说审核失败，理由是身份为个人的开发者不能做备忘录相关的微...">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E8%85%BE%E8%AE%AF%E4%BA%91-%E4%BA%91%E6%99%BA%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86API%E5%B0%8F%E8%AF%95/">
+      腾讯云-云智自然语言处理API小试
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/NLP/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>NLP</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年4月19日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h4 id="前述"><a href="#前述" class="headerlink" title="前述"></a>前述</h4><p>（妈耶！这是昨天的文章了，昨天晚上写着写着突然断电，而我的电脑是台式机。。。）</p>
+<p>今天在忙毕设的事情，毕设项目是做一个微计划日程管理的小程序，目前已经完成了大部分的功能。</p>
+<p>其中包括图表统计、时间轴、四象限、小卡片、数据备份和数据还原等功能。不过今天刚通知了说审核失败，理由是身份为个人的开发者不能做备忘录相关的微信小程序。</p>
+<p>昨天想着能不能把自己的兴趣（自然语言处理+知识图谱）和毕设结合起来，打算通过调用一些开放的自然语言处理的Restful API接口来处理一些todo、plan、target相关分析统计工作。</p>
+<a id="more"></a>
+<p>哈工大的ltp之前尝试过，不过现在调用的结果还是说未授权的用户，虽然网页上显示我的可使用流量还有18G之多。</p>
+<p>复旦的话有知识工场有提供知识图谱的相关Restful API，尝试了一下感觉还可以，蛮不错的，有时间也做个记录。</p>
+<p>以上的都是使用的是http，而小程序的request请求只能是https，所以许多方法也就都不实用了。除非自己搭设一个https的服务器，然后转接请求http请求，就和代理差不多。</p>
+<p>一些其他公司的服务经过探索后也都是有的，比如说百度、阿里、腾讯、华为等。估计差不多都大同小异，用起来也都差不多。基本上都是提供相关平台语言SDK来服务的，如果是要自己动手去写出http请求的话，还要自己对签名进行处理等等，比较麻烦，目前并不想尝试实践。</p>
+<p>由于先搜到的腾讯云，同时由于小程序的缘故刚注册的腾讯云的微信公共平台的账号，所以就在腾讯云上学习探索了。</p>
+<p>发现调用的方式其实挺简单的，相关的文章网上也早已经有了。</p>
+<p>比如说：<a href="https://blog.csdn.net/doujiang_zheng/article/details/64922153" target="_blank" rel="noopener">腾讯文智自然语言处理-分词API Python小实验</a>和<a href="https://blog.csdn.net/qq_35082030/article/details/76599617" target="_blank" rel="noopener">开发者实验室体验之文智自然语言处理SDK by python</a>等。</p>
+<p>腾讯云文智自然语言处理API链接：<a href="https://cloud.tencent.com/document/api/271" target="_blank" rel="noopener">https://cloud.tencent.com/document/api/271</a></p>
+<p>下面简单的贴一下相关的代码。</p>
+<p>虽然从逻辑上讲这些重复性的代码可以通过运用相关设计模式经验封装成模块和函数更为合理，但是这里仅是简单的测试，所以也就没继续搞了。</p>
+<h4 id="情感分析"><a href="#情感分析" class="headerlink" title="情感分析"></a>情感分析</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> QcloudApi.qcloudapi <span class="keyword">import</span> QcloudApi</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> secretId,secretKey</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line">module = <span class="string">'wenzhi'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    <span class="string">'secretId'</span>: secretId,</span><br><span class="line">    <span class="string">'secretKey'</span>: secretKey,</span><br><span class="line">    <span class="string">'Region'</span>: <span class="string">'gz'</span>,</span><br><span class="line">    <span class="string">'method'</span>: <span class="string">'POST'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">action = <span class="string">'TextSentiment'</span> <span class="comment">#情感分析</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">"李亚鹏挺王菲：加油！孩他娘。"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    service = QcloudApi(module,config)</span><br><span class="line"></span><br><span class="line">    print(service.generateUrl(action,params))</span><br><span class="line"></span><br><span class="line">    pprint(json.loads(service.call(action,params)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">'Exception'</span>,e)</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>,</span><br><span class="line"> <span class="string">'negative'</span>: <span class="number">0.0051898001693189</span>,</span><br><span class="line"> <span class="string">'positive'</span>: <span class="number">0.99481022357941</span>&#125;</span><br></pre></td></tr></table></figure><br>其中的settings模块里面装有自己的secretId和secretKey，就两行代码而已：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">secretId = <span class="string">'自己的secretId'</span></span><br><span class="line">secretKey = <span class="string">'自己的secretKey'</span></span><br></pre></td></tr></table></figure></p>
+<p>很明显无法打印出有效的URL~因为使用的方法为POST，相关的数据在请求体中而非GET方法中的请求头中。</p>
+<p>后面的所有代码只需要修改action和params的值即可</p>
+<h4 id="文本抓取"><a href="#文本抓取" class="headerlink" title="文本抓取"></a>文本抓取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'ContentGrab'</span><span class="comment"># 文本抓取</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'url'</span>: <span class="string">'http://www.iamlightsmile.com'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>靠，之前还好好的，现在报错了！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">4000</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'InvalidParameter'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">'(-100) service timeout.'</span>&#125;</span><br></pre></td></tr></table></figure><br>不知为啥，有时会出现如上的错误，尽管代码没有问题，多尝试几次可能就出现正常的结果了，尽管这种不确定性还是挺烦人的。。。<br>正确结果如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'content'</span>: <span class="string">'lightsmile\n'</span></span><br><span class="line">            <span class="string">'1459679436@qq.com\n'</span></span><br><span class="line">            <span class="string">"lightsmile's Blog\n"</span></span><br><span class="line">            <span class="string">"lightsmile's Blog\n"</span></span><br><span class="line">            <span class="string">' lightsmile \n'</span></span><br><span class="line">            <span class="string">'2018-04-18\n'</span></span><br><span class="line">            <span class="string">'GithubPages新尝试\n'</span></span><br><span class="line">            <span class="string">' 由于某些不便明说的原因，我要再申请一个域名，再申请一个GitHub账号，再搞一个GitHub '</span></span><br><span class="line">            <span class="string">'Pages。打算用来记录一些不便明说的东西。 '</span></span><br><span class="line">            <span class="string">'这次域名的申请不同于之前的在万网的iamlightsmile.com，这次是在腾讯云上申请的，不过都大同小异了。接着等待大概3天左右的实名认证，通过后域名就可以解析可用了。由于只是使用GitHub '</span></span><br><span class="line">            <span class="string">'Pages 作为静态网页，不需要另外购置服务器，所以也不...  阅读全文… \n'</span></span><br><span class="line">            <span class="string">'GitHub\n'</span></span><br><span class="line">            <span class="string">'2018-04-17\n'</span></span><br><span class="line">            <span class="string">'学习Python设计模式\n'</span></span><br><span class="line">            <span class="string">' 本书主要参阅的书籍是《精通Python设计模式》 '</span></span><br><span class="line">            <span class="string">'本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真...  '</span></span><br><span class="line">            <span class="string">'阅读全文… \n'</span></span><br><span class="line">            <span class="string">'2018-04-14\n'</span></span><br><span class="line">            <span class="string">'推荐阅读书籍\n'</span></span><br><span class="line">            <span class="string">' 此博文作为书籍阅读及相关的记录哲学篇 《和谐辩证法》 《智慧之根》 计算机篇 《统计学习理论基础》 《大数据智能》 '</span></span><br><span class="line">            <span class="string">'《统计自然语言处理》（第二版） 《Python自然语言处理》（第2版，没有纸质） 基础篇 《线性代数及其应用》 历史篇小说篇 '</span></span><br><span class="line">            <span class="string">'《天行健》 《英雄志》 《国士无双》 思维篇 《如何系统思考》  阅读全文… \n'</span></span><br><span class="line">            <span class="string">'2018-04-07\n'</span></span><br><span class="line">            <span class="string">'哈工大ltp小试\n'</span></span><br><span class="line">            <span class="string">' 今天开始探索学习使用哈工大的LTP（Language Technology Platform）。 这里是官网地址 '</span></span><br><span class="line">            <span class="string">'这里是GitHub地址 这里是pyltp的使用文档 '</span></span><br><span class="line">            <span class="string">'平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Pyt...  '</span></span><br><span class="line">            <span class="string">'阅读全文… \n'</span></span><br><span class="line">            <span class="string">'Python\n'</span></span><br><span class="line">            <span class="string">'ltp\n'</span></span><br><span class="line">            <span class="string">'自然语言处理\n'</span></span><br><span class="line">            <span class="string">'2018-04-06\n'</span></span><br><span class="line">            <span class="string">'Scrapy爬取知乎数据小试\n'</span></span><br><span class="line">            <span class="string">' 啊啊啊，没时间写啦，以后有时间再写吧！ 。。。发现今天是周五，不熄灯。。。 '</span></span><br><span class="line">            <span class="string">'前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。 '</span></span><br><span class="line">            <span class="string">'自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Dem...  '</span></span><br><span class="line">            <span class="string">'阅读全文… \n'</span></span><br><span class="line">            <span class="string">'Scrapy\n'</span></span><br><span class="line">            <span class="string">'爬虫\n'</span></span><br><span class="line">            <span class="string">'2018-04-03\n'</span></span><br><span class="line">            <span class="string">'随想\n'</span></span><br><span class="line">            <span class="string">' 其实这世上哪有什么善恶，有的只是不同环境下不同的选择。 我发现人和人相识的过程基本上都是从他的经历中提取特质然后贴上标签的过程。 '</span></span><br><span class="line">            <span class="string">'普天之下又有多少人敢把自己的灵魂放在阳光下炙烤呢？草他妈的！  阅读全文… \n'</span></span><br><span class="line">            <span class="string">'2018-03-28\n'</span></span><br><span class="line">            <span class="string">'计算机\n'</span></span><br><span class="line">            <span class="string">'微信小程序的component\n'</span></span><br><span class="line">            <span class="string">' '</span></span><br><span class="line">            <span class="string">'我发现无法直接在样式即wxss里通过color属性设置icon组件的颜色，是无效的，只能通过在wxml里设置它的color属性为js传入的变量值或者是通过变量值来控制具体的颜色值。 '</span></span><br><span class="line">            <span class="string">'我们可以将微信小程序中的components组件视为一个对象，没错，它本来就是一个对象，只是相对而言，它的初始化方法和设置方式不同于在一般的js语言中，它的data属性里是这个对象建立时初始化时的数据，作用域...  '</span></span><br><span class="line">            <span class="string">'阅读全文… \n'</span></span><br><span class="line">            <span class="string">'微信小程序\n'</span></span><br><span class="line">            <span class="string">'2018-03-19\n'</span></span><br><span class="line">            <span class="string">'计算机\n'</span></span><br><span class="line">            <span class="string">'learnNLTKbyWatchVideo\n'</span></span><br><span class="line">            <span class="string">' The following is learning from the video:NLTK with Python 3 for '</span></span><br><span class="line">            <span class="string">'Natural Language Processing.You can watch the videos in '</span></span><br><span class="line">            <span class="string">'YouTube,iliibili and the author’s website: pythonprogramming.net '</span></span><br><span class="line">            <span class="string">'I use jupyte...  阅读全文… \n'</span></span><br><span class="line">            <span class="string">'NLTK\n'</span></span><br><span class="line">            <span class="string">'Python\n'</span></span><br><span class="line">            <span class="string">'自然语言处理\n'</span></span><br><span class="line">            <span class="string">'2018-03-13\n'</span></span><br><span class="line">            <span class="string">'线性代数与微积分浅解\n'</span></span><br><span class="line">            <span class="string">' '</span></span><br><span class="line">            <span class="string">'以前在大一大二时曾学过高等数学（微积分）与线性代数，不过在当时都是被动的学一学，考个分数而已，同时教授一般也都是照本宣科的围绕理论展开，平淡无味的  '</span></span><br><span class="line">            <span class="string">'阅读全文… \n'</span></span><br><span class="line">            <span class="string">'2018-03-13\n'</span></span><br><span class="line">            <span class="string">'《自然语言处理综论》学习笔记\n'</span></span><br><span class="line">            <span class="string">' Bill Manaris 关于自然语言处理的定义  阅读全文… \n'</span></span><br><span class="line">            <span class="string">'博客内容遵循 知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议\n'</span></span><br><span class="line">            <span class="string">'扫一扫，分享到微信\n'</span></span><br><span class="line">            <span class="string">'&#123;title&#125;\n'</span></span><br><span class="line">            <span class="string">' &#123;tags&#125; \n'</span></span><br><span class="line">            <span class="string">'&#123;date&#125;\n'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>,</span><br><span class="line"> <span class="string">'title'</span>: <span class="string">"lightsmile's Blog | lightsmile"</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="内容转码"><a href="#内容转码" class="headerlink" title="内容转码"></a>内容转码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'ContentTranscode'</span><span class="comment"># 内容转码</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'url'</span>: <span class="string">'www.iamlightsmile.com'</span>,</span><br><span class="line">    <span class="string">'to_html'</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'content'</span>: <span class="string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE html PUBLIC '</span></span><br><span class="line">            <span class="string">'"-//WAPFORUM//DTD XHTML Mobile 1.0//EN" '</span></span><br><span class="line">            <span class="string">'"http://www.wapforum.org/DTD/xhtml-mobile10.dtd"&gt;&lt;html '</span></span><br><span class="line">            <span class="string">'xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;&lt;meta '</span></span><br><span class="line">            <span class="string">'http-equiv="Content-Type" content="application/xhtml+xml; '</span></span><br><span class="line">            <span class="string">'charset=UTF-8"/&gt;&lt;title&gt;lightsmile\'s Blog | '</span></span><br><span class="line">            <span class="string">'lightsmile&lt;/title&gt;&lt;style type="text/css"&gt;* '</span></span><br><span class="line">            <span class="string">'&#123;margin:0;padding:0;&#125;body &#123;font-family: '</span></span><br><span class="line">            <span class="string">'Arial,Helvetica,sans-serif;&#125;a &#123;cursor: pointer;text-decoration: '</span></span><br><span class="line">            <span class="string">'underline;&#125;body, div, p, a, table, textarea, form, img, ol, ul, '</span></span><br><span class="line">            <span class="string">'li, h1, h2, h3, h4, h5, h6 &#123;border:0 none;&#125;#tc_content '</span></span><br><span class="line">            <span class="string">'&#123;font-size: 16px;line-height: 25px;word-wrap: break-word;padding: '</span></span><br><span class="line">            <span class="string">'5px 6px;overflow: hidden;&#125;&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div '</span></span><br><span class="line">            <span class="string">'id="tc_content"&gt;&lt;div class="fold_div"&gt;&lt;a class="fold_a" '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com##bk=1&amp;pg=1"&gt;[展开]&amp;#160;1459679436@qq.com&amp;#160;&lt;/a&gt;&lt;/div&gt;lightsmile\'s&amp;#160;Blog&amp;#160;&lt;br '</span></span><br><span class="line">            <span class="string">"/&gt;lightsmile's&amp;#160;Blog&amp;#160;&amp;#160;lightsmile&amp;#160;&lt;br "</span></span><br><span class="line">            <span class="string">'/&gt;2018-04-18&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/18/GithubPages%E6%96%B0%E5%B0%9D%E8%AF%95/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;GithubPages新尝试&lt;/a&gt;&amp;#160;由于某些不便明说的原因，我要再申请一个域名，再申请一个GitHub账号，再搞一个GitHub&amp;#160;Pages。打算用来记录一些不便明说的东西。\n'</span></span><br><span class="line">            <span class="string">'这次域名的申请不同于之前的在万网的iamlightsmile.com，这次是在腾讯云上申请的，不过都大同小异了。接着等待大概3天左右的实名认证，通过后域名就可以解析可用了。由于只是使用GitHub&amp;#160;Pages&amp;#160;作为静态网页，不需要另外购置服务器，所以也不...\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/18/GithubPages%E6%96%B0%E5%B0%9D%E8%AF%95/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/GitHub/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;GitHub&lt;/a&gt; &lt;br /&gt;2018-04-17&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/17/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;学习Python设计模式&lt;/a&gt; &lt;br '</span></span><br><span class="line">            <span class="string">'/&gt;&amp;#160;本书主要参阅的书籍是《精通Python设计模式》\n'</span></span><br><span class="line">            <span class="string">'本书分为创建型模式、结构型模式、行为型模式三大类，同时又细分为16种模式。具体到每个模式，则通过简单介绍、现实生活中例子、软件应用实例、应用场景、具体代码实现、小结几部分，多个角度加深对某个设计模式的理解。案例贴近生活，代码简单易懂，描述清晰明白，翻译水平上佳，确实算是我认为的好书，同时翻译还将代码上传到GitHub上方便读者下载学习，这里真...\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/17/%E5%AD%A6%E4%B9%A0Python%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;2018-04-14&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/14/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;推荐阅读书籍&lt;/a&gt; &lt;br /&gt;&amp;#160;此博文作为书籍阅读及相关的记录哲学篇\n'</span></span><br><span class="line">            <span class="string">'《和谐辩证法》\n'</span></span><br><span class="line">            <span class="string">'《智慧之根》\n'</span></span><br><span class="line">            <span class="string">'计算机篇\n'</span></span><br><span class="line">            <span class="string">'《统计学习理论基础》\n'</span></span><br><span class="line">            <span class="string">'《大数据智能》\n'</span></span><br><span class="line">            <span class="string">'《统计自然语言处理》（第二版）\n'</span></span><br><span class="line">            <span class="string">'《Python自然语言处理》（第2版，没有纸质）\n'</span></span><br><span class="line">            <span class="string">'基础篇\n'</span></span><br><span class="line">            <span class="string">'《线性代数及其应用》\n'</span></span><br><span class="line">            <span class="string">'历史篇小说篇\n'</span></span><br><span class="line">            <span class="string">'《天行健》\n'</span></span><br><span class="line">            <span class="string">'《英雄志》\n'</span></span><br><span class="line">            <span class="string">'《国士无双》\n'</span></span><br><span class="line">            <span class="string">'思维篇\n'</span></span><br><span class="line">            <span class="string">'《如何系统思考》\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/14/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%E4%B9%A6%E7%B1%8D/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;2018-04-07&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/07/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;哈工大ltp小试&lt;/a&gt; &lt;br '</span></span><br><span class="line">            <span class="string">'/&gt;&amp;#160;今天开始探索学习使用哈工大的LTP（Language&amp;#160;Technology&amp;#160;Platform）。\n'</span></span><br><span class="line">            <span class="string">'这里是官网地址\n'</span></span><br><span class="line">            <span class="string">'这里是GitHub地址\n'</span></span><br><span class="line">            <span class="string">'这里是pyltp的使用文档\n'</span></span><br><span class="line">            <span class="string">'平台采用的语言是C++，但是也提供了Python和Java的封装。由于本人目前使用Python作为自然语言处理的工具语言，所以以下的探索流程都是使用本人电脑中的Window8.1操作系统的PyCharm集成开发环境，使用的Pyt...\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/07/%E5%93%88%E5%B7%A5%E5%A4%A7ltp%E5%B0%8F%E8%AF%95/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/Python/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;Python&lt;/a&gt; &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/ltp/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;ltp&lt;/a&gt; &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;自然语言处理&lt;/a&gt; &lt;br /&gt;2018-04-06&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/06/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;Scrapy爬取知乎数据小试&lt;/a&gt; &lt;br /&gt;&amp;#160;啊啊啊，没时间写啦，以后有时间再写吧！\n'</span></span><br><span class="line">            <span class="string">'。。。发现今天是周五，不熄灯。。。\n'</span></span><br><span class="line">            <span class="string">'前两周一直在忙毕设的事情，由于某些原因毕设选择了相对简单的微信小程序，经过奋战之后一些主要的基本功能已经实现多半。\n'</span></span><br><span class="line">            <span class="string">'自然语言处理的一些最基本的概念已经有所了解，下面想要找点实战项目练练手。由于处理的第一步便是要获取语料，想着以后爬虫这东西肯定是要学的，于是从昨天开始学习相关视频、配置相关环境，今天看了部分，照着Dem...\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/06/Scrapy%E7%88%AC%E5%8F%96%E7%9F%A5%E4%B9%8E%E6%95%B0%E6%8D%AE%E5%B0%8F%E8%AF%95/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/Scrapy/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;Scrapy&lt;/a&gt; &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/%E7%88%AC%E8%99%AB/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;爬虫&lt;/a&gt; &lt;br /&gt;2018-04-03&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/03/%E9%9A%8F%E6%83%B3/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;随想&lt;/a&gt; &lt;br /&gt;&amp;#160;其实这世上哪有什么善恶，有的只是不同环境下不同的选择。\n'</span></span><br><span class="line">            <span class="string">'我发现人和人相识的过程基本上都是从他的经历中提取特质然后贴上标签的过程。\n'</span></span><br><span class="line">            <span class="string">'普天之下又有多少人敢把自己的灵魂放在阳光下炙烤呢？草他妈的！\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/04/03/%E9%9A%8F%E6%83%B3/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;2018-03-28&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;计算机&lt;/a&gt; &lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%A2%E7%B4%A2%E9%9A%8F%E7%AC%94/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;微信小程序的component&lt;/a&gt; &lt;br '</span></span><br><span class="line">            <span class="string">'/&gt;&amp;#160;我发现无法直接在样式即wxss里通过color属性设置icon组件的颜色，是无效的，只能通过在wxml里设置它的color属性为js传入的变量值或者是通过变量值来控制具体的颜色值。\n'</span></span><br><span class="line">            <span class="string">'我们可以将微信小程序中的components组件视为一个对象，没错，它本来就是一个对象，只是相对而言，它的初始化方法和设置方式不同于在一般的js语言中，它的data属性里是这个对象建立时初始化时的数据，作用域...\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%A2%E7%B4%A2%E9%9A%8F%E7%AC%94/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;微信小程序&lt;/a&gt; &lt;br /&gt;2018-03-19&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;计算机&lt;/a&gt; &lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/19/learnNLTKbyWatchVideo/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;learnNLTKbyWatchVideo&lt;/a&gt; &lt;br '</span></span><br><span class="line">            <span class="string">'/&gt;&amp;#160;The&amp;#160;following&amp;#160;is&amp;#160;learning&amp;#160;from&amp;#160;the&amp;#160;video:NLTK&amp;#160;with&amp;#160;Python&amp;#160;3&amp;#160;for&amp;#160;Natural&amp;#160;Language&amp;#160;Processing.You&amp;#160;can&amp;#160;watch&amp;#160;the&amp;#160;videos&amp;#160;in&amp;#160;YouTube,iliibili&amp;#160;and&amp;#160;the&amp;#160;author’s&amp;#160;website:&amp;#160;pythonprogramming.net\n'</span></span><br><span class="line">            <span class="string">'I&amp;#160;use&amp;#160;jupyte...\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/19/learnNLTKbyWatchVideo/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/NLTK/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;NLTK&lt;/a&gt; &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/Python/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;Python&lt;/a&gt; &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;自然语言处理&lt;/a&gt; &lt;br /&gt;2018-03-13&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/13/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%BE%AE%E7%A7%AF%E5%88%86%E6%B5%85%E8%A7%A3/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;线性代数与微积分浅解&lt;/a&gt; &lt;br '</span></span><br><span class="line">            <span class="string">'/&gt;&amp;#160;以前在大一大二时曾学过高等数学（微积分）与线性代数，不过在当时都是被动的学一学，考个分数而已，同时教授一般也都是照本宣科的围绕理论展开，平淡无味的\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/13/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%BE%AE%E7%A7%AF%E5%88%86%E6%B5%85%E8%A7%A3/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;2018-03-13&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%BB%BC%E8%AE%BA%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;《自然语言处理综论》学习笔记&lt;/a&gt; &lt;br '</span></span><br><span class="line">            <span class="string">'/&gt;&amp;#160;Bill&amp;#160;Manaris&amp;#160;关于自然语言处理的定义\n'</span></span><br><span class="line">            <span class="string">'&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/2018/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%BB%BC%E8%AE%BA%E3%80%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;阅读全文…&lt;/a&gt; &lt;br /&gt;1&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/page/2/" '</span></span><br><span class="line">            <span class="string">'position="786432"&gt;2&lt;/a&gt;  &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/page/3/" '</span></span><br><span class="line">            <span class="string">'position="786432"&gt;3&lt;/a&gt;  &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/page/4/" '</span></span><br><span class="line">            <span class="string">'position="786432"&gt;4&lt;/a&gt;  &lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/page/2/" '</span></span><br><span class="line">            <span class="string">'position="786432"&gt;下一页&lt;/a&gt; &lt;br /&gt;博客内容遵循&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;知识共享&amp;#160;署名&amp;#160;-&amp;#160;非商业性&amp;#160;-&amp;#160;相同方式共享&amp;#160;4.0&amp;#160;国际协议&lt;/a&gt; '</span></span><br><span class="line">            <span class="string">'&lt;br /&gt;lightsmile&amp;#160;&amp;amp;copy;&amp;#160;2015&amp;#160;-&amp;#160;2018\n'</span></span><br><span class="line">            <span class="string">'Power&amp;#160;by&amp;#160;&lt;a href="http://hexo.io/" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;Hexo&lt;/a&gt;&amp;#160;Theme&amp;#160;&lt;a '</span></span><br><span class="line">            <span class="string">'href="https://github.com/yscoder/hexo-theme-indigo" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;indigo&lt;/a&gt; &lt;br /&gt;扫一扫，分享到微信&amp;#160;&lt;br /&gt;&lt;a '</span></span><br><span class="line">            <span class="string">'href="http://www.iamlightsmile.com/%7Bpath%7D" '</span></span><br><span class="line">            <span class="string">'position="6"&gt;&#123;title&#125;&#123;tags&#125;&#123;date&#125;&lt;/a&gt; &lt;br /&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="分词、词性标注、命名实体识别"><a href="#分词、词性标注、命名实体识别" class="headerlink" title="分词、词性标注、命名实体识别"></a>分词、词性标注、命名实体识别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'LexicalAnalysis'</span><span class="comment"># 分词、词性标注、命名实体识别</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">"我爱洗澡"</span>,</span><br><span class="line">    <span class="string">'code'</span>: <span class="number">0x00200000</span>, <span class="comment">#0x00200000表示utf-8</span></span><br><span class="line">    <span class="string">'type'</span>: <span class="number">0</span> <span class="comment">#取值 0 或 1，默认为 0。 0 为基础粒度版分词，倾向于将句子切分的更细，在搜索场景使用为佳。 1 为混合粒度版分词，倾向于保留更多基本短语不被切分开。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'combtokens'</span>: [&#123;<span class="string">'cls'</span>: <span class="string">'短语'</span>, <span class="string">'pos'</span>: <span class="number">0</span>, <span class="string">'wlen'</span>: <span class="string">'8'</span>, <span class="string">'word'</span>: <span class="string">'我爱洗澡'</span>&#125;],</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>,</span><br><span class="line"> <span class="string">'tokens'</span>: [&#123;<span class="string">'pos'</span>: <span class="number">0</span>,</span><br><span class="line">             <span class="string">'wlen'</span>: <span class="string">'2'</span>,</span><br><span class="line">             <span class="string">'word'</span>: <span class="string">'我'</span>,</span><br><span class="line">             <span class="string">'wtype'</span>: <span class="string">'代词'</span>,</span><br><span class="line">             <span class="string">'wtype_pos'</span>: <span class="number">27</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'pos'</span>: <span class="number">2</span>,</span><br><span class="line">             <span class="string">'wlen'</span>: <span class="string">'2'</span>,</span><br><span class="line">             <span class="string">'word'</span>: <span class="string">'爱'</span>,</span><br><span class="line">             <span class="string">'wtype'</span>: <span class="string">'动词'</span>,</span><br><span class="line">             <span class="string">'wtype_pos'</span>: <span class="number">31</span>&#125;,</span><br><span class="line">            &#123;<span class="string">'pos'</span>: <span class="number">4</span>,</span><br><span class="line">             <span class="string">'wlen'</span>: <span class="string">'4'</span>,</span><br><span class="line">             <span class="string">'word'</span>: <span class="string">'洗澡'</span>,</span><br><span class="line">             <span class="string">'wtype'</span>: <span class="string">'动词'</span>,</span><br><span class="line">             <span class="string">'wtype_pos'</span>: <span class="number">31</span>&#125;]&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文本纠错"><a href="#文本纠错" class="headerlink" title="文本纠错"></a>文本纠错</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'LexicalCheck'</span> <span class="comment">#文本纠错</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">'人生苦短，我用Python！哼哼哈嘿！巴啦巴啦小魔仙！'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'conf'</span>: <span class="number">1</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>,</span><br><span class="line"> <span class="string">'text'</span>: <span class="string">'人生苦短，我用Python！哼哼哈嘿！巴啦巴啦小魔仙！'</span>,</span><br><span class="line"> <span class="string">'text_annotate'</span>: <span class="string">'人生苦短，我用Python！哼哼哈嘿！巴啦巴啦小魔仙！'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="同义词"><a href="#同义词" class="headerlink" title="同义词"></a>同义词</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'LexicalSynonym'</span><span class="comment"># 同义词</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">'人生苦短，我用Python。我爱自然语言处理和知识图谱！'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>,</span><br><span class="line"> <span class="string">'query'</span>: <span class="literal">None</span>,</span><br><span class="line"> <span class="string">'syns'</span>: [&#123;<span class="string">'word_ori'</span>: &#123;<span class="string">'idx_beg'</span>: <span class="number">7</span>, <span class="string">'idx_end'</span>: <span class="number">8</span>, <span class="string">'text'</span>: <span class="string">'爱'</span>&#125;,</span><br><span class="line">           <span class="string">'word_syns'</span>: [&#123;<span class="string">'conf'</span>: <span class="number">0.32546776533127</span>, <span class="string">'text'</span>: <span class="string">'最爱'</span>&#125;]&#125;,</span><br><span class="line">          &#123;<span class="string">'word_ori'</span>: &#123;<span class="string">'idx_beg'</span>: <span class="number">8</span>, <span class="string">'idx_end'</span>: <span class="number">9</span>, <span class="string">'text'</span>: <span class="string">'自然'</span>&#125;,</span><br><span class="line">           <span class="string">'word_syns'</span>: [&#123;<span class="string">'conf'</span>: <span class="number">0.36934259533882</span>, <span class="string">'text'</span>: <span class="string">'大自然'</span>&#125;]&#125;,</span><br><span class="line">          &#123;<span class="string">'word_ori'</span>: &#123;<span class="string">'idx_beg'</span>: <span class="number">11</span>, <span class="string">'idx_end'</span>: <span class="number">12</span>, <span class="string">'text'</span>: <span class="string">'和'</span>&#125;,</span><br><span class="line">           <span class="string">'word_syns'</span>: [&#123;<span class="string">'conf'</span>: <span class="number">0.60000002384186</span>, <span class="string">'text'</span>: <span class="string">'与'</span>&#125;]&#125;,</span><br><span class="line">          &#123;<span class="string">'word_ori'</span>: &#123;<span class="string">'idx_beg'</span>: <span class="number">13</span>, <span class="string">'idx_end'</span>: <span class="number">14</span>, <span class="string">'text'</span>: <span class="string">'图谱'</span>&#125;,</span><br><span class="line">           <span class="string">'word_syns'</span>: [&#123;<span class="string">'conf'</span>: <span class="number">0.37899446487427</span>, <span class="string">'text'</span>: <span class="string">'图片'</span>&#125;]&#125;]&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文本分类"><a href="#文本分类" class="headerlink" title="文本分类"></a>文本分类</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'TextClassify'</span> <span class="comment">#文本分类</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'content'</span>:<span class="string">'人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'classes'</span>: [&#123;<span class="string">'class'</span>: <span class="string">'文化'</span>, <span class="string">'class_num'</span>: <span class="number">61</span>, <span class="string">'conf'</span>: <span class="number">0.713</span>&#125;,</span><br><span class="line">             &#123;<span class="string">'class'</span>: <span class="string">'历史'</span>, <span class="string">'class_num'</span>: <span class="number">95</span>, <span class="string">'conf'</span>: <span class="number">0.221</span>&#125;,</span><br><span class="line">             &#123;<span class="string">'class'</span>: <span class="string">'未分类'</span>, <span class="string">'class_num'</span>: <span class="number">0</span>, <span class="string">'conf'</span>: <span class="number">0.066</span>&#125;],</span><br><span class="line"> <span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="句法分析"><a href="#句法分析" class="headerlink" title="句法分析"></a>句法分析</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'TextDependency'</span><span class="comment"># 句法分析</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'我爱自然语言处理'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'keywords'</span>: [[&#123;<span class="string">'dep_rel'</span>: <span class="string">'SBV'</span>,</span><br><span class="line">                <span class="string">'father_id'</span>: <span class="number">2</span>,</span><br><span class="line">                <span class="string">'id'</span>: <span class="number">1</span>,</span><br><span class="line">                <span class="string">'postag'</span>: <span class="string">'r'</span>,</span><br><span class="line">                <span class="string">'word'</span>: <span class="string">'我'</span>&#125;,</span><br><span class="line">               &#123;<span class="string">'dep_rel'</span>: <span class="string">'HED'</span>,</span><br><span class="line">                <span class="string">'father_id'</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="string">'id'</span>: <span class="number">2</span>,</span><br><span class="line">                <span class="string">'postag'</span>: <span class="string">'v'</span>,</span><br><span class="line">                <span class="string">'word'</span>: <span class="string">'爱'</span>&#125;,</span><br><span class="line">               &#123;<span class="string">'dep_rel'</span>: <span class="string">'VOB'</span>,</span><br><span class="line">                <span class="string">'father_id'</span>: <span class="number">2</span>,</span><br><span class="line">                <span class="string">'id'</span>: <span class="number">3</span>,</span><br><span class="line">                <span class="string">'postag'</span>: <span class="string">'n'</span>,</span><br><span class="line">                <span class="string">'word'</span>: <span class="string">'自然语言'</span>&#125;,</span><br><span class="line">               &#123;<span class="string">'dep_rel'</span>: <span class="string">'COO'</span>,</span><br><span class="line">                <span class="string">'father_id'</span>: <span class="number">2</span>,</span><br><span class="line">                <span class="string">'id'</span>: <span class="number">4</span>,</span><br><span class="line">                <span class="string">'postag'</span>: <span class="string">'v'</span>,</span><br><span class="line">                <span class="string">'word'</span>: <span class="string">'处理'</span>&#125;]],</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="关键词提取"><a href="#关键词提取" class="headerlink" title="关键词提取"></a>关键词提取</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'TextKeywords'</span> <span class="comment">#关键词提取</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'自然语言处理'</span>,</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">'''自然语言处理（英语：natural language processing，缩写作 NLP）是人工智能和语言学领域的分支学科。此领域探讨如何处理及运用自然语言；自然语言认知则是指让电脑“懂”人类的语言。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">自然语言生成系统把计算机数据转化为自然语言。自然语言理解系统把自然语言转化为计算机程序更易于处理的形式。'''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'keywords'</span>: [&#123;<span class="string">'keyword'</span>: <span class="string">'自然语言'</span>,</span><br><span class="line">               <span class="string">'score'</span>: <span class="number">0.57486760616302</span>,</span><br><span class="line">               <span class="string">'type'</span>: <span class="string">'keyword'</span>&#125;],</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="敏感信息识别"><a href="#敏感信息识别" class="headerlink" title="敏感信息识别"></a>敏感信息识别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">action = <span class="string">'TextSensitivity'</span> <span class="comment">#敏感信息识别</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'content'</span>: <span class="string">"中共统治！压迫，人民！续一秒！"</span>,</span><br><span class="line">    <span class="string">'type'</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://wenzhi.api.qcloud.com/v2/index.php</span><br><span class="line">&#123;<span class="string">'code'</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">'codeDesc'</span>: <span class="string">'Success'</span>,</span><br><span class="line"> <span class="string">'message'</span>: <span class="string">''</span>,</span><br><span class="line"> <span class="string">'nonsensitive'</span>: <span class="number">0.37754066879815</span>,</span><br><span class="line"> <span class="string">'sensitive'</span>: <span class="number">0.62245933120185</span>&#125;</span><br></pre></td></tr></table></figure>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91-%E4%BA%91%E6%99%BA%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86API%E5%B0%8F%E8%AF%95/>http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91-%E4%BA%91%E6%99%BA%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86API%E5%B0%8F%E8%AF%95/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:27:54+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年1月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NLP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NLP</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91-%E4%BA%91%E6%99%BA%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86API%E5%B0%8F%E8%AF%95/&title=腾讯云-云智自然语言处理API小试 - lightsmile's Blog&summary=前述（妈耶！这是昨天的文章了，昨天晚上写着写着突然断电，而我的电脑是台式机。。。）
+今天在忙毕设的事情，毕设项目是做一个微计划日程管理的小程序，目前已经完成了大部分的功能。
+其中包括图表统计、时间轴、四象限、小卡片、数据备份和数据还原等功能。不过今天刚通知了说审核失败，理由是身份为个人的开发者不能做备忘录相关的微信小程序。
+昨天想着能不能把自己的兴趣（自然语言处理+知识图谱）和毕设结合起来，打算通过调用一些开放的自然语言处理的Restful API接口来处理一些todo、plan、target相关分析统计工作。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91-%E4%BA%91%E6%99%BA%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86API%E5%B0%8F%E8%AF%95/&title=腾讯云-云智自然语言处理API小试 - lightsmile's Blog&summary=前述（妈耶！这是昨天的文章了，昨天晚上写着写着突然断电，而我的电脑是台式机。。。）
+今天在忙毕设的事情，毕设项目是做一个微计划日程管理的小程序，目前已经完成了大部分的功能。
+其中包括图表统计、时间轴、四象限、小卡片、数据备份和数据还原等功能。不过今天刚通知了说审核失败，理由是身份为个人的开发者不能做备忘录相关的微信小程序。
+昨天想着能不能把自己的兴趣（自然语言处理+知识图谱）和毕设结合起来，打算通过调用一些开放的自然语言处理的Restful API接口来处理一些todo、plan、target相关分析统计工作。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://www.iamlightsmile.com/articles/%E8%85%BE%E8%AE%AF%E4%BA%91-%E4%BA%91%E6%99%BA%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86API%E5%B0%8F%E8%AF%95/&title=腾讯云-云智自然语言处理API小试 - lightsmile's Blog&summary=前述（妈耶！这是昨天的文章了，昨天晚上写着写着突然断电，而我的电脑是台式机。。。）
+今天在忙毕设的事情，毕设项目是做一个微计划日程管理的小程序，目前已经完成了大部分的功能。
+其中包括图表统计、时间轴、四象限、小卡片、数据备份和数据还原等功能。不过今天刚通知了说审核失败，理由是身份为个人的开发者不能做备忘录相关的微信小程序。
+昨天想着能不能把自己的兴趣（自然语言处理+知识图谱）和毕设结合起来，打算通过调用一些开放的自然语言处理的Restful API接口来处理一些todo、plan、target相关分析统计工作。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E7%9B%B8%E5%85%B3%E5%B8%82%E5%9C%BA%E7%A0%94%E7%A9%B6/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>自然语言处理与知识图谱相关市场研究</p>
+                <p class='content'>经过我的探索，发现现在商用也好，学习也罢，目前提供NLP技术服务的大致分三种：
+
+一种是大学院校的教授、助教和研究生等依托团队的学术背景和技术沉淀，通过创办规模较小的公司提供技术支持，以实现技术...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/GithubPages%E6%96%B0%E5%B0%9D%E8%AF%95/'>
+                <p class='title'>GithubPages新尝试<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>由于某些不便明说的原因，我要再申请一个域名，再申请一个GitHub账号，再搞一个GitHub Pages。打算用来记录一些不便明说的东西。
+这次域名的申请不同于之前的在万网的iamlightsm...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '腾讯云-云智自然语言处理API小试',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前述"><span class="toc-text">前述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#情感分析"><span class="toc-text">情感分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本抓取"><span class="toc-text">文本抓取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内容转码"><span class="toc-text">内容转码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分词、词性标注、命名实体识别"><span class="toc-text">分词、词性标注、命名实体识别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本纠错"><span class="toc-text">文本纠错</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同义词"><span class="toc-text">同义词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本分类"><span class="toc-text">文本分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#句法分析"><span class="toc-text">句法分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关键词提取"><span class="toc-text">关键词提取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#敏感信息识别"><span class="toc-text">敏感信息识别</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
