@@ -1126,28 +1126,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code class="lang-python">import stanfordnlp
-# stanfordnlp.download(&#39;zh&#39;) 从网络上下载模型文件，超级慢
-
-zh_nlp = stanfordnlp.Pipeline(lang=&#39;zh&#39;, models_dir=r&quot;D:\Data\NLP\model\stanfordnlp&quot;)
-
-text = &quot;清华大学是一所中国的一流大学。&quot;
-
-zh_doc = zh_nlp(text)
-
-for i, sent in enumerate(zh_doc.sentences):
-    print(&quot;[Sentence {}]&quot;.format(i+1))
-    for word in sent.words:
-        print(&quot;{:12s}\t{:12s}\t{:6s}\t{:d}\t{:12s}&quot;.format(\
-              word.text, word.lemma, word.pos, word.governor, word.dependency_relation))
-    print(&quot;&quot;)
-</code></pre>
-<p>首先应该先下载模型，然而如果是直接运行<code>stanfordnlp.download(&#39;zh&#39;)</code>命令，那么下载速度实在是太慢了，后来把它的源码下载下来，找到了对应了文件下载地址，然后使用Chrome下载，发现速度有所提升但是也很慢，最后尝试了一下先使用Xshell登录代理浏览器下载模型，然后使用Xftp将模型传输到本地，结果速度变快了好多，尤其是代理浏览器下载模型的速度超级快，达80M/s，太惊人了。</p>
-
+        <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordNLP%E4%BD%BF%E7%94%A8/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1250,38 +1238,16 @@ for i, sent in enumerate(zh_doc.sentences):
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code class="lang-python">from stanfordcorenlp import StanfordCoreNLP
-
-# 加载模型
-nlp = StanfordCoreNLP(r&quot;D:\Data\NLP\model\stanford_corenlp\stanford-corenlp-full-2018-10-05&quot;, lang=&#39;zh&#39;)
-
-# 使用
-text = &quot;清华大学是一所中国的一流大学。&quot;
-
-print(&#39;Tokenize:&#39;, nlp.word_tokenize(text))
-print(&#39;Part of Speech:&#39;, nlp.pos_tag(text))
-print(&#39;Named Entities:&#39;, nlp.ner(text))
-print(&#39;Constituency Parsing:&#39;, nlp.parse(text))
-print(&#39;Dependency Parsing:&#39;, nlp.dependency_parse(text))
-</code></pre>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.csdn.net/qq_35203425/article/details/80451243" target="_blank" rel="noopener">Python中使用Stanford CoreNLP_Mr番茄蛋的博客-CSDN博客</a></li>
-<li><a href="https://www.jianshu.com/p/f825999d78bb" target="_blank" rel="noopener">在Mac OS中安装和使用Stanford NLP - 简书</a></li>
-</ul>
-<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p>按照网上教程下载模型并且运行代码后没反应，然后搜索网上相关解决方案，找到了<a href="https://www.cnblogs.com/monty12/p/10544524.html" target="_blank" rel="noopener">关于使用stanfordcorenlp一直运行不报错的解决方法 - monty12 - 博客园</a>，并且设置了logger.DEBUG后发现了类似以下报错信息，然后继续重装Java，经过反复两次发现还是不行。</p>
-<pre><code class="lang-bash">nitializing native server...
-INFO:root:java -Xmx4g -cp &quot;F:\space\wingide\stanfordnlp\*&quot; edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000
-INFO:root:Server shell PID: 8504
-INFO:root:Waiting until the server is available.
-INFO:root:Waiting until the server is available.
-</code></pre>
-<p>后来从这个网址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html" target="_blank" rel="noopener">Java SE Runtime Environment 8 - Downloads</a>，下载了如下红框中标出的链接重新安装Java之后，才提示安装了64位，并且程序可以正常运行。</p>
-<p><img src="https://s2.ax1x.com/2020/01/03/lUi4iV.png" alt="lUi4iV.png"></p>
-
+        <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/articles/%E5%B8%B8%E7%94%A8%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6%E4%B9%8BStanfordCoreNLP%E4%BD%BF%E7%94%A8/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
