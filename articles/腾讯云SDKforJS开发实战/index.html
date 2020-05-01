@@ -71,6 +71,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -455,10 +461,171 @@
 <p>于是大致样式就开始照搬Python SDK的实现，同时由于自己仅仅是小尝试，简单成功就可以了，至于module的健壮性和架构也就忽略掉了。</p>
 <p>我的是在Webstorm上编写调试JS的，引擎是NodeJs。由于报import、from的错，所以只能含泪把es6的语法写成了CommonJS的形式。</p>
 <p>最终的成果长成这么个吊样子，文件名为qcloud.js：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*不同的应用平台fly.js的引入方式不同，同时fly的内部实现也略有不同</span></span><br><span class="line"><span class="comment">毕竟不同的平台js的引擎也不同，所以相关网络请求访问的底层实现也会有所不同</span></span><br><span class="line"><span class="comment">比如说浏览器环境中是构造XmlHttpRequest执行ajax调用</span></span><br><span class="line"><span class="comment">而微信小程序则是使用底层api：wx.request函数</span></span><br><span class="line"><span class="comment">node环境依赖http模块及net模块的底层实现</span></span><br><span class="line"><span class="comment">详情参见 https://wendux.github.io/dist/#/doc/flyio/readme</span></span><br><span class="line"><span class="comment">不同环境下文件引入实例：</span></span><br><span class="line"><span class="comment">具体文件自己去找，去下</span></span><br><span class="line"><span class="comment">浏览器环境</span></span><br><span class="line"><span class="comment">const Fly = require('./fly.umd.min')</span></span><br><span class="line"><span class="comment">微信小程序环境</span></span><br><span class="line"><span class="comment">const Fly = require('./fly')</span></span><br><span class="line"><span class="comment">node环境</span></span><br><span class="line"><span class="comment">const Fly=require("flyio/src/node")*/</span></span><br><span class="line"><span class="comment">//以下是node环境下引入fly的方式</span></span><br><span class="line"><span class="keyword">const</span> Fly = <span class="built_in">require</span>(<span class="string">"flyio/src/node"</span>);</span><br><span class="line"><span class="keyword">const</span> CryptoJS = <span class="built_in">require</span>(<span class="string">'./crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortKeys</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> newobj = &#123;&#125;;</span><br><span class="line">    <span class="built_in">Object</span>.keys(obj).sort().forEach(<span class="function"><span class="params">value</span> =&gt;</span> newobj[value] = obj[value]);</span><br><span class="line">    <span class="keyword">return</span> newobj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">codeObj</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        arr.push(k + <span class="string">'='</span> + obj[k])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">'&amp;'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QCloud</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.config = &#123;</span><br><span class="line">            protocol:<span class="string">'https://'</span>,</span><br><span class="line">            path:<span class="string">'/v2/index.php'</span>,</span><br><span class="line">            method:<span class="string">'GET'</span>,</span><br><span class="line">            region:<span class="string">'gz'</span>,</span><br><span class="line">            domain:<span class="string">'.api.qcloud.com'</span>,</span><br><span class="line">            requestClient:<span class="string">'SDK_PYTHON_2.0.13'</span>,</span><br><span class="line">            signatureMethod:<span class="string">'HmacSHA1'</span>,</span><br><span class="line">            secretId:<span class="string">''</span>,</span><br><span class="line">            secretKey:<span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.params = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    init(config)&#123;</span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.config,config);</span><br><span class="line">        <span class="keyword">this</span>.fly = <span class="keyword">new</span> Fly;</span><br><span class="line">        <span class="keyword">this</span>.fly.config.baseURL = <span class="keyword">this</span>.config.protocol+<span class="keyword">this</span>.config.module+<span class="keyword">this</span>.config.domain</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getParams() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.config.method+<span class="keyword">this</span>.config.module+<span class="keyword">this</span>.config.domain+</span><br><span class="line">            <span class="keyword">this</span>.config.path+<span class="string">'?'</span>+codeObj(sortKeys(<span class="keyword">this</span>.params))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getUrl(action,params)&#123;</span><br><span class="line">        <span class="keyword">this</span>.initParams();</span><br><span class="line">        <span class="keyword">this</span>.params.Action = action;</span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.params,params);</span><br><span class="line">        <span class="keyword">this</span>.sign();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.config.protocol+<span class="keyword">this</span>.config.module+<span class="keyword">this</span>.config.domain+<span class="keyword">this</span>.config.path+<span class="string">'?'</span>+<span class="keyword">this</span>.getParams()</span><br><span class="line">    &#125;</span><br><span class="line">    use(action,params,fthen,fcatch)&#123;</span><br><span class="line">        <span class="keyword">this</span>.initParams();</span><br><span class="line">        <span class="keyword">this</span>.params.Action = action;</span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.params,params)</span><br><span class="line">        <span class="keyword">this</span>.sign()</span><br><span class="line">        <span class="keyword">this</span>.request(fthen,fcatch)</span><br><span class="line">    &#125;</span><br><span class="line">    sign()&#123;</span><br><span class="line">        <span class="keyword">let</span> pa = <span class="keyword">this</span>.getParams();</span><br><span class="line">        <span class="keyword">let</span> signnature = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(pa,<span class="keyword">this</span>.config.secretKey));</span><br><span class="line">        <span class="keyword">this</span>.params.Signature = signnature</span><br><span class="line">    &#125;</span><br><span class="line">    initParams()&#123;</span><br><span class="line">        <span class="keyword">this</span>.params = &#123;</span><br><span class="line">            Region: <span class="keyword">this</span>.config.region,</span><br><span class="line">            Nonce: <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="built_in">Number</span>.MAX_SAFE_INTEGER),</span><br><span class="line">            Timestamp: <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now()/<span class="number">1000</span>),</span><br><span class="line">            RequestClient: <span class="keyword">this</span>.config.requestClient,</span><br><span class="line">            SignatureMethod: <span class="keyword">this</span>.config.signatureMethod,</span><br><span class="line">            SecretId: <span class="keyword">this</span>.config.secretId,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    request(fthen,fcatch)&#123;</span><br><span class="line">        <span class="keyword">this</span>.fly.get(<span class="keyword">this</span>.config.path,<span class="keyword">this</span>.params).then(fthen).catch(fcatch)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">new</span> QCloud();</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-js">/*不同的应用平台fly.js的引入方式不同，同时fly的内部实现也略有不同
+毕竟不同的平台js的引擎也不同，所以相关网络请求访问的底层实现也会有所不同
+比如说浏览器环境中是构造XmlHttpRequest执行ajax调用
+而微信小程序则是使用底层api：wx.request函数
+node环境依赖http模块及net模块的底层实现
+详情参见 https://wendux.github.io/dist/#/doc/flyio/readme
+不同环境下文件引入实例：
+具体文件自己去找，去下
+浏览器环境
+const Fly = require(&#39;./fly.umd.min&#39;)
+微信小程序环境
+const Fly = require(&#39;./fly&#39;)
+node环境
+const Fly=require(&quot;flyio/src/node&quot;)*/
+//以下是node环境下引入fly的方式
+const Fly = require(&quot;flyio/src/node&quot;);
+const CryptoJS = require(&#39;./crypto&#39;);
+
+function sortKeys(obj) {
+    let newobj = {};
+    Object.keys(obj).sort().forEach(value =&gt; newobj[value] = obj[value]);
+    return newobj
+}
+
+
+function codeObj(obj) {
+    let arr = [];
+    for (let k in obj) {
+        arr.push(k + &#39;=&#39; + obj[k])
+    }
+    return arr.join(&#39;&amp;&#39;)
+}
+
+
+class QCloud {
+    constructor(){
+        this.config = {
+            protocol:&#39;https://&#39;,
+            path:&#39;/v2/index.php&#39;,
+            method:&#39;GET&#39;,
+            region:&#39;gz&#39;,
+            domain:&#39;.api.qcloud.com&#39;,
+            requestClient:&#39;SDK_PYTHON_2.0.13&#39;,
+            signatureMethod:&#39;HmacSHA1&#39;,
+            secretId:&#39;&#39;,
+            secretKey:&#39;&#39;
+        }
+        this.params = {}
+    }
+    init(config){
+        Object.assign(this.config,config);
+        this.fly = new Fly;
+        this.fly.config.baseURL = this.config.protocol+this.config.module+this.config.domain
+    }
+
+    getParams() {
+        return this.config.method+this.config.module+this.config.domain+
+            this.config.path+&#39;?&#39;+codeObj(sortKeys(this.params))
+    }
+
+    getUrl(action,params){
+        this.initParams();
+        this.params.Action = action;
+        Object.assign(this.params,params);
+        this.sign();
+        return this.config.protocol+this.config.module+this.config.domain+this.config.path+&#39;?&#39;+this.getParams()
+    }
+    use(action,params,fthen,fcatch){
+        this.initParams();
+        this.params.Action = action;
+        Object.assign(this.params,params)
+        this.sign()
+        this.request(fthen,fcatch)
+    }
+    sign(){
+        let pa = this.getParams();
+        let signnature = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(pa,this.config.secretKey));
+        this.params.Signature = signnature
+    }
+    initParams(){
+        this.params = {
+            Region: this.config.region,
+            Nonce: Math.floor(Math.random()*Number.MAX_SAFE_INTEGER),
+            Timestamp: Math.floor(Date.now()/1000),
+            RequestClient: this.config.requestClient,
+            SignatureMethod: this.config.signatureMethod,
+            SecretId: this.config.secretId,
+        }
+    }
+    request(fthen,fcatch){
+        this.fly.get(this.config.path,this.params).then(fthen).catch(fcatch)
+    }
+
+}
+
+module.exports = new QCloud();
+</code></pre>
 <p>这个不写注释的问题好像确实要改。。。</p>
-<p>下面是测试代码文件（testMyModule.js）：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> QCloud = <span class="built_in">require</span>(<span class="string">'./qclooud'</span>)</span><br><span class="line">QCloud.init(&#123;</span><br><span class="line">    <span class="built_in">module</span>:<span class="string">'wenzhi'</span>,</span><br><span class="line">    secretId:<span class="string">'自己的secretId'</span>,</span><br><span class="line">    secretKey:<span class="string">'自己的secretKey'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> params = &#123;</span><br><span class="line">    <span class="string">'content'</span>:<span class="string">'人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">QCloud.use(<span class="string">'TextClassify'</span>,params,<span class="function"><span class="keyword">function</span> (<span class="params">responce</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(responce.data)</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>下面是输出结果：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"code"</span>:<span class="number">0</span>,<span class="string">"message"</span>:<span class="string">""</span>,<span class="string">"codeDesc"</span>:<span class="string">"Success"</span>,<span class="string">"classes"</span>:[&#123;<span class="string">"class"</span>:<span class="string">"\u6587\u5316"</span>,<span class="string">"class_num"</span>:<span class="number">61</span>,<span class="string">"conf"</span>:<span class="number">0.713</span>&#125;,&#123;<span class="string">"class"</span>:<span class="string">"\u5386\u53f2"</span>,<span class="string">"class_num"</span>:<span class="number">95</span>,<span class="string">"conf"</span>:<span class="number">0.221</span>&#125;,&#123;<span class="string">"class"</span>:<span class="string">"\u672a\u5206\u7c7b"</span>,<span class="string">"class_num"</span>:<span class="number">0</span>,<span class="string">"conf"</span>:<span class="number">0.066</span>&#125;]&#125;</span><br></pre></td></tr></table></figure><br>关于上面\u问题的出现，我们使用eval函数把json string转成json object就可以了，如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">eval</span>(<span class="string">'('</span>+responce.data+<span class="string">')'</span>))</span><br></pre></td></tr></table></figure><br>即可得下面的结果：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">code</span>: <span class="number">0</span>,</span><br><span class="line">  message: <span class="string">''</span>,</span><br><span class="line">  codeDesc: <span class="string">'Success'</span>,</span><br><span class="line">  classes: </span><br><span class="line">   [ &#123; <span class="attr">class</span>: <span class="string">'文化'</span>, <span class="attr">class_num</span>: <span class="number">61</span>, <span class="attr">conf</span>: <span class="number">0.713</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">class</span>: <span class="string">'历史'</span>, <span class="attr">class_num</span>: <span class="number">95</span>, <span class="attr">conf</span>: <span class="number">0.221</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">class</span>: <span class="string">'未分类'</span>, <span class="attr">class_num</span>: <span class="number">0</span>, <span class="attr">conf</span>: <span class="number">0.066</span> &#125; ] &#125;</span><br></pre></td></tr></table></figure><br>因为JS本身异步调用的特点，使得我们对于事件的业务逻辑处理许多时候都是通过回调函数来解决而并非Python常见的同步处理。<br>下面是相关的Python调用示例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> QcloudApi.qcloudapi <span class="keyword">import</span> QcloudApi</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> secretId,secretKey</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">module = <span class="string">'wenzhi'</span></span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    <span class="string">'secretId'</span>: secretId,</span><br><span class="line">    <span class="string">'secretKey'</span>: secretKey,</span><br><span class="line">    <span class="string">'Region'</span>: <span class="string">'gz'</span>,</span><br><span class="line">    <span class="string">'method'</span>: <span class="string">'POST'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">action = <span class="string">'TextClassify'</span> <span class="comment">#文本分类</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'content'</span>:<span class="string">'人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    service = QcloudApi(module,config)</span><br><span class="line"></span><br><span class="line">    print(service.generateUrl(action,params))</span><br><span class="line"></span><br><span class="line">    pprint(json.loads(service.call(action,params)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">'Exception'</span>,e)</span><br></pre></td></tr></table></figure></p>
+<p>下面是测试代码文件（testMyModule.js）：</p>
+<pre><code class="lang-js">const QCloud = require(&#39;./qclooud&#39;)
+QCloud.init({
+    module:&#39;wenzhi&#39;,
+    secretId:&#39;自己的secretId&#39;,
+    secretKey:&#39;自己的secretKey&#39;
+})
+
+let params = {
+    &#39;content&#39;:&#39;人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！&#39;
+}
+
+QCloud.use(&#39;TextClassify&#39;,params,function (responce) {
+    console.log(responce.data)
+},function (error) {
+    console.log(error)
+})
+</code></pre>
+<p>下面是输出结果：</p>
+<pre><code class="lang-js">{&quot;code&quot;:0,&quot;message&quot;:&quot;&quot;,&quot;codeDesc&quot;:&quot;Success&quot;,&quot;classes&quot;:[{&quot;class&quot;:&quot;\u6587\u5316&quot;,&quot;class_num&quot;:61,&quot;conf&quot;:0.713},{&quot;class&quot;:&quot;\u5386\u53f2&quot;,&quot;class_num&quot;:95,&quot;conf&quot;:0.221},{&quot;class&quot;:&quot;\u672a\u5206\u7c7b&quot;,&quot;class_num&quot;:0,&quot;conf&quot;:0.066}]}
+</code></pre>
+<p>关于上面\u问题的出现，我们使用eval函数把json string转成json object就可以了，如：</p>
+<pre><code class="lang-js">console.log(eval(&#39;(&#39;+responce.data+&#39;)&#39;))
+</code></pre>
+<p>即可得下面的结果：</p>
+<pre><code class="lang-js">{ code: 0,
+  message: &#39;&#39;,
+  codeDesc: &#39;Success&#39;,
+  classes: 
+   [ { class: &#39;文化&#39;, class_num: 61, conf: 0.713 },
+     { class: &#39;历史&#39;, class_num: 95, conf: 0.221 },
+     { class: &#39;未分类&#39;, class_num: 0, conf: 0.066 } ] }
+</code></pre>
+<p>因为JS本身异步调用的特点，使得我们对于事件的业务逻辑处理许多时候都是通过回调函数来解决而并非Python常见的同步处理。<br>下面是相关的Python调用示例：</p>
+<pre><code class="lang-python">from QcloudApi.qcloudapi import QcloudApi
+
+from settings import secretId,secretKey
+
+import json
+
+from pprint import pprint
+
+module = &#39;wenzhi&#39;
+
+config = {
+    &#39;secretId&#39;: secretId,
+    &#39;secretKey&#39;: secretKey,
+    &#39;Region&#39;: &#39;gz&#39;,
+    &#39;method&#39;: &#39;POST&#39;
+}
+
+action = &#39;TextClassify&#39; #文本分类
+
+params = {
+    &#39;content&#39;:&#39;人生苦短，please Python。太祖、刘邦、朱元璋哪个更厉害？！&#39;
+}
+
+try:
+    service = QcloudApi(module,config)
+
+    print(service.generateUrl(action,params))
+
+    pprint(json.loads(service.call(action,params)))
+
+except Exception as e:
+    print(&#39;Exception&#39;,e)
+</code></pre>
 <p>看起来我实现的module还是有点样子的嘛哈哈！</p>
 <p>我已经把相关的源码放到了<a href="https://github.com/smilelight/QCloudforSDKJS" target="_blank" rel="noopener">我的GitHub</a>上，欢迎各位有需要的看客们下载使用！</p>
 
@@ -980,6 +1147,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

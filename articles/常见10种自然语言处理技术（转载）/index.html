@@ -77,6 +77,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -466,7 +472,10 @@
 <p>相关论文：<a href="https://tartarus.org/martin/PorterStemmer/def.txt" target="_blank" rel="noopener">Martin Porter的波特词干算法原文</a></p>
 <p>相关算法：<a href="https://bitbucket.org/mchaput/stemming/src/5c242aa592a6d4f0e9a0b2e1afdca4fd757b8e8a/stemming/porter2.py?at=default&amp;fileviewer=file-view-default" target="_blank" rel="noopener">Porter2词干算法的Python实现</a></p>
 <p>程序实现：Porter2算法做词干提取的代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install stemming</span></span><br><span class="line"><span class="keyword">from</span> stemming.porter2 <span class="keyword">import</span> stem</span><br><span class="line">stem(<span class="string">"casually"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">#!pip install stemming
+from stemming.porter2 import stem
+stem(&quot;casually&quot;)
+</code></pre>
 <h1 id="2-词形还原"><a href="#2-词形还原" class="headerlink" title="2. 词形还原"></a>2. 词形还原</h1><p>什么是词形还原？ 词形还原是将一组词语还原为词源或词典的词目形式的过程。还原过程考虑到了POS问题，即词语在句中的语义，词语对相邻语句的语义等。例如，英语中：</p>
 <ol>
 <li>beautiful和beautifully被分别还原为beautiful和beautifully。</li>
@@ -476,7 +485,14 @@
 <p>相关论文2: <a href="https://academic.oup.com/dsh/article-abstract/doi/10.1093/llc/fqw034/2669790/Lemmatization-for-variation-rich-languages-using" target="_blank" rel="noopener">这篇论文非常出色，讨论了运用深度学习对变化丰富的语种做词形还原时会遇到的问题。</a></p>
 <p>数据集: <a href="https://catalog.ldc.upenn.edu/ldc99t42" target="_blank" rel="noopener">这里是Treebank-3数据集的链接，你可以使用它创建一个自己的词形还原工具。</a></p>
 <p>程序实现：下面给出了在spacy上的英语词形还原代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#python -m spacy download en</span></span><br><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">"en"</span>)</span><br><span class="line">doc=<span class="string">"good better best"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(doc):</span><br><span class="line">    print(token,token.lemma_)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">#!pip install spacy
+#python -m spacy download en
+import spacy
+nlp=spacy.load(&quot;en&quot;)
+doc=&quot;good better best&quot;
+for token in nlp(doc):
+    print(token,token.lemma_)
+</code></pre>
 <h1 id="3-词向量化"><a href="#3-词向量化" class="headerlink" title="3. 词向量化"></a>3. 词向量化</h1><p>什么是词向量化？词向量化是用一组实数构成的向量代表自然语言的叫法。这种技术非常实用，因为电脑无法处理自然语言。词向量化可以捕捉到自然语言和实数间的本质关系。通过词向量化，一个词语或者一段短语可以用一个定维的向量表示，例如向量的长度可以为100。</p>
 <p>例如：<code>Man</code>这个词语可以用一个五维向量表示。</p>
 <p><img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/word-vector.png" alt="Man"></p>
@@ -486,9 +502,15 @@
 <p>相关工具：<a href="https://ronxin.github.io/wevi/" target="_blank" rel="noopener">这是个基于浏览器的词向量可视化工具。</a></p>
 <p>预训练词向量：<a href="https://github.com/facebookresearch/fastText/blob/master/pretrained-vectors.md?spm=a2c4e.11153959.blogcont236723.10.1a815c301CEF2o&amp;file=pretrained-vectors.md" target="_blank" rel="noopener">这里有一份facebook的预训练词向量列表，包含294种语言。</a></p>
 <p><a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit" target="_blank" rel="noopener">这里可以下载google news的预训练词向量。</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install gensim</span></span><br><span class="line"><span class="keyword">from</span> gensim.models.keyedvectors <span class="keyword">import</span> KeyedVectors</span><br><span class="line">word_vectors=KeyedVectors.load_word2vec_format(<span class="string">'GoogleNews-vectors-negative300.bin'</span>,binary=<span class="literal">True</span>)</span><br><span class="line">word_vectors[<span class="string">'human'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">#!pip install gensim
+from gensim.models.keyedvectors import KeyedVectors
+word_vectors=KeyedVectors.load_word2vec_format(&#39;GoogleNews-vectors-negative300.bin&#39;,binary=True)
+word_vectors[&#39;human&#39;]
+</code></pre>
 <p>程序实现：这段代码可以用gensim训练你自己的词向量</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sentence=[[<span class="string">'first'</span>,<span class="string">'sentence'</span>],[<span class="string">'second'</span>,<span class="string">'sentence'</span>]]</span><br><span class="line">model = gensim.models.Word2Vec(sentence, min_count=<span class="number">1</span>,size=<span class="number">300</span>,workers=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">sentence=[[&#39;first&#39;,&#39;sentence&#39;],[&#39;second&#39;,&#39;sentence&#39;]]
+model = gensim.models.Word2Vec(sentence, min_count=1,size=300,workers=4)
+</code></pre>
 <h1 id="4-词性标注"><a href="#4-词性标注" class="headerlink" title="4.词性标注"></a>4.词性标注</h1><p>什么事词性标注？简单来说，词性标注是对句子中的词语标注为名字、动词、形容词、副词等的过程。例如，对句子“Ashok killed the snake with a stick”，词性标注会识别：</p>
 <ul>
 <li>Ashok 代词</li>
@@ -503,7 +525,13 @@
 <p>论文1：<a href="https://aclweb.org/anthology/N16-1031.pdf" target="_blank" rel="noopener">choi aptly的这篇《The Last Gist to theState-of-the-Art 》介绍了一种叫动态特征归纳的新方法。这是目前词性标注最先进的方法。</a></p>
 <p>论文2：<a href="https://transacl.org/ojs/index.php/tacl/article/viewFile/837/192" target="_blank" rel="noopener">这篇文章介绍了通过隐马尔科夫模型做无监督词性标注学习的方法。</a></p>
 <p>程序实现：这段代码可以在spacy上做词性标注</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!pip install spacy</span></span><br><span class="line"><span class="comment">#!python -m spacy download en </span></span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)</span><br><span class="line">sentence=<span class="string">"Ashok killed the snake with a stick"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token,token.pos_)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">#!pip install spacy
+#!python -m spacy download en 
+nlp=spacy.load(&#39;en&#39;)
+sentence=&quot;Ashok killed the snake with a stick&quot;
+for token in nlp(sentence):
+   print(token,token.pos_)
+</code></pre>
 <h1 id="5-命名实体消歧"><a href="#5-命名实体消歧" class="headerlink" title="5. 命名实体消歧"></a>5. 命名实体消歧</h1><p>什么是命名实体消岐？命名实体消岐是对句子中的提到的实体识别的过程。例如，对句子“Apple earned a revenue of 200 Billion USD in 2016”，命名实体消岐会推断出句子中的Apple是苹果公司而不是指一种水果。一般来说，命名实体要求有一个实体知识库，能够将句子中提到的实体和知识库联系起来。</p>
 <p>论文1：<a href="https://arxiv.org/pdf/1504.07678.pdf" target="_blank" rel="noopener">Huang的这篇论文运用了基于深度神经网络和知识库的深层语义关联模型，在命名实体消岐上达到了领先水平。</a></p>
 <p>论文2：<a href="https://arxiv.org/pdf/1704.04920.pdf" target="_blank" rel="noopener">Ganea and Hofmann的这篇文章运用了局部神经关注模型和词向量化，没有人为设置特征。</a></p>
@@ -520,7 +548,11 @@
 <p><img src="https://github.com/smilelight/images/raw/master/%E5%B8%B8%E8%A7%8110%E7%A7%8D%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/ner.png" alt="ner"></p>
 <p>论文：<a href="https://arxiv.org/pdf/1603.01360.pdf" target="_blank" rel="noopener">这篇优秀的论文使用双向LSTM（长短期记忆网络）神经网络结合监督学习和非监督学习方法，在4种语言领域实现了命名实体识别的最新成果。</a></p>
 <p>程序实现：以下使用spacy执行命名实体识别。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spacy</span><br><span class="line">nlp=spacy.load(<span class="string">'en'</span>)sentence=<span class="string">"Ram of Apple Inc. travelled to Sydney on 5th October 2017"</span></span><br><span class="line"><span class="keyword">for</span> token <span class="keyword">in</span> nlp(sentence):</span><br><span class="line">   print(token, token.ent_type_)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">import spacy
+nlp=spacy.load(&#39;en&#39;)sentence=&quot;Ram of Apple Inc. travelled to Sydney on 5th October 2017&quot;
+for token in nlp(sentence):
+   print(token, token.ent_type_)
+</code></pre>
 <h1 id="7-情感分析"><a href="#7-情感分析" class="headerlink" title="7. 情感分析"></a>7. 情感分析</h1><p>什么是情感分析？情感分析是一种广泛的主观分析，它使用自然语言处理技术来识别客户评论的语义情感，语句表达的情绪正负面以及通过语音分析或书面文字判断其表达的情感等等。例如：</p>
 <p>“我不喜欢巧克力冰淇淋”—是对该冰淇淋的负面评价。</p>
 <p>“我并不讨厌巧克力冰激凌”—可以被认为是一种中性的评价。</p>
@@ -551,7 +583,10 @@
 <p>资料库：<a href="https://github.com/tensorflow/models/tree/master/research/textsum" target="_blank" rel="noopener">Google Brain团队的这个资料库拥有使用为文本摘要定制的序列到序列模型的代码。该模型在Gigaword数据集上进行训练。</a></p>
 <p>应用程序：<a href="https://www.reddit.com/r/autotldr/comments/31b9fm/faq_autotldr_bot/" target="_blank" rel="noopener">Reddit的autotldr机器人使用文本摘要来梗概从文章到帖子的各种评论。这个功能在Reddit用户中非常有名。</a></p>
 <p>程序实现：以下是如何用gensim包快速实现文本摘要。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fromgensim.summarization <span class="keyword">import</span> summarize</span><br><span class="line">sentence=<span class="string">"Automatic summarization is the process of shortening a text document with software, in order to create a summary with the major points of the original document. Technologies that can make a coherent summary take into account variables such as length, writing style and syntax.Automatic data summarization is part of machine learning and data mining. The main idea of summarization is to find a subset of data which contains the information of the entire set. Such techniques are widely used in industry today. Search engines are an example; others include summarization of documents, image collections and videos. Document summarization tries to create a representative summary or abstract of the entire document, by finding the most informative sentences, while in image summarization the system finds the most representative and important (i.e. salient) images. For surveillance videos, one might want to extract the important events from the uneventful context.There are two general approaches to automatic summarization: extraction and abstraction. Extractive methods work by selecting a subset of existing words, phrases, or sentences in the original text to form the summary. In contrast, abstractive methods build an internal semantic representation and then use natural language generation techniques to create a summary that is closer to what a human might express. Such a summary might include verbal innovations. Research to date has focused primarily on extractive methods, which are appropriate for image collection summarization and video summarization."</span></span><br><span class="line">summarize(sentence)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">fromgensim.summarization import summarize
+sentence=&quot;Automatic summarization is the process of shortening a text document with software, in order to create a summary with the major points of the original document. Technologies that can make a coherent summary take into account variables such as length, writing style and syntax.Automatic data summarization is part of machine learning and data mining. The main idea of summarization is to find a subset of data which contains the information of the entire set. Such techniques are widely used in industry today. Search engines are an example; others include summarization of documents, image collections and videos. Document summarization tries to create a representative summary or abstract of the entire document, by finding the most informative sentences, while in image summarization the system finds the most representative and important (i.e. salient) images. For surveillance videos, one might want to extract the important events from the uneventful context.There are two general approaches to automatic summarization: extraction and abstraction. Extractive methods work by selecting a subset of existing words, phrases, or sentences in the original text to form the summary. In contrast, abstractive methods build an internal semantic representation and then use natural language generation techniques to create a summary that is closer to what a human might express. Such a summary might include verbal innovations. Research to date has focused primarily on extractive methods, which are appropriate for image collection summarization and video summarization.&quot;
+summarize(sentence)
+</code></pre>
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>以上所有是最流行的NLP任务以及相关的博客、研究论文、资料库、应用等资源。</p>
 <p>祝你学习愉快！</p>
 
@@ -1131,6 +1166,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

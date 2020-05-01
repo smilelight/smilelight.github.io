@@ -71,6 +71,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -438,12 +444,87 @@
           <p>本<strong>lua</strong>版本为5.2.1</p>
 <p>在lua的源码中，lua.c 实现了可执行的解释器，用于解释执行.out文件，luac.c 实现了字节码的编译器，用于将.lua文件编译为.out文件，即字节码文件。<br>更加宏观的东西，则在打印的两份文档里，此处不详述，由于整个读入解析到解释执行的过程是先从读入.lua文件开始的，所以我这份lua源码解析大业便先从这luac.c文件的阅读学习开始了，以下是它的main程序源代码。</p>
 <a id="more"></a>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> lua_State* L;</span><br><span class="line"> <span class="keyword">int</span> i=doargs(argc,argv);</span><br><span class="line"> argc-=i; argv+=i;</span><br><span class="line"> <span class="keyword">if</span> (argc&lt;=<span class="number">0</span>) usage(<span class="string">"no input files given"</span>);</span><br><span class="line"> L=luaL_newstate();</span><br><span class="line"> <span class="keyword">if</span> (L==<span class="literal">NULL</span>) fatal(<span class="string">"cannot create state: not enough memory"</span>);</span><br><span class="line"> lua_pushcfunction(L,&amp;pmain);</span><br><span class="line"> lua_pushinteger(L,argc);</span><br><span class="line"> lua_pushlightuserdata(L,argv);</span><br><span class="line"> <span class="keyword">if</span> (lua_pcall(L,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>)!=LUA_OK) fatal(lua_tostring(L,<span class="number">-1</span>));</span><br><span class="line"> lua_close(L);</span><br><span class="line"> <span class="keyword">return</span> EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">int main(int argc, char* argv[])
+{
+ lua_State* L;
+ int i=doargs(argc,argv);
+ argc-=i; argv+=i;
+ if (argc&lt;=0) usage(&quot;no input files given&quot;);
+ L=luaL_newstate();
+ if (L==NULL) fatal(&quot;cannot create state: not enough memory&quot;);
+ lua_pushcfunction(L,&amp;pmain);
+ lua_pushinteger(L,argc);
+ lua_pushlightuserdata(L,argv);
+ if (lua_pcall(L,2,0,0)!=LUA_OK) fatal(lua_tostring(L,-1));
+ lua_close(L);
+ return EXIT_SUCCESS;
+}
+</code></pre>
 <blockquote>
 <p>tip1：在C语言中，函数内部的局部变量需要在开头定义<br>首先先定义了一个代表lua虚拟机的数据结构lua_State，然后执行参数解析工作，即调用doargs函数，并将命令行参数传了进去<br>以下是其源代码。</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IS(s)	(strcmp(argv[i],s)==0)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">doargs</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">int</span> version=<span class="number">0</span>;</span><br><span class="line"> <span class="keyword">if</span> (argv[<span class="number">0</span>]!=<span class="literal">NULL</span> &amp;&amp; *argv[<span class="number">0</span>]!=<span class="number">0</span>) progname=argv[<span class="number">0</span>];</span><br><span class="line"> <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;argc; i++)</span><br><span class="line"> &#123;</span><br><span class="line">  <span class="keyword">if</span> (*argv[i]!=<span class="string">'-'</span>)			<span class="comment">/* end of options; keep it */</span></span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"--"</span>))			<span class="comment">/* end of options; skip it */</span></span><br><span class="line">  &#123;</span><br><span class="line">   ++i;</span><br><span class="line">   <span class="keyword">if</span> (version) ++version;</span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"-"</span>))			<span class="comment">/* end of options; use stdin */</span></span><br><span class="line">   <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"-l"</span>))			<span class="comment">/* list */</span></span><br><span class="line">   ++listing;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"-o"</span>))			<span class="comment">/* output file */</span></span><br><span class="line">  &#123;</span><br><span class="line">   output=argv[++i];</span><br><span class="line">   <span class="keyword">if</span> (output==<span class="literal">NULL</span> || *output==<span class="number">0</span> || (*output==<span class="string">'-'</span> &amp;&amp; output[<span class="number">1</span>]!=<span class="number">0</span>))</span><br><span class="line">    usage(<span class="string">"'-o' needs argument"</span>);</span><br><span class="line">   <span class="keyword">if</span> (IS(<span class="string">"-"</span>)) output=<span class="literal">NULL</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"-p"</span>))			<span class="comment">/* parse only */</span></span><br><span class="line">   dumping=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"-s"</span>))			<span class="comment">/* strip debug information */</span></span><br><span class="line">   stripping=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (IS(<span class="string">"-v"</span>))			<span class="comment">/* show version */</span></span><br><span class="line">   ++version;</span><br><span class="line">  <span class="keyword">else</span>					<span class="comment">/* unknown option */</span></span><br><span class="line">   usage(argv[i]);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">if</span> (i==argc &amp;&amp; (listing || !dumping))</span><br><span class="line"> &#123;</span><br><span class="line">  dumping=<span class="number">0</span>;</span><br><span class="line">  argv[--i]=Output;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">if</span> (version)</span><br><span class="line"> &#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,LUA_COPYRIGHT);</span><br><span class="line">  <span class="keyword">if</span> (version==argc<span class="number">-1</span>) <span class="built_in">exit</span>(EXIT_SUCCESS);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在说明<code>doargs</code>函数之前，先列出在luac.c文件中前面的局部变量：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PROGNAME	<span class="meta-string">"luac"</span>		<span class="comment">/* default program name */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OUTPUT		PROGNAME <span class="meta-string">".out"</span>	<span class="comment">/* default output file */</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> listing=<span class="number">0</span>;			<span class="comment">/* list bytecodes? */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> dumping=<span class="number">1</span>;			<span class="comment">/* dump bytecodes? */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> stripping=<span class="number">0</span>;			<span class="comment">/* strip debug information? */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> Output[]=&#123; <span class="literal">OUTPUT</span> &#125;;	<span class="comment">/* default output file name */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">char</span>* output=Output;	<span class="comment">/* actual output file name */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">char</span>* progname=PROGNAME;	<span class="comment">/* actual program name */</span></span><br></pre></td></tr></table></figure><br>未完待续……</p>
+<pre><code class="lang-c">#define IS(s)    (strcmp(argv[i],s)==0)
+
+static int doargs(int argc, char* argv[])
+{
+ int i;
+ int version=0;
+ if (argv[0]!=NULL &amp;&amp; *argv[0]!=0) progname=argv[0];
+ for (i=1; i&lt;argc; i++)
+ {
+  if (*argv[i]!=&#39;-&#39;)            /* end of options; keep it */
+   break;
+  else if (IS(&quot;--&quot;))            /* end of options; skip it */
+  {
+   ++i;
+   if (version) ++version;
+   break;
+  }
+  else if (IS(&quot;-&quot;))            /* end of options; use stdin */
+   break;
+  else if (IS(&quot;-l&quot;))            /* list */
+   ++listing;
+  else if (IS(&quot;-o&quot;))            /* output file */
+  {
+   output=argv[++i];
+   if (output==NULL || *output==0 || (*output==&#39;-&#39; &amp;&amp; output[1]!=0))
+    usage(&quot;&#39;-o&#39; needs argument&quot;);
+   if (IS(&quot;-&quot;)) output=NULL;
+  }
+  else if (IS(&quot;-p&quot;))            /* parse only */
+   dumping=0;
+  else if (IS(&quot;-s&quot;))            /* strip debug information */
+   stripping=1;
+  else if (IS(&quot;-v&quot;))            /* show version */
+   ++version;
+  else                    /* unknown option */
+   usage(argv[i]);
+ }
+ if (i==argc &amp;&amp; (listing || !dumping))
+ {
+  dumping=0;
+  argv[--i]=Output;
+ }
+ if (version)
+ {
+  printf(&quot;%s\n&quot;,LUA_COPYRIGHT);
+  if (version==argc-1) exit(EXIT_SUCCESS);
+ }
+ return i;
+}
+</code></pre>
+<p>在说明<code>doargs</code>函数之前，先列出在luac.c文件中前面的局部变量：</p>
+<pre><code class="lang-c">#define PROGNAME    &quot;luac&quot;        /* default program name */
+#define OUTPUT        PROGNAME &quot;.out&quot;    /* default output file */
+
+static int listing=0;            /* list bytecodes? */
+static int dumping=1;            /* dump bytecodes? */
+static int stripping=0;            /* strip debug information? */
+static char Output[]={ OUTPUT };    /* default output file name */
+static const char* output=Output;    /* actual output file name */
+static const char* progname=PROGNAME;    /* actual program name */
+</code></pre>
+<p>未完待续……</p>
 
           
             <div class='article_footer'>
@@ -954,6 +1035,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

@@ -72,6 +72,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -441,8 +447,16 @@
 </ol>
 <a id="more"></a>
 <ol>
-<li>我们可以将微信小程序中的components组件视为一个对象，没错，它本来就是一个对象，只是相对而言，它的初始化方法和设置方式不同于在一般的js语言中，它的data属性里是这个对象建立时初始化时的数据，作用域和生命周期伴随着component对象实例，而properties属性效果类似，均可以在component对象内部的函数和方法中使用this.data获取到，只是相对而言，data的数据是组件内部的数据，它是属于组件本身的属性，从设计上讲不取决于外部的应用场景；而properties属性则是暴露在组件外部的属性，它的作用相当于一般的编程语言中我们在new一个对象时做的初始化工作如new People(name=”lightsmile”,sex = false)，也就是说组件的一些业务属性是要通过这些属性接口来实现的，它是根据场景所制订的，具体实例体现在如：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">order-by</span> <span class="attr">bindtap</span>=<span class="string">"handOrderTap"</span> <span class="attr">id</span>=<span class="string">"fuck"</span> <span class="attr">test</span>=<span class="string">"&#123;&#123;5&#125;&#125;"</span> <span class="attr">data-tes</span>=<span class="string">"&#123;&#123;test&#125;&#125;"</span> <span class="attr">data-fuck</span>=<span class="string">"fuck"</span> <span class="attr">data-order</span>=<span class="string">"&#123;&#123;orders&#125;&#125;"</span> <span class="attr">data-</span>&gt;</span><span class="tag">&lt;/<span class="name">order-by</span>&gt;</span></span><br></pre></td></tr></table></figure>
-中id是每个标签都具有的值，而以“data-”开头的数据都是这个页面中，暴露给触发事件的值，在事件处理函数中，可以通过如<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">handOrderTap(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(e.currentTarget.id)</span><br><span class="line">    <span class="keyword">this</span>.fuck = <span class="keyword">this</span>.selectComponent(<span class="string">"#fuck"</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.fuck.data)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.fuck.dataset)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>我们可以将微信小程序中的components组件视为一个对象，没错，它本来就是一个对象，只是相对而言，它的初始化方法和设置方式不同于在一般的js语言中，它的data属性里是这个对象建立时初始化时的数据，作用域和生命周期伴随着component对象实例，而properties属性效果类似，均可以在component对象内部的函数和方法中使用this.data获取到，只是相对而言，data的数据是组件内部的数据，它是属于组件本身的属性，从设计上讲不取决于外部的应用场景；而properties属性则是暴露在组件外部的属性，它的作用相当于一般的编程语言中我们在new一个对象时做的初始化工作如new People(name=”lightsmile”,sex = false)，也就是说组件的一些业务属性是要通过这些属性接口来实现的，它是根据场景所制订的，具体实例体现在如：<pre><code class="lang-xml">&lt;order-by bindtap=&quot;handOrderTap&quot; id=&quot;fuck&quot; test=&quot;{{5}}&quot; data-tes=&quot;{{test}}&quot; data-fuck=&quot;fuck&quot; data-order=&quot;{{orders}}&quot; data-&gt;&lt;/order-by&gt;
+</code></pre>
+中id是每个标签都具有的值，而以“data-”开头的数据都是这个页面中，暴露给触发事件的值，在事件处理函数中，可以通过如<pre><code class="lang-javascript">handOrderTap(e) {
+ console.log(e)
+ console.log(e.currentTarget.id)
+ this.fuck = this.selectComponent(&quot;#fuck&quot;)
+ console.log(this.fuck.data)
+ console.log(this.fuck.dataset)
+}
+</code></pre>
 获取到e（event）事件的具体信息，这里的handOrderTag只是自定义的函数，e.target和e.currentTarget分别代表不同的对象。</li>
 </ol>
 <p>其中target是指事件的原触发对象，而currentTarget是指当前事件的触发对象，这是与事件的冒泡捕获机制相关的。</p>
@@ -998,6 +1012,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

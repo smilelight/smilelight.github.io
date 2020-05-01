@@ -70,6 +70,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -436,8 +442,14 @@
           
           <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><a id="more"></a>
 <ol>
-<li>下载<code>Menlo for Powerline</code>字体<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/abertsch/Menlo-for-Powerline.git</span><br></pre></td></tr></table></figure></li>
-<li>将字体放到ttf文件夹中<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Menlo-for-Powerline</span><br><span class="line">sudo cp *.ttf* /usr/share/fonts/TTF/</span><br><span class="line">sudo <span class="built_in">fc</span>-cache -f -v <span class="comment"># 刷新字体</span></span><br></pre></td></tr></table></figure></li>
+<li>下载<code>Menlo for Powerline</code>字体<pre><code class="lang-bash">git clone https://github.com/abertsch/Menlo-for-Powerline.git
+</code></pre>
+</li>
+<li>将字体放到ttf文件夹中<pre><code class="lang-bash">cd Menlo-for-Powerline
+sudo cp *.ttf* /usr/share/fonts/TTF/
+sudo fc-cache -f -v # 刷新字体
+</code></pre>
+</li>
 <li>设置vscode中终端的字体为<code>Menlo for Powerline</code><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3></li>
 <li><a href="https://ywnz.com/linuxjc/3250.html" target="_blank" rel="noopener">在Ubuntu 18.04系统下vscode中zsh乱码的解决方法</a></li>
 </ol>
@@ -612,7 +624,9 @@ Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
             
               <a class='next' href='/articles/torchtext%E5%AE%89%E8%A3%85/'>
                 <p class='title'>torchtext安装<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>使用如下命令安装torchtext1pip install https://github.com/pytorch/text/archive/master.zip
+                <p class='content'>使用如下命令安装torchtext
+pip install https://github.com/pytorch/text/archive/master.zip
+
 </p>
               </a>
             
@@ -972,6 +986,13 @@ Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

@@ -68,6 +68,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -1471,9 +1477,13 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-下载miniconda"><a href="#1-下载miniconda" class="headerlink" title="1. 下载miniconda"></a>1. 下载miniconda</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; mkdir tmp &amp;&amp; <span class="built_in">cd</span> tmp</span><br><span class="line">wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<h3 id="2-运行miniconda安装脚本"><a href="#2-运行miniconda安装脚本" class="headerlink" title="2. 运行miniconda安装脚本"></a>2. 运行miniconda安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-<h3 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda -V</span><br></pre></td></tr></table></figure>
+        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-下载miniconda"><a href="#1-下载miniconda" class="headerlink" title="1. 下载miniconda"></a>1. 下载miniconda</h3><pre><code class="lang-bash">cd ~ &amp;&amp; mkdir tmp &amp;&amp; cd tmp
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</code></pre>
+<h3 id="2-运行miniconda安装脚本"><a href="#2-运行miniconda安装脚本" class="headerlink" title="2. 运行miniconda安装脚本"></a>2. 运行miniconda安装脚本</h3><pre><code class="lang-bash">sh Miniconda3-latest-Linux-x86_64.sh
+</code></pre>
+<h3 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h3><pre><code class="lang-bash">conda -V
+</code></pre>
 <p>若输出类似<code>conda 4.7.12</code>，说明安装conda环境成功。如提示：<code>zsh：command not find:conda</code>，则需要将<code>conda</code>配置到路径变量中，详情参考<a href="https://www.jianshu.com/p/13f5d20e61f8" target="_blank" rel="noopener">zsh：command not find:conda 的详细解决办法 - 简书</a></p>
 
       
@@ -1906,6 +1916,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

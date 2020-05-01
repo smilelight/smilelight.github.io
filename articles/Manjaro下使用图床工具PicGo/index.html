@@ -71,6 +71,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -445,12 +451,16 @@
 <li>其他相对非主流方案</li>
 </ol>
 <p>权衡之后选择使用第二种方案，对于图床而言，自己选择Github，因为有的图床存储还要求备案，如七牛云，很是麻烦。</p>
-<h1 id="1-下载安装PicGo"><a href="#1-下载安装PicGo" class="headerlink" title="1. 下载安装PicGo"></a>1. 下载安装<code>PicGo</code></h1><p>使用如下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S picgo-appimage</span></span><br></pre></td></tr></table></figure><br>这里对于arch系来说不算友好，因为如Windows平台、Mac平台以及其他主流Linux系统如Ubuntu等等都有预编译安装包，而对于arch而言要自己下载编译得到<code>appimage</code>形式的可执行软件包。</p>
+<h1 id="1-下载安装PicGo"><a href="#1-下载安装PicGo" class="headerlink" title="1. 下载安装PicGo"></a>1. 下载安装<code>PicGo</code></h1><p>使用如下命令：</p>
+<pre><code>yay -S picgo-appimage
+</code></pre><p>这里对于arch系来说不算友好，因为如Windows平台、Mac平台以及其他主流Linux系统如Ubuntu等等都有预编译安装包，而对于arch而言要自己下载编译得到<code>appimage</code>形式的可执行软件包。</p>
 <h1 id="2-设置Github仓库"><a href="#2-设置Github仓库" class="headerlink" title="2. 设置Github仓库"></a>2. 设置Github仓库</h1><p>略，可参考最后链接给出文章。</p>
 <h1 id="3-设置仓库信息"><a href="#3-设置仓库信息" class="headerlink" title="3. 设置仓库信息"></a>3. 设置仓库信息</h1><p>略，可参考最后链接给出文章。<br>不过我这里不知为何设置网络代理并没有成功,同时实际使用时复制速度挺慢的，不知为何。</p>
 <h1 id="4-上传测试"><a href="#4-上传测试" class="headerlink" title="4. 上传测试"></a>4. 上传测试</h1><p><img src="https://upload-images.jianshu.io/upload_images/5410339-d0b6dc8b410c52ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="相册"></p>
 <h1 id="5-下载其他依赖"><a href="#5-下载其他依赖" class="headerlink" title="5. 下载其他依赖"></a>5. 下载其他依赖</h1><p>如果要使用快捷上传的粘贴板功能时，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-402bc8afdf924375.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="粘贴板功能"></p>
-<p>还需要下载<code>xclip</code>包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S xclip</span><br></pre></td></tr></table></figure></p>
+<p>还需要下载<code>xclip</code>包</p>
+<pre><code class="lang-bash">yay -S xclip
+</code></pre>
 <h1 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h1><p>发现PicGo这个软件还真是挺不错的，同时还了解了<a href="https://appimage.org/" target="_blank" rel="noopener">appimage</a>这种软件形式</p>
 <h1 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h1><ol>
 <li><a href="https://superuser.com/questions/1306621/install-appimage-under-arch-linux" target="_blank" rel="noopener">Install Appimage under Arch Linux</a></li>
@@ -995,6 +1005,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

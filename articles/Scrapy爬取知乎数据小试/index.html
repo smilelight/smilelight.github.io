@@ -73,6 +73,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -498,13 +504,145 @@
 <p>这里我们需要编写的是zhihu.py、items.py、piplines.py、settings.py</p>
 <p>在settings.py中我们进行了请求头、Item Pipline中间件和MongoDB相关的配置。</p>
 <p>如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">DEFAULT_REQUEST_HEADERS = &#123;</span><br><span class="line">  <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,</span><br><span class="line">  <span class="string">'Accept-Language'</span>: <span class="string">'en'</span>,</span><br><span class="line">  <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; W…) Gecko/20100101 Firefox/57.0'</span>,</span><br><span class="line">  <span class="string">'authorization'</span>:<span class="string">' oauth c3cef7c66a1843f8b3a9e6a1e3160e20'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">'zhihuUser.pipelines.MongoPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MONGO_URI = <span class="string">'localhost'</span></span><br><span class="line">MONGO_DATABASE = <span class="string">'zhihu'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">
+DEFAULT_REQUEST_HEADERS = {
+  &#39;Accept&#39;: &#39;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#39;,
+  &#39;Accept-Language&#39;: &#39;en&#39;,
+  &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 6.3; W…) Gecko/20100101 Firefox/57.0&#39;,
+  &#39;authorization&#39;:&#39; oauth c3cef7c66a1843f8b3a9e6a1e3160e20&#39;
+}
+
+ITEM_PIPELINES = {
+   &#39;zhihuUser.pipelines.MongoPipeline&#39;: 300,
+}
+
+MONGO_URI = &#39;localhost&#39;
+MONGO_DATABASE = &#39;zhihu&#39;
+</code></pre>
 <p>我们针对Json对象的内容编写的ZhihuUserItem对象：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Item,Field</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuUserItem</span><span class="params">(Item)</span>:</span></span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    id = Field()</span><br><span class="line">    is_followed = Field()</span><br><span class="line">    avatar_url_template = Field()</span><br><span class="line">    user_type = Field()</span><br><span class="line">    answer_count = Field()</span><br><span class="line">    is_following = Field()</span><br><span class="line">    url = Field()</span><br><span class="line">    url_token = Field()</span><br><span class="line">    allow_message = Field()</span><br><span class="line">    articles_count = Field()</span><br><span class="line">    is_blocking = Field()</span><br><span class="line">    name = Field()</span><br><span class="line">    headline = Field()</span><br><span class="line">    badge = Field()</span><br><span class="line">    is_advertiser = Field()</span><br><span class="line">    avatar_url = Field()</span><br><span class="line">    is_org = Field()</span><br><span class="line">    gender = Field()</span><br><span class="line">    follower_count = Field()</span><br><span class="line">    employments = Field()</span><br><span class="line">    type = Field()</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">
+from scrapy import Item,Field
+
+class ZhihuUserItem(Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    id = Field()
+    is_followed = Field()
+    avatar_url_template = Field()
+    user_type = Field()
+    answer_count = Field()
+    is_following = Field()
+    url = Field()
+    url_token = Field()
+    allow_message = Field()
+    articles_count = Field()
+    is_blocking = Field()
+    name = Field()
+    headline = Field()
+    badge = Field()
+    is_advertiser = Field()
+    avatar_url = Field()
+    is_org = Field()
+    gender = Field()
+    follower_count = Field()
+    employments = Field()
+    type = Field()
+</code></pre>
 <p>因为要将数据存储到MongoDB中，所以要进行MongoDB的Item Pipline中间件的编写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MongoPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    collection_name = <span class="string">'user_info'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, mongo_uri, mongo_db)</span>:</span></span><br><span class="line">        self.mongo_uri = mongo_uri</span><br><span class="line">        self.mongo_db = mongo_db</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_crawler</span><span class="params">(cls, crawler)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(</span><br><span class="line">            mongo_uri=crawler.settings.get(<span class="string">'MONGO_URI'</span>),</span><br><span class="line">            mongo_db=crawler.settings.get(<span class="string">'MONGO_DATABASE'</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client = pymongo.MongoClient(self.mongo_uri)</span><br><span class="line">        self.db = self.client[self.mongo_db]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        self.client.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.db[self.collection_name].insert_one(dict(item))</span><br><span class="line">        <span class="comment"># self.db[self.collection_name].update(&#123;'url_token': item['url_token']&#125;,&#123;'$set': item&#125;,True)</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">
+import pymongo
+
+class MongoPipeline(object):
+
+    collection_name = &#39;user_info&#39;
+
+    def __init__(self, mongo_uri, mongo_db):
+        self.mongo_uri = mongo_uri
+        self.mongo_db = mongo_db
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            mongo_uri=crawler.settings.get(&#39;MONGO_URI&#39;),
+            mongo_db=crawler.settings.get(&#39;MONGO_DATABASE&#39;)
+        )
+
+    def open_spider(self, spider):
+        self.client = pymongo.MongoClient(self.mongo_uri)
+        self.db = self.client[self.mongo_db]
+
+    def close_spider(self, spider):
+        self.client.close()
+
+    def process_item(self, item, spider):
+        self.db[self.collection_name].insert_one(dict(item))
+        # self.db[self.collection_name].update({&#39;url_token&#39;: item[&#39;url_token&#39;]},{&#39;$set&#39;: item},True)
+</code></pre>
 <p>最后是zhihu.py 中 ZhihuSpider的编写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Request</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> zhihuUser.items <span class="keyword">import</span> ZhihuUserItem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZhihuSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'zhihu'</span></span><br><span class="line">    allowed_domains = [<span class="string">'www.zhihu.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://www.zhihu.com/'</span>]</span><br><span class="line"></span><br><span class="line">    start_user = <span class="string">'excited-vczh'</span></span><br><span class="line"></span><br><span class="line">    user_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;?include=&#123;include&#125;'</span></span><br><span class="line">    user_query = <span class="string">'allow_message,is_followed,is_following,is_org,is_blocking,employments,answer_count,follower_count,articles_count,gender,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followees_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followees?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followees_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    followers_url = <span class="string">'https://www.zhihu.com/api/v4/members/&#123;user&#125;/followers?include=&#123;include&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;'</span></span><br><span class="line">    followers_query = <span class="string">'data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">yield</span> Request(self.user_url.format(user=self.start_user,include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="comment"># yield Request(self.followees_url.format(user=self.start_user,include=self.followees_query,offset=0,limit=20),callback=self.parse_followees)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_user</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        item = ZhihuUserItem()</span><br><span class="line">        <span class="keyword">for</span> field <span class="keyword">in</span> item.fields:</span><br><span class="line">            <span class="keyword">if</span> field <span class="keyword">in</span> result.keys():</span><br><span class="line">                item[field] = result.get(field)</span><br><span class="line">        <span class="keyword">yield</span> item</span><br><span class="line">        <span class="keyword">yield</span> Request(self.followees_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followees_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">                      callback=self.parse_followees)</span><br><span class="line">        <span class="keyword">yield</span> Request(</span><br><span class="line">            self.followers_url.format(user=result.get(<span class="string">'url_token'</span>), include=self.followers_query, offset=<span class="number">0</span>, limit=<span class="number">20</span>),</span><br><span class="line">            callback=self.parse_followees)</span><br><span class="line">        <span class="comment"># print(json.loads(response.text))</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followees</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="literal">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followees)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_followers</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        result = json.loads(response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> result.keys():</span><br><span class="line">            <span class="keyword">for</span> result <span class="keyword">in</span> result.get(<span class="string">'data'</span>):</span><br><span class="line">                <span class="keyword">yield</span> Request(self.user_url.format(user=result.get(<span class="string">'url_token'</span>),include=self.user_query),callback=self.parse_user)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'paging'</span> <span class="keyword">in</span> result.keys() <span class="keyword">and</span> result.get(<span class="string">'paging'</span>).get(<span class="string">'is_end'</span>) == <span class="literal">False</span>:</span><br><span class="line">            next_page = result.get(<span class="string">'paging'</span>).get(<span class="string">'next'</span>)</span><br><span class="line">            <span class="keyword">yield</span> Request(next_page,callback=self.parse_followers)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">
+import json
+
+import scrapy
+from scrapy import Request
+
+from zhihuUser.items import ZhihuUserItem
+
+
+class ZhihuSpider(scrapy.Spider):
+    name = &#39;zhihu&#39;
+    allowed_domains = [&#39;www.zhihu.com&#39;]
+    start_urls = [&#39;http://www.zhihu.com/&#39;]
+
+    start_user = &#39;excited-vczh&#39;
+
+    user_url = &#39;https://www.zhihu.com/api/v4/members/{user}?include={include}&#39;
+    user_query = &#39;allow_message,is_followed,is_following,is_org,is_blocking,employments,answer_count,follower_count,articles_count,gender,badge[?(type=best_answerer)].topics&#39;
+
+    followees_url = &#39;https://www.zhihu.com/api/v4/members/{user}/followees?include={include}&amp;offset={offset}&amp;limit={limit}&#39;
+    followees_query = &#39;data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics&#39;
+
+    followers_url = &#39;https://www.zhihu.com/api/v4/members/{user}/followers?include={include}&amp;offset={offset}&amp;limit={limit}&#39;
+    followers_query = &#39;data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics&#39;
+
+    def start_requests(self):
+        yield Request(self.user_url.format(user=self.start_user,include=self.user_query),callback=self.parse_user)
+        # yield Request(self.followees_url.format(user=self.start_user,include=self.followees_query,offset=0,limit=20),callback=self.parse_followees)
+
+    def parse_user(self, response):
+        result = json.loads(response.text)
+        item = ZhihuUserItem()
+        for field in item.fields:
+            if field in result.keys():
+                item[field] = result.get(field)
+        yield item
+        yield Request(self.followees_url.format(user=result.get(&#39;url_token&#39;), include=self.followees_query, offset=0, limit=20),
+                      callback=self.parse_followees)
+        yield Request(
+            self.followers_url.format(user=result.get(&#39;url_token&#39;), include=self.followers_query, offset=0, limit=20),
+            callback=self.parse_followees)
+        # print(json.loads(response.text))
+
+    def parse_followees(self, response):
+        result = json.loads(response.text)
+        if &#39;data&#39; in result.keys():
+            for result in result.get(&#39;data&#39;):
+                yield Request(self.user_url.format(user=result.get(&#39;url_token&#39;),include=self.user_query),callback=self.parse_user)
+        if &#39;paging&#39; in result.keys() and result.get(&#39;paging&#39;).get(&#39;is_end&#39;) == False:
+            next_page = result.get(&#39;paging&#39;).get(&#39;next&#39;)
+            yield Request(next_page,callback=self.parse_followees)
+
+    def parse_followers(self, response):
+        result = json.loads(response.text)
+        if &#39;data&#39; in result.keys():
+            for result in result.get(&#39;data&#39;):
+                yield Request(self.user_url.format(user=result.get(&#39;url_token&#39;),include=self.user_query),callback=self.parse_user)
+        if &#39;paging&#39; in result.keys() and result.get(&#39;paging&#39;).get(&#39;is_end&#39;) == False:
+            next_page = result.get(&#39;paging&#39;).get(&#39;next&#39;)
+            yield Request(next_page,callback=self.parse_followers)
+
+    def parse(self, response):
+        pass
+</code></pre>
 <p>在终端下执行<code>scrapy crawl zhihu</code>后，爬虫便会开始启动，由于这个工程一直爬一直爬，所以让它爬一会做个样子就行了，通过<code>Ctrl+C</code>停止当前任务，随后我们可以通过可视化工具查看到存入MongoDB中的数据：</p>
 <p><img src="https://github.com/smilelight/images/raw/master/scrapy/scrapy-mongo-data.png" alt="scrapy-mongo-data"></p>
 <p>大功告成！虽然超级简单。。。</p>
@@ -1037,6 +1175,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

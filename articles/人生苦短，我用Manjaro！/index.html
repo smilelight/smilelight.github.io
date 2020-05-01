@@ -73,6 +73,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -544,15 +550,28 @@
 <h1 id="4-基本配置"><a href="#4-基本配置" class="headerlink" title="4.基本配置"></a>4.基本配置</h1><p>在安装完系统后重启可能进不去桌面，此时可以在Grub菜单启动界面按[E]编辑，并在后面加上（注意空格）<code>nouveau.modeset=1 acpi_osi=! acpi_osi=&#39;Windows 2009&#39;</code>，然后按F10进入系统，在进入系统之后，修改grub的配置文件<code>sudo nano /etc/default/grub</code>，比如我的系统中部分参数如下：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828708269.png" alt="grub部分参数">，随后使用<code>sudo update-grub</code>命令更新grub文件，在之后使用如果还是不能进入系统甚至进入grub rescue模式，原因可能是分区挂载映射问题等，可以参考我的另一篇文章。</p>
 <p>在进入系统后要做一些常规配置。</p>
 <h4 id="配置更新源并更新系统"><a href="#配置更新源并更新系统" class="headerlink" title="配置更新源并更新系统"></a>配置更新源并更新系统</h4><ol>
-<li>配置中国mirrors<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure>
+<li>配置中国mirrors<pre><code class="lang-bash">sudo pacman-mirrors -i -c China -m rank
+</code></pre>
 随后在出现的窗口中选择更新源，我选择了所有。。。哈哈</li>
-<li>添加archlinuxcn和antergos库<br>在<code>/etc/pacman.conf</code>后面添加以下内容：<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxcn]</span></span><br><span class="line"><span class="attr">SigLevel</span> = TrustAll</span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line"><span class="section">[antergos]</span></span><br><span class="line"><span class="attr">SigLevel</span> = TrustAll</span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/antergos/<span class="variable">$repo</span>/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></li>
-<li>同步并更新系统<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure></li>
-<li>安装archlinuxcn签名钥匙&amp;antergos签名钥匙<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S  archlinuxcn-keyring antergos-keyring</span><br></pre></td></tr></table></figure>
+<li>添加archlinuxcn和antergos库<br>在<code>/etc/pacman.conf</code>后面添加以下内容：<br>```<br>[archlinuxcn]<br>SigLevel = TrustAll<br>Server = <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</a></li>
+</ol>
+<p>[antergos]<br>SigLevel = TrustAll<br>Server = <a href="https://mirrors.tuna.tsinghua.edu.cn/antergos/$repo/$arch" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/antergos/$repo/$arch</a></p>
+<pre><code>3. 同步并更新系统
+```bash
+sudo pacman -Syyu
+</code></pre><ol>
+<li>安装archlinuxcn签名钥匙&amp;antergos签名钥匙<pre><code class="lang-bash">sudo pacman -S  archlinuxcn-keyring antergos-keyring
+</code></pre>
 <h4 id="安装配置中文输入法"><a href="#安装配置中文输入法" class="headerlink" title="安装配置中文输入法"></a>安装配置中文输入法</h4></li>
-<li>安装搜狗拼音输入法和fcitx管理工具:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-sougoupinyin</span><br><span class="line">sudo pacman -S fcitx-im</span><br><span class="line">sudo pacman -S fcitx-configtool</span><br></pre></td></tr></table></figure></li>
-<li>添加配置<code>~/.xprofile</code>文件：<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">GTK_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">XMODIFIERS</span>=<span class="string">"@im=fcitx"</span></span><br></pre></td></tr></table></figure>
-可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></li>
+<li>安装搜狗拼音输入法和fcitx管理工具:<pre><code class="lang-bash">sudo pacman -S fcitx-sougoupinyin
+sudo pacman -S fcitx-im
+sudo pacman -S fcitx-configtool
+</code></pre>
+</li>
+<li>添加配置<code>~/.xprofile</code>文件：<pre><code>export GTK_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=&quot;@im=fcitx&quot;
+</code></pre>可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></li>
 </ol>
 <h1 id="5-安装常见应用"><a href="#5-安装常见应用" class="headerlink" title="5.安装常见应用"></a>5.安装常见应用</h1><p>可参考：<a href="https://www.cnblogs.com/haohao77/p/9034499.html" target="_blank" rel="noopener">Manjaro安装后你需要这样做</a></p>
 <p>以下是一些我的常用应用列表：</p>
@@ -655,12 +674,15 @@
 <li>打开shadowsocks软件，填写配置信息，或者从图片导入等，然后测试延迟，点击连接，对于某一个连接，可以选择程序启动时自动连接，并且可以设置程序在系统登录时启动。如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828699491.png" alt="shadowsocks-qt5截图"></li>
 </ol>
 <h2 id="Shadowsocks-pac代理"><a href="#Shadowsocks-pac代理" class="headerlink" title="Shadowsocks pac代理"></a>Shadowsocks pac代理</h2><ol>
-<li>安装genpac<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> genpac</span><br></pre></td></tr></table></figure></li>
-<li>命令行生成pac文件<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac <span class="params">--proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--gfwlist-proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> -o autoproxy.pac <span class="params">--gfwlist-url=</span><span class="string">"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"</span></span><br></pre></td></tr></table></figure></li>
+<li>安装genpac<pre><code>pip install genpac
+</code></pre></li>
+<li>命令行生成pac文件<pre><code>genpac --proxy=&quot;SOCKS5 127.0.0.1:1080&quot; --gfwlist-proxy=&quot;SOCKS5 127.0.0.1:1080&quot; -o autoproxy.pac --gfwlist-url=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;
+</code></pre></li>
 <li>设置系统自动代理<br>在设置—&gt;网络设置—&gt;代理设置中选择自动代理，URL填写生成的PAC文件地址，file://文件路径/文件名(可以直接把文件拖到URL栏),如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828694193.png" alt="设置自动代理"><br>不过说实在的，不知为何我这里并没有代理成功，玉于是选择了全局代理：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828689044.png" alt="全局代理"><br>可参考：<a href="https://blog.csdn.net/ZOKEKAI/article/details/74740685" target="_blank" rel="noopener">Manjaro17.0.1(xfce)+SS+PAC模式配置笔记</a><a href="https://www.jianshu.com/p/f85b8b5cd647" target="_blank" rel="noopener">linux PAC 自动代理 规则设置</a></li>
 </ol>
 <h2 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h2><ol>
-<li>安装Proxychains<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S proxychains-ng</span></span><br></pre></td></tr></table></figure></li>
+<li>安装Proxychains<pre><code>yay -S proxychains-ng
+</code></pre></li>
 <li>编辑proxychains配置<br>将最后面的socks4 127.0.0.1 9095 改为 socks5 127.0.0.1 1080<br>如图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828673924.png" alt="编辑proxychains配置"></li>
 </ol>
 <p>可参考： <a href="https://www.jianshu.com/p/1a1208e37f2a" target="_blank" rel="noopener">Manjaro安装记录</a></p>
@@ -669,18 +691,25 @@
 <li>修改<code>/etc/bumblebee/bumblebee.conf</code>文件<br>将Driver的值设置为<code>nvidia</code>，来让其使用nvidia驱动，其次将nvidia配置下的PMMethod的值设置为<code>bbswitch</code>，让它使用刚刚安装的bbswitch来进行显卡的切换。</li>
 <li>修改（没有则新建）<code>/etc/modprobe.d/bbswitch.conf</code>文件<br>添加<code>options bbswitch load_state=0 unload_state=0</code>来设置bbswitch的状态。</li>
 <li>重启电脑，不然系统还不知道bbswitch模块</li>
-<li>加载bbswitch模块<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">modprobe bbswitch</span></span><br></pre></td></tr></table></figure></li>
-<li>将用户添加到bumblebee组中<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gpasswd -a username bumblebee</span></span><br></pre></td></tr></table></figure>
-上面的<code>username</code>替换为自己的用户名，如我的是<code>lightsmile</code></li>
-<li>设置bumblebeed服务为开机自启<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> bumblebeed</span><br></pre></td></tr></table></figure></li>
-<li>启用bumblebeed服务<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> bumblebeed</span><br></pre></td></tr></table></figure></li>
+<li>加载bbswitch模块<pre><code>modprobe bbswitch
+</code></pre></li>
+<li>将用户添加到bumblebee组中<pre><code>gpasswd -a username bumblebee
+</code></pre>上面的<code>username</code>替换为自己的用户名，如我的是<code>lightsmile</code></li>
+<li>设置bumblebeed服务为开机自启<pre><code>systemctl enable bumblebeed
+</code></pre></li>
+<li>启用bumblebeed服务<pre><code>systemctl start bumblebeed
+</code></pre></li>
 <li>切换使用独显和集显。<ul>
-<li>打开独立显卡命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; ON</span><br></pre></td></tr></table></figure></li>
-<li>关闭独立显卡命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; OFF</span><br></pre></td></tr></table></figure></li>
+<li>打开独立显卡命令：<pre><code class="lang-bash">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; ON
+</code></pre>
+</li>
+<li>关闭独立显卡命令：<pre><code class="lang-bash">sudo tee /proc/acpi/bbswitch &lt;&lt;&lt; OFF
+</code></pre>
+</li>
 </ul>
 </li>
-<li>查看nvidia显卡相关信息<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvidia-smi</span></span><br></pre></td></tr></table></figure>
-如图所示：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828655309.png" alt="查看nvidia显卡信息"></li>
+<li>查看nvidia显卡相关信息<pre><code>nvidia-smi
+</code></pre>如图所示：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571828655309.png" alt="查看nvidia显卡信息"></li>
 </ol>
 <p>可参考：<a href="https://dclunatic.github.io/2018/09/10/%E7%8B%AC%E6%98%BE/" target="_blank" rel="noopener">arch如何使用独显</a>和<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p>
 <h1 id="8-系统安装过程中常见问题"><a href="#8-系统安装过程中常见问题" class="headerlink" title="8.系统安装过程中常见问题"></a>8.系统安装过程中常见问题</h1><p>常见问题可参考：<a href="https://rovo98.coding.me/posts/a1898ce2/" target="_blank" rel="noopener">Manjaro linux 安装与配置</a></p>
@@ -882,7 +911,8 @@
                 <p class='content'>0.前言在安装Manjaro系统的时候发现自己没有设置交换分区，用htop命令发现是空的，所以这里通过后续的命令配置交换分区。
 
 1.查看磁盘信息使用
-1sudo fdisk -l
+sudo fdisk -l
+
 得到如下信息...</p>
               </a>
             
@@ -1248,6 +1278,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

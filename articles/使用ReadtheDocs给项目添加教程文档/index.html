@@ -70,6 +70,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -438,21 +444,40 @@
 <a id="more"></a>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-从ReadtheDocs官网注册账号并连接到Github"><a href="#1-从ReadtheDocs官网注册账号并连接到Github" class="headerlink" title="1.从ReadtheDocs官网注册账号并连接到Github"></a>1.从ReadtheDocs官网注册账号并连接到Github</h3><p>ReadtheDocs官网地址：<a href="https://readthedocs.org/" target="_blank" rel="noopener">首页 | Read the Docs</a></p>
 <p>在注册成功后在<code>设置-&gt;已连接的服务</code>中点击<code>Connect to Github</code>：<br><img src="https://s2.ax1x.com/2020/01/03/la76ts.jpg" alt="la76ts.jpg"></p>
-<h3 id="2-在Github上创建一个项目，如test-cookbook，并将其克隆到本地。"><a href="#2-在Github上创建一个项目，如test-cookbook，并将其克隆到本地。" class="headerlink" title="2.在Github上创建一个项目，如test-cookbook，并将其克隆到本地。"></a>2.在Github上创建一个项目，如<code>test-cookbook</code>，并将其克隆到本地。</h3><h3 id="3-安装Sphinx"><a href="#3-安装Sphinx" class="headerlink" title="3.安装Sphinx"></a>3.安装Sphinx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sphinx</span><br></pre></td></tr></table></figure>
-<h3 id="4-创建工程"><a href="#4-创建工程" class="headerlink" title="4.创建工程"></a>4.创建工程</h3><p>将路径切换到项目根目录下，执行以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sphinx-quickstart</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="5-对工程进程配置"><a href="#5-对工程进程配置" class="headerlink" title="5.对工程进程配置"></a>5.对工程进程配置</h3><p>项目的配置，主要是更改<code>source/conf.py</code>文件。</p>
-<h4 id="5-1-更改主题"><a href="#5-1-更改主题" class="headerlink" title="5.1 更改主题"></a>5.1 更改主题</h4><p>在项目中更改或添加以下代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sphinx_rtd_theme</span><br><span class="line">html_theme = <span class="string">"sphinx_rtd_theme"</span></span><br><span class="line">html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]</span><br></pre></td></tr></table></figure></p>
-<h4 id="5-2-添加markdown支持"><a href="#5-2-添加markdown支持" class="headerlink" title="5.2 添加markdown支持"></a>5.2 添加markdown支持</h4><p>首先安装<code>recommonmark</code><br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> recommonmark</span><br></pre></td></tr></table></figure><br>并在项目中增加以下代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> recommonmark.parser <span class="keyword">import</span> CommonMarkParser</span><br><span class="line">source_parsers = &#123;</span><br><span class="line">    <span class="string">'.md'</span>: CommonMarkParser,</span><br><span class="line">&#125;</span><br><span class="line">source_suffix = [<span class="string">'.rst'</span>, <span class="string">'.md'</span>]</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-在Github上创建一个项目，如test-cookbook，并将其克隆到本地。"><a href="#2-在Github上创建一个项目，如test-cookbook，并将其克隆到本地。" class="headerlink" title="2.在Github上创建一个项目，如test-cookbook，并将其克隆到本地。"></a>2.在Github上创建一个项目，如<code>test-cookbook</code>，并将其克隆到本地。</h3><h3 id="3-安装Sphinx"><a href="#3-安装Sphinx" class="headerlink" title="3.安装Sphinx"></a>3.安装Sphinx</h3><pre><code class="lang-bash">pip install sphinx
+</code></pre>
+<h3 id="4-创建工程"><a href="#4-创建工程" class="headerlink" title="4.创建工程"></a>4.创建工程</h3><p>将路径切换到项目根目录下，执行以下命令：</p>
+<pre><code>sphinx-quickstart
+</code></pre><h3 id="5-对工程进程配置"><a href="#5-对工程进程配置" class="headerlink" title="5.对工程进程配置"></a>5.对工程进程配置</h3><p>项目的配置，主要是更改<code>source/conf.py</code>文件。</p>
+<h4 id="5-1-更改主题"><a href="#5-1-更改主题" class="headerlink" title="5.1 更改主题"></a>5.1 更改主题</h4><p>在项目中更改或添加以下代码</p>
+<pre><code class="lang-python">import sphinx_rtd_theme
+html_theme = &quot;sphinx_rtd_theme&quot;
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+</code></pre>
+<h4 id="5-2-添加markdown支持"><a href="#5-2-添加markdown支持" class="headerlink" title="5.2 添加markdown支持"></a>5.2 添加markdown支持</h4><p>首先安装<code>recommonmark</code></p>
+<pre><code>pip install recommonmark
+</code></pre><p>并在项目中增加以下代码</p>
+<pre><code class="lang-python">from recommonmark.parser import CommonMarkParser
+source_parsers = {
+    &#39;.md&#39;: CommonMarkParser,
+}
+source_suffix = [&#39;.rst&#39;, &#39;.md&#39;]
+</code></pre>
 <h3 id="6-导入到ReadtheDocs"><a href="#6-导入到ReadtheDocs" class="headerlink" title="6.导入到ReadtheDocs"></a>6.导入到ReadtheDocs</h3><p>在ReadtheDocs个人面板点击<code>Import a Project</code>：<br><img src="https://s2.ax1x.com/2020/01/03/la7BnS.jpg" alt="la7BnS.jpg"><br>然后选择对应的项目，如果项目列表为空或者未显示当前项目，点击右上角等待刷新项目即可：</p>
 <p><img src="https://s2.ax1x.com/2020/01/03/la7fXT.jpg" alt="la7fXT.jpg"></p>
 <p>之后可以对项目进行一些设置，如图：</p>
 <p><img src="https://s2.ax1x.com/2020/01/03/la7HhR.jpg" alt="la7HhR.jpg"></p>
 <h3 id="7-向工程中添加实际教程和文档"><a href="#7-向工程中添加实际教程和文档" class="headerlink" title="7.向工程中添加实际教程和文档"></a>7.向工程中添加实际教程和文档</h3><p>如新建<code>.rst</code>或<code>.md</code>文件，并修改项目的<code>index.rst</code>等，具体请参考最后的参考链接。</p>
-<h3 id="8-生成文档"><a href="#8-生成文档" class="headerlink" title="8.生成文档"></a>8.生成文档</h3><p>在项目根目录执行<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make html</span></span><br></pre></td></tr></table></figure><br>以生成html格式的文档。</p>
+<h3 id="8-生成文档"><a href="#8-生成文档" class="headerlink" title="8.生成文档"></a>8.生成文档</h3><p>在项目根目录执行</p>
+<pre><code>make html
+</code></pre><p>以生成html格式的文档。</p>
 <p>可能在生成文档会失败，如遇到<code>Sphinx error: master file [..]/checkouts/latest/contents.rst not found</code>这样的错误，可以参考<a href="https://github.com/readthedocs/readthedocs.org/issues/2569" target="_blank" rel="noopener">Sphinx error: master file [..]/checkouts/latest/contents.rst not found · Issue #2569 · readthedocs/readthedocs.org</a>来解决。</p>
 <h3 id="9-预览效果"><a href="#9-预览效果" class="headerlink" title="9.预览效果"></a>9.预览效果</h3><p>进入<code>build/html</code>目录下用浏览器打开其中的<code>index.html</code>来预览项目文档。如：<br><img src="https://s2.ax1x.com/2020/01/03/la7vnO.jpg" alt="la7vnO.jpg"></p>
-<h3 id="10-push到Github仓库"><a href="#10-push到Github仓库" class="headerlink" title="10.push到Github仓库"></a>10.push到Github仓库</h3><p>三连<code>git</code>：<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit -m <span class="string">"update cookbook"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="11-查看在线效果"><a href="#11-查看在线效果" class="headerlink" title="11.查看在线效果"></a>11.查看在线效果</h3><p>在ReadtheDocs的项目主页点击<code>阅读文档</code>以查看实际效果：<br><img src="https://s2.ax1x.com/2020/01/03/laHF3t.jpg" alt="laHF3t.jpg"></p>
+<h3 id="10-push到Github仓库"><a href="#10-push到Github仓库" class="headerlink" title="10.push到Github仓库"></a>10.push到Github仓库</h3><p>三连<code>git</code>：</p>
+<pre><code>git add .
+git commit -m &quot;update cookbook&quot;
+git push
+</code></pre><h3 id="11-查看在线效果"><a href="#11-查看在线效果" class="headerlink" title="11.查看在线效果"></a>11.查看在线效果</h3><p>在ReadtheDocs的项目主页点击<code>阅读文档</code>以查看实际效果：<br><img src="https://s2.ax1x.com/2020/01/03/laHF3t.jpg" alt="laHF3t.jpg"></p>
 <p>效果如：<br><img src="https://s2.ax1x.com/2020/01/03/laHpAH.jpg" alt="laHpAH.jpg"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://www.jianshu.com/p/78e9e1b8553a" target="_blank" rel="noopener">如何用 ReadtheDocs、Sphinx 快速搭建写书环境 - 简书</a></li>
@@ -989,6 +1014,13 @@ Windows和Linux对于程序员来说，就像张爱玲笔下的红玫瑰和白�
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

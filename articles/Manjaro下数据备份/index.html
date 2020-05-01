@@ -81,6 +81,12 @@ MEGA
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -477,21 +483,27 @@ MEGA
 <h4 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h4><p>优势：<br>劣势：容量小</p>
 <h2 id="其他方案"><a href="#其他方案" class="headerlink" title="其他方案"></a>其他方案</h2><h4 id="1-有道云笔记（VIP版）"><a href="#1-有道云笔记（VIP版）" class="headerlink" title="1. 有道云笔记（VIP版）"></a>1. 有道云笔记（VIP版）</h4><p>和印象笔记相比，虽然网页剪裁的功能弱了一些，但是在界面上和markdown支持上都是要优于印象笔记的<br>优势：<br>劣势：</p>
 <h4 id="2-使用sftp连接远程服务器"><a href="#2-使用sftp连接远程服务器" class="headerlink" title="2. 使用sftp连接远程服务器"></a>2. 使用sftp连接远程服务器</h4><p>优势：<br>劣势：</p>
-<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="百度网盘-BaiduPCS-Go"><a href="#百度网盘-BaiduPCS-Go" class="headerlink" title="百度网盘+BaiduPCS-Go"></a>百度网盘+<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></h2><h4 id="安装baidupcs-go"><a href="#安装baidupcs-go" class="headerlink" title="安装baidupcs-go"></a>安装baidupcs-go</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S baidupcs-go-bin</span><br></pre></td></tr></table></figure>
-<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidupcs</span><br></pre></td></tr></table></figure>
+<h1 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h1><h2 id="百度网盘-BaiduPCS-Go"><a href="#百度网盘-BaiduPCS-Go" class="headerlink" title="百度网盘+BaiduPCS-Go"></a>百度网盘+<a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">BaiduPCS-Go</a></h2><h4 id="安装baidupcs-go"><a href="#安装baidupcs-go" class="headerlink" title="安装baidupcs-go"></a>安装baidupcs-go</h4><pre><code class="lang-bash">yay -S baidupcs-go-bin
+</code></pre>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><pre><code class="lang-bash">baidupcs
+</code></pre>
 <p>如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ccb334ca6bc5bd6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs"></p>
-<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; login</span><br></pre></td></tr></table></figure>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><pre><code class="lang-bash">BaiduPCS-Go &gt; login
+</code></pre>
 <p>然后输入自己的账号密码，进行验证之后便登录成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-dbd0720f058f2790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="baidupcs_login"></p>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>输入<code>-h</code>可查看相关指令，下载起来速度很快。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaiduPCS-Go &gt; -h</span><br></pre></td></tr></table></figure></p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>输入<code>-h</code>可查看相关指令，下载起来速度很快。</p>
+<pre><code class="lang-bash">BaiduPCS-Go &gt; -h
+</code></pre>
 <h4 id="可参考"><a href="#可参考" class="headerlink" title="可参考"></a>可参考</h4><ol>
 <li><a href="https://www.jianshu.com/p/c37a124a0f55" target="_blank" rel="noopener">BaiduPCS-Go | 百度网盘命令行工具（基于 Go）</a></li>
 </ol>
-<h2 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h2><h4 id="安装kio-gdrive"><a href="#安装kio-gdrive" class="headerlink" title="安装kio-gdrive"></a>安装<code>kio-gdrive</code></h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yay -S kio-gdrive</span></span><br></pre></td></tr></table></figure>
-<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>在安装成功后，此时再打开Dolphin（即文件管理器），会发现远程网络中多了一个文件夹，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8fcacbb848420ad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google 云端硬盘"><br>之后我们双击它，得到如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-e4d1ecb98a9648d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_2"><br>上图左侧的账号是我之前添加的，此时也可点击 下方<code>+</code>添加Google账号<br>然后选中要同步的账号，选中，如下图所示，然后点击确定。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-539cb60abe895442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_3.png"><br>之后右下角提示正在同步文件夹，稍等片刻便可同步成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1d7ce651c0328b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_4.png"></p>
+<h2 id="Google-Drive"><a href="#Google-Drive" class="headerlink" title="Google Drive"></a>Google Drive</h2><h4 id="安装kio-gdrive"><a href="#安装kio-gdrive" class="headerlink" title="安装kio-gdrive"></a>安装<code>kio-gdrive</code></h4><pre><code>yay -S kio-gdrive
+</code></pre><h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>在安装成功后，此时再打开Dolphin（即文件管理器），会发现远程网络中多了一个文件夹，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-8fcacbb848420ad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Google 云端硬盘"><br>之后我们双击它，得到如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-e4d1ecb98a9648d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_2"><br>上图左侧的账号是我之前添加的，此时也可点击 下方<code>+</code>添加Google账号<br>然后选中要同步的账号，选中，如下图所示，然后点击确定。<br><img src="https://upload-images.jianshu.io/upload_images/5410339-539cb60abe895442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_3.png"><br>之后右下角提示正在同步文件夹，稍等片刻便可同步成功了，如图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-1d7ce651c0328b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gdrive_4.png"></p>
 <h4 id="可参考-1"><a href="#可参考-1" class="headerlink" title="可参考"></a>可参考</h4><ol>
 <li><a href="https://community.kde.org/KIO_GDrive#Arch_Linux" target="_blank" rel="noopener">KIO GDrive</a><h2 id="MEGA"><a href="#MEGA" class="headerlink" title="MEGA"></a>MEGA</h2><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4>登录<a href="https://mega.nz/register" target="_blank" rel="noopener">官网</a>注册账号，填写个人信息，然后打开邮箱进行验证，随后下载客户端应用（对于manjaro来说，直接通过<code>pacman</code>下载就可以，就是这么方便，当然也可以先下载安装包，然后通过<code>pacman -U</code>来安装）</li>
 </ol>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S megasync</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><pre><code class="lang-bash">yay -S megasync
+</code></pre>
 <h4 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h4><p>首先<code>[Alt] + [Space]</code>打开<code>plasma</code>搜索，输入<code>megasync</code>打开MEGA客户端，然后输入邮箱密码，接着设置同步目录，其他设置自己看情况。<br>如下图：<br><img src="https://upload-images.jianshu.io/upload_images/5410339-ed5086fa3d3bd1e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MEGA Settings"></p>
 <h4 id="可参考-2"><a href="#可参考-2" class="headerlink" title="可参考"></a>可参考</h4><ol>
 <li><a href="https://www.jianshu.com/p/44741a9e243f" target="_blank" rel="noopener">网盘可以良心到什么程度? 试试MEGA吧!</a></li>
@@ -713,8 +725,10 @@ MEGA
                 <p class='title'>Manjaro下vscode中zsh乱码<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>解决方案
 
-下载Menlo for Powerline字体1git clone https://github.com/abertsch/Menlo-for-Powerline.git
-将字体放到...</p>
+下载Menlo for Powerline字体git clone https://github.com/abertsch/Menlo-for-Powerline.git
+
+
+将字体放...</p>
               </a>
             
           </div>
@@ -1073,6 +1087,13 @@ MEGA
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

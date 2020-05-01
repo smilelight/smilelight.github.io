@@ -74,6 +74,12 @@ Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -447,7 +453,12 @@ Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如
 <h2 id="1-Brook简介"><a href="#1-Brook简介" class="headerlink" title="1.Brook简介"></a>1.Brook简介</h2><p>Brook是一款新兴的代理软件，其版本横垮Windows、安卓、iOS、MacOS、Linux等多个系统平台，功能类似于我们经常使用的Shadowsocks/ShadowsocksR。Brook 的目标是简单易用、傻瓜化、速度快（新协议）。通过在服务器端安装Brook服务器端，同时在本地设备中使用Brook客户端，两者成功连接之后，可以为我们提供科学上网服务。如果你想在SS/SSR/V2ray之外，尝试一种新的代理软件，那么Brook是一个不错的选择！</p>
 <h2 id="2-在服务器安装Brook"><a href="#2-在服务器安装Brook" class="headerlink" title="2.在服务器安装Brook"></a>2.在服务器安装Brook</h2><p>购买国外服务器之类略去不表。</p>
 <p>在服务端执行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh</span><br><span class="line"></span><br><span class="line">chmod +x brook.sh</span><br><span class="line"></span><br><span class="line">./brook.sh</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">wget -N --no-check-certificate wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh
+
+chmod +x brook.sh
+
+./brook.sh
+</code></pre>
 <p>然后根据提示安装，其中端口视自己情况设置（如无特殊或小白不懂，只需默认回车即可），密码可以自己设置也可以选择默认。如果一切顺利，则最终有类似如下输出：</p>
 <p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1586267778518.png" alt="UTOOLS1586267778518.png"></p>
 <p>在参考的教程中，有一步<code>一键加速VPS服务器</code>，不过我试了一下，发现系统好像已经默认安装了？所以这里就不再叙述这一步了。</p>
@@ -1011,6 +1022,13 @@ Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

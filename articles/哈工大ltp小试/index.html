@@ -74,6 +74,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -454,7 +460,55 @@
 <p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/project-structure.png" alt="project-structure"></p>
 <p>不过其中的data文件夹、source文件夹和test文件夹是自己新创建的，其中data文件夹内放置下载的模型，source文件夹放置那个其实也没啥东西的txt文件，test中放置编写的Python代码。</p>
 <p>照着使用文档敲的<code>testltp.py</code>内容如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyltp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分句</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SentenceSplitter</span><br><span class="line">sents = SentenceSplitter.split(<span class="string">'元芳你怎么看？我就趴窗口上看呗！'</span>)</span><br><span class="line">print(<span class="string">'\n'</span>.join(sents))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Segmentor</span><br><span class="line">segmentor = Segmentor()</span><br><span class="line">segmentor.load(<span class="string">'../data/cws.model'</span>)</span><br><span class="line">words = segmentor.segment(<span class="string">"元芳你怎么看"</span>)</span><br><span class="line">segmentor.release()</span><br><span class="line">print(list(words))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 词性标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Postagger</span><br><span class="line">postagger = Postagger()</span><br><span class="line">postagger.load(<span class="string">'../data/pos.model'</span>)</span><br><span class="line">posts = postagger.postag(list(words))</span><br><span class="line">postagger.release()</span><br><span class="line">print(list(zip(list(words),list(posts))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#命名实体识别</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> NamedEntityRecognizer</span><br><span class="line">recognizer = NamedEntityRecognizer()</span><br><span class="line">recognizer.load(<span class="string">'../data/ner.model'</span>)</span><br><span class="line">nettags = recognizer.recognize(list(words),list(posts))</span><br><span class="line">recognizer.release()</span><br><span class="line">print(list(zip(list(words),list(nettags))))</span><br><span class="line"></span><br><span class="line"><span class="comment">#依存语法分析</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> Parser</span><br><span class="line">parer = Parser()</span><br><span class="line">parer.load(<span class="string">'../data/parser.model'</span>)</span><br><span class="line">arcs = parer.parse(list(words),list(posts))</span><br><span class="line">parer.release()</span><br><span class="line">print(list(zip(list(words),[(arc.head,arc.relation) <span class="keyword">for</span> arc <span class="keyword">in</span> arcs])))</span><br><span class="line"></span><br><span class="line"><span class="comment">#语义角色标注</span></span><br><span class="line"><span class="keyword">from</span> pyltp <span class="keyword">import</span> SementicRoleLabeller</span><br><span class="line">labeller = SementicRoleLabeller()</span><br><span class="line">labeller.load(<span class="string">'../data/pisrl_win.model'</span>)</span><br><span class="line">roles = labeller.label(list(words),list(posts),arcs)</span><br><span class="line">labeller.release()</span><br><span class="line"><span class="keyword">for</span> role <span class="keyword">in</span> roles:</span><br><span class="line">    print(role.index, <span class="string">""</span>.join(</span><br><span class="line">        [<span class="string">"%s:(%d,%d)"</span> % (arg.name, arg.range.start, arg.range.end) <span class="keyword">for</span> arg <span class="keyword">in</span> role.arguments]))</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">import pyltp
+
+# 分句
+from pyltp import SentenceSplitter
+sents = SentenceSplitter.split(&#39;元芳你怎么看？我就趴窗口上看呗！&#39;)
+print(&#39;\n&#39;.join(sents))
+
+# 分词
+from pyltp import Segmentor
+segmentor = Segmentor()
+segmentor.load(&#39;../data/cws.model&#39;)
+words = segmentor.segment(&quot;元芳你怎么看&quot;)
+segmentor.release()
+print(list(words))
+
+# 词性标注
+from pyltp import Postagger
+postagger = Postagger()
+postagger.load(&#39;../data/pos.model&#39;)
+posts = postagger.postag(list(words))
+postagger.release()
+print(list(zip(list(words),list(posts))))
+
+#命名实体识别
+from pyltp import NamedEntityRecognizer
+recognizer = NamedEntityRecognizer()
+recognizer.load(&#39;../data/ner.model&#39;)
+nettags = recognizer.recognize(list(words),list(posts))
+recognizer.release()
+print(list(zip(list(words),list(nettags))))
+
+#依存语法分析
+from pyltp import Parser
+parer = Parser()
+parer.load(&#39;../data/parser.model&#39;)
+arcs = parer.parse(list(words),list(posts))
+parer.release()
+print(list(zip(list(words),[(arc.head,arc.relation) for arc in arcs])))
+
+#语义角色标注
+from pyltp import SementicRoleLabeller
+labeller = SementicRoleLabeller()
+labeller.load(&#39;../data/pisrl_win.model&#39;)
+roles = labeller.label(list(words),list(posts),arcs)
+labeller.release()
+for role in roles:
+    print(role.index, &quot;&quot;.join(
+        [&quot;%s:(%d,%d)&quot; % (arg.name, arg.range.start, arg.range.end) for arg in role.arguments]))
+</code></pre>
 <p>其中我的pyltp不知道怎么安装的，竟然成了build-in里的东西了，而不是在site-packages里面。</p>
 <p>执行以上代码的结果为：</p>
 <p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/testltp-result.png" alt="testltp-result"></p>
@@ -463,7 +517,21 @@
 <p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/no-support.png" alt="no-support"></p>
 <p>于是我又去申请了哈工大的<a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">语言云</a>个人账号,经过邮箱激活之后，按照人家的<a href="https://www.ltp-cloud.com/document/" target="_blank" rel="noopener">使用文档</a>就要探索一下，不过没想到出现了问题。。。</p>
 <p>由于官网提供的Python示例代码使用的是2.7版本，所以这里我使用的是另外的一个网络请求模块：<code>requests</code>，最终的代码<code>testltpCloud.py</code>长成这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> APIKEY</span><br><span class="line"></span><br><span class="line">url_get_base = <span class="string">"http://api.ltp-cloud.com/analysis/"</span></span><br><span class="line">args = &#123;</span><br><span class="line">    <span class="string">'api_key'</span>: APIKEY,</span><br><span class="line">    <span class="string">'text'</span>: <span class="string">'我是中国人。'</span>,</span><br><span class="line">    <span class="string">'pattern'</span>: <span class="string">'dp'</span>,</span><br><span class="line">    <span class="string">'format'</span>: <span class="string">'plain'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># result = urllib.request.urlopen(url_get_base, urllib.parse.urlencode(args))  # POST method</span></span><br><span class="line">result = requests.post(url_get_base,args)</span><br><span class="line">print(result.text)</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">import requests
+
+from settings import APIKEY
+
+url_get_base = &quot;http://api.ltp-cloud.com/analysis/&quot;
+args = {
+    &#39;api_key&#39;: APIKEY,
+    &#39;text&#39;: &#39;我是中国人。&#39;,
+    &#39;pattern&#39;: &#39;dp&#39;,
+    &#39;format&#39;: &#39;plain&#39;
+}
+# result = urllib.request.urlopen(url_get_base, urllib.parse.urlencode(args))  # POST method
+result = requests.post(url_get_base,args)
+print(result.text)
+</code></pre>
 <p>在同路径下的<code>settings.py</code>的内容为：</p>
 <p><img src="https://github.com/smilelight/images/raw/master/learnLTPtest/apikey.png" alt="apikey"></p>
 <p>其中APIKEY的内容是邮件发给你的api_key字符串。</p>
@@ -998,6 +1066,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

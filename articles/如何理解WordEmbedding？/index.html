@@ -71,6 +71,12 @@
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -470,9 +476,19 @@
 <p>结合上文提到的分布式表示的思想，我们可以想到：我们可以用某个词以及该词所指代的实体所具备的属性和特征来表示该词。</p>
 <p>再举个不恰当例子：</p>
 <p>如何表示“程序猿”和“单身狗”这两个词呢？假设我们有以下特征向量序列：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"><span class="string">"有头发"</span>,</span><br><span class="line"><span class="string">"人傻"</span>,</span><br><span class="line"><span class="string">"钱多"</span>,</span><br><span class="line"><span class="string">"死得快"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">[
+&quot;有头发&quot;,
+&quot;人傻&quot;,
+&quot;钱多&quot;,
+&quot;死得快&quot;
+]
+</code></pre>
 <p>我们可以设定:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">程序猿 = [<span class="number">0.3</span>, <span class="number">0.6</span>, <span class="number">0.6</span>, <span class="number">0.6</span>]</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">同样的，我们可以设定：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">单身狗 = [<span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.3</span>, <span class="number">0.5</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">程序猿 = [0.3, 0.6, 0.6, 0.6]
+</code></pre>
+<p>同样的，我们可以设定：</p>
+<pre><code class="lang-python">单身狗 = [0.6, 0.7, 0.3, 0.5]
+</code></pre>
 <p>基于此，我们便得到了“程序猿”和“单身狗”的语义相似度为：</p>
 <script type="math/tex; mode=display">\sqrt{( 1 - \left| 0.3 - 0.6 \right|)^2 +( 1 - \left| 0.6 - 0.7 \right|)^2 + ( 1 - \left| 0.6 - 0.3 \right|)^2 + ( 1 - \left| 0.6 - 0.5 \right|)^2} = 0.72</script><p>从中我们可以得到“程序猿”和“单身狗”这两个词还是挺接近的。</p>
 <p>注意：以上具体数值和计算公式是自己瞎掰的。</p>
@@ -1018,6 +1034,13 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 

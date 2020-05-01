@@ -72,6 +72,12 @@ unable to initialize decompress status for section .debug_info以及file not rec
   
 
   
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-dark.css">
+
+    
+  
   
     
 <link rel="stylesheet" href="/css/style.css">
@@ -451,15 +457,26 @@ unable to initialize decompress status for section .debug_info以及file not rec
 <h3 id="2-进入grub-rescue模式"><a href="#2-进入grub-rescue模式" class="headerlink" title="2. 进入grub rescue模式"></a>2. 进入<code>grub rescue</code>模式</h3><h4 id="错误出处-1"><a href="#错误出处-1" class="headerlink" title="错误出处"></a>错误出处</h4><p>在系统启动过程中由于目录分区映射及挂载失败导致</p>
 <h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><p><strong>注意</strong>:我这里boot目录和根目录分别挂载在不同分区,所以后续路径可能和其他参考有所不同，在使用时视实际情况而定</p>
 <ol>
-<li>确定boot目录和根目录位置<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls查看一下设备状态，可使用tab键自动补全，并有各分区提示信息</span></span><br><span class="line">grub rescue&gt; <span class="keyword">ls</span> </span><br><span class="line">hd0, <span class="params">(hd0, gpt1)</span>, <span class="params">(hd0, gpt2)</span>, <span class="params">(hd0, gpt3)</span></span><br><span class="line">grub rescue&gt; <span class="keyword">ls</span> <span class="params">(hd0,gpt3)</span>/</span><br><span class="line"><span class="string">./</span>  <span class="string">../</span>  lost+found/</span><br></pre></td></tr></table></figure>
-通过查看找到boot目录和root目录所在分区，比如分别为gpt1和gpt2</li>
-<li>设置grub的启动分区和路径<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="builtin-name">set</span> root=(hd0,gpt1)               #设置grub启动分区</span><br><span class="line">grub rescue&gt; <span class="builtin-name">set</span> prefix=(hd0,gpt1)/grub  #设置grub启动路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一下设置情况,直接输入set可以查看root和prefix的配置</span></span><br><span class="line">grub rescue&gt; set</span><br><span class="line">prefix=(hd0,gpt1)/grub</span><br><span class="line"><span class="attribute">root</span>=hd0,gpt1</span><br></pre></td></tr></table></figure></li>
-<li>加载基本模块<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="keyword">insmod </span><span class="keyword">normal </span>      <span class="comment">#加载基本模块</span></span><br></pre></td></tr></table></figure></li>
-<li>进入正常模式<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub <span class="keyword">rescue</span>&gt; normal  <span class="comment">#进入普通模式，出现菜单，如果加载grub.cfg（错误的）可能出现问题，按shift可以出现菜单，之后按c键进入控制台</span></span><br></pre></td></tr></table></figure>
-进入正常模式后就会出现grub&gt;这样的提示符，在这里支持的命令就非常多了。</li>
-<li>引导系统<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grub&gt; <span class="keyword">set</span> root=<span class="params">(hd0,gpt1)</span>  <span class="comment">#设置正常启动分区</span></span><br><span class="line">grub&gt; linux <span class="string">/vmlinuz-4.19-x86_64</span>  ro text root=<span class="string">/dev/sda2</span>  <span class="comment">#加载内核，进入控制台模式</span></span><br><span class="line">grub&gt; initrd <span class="string">/intel-ucode.img</span> <span class="string">/initramfs-4.19-x86_64.img</span> <span class="comment">#加载initrd.img</span></span><br><span class="line">grub&gt; boot <span class="comment">#引导</span></span><br></pre></td></tr></table></figure></li>
-<li>更新grub<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入系统后，先更新grub</span></span><br><span class="line"><span class="keyword">update</span>-grub            <span class="comment">#更新</span></span><br><span class="line"><span class="comment"># 修改grub.cfg后，再执行install</span></span><br><span class="line">grub-<span class="keyword">install</span> /dev/sda  <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
-<strong>注意</strong>:注意上面的是sda，硬盘号，而不是具体某个分区号，如sda1<h4 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h4></li>
+<li>确定boot目录和根目录位置<pre><code># ls查看一下设备状态，可使用tab键自动补全，并有各分区提示信息
+grub rescue&gt; ls 
+hd0, (hd0, gpt1), (hd0, gpt2), (hd0, gpt3)
+grub rescue&gt; ls (hd0,gpt3)/
+./  ../  lost+found/
+</code></pre>通过查看找到boot目录和root目录所在分区，比如分别为gpt1和gpt2</li>
+<li>设置grub的启动分区和路径<br>```<br>grub rescue&gt; set root=(hd0,gpt1)               #设置grub启动分区<br>grub rescue&gt; set prefix=(hd0,gpt1)/grub  #设置grub启动路径</li>
+</ol>
+<h1 id="查看一下设置情况-直接输入set可以查看root和prefix的配置"><a href="#查看一下设置情况-直接输入set可以查看root和prefix的配置" class="headerlink" title="查看一下设置情况,直接输入set可以查看root和prefix的配置"></a>查看一下设置情况,直接输入set可以查看root和prefix的配置</h1><p>grub rescue&gt; set<br>prefix=(hd0,gpt1)/grub<br>root=hd0,gpt1</p>
+<pre><code>3. 加载基本模块
+</code></pre><p>grub rescue&gt; insmod normal       #加载基本模块</p>
+<pre><code>4. 进入正常模式
+</code></pre><p>grub rescue&gt; normal  #进入普通模式，出现菜单，如果加载grub.cfg（错误的）可能出现问题，按shift可以出现菜单，之后按c键进入控制台</p>
+<pre><code>进入正常模式后就会出现grub&gt;这样的提示符，在这里支持的命令就非常多了。
+5. 引导系统
+</code></pre><p>grub&gt; set root=(hd0,gpt1)  #设置正常启动分区<br>grub&gt; linux /vmlinuz-4.19-x86_64  ro text root=/dev/sda2  #加载内核，进入控制台模式<br>grub&gt; initrd /intel-ucode.img /initramfs-4.19-x86_64.img #加载initrd.img<br>grub&gt; boot #引导</p>
+<pre><code>6. 更新grub
+</code></pre><h1 id="进入系统后，先更新grub"><a href="#进入系统后，先更新grub" class="headerlink" title="进入系统后，先更新grub"></a>进入系统后，先更新grub</h1><p>update-grub            #更新</p>
+<h1 id="修改grub-cfg后，再执行install"><a href="#修改grub-cfg后，再执行install" class="headerlink" title="修改grub.cfg后，再执行install"></a>修改grub.cfg后，再执行install</h1><p>grub-install /dev/sda  #安装<br>```<br><strong>注意</strong>:注意上面的是sda，硬盘号，而不是具体某个分区号，如sda1</p>
+<h4 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h4><ol>
 <li><a href="http://xstarcd.github.io/wiki/Linux/grub_rescue.html" target="_blank" rel="noopener">grub rescue救援模式的处理</a></li>
 <li><a href="https://blog.csdn.net/wangtingyao1990/article/details/52368699" target="_blank" rel="noopener">Ubuntu开机出现grub rescue模式修复方法</a></li>
 <li><a href="https://www.cnblogs.com/samcn/archive/2011/03/30/1999615.html" target="_blank" rel="noopener">Ubuntu启动问题以及Grub Rescue修复方法</a></li>
@@ -635,8 +652,10 @@ unable to initialize decompress status for section .debug_info以及file not rec
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Manjaro下安装使用kenlm</p>
                 <p class='content'>kenlm是一个linux下快速轻量的语言模型训练工具。
 
-下载1git clone https://github.com/kpu/kenlm.git
-或者1wget https://kheaf...</p>
+下载git clone https://github.com/kpu/kenlm.git
+
+或者
+wget https://kheaf...</p>
               </a>
             
             
@@ -1003,6 +1022,13 @@ unable to initialize decompress status for section .debug_info以及file not rec
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 
