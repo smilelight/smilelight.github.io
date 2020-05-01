@@ -909,16 +909,6 @@ step2：寻找技术博客文章如寻找技术博客（如CSDN与个人博客�
   作为主题，总访问量为
   <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
   次
-  
-  
-  
-  
-  <div class='copyright'>
-    <p><a href="https://www.lightsmile.com" target="_blank" rel="noopener">Copyright © 2017-2020 lightsmile</a></p>
-
-  </div>
-  
-  
   <div>
     <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
     <script>
@@ -950,11 +940,24 @@ step2：寻找技术博客文章如寻找技术博客（如CSDN与个人博客�
       setInterval("createtime()", 250);
     </script>
   </div>
+  
+  
+  
+  
+  <div class='copyright'>
+    <p><a href="https://www.lightsmile.com" target="_blank" rel="noopener">Copyright © 2017-2020 lightsmile</a></p>
+
+  </div>
+  
+  
+  
+  <a class="beian" href="http://www.beian.miit.gov.cn" target="_blank">冀ICP备20001334号</a>
+  
 </footer>
 
-<script>
-  setLoadingBarProgress(80);
-</script>
+  <script>
+    setLoadingBarProgress(80);
+  </script>
 
       <script>setLoadingBarProgress(60);</script>
     </div>
@@ -1237,6 +1240,21 @@ step2：寻找技术博客文章如寻找技术博客（如CSDN与个人博客�
 
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
