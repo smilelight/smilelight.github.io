@@ -16,7 +16,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>lightsmile&#39;s Blog</title>
+    <title>404 Not Found - lightsmile&#39;s Blog</title>
   
   
 
@@ -102,15 +102,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
-<header class="l_header shadow blur">
+<header class="l_header no_sidebar shadow blur">
   <div class='container'>
   <div class='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h'>
         <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
-        
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -358,35 +356,91 @@
     <div class='body-wrapper'>
       
 
-<div class='l_main'>
-  [object Promise]
-</div>
-<aside class='l_side'>
-  
+<div class='l_main no_sidebar'>
   
 
   
-    
-    
+    <article id="page" class="post white-box reveal shadow article-type-page" itemscope itemprop="blogPost">
+      
 
 
-  <section class="widget toc-wrapper shadow desktop mobile">
+  <section class='meta'>
     
-  <header>
+      
+      
+      <div class="meta" id="header-meta">
+        
+        <div class='new-meta-box'>
+          
+        </div>
+        
+      </div>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
+  </section>
 
 
-    <div class='content'>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p class='p center huge'>404</p>
+<p class='p center bold'>很抱歉，您访问的页面不存在</p>
+<p class='p center small'>可能是输入地址有误或该地址已被删除</p>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
       
     </div>
   </section>
 
 
+        
+        
+      </section>
+    </article>
   
 
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+
+</div>
+<aside class='l_side'>
+  
 
 </aside>
 
@@ -634,9 +688,11 @@
     el: '#valine_container',
     meta: meta,
     
+      path: "/404.html",
+    
     appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
     appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
-    placeholder: "快来评论吧~",
+    placeholder: "请留言告诉我您要访问哪个页面找不到了",
     pageSize:'10',
     avatar:'robohash',
     lang:'zh-cn',
