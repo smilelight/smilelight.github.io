@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>记录原来的博客风格</title>
+      <link href="/articles/%E8%AE%B0%E5%BD%95%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A3%8E%E6%A0%BC/"/>
+      <url>/articles/%E8%AE%B0%E5%BD%95%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A3%8E%E6%A0%BC/</url>
+      
+        <content type="html"><![CDATA[<p>原来的博客用了很长时间的material-X的风格，可是最近突然觉得有些喧闹，并且雪花爆炸特效等挺消耗电脑，最终的浏览体验并不好，所以这里把那些效果去掉，现在用的是原作者在material-X基础上升级的Volantis主题。</p><p>然而在这里还是放两张截图，也算保存纪念一下吧。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588314775701.jpeg" alt="UTOOLS1588314775701.jpeg"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588314793231.jpeg" alt="UTOOLS1588314793231.jpeg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++常用数据结构操作示例</title>
       <link href="/articles/C-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9C%E7%A4%BA%E4%BE%8B/"/>
       <url>/articles/C-%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9C%E7%A4%BA%E4%BE%8B/</url>
