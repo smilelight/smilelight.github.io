@@ -420,13 +420,13 @@ stack
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：430字</p>
+      <p>字数：726字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
+      <p>时长：4分钟</p>
     </a>
   </div>
 
@@ -472,88 +472,158 @@ stack
 <li>stack</li>
 </ul>
 <a id="more"></a>
-<h2 id="2-常用数据结构操作示例"><a href="#2-常用数据结构操作示例" class="headerlink" title="2. 常用数据结构操作示例"></a>2. 常用数据结构操作示例</h2><h3 id="1-string"><a href="#1-string" class="headerlink" title="1. string"></a>1. string</h3><pre><code class="lang-c++">    //header file : &lt;string&gt;
+<h2 id="2-常用数据结构操作示例"><a href="#2-常用数据结构操作示例" class="headerlink" title="2. 常用数据结构操作示例"></a>2. 常用数据结构操作示例</h2><h3 id="1-string"><a href="#1-string" class="headerlink" title="1. string"></a>1. string</h3><pre><code class="lang-c++">//header file : &lt;string&gt;
 
-     //declaration
-    string s = &quot;hello world!&quot;;
+//declaration
+string s = &quot;hello world!&quot;;
 
-    // visit by subscript
-    char c = s[2];//l
-    const char cc = s.at(6);//w
+// visit by subscript
+char c = s[2];//l
+const char cc = s.at(6);//w
 
-    // get the length of the string
-    int length = s.length();//12
-    int size = s.size();//12
+// get the length of the string
+int length = s.length();//12
+int size = s.size();//12
 
-    // the string is empty or not
-    bool is_empty = s.empty();//0
+// the string is empty or not
+bool is_empty = s.empty();//0
 
-    // concat strings
-    string t = &quot;c++&quot;;
-    s.append(t);//hello world!c++
-    s += &quot;Python!&quot;;//hello world!c++Python!
+// concat strings
+string t = &quot;c++&quot;;
+s.append(t);//hello world!c++
+s += &quot;Python!&quot;;//hello world!c++Python!
 
-    // get substring
-    string sub_str = s.substr(0, 5);//hello
+// get substring
+string sub_str = s.substr(0, 5);//hello
 
-    // find substring
-    int pos = s.find(&quot;world&quot;);//6
+// find substring
+int pos = s.find(&quot;world&quot;);//6
 
-    // insert operation
-    s.insert(0, &quot;Hi!&quot;);//Hi!hello world!c++Python!
+// insert operation
+s.insert(0, &quot;Hi!&quot;);//Hi!hello world!c++Python!
 
-    // compare operation
-    string other = &quot;NLP&quot;;
-    bool cmp = other &lt; s;//0
+// compare operation
+string other = &quot;NLP&quot;;
+bool cmp = other &lt; s;//0
 
-    // visit element by iterator
-    for (auto i: s) {
-        cout &lt;&lt; i &lt;&lt; endl;
-    }
+// visit element by iterator
+for (auto i: s) {
+    cout &lt;&lt; i &lt;&lt; endl;
+}
 </code></pre>
-<h3 id="2-vector"><a href="#2-vector" class="headerlink" title="2. vector"></a>2. vector</h3><pre><code class="lang-c++">    // header file :&lt;vector&gt;
+<h3 id="2-vector"><a href="#2-vector" class="headerlink" title="2. vector"></a>2. vector</h3><pre><code class="lang-c++">// header file :&lt;vector&gt;
 
-    // declaration
-    vector&lt;int&gt; vec {2, 3, 4}; //[2, 3, 4]
+// declaration
+vector&lt;int&gt; vec {2, 3, 4}; //[2, 3, 4]
 
-    // size of vector
-    int size = vec.size(); //3
+// size of vector
+int size = vec.size(); //3
 
-    // the vector is empty or not
-    bool is_empty = vec.empty(); // 0
+// the vector is empty or not
+bool is_empty = vec.empty(); // 0
 
-    // visit by subscript
-    auto e = vec.at(2);//4
-    int m = vec[1];//3
-    cout &lt;&lt; e &lt;&lt; m &lt;&lt; endl;
+// visit by subscript
+auto e = vec.at(2);//4
+int m = vec[1];//3
+cout &lt;&lt; e &lt;&lt; m &lt;&lt; endl;
 
-    // append element at back
-    vec.push_back(5); // [2, 3, 4, 5]
+// append element at back
+vec.push_back(5); // [2, 3, 4, 5]
 
-    // delete the last element
-    vec.pop_back();//[2, 3, 4]
+// delete the last element
+vec.pop_back();//[2, 3, 4]
 
-    // insert an element by iterator
-    vec.insert(vec.begin(), 1); //[1, 2, 3, 4]
+// insert an element by iterator
+vec.insert(vec.begin(), 1); //[1, 2, 3, 4]
 
-    // visit the first element and the last element
-    cout &lt;&lt; vec.front() &lt;&lt; vec.back() &lt;&lt; endl; // 14
+// visit the first element and the last element
+cout &lt;&lt; vec.front() &lt;&lt; vec.back() &lt;&lt; endl; // 14
 
-    // visit by iterator
-    auto iter = vec.begin();
-    while (iter != vec.end()) {
-        cout &lt;&lt; *iter &lt;&lt; endl;
-        iter += 1;
-    }
+// visit by iterator
+auto iter = vec.begin();
+while (iter != vec.end()) {
+    cout &lt;&lt; *iter &lt;&lt; endl;
+    iter += 1;
+}
 
-    // delete element by iterator
-    auto item = vec.erase(vec.end() -2);
+// delete element by iterator
+auto item = vec.erase(vec.end() -2);
 
-    cout &lt;&lt; *item &lt;&lt; endl;//4
+cout &lt;&lt; *item &lt;&lt; endl;//4
 
-    for (auto i: vec) {
-        cout &lt;&lt; i &lt;&lt; endl;
-    }
+for (auto i: vec) {
+    cout &lt;&lt; i &lt;&lt; endl;
+}
+</code></pre>
+<h3 id="3-queue"><a href="#3-queue" class="headerlink" title="3. queue"></a>3. queue</h3><pre><code class="lang-c++">// header file: &lt;queue&gt;
+
+//declaration, can&#39;t initiate with assignment statement.
+queue&lt;int&gt; que;
+
+// add element to the back of queue
+for (int i = 0; i &lt; 3; i++) {
+    que.push(i);
+} //que: {0, 1, 2}
+
+// get the size of queue
+int size = que.size();//3
+
+// if the queue is empty or not
+bool is_empty = que.empty();//0
+
+// delete the element at the first position
+que.pop();//que: {1, 2}
+
+// get the first element
+auto first = que.front();//1
+
+// get the last element
+auto last = que.back();//2
+
+cout &lt;&lt; first &lt;&lt; last &lt;&lt; endl;
+</code></pre>
+<h3 id="4-map"><a href="#4-map" class="headerlink" title="4. map"></a>4. map</h3><pre><code class="lang-c++">//header file :&lt;map&gt;
+
+//declaration
+map&lt;int, int&gt; m;
+
+//add element to map
+for (int i = 0; i &lt; 3; i++) {
+    m[i] = i + 2;
+}
+m.insert({5, 8});
+
+//visit the element by auto+for
+for (auto i: m) {
+    printf(&quot;%d : %d\n&quot;, i.first, i.second);
+}
+
+//whether the map is empty or not
+bool is_empty = m.empty();//0
+
+//get the size of map
+int size = m.size();//4
+
+// get the count of element
+int count = m.count(2);//1
+
+// search item by key
+auto item = m.find(count);
+printf(&quot;%d : %d\n&quot;, item-&gt;first, item-&gt;second);
+
+// if not find, the value would equal to map.end()
+auto ss = m.find(9);
+cout &lt;&lt; (ss == m.end()) &lt;&lt; endl;//1
+
+// get element by [] operator
+int sk = m[10];//0 if the key not exists, then init
+
+cout &lt;&lt; sk &lt;&lt; endl;//0
+
+map&lt;string, string&gt; str_map;
+str_map.insert({&quot;hello&quot;, &quot;world&quot;});
+
+cout &lt;&lt; &quot;begin&quot; &lt;&lt; str_map[&quot;python&quot;] &lt;&lt; &quot;end&quot; &lt;&lt; endl;//beginend
 </code></pre>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://blog.csdn.net/monkey_D_feilong/article/details/51778820" target="_blank" rel="noopener">c++string类的常用方法详解_c/c++_monkey_D_feilong的博客-CSDN博客</a></li>
@@ -639,10 +709,10 @@ stack
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-01T17:20:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-02T09:33:41+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年5月1日</p>
+    <p>更新于：2020年5月2日</p>
   </a>
 </div>
 
@@ -663,13 +733,13 @@ stack
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：430字</p>
+      <p>字数：726字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
+      <p>时长：4分钟</p>
     </a>
   </div>
 
@@ -842,7 +912,7 @@ stack
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0. 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-C-标准库常用数据结构"><span class="toc-text">1. C++标准库常用数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-常用数据结构操作示例"><span class="toc-text">2. 常用数据结构操作示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-string"><span class="toc-text">1. string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-vector"><span class="toc-text">2. vector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0. 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-C-标准库常用数据结构"><span class="toc-text">1. C++标准库常用数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-常用数据结构操作示例"><span class="toc-text">2. 常用数据结构操作示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-string"><span class="toc-text">1. string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-vector"><span class="toc-text">2. vector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-queue"><span class="toc-text">3. queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-map"><span class="toc-text">4. map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </section>
 
