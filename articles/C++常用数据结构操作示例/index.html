@@ -420,13 +420,13 @@ stack
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：726字</p>
+      <p>字数：1.1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：4分钟</p>
+      <p>时长：6分钟</p>
     </a>
   </div>
 
@@ -625,9 +625,104 @@ str_map.insert({&quot;hello&quot;, &quot;world&quot;});
 
 cout &lt;&lt; &quot;begin&quot; &lt;&lt; str_map[&quot;python&quot;] &lt;&lt; &quot;end&quot; &lt;&lt; endl;//beginend
 </code></pre>
+<h3 id="5-set"><a href="#5-set" class="headerlink" title="5. set"></a>5. set</h3><pre><code class="lang-c++">// header file :&lt;set&gt;
+
+// declaration
+set&lt;int&gt; ss;
+
+// insert element
+ss.insert(3);
+
+// whether element is in the set or not
+bool is_in = ss.count(4);//0
+
+// get the size fo set
+int size = ss.size();//1
+
+// whether the set is empty or not
+bool is_empty = ss.empty();//0
+
+cout &lt;&lt; is_in &lt;&lt; size &lt;&lt; is_empty &lt;&lt; endl;
+</code></pre>
+<h3 id="6-stack"><a href="#6-stack" class="headerlink" title="6. stack"></a>6. stack</h3><pre><code class="lang-c++">// header file: &lt;stack&gt;
+
+//declaration
+stack&lt;int&gt; stk;
+
+// insert element
+stk.push(3);
+stk.push(4);
+
+// get the top element
+int top = stk.top();//4
+
+// get the size of stack
+int size = stk.size();//2
+
+// out of the stack, no return
+stk.pop();
+
+cout &lt;&lt; top &lt;&lt; size &lt;&lt; stk.top() &lt;&lt; endl;//423
+</code></pre>
+<h3 id="7-list"><a href="#7-list" class="headerlink" title="7. list"></a>7. list</h3><pre><code class="lang-c++">//header file: &lt;list&gt;
+
+//declaration
+list&lt;int&gt; lst;
+
+// add element at back
+lst.push_back(4);//{4}
+lst.push_back(5);//{4, 5}
+
+// add element at front
+lst.push_front(3);//{3, 4, 5}
+
+for (auto i: lst) {
+    cout &lt;&lt; i &lt;&lt; endl;
+}
+
+// get the size of list
+int size = lst.size();//3
+
+// delete element, the iterator of list doesn&#39;t implement the + or - operator
+// since C++17, we can use advance(lst.begin(), 2) to get the iterator of specific position easily
+lst.erase(++lst.begin());//{3, 5}
+
+printf(&quot;front:%d, back:%d&quot;, lst.front(), lst.back());//front:3, back:5
+</code></pre>
+<h3 id="8-priority-queue"><a href="#8-priority-queue" class="headerlink" title="8. priority_queue"></a>8. priority_queue</h3><p><code>priority_queue</code>并没有提供迭代器访问，只可以访问<code>top</code>元素。</p>
+<pre><code class="lang-c++">//header file: &lt;queue&gt;
+
+//declaration
+priority_queue&lt;int&gt; pq;
+
+// push data to pq
+for (int i = 1; i &lt; 7; i++) {
+    pq.push(i);
+}
+
+// whether the pq is empty or not
+bool is_empty = pq.empty();//0
+
+// get the size of pq
+int size = pq.size();//6
+
+// get the top element
+int top = pq.top();//6
+
+// remove the top element
+pq.pop();
+
+cout &lt;&lt; pq.top() &lt;&lt; endl;//5
+</code></pre>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://blog.csdn.net/monkey_D_feilong/article/details/51778820" target="_blank" rel="noopener">c++string类的常用方法详解_c/c++_monkey_D_feilong的博客-CSDN博客</a></li>
 <li><a href="https://www.jianshu.com/p/033b78422bac" target="_blank" rel="noopener">C++ vector容器用法 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/4fb9a458f558" target="_blank" rel="noopener">c++ queue的使用 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/ec0d684453eb" target="_blank" rel="noopener">c++ map set 详解 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/8730953af4f9" target="_blank" rel="noopener">C++ stack 使用 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/c750715abedc" target="_blank" rel="noopener">C++ STL std::list的使用 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/b95d8972466a" target="_blank" rel="noopener">STL之list和vector - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/65fdd3099238" target="_blank" rel="noopener">C++ STL 之 priority_queue 与堆 - 简书</a></li>
 </ul>
 
           
@@ -709,7 +804,7 @@ cout &lt;&lt; &quot;begin&quot; &lt;&lt; str_map[&quot;python&quot;] &lt;&lt; &q
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-02T09:33:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-02T11:29:05+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年5月2日</p>
@@ -733,13 +828,13 @@ cout &lt;&lt; &quot;begin&quot; &lt;&lt; str_map[&quot;python&quot;] &lt;&lt; &q
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：726字</p>
+      <p>字数：1.1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：4分钟</p>
+      <p>时长：6分钟</p>
     </a>
   </div>
 
@@ -912,7 +1007,7 @@ stack
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0. 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-C-标准库常用数据结构"><span class="toc-text">1. C++标准库常用数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-常用数据结构操作示例"><span class="toc-text">2. 常用数据结构操作示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-string"><span class="toc-text">1. string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-vector"><span class="toc-text">2. vector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-queue"><span class="toc-text">3. queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-map"><span class="toc-text">4. map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0. 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-C-标准库常用数据结构"><span class="toc-text">1. C++标准库常用数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-常用数据结构操作示例"><span class="toc-text">2. 常用数据结构操作示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-string"><span class="toc-text">1. string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-vector"><span class="toc-text">2. vector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-queue"><span class="toc-text">3. queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-map"><span class="toc-text">4. map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-set"><span class="toc-text">5. set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-stack"><span class="toc-text">6. stack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-list"><span class="toc-text">7. list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-priority-queue"><span class="toc-text">8. priority_queue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </section>
 
