@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-05-01T06:39:39.764Z</updated>
+  <updated>2020-05-02T12:22:55.365Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用CDN为网站提速</title>
+    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/"/>
+    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/</id>
+    <published>2020-05-02T12:14:01.000Z</published>
+    <updated>2020-05-02T12:22:55.365Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于要设置博客站点的图标，而ico文件不能直接拖到图床工具中上传，于是也参考学习了一下使用CDN的方式。</p><a id="more"></a><p>主要参考学习文章为：<a href="https://blog.csdn.net/qq_36759224/article/details/86936453" target="_blank" rel="noopener">免费CDN：jsDelivr+Github 使用方法_网络_TRHX’S BLOG-CSDN博客</a></p><p>其中步骤主要包括：</p><ul><li>新建Github项目</li><li>将资源放到项目中</li><li>发布release版本</li><li>通过超链访问</li></ul><p>重复之话此处不表，此处贴一下截图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422000920.png" alt="UTOOLS1588422000920.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422038598.png" alt="UTOOLS1588422038598.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422077100.png" alt="UTOOLS1588422077100.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422124344.png" alt="UTOOLS1588422124344.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于要设置博客站点的图标，而ico文件不能直接拖到图床工具中上传，于是也参考学习了一下使用CDN的方式。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>记录原来的博客风格</title>
@@ -496,30 +515,6 @@
       
         &lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h2&gt;&lt;h3 id=&quot;1-下载miniconda&quot;&gt;&lt;a href=&quot;#1-下载miniconda&quot; class=&quot;headerlink&quot; title=
       
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="CentOS" scheme="https://www.iamlightsmile.com/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>购买国内云服务器与备案注册</title>
-    <link href="https://www.iamlightsmile.com/articles/%E8%B4%AD%E4%B9%B0%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%A4%87%E6%A1%88%E6%B3%A8%E5%86%8C/"/>
-    <id>https://www.iamlightsmile.com/articles/%E8%B4%AD%E4%B9%B0%E5%9B%BD%E5%86%85%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%A4%87%E6%A1%88%E6%B3%A8%E5%86%8C/</id>
-    <published>2020-01-07T06:50:32.000Z</published>
-    <updated>2020-01-18T11:14:19.374Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>我真傻，真的。没想到腾讯云有120元/年，同样配置的学生优惠活动：<a href="https://cloud.tencent.com/act/campus" target="_blank" rel="noopener">腾讯云学生服务器_学生机_云服务器优惠套餐-云+校园 - 腾讯云</a>，只是主机只能选上海或者深圳。并且25岁以下免学生认证，立马我就把之前用了500优惠券+600多买的云服务器给退了。。。</p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。</p><a id="more"></a><h2 id="调研"><a href="#调研" class="headerlink" title="调研"></a>调研</h2><p>这里主要是比较各厂商（主要是阿里云、腾讯云两家）的云服务器产品的性能和价格。发现网上阿里口碑不错，如果不差钱就选阿里好了，而腾讯云价格相对较低一些，毕竟起步较晚，一些布局和服务等没有阿里云那么完善，只能在价格上搞搞事情了。</p><p>虽然各厂商都对新用户有比较大的力度优惠，然而奈何自己都不是。在阿里云上买过域名和OSS，也在腾讯云上买过域名。</p><p>下面是阿里云的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l6fWvR.jpg" alt="l6fWvR.jpg"></p><p>链接地址为：<a href="https://promotion.aliyun.com/ntms/act/qwbk.html?spm=5176.13727575.J_7116760870.4.57c93b5afY11df&amp;aly_as=dk6i2qQ0" target="_blank" rel="noopener">全民云计算_云服务器促销_便宜云服务器活动_阿里云</a></p><p>优惠链接地址：<a href="https://www.dute.me/aliyun/" target="_blank" rel="noopener">阿里云2020年1月最新优惠信息 - 独特优惠码</a></p><p>下面是腾讯云的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l6hEMn.jpg" alt="l6hEMn.jpg"></p><p>链接地址为：<a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank" rel="noopener">云服务器选购 - 腾讯云</a></p><p>优惠链接地址：<a href="https://cloud.tencent.com/act/vouchers/list?fromSource=gwzcw.2477393.2477393.2477393&amp;utm_medium=cpc&amp;utm_id=gwzcw.2477393.2477393.2477393&amp;from=console&amp;cps_key=2d38bc39c4bd798861417be7ca167f7c" target="_blank" rel="noopener">腾讯云优惠券_代金券_云服务器折扣券-腾讯云</a></p><p>其中里面一些优惠确实算是挺大的：</p><p><img src="https://s2.ax1x.com/2020/01/07/l64vAf.jpg" alt="l64vAf.jpg"></p><p>最终左右权衡之后，觉得确实腾讯云的性价比更高一些，况且适合自己以后部署爬虫等需要长时间消耗CPU等资源的应用。</p><h2 id="购买域名及备案"><a href="#购买域名及备案" class="headerlink" title="购买域名及备案"></a>购买域名及备案</h2><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>自己其实已经有3个域名了，但是都不太合适作为新服务器的域名，于是自己又买了一个域名：lightsmile.cn。哎，感叹一下lightsmile.com这个域名早就被别人买了，并且价格还挺高，所以自己看来短期内无法把它搞到手。</p><p>域名买了之后需要实名注册，然后设置解析，具体不表。</p><h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><p>备案的话，现在其实都算挺方便的。无论是阿里云还是腾讯云，直接在电脑上操作或者使用微信小程序操作，然后上传一些资料，比如个人身份证件图片以及一些必要的备案信息等，然后就可以默默等待审核结果了。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>不得不说，买个云服务器确实还挺贵的，自己也没有什么资金收入，还得找家里一直要钱。客观对比一下，我发现自己其实和一些大学生年轻人是一样的，只不过他们喜欢把钱投资到喜欢的衣服和鞋子，而我则喜欢购买互联网产品，充一些有助于自己成长的平台的会员。但归根结底都是图自己爽。</p><p>虽然有了自己的云服务器之后又可以有一番作为，但是确实还是很肉疼啊。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.vpsss.net/16214.html" target="_blank" rel="noopener">1核 2G云服务器选择腾讯云还是阿里云？-魏艾斯博客</a></li><li><a href="https://www.jianshu.com/p/03b099a5d1f0" target="_blank" rel="noopener">阿里云和腾讯云哪个好？云服务器如何选择？ - 简书</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;更新&quot;&gt;&lt;a href=&quot;#更新&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h2&gt;&lt;p&gt;我真傻，真的。没想到腾讯云有120元/年，同样配置的学生优惠活动：&lt;a href=&quot;https://cloud.tencent.com/act/campus&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;腾讯云学生服务器_学生机_云服务器优惠套餐-云+校园 - 腾讯云&lt;/a&gt;，只是主机只能选上海或者深圳。并且25岁以下免学生认证，立马我就把之前用了500优惠券+600多买的云服务器给退了。。。&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;突然大发兴致，想要购买国内云服务器，并且配置域名以及备案注册，想要搞事情，具体搞什么还没想好，比如说爬虫或者部署demo之类的。虽然自己也有搬瓦工的服务器，虽然也算物美价廉，但是毕竟不能备案绑定域名，况且内存和国内访问速度都比较慢，还是搞个真正的云服务器比较好。&lt;/p&gt;
     
     </summary>
     

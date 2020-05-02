@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>使用CDN为网站提速</title>
+      <link href="/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/"/>
+      <url>/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/</url>
+      
+        <content type="html"><![CDATA[<p>由于要设置博客站点的图标，而ico文件不能直接拖到图床工具中上传，于是也参考学习了一下使用CDN的方式。</p><a id="more"></a><p>主要参考学习文章为：<a href="https://blog.csdn.net/qq_36759224/article/details/86936453" target="_blank" rel="noopener">免费CDN：jsDelivr+Github 使用方法_网络_TRHX’S BLOG-CSDN博客</a></p><p>其中步骤主要包括：</p><ul><li>新建Github项目</li><li>将资源放到项目中</li><li>发布release版本</li><li>通过超链访问</li></ul><p>重复之话此处不表，此处贴一下截图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422000920.png" alt="UTOOLS1588422000920.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422038598.png" alt="UTOOLS1588422038598.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422077100.png" alt="UTOOLS1588422077100.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422124344.png" alt="UTOOLS1588422124344.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记录原来的博客风格</title>
       <link href="/articles/%E8%AE%B0%E5%BD%95%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A3%8E%E6%A0%BC/"/>
       <url>/articles/%E8%AE%B0%E5%BD%95%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A3%8E%E6%A0%BC/</url>
