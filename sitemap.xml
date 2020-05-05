@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.iamlightsmile.com/about/index.html</loc>
+    
+    <lastmod>2020-05-05T14:18:17.790Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/</loc>
     
     <lastmod>2020-05-02T12:22:55.365Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://www.iamlightsmile.com/tags/index.html</loc>
     
     <lastmod>2020-05-01T04:03:05.164Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.iamlightsmile.com/about/index.html</loc>
-    
-    <lastmod>2020-05-01T04:02:36.867Z</lastmod>
     
   </url>
   
