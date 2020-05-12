@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>一道面试算法题（动态规划）</title>
+      <link href="/articles/%E4%B8%80%E9%81%93%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89/"/>
+      <url>/articles/%E4%B8%80%E9%81%93%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>昨天参加了一场网上技术面试，通过腾讯会议平台。面试官问了两道算法题，都没答上来，-_-||。看来自己必须要高度重视算法基础，多刷多积累算法题了。</p><a id="more"></a><p>面试结束后，自己在网上搜索了第一道题目以及其解法，才恍然大悟原来这就是动态规划，下面是题目介绍：</p><blockquote><p>题目：将一个数组分成两部分，不要求两部分所包含的元素个数相等，要求使得这两个部分的和的差值最小。比如对于数组{1,0,1,7,2,4}，可以分成{1,0,1,2,4}和{7}，使得这两部分的差值最小。</p></blockquote><p>当时面试官是口述这道题，我的理解应该是得到这两个数组的具体内容，而不仅仅是这其中的差值，而网上看到的解法基本上都是仅仅求得差值，所以自己在理解他人实现后增加了完整的代码，这里简单记录一下。同时激励自己多刷刷算法题呀！</p><pre><code class="lang-python">def solution(arr):    target = sum(arr) // 2    # 初始化动态规划二维矩阵    matrix = [[0]*(target+1) for i in range(len(arr)+1)]    # 求解主算法    for i in range(1, len(arr)+1):        for j in range(1, target+1):            if j &gt;= arr[i-1]:                matrix[i][j] = max(matrix[i-1][j], matrix[i-1][j-arr[i-1]] + arr[i-1])            else:                matrix[i][j] = matrix[i-1][j]    # 初始化两个数组    a = [] # 存储目标元素    b = [] # 存储其他元素    n = target    # 反向求解得到数组具体值    for m in range(len(arr), 0, -1):        if arr[m-1] &lt;= n and matrix[m-1][n] &lt; matrix[m-1][n-arr[m-1]] + arr[m-1]:            a.append(arr[m-1])            n -= arr[m-1]        else:            b.append(arr[m-1])    return matrix[-1][-1], a, barr = [1, 0, 1, 7, 2, 4]res = solution(arr)print(res)</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.jianshu.com/p/25f4a183ede5" target="_blank" rel="noopener">0-1背包问题及Python代码实现 - 简书</a></li><li><a href="https://blog.csdn.net/Swartz2015/article/details/65939318" target="_blank" rel="noopener">将数组分成两部分，使得这两部分的和的差最小_C/C++_Swartz2015的专栏-CSDN博客</a></li><li><a href="https://www.cnblogs.com/ranjiewen/p/9085049.html" target="_blank" rel="noopener">数组分为两部分，使得其和相差最小 - ranjiewen - 博客园</a></li><li><a href="https://zhuanlan.zhihu.com/p/104104473" target="_blank" rel="noopener">把一个数组分为两部分使得其和相差最小 - 知乎</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用CDN为网站提速</title>
       <link href="/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/"/>
       <url>/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/</url>
