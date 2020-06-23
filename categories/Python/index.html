@@ -366,9 +366,130 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/">
+      Python按需生成依赖文件
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
+    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
+    <p>lightsmile</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Python</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年6月23日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：197字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果使用常规的<code>pip freeze &gt; requirements.txt</code>，会将环境中的依赖包全部都导入，一般而言这不是我们想要的结果。我们可以用<code>pipreqs</code>库按需生成项目所需的依赖文件，使用方式如下：</p>
+<pre><code class="lang-python"># 安装库
+pip install pipreqs
+# 在当前目录生成
+pipreqs . --encoding=utf8 --force
+# 安装requirements.txt依赖文件
+pip install -r requirements.txt
+</code></pre>
+<blockquote>
+<p>注意 <code>--encoding=utf8</code> 为使用utf8编码，不然可能会报UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 406: illegal multibyte sequence 的错误。<code>--force</code> 强制执行，当成目录下的<code>requirements.txt</code>存在时覆盖。</p>
+</blockquote>
+<p>如下图，便可轻松生成项目所需的requirements.txt文件了，只不过由于程序要在项目中一个文件一个文件去找，所以时间可能有点慢。。。</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Python按需生成requirements文件" alt="Python按需生成requirements.txt文件格式"></p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -938,7 +1059,7 @@
           <li><a class="flat-box"
             title="/categories/Python/" href="/categories/Python/"
             id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>Python</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"

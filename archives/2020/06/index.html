@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：浏览器插件 - lightsmile&#39;s Blog</title>
+    <title>归档：2020/6 - lightsmile&#39;s Blog</title>
   
   
 
@@ -90,7 +90,101 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 小红心 -->
   <script type="text/javascript" src="/js/clicklove.js"></script>
   
-  <div id="loading-bar-wrapper">
+  <div class="cover-wrapper">
+    
+      <cover class='cover  half'>
+        <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">lightsmile's blog</p>
+    
+    
+      <p class="subtitle">about NLP,KG,ML and so on</p>
+    
+  </div>
+  <div class='b'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+          
+            <li>
+              <a class="nav home"
+                href="/"
+                
+                
+                id="home">
+                <i class='fas fa-rss fa-fw'></i>博客
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/categories/"
+                
+                
+                id="categories">
+                <i class='fas fa-folder-open fa-fw'></i>分类
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/tags/"
+                
+                
+                id="tags">
+                <i class='fas fa-tags fa-fw'></i>标签
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/archives/"
+                
+                
+                id="archives">
+                <i class='fas fa-archive fa-fw'></i>归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/projects/"
+                
+                
+                id="projects">
+                <i class='fas fa-link fa-fw'></i>项目
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="/about/"
+                
+                
+                id="about">
+                <i class='fas fa-info-circle fa-fw'></i>关于
+              </a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </cover>
+    
+    <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -343,22 +437,19 @@
 
 <script>setLoadingBarProgress(40);</script>
 
+  </div>
 
 
-  <div class="l_body nocover">
+  <div class="l_body">
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list ">
     
       
-        
-          
         
           
         
@@ -380,8 +471,8 @@
         
           
   <h2 class="title">
-    <a href="/articles/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%B0%8F%E8%AF%95/">
-      浏览器插件小试
+    <a href="/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/">
+      Python按需生成依赖文件
     </a>
   </h2>
 
@@ -406,9 +497,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
+    <a href='/categories/Python/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
+      <p>Python</p>
     </a>
   </div>
 
@@ -419,7 +510,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2017年12月25日</p>
+    <p>发布于：2020年6月23日</p>
   </a>
 </div>
 
@@ -430,7 +521,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：169字</p>
+      <p>字数：197字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -460,128 +551,23 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>由于时间比较久远，现在浏览器插件编写的工作都已经忘记了一大半，不过之前获取的只是图片的绝对地址，用起来还是不太方便，并且比如说插件的title、description、icon等都是原来的如testMenu等比较low的，于是后来又修改了一下，包括以上的项目属性，以及目前复制到剪贴板的直接是Markdown中的图片地址格式，如<code>! [image_title] (image_absolute_path)</code>的格式，并且已经把相关的源码上传到我的GitHub上面，链接地址为：<a href="https://github.com/smilelight/GithubImagePace" target="_blank" rel="noopener">https://github.com/smilelight/GithubImagePace</a> 。</p>
+        <p>如果使用常规的<code>pip freeze &gt; requirements.txt</code>，会将环境中的依赖包全部都导入，一般而言这不是我们想要的结果。我们可以用<code>pipreqs</code>库按需生成项目所需的依赖文件，使用方式如下：</p>
+<pre><code class="lang-python"># 安装库
+pip install pipreqs
+# 在当前目录生成
+pipreqs . --encoding=utf8 --force
+# 安装requirements.txt依赖文件
+pip install -r requirements.txt
+</code></pre>
+<blockquote>
+<p>注意 <code>--encoding=utf8</code> 为使用utf8编码，不然可能会报UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 406: illegal multibyte sequence 的错误。<code>--force</code> 强制执行，当成目录下的<code>requirements.txt</code>存在时覆盖。</p>
+</blockquote>
+<p>如下图，便可轻松生成项目所需的requirements.txt文件了，只不过由于程序要在项目中一个文件一个文件去找，所以时间可能有点慢。。。</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Python按需生成requirements文件" alt="Python按需生成requirements.txt文件格式"></p>
+
       
     </div>
     
-      
-        <div class="button readmore">
-          <a href="/articles/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%B0%8F%E8%AF%95/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/">
-      关于Markdown引用图片地址的尝试
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2017年12月24日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.4k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：5分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前两天某刻突然想到学习不能只有输入，更应该有输出，有时历程和心得更需要记录下来，于是就萌发起了写博客的念头，如今写博客的平台很多，比如博客园、CSDN、简书、新浪博客，甚至知乎等等，也可以通过GitHub pages来实现，甚至于购买云服务器搭建自己的博客网站。<br>由于个人知识浅薄，并且想要拥有更高的自由度，以及一些其他因素限制，最终选择了通过GitHub pages+hexo来搭建自己的个人博客站点，借助于网上丰富详致的相关搭建博客教程终于把自己的小窝搭建起来了，吼吼！</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
       
     
   </section>
@@ -601,8 +587,7 @@
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
@@ -882,6 +867,14 @@
   <script>
     setLoadingBarProgress(80);
   </script>
+
+
+
+	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+	
+
+	
+
 
       <script>setLoadingBarProgress(60);</script>
     </div>

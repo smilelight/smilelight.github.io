@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-05-12T09:59:19.651Z</updated>
+  <updated>2020-06-23T02:33:19.048Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python按需生成依赖文件</title>
+    <link href="https://www.iamlightsmile.com/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/"/>
+    <id>https://www.iamlightsmile.com/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/</id>
+    <published>2020-06-23T02:10:52.000Z</published>
+    <updated>2020-06-23T02:33:19.048Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果使用常规的<code>pip freeze &gt; requirements.txt</code>，会将环境中的依赖包全部都导入，一般而言这不是我们想要的结果。我们可以用<code>pipreqs</code>库按需生成项目所需的依赖文件，使用方式如下：</p><pre><code class="lang-python"># 安装库pip install pipreqs# 在当前目录生成pipreqs . --encoding=utf8 --force# 安装requirements.txt依赖文件pip install -r requirements.txt</code></pre><blockquote><p>注意 <code>--encoding=utf8</code> 为使用utf8编码，不然可能会报UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 406: illegal multibyte sequence 的错误。<code>--force</code> 强制执行，当成目录下的<code>requirements.txt</code>存在时覆盖。</p></blockquote><p>如下图，便可轻松生成项目所需的requirements.txt文件了，只不过由于程序要在项目中一个文件一个文件去找，所以时间可能有点慢。。。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Python按需生成requirements文件" alt="Python按需生成requirements.txt文件格式"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;如果使用常规的&lt;code&gt;pip freeze &amp;gt; requirements.txt&lt;/code&gt;，会将环境中的依赖包全部都导入，一般而言这不是我们想要的结果。我们可以用&lt;code&gt;pipreqs&lt;/code&gt;库按需生成项目所需的依赖文件，使用方式如下：&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>一道面试算法题（动态规划）</title>
@@ -494,32 +521,6 @@
     
     
       <category term="light系列库" scheme="https://www.iamlightsmile.com/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos安装miniconda</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85miniconda/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85miniconda/</id>
-    <published>2020-01-07T08:06:09.000Z</published>
-    <updated>2020-01-18T11:10:36.754Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-下载miniconda"><a href="#1-下载miniconda" class="headerlink" title="1. 下载miniconda"></a>1. 下载miniconda</h3><pre><code class="lang-bash">cd ~ &amp;&amp; mkdir tmp &amp;&amp; cd tmpwget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh</code></pre><h3 id="2-运行miniconda安装脚本"><a href="#2-运行miniconda安装脚本" class="headerlink" title="2. 运行miniconda安装脚本"></a>2. 运行miniconda安装脚本</h3><pre><code class="lang-bash">sh Miniconda3-latest-Linux-x86_64.sh</code></pre><h3 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h3><pre><code class="lang-bash">conda -V</code></pre><p>若输出类似<code>conda 4.7.12</code>，说明安装conda环境成功。如提示：<code>zsh：command not find:conda</code>，则需要将<code>conda</code>配置到路径变量中，详情参考<a href="https://www.jianshu.com/p/13f5d20e61f8" target="_blank" rel="noopener">zsh：command not find:conda 的详细解决办法 - 简书</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h2&gt;&lt;h3 id=&quot;1-下载miniconda&quot;&gt;&lt;a href=&quot;#1-下载miniconda&quot; class=&quot;headerlink&quot; title=
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="CentOS" scheme="https://www.iamlightsmile.com/tags/CentOS/"/>
     
   </entry>
   
