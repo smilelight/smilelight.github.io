@@ -552,23 +552,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如果使用常规的<code>pip freeze &gt; requirements.txt</code>，会将环境中的依赖包全部都导入，一般而言这不是我们想要的结果。我们可以用<code>pipreqs</code>库按需生成项目所需的依赖文件，使用方式如下：</p>
-<pre><code class="lang-python"># 安装库
-pip install pipreqs
-# 在当前目录生成
-pipreqs . --encoding=utf8 --force
-# 安装requirements.txt依赖文件
-pip install -r requirements.txt
-</code></pre>
-<blockquote>
-<p>注意 <code>--encoding=utf8</code> 为使用utf8编码，不然可能会报UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 406: illegal multibyte sequence 的错误。<code>--force</code> 强制执行，当成目录下的<code>requirements.txt</code>存在时覆盖。</p>
-</blockquote>
-<p>如下图，便可轻松生成项目所需的requirements.txt文件了，只不过由于程序要在项目中一个文件一个文件去找，所以时间可能有点慢。。。</p>
-<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Python按需生成requirements文件" alt="Python按需生成requirements.txt文件格式"></p>
-<p>参考：<a href="https://www.jb51.net/article/170248.htm" target="_blank" rel="noopener">python生成requirements.txt的两种方法_python_脚本之家</a></p>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
