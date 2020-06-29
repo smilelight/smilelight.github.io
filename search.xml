@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>使用frp轻松实现内网穿透</title>
+      <link href="/articles/%E4%BD%BF%E7%94%A8frp%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+      <url>/articles/%E4%BD%BF%E7%94%A8frp%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>由于种种原因，希望可以通过外网访问自己的笔记本电脑搭建的Web服务，而这正是内网穿透所做的事情，hhh，自己之前找了关于Nginx实现反向代理的教程，发现呼呼扯一堆不是自己想要的，于是又找，终于找到了一篇写的比较详细完整的教程：<a href="https://zhuanlan.zhihu.com/p/55306067" target="_blank" rel="noopener">windows下基于frp的内网穿透部署 - 知乎</a>和理想中的工具：<a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a>。</p><a id="more"></a><h2 id="1-原理"><a href="#1-原理" class="headerlink" title="1. 原理"></a>1. 原理</h2><h3 id="1-1-frp简介"><a href="#1-1-frp简介" class="headerlink" title="1.1 frp简介"></a>1.1 frp简介</h3><p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p><h3 id="1-2-需求及原理"><a href="#1-2-需求及原理" class="headerlink" title="1.2 需求及原理"></a>1.2 需求及原理</h3><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/反向代理示意图.png" alt="反向代理示意图"></p><h2 id="2-搭建流程"><a href="#2-搭建流程" class="headerlink" title="2. 搭建流程"></a>2. 搭建流程</h2><h3 id="2-1-下载运行程序"><a href="#2-1-下载运行程序" class="headerlink" title="2.1 下载运行程序"></a>2.1 下载运行程序</h3><p>在<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">Releases · fatedier/frp</a>界面分别下载对应架构的服务端程序和客户端程序，以我的为例：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/下载frp程序.png" alt="下载frp程序"></p><p>其中标红的是需要下载的压缩程序，文件名含linux的是服务端，含windows的是客户端，因为我的腾讯云服务器上装的是Centos7，而我的笔记本则是Windows10系统。</p><p>分别将这两个文件放到服务器和笔记本的适当位置（没有要求，自己看着来）</p><h3 id="2-2-配置服务端（公网反向代理端）"><a href="#2-2-配置服务端（公网反向代理端）" class="headerlink" title="2.2 配置服务端（公网反向代理端）"></a>2.2 配置服务端（公网反向代理端）</h3><h4 id="2-2-1-修改frps-ini文件"><a href="#2-2-1-修改frps-ini文件" class="headerlink" title="2.2.1 修改frps.ini文件"></a>2.2.1 修改<code>frps.ini</code>文件</h4><p>设置 http 访问端口为 8080：</p><pre><code class="lang-ini"># frps.ini[common]bind_port = 7000vhost_http_port = 8080</code></pre><h4 id="2-2-2-启动frps"><a href="#2-2-2-启动frps" class="headerlink" title="2.2.2 启动frps"></a>2.2.2 启动frps</h4><p>在程序所在目录运行以下命令：</p><pre><code class="lang-bash">./frps -c ./frps.ini</code></pre><p>当然以上的命令是前台运行的，一退出就挂掉了，所以实际上我们需要后台执行该程序，也就是要运行以下命令：</p><pre><code class="lang-bash">nohup ./frps -c ./frps.ini &gt; frps.log 2&gt;&amp;1 &amp;</code></pre><p>这样frps程序便会在后台运行，并且会将程序输出重定向到<code>frps.log</code>文件</p><h3 id="2-3-配置客户端（内网机，实际访问端）"><a href="#2-3-配置客户端（内网机，实际访问端）" class="headerlink" title="2.3 配置客户端（内网机，实际访问端）"></a>2.3 配置客户端（内网机，实际访问端）</h3><h4 id="2-3-1-修改frpc-ini文件"><a href="#2-3-1-修改frpc-ini文件" class="headerlink" title="2.3.1 修改frpc.ini文件"></a>2.3.1 修改<code>frpc.ini</code>文件</h4><p>假设 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口, 绑定自定义域名 <code>www.yourdomain.com</code>:</p><pre><code class="lang-ini"># frpc.ini[common]server_addr = x.x.x.xserver_port = 7000[web]type = httplocal_port = 80custom_domains = www.yourdomain.com</code></pre><p>我自己的配置是：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/frpc客户端配置.png" alt="frpc客户端配置"></p><h4 id="2-3-2-启动frpc"><a href="#2-3-2-启动frpc" class="headerlink" title="2.3.2 启动frpc"></a>2.3.2 启动frpc</h4><pre><code class="lang-bash">./frpc -c ./frpc.ini</code></pre><p>以我自己的为例，则是：</p><pre><code class="lang-bash"> ./frpc.exe -c ./frpc.ini</code></pre><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Windows客户端启动frpc.png" alt="Windows客户端启动frpc"></p><h2 id="3-测试服务"><a href="#3-测试服务" class="headerlink" title="3. 测试服务"></a>3. 测试服务</h2><p>我们使用Python下的Flask环境搭建一个最简单的Web服务：</p><pre><code class="lang-python">from flask import Flaskapp = Flask(__name__)@app.route(&#39;/&#39;)def hello_world():    return &#39;Hello World!&#39;if __name__ == &#39;__main__&#39;:    app.run(port=8080)</code></pre><blockquote><p><strong>注意</strong>: 服务端口一定要对应的上</p></blockquote><p>本地与外网访问结果如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/本地测试Web服务.png" alt="本地测试Web服务"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/外网访问本地服务.png" alt="外网访问本地服务"></p><h2 id="4-参考"><a href="#4-参考" class="headerlink" title="4. 参考"></a>4. 参考</h2><ol><li><a href="https://zhuanlan.zhihu.com/p/55306067" target="_blank" rel="noopener">windows下基于frp的内网穿透部署 - 知乎</a></li><li><a href="https://github.com/fatedier/frp/blob/master/README_zh.md#%E9%80%9A%E8%BF%87%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%83%A8%E7%BD%B2%E4%BA%8E%E5%86%85%E7%BD%91%E7%9A%84-web-%E6%9C%8D%E5%8A%A1" target="_blank" rel="noopener">frp/README_zh.md at master · fatedier/frp</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> frp </tag>
+            
+            <tag> 内网穿透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给网站添加SSL认证（Nginx服务器）</title>
+      <link href="/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/"/>
+      <url>/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>自己的国内博客网站一直都是只有http访问方式，突然在看的一篇忘了讲啥的文章提到腾讯云可以免费申请SSL证书，于是自己也去操作了，没想到可能就间隔2、3个小时就申请成功了，然后按照文档进行配置就可以了。</p><a id="more"></a><p>主要参考的文档：<a href="https://cloud.tencent.com/document/product/400/35244" target="_blank" rel="noopener">SSL 证书 Nginx 服务器证书安装 - 最佳实践 - 文档中心 - 腾讯云</a></p><p>下面以自己在腾讯云注册的<code>lightsmile.cn</code>为例演示说明一下。</p><h2 id="1-配置流程"><a href="#1-配置流程" class="headerlink" title="1. 配置流程"></a>1. 配置流程</h2><h3 id="1-1-将证书下载并拷贝至服务器"><a href="#1-1-将证书下载并拷贝至服务器" class="headerlink" title="1.1 将证书下载并拷贝至服务器"></a>1.1 将证书下载并拷贝至服务器</h3><p>证书如何申请此处不表，在腾讯云的SSL证书业务界面，可以将证书相关信息以zip压缩包形式下载下来，如：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/腾讯云SSL证书.png" alt="腾讯云SSL证书"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/SSL证书压缩包内容.png" alt="SSL证书压缩包内容"></p><p>里面的Nginx目录下的就是我们需要放置到服务器的内容。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/SSL证书内容.png" alt="SSL证书内容"></p><p>放置到Nginx安装目录，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/将证书上传到服务器.png" alt="将证书上传到服务器"></p><h3 id="1-2-修改nginx-conf内容"><a href="#1-2-修改nginx-conf内容" class="headerlink" title="1.2 修改nginx.conf内容"></a>1.2 修改<code>nginx.conf</code>内容</h3><p>以我的配置为例：</p><pre><code class="lang-json">server {        listen       80 default_server;        listen       [::]:80 default_server;        server_name  www.lightsmile.cn;        #把http的域名请求转成https        return 301 https://$host$request_uri;    }# Settings for a TLS enabled server.#   server {        listen       443 ssl http2 default_server;        listen       [::]:443 ssl http2 default_server;        server_name  www.lightsmile.cn;        root         /root/data/www/hexo;        index index.html index.htm;        ssl_certificate 1_www.lightsmile.cn_bundle.crt;        ssl_certificate_key 2_www.lightsmile.cn.key;        ssl_session_timeout 5m;        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;         ssl_prefer_server_ciphers on;        ssl_session_cache shared:SSL:1m;       # Load configuration files for the default server block.       include /etc/nginx/default.d/*.conf;       location / {           index index.html index.htm;       }       error_page 404 /404.html;           location = /40x.html {       }       error_page 500 502 503 504 /50x.html;           location = /50x.html {       }   }</code></pre><p>上面的配置中，添加了HTTP 自动跳转 HTTPS 的安全配置（具体细节也可以参考上面的腾讯云文档）</p><h3 id="1-3-验证配置文件并重启Nginx"><a href="#1-3-验证配置文件并重启Nginx" class="headerlink" title="1.3 验证配置文件并重启Nginx"></a>1.3 验证配置文件并重启Nginx</h3><p>然后，验证配置文件是否有问题：</p><pre><code class="lang-bash">./nginx -t</code></pre><p>若无问题，重启Nginx即可：</p><pre><code class="lang-bash">./nginx -s reload</code></pre><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2. 参考"></a>2. 参考</h2><ol><li><a href="https://cloud.tencent.com/document/product/400/35244" target="_blank" rel="noopener">SSL 证书 Nginx 服务器证书安装 - 最佳实践 - 文档中心 - 腾讯云</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SSL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python按需生成依赖文件</title>
       <link href="/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/"/>
       <url>/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/</url>

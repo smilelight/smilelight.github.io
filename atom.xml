@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-06-23T02:51:12.758Z</updated>
+  <updated>2020-06-29T02:09:39.343Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用frp轻松实现内网穿透</title>
+    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8frp%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8frp%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</id>
+    <published>2020-06-29T02:07:07.000Z</published>
+    <updated>2020-06-29T02:09:39.343Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>由于种种原因，希望可以通过外网访问自己的笔记本电脑搭建的Web服务，而这正是内网穿透所做的事情，hhh，自己之前找了关于Nginx实现反向代理的教程，发现呼呼扯一堆不是自己想要的，于是又找，终于找到了一篇写的比较详细完整的教程：<a href="https://zhuanlan.zhihu.com/p/55306067" target="_blank" rel="noopener">windows下基于frp的内网穿透部署 - 知乎</a>和理想中的工具：<a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a>。</p><a id="more"></a><h2 id="1-原理"><a href="#1-原理" class="headerlink" title="1. 原理"></a>1. 原理</h2><h3 id="1-1-frp简介"><a href="#1-1-frp简介" class="headerlink" title="1.1 frp简介"></a>1.1 frp简介</h3><p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p><h3 id="1-2-需求及原理"><a href="#1-2-需求及原理" class="headerlink" title="1.2 需求及原理"></a>1.2 需求及原理</h3><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/反向代理示意图.png" alt="反向代理示意图"></p><h2 id="2-搭建流程"><a href="#2-搭建流程" class="headerlink" title="2. 搭建流程"></a>2. 搭建流程</h2><h3 id="2-1-下载运行程序"><a href="#2-1-下载运行程序" class="headerlink" title="2.1 下载运行程序"></a>2.1 下载运行程序</h3><p>在<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">Releases · fatedier/frp</a>界面分别下载对应架构的服务端程序和客户端程序，以我的为例：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/下载frp程序.png" alt="下载frp程序"></p><p>其中标红的是需要下载的压缩程序，文件名含linux的是服务端，含windows的是客户端，因为我的腾讯云服务器上装的是Centos7，而我的笔记本则是Windows10系统。</p><p>分别将这两个文件放到服务器和笔记本的适当位置（没有要求，自己看着来）</p><h3 id="2-2-配置服务端（公网反向代理端）"><a href="#2-2-配置服务端（公网反向代理端）" class="headerlink" title="2.2 配置服务端（公网反向代理端）"></a>2.2 配置服务端（公网反向代理端）</h3><h4 id="2-2-1-修改frps-ini文件"><a href="#2-2-1-修改frps-ini文件" class="headerlink" title="2.2.1 修改frps.ini文件"></a>2.2.1 修改<code>frps.ini</code>文件</h4><p>设置 http 访问端口为 8080：</p><pre><code class="lang-ini"># frps.ini[common]bind_port = 7000vhost_http_port = 8080</code></pre><h4 id="2-2-2-启动frps"><a href="#2-2-2-启动frps" class="headerlink" title="2.2.2 启动frps"></a>2.2.2 启动frps</h4><p>在程序所在目录运行以下命令：</p><pre><code class="lang-bash">./frps -c ./frps.ini</code></pre><p>当然以上的命令是前台运行的，一退出就挂掉了，所以实际上我们需要后台执行该程序，也就是要运行以下命令：</p><pre><code class="lang-bash">nohup ./frps -c ./frps.ini &gt; frps.log 2&gt;&amp;1 &amp;</code></pre><p>这样frps程序便会在后台运行，并且会将程序输出重定向到<code>frps.log</code>文件</p><h3 id="2-3-配置客户端（内网机，实际访问端）"><a href="#2-3-配置客户端（内网机，实际访问端）" class="headerlink" title="2.3 配置客户端（内网机，实际访问端）"></a>2.3 配置客户端（内网机，实际访问端）</h3><h4 id="2-3-1-修改frpc-ini文件"><a href="#2-3-1-修改frpc-ini文件" class="headerlink" title="2.3.1 修改frpc.ini文件"></a>2.3.1 修改<code>frpc.ini</code>文件</h4><p>假设 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口, 绑定自定义域名 <code>www.yourdomain.com</code>:</p><pre><code class="lang-ini"># frpc.ini[common]server_addr = x.x.x.xserver_port = 7000[web]type = httplocal_port = 80custom_domains = www.yourdomain.com</code></pre><p>我自己的配置是：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/frpc客户端配置.png" alt="frpc客户端配置"></p><h4 id="2-3-2-启动frpc"><a href="#2-3-2-启动frpc" class="headerlink" title="2.3.2 启动frpc"></a>2.3.2 启动frpc</h4><pre><code class="lang-bash">./frpc -c ./frpc.ini</code></pre><p>以我自己的为例，则是：</p><pre><code class="lang-bash"> ./frpc.exe -c ./frpc.ini</code></pre><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Windows客户端启动frpc.png" alt="Windows客户端启动frpc"></p><h2 id="3-测试服务"><a href="#3-测试服务" class="headerlink" title="3. 测试服务"></a>3. 测试服务</h2><p>我们使用Python下的Flask环境搭建一个最简单的Web服务：</p><pre><code class="lang-python">from flask import Flaskapp = Flask(__name__)@app.route(&#39;/&#39;)def hello_world():    return &#39;Hello World!&#39;if __name__ == &#39;__main__&#39;:    app.run(port=8080)</code></pre><blockquote><p><strong>注意</strong>: 服务端口一定要对应的上</p></blockquote><p>本地与外网访问结果如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/本地测试Web服务.png" alt="本地测试Web服务"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/外网访问本地服务.png" alt="外网访问本地服务"></p><h2 id="4-参考"><a href="#4-参考" class="headerlink" title="4. 参考"></a>4. 参考</h2><ol><li><a href="https://zhuanlan.zhihu.com/p/55306067" target="_blank" rel="noopener">windows下基于frp的内网穿透部署 - 知乎</a></li><li><a href="https://github.com/fatedier/frp/blob/master/README_zh.md#%E9%80%9A%E8%BF%87%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%83%A8%E7%BD%B2%E4%BA%8E%E5%86%85%E7%BD%91%E7%9A%84-web-%E6%9C%8D%E5%8A%A1" target="_blank" rel="noopener">frp/README_zh.md at master · fatedier/frp</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0. 前言&quot;&gt;&lt;/a&gt;0. 前言&lt;/h2&gt;&lt;p&gt;由于种种原因，希望可以通过外网访问自己的笔记本电脑搭建的Web服务，而这正是内网穿透所做的事情，hhh，自己之前找了关于Nginx实现反向代理的教程，发现呼呼扯一堆不是自己想要的，于是又找，终于找到了一篇写的比较详细完整的教程：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/55306067&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;windows下基于frp的内网穿透部署 - 知乎&lt;/a&gt;和理想中的工具：&lt;a href=&quot;https://github.com/fatedier/frp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;frp&lt;/a&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="frp" scheme="https://www.iamlightsmile.com/tags/frp/"/>
+    
+      <category term="内网穿透" scheme="https://www.iamlightsmile.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给网站添加SSL认证（Nginx服务器）</title>
+    <link href="https://www.iamlightsmile.com/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/"/>
+    <id>https://www.iamlightsmile.com/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/</id>
+    <published>2020-06-29T02:04:29.000Z</published>
+    <updated>2020-06-29T02:06:42.700Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>自己的国内博客网站一直都是只有http访问方式，突然在看的一篇忘了讲啥的文章提到腾讯云可以免费申请SSL证书，于是自己也去操作了，没想到可能就间隔2、3个小时就申请成功了，然后按照文档进行配置就可以了。</p><a id="more"></a><p>主要参考的文档：<a href="https://cloud.tencent.com/document/product/400/35244" target="_blank" rel="noopener">SSL 证书 Nginx 服务器证书安装 - 最佳实践 - 文档中心 - 腾讯云</a></p><p>下面以自己在腾讯云注册的<code>lightsmile.cn</code>为例演示说明一下。</p><h2 id="1-配置流程"><a href="#1-配置流程" class="headerlink" title="1. 配置流程"></a>1. 配置流程</h2><h3 id="1-1-将证书下载并拷贝至服务器"><a href="#1-1-将证书下载并拷贝至服务器" class="headerlink" title="1.1 将证书下载并拷贝至服务器"></a>1.1 将证书下载并拷贝至服务器</h3><p>证书如何申请此处不表，在腾讯云的SSL证书业务界面，可以将证书相关信息以zip压缩包形式下载下来，如：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/腾讯云SSL证书.png" alt="腾讯云SSL证书"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/SSL证书压缩包内容.png" alt="SSL证书压缩包内容"></p><p>里面的Nginx目录下的就是我们需要放置到服务器的内容。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/SSL证书内容.png" alt="SSL证书内容"></p><p>放置到Nginx安装目录，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/将证书上传到服务器.png" alt="将证书上传到服务器"></p><h3 id="1-2-修改nginx-conf内容"><a href="#1-2-修改nginx-conf内容" class="headerlink" title="1.2 修改nginx.conf内容"></a>1.2 修改<code>nginx.conf</code>内容</h3><p>以我的配置为例：</p><pre><code class="lang-json">server {        listen       80 default_server;        listen       [::]:80 default_server;        server_name  www.lightsmile.cn;        #把http的域名请求转成https        return 301 https://$host$request_uri;    }# Settings for a TLS enabled server.#   server {        listen       443 ssl http2 default_server;        listen       [::]:443 ssl http2 default_server;        server_name  www.lightsmile.cn;        root         /root/data/www/hexo;        index index.html index.htm;        ssl_certificate 1_www.lightsmile.cn_bundle.crt;        ssl_certificate_key 2_www.lightsmile.cn.key;        ssl_session_timeout 5m;        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;         ssl_prefer_server_ciphers on;        ssl_session_cache shared:SSL:1m;       # Load configuration files for the default server block.       include /etc/nginx/default.d/*.conf;       location / {           index index.html index.htm;       }       error_page 404 /404.html;           location = /40x.html {       }       error_page 500 502 503 504 /50x.html;           location = /50x.html {       }   }</code></pre><p>上面的配置中，添加了HTTP 自动跳转 HTTPS 的安全配置（具体细节也可以参考上面的腾讯云文档）</p><h3 id="1-3-验证配置文件并重启Nginx"><a href="#1-3-验证配置文件并重启Nginx" class="headerlink" title="1.3 验证配置文件并重启Nginx"></a>1.3 验证配置文件并重启Nginx</h3><p>然后，验证配置文件是否有问题：</p><pre><code class="lang-bash">./nginx -t</code></pre><p>若无问题，重启Nginx即可：</p><pre><code class="lang-bash">./nginx -s reload</code></pre><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2. 参考"></a>2. 参考</h2><ol><li><a href="https://cloud.tencent.com/document/product/400/35244" target="_blank" rel="noopener">SSL 证书 Nginx 服务器证书安装 - 最佳实践 - 文档中心 - 腾讯云</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0. 前言&quot;&gt;&lt;/a&gt;0. 前言&lt;/h2&gt;&lt;p&gt;自己的国内博客网站一直都是只有http访问方式，突然在看的一篇忘了讲啥的文章提到腾讯云可以免费申请SSL证书，于是自己也去操作了，没想到可能就间隔2、3个小时就申请成功了，然后按照文档进行配置就可以了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="SSL" scheme="https://www.iamlightsmile.com/tags/SSL/"/>
+    
+  </entry>
   
   <entry>
     <title>Python按需生成依赖文件</title>
@@ -456,67 +504,6 @@
     
     
       <category term="国士无双" scheme="https://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>本博客分类详情</title>
-    <link href="https://www.iamlightsmile.com/articles/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%88%86%E7%B1%BB%E8%AF%A6%E6%83%85/"/>
-    <id>https://www.iamlightsmile.com/articles/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%88%86%E7%B1%BB%E8%AF%A6%E6%83%85/</id>
-    <published>2020-01-18T11:59:45.000Z</published>
-    <updated>2020-01-18T12:01:33.167Z</updated>
-    
-    <content type="html"><![CDATA[<p>本博客暂定分类如下：</p><ol><li>Linux</li><li>NLP</li><li>知识图谱</li><li>Python</li><li>深度学习</li><li>计算机</li><li>随念</li><li>其他</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本博客暂定分类如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Linux&lt;/li&gt;
-&lt;li&gt;NLP&lt;/li&gt;
-&lt;li&gt;知识图谱&lt;/li&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;深度学习&lt;/li&gt;
-&lt;li&gt;计算机&lt;/li&gt;
-&lt;li&gt;随念&lt;/li&gt;
-&lt;li&gt;其他&lt;/li&gt;
-&lt;/ol&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="blog" scheme="https://www.iamlightsmile.com/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>light系列库设想架构</title>
-    <link href="https://www.iamlightsmile.com/articles/light%E7%B3%BB%E5%88%97%E5%BA%93%E8%AE%BE%E6%83%B3%E6%9E%B6%E6%9E%84/"/>
-    <id>https://www.iamlightsmile.com/articles/light%E7%B3%BB%E5%88%97%E5%BA%93%E8%AE%BE%E6%83%B3%E6%9E%B6%E6%9E%84/</id>
-    <published>2020-01-08T12:22:20.000Z</published>
-    <updated>2020-01-31T13:58:00.673Z</updated>
-    
-    <content type="html"><![CDATA[<p>自己开发或整合的一系列light库之间的架构组织关系如图所示：</p><p><img src="https://s2.ax1x.com/2020/01/08/l2Tfne.png" alt="l2Tfne.png"></p><a id="more"></a><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p>如上图所示，整个light系列库之间的组织架构共分为：</p><ul><li>工具层<ul><li>lightSpider</li><li>lightUtils</li><li>lightDict</li><li>其他light库</li><li>其他工具库</li></ul></li><li>算法层<ul><li>lightNLP</li><li>lightKG</li><li>通用神经网络模型算法</li><li>其他NLP框架</li><li>其他KG框架</li></ul></li><li>业务层<ul><li>lightText</li><li>lightKB</li><li>其他相关业务</li></ul></li><li>界面层<ul><li>浏览器前端</li></ul></li></ul><p>整个架构的中心都是围绕着自然语言处理和知识图谱两个大的方向。目的是搭一个比较通用的架子，然后可以在上面展开一些尝试性、探索性的实验和业务，根本上是作为自己想法的舞台。</p><h2 id="工具层"><a href="#工具层" class="headerlink" title="工具层"></a>工具层</h2><p>工具层包括<a href="https://github.com/smilelight/lightSpider" target="_blank" rel="noopener"><code>lightSpider</code></a>、<a href="https://github.com/smilelight/lightUtils" target="_blank" rel="noopener"><code>lightUtils</code></a>、<a href="https://github.com/smilelight/lightDict" target="_blank" rel="noopener"><code>lightDict</code></a>、其他light库以及其他工具库（如NLTK）。</p><p>其中<a href="https://github.com/smilelight/lightSpider" target="_blank" rel="noopener"><code>lightSpider</code></a>是用来获取网上的知识（以网上各网站的公开语料）。<a href="https://github.com/smilelight/lightUtils" target="_blank" rel="noopener"><code>lightUtils</code></a>则是一些较通用的工具类库，包含了比如说日志打印、获取系统可用tcp端口等功能。<a href="https://github.com/smilelight/lightDict" target="_blank" rel="noopener"><code>lightDict</code></a>则包含了一些在网上搜集到的中文的字典词典资料，并且构建了一个lib以方便使用。其他light库则视以后需求增加。</p><h2 id="算法层"><a href="#算法层" class="headerlink" title="算法层"></a>算法层</h2><p>算法层包括<a href="https://github.com/smilelight/lightNLP" target="_blank" rel="noopener"><code>lightNLP</code></a>、<a href="https://github.com/smilelight/lightKG" target="_blank" rel="noopener"><code>lightKG</code></a>、其他NLP框架（比如说<a href="https://github.com/fastnlp/fastNLP" target="_blank" rel="noopener"><code>fastNLP</code></a>）、其他KG框架（比如说<a href="https://github.com/thunlp/OpenNRE" target="_blank" rel="noopener"><code>OpenNRE</code></a>）以及其他通用神经网络模型算法，包括但不限于强化学习、对抗学习、终生学习等。</p><h2 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h2><p>业务层构建于算法层之上包括各种知识图谱任务和自然语言处理技术，比如关键词抽取、文本摘要、文本分类、命名实体识别、信息抽取、文本生成、实体链接、本体分类与构建、知识存储等功能，会用到各种算法知识和技术，包括基于深度学习的、基于机器学习的、基于规则的，基于监督学习的、基于弱监督学习的、基于无监督学习的等等。</p><h2 id="界面层（用户层）"><a href="#界面层（用户层）" class="headerlink" title="界面层（用户层）"></a>界面层（用户层）</h2><p>用户层则主要考虑采用Vue+Flask等技术，在可视化方面主要采用2D层面，但在一些本体与事件展示时更倾向于使用3D效果。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;自己开发或整合的一系列light库之间的架构组织关系如图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/01/08/l2Tfne.png&quot; alt=&quot;l2Tfne.png&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="NLP" scheme="https://www.iamlightsmile.com/categories/NLP/"/>
-    
-    
-      <category term="light系列库" scheme="https://www.iamlightsmile.com/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/"/>
     
   </entry>
   
