@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>VMware中挂载共享文件夹</title>
+      <link href="/articles/VMware%E4%B8%AD%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+      <url>/articles/VMware%E4%B8%AD%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>现在自己开发主要用Windows系统，但是还是要去Linux系统去测试一下是否能跑通，目前公司的配置实在一言难尽，只能自己在笔记本里搞虚拟机。</p><p>由于涉及到文件共享，所以需要挂载共享文件夹，本来说已经在设置界面设置了，但是没想到只在第一次有效，之后就再也不行了。</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vmware共享文件夹设置.png" alt="vmware共享文件夹设置"></p><h2 id="1-过程"><a href="#1-过程" class="headerlink" title="1.过程"></a>1.过程</h2><p>在网上搜索相关教程之后发现由于时效问题系统更迭也不管用，不过最终还是在VMware官网即<a href="https://docs.vmware.com/cn/VMware-Workstation-Pro/15.0/com.vmware.ws.using.doc/GUID-AB5C80FE-9B8A-4899-8186-3DB8201B1758.html" target="_blank" rel="noopener">在 Linux 客户机中装载共享文件夹</a>找到了合适的指令。</p><p>即：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/VMware官方装载共享文件夹指令.png" alt="VMware官方装载共享文件夹指令"></p><p>之后在Linux虚拟系统中执行的指令操作如下：</p><pre><code class="lang-bash">➜  ~ vmware-hgfsclientfromHost➜  ~ uname -aLinux ubuntu 5.4.0-40-generic #44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux➜  ~ vmhgfs-fuse .host:/ /home/lightsmile/Shares -o subtype=vmhgfs-fuse,allow_otherfusermount: option allow_other only allowed if &#39;user_allow_other&#39; is set in /etc/fuse.conf➜  ~ nano /etc/fuse.conf➜  ~ sudo nano /etc/fuse.conf➜  ~ vmhgfs-fuse .host:/ /home/lightsmile/Shares -o subtype=vmhgfs-fuse,allow_other➜  ~ lsDesktop    Downloads   Music     Public  snap      TemplatesDocuments  miniconda3  Pictures  Shares  Software  Videos➜  ~ ls SharesfromHost</code></pre><p>其间提示要修改<code>/etc/fuse.conf</code>文件，即把那一行注释去掉，如图：</p><p>!edit_fuse_file<a href="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/edit_fuse_file.png" target="_blank" rel="noopener"></a></p><p>然后便可以重新访问共享的文件夹了，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Linux访问共享文件夹.png" alt="Linux访问共享文件夹"></p><h2 id="3-设置全局永久生效"><a href="#3-设置全局永久生效" class="headerlink" title="3.设置全局永久生效"></a>3.设置全局永久生效</h2><p>为了可以使得该设置一直生效，而不是每次开机后重启，我们可以将那一行命令放入<code>.bashrc</code>或者<code>.zshrc</code>中，但是我这里为了使得全局生效，所以在<code>/etc/profile.d</code>文件夹下新建了一个脚本名为<code>set_share_file.sh</code>，并设置里面的内容为：</p><pre><code class="lang-sh">vmhgfs-fuse .host:/ /home/lightsmile/Shares -o subtype=vmhgfs-fuse,allow_other</code></pre><p>然后就可以啦。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows走终端代理</title>
       <link href="/articles/Windows%E8%B5%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/"/>
       <url>/articles/Windows%E8%B5%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/</url>

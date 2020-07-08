@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-06-29T08:27:56.062Z</updated>
+  <updated>2020-07-08T07:12:33.380Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VMware中挂载共享文件夹</title>
+    <link href="https://www.iamlightsmile.com/articles/VMware%E4%B8%AD%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
+    <id>https://www.iamlightsmile.com/articles/VMware%E4%B8%AD%E6%8C%82%E8%BD%BD%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9/</id>
+    <published>2020-07-08T06:39:26.000Z</published>
+    <updated>2020-07-08T07:12:33.380Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>现在自己开发主要用Windows系统，但是还是要去Linux系统去测试一下是否能跑通，目前公司的配置实在一言难尽，只能自己在笔记本里搞虚拟机。</p><p>由于涉及到文件共享，所以需要挂载共享文件夹，本来说已经在设置界面设置了，但是没想到只在第一次有效，之后就再也不行了。</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vmware共享文件夹设置.png" alt="vmware共享文件夹设置"></p><h2 id="1-过程"><a href="#1-过程" class="headerlink" title="1.过程"></a>1.过程</h2><p>在网上搜索相关教程之后发现由于时效问题系统更迭也不管用，不过最终还是在VMware官网即<a href="https://docs.vmware.com/cn/VMware-Workstation-Pro/15.0/com.vmware.ws.using.doc/GUID-AB5C80FE-9B8A-4899-8186-3DB8201B1758.html" target="_blank" rel="noopener">在 Linux 客户机中装载共享文件夹</a>找到了合适的指令。</p><p>即：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/VMware官方装载共享文件夹指令.png" alt="VMware官方装载共享文件夹指令"></p><p>之后在Linux虚拟系统中执行的指令操作如下：</p><pre><code class="lang-bash">➜  ~ vmware-hgfsclientfromHost➜  ~ uname -aLinux ubuntu 5.4.0-40-generic #44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux➜  ~ vmhgfs-fuse .host:/ /home/lightsmile/Shares -o subtype=vmhgfs-fuse,allow_otherfusermount: option allow_other only allowed if &#39;user_allow_other&#39; is set in /etc/fuse.conf➜  ~ nano /etc/fuse.conf➜  ~ sudo nano /etc/fuse.conf➜  ~ vmhgfs-fuse .host:/ /home/lightsmile/Shares -o subtype=vmhgfs-fuse,allow_other➜  ~ lsDesktop    Downloads   Music     Public  snap      TemplatesDocuments  miniconda3  Pictures  Shares  Software  Videos➜  ~ ls SharesfromHost</code></pre><p>其间提示要修改<code>/etc/fuse.conf</code>文件，即把那一行注释去掉，如图：</p><p>!edit_fuse_file<a href="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/edit_fuse_file.png" target="_blank" rel="noopener"></a></p><p>然后便可以重新访问共享的文件夹了，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Linux访问共享文件夹.png" alt="Linux访问共享文件夹"></p><h2 id="3-设置全局永久生效"><a href="#3-设置全局永久生效" class="headerlink" title="3.设置全局永久生效"></a>3.设置全局永久生效</h2><p>为了可以使得该设置一直生效，而不是每次开机后重启，我们可以将那一行命令放入<code>.bashrc</code>或者<code>.zshrc</code>中，但是我这里为了使得全局生效，所以在<code>/etc/profile.d</code>文件夹下新建了一个脚本名为<code>set_share_file.sh</code>，并设置里面的内容为：</p><pre><code class="lang-sh">vmhgfs-fuse .host:/ /home/lightsmile/Shares -o subtype=vmhgfs-fuse,allow_other</code></pre><p>然后就可以啦。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;现在自己开发主要用Windows系统，但是还是要去Linux系统去测试一下是否能跑通，目前公司的配置实在一言难尽，只能自己在笔记本里搞虚拟机。&lt;/p&gt;
+&lt;p&gt;由于涉及到文件共享，所以需要挂载共享文件夹，本来说已经在设置界面设置了，但是没想到只在第一次有效，之后就再也不行了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="VMware" scheme="https://www.iamlightsmile.com/tags/VMware/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows走终端代理</title>
@@ -465,29 +489,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;人物简介&quot;&gt;&lt;a href=&quot;#人物简介&quot; class=&quot;headerlink&quot; title=&quot;人物简介&quot;&gt;&lt;/a&gt;人物简介&lt;/h2&gt;&lt;p&gt;黄旭华，1924年2月24日出生于广东省汕尾市海丰县田墘镇，中国核潜艇之父，原籍广东省揭阳市揭东区玉湖镇新寮村，交通大学1949届校友，中船重工集团公司719研究所研究员、名誉所长，中国第一代攻击型核潜艇和战略导弹核潜艇总设计师。开拓了中国核潜艇的研制领域， 1994年当选为中国工程院院士。湖北省科协荣誉委员，曾任前中国船舶工业总公司719研究所副总工程师、副所长、所长兼代理党委书记、以及核潜艇工程副总设计师、总设计师、研究员、高级工程师等职。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="国士无双" scheme="https://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《国士无双-于敏》</title>
-    <link href="https://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E4%BA%8E%E6%95%8F%E3%80%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E4%BA%8E%E6%95%8F%E3%80%8B/</id>
-    <published>2020-01-22T08:17:11.000Z</published>
-    <updated>2020-01-26T13:37:40.172Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="人物简介"><a href="#人物简介" class="headerlink" title="人物简介"></a>人物简介</h2><p>于敏（1926年8月16日—2019年1月16日），出生于河北省宁河县（今天津市宁河区）芦台镇，核物理学家，国家最高科技奖获得者。</p><a id="more"></a><p>1949年毕业于北京大学物理系。1980年当选为中国科学院学部委员（院士）。 原中国工程物理研究院副院长、研究员、高级科学顾问。</p><p>在中国氢弹原理突破中解决了一系列基础问题，提出了从原理到构形基本完整的设想，起了关键作用。此后长期领导核武器理论研究、设计，解决了大量理论问题。对中国核武器进一步发展到国际先进水平作出了重要贡献。从20世纪70年代起，在倡导、推动若干高科技项目研究中，发挥了重要作用。 1982年获国家自然科学奖一等奖。1985年、1987年和1989年三次获国家科技进步奖特等奖。1994年获求是基金杰出科学家奖。1999年被国家授予“两弹一星”功勋奖章。1985年荣获“五一劳动奖章”。1987年获“全国劳动模范”称号。2015年获2014年度国家最高科技奖。2018年12月18日，党中央、国务院授予于敏同志改革先锋称号，颁授改革先锋奖章，并获评“国防科技事业改革发展的重要推动者”。2019年1月16日，于敏在北京逝世，享年93岁。2019年9月17日，国家主席习近平签署主席令，授予于敏“共和国勋章”。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://baike.baidu.com/item/%E4%BA%8E%E6%95%8F/22358" target="_blank" rel="noopener">于敏（中国“氢弹之父”）_百度百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;人物简介&quot;&gt;&lt;a href=&quot;#人物简介&quot; class=&quot;headerlink&quot; title=&quot;人物简介&quot;&gt;&lt;/a&gt;人物简介&lt;/h2&gt;&lt;p&gt;于敏（1926年8月16日—2019年1月16日），出生于河北省宁河县（今天津市宁河区）芦台镇，核物理学家，国家最高科技奖获得者。&lt;/p&gt;
     
     </summary>
     
