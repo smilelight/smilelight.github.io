@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-07-31T06:15:31.567Z</updated>
+  <updated>2020-08-16T03:04:25.316Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用nginx搭建简单文件服务器</title>
+    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <published>2020-08-16T02:24:31.000Z</published>
+    <updated>2020-08-16T03:04:25.316Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>我们有多种通过网络给别人发送文件的方式，包括QQ文件分享、微信文件分享、网盘链接分享、邮件附件分享、文件服务器URL链接等。</p><a id="more"></a><p>其中QQ文件分享和微信文件分享的前提是双方互加了好友，而在给陌生人分享文件的场景下这种方式自然不太适用了。</p><p>而网盘链接分享则需要先将文件上传到百度云网盘等各类网盘工具中，其中百度云网盘毕竟大厂保证但是速度偏慢，而其他的网盘或许没过几天就倒闭了。</p><p>通过邮件附件的方式比较方便，但是针对的仅是一对一的场景，虽然也可以通过转发或同时抄送多人的方式实现一对多，但当涉及到文件更新的时候，还需要再次发送邮件，也比较麻烦。</p><p>而至于文件服务器URL链接，主要包括自行搭建和通过第三方网站转存两种方式，具体比如说Linux系统镜像源和Pip源网站等。</p><p>近来涉及到在Github上和某库开发者分享测试文件，之前通过邮件附件方式，之后又需要分享，感觉不够方便，正好自己有在腾讯云上购买云服务器，所以就计划用nginx自己搭一下文件服务器啦。</p><h2 id="1-搭建流程"><a href="#1-搭建流程" class="headerlink" title="1. 搭建流程"></a>1. 搭建流程</h2><h3 id="1-1-安装Nginx"><a href="#1-1-安装Nginx" class="headerlink" title="1.1 安装Nginx"></a>1.1 安装Nginx</h3><p>略</p><h3 id="1-2-添加配置信息"><a href="#1-2-添加配置信息" class="headerlink" title="1.2 添加配置信息"></a>1.2 添加配置信息</h3><p>在nginx的配置文件中，视自己情况添加如下信息，以我自己的为例：</p><pre><code class="lang-conf">server {    client_max_body_size 4G;    listen  5666; # 选择绑定的端口    server_name  www.lightsmile.cn;    root /root/data/share; # 想要分享的文件路径    charset utf-8; # 中文名文件不乱码    # auth_basic &quot;Restricted&quot;; # 增加密码授权    # auth_basic_user_file /etc/nginx/pass_file; # 密码路径    location / {        autoindex on; # 显示索引        autoindex_exact_size on; # 显示大小        autoindex_localtime on;   # 显示时间    }}</code></pre><h3 id="1-3-设置访问验证"><a href="#1-3-设置访问验证" class="headerlink" title="1.3 设置访问验证"></a>1.3 设置访问验证</h3><p>略，自己这里尝试了不过失败了，一直循环提示输入密码，虽然输入的是对的，所以就不献丑了。</p><h3 id="1-4-重启nginx"><a href="#1-4-重启nginx" class="headerlink" title="1.4 重启nginx"></a>1.4 重启nginx</h3><pre><code class="lang-bash">nginx -s reload</code></pre><h3 id="1-5-查看效果"><a href="#1-5-查看效果" class="headerlink" title="1.5 查看效果"></a>1.5 查看效果</h3><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/nginx文件服务器效果.png" alt="外网访问效果"></p><p>其中服务器中相应的文件信息：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/nginx文件服务器本地文件.png" alt="文件服务器本地文件"></p><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2. 参考"></a>2. 参考</h2><ol><li><a href="https://www.jianshu.com/p/95602720e7c8" target="_blank" rel="noopener">利用nginx搭建小型的文件服务器 - 简书</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0. 前言&quot;&gt;&lt;/a&gt;0. 前言&lt;/h2&gt;&lt;p&gt;我们有多种通过网络给别人发送文件的方式，包括QQ文件分享、微信文件分享、网盘链接分享、邮件附件分享、文件服务器URL链接等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="nginx" scheme="https://www.iamlightsmile.com/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>科学上网简单汇总</title>
@@ -477,30 +500,6 @@
       <category term="NLP" scheme="https://www.iamlightsmile.com/tags/NLP/"/>
     
       <category term="新词发现" scheme="https://www.iamlightsmile.com/tags/%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《国士无双-林俊德》</title>
-    <link href="https://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E6%9E%97%E4%BF%8A%E5%BE%B7%E3%80%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/%E3%80%8A%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C-%E6%9E%97%E4%BF%8A%E5%BE%B7%E3%80%8B/</id>
-    <published>2020-01-22T08:33:56.000Z</published>
-    <updated>2020-01-26T13:38:15.976Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="人物简介"><a href="#人物简介" class="headerlink" title="人物简介"></a>人物简介</h2><p>林俊德（1938年3月13日—2012年5月31日），男，福建永春人，中国爆炸力学与核试验工程领域著名专家、总装备部某试验训练基地研究员，1960年毕业于浙江大学机械系，1993年晋升为少将军衔，2001年当选为中国工程院院士。2018年，经中央军委批准，增加“献身国防科技事业杰出科学家”林俊德为全军挂像英模。</p><p>2019年9月25日，入选“最美奋斗者”个人名单。</p><a id="more"></a><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://baike.baidu.com/item/%E6%9E%97%E4%BF%8A%E5%BE%B7/5202612" target="_blank" rel="noopener">林俊德（中国工程院院士）_百度百科</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;人物简介&quot;&gt;&lt;a href=&quot;#人物简介&quot; class=&quot;headerlink&quot; title=&quot;人物简介&quot;&gt;&lt;/a&gt;人物简介&lt;/h2&gt;&lt;p&gt;林俊德（1938年3月13日—2012年5月31日），男，福建永春人，中国爆炸力学与核试验工程领域著名专家、总装备部某试验训练基地研究员，1960年毕业于浙江大学机械系，1993年晋升为少将军衔，2001年当选为中国工程院院士。2018年，经中央军委批准，增加“献身国防科技事业杰出科学家”林俊德为全军挂像英模。&lt;/p&gt;
-&lt;p&gt;2019年9月25日，入选“最美奋斗者”个人名单。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="国士无双" scheme="https://www.iamlightsmile.com/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/"/>
     
   </entry>
   
