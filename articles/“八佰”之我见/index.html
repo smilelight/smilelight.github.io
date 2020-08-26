@@ -16,12 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>关于Markdown引用图片地址的尝试 - lightsmile&#39;s Blog</title>
+    <title>“八佰”之我见 - lightsmile&#39;s Blog</title>
   
-    <meta name="keywords" content="markdown,浏览器插件,github">
+    <meta name="keywords" content="杂谈">
   
   
-    <meta name="description" content="前两天某刻突然想到学习不能只有输入，更应该有输出，有时历程和心得更需要记录下来，于是就萌发起了写博客的念头，如今写博客的平台很多，比如博客园、CSDN、简书、新浪博客，甚至知乎等等，也可以通过GitHub pages来实现，甚至于购买云服务器搭建自己的博客网站。由于个人知识浅薄，并且想要拥有更高的自由度，以及一些...">
+    <meta name="description" content="最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。">
   
 
   <!-- feed -->
@@ -367,8 +367,8 @@
         
           
   <h1 class="title">
-    <a href="/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/">
-      关于Markdown引用图片地址的尝试
+    <a href="/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/">
+      “八佰”之我见
     </a>
   </h1>
 
@@ -393,9 +393,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
+    <a href='/categories/%E9%9A%8F%E5%BF%B5/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
+      <p>随念</p>
     </a>
   </div>
 
@@ -407,13 +407,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.4k字</p>
+      <p>字数：2.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：5分钟</p>
+      <p>时长：7分钟</p>
     </a>
   </div>
 
@@ -424,7 +424,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2017年12月24日</p>
+    <p>发布于：2020年8月25日</p>
   </a>
 </div>
 
@@ -447,51 +447,26 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>前两天某刻突然想到学习不能只有输入，更应该有输出，有时历程和心得更需要记录下来，于是就萌发起了写博客的念头，如今写博客的平台很多，比如博客园、CSDN、简书、新浪博客，甚至知乎等等，也可以通过GitHub pages来实现，甚至于购买云服务器搭建自己的博客网站。<br>由于个人知识浅薄，并且想要拥有更高的自由度，以及一些其他因素限制，最终选择了通过GitHub pages+hexo来搭建自己的个人博客站点，借助于网上丰富详致的相关搭建博客教程终于把自己的小窝搭建起来了，吼吼！</p>
+          <p>最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。</p>
 <a id="more"></a>
-<p>随后学习一些Markdown的语法发现这个图片的链接还真是一个问题，网上搜索的结果主要是通过七牛云啥的云图网站来实现的，然而一方面可能有数据量的限制，另外还要注册一些信息啥的，好屌麻烦，于是就想能不能直接通过GitHub仓库来实现呢？<br>经过简单的分析之后，发现这个是可以实现的：</p>
-<ol>
-<li>首先在GitHub上新建自己的图片仓库，以后的图片都可以放到这个里面。</li>
-</ol>
-<p><img src="https://github.com/smilelight/images/raw/master/my_images_repository.png" alt="我的图片仓库"></p>
-<ol>
-<li>随后可以把仓库克隆到本地计算机文件系统中，需要添加图片时，可以通过创建相关文件夹，然后在里面放入需要链接的图片。</li>
-</ol>
-<p><img src="https://github.com/smilelight/images/raw/master/local_images_repository.png" alt="本地图片仓库"></p>
-<ol>
-<li>通过Git命令实现仓库的提交。</li>
-</ol>
-<pre><code class="lang-bash">git add .
-git commit -m &quot;change the images&quot;
-git push
-</code></pre>
-<ol>
-<li>通过对应GitHub上图片资源绝对地址的引用实现自己Markdown文章图片的引用工作。 </li>
-</ol>
-<p><img src="https://github.com/smilelight/images/raw/master/use_images_in_markdown.png" alt="引用图片"></p>
-<p>在实际应用中，以上第1步只需要做一次，而每次需要在Markdown文章引用图片时，都需要做第4步，同时视是否需要引入新的图片可能也需要2、3步的工作。</p>
-<p>在具体实现的过程中，发现第3步和第四步存在着一些问题和待优化之处。<br>如第3步的提交过程中，可以通过浏览器的GitHub仓库页面实现添加，也可以通过本地的Git命令调用，本地的Git命令调用也可分为图形式的命令调用和shell下的命令句调用，以上无论哪种操作，都比较繁琐，这是绝对不行的。</p>
-<p>由于通过Git命令的操作主要就是:</p>
-<pre><code class="lang-bash">git add .
-git commit -m &quot;change the images&quot;
-git push
-</code></pre>
-<p>这三步，所以很容易可以想到通过编写批处理文件来完成这样重复的工作。</p>
-<p>所以我们可以创建一个名字为<code>auto.bat</code>的文件放到本地仓库的根目录下，里面的内容就是：</p>
-<pre><code class="lang-bash">git add .
-git commit -m &quot;change the images&quot;
-git push
-</code></pre>
-<p>经过测试发现，如果能把命令行的显示尽量隐藏掉就好了，于是可以在开头加上一个<code>@echo off</code>关闭命令的回显，然而毕竟Git提交是将本地数据提交到远端，需要有一个过程，同时也应该有一个结果提示，所以基本上不可避免的还是会弹出显示上传结果的shell界面，如：</p>
-<p><img src="https://github.com/smilelight/images/raw/master/git_push_result.png" alt="提交结果"></p>
-<p>然而，其工作一旦完成，便自动退出，也算可以接受的吧。</p>
-<p>以后把要上传的图片放进该文件夹下，然后双击<code>auto.bat</code>文件就可以啦！</p>
-<p>而在第4步下，发现直接通过右键获取图片链接地址，得到的并不是图片的绝对链接地址，不是很准确，直接拿来引用的话不行，我们还需要对路径进行进一步的处理才可以。</p>
-<p>如：<br><img src="https://github.com/smilelight/images/raw/master/a_image.png" alt=""><br>这张图片，如果直接复制的话，我们将得到的路径为:<code>https://github.com/smilelight/images/blob/master/lightsmile.png</code>(通过右击链接)或者<code>https://github.com/smilelight/images/blob/master/lightsmile.png?raw=true</code>(通过右击图片)，而其实际路径可以为：<code>https://github.com/smilelight/images/raw/master/lightsmile.png</code>或者<code>https://raw.githubusercontent.com/smilelight/images/master/lightsmile.png</code>或者<code>https://github.com/smilelight/images/blob/master/lightsmile.png?raw=true</code>。因此我们具体要做的工作也很简单，就是原本得到的路径转化为有效的绝对路径，我这里采取的策略是将其转化为第一种有效路径，即如果路径带有<code>?raw=true</code>，我就把它去掉，然后通过字符串替换，将<code>blob</code>替换为<code>raw</code>。工作是知道怎么做，可是到底怎么具体实现呢？写一个桌面小程序？之前查看知乎上有人就自己写了插件，我想我也可以试一试啊！说做就做，于是就上网寻找关于编写<code>chormium</code>拓展插件的博客教程和视频资源，经过一系列的尝试和探索之后，终于完成了功能简洁、有时还会报错的小插件。。。</p>
-<p>如图：<br><img src="https://github.com/smilelight/images/raw/master/my_extension_in_qqbrowser.png" alt=""></p>
-<p>这是在测试右键菜单的小插件的基础上编写的，名字懒得改了，反正也是自己用着玩的。<br>它的功能是在GitHub网站下右击链接或图片，可以复制该图片的有效地址到剪贴板中，同时在浏览器的右下角或者左下角弹出notification(通知)如下：</p>
-<p><img src="https://github.com/smilelight/images/raw/master/360%E6%88%AA%E5%9B%BE170010279111897.png" alt=""></p>
-<p>经过测试发现确实是可以工作的，并且在不是GitHub下的网站下，右键是不会弹出这个菜单项的。<br>关于我的具体的插件编写工作请参考我的另外一篇博文。</p>
+<p>以我在B站最喜欢的up主<a href="https://space.bilibili.com/316568752" target="_blank" rel="noopener">马督工</a>的评论<a href="https://www.bilibili.com/video/BV1X54y1U7pQ" target="_blank" rel="noopener">【睡前消息158】明明是重口味玄幻电影，《八佰》何必自称历史大片_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a>为例，他认为《八佰》可以算重口味玄幻电影，而不应该自称为历史大片，并且导演犯了历史虚无主义的错误，在电影里宣扬的是英雄史观而非人民史观。同样的，余亮老师在自己的评论<a href="https://www.bilibili.com/video/BV1zC4y1t7kK" target="_blank" rel="noopener">余亮X萧武·对谈《八佰》：管虎不清楚该选什么路，但我们应该清楚【从书说起】_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a>里也做出了类似的评价，认为导演管虎不清楚该选什么路。</p>
+<p>看了他们的评论之后我第一时间的想法是大佬毕竟是大佬，能看出这么多门道，这么看来这个《八佰》确实应该被批判，导演管虎的屁股歪了，华谊为了捞钱自救简直不择手段。</p>
+<p>这两条视频下面的评论主要是批判《八佰》、批判管虎、批判华谊，然而还是有一些评论相对温和，认为我们的态度不应该太苛刻，看了之后有启发有感动，还是要继续支持的。</p>
+<p>这时我的困惑便是，为什么同样的视频，大家的理解和态度竟有着如此大的差别呢？那些人为什么要站支持《八佰》呢？他们又错在哪里呢？</p>
+<p>在看了一些更加中性客观的评论之后，我才渐渐醒悟，上面的困惑自然就迎刃而解了。</p>
+<p>关于“为什么同样的视频，大家的理解和态度竟有着如此大的差别”。正如”一千个读者心中有一千个哈姆雷特”， 我们首先需要承认的是人和人之间都存在着或大或小的思想层次、价值观念、阶级财富上的差异。有的人学识渊博，有的人大字不识一个；有的人偏爱阳春白雪，有的人只懂下里巴人；有的人信仰马克思主义，有的人追求美国自由主义；有的人自出生落地便是资产阶级，有的人穷苦一生不知何为阶级。</p>
+<p>具体来说，我们可以粗略地将参与评论的大众分为三个层级，九大类别。三大层级包括知识水平有限，看电影看个热闹其实看不出啥门道的普通大众层（最底层）、导演管虎（打个比方）等所在的知识水平相对丰富，看电影能看出些门道的普通知识分子层（中层）、马督工等所在的知识水平丰富，见解深入深刻的高级知识分子层（高层）。其中每一层大致包括支持、中立、反对三大类别，共计九大类别。</p>
+<p>如图：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/不同知识层次.png" alt="不同知识层次"></p>
+<p>其中最广泛普遍的普通大众在第一层，他们中更多的其实可能并不太了解这个电影背后所关联的历史事件，并不知道四行仓库，也并不知道谢晋元是谁，所以他们是以仰视的视角、相对放松的姿态去看这个电影。他们所知道的是《八佰》是改编自真实历史事件的战争片，他们可能并不太了解和在乎电影中故事的虚构性。</p>
+<p>而站在第三层的督工们则是以俯视的视角去看这场电影，他们知道“八百壮士”的故事流传至今，几个版本的来龙去脉，他们可以发现哪些虚构加工不太符合逻辑，他们可以主观的看到电影的逻辑架构和主题思想乃至于导演所想表达的东西以及掺杂的私货，尽管这些看法不一定是正确的。</p>
+<p>所以说当第二层和第三层的部分群体所从电影中看到的与自己的价值观念（偏右派）相符时，会发出支持的声音，认为反对者不应该对《八佰》太苛刻，电影创作应该相对自由，允许有不同的思想，不同的声音；当第二层和第三层的部分群体所从电影中看到的与自己的价值观念（偏右派）相背时，会发出批判的声音，其论点主要包括虚构加工成分过多、历史虚无主义、英雄史观而非人民史观等。</p>
+<p>第一层的部分群体也分左派和右派，但是他们并看不到太多的如第三层的所能看到的东西，所以该层的非左的群体中部分发出支持的声音，理由是他们可以从电影中收获感动，体会到爱国主义、家国情怀，看到小人物的蜕变成长；而该层的以左派为主的部分群体则发出批判的声音，理由主要包括导演团体未采访谢晋元之子而是采访了孙元良之子秦汉、过度营销爱国主义以及继承自第二三层反对者们的理由等。</p>
+<p>上面的分析也解释了部分人为什么会站支持《八佰》。而关于他们错在哪里的答案则是其实他们并没有错，或者说对错其实本来就是一个相对主观的概念，屁股不同，看到的自然不一样，每个人有自己的想法是再正常不过的事情。</p>
+<p>而我原本的身份是处在第一层的反对者，然而现在是既反对又支持，即更加辩证的客观中立。然而抛却以上提到的反对和支持的理由，自己延伸出的想法则是虽然从商业的角度去看，这部电影是华谊和大众普通观影者（好评率占多数）的双赢，然而从社会意识的角度去看，除却爱国主义以外，电影中确实潜移默化地表示了些许非马克思主义的意识形态。</p>
+<p>从理论上来说，马克思主义和新自由主义都是被历史实践验证过的与时俱进发展的主义，但是由于我们国家的政治主体是社会主义国家，走的是具有中国特色的社会主义道路，然而如果我们的国民所受到的新自由主义的影响越多越深，那么我们的国民对马克思主义和社会主义的否定和怀疑也就越多，这并不利于我们坚持走这一条正确的、历史验证过可行的社会主义道路。</p>
+<p>换句话说，对于资产阶级而言，资本主义道路和资本主义社会是相比于社会主义道路和社会主义社会更合适的土壤，资本家和资产阶级以及相关附庸在一个国家中虽然只占相对少部分，但是其背后的财力以及其所把持的媒体通道却每时每刻都在影响着国家的运转以及国民的脑子，所以在我们这个社会主义国家成长起来的资本家跃迁到资产阶级之后，受利益驱使是有着想改变国家政治形态的倾向的，而这与外部势力相结合的终极目标便是内部社会主义政权崩溃瓦解与国家政治形态和平演变。</p>
+<p>然而可能有人会想，我虽然不是资产阶级，但是觉得资本主义社会也没什么不好的啊。问题的关键在于就算我们改走资本主义社会，融入整个资本主义体系，我们的社会发展阶段也没有过渡到美国西欧那样的发达形态，我们的人口资源比还是很低，美国欧洲也不会把我们当做真正的朋友，他们不会允许这样的潜在的威胁存在，他们只会利用各种手段来分裂中国，使中国处于四分五裂的状态长期内战，以实现对他们的威胁最小化，我们的下场可能比如今战乱地区的人们过得还惨，回到民国军阀乱战的状态。当丧失掉独立自主之后，丧权辱国也必然随之而来。就算我们做最好的打算，我们华人在美国的待遇也永远做不了一等公民，看看如今的美国黑人，争取了上百年的权益到现在其实也不过如此，因为尊严和地位永远是取决于实力的。</p>
 
           
             <div class='article_footer'>
@@ -528,7 +503,7 @@ git push
           
         
           
-            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/>https://www.iamlightsmile.com/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/</a></p>
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/>https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/</a></p>
           
         
       </blockquote>
@@ -572,10 +547,10 @@ git push
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-01-18T19:52:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-26T09:14:54+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年1月18日</p>
+    <p>更新于：2020年8月26日</p>
   </a>
 </div>
 
@@ -584,7 +559,7 @@ git push
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/markdown/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>markdown</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>浏览器插件</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/github/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>github</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9D%82%E8%B0%88/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>杂谈</p></a></div>
 
 
         
@@ -599,13 +574,13 @@ git push
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.4k字</p>
+      <p>字数：2.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：5分钟</p>
+      <p>时长：7分钟</p>
     </a>
   </div>
 
@@ -620,7 +595,7 @@ git push
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/&title=关于Markdown引用图片地址的尝试 - lightsmile's Blog&summary=前两天某刻突然想到学习不能只有输入，更应该有输出，有时历程和心得更需要记录下来，于是就萌发起了写博客的念头，如今写博客的平台很多，比如博客园、CSDN、简书、新浪博客，甚至知乎等等，也可以通过GitHub pages来实现，甚至于购买云服务器搭建自己的博客网站。由于个人知识浅薄，并且想要拥有更高的自由度，以及一些其他因素限制，最终选择了通过GitHub pages+hexo来搭建自己的个人博客站点，借助于网上丰富详致的相关搭建博客教程终于把自己的小窝搭建起来了，吼吼！"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/&title=“八佰”之我见 - lightsmile's Blog&summary=最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。"
           
           >
           
@@ -632,7 +607,7 @@ git push
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/&title=关于Markdown引用图片地址的尝试 - lightsmile's Blog&summary=前两天某刻突然想到学习不能只有输入，更应该有输出，有时历程和心得更需要记录下来，于是就萌发起了写博客的念头，如今写博客的平台很多，比如博客园、CSDN、简书、新浪博客，甚至知乎等等，也可以通过GitHub pages来实现，甚至于购买云服务器搭建自己的博客网站。由于个人知识浅薄，并且想要拥有更高的自由度，以及一些其他因素限制，最终选择了通过GitHub pages+hexo来搭建自己的个人博客站点，借助于网上丰富详致的相关搭建博客教程终于把自己的小窝搭建起来了，吼吼！"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/&title=“八佰”之我见 - lightsmile's Blog&summary=最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。"
           
           >
           
@@ -644,7 +619,7 @@ git push
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/%E5%85%B3%E4%BA%8EMarkdown%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E7%9A%84%E5%B0%9D%E8%AF%95/&title=关于Markdown引用图片地址的尝试 - lightsmile's Blog&summary=前两天某刻突然想到学习不能只有输入，更应该有输出，有时历程和心得更需要记录下来，于是就萌发起了写博客的念头，如今写博客的平台很多，比如博客园、CSDN、简书、新浪博客，甚至知乎等等，也可以通过GitHub pages来实现，甚至于购买云服务器搭建自己的博客网站。由于个人知识浅薄，并且想要拥有更高的自由度，以及一些其他因素限制，最终选择了通过GitHub pages+hexo来搭建自己的个人博客站点，借助于网上丰富详致的相关搭建博客教程终于把自己的小窝搭建起来了，吼吼！"
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/&title=“八佰”之我见 - lightsmile's Blog&summary=最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。"
           
           >
           
@@ -668,16 +643,12 @@ git push
         
           <div class="prev-next">
             
-              <a class='prev' href='/articles/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%B0%8F%E8%AF%95/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>浏览器插件小试</p>
-                <p class='content'>由于时间比较久远，现在浏览器插件编写的工作都已经忘记了一大半，不过之前获取的只是图片的绝对地址，用起来还是不太方便，并且比如说插件的title、description、icon等都是原来的如te...</p>
-              </a>
             
-            
-              <a class='next' href='/articles/%E5%93%B2%E5%AD%A6%E5%B0%8F%E8%AE%B0/'>
-                <p class='title'>哲学小记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>&emsp;&emsp;人类社会永恒不变的主题便是生存与发展，如何能够更好的生存和发展，成为人类文明最强大、最根本的进步驱动力。
-&emsp;&emsp;我们生活的世界是一个具体的现实的世界，它...</p>
+              <a class='next' href='/articles/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
+                <p class='title'>使用nginx搭建简单文件服务器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>0. 前言我们有多种通过网络给别人发送文件的方式，包括QQ文件分享、微信文件分享、网盘链接分享、邮件附件分享、文件服务器URL链接等。
+
+其中QQ文件分享和微信文件分享的前提是双方互加了好友，而...</p>
               </a>
             
           </div>
@@ -721,7 +692,7 @@ git push
 
   <script>
     window.subData = {
-      title: '关于Markdown引用图片地址的尝试',
+      title: '“八佰”之我见',
       tools: true
     }
   </script>
@@ -755,7 +726,7 @@ git push
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\浏览器插件小试\" title="浏览器插件小试" rel="bookmark">浏览器插件小试</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\使用Brook科学上网教程\" title="使用Brook科学上网教程" rel="bookmark">使用Brook科学上网教程</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\从多人运动说起\" title="从多人运动说起" rel="bookmark">从多人运动说起</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\2019回忆总结录\" title="2019回忆总结录" rel="bookmark">2019回忆总结录</a></h3></div></li></ul>
     </div>
   </section>
 
