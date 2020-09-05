@@ -16,12 +16,13 @@
 
   <!-- 页面元数据 -->
   
-    <title>“八佰”之我见 - lightsmile&#39;s Blog</title>
+    <title>DGL使用初体验 - lightsmile&#39;s Blog</title>
   
-    <meta name="keywords" content="杂谈">
+    <meta name="keywords" content="GNN">
   
   
-    <meta name="description" content="最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。">
+    <meta name="description" content="0.前言近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。
+知识图谱和深度...">
   
 
   <!-- feed -->
@@ -367,8 +368,8 @@
         
           
   <h1 class="title">
-    <a href="/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/">
-      “八佰”之我见
+    <a href="/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/">
+      DGL使用初体验
     </a>
   </h1>
 
@@ -393,9 +394,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E9%9A%8F%E5%BF%B5/' rel="nofollow">
+    <a href='/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>随念</p>
+      <p>知识图谱</p>
     </a>
   </div>
 
@@ -407,7 +408,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.3k字</p>
+      <p>字数：1.5k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -424,7 +425,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年8月25日</p>
+    <p>发布于：2020年8月27日</p>
   </a>
 </div>
 
@@ -447,26 +448,206 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。</p>
+          <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。</p>
+<p>知识图谱和深度学习相结合的一个点就是图神经网络模型（GNN），这里自己也算开始接触并开启实践之旅了。</p>
 <a id="more"></a>
-<p>以我在B站最喜欢的up主<a href="https://space.bilibili.com/316568752" target="_blank" rel="noopener">马督工</a>的评论<a href="https://www.bilibili.com/video/BV1X54y1U7pQ" target="_blank" rel="noopener">【睡前消息158】明明是重口味玄幻电影，《八佰》何必自称历史大片_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a>为例，他认为《八佰》可以算重口味玄幻电影，而不应该自称为历史大片，并且导演犯了历史虚无主义的错误，在电影里宣扬的是英雄史观而非人民史观。同样的，余亮老师在自己的评论<a href="https://www.bilibili.com/video/BV1zC4y1t7kK" target="_blank" rel="noopener">余亮X萧武·对谈《八佰》：管虎不清楚该选什么路，但我们应该清楚【从书说起】_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a>里也做出了类似的评价，认为导演管虎不清楚该选什么路。</p>
-<p>看了他们的评论之后我第一时间的想法是大佬毕竟是大佬，能看出这么多门道，这么看来这个《八佰》确实应该被批判，导演管虎的屁股歪了，华谊为了捞钱自救简直不择手段。</p>
-<p>这两条视频下面的评论主要是批判《八佰》、批判管虎、批判华谊，然而还是有一些评论相对温和，认为我们的态度不应该太苛刻，看了之后有启发有感动，还是要继续支持的。</p>
-<p>这时我的困惑便是，为什么同样的视频，大家的理解和态度竟有着如此大的差别呢？那些人为什么要站支持《八佰》呢？他们又错在哪里呢？</p>
-<p>在看了一些更加中性客观的评论之后，我才渐渐醒悟，上面的困惑自然就迎刃而解了。</p>
-<p>关于“为什么同样的视频，大家的理解和态度竟有着如此大的差别”。正如”一千个读者心中有一千个哈姆雷特”， 我们首先需要承认的是人和人之间都存在着或大或小的思想层次、价值观念、阶级财富上的差异。有的人学识渊博，有的人大字不识一个；有的人偏爱阳春白雪，有的人只懂下里巴人；有的人信仰马克思主义，有的人追求美国自由主义；有的人自出生落地便是资产阶级，有的人穷苦一生不知何为阶级。</p>
-<p>具体来说，我们可以粗略地将参与评论的大众分为三个层级，九大类别。三大层级包括知识水平有限，看电影看个热闹其实看不出啥门道的普通大众层（最底层）、导演管虎（打个比方）等所在的知识水平相对丰富，看电影能看出些门道的普通知识分子层（中层）、马督工等所在的知识水平丰富，见解深入深刻的高级知识分子层（高层）。其中每一层大致包括支持、中立、反对三大类别，共计九大类别。</p>
+<h2 id="1-DGL简单使用"><a href="#1-DGL简单使用" class="headerlink" title="1.DGL简单使用"></a>1.DGL简单使用</h2><h3 id="1-1-DGL介绍"><a href="#1-1-DGL介绍" class="headerlink" title="1.1 DGL介绍"></a>1.1 DGL介绍</h3><p>DGL是一个易于使用，高性能和可扩展的Python包，用于深入学习图形。<br>DGL与框架无关，这意味着如果一个深度图模型是端到端应用程序的一个组件，那么其余的逻辑可以在任何主要框架中实现，比如PyTorch、Apache MXNet或TensorFlow。</p>
+<p>Github地址：<a href="https://github.com/dmlc/dgl" target="_blank" rel="noopener">dmlc/dgl: Python package built to ease deep learning on graph, on top of existing DL frameworks.</a></p>
+<h3 id="1-2-示例代码"><a href="#1-2-示例代码" class="headerlink" title="1.2 示例代码"></a>1.2 示例代码</h3><p><strong>说明</strong>:以下代码在jupyter notebook中运行，且主要搬运自<a href="https://docs.dgl.ai/tutorials/basics/1_first.html" target="_blank" rel="noopener">DGL at a Glance — DGL 0.5.0 documentation</a></p>
+<h4 id="引入依赖库"><a href="#引入依赖库" class="headerlink" title="引入依赖库"></a>引入依赖库</h4><pre><code class="lang-python">import dgl
+import numpy as np
+</code></pre>
+<h4 id="使用DGL创建图"><a href="#使用DGL创建图" class="headerlink" title="使用DGL创建图"></a>使用DGL创建图</h4><pre><code class="lang-python">def build_karate_club_graph():
+    # All 78 edges are stored in two numpy arrays. One for source endpoints
+    # while the other for destination endpoints.
+    src = np.array([1, 2, 2, 3, 3, 3, 4, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 9, 10, 10,
+        10, 11, 12, 12, 13, 13, 13, 13, 16, 16, 17, 17, 19, 19, 21, 21,
+        25, 25, 27, 27, 27, 28, 29, 29, 30, 30, 31, 31, 31, 31, 32, 32,
+        32, 32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 33, 33, 33, 33, 33,
+        33, 33, 33, 33, 33, 33, 33, 33, 33, 33])
+    dst = np.array([0, 0, 1, 0, 1, 2, 0, 0, 0, 4, 5, 0, 1, 2, 3, 0, 2, 2, 0, 4,
+        5, 0, 0, 3, 0, 1, 2, 3, 5, 6, 0, 1, 0, 1, 0, 1, 23, 24, 2, 23,
+        24, 2, 23, 26, 1, 8, 0, 24, 25, 28, 2, 8, 14, 15, 18, 20, 22, 23,
+        29, 30, 31, 8, 9, 13, 14, 15, 18, 19, 20, 22, 23, 26, 27, 28, 29, 30,
+        31, 32])
+    # Edges are directional in DGL; Make them bi-directional.
+    u = np.concatenate([src, dst])
+    v = np.concatenate([dst, src])
+    # Construct a DGLGraph
+    return dgl.DGLGraph((u, v))
+
+G = build_karate_club_graph()
+print(&#39;We have %d nodes.&#39; % G.number_of_nodes())
+print(&#39;We have %d edges.&#39; % G.number_of_edges())
+</code></pre>
+<p>输出：</p>
+<pre><code class="lang-text">We have 34 nodes.
+We have 156 edges.
+</code></pre>
+<h4 id="查看图结构"><a href="#查看图结构" class="headerlink" title="查看图结构"></a>查看图结构</h4><pre><code class="lang-python">import networkx as nx
+# Since the actual graph is undirected, we convert it for visualization
+# purpose.
+nx_G = G.to_networkx().to_undirected()
+# Kamada-Kawaii layout usually looks pretty for arbitrary graphs
+pos = nx.kamada_kawai_layout(nx_G)
+nx.draw(nx_G, pos, with_labels=True, node_color=[[.2, .5, .7]])
+</code></pre>
+<p>输出：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/dgl_1.png" alt="dgl_1"></p>
+<h4 id="为节点或边分配特征"><a href="#为节点或边分配特征" class="headerlink" title="为节点或边分配特征"></a>为节点或边分配特征</h4><pre><code class="lang-python">import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+embed = nn.Embedding(34, 5)  # 34 nodes with embedding dim equal to 5
+G.ndata[&#39;feat&#39;] = embed.weight
+
+# print out node 2&#39;s input feature
+print(G.ndata[&#39;feat&#39;][2])
+
+# print out node 10 and 11&#39;s input features
+print(G.ndata[&#39;feat&#39;][[10, 11]])
+</code></pre>
+<h4 id="定义一个图卷积神经网络（GCN）"><a href="#定义一个图卷积神经网络（GCN）" class="headerlink" title="定义一个图卷积神经网络（GCN）"></a>定义一个图卷积神经网络（GCN）</h4><pre><code class="lang-python">from dgl.nn.pytorch import GraphConv
+
+class GCN(nn.Module):
+    def __init__(self, in_feats, hidden_size, num_classes):
+        super(GCN, self).__init__()
+        self.conv1 = GraphConv(in_feats, hidden_size)
+        self.conv2 = GraphConv(hidden_size, num_classes)
+
+    def forward(self, g, inputs):
+        h = self.conv1(g, inputs)
+        h = torch.relu(h)
+        h = self.conv2(g, h)
+        return h
+
+# The first layer transforms input features of size of 5 to a hidden size of 5.
+# The second layer transforms the hidden layer and produces output features of
+# size 2, corresponding to the two groups of the karate club.
+net = GCN(5, 5, 2)
+</code></pre>
+<h4 id="数据准备和初始化"><a href="#数据准备和初始化" class="headerlink" title="数据准备和初始化"></a>数据准备和初始化</h4><pre><code class="lang-python">inputs = embed.weight
+labeled_nodes = torch.tensor([0, 33])  # only the instructor and the president nodes are labeled
+labels = torch.tensor([0, 1])  # their labels are different
+</code></pre>
+<h4 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h4><p>训练代码：</p>
+<pre><code class="lang-python">import itertools
+
+optimizer = torch.optim.Adam(itertools.chain(net.parameters(), embed.parameters()), lr=0.01)
+all_logits = []
+for epoch in range(50):
+    logits = net(G, inputs)
+    # we save the logits for visualization later
+    all_logits.append(logits.detach())
+    logp = F.log_softmax(logits, 1)
+    # we only compute loss for labeled nodes
+    loss = F.nll_loss(logp[labeled_nodes], labels)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    print(&#39;Epoch %d | Loss: %.4f&#39; % (epoch, loss.item()))
+</code></pre>
+<p>输出：</p>
+<pre><code class="lang-text">Epoch 0 | Loss: 0.8586
+Epoch 1 | Loss: 0.8109
+Epoch 2 | Loss: 0.7692
+Epoch 3 | Loss: 0.7338
+Epoch 4 | Loss: 0.7082
+Epoch 5 | Loss: 0.6831
+Epoch 6 | Loss: 0.6582
+Epoch 7 | Loss: 0.6352
+Epoch 8 | Loss: 0.6149
+Epoch 9 | Loss: 0.5956
+Epoch 10 | Loss: 0.5762
+Epoch 11 | Loss: 0.5572
+Epoch 12 | Loss: 0.5374
+Epoch 13 | Loss: 0.5179
+Epoch 14 | Loss: 0.4981
+Epoch 15 | Loss: 0.4777
+Epoch 16 | Loss: 0.4574
+Epoch 17 | Loss: 0.4363
+Epoch 18 | Loss: 0.4148
+Epoch 19 | Loss: 0.3934
+Epoch 20 | Loss: 0.3716
+Epoch 21 | Loss: 0.3494
+Epoch 22 | Loss: 0.3266
+Epoch 23 | Loss: 0.3034
+Epoch 24 | Loss: 0.2805
+Epoch 25 | Loss: 0.2589
+Epoch 26 | Loss: 0.2377
+Epoch 27 | Loss: 0.2172
+Epoch 28 | Loss: 0.1975
+Epoch 29 | Loss: 0.1790
+Epoch 30 | Loss: 0.1615
+Epoch 31 | Loss: 0.1451
+Epoch 32 | Loss: 0.1297
+Epoch 33 | Loss: 0.1156
+Epoch 34 | Loss: 0.1028
+Epoch 35 | Loss: 0.0912
+Epoch 36 | Loss: 0.0809
+Epoch 37 | Loss: 0.0721
+Epoch 38 | Loss: 0.0642
+Epoch 39 | Loss: 0.0572
+Epoch 40 | Loss: 0.0510
+Epoch 41 | Loss: 0.0455
+Epoch 42 | Loss: 0.0407
+Epoch 43 | Loss: 0.0364
+Epoch 44 | Loss: 0.0327
+Epoch 45 | Loss: 0.0294
+Epoch 46 | Loss: 0.0266
+Epoch 47 | Loss: 0.0241
+Epoch 48 | Loss: 0.0218
+Epoch 49 | Loss: 0.0199
+</code></pre>
+<h4 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h4><pre><code class="lang-python">%matplotlib inline
+import matplotlib.pyplot as plt
+
+def draw(i):
+    cls1color = &#39;#00FFFF&#39;
+    cls2color = &#39;#FF00FF&#39;
+    pos = {}
+    colors = []
+    for v in range(34):
+        pos[v] = all_logits[i][v].numpy()
+        cls = pos[v].argmax()
+        colors.append(cls1color if cls else cls2color)
+    ax.cla()
+    ax.axis(&#39;off&#39;)
+    ax.set_title(&#39;Epoch: %d&#39; % i)
+    nx.draw_networkx(nx_G.to_undirected(), pos, node_color=colors,
+            with_labels=True, node_size=300, ax=ax)
+
+fig = plt.figure(dpi=150)
+fig.clf()
+ax = fig.subplots()
+draw(0)  # draw the prediction of the first epoch
+plt.show()
+plt.close()
+</code></pre>
+<p>初始图节点状态：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/gdl_2.png" alt=""></p>
+<p>动画效果：</p>
+<pre><code class="lang-python">%matplotlib inline
+from matplotlib import animation, rc
+from IPython.display import HTML
+rc(&#39;animation&#39;, html=&#39;html5&#39;)
+ani = animation.FuncAnimation(fig, draw, frames=len(all_logits), interval=200)
+plt.show()
+# HTML(ani.to_html5_video()) # 将动画转为h5 video，和下面两种方式都行
+HTML(ani.to_jshtml()) # 可视化效果更佳，且好像不依赖ffmpeg？
+</code></pre>
 <p>如图：</p>
-<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/不同知识层次.png" alt="不同知识层次"></p>
-<p>其中最广泛普遍的普通大众在第一层，他们中更多的其实可能并不太了解这个电影背后所关联的历史事件，并不知道四行仓库，也并不知道谢晋元是谁，所以他们是以仰视的视角、相对放松的姿态去看这个电影。他们所知道的是《八佰》是改编自真实历史事件的战争片，他们可能并不太了解和在乎电影中故事的虚构性。</p>
-<p>而站在第三层的督工们则是以俯视的视角去看这场电影，他们知道“八百壮士”的故事流传至今，几个版本的来龙去脉，他们可以发现哪些虚构加工不太符合逻辑，他们可以主观的看到电影的逻辑架构和主题思想乃至于导演所想表达的东西以及掺杂的私货，尽管这些看法不一定是正确的。</p>
-<p>所以说当第二层和第三层的部分群体所从电影中看到的与自己的价值观念（偏右派）相符时，会发出支持的声音，认为反对者不应该对《八佰》太苛刻，电影创作应该相对自由，允许有不同的思想，不同的声音；当第二层和第三层的部分群体所从电影中看到的与自己的价值观念（偏右派）相背时，会发出批判的声音，其论点主要包括虚构加工成分过多、历史虚无主义、英雄史观而非人民史观等。</p>
-<p>第一层的部分群体也分左派和右派，但是他们并看不到太多的如第三层的所能看到的东西，所以该层的非左的群体中部分发出支持的声音，理由是他们可以从电影中收获感动，体会到爱国主义、家国情怀，看到小人物的蜕变成长；而该层的以左派为主的部分群体则发出批判的声音，理由主要包括导演团体未采访谢晋元之子而是采访了孙元良之子秦汉、过度营销爱国主义以及继承自第二三层反对者们的理由等。</p>
-<p>上面的分析也解释了部分人为什么会站支持《八佰》。而关于他们错在哪里的答案则是其实他们并没有错，或者说对错其实本来就是一个相对主观的概念，屁股不同，看到的自然不一样，每个人有自己的想法是再正常不过的事情。</p>
-<p>而我原本的身份是处在第一层的反对者，然而现在是既反对又支持，即更加辩证的客观中立。然而抛却以上提到的反对和支持的理由，自己延伸出的想法则是虽然从商业的角度去看，这部电影是华谊和大众普通观影者（好评率占多数）的双赢，然而从社会意识的角度去看，除却爱国主义以外，电影中确实潜移默化地表示了些许非马克思主义的意识形态。</p>
-<p>从理论上来说，马克思主义和新自由主义都是被历史实践验证过的与时俱进发展的主义，但是由于我们国家的政治主体是社会主义国家，走的是具有中国特色的社会主义道路，然而如果我们的国民所受到的新自由主义的影响越多越深，那么我们的国民对马克思主义和社会主义的否定和怀疑也就越多，这并不利于我们坚持走这一条正确的、历史验证过可行的社会主义道路。</p>
-<p>换句话说，对于资产阶级而言，资本主义道路和资本主义社会是相比于社会主义道路和社会主义社会更合适的土壤，资本家和资产阶级以及相关附庸在一个国家中虽然只占相对少部分，但是其背后的财力以及其所把持的媒体通道却每时每刻都在影响着国家的运转以及国民的脑子，所以在我们这个社会主义国家成长起来的资本家跃迁到资产阶级之后，受利益驱使是有着想改变国家政治形态的倾向的，而这与外部势力相结合的终极目标便是内部社会主义政权崩溃瓦解与国家政治形态和平演变。</p>
-<p>然而可能有人会想，我虽然不是资产阶级，但是觉得资本主义社会也没什么不好的啊。问题的关键在于就算我们改走资本主义社会，融入整个资本主义体系，我们的社会发展阶段也没有过渡到美国西欧那样的发达形态，我们的人口资源比还是很低，美国欧洲也不会把我们当做真正的朋友，他们不会允许这样的潜在的威胁存在，他们只会利用各种手段来分裂中国，使中国处于四分五裂的状态长期内战，以实现对他们的威胁最小化，我们的下场可能比如今战乱地区的人们过得还惨，回到民国军阀乱战的状态。当丧失掉独立自主之后，丧权辱国也必然随之而来。就算我们做最好的打算，我们华人在美国的待遇也永远做不了一等公民，看看如今的美国黑人，争取了上百年的权益到现在其实也不过如此，因为尊严和地位永远是取决于实力的。</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/dgl_3.png" alt="dgl_3"></p>
+<h2 id="2-遇到的问题"><a href="#2-遇到的问题" class="headerlink" title="2.遇到的问题"></a>2.遇到的问题</h2><h3 id="2-1-无法实现动画效果"><a href="#2-1-无法实现动画效果" class="headerlink" title="2.1 无法实现动画效果"></a>2.1 无法实现动画效果</h3><p>发现报<code>Matplotlib-Animation “No MovieWriters Available”</code>的错误，后来通过stackoverflow找到了解决方案，即下载<code>ffmpeg</code>并配置环境变量。</p>
+<h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><ol>
+<li><a href="https://docs.dgl.ai/tutorials/basics/1_first.html" target="_blank" rel="noopener">DGL at a Glance — DGL 0.5.0 documentation</a></li>
+<li><a href="https://github.com/dmlc/dgl" target="_blank" rel="noopener">dmlc/dgl: Python package built to ease deep learning on graph, on top of existing DL frameworks.</a></li>
+<li><a href="https://stackoverflow.com/questions/13316397/matplotlib-animation-no-moviewriters-available" target="_blank" rel="noopener">python - Matplotlib-Animation “No MovieWriters Available” - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/43445103/inline-animations-in-jupyter" target="_blank" rel="noopener">python - Inline animations in Jupyter - Stack Overflow</a></li>
+<li><a href="https://blog.csdn.net/qq_43827595/article/details/104911316" target="_blank" rel="noopener">在 jupyter notebook 中使用 matplotlib 绘图的注意事项_WeiSenhui的博客-CSDN博客</a></li>
+</ol>
 
           
             <div class='article_footer'>
@@ -503,7 +684,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/>https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/</a></p>
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/>https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</a></p>
           
         
       </blockquote>
@@ -547,10 +728,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-26T09:14:54+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-05T15:37:11+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年8月26日</p>
+    <p>更新于：2020年9月5日</p>
   </a>
 </div>
 
@@ -559,7 +740,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9D%82%E8%B0%88/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>杂谈</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GNN/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>GNN</p></a></div>
 
 
         
@@ -574,7 +755,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.3k字</p>
+      <p>字数：1.5k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -595,7 +776,8 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/&title=“八佰”之我见 - lightsmile's Blog&summary=最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/&title=DGL使用初体验 - lightsmile's Blog&summary=0.前言近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。
+知识图谱和深度学习相结合的一个点就是图神经网络模型（GNN），这里自己也算开始接触并开启实践之旅了。"
           
           >
           
@@ -607,7 +789,8 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/&title=“八佰”之我见 - lightsmile's Blog&summary=最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/&title=DGL使用初体验 - lightsmile's Blog&summary=0.前言近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。
+知识图谱和深度学习相结合的一个点就是图神经网络模型（GNN），这里自己也算开始接触并开启实践之旅了。"
           
           >
           
@@ -619,7 +802,8 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/&title=“八佰”之我见 - lightsmile's Blog&summary=最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。"
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/&title=DGL使用初体验 - lightsmile's Blog&summary=0.前言近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。
+知识图谱和深度学习相结合的一个点就是图神经网络模型（GNN），这里自己也算开始接触并开启实践之旅了。"
           
           >
           
@@ -643,17 +827,17 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>DGL使用初体验</p>
-                <p class='content'>0.前言近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更...</p>
+              <a class='prev' href='/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>centos下brat安装使用</p>
+                <p class='content'>0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。
+
+0.2 brat介绍brat是使用P...</p>
               </a>
             
             
-              <a class='next' href='/articles/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
-                <p class='title'>使用nginx搭建简单文件服务器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>0. 前言我们有多种通过网络给别人发送文件的方式，包括QQ文件分享、微信文件分享、网盘链接分享、邮件附件分享、文件服务器URL链接等。
-
-其中QQ文件分享和微信文件分享的前提是双方互加了好友，而...</p>
+              <a class='next' href='/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/'>
+                <p class='title'>“八佰”之我见<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其...</p>
               </a>
             
           </div>
@@ -697,7 +881,7 @@
 
   <script>
     window.subData = {
-      title: '“八佰”之我见',
+      title: 'DGL使用初体验',
       tools: true
     }
   </script>
@@ -712,6 +896,20 @@
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-DGL简单使用"><span class="toc-text">1.DGL简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-DGL介绍"><span class="toc-text">1.1 DGL介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-示例代码"><span class="toc-text">1.2 示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引入依赖库"><span class="toc-text">引入依赖库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用DGL创建图"><span class="toc-text">使用DGL创建图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看图结构"><span class="toc-text">查看图结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为节点或边分配特征"><span class="toc-text">为节点或边分配特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义一个图卷积神经网络（GCN）"><span class="toc-text">定义一个图卷积神经网络（GCN）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据准备和初始化"><span class="toc-text">数据准备和初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练模型"><span class="toc-text">训练模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可视化"><span class="toc-text">可视化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-遇到的问题"><span class="toc-text">2.遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-无法实现动画效果"><span class="toc-text">2.1 无法实现动画效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-参考"><span class="toc-text">3.参考</span></a></li></ol>
+    </div>
+  </section>
 
 
   
@@ -731,7 +929,7 @@
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\从多人运动说起\" title="从多人运动说起" rel="bookmark">从多人运动说起</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\2019回忆总结录\" title="2019回忆总结录" rel="bookmark">2019回忆总结录</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\《论文解读-Toward an Architecture for Never-Ending Language Learning》\" title="《论文解读-Toward an Architecture for Never-Ending Language Learning》" rel="bookmark">《论文解读-Toward an Architecture for Never-Ending Language Learning》</a></h3></div></li></ul>
     </div>
   </section>
 
