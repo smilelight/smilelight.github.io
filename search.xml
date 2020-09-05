@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>配置VSCode Remote</title>
+      <link href="/articles/%E9%85%8D%E7%BD%AEVSCode-Remote/"/>
+      <url>/articles/%E9%85%8D%E7%BD%AEVSCode-Remote/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>在写前一篇文档调研使用brat的时候，由于涉及到操作服务器中文件，然而直接通过命令行操作实在是有些不太方便，毕竟vim不咋熟练，自己突然想到使用vscode可以配置remote开发。于是趁此机会也尝试着配置一下，这里简单记录一下。</p><a id="more"></a><h2 id="1-配置VSCode-Remote-SSH"><a href="#1-配置VSCode-Remote-SSH" class="headerlink" title="1.配置VSCode Remote-SSH"></a>1.配置VSCode Remote-SSH</h2><h3 id="1-1-安装Remote-SSH插件"><a href="#1-1-安装Remote-SSH插件" class="headerlink" title="1.1 安装Remote-SSH插件"></a>1.1 安装Remote-SSH插件</h3><p>在拓展里搜索”remote”，然后安装”Remote-SSH”插件。</p><p>在安装完成之后，侧边栏会多出一个选项，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote.png" alt=""></p><p>点击之后，其会从一些默认位置自动读取系统已有的一些ssh配置信息，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_2.png" alt=""></p><h2 id="2-配置远程服务器"><a href="#2-配置远程服务器" class="headerlink" title="2.配置远程服务器"></a>2.配置远程服务器</h2><h3 id="2-1-添加远程服务器配置信息"><a href="#2-1-添加远程服务器配置信息" class="headerlink" title="2.1 添加远程服务器配置信息"></a>2.1 添加远程服务器配置信息</h3><p>我们可以在<code>config</code>文件中继续添加配置，格式如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_3.png" alt=""></p><h3 id="2-2-配置ssh连接"><a href="#2-2-配置ssh连接" class="headerlink" title="2.2 配置ssh连接"></a>2.2 配置ssh连接</h3><p><strong>注意</strong>：以下命令均是在Git Bash下执行的。</p><h4 id="2-2-1-切换目录至ssh目录"><a href="#2-2-1-切换目录至ssh目录" class="headerlink" title="2.2.1 切换目录至ssh目录"></a>2.2.1 切换目录至ssh目录</h4><pre><code class="lang-bash">cd ~/.ssh</code></pre><h4 id="2-2-2-生成ssh公钥"><a href="#2-2-2-生成ssh公钥" class="headerlink" title="2.2.2 生成ssh公钥"></a>2.2.2 生成ssh公钥</h4><pre><code class="lang-bash">ssh-keygen</code></pre><h4 id="2-2-3-将公钥存储至远程主机"><a href="#2-2-3-将公钥存储至远程主机" class="headerlink" title="2.2.3 将公钥存储至远程主机"></a>2.2.3 将公钥存储至远程主机</h4><p>假如1.3.2步生成的公钥名称为<code>id_rsa.pub</code>，假设远程主机ip地址为<code>12.34.56.78</code>，用户名为<code>root</code></p><pre><code class="lang-bash">ssh-copy-id -i id_rsa.pub root@12.34.56.78</code></pre><h2 id="3-连接至远程服务器"><a href="#3-连接至远程服务器" class="headerlink" title="3.连接至远程服务器"></a>3.连接至远程服务器</h2><p>在上述过程配置完成之后，便可以连接至远程服务器了。如图点击红圈内的图标：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_5.png" alt=""></p><p>连接成功后如图所示：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_6.png" alt=""></p><p>如果还不明白的可以继续看下面的参考文章。</p><h2 id="1-参考"><a href="#1-参考" class="headerlink" title="-1.参考"></a>-1.参考</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/64849549" target="_blank" rel="noopener">VSCode Remote 体验 | 远程Linux环境开发真香 - 知乎</a></li><li><a href="https://www.jianshu.com/p/6761199bedba" target="_blank" rel="noopener">服务器免密登录:ssh公钥配置 - 简书</a></li><li><a href="https://www.jianshu.com/p/1e793e386beb" target="_blank" rel="noopener">ssh配置文件详解 - 简书</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>centos下brat安装使用</title>
       <link href="/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
       <url>/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
