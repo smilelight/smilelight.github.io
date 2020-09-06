@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-09-06T07:56:51.493Z</updated>
+  <updated>2020-09-06T08:09:46.940Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/"/>
     <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/</id>
     <published>2020-09-06T07:54:30.000Z</published>
-    <updated>2020-09-06T07:56:51.493Z</updated>
+    <updated>2020-09-06T08:09:46.940Z</updated>
     
-    <content type="html"><![CDATA[<p>安装方式详情参见<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">在CentOS 7上安装MongoDB - 云+社区 - 腾讯云</a>，只是貌似最新的版本是4.4，即需要将添加MongoDB源部分的3.2都换成4.4。</p>]]></content>
+    <content type="html"><![CDATA[<p>安装方式详情参见<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">在CentOS 7上安装MongoDB - 云+社区 - 腾讯云</a>，只是貌似最新的版本是4.4，即需要将添加MongoDB源部分的3.2都换成4.4。</p><p>另外更精简的文档：<a href="https://www.jb51.net/article/194001.htm" target="_blank" rel="noopener">Centos7 yum安装mongodb实现步骤详解_MongoDB_脚本之家</a>。</p>]]></content>
     
     <summary type="html">
     
