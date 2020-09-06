@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>centos安装mongodb</title>
+      <link href="/articles/centos%E5%AE%89%E8%A3%85mongodb/"/>
+      <url>/articles/centos%E5%AE%89%E8%A3%85mongodb/</url>
+      
+        <content type="html"><![CDATA[<p>安装方式详情参见<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">在CentOS 7上安装MongoDB - 云+社区 - 腾讯云</a>，只是貌似最新的版本是4.4，即需要将添加MongoDB源部分的3.2都换成4.4。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>配置VSCode Remote</title>
       <link href="/articles/%E9%85%8D%E7%BD%AEVSCode-Remote/"/>
       <url>/articles/%E9%85%8D%E7%BD%AEVSCode-Remote/</url>
@@ -46,6 +73,31 @@
         <tags>
             
             <tag> NLP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>damedane视频制作教程</title>
+      <link href="/articles/damedane%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/"/>
+      <url>/articles/damedane%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>近日在B站上接触到了一些换脸演唱的视频，觉得还有点意思，发现不少视频都是没几个粉的用户上传的，这让我意识到或许制作这个的门槛并不高，后来偶然间看到了相关教程，于是乎自己也尝试着搞了搞。</p><a id="more"></a><h2 id="1-参考视频"><a href="#1-参考视频" class="headerlink" title="1.参考视频"></a>1.参考视频</h2><ol><li><a href="https://www.bilibili.com/video/BV1HV411U7zm" target="_blank" rel="noopener">最详细简洁的方法教你如何轻松做damedane梗！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li><li><a href="https://www.bilibili.com/video/BV1ni4y1g7xs?p=2&amp;t=14" target="_blank" rel="noopener">教你轻松做出damedane梗图，会不会翻墙都可以！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li></ol><h2 id="2-使用方案"><a href="#2-使用方案" class="headerlink" title="2.使用方案"></a>2.使用方案</h2><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/demedane视频制作方案.png" alt=""></p><p>对于程序猿来说，自然是选择方法一了。</p><h2 id="3-使用教程"><a href="#3-使用教程" class="headerlink" title="3.使用教程"></a>3.使用教程</h2><h3 id="3-1-拷贝脚本到colab中"><a href="#3-1-拷贝脚本到colab中" class="headerlink" title="3.1 拷贝脚本到colab中"></a>3.1 拷贝脚本到colab中</h3><p>脚本链接为：<a href="https://colab.research.google.com/github/AliaksandrSiarohin/first-order-model/blob/master/demo.ipynb" target="_blank" rel="noopener">first-order-model-demo.ipynb - Colaboratory</a>。</p><p>该脚本中包含代码运行逻辑所有流程。</p><p>我们可以选择直接编辑拷贝的ipynb文件，或者自己再新建一个ipynb文件，这里我选择的是新创建文件<code>train_image.ipynb</code>。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/new_ipynb.png" alt=""></p><h3 id="3-2-上传资源文件"><a href="#3-2-上传资源文件" class="headerlink" title="3.2 上传资源文件"></a>3.2 上传资源文件</h3><p>将想要制作的源图片和源视频上传到Google Drive中，这里需要注意的是上传的最好是256*256的png格式的图片（如果不是的话，可以先使用图片编辑工具将图片转换成相应的格式）</p><p>如图我这里将图片放到了Images目录：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/drive_my_images.png" alt=""></p><p>将视频放到了Videos目录：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/drive_my_videos.png" alt=""></p><h3 id="3-3-拷贝模型文件"><a href="#3-3-拷贝模型文件" class="headerlink" title="3.3 拷贝模型文件"></a>3.3 拷贝模型文件</h3><p>我们还需要将<a href="https://drive.google.com/drive/folders/1kZ1gCnpfU0BnpdU47pLM_TQ6RypDDqgw?usp=sharing" target="_blank" rel="noopener">模型文件</a>拷贝到Google Drive中。只需要拷贝两个<code>tar</code>文件就好，如图，放到相应的目录（自己随意，后续代码中对应上即可）：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830114204.png" alt=""></p><h3 id="3-4-启动环境并执行脚本"><a href="#3-4-启动环境并执行脚本" class="headerlink" title="3.4 启动环境并执行脚本"></a>3.4 启动环境并执行脚本</h3><p>打开之前创建的<code>train_image.ipynb</code>文件，然后系统便会分配RAM和磁盘供程序运行，由于Colab默认不会为环境配置GPU或者TPU，所以我们这里需要手动设置一下。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830111953.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830112037.png" alt=""></p><h4 id="step1：-克隆仓库到colab"><a href="#step1：-克隆仓库到colab" class="headerlink" title="step1： 克隆仓库到colab"></a>step1： 克隆仓库到colab</h4><p>依次输入并执行以下指令</p><pre><code class="lang-bash">!git clone https://github.com/AliaksandrSiarohin/first-order-model</code></pre><pre><code class="lang-bash">cd first-order-model</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115609.png" alt=""></p><h4 id="step2-查看GPU信息"><a href="#step2-查看GPU信息" class="headerlink" title="step2: 查看GPU信息"></a>step2: 查看GPU信息</h4><pre><code class="lang-bash">!nvidia-smi</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830112835.png" alt=""></p><h4 id="step3-挂载Google-drive到Colab"><a href="#step3-挂载Google-drive到Colab" class="headerlink" title="step3: 挂载Google drive到Colab"></a>step3: 挂载Google drive到Colab</h4><pre><code class="lang-python">from google.colab import drivedrive.mount(&#39;/content/gdrive&#39;)</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115734.png" alt=""></p><p>其中会涉及到使用Google账户授权，只要点击确认并复制相应的验证码到指定位置处运行即可。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115305.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115646.png" alt=""></p><h4 id="step4-加载驱动视频和源图像"><a href="#step4-加载驱动视频和源图像" class="headerlink" title="step4: 加载驱动视频和源图像"></a>step4: 加载驱动视频和源图像</h4><pre><code class="lang-python">import imageioimport numpy as npimport matplotlib.pyplot as pltimport matplotlib.animation as animationfrom skimage.transform import resizefrom IPython.display import HTMLimport warningswarnings.filterwarnings(&quot;ignore&quot;)source_image = imageio.imread(&#39;/content/gdrive/My Drive/Images/xiao_ke.png&#39;)driving_video = imageio.mimread(&#39;/content/gdrive/My Drive/Videos/bakamitai_template.mp4&#39;)#Resize image and video to 256x256source_image = resize(source_image, (256, 256))[..., :3]driving_video = [resize(frame, (256, 256))[..., :3] for frame in driving_video]def display(source, driving, generated=None):    fig = plt.figure(figsize=(8 + 4 * (generated is not None), 6))    ims = []    for i in range(len(driving)):        cols = [source]        cols.append(driving[i])        if generated is not None:            cols.append(generated[i])        im = plt.imshow(np.concatenate(cols, axis=1), animated=True)        plt.axis(&#39;off&#39;)        ims.append([im])    ani = animation.ArtistAnimation(fig, ims, interval=50, repeat_delay=1000)    plt.close()    return ani# HTML(display(source_image, driving_video).to_html5_video())</code></pre><p>上面的<code>source_image</code>和<code>driving_video</code>的路径根据自己的情况进行设置。</p><p>另外我们可以看到上面脚本是有一个将图像和视频都变为256*256的操作，这里我们为了更好的效果可以提前将图片剪辑为相应的格式。</p><p>之后的<code>display</code>方法是定义了通过matplotlib库将图片和视频展示的方法，这里的效果大致如：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830113436.png" alt=""></p><h4 id="step5-创建并加载模型"><a href="#step5-创建并加载模型" class="headerlink" title="step5: 创建并加载模型"></a>step5: 创建并加载模型</h4><pre><code class="lang-python">from demo import load_checkpointsgenerator, kp_detector = load_checkpoints(config_path=&#39;config/vox-256.yaml&#39;,                             checkpoint_path=&#39;/content/gdrive/My Drive/first-order-motion-model/vox-cpk.pth.tar&#39;)</code></pre><p>最开始切换路径的目的就在于能够直接引用到<code>demo</code>的<code>load_checkpoints</code>函数并且对应到配置文件<code>config/vox-256.yaml</code>。</p><h4 id="step6-执行动画生成"><a href="#step6-执行动画生成" class="headerlink" title="step6: 执行动画生成"></a>step6: 执行动画生成</h4><p>到这里终于到了我们最想看到的环节。</p><pre><code class="lang-python">from demo import make_animationfrom skimage import img_as_ubytepredictions = make_animation(source_image, driving_video, generator, kp_detector, relative=True)#save resulting videoimageio.mimsave(&#39;../generated.mp4&#39;, [img_as_ubyte(frame) for frame in predictions])#video can be downloaded from /content folderHTML(display(source_image, driving_video, predictions).to_html5_video())</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115112.png" alt=""></p><p>根据相对路径关系<code>../generated.mp4</code>我们也可以发现生成的视频文件就在当前环境下,即：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830120220.png" alt=""></p><p>将生成的mp4下载到本地即可。</p><h2 id="4-视频后期处理"><a href="#4-视频后期处理" class="headerlink" title="4.视频后期处理"></a>4.视频后期处理</h2><p>我们下载得到的<code>generated.mp4</code>并不能直接使用，时长不仅增加了3倍，并且也没有了声音。所以只能通过后期视频编辑再将视频调整为正常倍速并添加源视频音轨，实现正常的转换效果。</p><p>关于从mp4中提取音频，我这里用了arctime软件，该软件主要是配字幕的，自己之前使用过（本来以为有视频添加音频的功能，结果没有，这里只提了声音）由于自己的电脑比较渣，所以这里使用了B站提供的云剪辑功能，对视频进行了加工处理。</p><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830121208.png" alt=""></p><p>最终效果：<a href="https://www.bilibili.com/video/BV17t4y1S7CQ" target="_blank" rel="noopener">女装maybe激情献唱_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> damedane </tag>
             
         </tags>
       
