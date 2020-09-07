@@ -21,7 +21,8 @@
     <meta name="keywords" content="NLP">
   
   
-    <meta name="description" content="0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。">
+    <meta name="description" content="-1.更新发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。
+0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示...">
   
 
   <!-- feed -->
@@ -407,7 +408,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.6k字</p>
+      <p>字数：1.7k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -447,7 +448,8 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><h3 id="0-1-背景"><a href="#0-1-背景" class="headerlink" title="0.1 背景"></a>0.1 背景</h3><p>近日简单调研一下NLP标注工具brat的使用，其<a href="http://brat.nlplab.org/examples.html" target="_blank" rel="noopener">官网示例</a>中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。</p>
+          <h2 id="1-更新"><a href="#1-更新" class="headerlink" title="-1.更新"></a>-1.更新</h2><p>发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。</p>
+<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><h3 id="0-1-背景"><a href="#0-1-背景" class="headerlink" title="0.1 背景"></a>0.1 背景</h3><p>近日简单调研一下NLP标注工具brat的使用，其<a href="http://brat.nlplab.org/examples.html" target="_blank" rel="noopener">官网示例</a>中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。</p>
 <a id="more"></a>
 <h3 id="0-2-brat介绍"><a href="#0-2-brat介绍" class="headerlink" title="0.2 brat介绍"></a>0.2 brat介绍</h3><p>brat是使用Python2开发的文本标注工具，只支持在Unix-like环境下使用，同时最新版v1.3提供两种使用方式，即：using CGI和standalone server，第一种方式官方推荐使用Apache2服务器，并提供了简单的配置教程；第二种模式更新，但可能有更多潜在的问题。另外其实也可以通过Docker使用，这种方法相对而言更加方便。</p>
 <h3 id="0-3-个人使用方式"><a href="#0-3-个人使用方式" class="headerlink" title="0.3 个人使用方式"></a>0.3 个人使用方式</h3><p>我个人使用的是第一种方式，关键是我自己试了试第二种，没有成功，所以只能拿第一种搞了。网上的教程既有将brat当server端用的，也有简单的在localhost环境下使用的。由于自己的笔记本系统是Win10，所以选择在腾讯云服务器Cnetos7上搭建brat。</p>
@@ -566,7 +568,7 @@ Annotation-log logfile:./log_history.log
 <h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4.注意事项"></a>4.注意事项</h2><h3 id="4-1-无法加载标注文件"><a href="#4-1-无法加载标注文件" class="headerlink" title="4.1 无法加载标注文件"></a>4.1 无法加载标注文件</h3><p>可能是由于文件权限原因，当放置新的标注文件到data目录中时，仍然需要改变文件的访问权限。具体来说，我们可以通过如下命令来执行：</p>
 <pre><code class="lang-bash">chmod 777 -R /var/www/html/brat
 </code></pre>
-<h2 id="1-参考"><a href="#1-参考" class="headerlink" title="-1.参考"></a>-1.参考</h2><ul>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul>
 <li><a href="https://www.jianshu.com/p/5b8903709e66" target="_blank" rel="noopener">CentOS 7下Apache的安装 - 简书</a></li>
 <li><a href="https://blog.csdn.net/weixin_42912498/article/details/106626219" target="_blank" rel="noopener">CentOS下nginx与apache如何共存_weixin_42912498的博客-CSDN博客</a></li>
 <li><a href="https://www.jianshu.com/p/c36dd3946e74" target="_blank" rel="noopener">Apache配置文件httpd.conf详解 - 简书</a></li>
@@ -652,10 +654,10 @@ Annotation-log logfile:./log_history.log
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-05T15:06:52+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T08:40:01+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月5日</p>
+    <p>更新于：2020年9月7日</p>
   </a>
 </div>
 
@@ -679,7 +681,7 @@ Annotation-log logfile:./log_history.log
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.6k字</p>
+      <p>字数：1.7k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -700,7 +702,8 @@ Annotation-log logfile:./log_history.log
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/&title=centos下brat安装使用 - lightsmile's Blog&summary=0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/&title=centos下brat安装使用 - lightsmile's Blog&summary=-1.更新发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。
+0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。"
           
           >
           
@@ -712,7 +715,8 @@ Annotation-log logfile:./log_history.log
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/&title=centos下brat安装使用 - lightsmile's Blog&summary=0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/&title=centos下brat安装使用 - lightsmile's Blog&summary=-1.更新发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。
+0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。"
           
           >
           
@@ -724,7 +728,8 @@ Annotation-log logfile:./log_history.log
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/&title=centos下brat安装使用 - lightsmile's Blog&summary=0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。"
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/&title=centos下brat安装使用 - lightsmile's Blog&summary=-1.更新发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。
+0.前言0.1 背景近日简单调研一下NLP标注工具brat的使用，其官网示例中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。"
           
           >
           
@@ -827,7 +832,7 @@ Annotation-log logfile:./log_history.log
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0.前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-背景"><span class="toc-text">0.1 背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-2-brat介绍"><span class="toc-text">0.2 brat介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-3-个人使用方式"><span class="toc-text">0.3 个人使用方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-brat相关信息"><span class="toc-text">1.brat相关信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-brat相关网址"><span class="toc-text">1.1 brat相关网址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-brat安装"><span class="toc-text">2.brat安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装Apache"><span class="toc-text">2.1 安装Apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-初步配置Apache（视情况可略过）"><span class="toc-text">2.2 初步配置Apache（视情况可略过）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-下载brat"><span class="toc-text">2.3 下载brat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-配置Apache"><span class="toc-text">2.4 配置Apache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-添加brat配置"><span class="toc-text">2.4.1 添加brat配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-添加cgi配置"><span class="toc-text">2.4.2 添加cgi配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-3-重启Apache"><span class="toc-text">2.4.3 重启Apache</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-查看配置结果"><span class="toc-text">2.5 查看配置结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-brat使用"><span class="toc-text">3.brat使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-一些相关文章"><span class="toc-text">3.1 一些相关文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-配置brat中文环境"><span class="toc-text">3.2 配置brat中文环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-待标记语料配置"><span class="toc-text">3.3 待标记语料配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-放置带标记语料"><span class="toc-text">3.3.1 放置带标记语料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-创建ann文件"><span class="toc-text">3.3.2 创建ann文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-配置标注信息"><span class="toc-text">3.3.3 配置标注信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-对语料进行标注"><span class="toc-text">3.4 对语料进行标注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-查看并导出标注结果"><span class="toc-text">3.5 查看并导出标注结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-注意事项"><span class="toc-text">4.注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-无法加载标注文件"><span class="toc-text">4.1 无法加载标注文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-参考"><span class="toc-text">-1.参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-更新"><span class="toc-text">-1.更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0-前言"><span class="toc-text">0.前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-背景"><span class="toc-text">0.1 背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-2-brat介绍"><span class="toc-text">0.2 brat介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-3-个人使用方式"><span class="toc-text">0.3 个人使用方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-brat相关信息"><span class="toc-text">1.brat相关信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-brat相关网址"><span class="toc-text">1.1 brat相关网址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-brat安装"><span class="toc-text">2.brat安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装Apache"><span class="toc-text">2.1 安装Apache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-初步配置Apache（视情况可略过）"><span class="toc-text">2.2 初步配置Apache（视情况可略过）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-下载brat"><span class="toc-text">2.3 下载brat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-配置Apache"><span class="toc-text">2.4 配置Apache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-添加brat配置"><span class="toc-text">2.4.1 添加brat配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-添加cgi配置"><span class="toc-text">2.4.2 添加cgi配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-3-重启Apache"><span class="toc-text">2.4.3 重启Apache</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-查看配置结果"><span class="toc-text">2.5 查看配置结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-brat使用"><span class="toc-text">3.brat使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-一些相关文章"><span class="toc-text">3.1 一些相关文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-配置brat中文环境"><span class="toc-text">3.2 配置brat中文环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-待标记语料配置"><span class="toc-text">3.3 待标记语料配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-放置带标记语料"><span class="toc-text">3.3.1 放置带标记语料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-创建ann文件"><span class="toc-text">3.3.2 创建ann文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-配置标注信息"><span class="toc-text">3.3.3 配置标注信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-对语料进行标注"><span class="toc-text">3.4 对语料进行标注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-查看并导出标注结果"><span class="toc-text">3.5 查看并导出标注结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-注意事项"><span class="toc-text">4.注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-无法加载标注文件"><span class="toc-text">4.1 无法加载标注文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-参考"><span class="toc-text">5.参考</span></a></li></ol>
     </div>
   </section>
 
