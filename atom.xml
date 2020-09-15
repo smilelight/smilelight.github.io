@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-09-09T09:52:04.317Z</updated>
+  <updated>2020-09-15T07:32:01.094Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos安装LibreOffice</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/</id>
+    <published>2020-09-15T06:43:52.000Z</published>
+    <updated>2020-09-15T07:32:01.094Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。</p><h2 id="1-下载并解压安装包"><a href="#1-下载并解压安装包" class="headerlink" title="1.下载并解压安装包"></a>1.下载并解压安装包</h2><h3 id="1-1-下载安装包"><a href="#1-1-下载安装包" class="headerlink" title="1.1 下载安装包"></a>1.1 下载安装包</h3><p>官网中文下载页：<a href="https://zh-cn.libreoffice.org/download/libreoffice/" target="_blank" rel="noopener">下载 LibreOffice | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></p><p>我们需要安装主安装程序以及中文语言安装包和中文离线帮助文件安装包，这里列出6.4.6版本的中文镜像源链接：</p><ul><li>主程序链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz</a></li><li>中文语言包链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz</a></li><li>中文离线帮助文件链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz</a></li></ul><h3 id="1-2-解压安装包"><a href="#1-2-解压安装包" class="headerlink" title="1.2 解压安装包"></a>1.2 解压安装包</h3><p>将安装包放置到合适的位置并且解压。</p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><pre><code class="lang-bash">$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm/RPMS/*.rpm  /* 安装主安装程序的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_langpack_zh-CN/RPMS/*.rpm  /* 安装中文语言包中的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_helppack_zh-CN/RPMS/*.rpm  /* 安装中文离线帮助文件中的所有rpm包 */</code></pre><h2 id="3-依赖"><a href="#3-依赖" class="headerlink" title="3.依赖"></a>3.依赖</h2><h3 id="3-1-查看安装位置"><a href="#3-1-查看安装位置" class="headerlink" title="3.1 查看安装位置"></a>3.1 查看安装位置</h3><pre><code class="lang-bash">whereis libreoffice</code></pre><p>得到如下输出：</p><pre><code class="lang-text">libreoffice: /usr/bin/libreoffice6.4 /usr/lib64/libreoffice</code></pre><h3 id="3-2-安装依赖"><a href="#3-2-安装依赖" class="headerlink" title="3.2 安装依赖"></a>3.2 安装依赖</h3><p>执行<code>libreoffice6.4</code>报库文件找不到的错误，需要安装一些库文件：</p><ul><li><code>yum install cairo -y</code></li><li><code>yum install cups-libs -y</code></li><li><code>yum install libSM -y</code></li></ul><h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><h3 id="4-1-查看版本"><a href="#4-1-查看版本" class="headerlink" title="4.1 查看版本"></a>4.1 查看版本</h3><pre><code class="lang-bash">libreoffice6.4 --version</code></pre><p>得到如下结果：</p><pre><code class="lang-text">LibreOffice 6.4.6.2 0ce51a4fd21bff07a5c061082cc82c5ed232f115</code></pre><h3 id="4-2-创建软链接"><a href="#4-2-创建软链接" class="headerlink" title="4.2 创建软链接"></a>4.2 创建软链接</h3><p>由于联动的其他程序设置的libreoffice路径为<code>/usr/bin/soffice</code>，所以这里创建一个软链：</p><pre><code class="lang-bash">ln -s /opt/libreoffice6.4/program/soffice /usr/bin/soffice</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="http://qtdebug.com/mac-centos7-libreoffice/" target="_blank" rel="noopener">CentOS7 安装 LibreOffice | 公孙二狗</a></li><li><a href="https://zh-cn.libreoffice.org/get-help/install-howto/linux/" target="_blank" rel="noopener">Linux 下的安装方法 | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></li><li><a href="https://blog.csdn.net/m290345792/article/details/78518360" target="_blank" rel="noopener">linux软链接的创建、删除和更新_鲁不迅的专栏-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用命令</title>
+    <link href="https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-09-10T00:45:02.000Z</published>
+    <updated>2020-09-15T06:42:26.425Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>创建带有ik分词器的Elasticsearch容器</title>
@@ -102,7 +154,7 @@
     <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/"/>
     <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/</id>
     <published>2020-09-06T07:54:30.000Z</published>
-    <updated>2020-09-06T08:09:46.940Z</updated>
+    <updated>2020-09-15T06:45:17.271Z</updated>
     
     <content type="html"><![CDATA[<p>安装方式详情参见<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">在CentOS 7上安装MongoDB - 云+社区 - 腾讯云</a>，只是貌似最新的版本是4.4，即需要将添加MongoDB源部分的3.2都换成4.4。</p><p>另外更精简的文档：<a href="https://www.jb51.net/article/194001.htm" target="_blank" rel="noopener">Centos7 yum安装mongodb实现步骤详解_MongoDB_脚本之家</a>。</p>]]></content>
     
@@ -116,7 +168,7 @@
     </summary>
     
     
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
     
     
       <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
@@ -446,48 +498,6 @@
     <summary type="html">
     
       &lt;p&gt;由于要设置博客站点的图标，而ico文件不能直接拖到图床工具中上传，于是也参考学习了一下使用CDN的方式。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>记录原来的博客风格</title>
-    <link href="https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A3%8E%E6%A0%BC/"/>
-    <id>https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A3%8E%E6%A0%BC/</id>
-    <published>2020-05-01T06:27:57.000Z</published>
-    <updated>2020-05-01T06:39:39.764Z</updated>
-    
-    <content type="html"><![CDATA[<p>原来的博客用了很长时间的material-X的风格，可是最近突然觉得有些喧闹，并且雪花爆炸特效等挺消耗电脑，最终的浏览体验并不好，所以这里把那些效果去掉，现在用的是原作者在material-X基础上升级的Volantis主题。</p><p>然而在这里还是放两张截图，也算保存纪念一下吧。</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588314775701.jpeg" alt="UTOOLS1588314775701.jpeg"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588314793231.jpeg" alt="UTOOLS1588314793231.jpeg"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原来的博客用了很长时间的material-X的风格，可是最近突然觉得有些喧闹，并且雪花爆炸特效等挺消耗电脑，最终的浏览体验并不好，所以这里把那些效果去掉，现在用的是原作者在material-X基础上升级的Volantis主题。&lt;/p&gt;
-&lt;p&gt;然而在这里还是放两张截图，也算保存纪念一下吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>C++常用数据结构操作示例</title>
-    <link href="https://www.iamlightsmile.com/articles/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9C%E7%A4%BA%E4%BE%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9C%E7%A4%BA%E4%BE%8B/</id>
-    <published>2020-05-01T01:45:31.000Z</published>
-    <updated>2020-06-29T06:40:58.368Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>由于自己使用Python居多，对C++并不太熟悉，但是最近在刷算法题，所以这里简单整理总结一下C++常用数据结构的操作函数，以便方便查阅检索。</p><p><a id="more"></a>s</p><h2 id="1-C-标准库常用数据结构"><a href="#1-C-标准库常用数据结构" class="headerlink" title="1. C++标准库常用数据结构"></a>1. C++标准库常用数据结构</h2><p>常用数据结构如下：</p><ul><li>string</li><li>vector</li><li>list</li><li>queue和priority_queue</li><li>set</li><li>map</li><li>stack</li></ul><h2 id="2-常用数据结构操作示例"><a href="#2-常用数据结构操作示例" class="headerlink" title="2. 常用数据结构操作示例"></a>2. 常用数据结构操作示例</h2><h3 id="1-string"><a href="#1-string" class="headerlink" title="1. string"></a>1. string</h3><pre><code class="lang-c++">//header file : &lt;string&gt;//declarationstring s = &quot;hello world!&quot;;// visit by subscriptchar c = s[2];//lconst char cc = s.at(6);//w// get the length of the stringint length = s.length();//12int size = s.size();//12// the string is empty or notbool is_empty = s.empty();//0// concat stringsstring t = &quot;c++&quot;;s.append(t);//hello world!c++s += &quot;Python!&quot;;//hello world!c++Python!// get substringstring sub_str = s.substr(0, 5);//hello// find substringint pos = s.find(&quot;world&quot;);//6// insert operations.insert(0, &quot;Hi!&quot;);//Hi!hello world!c++Python!// compare operationstring other = &quot;NLP&quot;;bool cmp = other &lt; s;//0// visit element by iteratorfor (auto i: s) {    cout &lt;&lt; i &lt;&lt; endl;}</code></pre><h3 id="2-vector"><a href="#2-vector" class="headerlink" title="2. vector"></a>2. vector</h3><pre><code class="lang-c++">// header file :&lt;vector&gt;// declarationvector&lt;int&gt; vec {2, 3, 4}; //[2, 3, 4]// size of vectorint size = vec.size(); //3// the vector is empty or notbool is_empty = vec.empty(); // 0// visit by subscriptauto e = vec.at(2);//4int m = vec[1];//3cout &lt;&lt; e &lt;&lt; m &lt;&lt; endl;// append element at backvec.push_back(5); // [2, 3, 4, 5]// delete the last elementvec.pop_back();//[2, 3, 4]// insert an element by iteratorvec.insert(vec.begin(), 1); //[1, 2, 3, 4]// visit the first element and the last elementcout &lt;&lt; vec.front() &lt;&lt; vec.back() &lt;&lt; endl; // 14// visit by iteratorauto iter = vec.begin();while (iter != vec.end()) {    cout &lt;&lt; *iter &lt;&lt; endl;    iter += 1;}// delete element by iteratorauto item = vec.erase(vec.end() -2);cout &lt;&lt; *item &lt;&lt; endl;//4for (auto i: vec) {    cout &lt;&lt; i &lt;&lt; endl;}</code></pre><h3 id="3-queue"><a href="#3-queue" class="headerlink" title="3. queue"></a>3. queue</h3><pre><code class="lang-c++">// header file: &lt;queue&gt;//declaration, can&#39;t initiate with assignment statement.queue&lt;int&gt; que;// add element to the back of queuefor (int i = 0; i &lt; 3; i++) {    que.push(i);} //que: {0, 1, 2}// get the size of queueint size = que.size();//3// if the queue is empty or notbool is_empty = que.empty();//0// delete the element at the first positionque.pop();//que: {1, 2}// get the first elementauto first = que.front();//1// get the last elementauto last = que.back();//2cout &lt;&lt; first &lt;&lt; last &lt;&lt; endl;</code></pre><h3 id="4-map"><a href="#4-map" class="headerlink" title="4. map"></a>4. map</h3><pre><code class="lang-c++">//header file :&lt;map&gt;//declarationmap&lt;int, int&gt; m;//add element to mapfor (int i = 0; i &lt; 3; i++) {    m[i] = i + 2;}m.insert({5, 8});//visit the element by auto+forfor (auto i: m) {    printf(&quot;%d : %d\n&quot;, i.first, i.second);}//whether the map is empty or notbool is_empty = m.empty();//0//get the size of mapint size = m.size();//4// get the count of elementint count = m.count(2);//1// search item by keyauto item = m.find(count);printf(&quot;%d : %d\n&quot;, item-&gt;first, item-&gt;second);// if not find, the value would equal to map.end()auto ss = m.find(9);cout &lt;&lt; (ss == m.end()) &lt;&lt; endl;//1// get element by [] operatorint sk = m[10];//0 if the key not exists, then initcout &lt;&lt; sk &lt;&lt; endl;//0map&lt;string, string&gt; str_map;str_map.insert({&quot;hello&quot;, &quot;world&quot;});cout &lt;&lt; &quot;begin&quot; &lt;&lt; str_map[&quot;python&quot;] &lt;&lt; &quot;end&quot; &lt;&lt; endl;//beginend</code></pre><h3 id="5-set"><a href="#5-set" class="headerlink" title="5. set"></a>5. set</h3><pre><code class="lang-c++">// header file :&lt;set&gt;// declarationset&lt;int&gt; ss;// insert elementss.insert(3);// whether element is in the set or notbool is_in = ss.count(4);//0// get the size fo setint size = ss.size();//1// whether the set is empty or notbool is_empty = ss.empty();//0cout &lt;&lt; is_in &lt;&lt; size &lt;&lt; is_empty &lt;&lt; endl;</code></pre><h3 id="6-stack"><a href="#6-stack" class="headerlink" title="6. stack"></a>6. stack</h3><pre><code class="lang-c++">// header file: &lt;stack&gt;//declarationstack&lt;int&gt; stk;// insert elementstk.push(3);stk.push(4);// get the top elementint top = stk.top();//4// get the size of stackint size = stk.size();//2// out of the stack, no returnstk.pop();cout &lt;&lt; top &lt;&lt; size &lt;&lt; stk.top() &lt;&lt; endl;//423</code></pre><h3 id="7-list"><a href="#7-list" class="headerlink" title="7. list"></a>7. list</h3><pre><code class="lang-c++">//header file: &lt;list&gt;//declarationlist&lt;int&gt; lst;// add element at backlst.push_back(4);//{4}lst.push_back(5);//{4, 5}// add element at frontlst.push_front(3);//{3, 4, 5}for (auto i: lst) {    cout &lt;&lt; i &lt;&lt; endl;}// get the size of listint size = lst.size();//3// delete element, the iterator of list doesn&#39;t implement the + or - operator// since C++17, we can use advance(lst.begin(), 2) to get the iterator of specific position easilylst.erase(++lst.begin());//{3, 5}printf(&quot;front:%d, back:%d&quot;, lst.front(), lst.back());//front:3, back:5</code></pre><h3 id="8-priority-queue"><a href="#8-priority-queue" class="headerlink" title="8. priority_queue"></a>8. priority_queue</h3><p><code>priority_queue</code>并没有提供迭代器访问，只可以访问<code>top</code>元素。</p><pre><code class="lang-c++">//header file: &lt;queue&gt;//declarationpriority_queue&lt;int&gt; pq;// push data to pqfor (int i = 1; i &lt; 7; i++) {    pq.push(i);}// whether the pq is empty or notbool is_empty = pq.empty();//0// get the size of pqint size = pq.size();//6// get the top elementint top = pq.top();//6// remove the top elementpq.pop();cout &lt;&lt; pq.top() &lt;&lt; endl;//5</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://blog.csdn.net/monkey_D_feilong/article/details/51778820" target="_blank" rel="noopener">c++string类的常用方法详解_c/c++_monkey_D_feilong的博客-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/033b78422bac" target="_blank" rel="noopener">C++ vector容器用法 - 简书</a></li><li><a href="https://www.jianshu.com/p/4fb9a458f558" target="_blank" rel="noopener">c++ queue的使用 - 简书</a></li><li><a href="https://www.jianshu.com/p/ec0d684453eb" target="_blank" rel="noopener">c++ map set 详解 - 简书</a></li><li><a href="https://www.jianshu.com/p/8730953af4f9" target="_blank" rel="noopener">C++ stack 使用 - 简书</a></li><li><a href="https://www.jianshu.com/p/c750715abedc" target="_blank" rel="noopener">C++ STL std::list的使用 - 简书</a></li><li><a href="https://www.jianshu.com/p/b95d8972466a" target="_blank" rel="noopener">STL之list和vector - 简书</a></li><li><a href="https://www.jianshu.com/p/65fdd3099238" target="_blank" rel="noopener">C++ STL 之 priority_queue 与堆 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0. 前言&quot;&gt;&lt;/a&gt;0. 前言&lt;/h2&gt;&lt;p&gt;由于自己使用Python居多，对C++并不太熟悉，但是最近在刷算法题，所以这里简单整理总结一下C++常用数据结构的操作函数，以便方便查阅检索。&lt;/p&gt;
-&lt;p&gt;
     
     </summary>
     

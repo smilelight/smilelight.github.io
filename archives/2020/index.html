@@ -489,6 +489,263 @@
         
           
   <h2 class="title">
+    <a href="/articles/centos%E5%AE%89%E8%A3%85LibreOffice/">
+      centos安装LibreOffice
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
+    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
+    <p>lightsmile</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Linux/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年9月15日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：505字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：2分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。</p>
+<h2 id="1-下载并解压安装包"><a href="#1-下载并解压安装包" class="headerlink" title="1.下载并解压安装包"></a>1.下载并解压安装包</h2><h3 id="1-1-下载安装包"><a href="#1-1-下载安装包" class="headerlink" title="1.1 下载安装包"></a>1.1 下载安装包</h3><p>官网中文下载页：<a href="https://zh-cn.libreoffice.org/download/libreoffice/" target="_blank" rel="noopener">下载 LibreOffice | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></p>
+<p>我们需要安装主安装程序以及中文语言安装包和中文离线帮助文件安装包，这里列出6.4.6版本的中文镜像源链接：</p>
+<ul>
+<li>主程序链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz</a></li>
+<li>中文语言包链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz</a></li>
+<li>中文离线帮助文件链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz</a></li>
+</ul>
+<h3 id="1-2-解压安装包"><a href="#1-2-解压安装包" class="headerlink" title="1.2 解压安装包"></a>1.2 解压安装包</h3><p>将安装包放置到合适的位置并且解压。</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><pre><code class="lang-bash">$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm/RPMS/*.rpm  /* 安装主安装程序的所有rpm包 */
+$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_langpack_zh-CN/RPMS/*.rpm  /* 安装中文语言包中的所有rpm包 */
+$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_helppack_zh-CN/RPMS/*.rpm  /* 安装中文离线帮助文件中的所有rpm包 */
+</code></pre>
+<h2 id="3-依赖"><a href="#3-依赖" class="headerlink" title="3.依赖"></a>3.依赖</h2><h3 id="3-1-查看安装位置"><a href="#3-1-查看安装位置" class="headerlink" title="3.1 查看安装位置"></a>3.1 查看安装位置</h3><pre><code class="lang-bash">whereis libreoffice
+</code></pre>
+<p>得到如下输出：</p>
+<pre><code class="lang-text">libreoffice: /usr/bin/libreoffice6.4 /usr/lib64/libreoffice
+</code></pre>
+<h3 id="3-2-安装依赖"><a href="#3-2-安装依赖" class="headerlink" title="3.2 安装依赖"></a>3.2 安装依赖</h3><p>执行<code>libreoffice6.4</code>报库文件找不到的错误，需要安装一些库文件：</p>
+<ul>
+<li><code>yum install cairo -y</code></li>
+<li><code>yum install cups-libs -y</code></li>
+<li><code>yum install libSM -y</code></li>
+</ul>
+<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><h3 id="4-1-查看版本"><a href="#4-1-查看版本" class="headerlink" title="4.1 查看版本"></a>4.1 查看版本</h3><pre><code class="lang-bash">libreoffice6.4 --version
+</code></pre>
+<p>得到如下结果：</p>
+<pre><code class="lang-text">LibreOffice 6.4.6.2 0ce51a4fd21bff07a5c061082cc82c5ed232f115
+</code></pre>
+<h3 id="4-2-创建软链接"><a href="#4-2-创建软链接" class="headerlink" title="4.2 创建软链接"></a>4.2 创建软链接</h3><p>由于联动的其他程序设置的libreoffice路径为<code>/usr/bin/soffice</code>，所以这里创建一个软链：</p>
+<pre><code class="lang-bash">ln -s /opt/libreoffice6.4/program/soffice /usr/bin/soffice
+</code></pre>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul>
+<li><a href="http://qtdebug.com/mac-centos7-libreoffice/" target="_blank" rel="noopener">CentOS7 安装 LibreOffice | 公孙二狗</a></li>
+<li><a href="https://zh-cn.libreoffice.org/get-help/install-howto/linux/" target="_blank" rel="noopener">Linux 下的安装方法 | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></li>
+<li><a href="https://blog.csdn.net/m290345792/article/details/78518360" target="_blank" rel="noopener">linux软链接的创建、删除和更新_鲁不迅的专栏-CSDN博客</a></li>
+</ul>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+      Linux常用命令
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
+    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
+    <p>lightsmile</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Linux/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年9月10日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：96字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p>
+</blockquote>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/articles/%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89ik%E5%88%86%E8%AF%8D%E5%99%A8%E7%9A%84Elasticsearch%E5%AE%B9%E5%99%A8/">
       创建带有ik分词器的Elasticsearch容器
     </a>
@@ -861,9 +1118,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
+    <a href='/categories/Linux/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
+      <p>Linux</p>
     </a>
   </div>
 
@@ -1379,230 +1636,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/">
-      “八佰”之我见
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E9%9A%8F%E5%BF%B5/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>随念</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年8月25日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.3k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近上映了新的电影《八佰》，不过我没去看，有意思的是网上相关的评论近似呈现两边倒的态势。自昨天开始我也不自觉的站批评《八佰》这条路，不过到了今天晚上看了更多的评论之后自己有了新的理解，并且对于其中不少现象的困惑也都几近明了，这里简单做一个整理记录。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E2%80%9C%E5%85%AB%E4%BD%B0%E2%80%9D%E4%B9%8B%E6%88%91%E8%A7%81/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-      使用nginx搭建简单文件服务器
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年8月16日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：587字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>我们有多种通过网络给别人发送文件的方式，包括QQ文件分享、微信文件分享、网盘链接分享、邮件附件分享、文件服务器URL链接等。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E4%BD%BF%E7%94%A8nginx%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1718,7 +1751,7 @@
           <li><a class="flat-box"
             title="/categories/Linux/" href="/categories/Linux/"
             id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(12)</div></a></li>
+            ><div class='name'>Linux</div><div class='badge'>(15)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/NLP/" href="/categories/NLP/"
@@ -1748,7 +1781,7 @@
           <li><a class="flat-box"
             title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"
             id="categoriesE8AEA1E7AE97E69CBA"
-            ><div class='name'>计算机</div><div class='badge'>(27)</div></a></li>
+            ><div class='name'>计算机</div><div class='badge'>(26)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E9%9A%8F%E5%BF%B5/" href="/categories/%E9%9A%8F%E5%BF%B5/"
@@ -1777,7 +1810,7 @@
 
 
     <div class='content'>
-      <a href="/tags/CentOS/" style="font-size: 15.43px; color: #8f8f8f">CentOS</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 14px; color: #999">Elasticsearch</a> <a href="/tags/GNN/" style="font-size: 14px; color: #999">GNN</a> <a href="/tags/Github/" style="font-size: 15.43px; color: #8f8f8f">Github</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Manjaro/" style="font-size: 22.57px; color: #5f5f5f">Manjaro</a> <a href="/tags/NLP/" style="font-size: 24px; color: #555">NLP</a> <a href="/tags/Neo4j/" style="font-size: 14px; color: #999">Neo4j</a> <a href="/tags/Python/" style="font-size: 19.71px; color: #727272">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/ReadtheDocs/" style="font-size: 14px; color: #999">ReadtheDocs</a> <a href="/tags/SSL/" style="font-size: 14px; color: #999">SSL</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/VMware/" style="font-size: 14px; color: #999">VMware</a> <a href="/tags/VSCode/" style="font-size: 14px; color: #999">VSCode</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/blog/" style="font-size: 16.86px; color: #868686">blog</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/damedane/" style="font-size: 14px; color: #999">damedane</a> <a href="/tags/frp/" style="font-size: 14px; color: #999">frp</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/" style="font-size: 14px; color: #999">light系列库</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 16.86px; color: #868686">个人</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 21.14px; color: #686868">哲学</a> <a href="/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/" style="font-size: 18.29px; color: #7c7c7c">国士无双</a> <a href="/tags/%E5%B0%8F%E7%AA%8D%E9%97%A8/" style="font-size: 14px; color: #999">小窍门</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E6%80%9D%E6%83%B3/" style="font-size: 14px; color: #999">工程思想</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">开发工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/%E6%8A%BD%E8%B1%A1/" style="font-size: 15.43px; color: #8f8f8f">抽象</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 21.14px; color: #686868">数学</a> <a href="/tags/%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0/" style="font-size: 14px; color: #999">新词发现</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15.43px; color: #8f8f8f">杂谈</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 15.43px; color: #8f8f8f">浏览器插件</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 16.86px; color: #868686">深度学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 15.43px; color: #8f8f8f">知识图谱</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15.43px; color: #8f8f8f">科学上网</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.86px; color: #868686">算法</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15.43px; color: #8f8f8f">计算机</a> <a href="/tags/%E9%9A%8F%E5%BF%B5/" style="font-size: 14px; color: #999">随念</a> <a href="/tags/%E9%A2%88%E6%A4%8E%E7%97%85/" style="font-size: 14px; color: #999">颈椎病</a>
+      <a href="/tags/CentOS/" style="font-size: 15.43px; color: #8f8f8f">CentOS</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 14px; color: #999">Elasticsearch</a> <a href="/tags/GNN/" style="font-size: 14px; color: #999">GNN</a> <a href="/tags/Github/" style="font-size: 15.43px; color: #8f8f8f">Github</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Manjaro/" style="font-size: 22.57px; color: #5f5f5f">Manjaro</a> <a href="/tags/NLP/" style="font-size: 24px; color: #555">NLP</a> <a href="/tags/Neo4j/" style="font-size: 14px; color: #999">Neo4j</a> <a href="/tags/Python/" style="font-size: 19.71px; color: #727272">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/ReadtheDocs/" style="font-size: 14px; color: #999">ReadtheDocs</a> <a href="/tags/SSL/" style="font-size: 14px; color: #999">SSL</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/VMware/" style="font-size: 14px; color: #999">VMware</a> <a href="/tags/VSCode/" style="font-size: 14px; color: #999">VSCode</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/blog/" style="font-size: 16.86px; color: #868686">blog</a> <a href="/tags/centos/" style="font-size: 15.43px; color: #8f8f8f">centos</a> <a href="/tags/damedane/" style="font-size: 14px; color: #999">damedane</a> <a href="/tags/frp/" style="font-size: 14px; color: #999">frp</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/" style="font-size: 14px; color: #999">light系列库</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 16.86px; color: #868686">个人</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 21.14px; color: #686868">哲学</a> <a href="/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/" style="font-size: 18.29px; color: #7c7c7c">国士无双</a> <a href="/tags/%E5%B0%8F%E7%AA%8D%E9%97%A8/" style="font-size: 14px; color: #999">小窍门</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E6%80%9D%E6%83%B3/" style="font-size: 14px; color: #999">工程思想</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">开发工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/%E6%8A%BD%E8%B1%A1/" style="font-size: 15.43px; color: #8f8f8f">抽象</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 21.14px; color: #686868">数学</a> <a href="/tags/%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0/" style="font-size: 14px; color: #999">新词发现</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15.43px; color: #8f8f8f">杂谈</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 15.43px; color: #8f8f8f">浏览器插件</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 16.86px; color: #868686">深度学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 15.43px; color: #8f8f8f">知识图谱</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15.43px; color: #8f8f8f">科学上网</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.86px; color: #868686">算法</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15.43px; color: #8f8f8f">计算机</a> <a href="/tags/%E9%9A%8F%E5%BF%B5/" style="font-size: 14px; color: #999">随念</a> <a href="/tags/%E9%A2%88%E6%A4%8E%E7%97%85/" style="font-size: 14px; color: #999">颈椎病</a>
     </div>
   </section>
 
