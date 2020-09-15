@@ -461,46 +461,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。</p>
-<h2 id="1-下载并解压安装包"><a href="#1-下载并解压安装包" class="headerlink" title="1.下载并解压安装包"></a>1.下载并解压安装包</h2><h3 id="1-1-下载安装包"><a href="#1-1-下载安装包" class="headerlink" title="1.1 下载安装包"></a>1.1 下载安装包</h3><p>官网中文下载页：<a href="https://zh-cn.libreoffice.org/download/libreoffice/" target="_blank" rel="noopener">下载 LibreOffice | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></p>
-<p>我们需要安装主安装程序以及中文语言安装包和中文离线帮助文件安装包，这里列出6.4.6版本的中文镜像源链接：</p>
-<ul>
-<li>主程序链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz</a></li>
-<li>中文语言包链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz</a></li>
-<li>中文离线帮助文件链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz</a></li>
-</ul>
-<h3 id="1-2-解压安装包"><a href="#1-2-解压安装包" class="headerlink" title="1.2 解压安装包"></a>1.2 解压安装包</h3><p>将安装包放置到合适的位置并且解压。</p>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><pre><code class="lang-bash">$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm/RPMS/*.rpm  /* 安装主安装程序的所有rpm包 */
-$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_langpack_zh-CN/RPMS/*.rpm  /* 安装中文语言包中的所有rpm包 */
-$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_helppack_zh-CN/RPMS/*.rpm  /* 安装中文离线帮助文件中的所有rpm包 */
-</code></pre>
-<h2 id="3-依赖"><a href="#3-依赖" class="headerlink" title="3.依赖"></a>3.依赖</h2><h3 id="3-1-查看安装位置"><a href="#3-1-查看安装位置" class="headerlink" title="3.1 查看安装位置"></a>3.1 查看安装位置</h3><pre><code class="lang-bash">whereis libreoffice
-</code></pre>
-<p>得到如下输出：</p>
-<pre><code class="lang-text">libreoffice: /usr/bin/libreoffice6.4 /usr/lib64/libreoffice
-</code></pre>
-<h3 id="3-2-安装依赖"><a href="#3-2-安装依赖" class="headerlink" title="3.2 安装依赖"></a>3.2 安装依赖</h3><p>执行<code>libreoffice6.4</code>报库文件找不到的错误，需要安装一些库文件：</p>
-<ul>
-<li><code>yum install cairo -y</code></li>
-<li><code>yum install cups-libs -y</code></li>
-<li><code>yum install libSM -y</code></li>
-</ul>
-<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><h3 id="4-1-查看版本"><a href="#4-1-查看版本" class="headerlink" title="4.1 查看版本"></a>4.1 查看版本</h3><pre><code class="lang-bash">libreoffice6.4 --version
-</code></pre>
-<p>得到如下结果：</p>
-<pre><code class="lang-text">LibreOffice 6.4.6.2 0ce51a4fd21bff07a5c061082cc82c5ed232f115
-</code></pre>
-<h3 id="4-2-创建软链接"><a href="#4-2-创建软链接" class="headerlink" title="4.2 创建软链接"></a>4.2 创建软链接</h3><p>由于联动的其他程序设置的libreoffice路径为<code>/usr/bin/soffice</code>，所以这里创建一个软链：</p>
-<pre><code class="lang-bash">ln -s /opt/libreoffice6.4/program/soffice /usr/bin/soffice
-</code></pre>
-<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul>
-<li><a href="http://qtdebug.com/mac-centos7-libreoffice/" target="_blank" rel="noopener">CentOS7 安装 LibreOffice | 公孙二狗</a></li>
-<li><a href="https://zh-cn.libreoffice.org/get-help/install-howto/linux/" target="_blank" rel="noopener">Linux 下的安装方法 | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></li>
-<li><a href="https://blog.csdn.net/m290345792/article/details/78518360" target="_blank" rel="noopener">linux软链接的创建、删除和更新_鲁不迅的专栏-CSDN博客</a></li>
-</ul>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/articles/centos%E5%AE%89%E8%A3%85LibreOffice/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
