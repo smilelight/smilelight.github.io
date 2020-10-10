@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>知识库学习心得随记</title>
+      <link href="/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/"/>
+      <url>/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>最近在看一些知识库的项目，自己小有体会，这里简单记录一下。</p><a id="more"></a><p>近几个月来，出于项目需要，自己简单学习了下Elasticsearch，并且重新学习了下Neo4j。我发现看的知识库的项目所使用的数据库不尽相同，有基于Neo4j的，有基于Elasticsearch的，有基于MongoDB的，这不禁令我反思。</p><p>这些数据库的相似之处在于都非关系型数据库，不同之处在于各自所更能适配的数据类型不同。Neo4j更适配的数据是那些数据类型简单但之间关系复杂多样化的，Elasticsearch更适配的数据或者说场景是待检索的数据尤其是需要定制复杂规则过滤排序的数据，而MongoDB则更加通用一些。</p><p>在实际项目中，对于数据量比较小或者业务场景比较简单的情况下，其实这三种数据库基本都能完成需求；而只有当数据的量级很大（比如在上百万条）以及业务场景比较复杂的情况下，三种各自的优劣才能比较明显的体现出来。数据库之间也没有通用的优劣高低之分，只有哪个更适配任务的数据类型和场景之分。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 知识图谱 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 知识库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Neo4j使用小记</title>
       <link href="/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/"/>
       <url>/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p><h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p><p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p><p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p><p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p><p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p><p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p><h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>]]></content>
+        <content type="html"><![CDATA[<p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p><a id="more"></a><h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p><p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p><p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p><p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p><p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p><p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p><h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>]]></content>
       
       
       <categories>
@@ -21,6 +46,33 @@
         <tags>
             
             <tag> Neo4j </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>配置VSCode-Remote-Container</title>
+      <link href="/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/"/>
+      <url>/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>我服了，vscode确实太香了。</p><a id="more"></a><h2 id="1-远程主机配置"><a href="#1-远程主机配置" class="headerlink" title="1.远程主机配置"></a>1.远程主机配置</h2><blockquote><p><strong>注意</strong>：以下基于CentOS7环境。</p></blockquote><h3 id="1-1-安装docker"><a href="#1-1-安装docker" class="headerlink" title="1.1 安装docker"></a>1.1 安装docker</h3><p>一键安装脚本：</p><pre><code class="lang-bash">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></pre><p>可参考：<a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS Docker 安装 | 菜鸟教程</a></p><h3 id="1-2-配置docker"><a href="#1-2-配置docker" class="headerlink" title="1.2 配置docker"></a>1.2 配置docker</h3><p>在远程主机上：</p><ol><li>创建文件<code>daemon.json</code>到目录<code>/etc/docker</code>:</li></ol><pre><code class="lang-josn">{&quot;hosts&quot;: [&quot;tcp://0.0.0.0:2375&quot;, &quot;unix:///var/run/docker.sock&quot;]}</code></pre><ol><li>创建文件<code>/etc/systemd/system/docker.service.d/override.conf</code>:</li></ol><pre><code class="lang-conf">[Service]ExecStart=ExecStart=/usr/bin/dockerd</code></pre><ol><li>重启docker：</li></ol><pre><code class="lang-bash">systemctl daemon-reloadsystemctl restart docker.service</code></pre><h2 id="2-本地桌面配置"><a href="#2-本地桌面配置" class="headerlink" title="2.本地桌面配置"></a>2.本地桌面配置</h2><blockquote><p><strong>注意</strong>：以下基于Windows10桌面专业版环境。</p></blockquote><h3 id="2-1-安装OpenSSL"><a href="#2-1-安装OpenSSL" class="headerlink" title="2.1 安装OpenSSL"></a>2.1 安装OpenSSL</h3><p>略，自带了。</p><h3 id="2-2-生成ssh秘钥对"><a href="#2-2-生成ssh秘钥对" class="headerlink" title="2.2 生成ssh秘钥对"></a>2.2 生成ssh秘钥对</h3><p>略，参见：<a href="http://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/">配置VSCode-Remote-SSH - lightsmile’s Blog</a></p><p>注意，如我的<code>~/.ssh/config</code>中部分内容为：</p><pre><code class="lang-config">Host tencent_cloud    HostName xx.xx.xx.xx    PreferredAuthentications publickey    User root    IdentitiesOnly yes    # Port 22    IdentityFile ~/.ssh/tencent_cloud_desktop</code></pre><p>使用ssh免密登录的时候命令应该为：</p><pre><code class="lang-bash">ssh tencent_cloud</code></pre><h3 id="2-3-安装docker"><a href="#2-3-安装docker" class="headerlink" title="2.3 安装docker"></a>2.3 安装docker</h3><p>下载<a href="https://github.com/StefanScherer/docker-cli-builder/releases/" target="_blank" rel="noopener">docker.exe</a> 并配置路径（其实配不配都可以，因为我把这个路径放到环境变量里进入shell还是没找到2333~。）</p><h3 id="2-4-配置docker服务"><a href="#2-4-配置docker服务" class="headerlink" title="2.4 配置docker服务"></a>2.4 配置docker服务</h3><p>创建一个context：</p><pre><code class="lang-bash">docker context create &lt;context name&gt; --docker &quot;host=ssh://&lt;user&gt;@&lt;host&gt;&quot;</code></pre><p>以我上面的ssh为例，上面的命令可以为：</p><pre><code class="lang-bash">docker context create tencent_cloud --docker &quot;host=ssh://tencent_cloud&quot;</code></pre><p>切换到上面的context：</p><pre><code class="lang-bash">docker context use &lt;context name&gt;</code></pre><p>以上面生成的context：tencent_cloud为例，上面的指令为：</p><pre><code class="lang-bash">docker context use tencent_cloud</code></pre><p>测试一下：</p><pre><code class="lang-bash">docker info</code></pre><p>这里会输出和在远程主机上运行 docker info 一样的结果， 实际上这里docker本地只是一个客户端，连接到远程主机上的docker服务。</p><h3 id="2-5-安装remote-container插件"><a href="#2-5-安装remote-container插件" class="headerlink" title="2.5 安装remote-container插件"></a>2.5 安装remote-container插件</h3><p>在拓展插件里搜索<code>remote container</code>并安装。</p><p>安装完成后，在vscode设置中搜索<code>remote docker path</code>，设置为之前下载的docker的路径（默认就是<code>docker</code>命令，我这里命令行里找不到，所以需要手动配置）</p><h2 id="3-开始项目"><a href="#3-开始项目" class="headerlink" title="3.开始项目"></a>3.开始项目</h2><h3 id="3-1-启动容器"><a href="#3-1-启动容器" class="headerlink" title="3.1 启动容器"></a>3.1 启动容器</h3><pre><code class="lang-bash">docker run -d --name &lt;container name&gt; -v ~/newproj:/workspaces/newproj &lt;image tag&gt; tail -f /dev/null</code></pre><blockquote><p><strong>注意：</strong> 这里要挂载项目目录到容器中方便保存文件。tail -f 这个命令是为了让容器保持运行。</p></blockquote><h3 id="3-2-vscode访问远程容器"><a href="#3-2-vscode访问远程容器" class="headerlink" title="3.2 vscode访问远程容器"></a>3.2 vscode访问远程容器</h3><ol><li>打开VSCode，按下<code>ctrl+shift+p</code>运行<code>docker contexts use</code>, 选择上面创建的docker context.</li><li>按下<code>ctrl+shift+p</code>运行<code>Remote-Containers:Attach to Running Container...</code>, 选择上面创建的容器名字。</li><li>在新打开的vscode窗口中环境即上面的容器内部，现在可以尽情搬砖了。</li></ol><blockquote><p><strong>注意：</strong> 可以连接的容器必须是正在持续运行着的的容器。（即使用类似<code>tail -f /dev/null</code>命令创建的容器）。</p></blockquote><h3 id="4-后记"><a href="#4-后记" class="headerlink" title="4.后记"></a>4.后记</h3><p>本文主要是拾人牙慧，原文为：<a href="https://segmentfault.com/a/1190000023095631#comment-area" target="_blank" rel="noopener">开发环境代码化: VSCode远程Docker容器作为开发环境 - 个人文章 - SegmentFault 思否</a>。但自己在实践过程中遇到了一些问题，比如ssh免密登陆，同时本着“输出是最好的学习”的原则，故记录之。</p><h3 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h3><ul><li><a href="https://segmentfault.com/a/1190000023095631#comment-area" target="_blank" rel="noopener">开发环境代码化: VSCode远程Docker容器作为开发环境 - 个人文章 - SegmentFault 思否</a></li><li><a href="https://blog.csdn.net/weiwosuoai/article/details/88430620" target="_blank" rel="noopener">Docker 查看镜像信息_犬小哈-CSDN博客</a></li><li><a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS Docker 安装 | 菜鸟教程</a></li><li><a href="https://deepzz.com/post/how-to-setup-ssh-config.html" target="_blank" rel="noopener">SSH Config 那些你所知道和不知道的事 | Deepzz’s Blog</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> vscode </tag>
             
         </tags>
       
@@ -183,9 +235,9 @@
     
     
     <entry>
-      <title>配置VSCode Remote</title>
-      <link href="/articles/%E9%85%8D%E7%BD%AEVSCode-Remote/"/>
-      <url>/articles/%E9%85%8D%E7%BD%AEVSCode-Remote/</url>
+      <title>配置VSCode-Remote-SSH</title>
+      <link href="/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/"/>
+      <url>/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/</url>
       
         <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>在写前一篇文档调研使用brat的时候，由于涉及到操作服务器中文件，然而直接通过命令行操作实在是有些不太方便，毕竟vim不咋熟练，自己突然想到使用vscode可以配置remote开发。于是趁此机会也尝试着配置一下，这里简单记录一下。</p><a id="more"></a><h2 id="1-配置VSCode-Remote-SSH"><a href="#1-配置VSCode-Remote-SSH" class="headerlink" title="1.配置VSCode Remote-SSH"></a>1.配置VSCode Remote-SSH</h2><h3 id="1-1-安装Remote-SSH插件"><a href="#1-1-安装Remote-SSH插件" class="headerlink" title="1.1 安装Remote-SSH插件"></a>1.1 安装Remote-SSH插件</h3><p>在拓展里搜索”remote”，然后安装”Remote-SSH”插件。</p><p>在安装完成之后，侧边栏会多出一个选项，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote.png" alt=""></p><p>点击之后，其会从一些默认位置自动读取系统已有的一些ssh配置信息，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_2.png" alt=""></p><h2 id="2-配置远程服务器"><a href="#2-配置远程服务器" class="headerlink" title="2.配置远程服务器"></a>2.配置远程服务器</h2><h3 id="2-1-添加远程服务器配置信息"><a href="#2-1-添加远程服务器配置信息" class="headerlink" title="2.1 添加远程服务器配置信息"></a>2.1 添加远程服务器配置信息</h3><p>我们可以在<code>config</code>文件中继续添加配置，格式如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_3.png" alt=""></p><h3 id="2-2-配置ssh连接"><a href="#2-2-配置ssh连接" class="headerlink" title="2.2 配置ssh连接"></a>2.2 配置ssh连接</h3><p><strong>注意</strong>：以下命令均是在Git Bash下执行的。</p><h4 id="2-2-1-切换目录至ssh目录"><a href="#2-2-1-切换目录至ssh目录" class="headerlink" title="2.2.1 切换目录至ssh目录"></a>2.2.1 切换目录至ssh目录</h4><pre><code class="lang-bash">cd ~/.ssh</code></pre><h4 id="2-2-2-生成ssh公钥"><a href="#2-2-2-生成ssh公钥" class="headerlink" title="2.2.2 生成ssh公钥"></a>2.2.2 生成ssh公钥</h4><pre><code class="lang-bash">ssh-keygen</code></pre><h4 id="2-2-3-将公钥存储至远程主机"><a href="#2-2-3-将公钥存储至远程主机" class="headerlink" title="2.2.3 将公钥存储至远程主机"></a>2.2.3 将公钥存储至远程主机</h4><p>假如1.3.2步生成的公钥名称为<code>id_rsa.pub</code>，假设远程主机ip地址为<code>12.34.56.78</code>，用户名为<code>root</code></p><pre><code class="lang-bash">ssh-copy-id -i id_rsa.pub root@12.34.56.78</code></pre><h2 id="3-连接至远程服务器"><a href="#3-连接至远程服务器" class="headerlink" title="3.连接至远程服务器"></a>3.连接至远程服务器</h2><p>在上述过程配置完成之后，便可以连接至远程服务器了。如图点击红圈内的图标：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_5.png" alt=""></p><p>连接成功后如图所示：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_6.png" alt=""></p><p>如果还不明白的可以继续看下面的参考文章。</p><h2 id="1-参考"><a href="#1-参考" class="headerlink" title="-1.参考"></a>-1.参考</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/64849549" target="_blank" rel="noopener">VSCode Remote 体验 | 远程Linux环境开发真香 - 知乎</a></li><li><a href="https://www.jianshu.com/p/6761199bedba" target="_blank" rel="noopener">服务器免密登录:ssh公钥配置 - 简书</a></li><li><a href="https://www.jianshu.com/p/1e793e386beb" target="_blank" rel="noopener">ssh配置文件详解 - 简书</a></li></ul>]]></content>
       
@@ -199,7 +251,9 @@
       
         <tags>
             
-            <tag> VSCode </tag>
+            <tag> vscode </tag>
+            
+            <tag> ssh </tag>
             
         </tags>
       
