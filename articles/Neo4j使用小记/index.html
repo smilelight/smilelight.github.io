@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,7 +16,9 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：微信小程序 - lightsmile&#39;s Blog</title>
+    <title>Neo4j使用小记 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="Neo4j">
   
   
 
@@ -349,25 +349,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -377,11 +364,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/articles/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%A2%E7%B4%A2%E9%9A%8F%E7%AC%94/">
-      微信小程序的component
+  <h1 class="title">
+    <a href="/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/">
+      Neo4j使用小记
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -414,30 +401,30 @@
             
           
             
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2018年3月28日</p>
-  </a>
-</div>
-
-            
-          
-            
               
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.7k字</p>
+      <p>字数：251字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：6分钟</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年10月10日</p>
+  </a>
+</div>
 
             
           
@@ -455,104 +442,58 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>我发现无法直接在样式即wxss里通过color属性设置icon组件的颜色，是无效的，只能通过在wxml里设置它的color属性为js传入的变量值或者是通过变量值来控制具体的颜色值。</li>
-</ol>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%A2%E7%B4%A2%E9%9A%8F%E7%AC%94/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p>
+<h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p>
+<p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p>
+<p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p>
+<p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p>
+<p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p>
+<p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p>
+<h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/smilelight/CDN@1.1/img/lightsmile.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">lightsmile's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:iamlightsmile@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/>https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/</a></p>
           
         
-          
-            <a href="https://github.com/smilelight"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=515917285"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -562,61 +503,209 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/smilelight/CDN@1.1/img/wechat.jpg'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-10T16:07:36+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年10月10日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Neo4j/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Neo4j</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：251字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/&title=Neo4j使用小记 - lightsmile's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/&title=Neo4j使用小记 - lightsmile's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/&title=Neo4j使用小记 - lightsmile's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/articles/centos%E5%AE%89%E8%A3%85LibreOffice/'>
+                <p class='title'>centos安装LibreOffice<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>0.前言最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。
+
+1.下载并解压安装包1.1 下载安装包官网中文下载页：下载 Libre...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Neo4j使用小记',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(15)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/NLP/" href="/categories/NLP/"
-            id="categoriesNLP"
-            ><div class='name'>NLP</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"
-            id="categoriesE585B6E4BB96"
-            ><div class='name'>其他</div><div class='badge'>(23)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" href="/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"
-            id="categoriesE79FA5E8AF86E59BBEE8B0B1"
-            ><div class='name'>知识图谱</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"
-            id="categoriesE8AEA1E7AE97E69CBA"
-            ><div class='name'>计算机</div><div class='badge'>(27)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%9A%8F%E5%BF%B5/" href="/categories/%E9%9A%8F%E5%BF%B5/"
-            id="categoriesE99A8FE5BFB5"
-            ><div class='name'>随念</div><div class='badge'>(7)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-一台机器启动多个Neo4j数据库"><span class="toc-text">1.一台机器启动多个Neo4j数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Neo4j使用的Apoc需要配套版本"><span class="toc-text">2.Neo4j使用的Apoc需要配套版本</span></a></li></ol>
     </div>
   </section>
 
@@ -628,22 +717,20 @@
     
   
 
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget related_posts shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
     
   </header>
 
 
-    <div class='content'>
-      <a href="/tags/CentOS/" style="font-size: 15.43px; color: #8f8f8f">CentOS</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 14px; color: #999">Elasticsearch</a> <a href="/tags/GNN/" style="font-size: 14px; color: #999">GNN</a> <a href="/tags/Github/" style="font-size: 15.43px; color: #8f8f8f">Github</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Manjaro/" style="font-size: 22.57px; color: #5f5f5f">Manjaro</a> <a href="/tags/NLP/" style="font-size: 24px; color: #555">NLP</a> <a href="/tags/Neo4j/" style="font-size: 15.43px; color: #8f8f8f">Neo4j</a> <a href="/tags/Python/" style="font-size: 19.71px; color: #727272">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/ReadtheDocs/" style="font-size: 14px; color: #999">ReadtheDocs</a> <a href="/tags/SSL/" style="font-size: 14px; color: #999">SSL</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/VMware/" style="font-size: 14px; color: #999">VMware</a> <a href="/tags/VSCode/" style="font-size: 14px; color: #999">VSCode</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/blog/" style="font-size: 16.86px; color: #868686">blog</a> <a href="/tags/centos/" style="font-size: 15.43px; color: #8f8f8f">centos</a> <a href="/tags/damedane/" style="font-size: 14px; color: #999">damedane</a> <a href="/tags/frp/" style="font-size: 14px; color: #999">frp</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/" style="font-size: 14px; color: #999">light系列库</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 16.86px; color: #868686">个人</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 21.14px; color: #686868">哲学</a> <a href="/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/" style="font-size: 18.29px; color: #7c7c7c">国士无双</a> <a href="/tags/%E5%B0%8F%E7%AA%8D%E9%97%A8/" style="font-size: 14px; color: #999">小窍门</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E6%80%9D%E6%83%B3/" style="font-size: 14px; color: #999">工程思想</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">开发工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/%E6%8A%BD%E8%B1%A1/" style="font-size: 15.43px; color: #8f8f8f">抽象</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 21.14px; color: #686868">数学</a> <a href="/tags/%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0/" style="font-size: 14px; color: #999">新词发现</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15.43px; color: #8f8f8f">杂谈</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 15.43px; color: #8f8f8f">浏览器插件</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 16.86px; color: #868686">深度学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 15.43px; color: #8f8f8f">知识图谱</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15.43px; color: #8f8f8f">科学上网</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.86px; color: #868686">算法</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15.43px; color: #8f8f8f">计算机</a> <a href="/tags/%E9%9A%8F%E5%BF%B5/" style="font-size: 14px; color: #999">随念</a> <a href="/tags/%E9%A2%88%E6%A4%8E%E7%97%85/" style="font-size: 14px; color: #999">颈椎病</a>
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\简单调研操作Neo4j的Python库\" title="简单调研操作Neo4j的Python库" rel="bookmark">简单调研操作Neo4j的Python库</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\GithubPages新尝试\" title="GithubPages新尝试" rel="bookmark">GithubPages新尝试</a></h3></div></li></ul>
     </div>
   </section>
 
-
-  
 
   
 
@@ -882,6 +969,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 

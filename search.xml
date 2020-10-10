@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Neo4j使用小记</title>
+      <link href="/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/"/>
+      <url>/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p><h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p><p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p><p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p><p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p><p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p><p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p><h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Neo4j </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>centos安装LibreOffice</title>
       <link href="/articles/centos%E5%AE%89%E8%A3%85LibreOffice/"/>
       <url>/articles/centos%E5%AE%89%E8%A3%85LibreOffice/</url>

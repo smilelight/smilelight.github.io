@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>归档：2020/6 - lightsmile&#39;s Blog</title>
+    <title>归档：2020/10 - lightsmile&#39;s Blog</title>
   
   
 
@@ -453,12 +453,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
     
     
@@ -477,8 +471,8 @@
         
           
   <h2 class="title">
-    <a href="/articles/Windows%E8%B5%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/">
-      Windows走终端代理
+    <a href="/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/">
+      Neo4j使用小记
     </a>
   </h2>
 
@@ -516,7 +510,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年6月29日</p>
+    <p>发布于：2020年10月10日</p>
   </a>
 </div>
 
@@ -527,7 +521,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：228字</p>
+      <p>字数：251字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -557,353 +551,19 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>最近的墙可真严。</p>
-<p>自己更新了Python包，要上传到Pypi上去，发现传不了了。终端提示：<code>Uploading distributions to https://upload.pypi.org/legacy/</code>，自己无法ping通<code>upload.pypi.org</code>，但是可以ping通<code>pypi.org</code>，这就很尴尬了。</p>
+        <p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p>
+<h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p>
+<p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p>
+<p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p>
+<p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p>
+<p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p>
+<p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p>
+<h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>
+
       
     </div>
     
-      
-        <div class="button readmore">
-          <a href="/articles/Windows%E8%B5%B0%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E4%BD%BF%E7%94%A8frp%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
-      使用frp轻松实现内网穿透
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年6月29日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：745字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>由于种种原因，希望可以通过外网访问自己的笔记本电脑搭建的Web服务，而这正是内网穿透所做的事情，hhh，自己之前找了关于Nginx实现反向代理的教程，发现呼呼扯一堆不是自己想要的，于是又找，终于找到了一篇写的比较详细完整的教程：<a href="https://zhuanlan.zhihu.com/p/55306067" target="_blank" rel="noopener">windows下基于frp的内网穿透部署 - 知乎</a>和理想中的工具：<a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a>。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E4%BD%BF%E7%94%A8frp%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/">
-      给网站添加SSL认证（Nginx服务器）
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年6月29日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：483字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>自己的国内博客网站一直都是只有http访问方式，突然在看的一篇忘了讲啥的文章提到腾讯云可以免费申请SSL证书，于是自己也去操作了，没想到可能就间隔2、3个小时就申请成功了，然后按照文档进行配置就可以了。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/">
-      Python按需生成依赖文件
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Python/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Python</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年6月23日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：212字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果使用常规的<code>pip freeze &gt; requirements.txt</code>，会将环境中的依赖包全部都导入，一般而言这不是我们想要的结果。我们可以用<code>pipreqs</code>库按需生成项目所需的依赖文件，使用方式如下：</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/Python%E6%8C%89%E9%9C%80%E7%94%9F%E6%88%90%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
       
     
   </section>

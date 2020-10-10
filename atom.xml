@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-09-15T08:03:05.529Z</updated>
+  <updated>2020-10-10T08:07:36.266Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Neo4j使用小记</title>
+    <link href="https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/</id>
+    <published>2020-10-10T07:54:55.000Z</published>
+    <updated>2020-10-10T08:07:36.266Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p><h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p><p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p><p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p><p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p><p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p><p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p><h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用社区版Neo4j时有一些注意事项，这里简单小记一下。&lt;/p&gt;
+&lt;h2 id=&quot;1-一台机器启动多个Neo4j数据库&quot;&gt;&lt;a href=&quot;#1-一台机器启动多个Neo4j数据库&quot; class=&quot;headerlink&quot; title=&quot;1.一台机器启动多个Neo4j数据库&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="Neo4j" scheme="https://www.iamlightsmile.com/tags/Neo4j/"/>
+    
+  </entry>
   
   <entry>
     <title>centos安装LibreOffice</title>
@@ -479,25 +506,6 @@
     
     
       <category term="算法" scheme="https://www.iamlightsmile.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用CDN为网站提速</title>
-    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/"/>
-    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8CDN%E4%B8%BA%E7%BD%91%E7%AB%99%E6%8F%90%E9%80%9F/</id>
-    <published>2020-05-02T12:14:01.000Z</published>
-    <updated>2020-05-02T12:22:55.365Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于要设置博客站点的图标，而ico文件不能直接拖到图床工具中上传，于是也参考学习了一下使用CDN的方式。</p><a id="more"></a><p>主要参考学习文章为：<a href="https://blog.csdn.net/qq_36759224/article/details/86936453" target="_blank" rel="noopener">免费CDN：jsDelivr+Github 使用方法_网络_TRHX’S BLOG-CSDN博客</a></p><p>其中步骤主要包括：</p><ul><li>新建Github项目</li><li>将资源放到项目中</li><li>发布release版本</li><li>通过超链访问</li></ul><p>重复之话此处不表，此处贴一下截图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422000920.png" alt="UTOOLS1588422000920.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422038598.png" alt="UTOOLS1588422038598.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422077100.png" alt="UTOOLS1588422077100.png"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1588422124344.png" alt="UTOOLS1588422124344.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于要设置博客站点的图标，而ico文件不能直接拖到图床工具中上传，于是也参考学习了一下使用CDN的方式。&lt;/p&gt;
-    
-    </summary>
-    
-    
     
   </entry>
   
