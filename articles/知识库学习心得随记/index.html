@@ -628,6 +628,11 @@
         
           <div class="prev-next">
             
+              <a class='prev' href='/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Docker常用命令</p>
+                <p class='content'></p>
+              </a>
+            
             
               <a class='next' href='/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/'>
                 <p class='title'>Neo4j使用小记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
@@ -1124,6 +1129,21 @@
 
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
