@@ -16,12 +16,16 @@
 
   <!-- 页面元数据 -->
   
-    <title>Manjaro下vscode中zsh乱码 - lightsmile&#39;s Blog</title>
+    <title>使用Brook科学上网教程 - lightsmile&#39;s Blog</title>
   
-    <meta name="keywords" content="Manjaro">
+    <meta name="keywords" content="科学上网">
   
   
-    <meta name="description" content="解决方案">
+    <meta name="description" content="0.更新IP又被封了，难受。
+
+Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如：代理服务器还可以访问没有被墙、并且其他协议比如ss也不行了，憋了两天受不了了搞了V2ray可以了。哎，真香。
+
+之前自己使用搬瓦工+SSR一键搭建脚本或者借助同学的vpn以实现科学上网，然而前两天突然同学的也出了问题。后...">
   
 
   <!-- feed -->
@@ -367,8 +371,8 @@
         
           
   <h1 class="title">
-    <a href="/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/">
-      Manjaro下vscode中zsh乱码
+    <a href="/articles/%E4%BD%BF%E7%94%A8Brook%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B/">
+      使用Brook科学上网教程
     </a>
   </h1>
 
@@ -393,9 +397,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Linux/' rel="nofollow">
+    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux</p>
+      <p>计算机</p>
     </a>
   </div>
 
@@ -407,13 +411,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：78字</p>
+      <p>字数：823字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
+      <p>时长：3分钟</p>
     </a>
   </div>
 
@@ -424,7 +428,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2019年4月3日</p>
+    <p>发布于：2020年4月7日</p>
   </a>
 </div>
 
@@ -447,18 +451,39 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><a id="more"></a>
-<ol>
-<li>下载<code>Menlo for Powerline</code>字体<pre><code class="lang-bash">git clone https://github.com/abertsch/Menlo-for-Powerline.git
+          <h2 id="0-更新"><a href="#0-更新" class="headerlink" title="0.更新"></a>0.更新</h2><p>IP又被封了，难受。</p>
+<hr>
+<p>Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如：代理服务器还可以访问没有被墙、并且其他协议比如ss也不行了，憋了两天受不了了搞了V2ray可以了。哎，真香。</p>
+<hr>
+<p>之前自己使用搬瓦工+SSR一键搭建脚本或者借助同学的vpn以实现科学上网，然而前两天突然同学的也出了问题。后在Github中大浪淘沙，终于寻觅到了一个很全面的科学上网教程：<a href="https://github.com/Alvin9999/new-pac" target="_blank" rel="noopener">Alvin9999/new-pac: 科学上网/自由上网/翻墙/软件/方法，免费shadowsocks/ss/ssr/v2ray/goflyway账号，vps一键搭建脚本/教程</a>。如今相对而言，SS、SSR那一套技术相对落后，并且使用范围与流传时间比较广，所以导致更加容易被墙。后有v2ray和brook技术，相对更先进小众，所以暂时比较安全。这里拾人牙慧，简单说一下配置流程。</p>
+<a id="more"></a>
+<h2 id="1-Brook简介"><a href="#1-Brook简介" class="headerlink" title="1.Brook简介"></a>1.Brook简介</h2><p>Brook是一款新兴的代理软件，其版本横垮Windows、安卓、iOS、MacOS、Linux等多个系统平台，功能类似于我们经常使用的Shadowsocks/ShadowsocksR。Brook 的目标是简单易用、傻瓜化、速度快（新协议）。通过在服务器端安装Brook服务器端，同时在本地设备中使用Brook客户端，两者成功连接之后，可以为我们提供科学上网服务。如果你想在SS/SSR/V2ray之外，尝试一种新的代理软件，那么Brook是一个不错的选择！</p>
+<h2 id="2-在服务器安装Brook"><a href="#2-在服务器安装Brook" class="headerlink" title="2.在服务器安装Brook"></a>2.在服务器安装Brook</h2><p>购买国外服务器之类略去不表。</p>
+<p>在服务端执行如下命令：</p>
+<pre><code class="lang-bash">wget -N --no-check-certificate wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/brook.sh
+
+chmod +x brook.sh
+
+./brook.sh
 </code></pre>
-</li>
-<li>将字体放到ttf文件夹中<pre><code class="lang-bash">cd Menlo-for-Powerline
-sudo cp *.ttf* /usr/share/fonts/TTF/
-sudo fc-cache -f -v # 刷新字体
-</code></pre>
-</li>
-<li>设置vscode中终端的字体为<code>Menlo for Powerline</code><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3></li>
-<li><a href="https://ywnz.com/linuxjc/3250.html" target="_blank" rel="noopener">在Ubuntu 18.04系统下vscode中zsh乱码的解决方法</a></li>
+<p>然后根据提示安装，其中端口视自己情况设置（如无特殊或小白不懂，只需默认回车即可），密码可以自己设置也可以选择默认。如果一切顺利，则最终有类似如下输出：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1586267778518.png" alt="UTOOLS1586267778518.png"></p>
+<p>在参考的教程中，有一步<code>一键加速VPS服务器</code>，不过我试了一下，发现系统好像已经默认安装了？所以这里就不再叙述这一步了。</p>
+<h2 id="3-在客户端安装Brook"><a href="#3-在客户端安装Brook" class="headerlink" title="3.在客户端安装Brook"></a>3.在客户端安装Brook</h2><p>下面以Windows为例：</p>
+<p>从<a href="https://github.com/txthinking/brook/releases" target="_blank" rel="noopener">Releases · txthinking/brook</a>中找到对应自己平台的客户端安装文件，包括Linux、Mac、Windows、Android等等。</p>
+<p>作者（应该是作者的作品）为Windows系统写了一个配套的GUI辅助工具<a href="http://108.61.224.82/lib5/Brook%20Tools%20v1.0.8.zip" target="_blank" rel="noopener"><code>Brook Tools</code></a>，需要配合<a href="https://github.com/txthinking/brook/releases/download/v20200201/brook_windows_amd64.exe" target="_blank" rel="noopener"><code>Brook Windows命令行版客户端</code></a>使用。</p>
+<p>在按照教程下载了客户端文件和压缩文件后，进行解压缩操作，并打开软件，填写服务器代理相关信息，设置代理方式即可。</p>
+<p>设置完成后，如下图所示：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1586268511320.png" alt="UTOOLS1586268511320.png"></p>
+<p>自己同时也试了下Android的Apk，发现试了几次无法正常运行，报<code>PlantformException</code>之类的，不过刚才试了一下发现终于也成功了！</p>
+<p>如下图：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1586268868937.png" alt="UTOOLS1586268868937.png"></p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1586268914363.png" alt="UTOOLS1586268914363.png"></p>
+<p>然后便又可以轻松愉快的上网啦！</p>
+<h2 id="4-参考"><a href="#4-参考" class="headerlink" title="4.参考"></a>4.参考</h2><ol>
+<li><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAbrook%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">自建brook服务器教程 · Alvin9999/new-pac Wiki</a></li>
+<li><a href="https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAv2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">自建v2ray服务器教程 · Alvin9999/new-pac Wiki</a></li>
+<li><a href="https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%90%84%E5%B9%B3%E5%8F%B0%E5%9B%BE%E6%96%87%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">v2ray各平台图文使用教程 · Alvin9999/new-pac Wiki</a></li>
 </ol>
 
           
@@ -496,7 +521,7 @@ sudo fc-cache -f -v # 刷新字体
           
         
           
-            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/>https://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/</a></p>
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8Brook%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B/>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8Brook%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B/</a></p>
           
         
       </blockquote>
@@ -552,7 +577,7 @@ sudo fc-cache -f -v # 刷新字体
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Manjaro/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Manjaro</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>科学上网</p></a></div>
 
 
         
@@ -567,13 +592,13 @@ sudo fc-cache -f -v # 刷新字体
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：78字</p>
+      <p>字数：823字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
+      <p>时长：3分钟</p>
     </a>
   </div>
 
@@ -588,7 +613,11 @@ sudo fc-cache -f -v # 刷新字体
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/&title=Manjaro下vscode中zsh乱码 - lightsmile's Blog&summary=解决方案"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8Brook%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B/&title=使用Brook科学上网教程 - lightsmile's Blog&summary=0.更新IP又被封了，难受。
+
+Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如：代理服务器还可以访问没有被墙、并且其他协议比如ss也不行了，憋了两天受不了了搞了V2ray可以了。哎，真香。
+
+之前自己使用搬瓦工+SSR一键搭建脚本或者借助同学的vpn以实现科学上网，然而前两天突然同学的也出了问题。后在Github中大浪淘沙，终于寻觅到了一个很全面的科学上网教程：Alvin9999/new-pac: 科学上网/自由上网/翻墙/软件/方法，免费shadowsocks/ss/ssr/v2ray/goflyway账号，vps一键搭建脚本/教程。如今相对而言，SS、SSR那一套技术相对落后，并且使用范围与流传时间比较广，所以导致更加容易被墙。后有v2ray和brook技术，相对更先进小众，所以暂时比较安全。这里拾人牙慧，简单说一下配置流程。"
           
           >
           
@@ -600,7 +629,11 @@ sudo fc-cache -f -v # 刷新字体
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/&title=Manjaro下vscode中zsh乱码 - lightsmile's Blog&summary=解决方案"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8Brook%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B/&title=使用Brook科学上网教程 - lightsmile's Blog&summary=0.更新IP又被封了，难受。
+
+Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如：代理服务器还可以访问没有被墙、并且其他协议比如ss也不行了，憋了两天受不了了搞了V2ray可以了。哎，真香。
+
+之前自己使用搬瓦工+SSR一键搭建脚本或者借助同学的vpn以实现科学上网，然而前两天突然同学的也出了问题。后在Github中大浪淘沙，终于寻觅到了一个很全面的科学上网教程：Alvin9999/new-pac: 科学上网/自由上网/翻墙/软件/方法，免费shadowsocks/ss/ssr/v2ray/goflyway账号，vps一键搭建脚本/教程。如今相对而言，SS、SSR那一套技术相对落后，并且使用范围与流传时间比较广，所以导致更加容易被墙。后有v2ray和brook技术，相对更先进小众，所以暂时比较安全。这里拾人牙慧，简单说一下配置流程。"
           
           >
           
@@ -612,7 +645,11 @@ sudo fc-cache -f -v # 刷新字体
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/Manjaro%E4%B8%8Bvscode%E4%B8%ADzsh%E4%B9%B1%E7%A0%81/&title=Manjaro下vscode中zsh乱码 - lightsmile's Blog&summary=解决方案"
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8Brook%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B/&title=使用Brook科学上网教程 - lightsmile's Blog&summary=0.更新IP又被封了，难受。
+
+Brook协议也不能用了，估计是这个协议也不能翻墙了。理由如：代理服务器还可以访问没有被墙、并且其他协议比如ss也不行了，憋了两天受不了了搞了V2ray可以了。哎，真香。
+
+之前自己使用搬瓦工+SSR一键搭建脚本或者借助同学的vpn以实现科学上网，然而前两天突然同学的也出了问题。后在Github中大浪淘沙，终于寻觅到了一个很全面的科学上网教程：Alvin9999/new-pac: 科学上网/自由上网/翻墙/软件/方法，免费shadowsocks/ss/ssr/v2ray/goflyway账号，vps一键搭建脚本/教程。如今相对而言，SS、SSR那一套技术相对落后，并且使用范围与流传时间比较广，所以导致更加容易被墙。后有v2ray和brook技术，相对更先进小众，所以暂时比较安全。这里拾人牙慧，简单说一下配置流程。"
           
           >
           
@@ -636,23 +673,22 @@ sudo fc-cache -f -v # 刷新字体
         
           <div class="prev-next">
             
-              <a class='prev' href='/articles/Manjaro%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Manjaro下数据备份</p>
-                <p class='content'>
-Linux一时爽，崩后火葬场；Manjaro一时爽，一直用一直爽。
-
-以下简单介绍几种manjaro下进行数据备份的方案选择以及一些使用流程。其中自己编写的使用流程如下
-
-使用百度云盘+ ba...</p>
+              <a class='prev' href='/articles/%E4%BB%8E%E5%A4%9A%E4%BA%BA%E8%BF%90%E5%8A%A8%E8%AF%B4%E8%B5%B7/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>从多人运动说起</p>
+                <p class='content'>近日罗志祥和其前女友分手之事成了热点事件，大批吃瓜群众纷纷表示涌入。
+周扬青肯定是作为一个受害者，但是罗志祥是否真的应当受千夫所指、受众人口诛笔伐吗？
+需要声明的是，我对这起事件并不有多少了解，...</p>
               </a>
             
             
-              <a class='next' href='/articles/torchtext%E5%AE%89%E8%A3%85/'>
-                <p class='title'>torchtext安装<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>使用如下命令安装torchtext
-pip install https://github.com/pytorch/text/archive/master.zip
+              <a class='next' href='/articles/%E6%B5%85%E8%B0%88%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85/'>
+                <p class='title'>浅谈新冠疫情<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>新型冠状病毒自初始传播到现在已经几个月的时间过去了，期间发生了林林总总的事情，自己略有所感，这里简单谈一下。主要从以下几个方面进行：
 
-</p>
+暴露了我国的哪些问题
+对国家和个人的影响
+农村是怎么做的
+...</p>
               </a>
             
           </div>
@@ -696,7 +732,7 @@ pip install https://github.com/pytorch/text/archive/master.zip
 
   <script>
     window.subData = {
-      title: 'Manjaro下vscode中zsh乱码',
+      title: '使用Brook科学上网教程',
       tools: true
     }
   </script>
@@ -722,7 +758,7 @@ pip install https://github.com/pytorch/text/archive/master.zip
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-更新"><span class="toc-text">0.更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Brook简介"><span class="toc-text">1.Brook简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在服务器安装Brook"><span class="toc-text">2.在服务器安装Brook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-在客户端安装Brook"><span class="toc-text">3.在客户端安装Brook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参考"><span class="toc-text">4.参考</span></a></li></ol>
     </div>
   </section>
 
@@ -744,7 +780,7 @@ pip install https://github.com/pytorch/text/archive/master.zip
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Manjaro下使用图床工具PicGo\" title="Manjaro下使用图床工具PicGo" rel="bookmark">Manjaro下使用图床工具PicGo</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Manjaro下安装使用kenlm\" title="Manjaro下安装使用kenlm" rel="bookmark">Manjaro下安装使用kenlm</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Manjaro下截屏及设置快捷键\" title="Manjaro下截屏及设置快捷键" rel="bookmark">Manjaro下截屏及设置快捷键</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Manjaro下数据备份\" title="Manjaro下数据备份" rel="bookmark">Manjaro下数据备份</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Linux常用命令\" title="Linux常用命令" rel="bookmark">Linux常用命令</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\科学上网简单汇总\" title="科学上网简单汇总" rel="bookmark">科学上网简单汇总</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\GithubPages新尝试\" title="GithubPages新尝试" rel="bookmark">GithubPages新尝试</a></h3></div></li></ul>
     </div>
   </section>
 
