@@ -18,6 +18,8 @@
   
     <title>Docker常用命令 - lightsmile&#39;s Blog</title>
   
+    <meta name="keywords" content="Docker">
+  
   
 
   <!-- feed -->
@@ -387,6 +389,14 @@
           
             
               
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Linux/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux</p>
+    </a>
+  </div>
+
 
             
           
@@ -395,7 +405,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：0字</p>
+      <p>字数：120字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -435,7 +445,13 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          
+          <h2 id="1-查看容器内系统版本"><a href="#1-查看容器内系统版本" class="headerlink" title="1.查看容器内系统版本"></a>1.查看容器内系统版本</h2><pre><code class="lang-bash">cat /etc/issue
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：不能使用<code>cat /proc/version</code> 或 <code>uname -a</code>，因为docker并不能隔离像/dev、/proc的目录，这些都是直接挂载的宿主机的。所以，很多命令像free top之类的命令，其实看到的都是宿主机的。因为这些命令都是基于/proc下的信息统计出来的</p>
+</blockquote>
+<p>参考：<a href="https://blog.csdn.net/c461522756/article/details/70822234" target="_blank" rel="noopener">docker容器中查看容器linux版本_貌似爽歪歪的博客-CSDN博客</a></p>
+
           
             <div class='article_footer'>
               
@@ -515,10 +531,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-14T15:06:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-22T11:13:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月14日</p>
+    <p>更新于：2020年10月22日</p>
   </a>
 </div>
 
@@ -526,6 +542,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Docker/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Docker</p></a></div>
+
 
         
       
@@ -539,7 +558,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：0字</p>
+      <p>字数：120字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -680,12 +699,42 @@
     
 
 
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-查看容器内系统版本"><span class="toc-text">1.查看容器内系统版本</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
   
     
     
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建带有ik分词器的Elasticsearch容器\" title="创建带有ik分词器的Elasticsearch容器" rel="bookmark">创建带有ik分词器的Elasticsearch容器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\配置VSCode-Remote-Container\" title="配置VSCode-Remote-Container" rel="bookmark">配置VSCode-Remote-Container</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Manjaro下vscode中zsh乱码\" title="Manjaro下vscode中zsh乱码" rel="bookmark">Manjaro下vscode中zsh乱码</a></h3></div></li></ul>
+    </div>
+  </section>
+
 
   
 

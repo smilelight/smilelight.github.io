@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/</loc>
+    
+    <lastmod>2020-10-23T15:13:27.195Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2020-10-22T03:13:18.820Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2020-10-22T03:09:12.007Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2020-10-22T03:05:00.519Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.iamlightsmile.com/articles/Debian%E6%88%96Ubuntu%E5%AE%89%E8%A3%85Nodejs/</loc>
     
     <lastmod>2020-10-22T01:31:31.760Z</lastmod>
@@ -12,27 +40,6 @@
     <loc>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2020-10-18T04:37:21.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2020-10-18T04:36:59.813Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2020-10-17T16:53:25.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2020-10-14T07:06:18.327Z</lastmod>
     
   </url>
   

@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>分类：深度学习 - lightsmile&#39;s Blog</title>
+    <title>CentOS安装Hadoop - lightsmile&#39;s Blog</title>
   
+  
+    <meta name="description" content="前言最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。">
   
 
   <!-- feed -->
@@ -349,31 +349,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -383,11 +364,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/">
-      深度学习代码常见流程
+  <h1 class="title">
+    <a href="/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/">
+      CentOS安装Hadoop
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -408,24 +389,6 @@
           
             
               
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>深度学习</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月8日</p>
-  </a>
-</div>
 
             
           
@@ -434,127 +397,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：836字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-概览"><a href="#0-概览" class="headerlink" title="0.概览"></a>0.概览</h2><p>目前自己在深度学习这方面有一定的积累，一些代码流程都有一定的套路和相应的标准，这里自己简单梳理一下。</p>
-<p>我们这里假设输入为已标注数据，输出为训练的模型，不考虑标注前数据处理部分已经代码上线部署环节。</p>
-<p>大致的流程包括：</p>
-<ul>
-<li><strong>数据预处理</strong></li>
-<li><strong>编写神经网络模型</strong></li>
-<li><strong>编写数据加载部分代码</strong></li>
-<li><strong>编写模型训练预测代码</strong></li>
-</ul>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E5%AE%8C%E6%95%B4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E8%BD%AC%EF%BC%89/">
-      完整机器学习项目的工作流程（转）
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>深度学习</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月8日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.3k字</p>
+      <p>字数：959字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -568,116 +411,12 @@
             
           
             
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文章转自<a href="https://zhuanlan.zhihu.com/p/28288050" target="_blank" rel="noopener">完整机器学习项目的工作流程 - 知乎</a>。</p>
-<h2 id="1-抽象成数学问题"><a href="#1-抽象成数学问题" class="headerlink" title="1.抽象成数学问题"></a>1.抽象成数学问题</h2><p>明确问题是进行机器学习的第一步。机器学习的训练过程通常都是一件非常耗时的事情，胡乱尝试时间成本是非常高的。</p>
-<p>这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。即明确输入和输出以及任务类型。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E5%AE%8C%E6%95%B4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E8%BD%AC%EF%BC%89/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/">
-      如何理解WordEmbedding？
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>深度学习</p>
-    </a>
-  </div>
-
-
-            
-          
-            
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2019年4月22日</p>
+    <p>发布于：2020年10月23日</p>
   </a>
 </div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.2k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
-    </a>
-  </div>
-
 
             
           
@@ -695,213 +434,143 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前自己也是懵懵懂懂的不太理解，经过一段时间的学习和思考，感觉自己有了新的认识，所以在这里分享一下，也算自己的总结了。</p>
-<p>不谈数学原理，我认为理解Word Embedding可以从以下3个角度来理解。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/articles/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3WordEmbedding%EF%BC%9F/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/articles/torchtext%E5%AE%89%E8%A3%85/">
-      torchtext安装
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
-    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
-    <p>lightsmile</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>深度学习</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2019年4月3日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：19字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用如下命令安装<code>torchtext</code></p>
-<pre><code class="lang-bash">pip install https://github.com/pytorch/text/archive/master.zip
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。</p>
+<a id="more"></a>
+<p>主要参考的两篇教程：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/78f9cc79a766" target="_blank" rel="noopener">hadoop 3.1.3单机版安装教程 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/27cbd5bbdf61" target="_blank" rel="noopener">【Hadoop】Hadoop 3.2.1 真伪分布式搭建 - 简书</a></li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：本文将介绍伪分布式安装过程，至于真分布式不做介绍。</p>
+</blockquote>
+<h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1 安装java"></a>1 安装java</h3><p>略</p>
+<h3 id="2-下载Hadoop"><a href="#2-下载Hadoop" class="headerlink" title="2 下载Hadoop"></a>2 下载Hadoop</h3><p>下载页：<a href="https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz" target="_blank" rel="noopener">Apache Download Mirrors</a></p>
+<h3 id="3-找到Java安装路径"><a href="#3-找到Java安装路径" class="headerlink" title="3 找到Java安装路径"></a>3 找到Java安装路径</h3><p>which java定位到的是java程序的执行路径，而不是安装路径，经过两次-lrt最后的输出才是安装路径。</p>
+<p>具体参考第2篇文档。</p>
+<h3 id="4-安装Hadoop"><a href="#4-安装Hadoop" class="headerlink" title="4 安装Hadoop"></a>4 安装Hadoop</h3><p>上面两篇文档放置的Hadoop的位置路径不同，一个是在<code>/home/</code>路径下，一个是在<code>usr/local/hadoop</code>下，而我自己选择了<code>/opt</code>下面。</p>
+<p>相关不同可以参考：<a href="https://blog.csdn.net/baidu_30000217/article/details/78936790" target="_blank" rel="noopener">Linux 软件安装到 /usr，/usr/local/ 还是 /opt 目录？_LSGOZJ的博客-CSDN博客</a></p>
+<h3 id="5-设置Hadoop启动项"><a href="#5-设置Hadoop启动项" class="headerlink" title="5 设置Hadoop启动项"></a>5 设置Hadoop启动项</h3><p>同样的，上面两篇教程中配置方式也不相同，一篇直接修改<code>/etc/profile</code>，一篇修改<code>/etc/profile.d/hadoop.sh</code>，两者殊途同归，效果一致。</p>
+<p>内容大致即：</p>
+<pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64  
+export HADOOP_HOME=/home/hadoop-3.2.1
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 </code></pre>
+<p>然后使配置生效刷新环境变量，即运行<code>source /etc/profile</code></p>
+<h3 id="6-创建hadoop用户"><a href="#6-创建hadoop用户" class="headerlink" title="6 创建hadoop用户"></a>6 创建hadoop用户</h3><pre><code class="lang-bash">adduser hadoop # 新增用户
+passwd hadoop # 设置秘密
+groupadd hadoop # 新建用户组
+usermod -G hadoop hadoop # 将用户添加到用户组
+id hadoop # 查看用户情况
+</code></pre>
+<h3 id="7-创建hadoop文件目录并授权"><a href="#7-创建hadoop文件目录并授权" class="headerlink" title="7 创建hadoop文件目录并授权"></a>7 创建hadoop文件目录并授权</h3><pre><code class="lang-bash">mkdir -p /home/hadoop/tmp # hadoop临时文件目录
+mkdir -p /home/hadoop/hdfs/name # hadoop主节点(namenode)文件目录
+mkdir -p /home/hadoop/hdfs/data # hadoop数据节点(datanode)文件目录
+mkdir -p /home/hadoop/log # hadoop日志文件目录
+chown -R hadoop:hadoop /home/hadoop # 设置hadoop文件目录所有者
+</code></pre>
+<h3 id="8-修改hadoop配置文件"><a href="#8-修改hadoop配置文件" class="headerlink" title="8 修改hadoop配置文件"></a>8 修改hadoop配置文件</h3><p>hadoop的配置文件都在 etc/hadoop 目录下，配置文件有很多，最基本要修改3个文件：hadoop-env.sh ，core-site.xml，hdfs-site.xml。</p>
+<h4 id="8-1-hadoop-env-sh"><a href="#8-1-hadoop-env-sh" class="headerlink" title="8.1 hadoop-env.sh"></a>8.1 hadoop-env.sh</h4><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64 # 需要指定Java路径
 
-      
-    </div>
-    
-      
-    
-  </section>
-</article>
+export HADOOP_LOG_DIR=/home/hadoop/log # 需要指定hadoop_log_dir
+</code></pre>
+<h4 id="8-2-core-site-xml"><a href="#8-2-core-site-xml" class="headerlink" title="8.2 core-site.xml"></a>8.2 core-site.xml</h4><pre><code class="lang-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+        &lt;description&gt;hdfs内部通讯访问地址&lt;/description&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;file:/home/hadoop/tmp&lt;/value&gt;
+        &lt;description&gt;hadoop数据存放&lt;/description&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h4 id="8-3-hdfs-site-xml"><a href="#8-3-hdfs-site-xml" class="headerlink" title="8.3 hdfs-site.xml"></a>8.3 hdfs-site.xml</h4><pre><code class="lang-xml">&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+        &lt;value&gt;file:/home/hadoop/hdfs/name&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+        &lt;value&gt;file:/home/hadoop/hdfs/data&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="9-设置ssh免密登录"><a href="#9-设置ssh免密登录" class="headerlink" title="9 设置ssh免密登录"></a>9 设置ssh免密登录</h3><blockquote>
+<p><strong>注意</strong>：以下命令均是在hadoop用户下进行。</p>
+</blockquote>
+<p>需要用前面创建的hadoop用户通过ssh免密访问本地，先切换到hadoop用户目录下，执行以下命令：</p>
+<pre><code class="lang-bash">ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsa
+cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+</code></pre>
+<p>测试是否成功，执行下面命令，若不用输入密码则成功。</p>
+<pre><code class="lang-bash">ssh localhost
+</code></pre>
+<h3 id="10-启动hadoop"><a href="#10-启动hadoop" class="headerlink" title="10 启动hadoop"></a>10 启动hadoop</h3><blockquote>
+<p><strong>注意</strong>：以下命令均是在hadoop用户下进行。</p>
+</blockquote>
+<h4 id="10-1-格式化hadoop文件系统"><a href="#10-1-格式化hadoop文件系统" class="headerlink" title="10.1 格式化hadoop文件系统"></a>10.1 格式化hadoop文件系统</h4><pre><code class="lang-bash">hdfs namenode -format
+</code></pre>
+<h4 id="10-2-一键启动"><a href="#10-2-一键启动" class="headerlink" title="10.2 一键启动"></a>10.2 一键启动</h4><pre><code class="lang-bash">start-all.sh
+</code></pre>
+<h4 id="10-3-检验"><a href="#10-3-检验" class="headerlink" title="10.3 检验"></a>10.3 检验</h4><p>输入命令 ，没有报错，则hadoop单机版安装成功。</p>
+<pre><code class="lang-bash">hadoop fs -ls /
+</code></pre>
+<h3 id="11-查看启动效果"><a href="#11-查看启动效果" class="headerlink" title="11 查看启动效果"></a>11 查看启动效果</h3><p>访问<code>http://localhost:9870</code>，可以得到如下图所示：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hadoop_front.png" alt="hadoop效果"></p>
+<h3 id="其他文章"><a href="#其他文章" class="headerlink" title="其他文章"></a>其他文章</h3><ul>
+<li><a href="https://www.cnblogs.com/luo630/p/13271637.html" target="_blank" rel="noopener">Hadoop、HBase、Spark单机安装 - 工程师二号 - 博客园</a></li>
+</ul>
 
-          </div>
-        
-      
-    
-  </section>
+          
+            <div class='article_footer'>
+              
+                
   
     
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
-    
+
+
 
   
 
-
-    
-  
-
-</div>
-<aside class='l_side'>
-  
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/smilelight/CDN@1.1/img/lightsmile.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">lightsmile's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:iamlightsmile@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/>https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/</a></p>
           
         
-          
-            <a href="https://github.com/smilelight"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=515917285"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -911,61 +580,207 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/smilelight/CDN@1.1/img/wechat.jpg'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-23T23:13:27+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年10月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：959字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：4分钟</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/&title=CentOS安装Hadoop - lightsmile's Blog&summary=前言最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/&title=CentOS安装Hadoop - lightsmile's Blog&summary=前言最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/&title=CentOS安装Hadoop - lightsmile's Blog&summary=前言最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/articles/Debian%E6%88%96Ubuntu%E5%AE%89%E8%A3%85Nodejs/'>
+                <p class='title'>Debian或Ubuntu安装Nodejs<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>安装命令安装最新Nodejs的命令如下：
+
+Ubuntucurl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+sudo ...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'CentOS安装Hadoop',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(17)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/NLP/" href="/categories/NLP/"
-            id="categoriesNLP"
-            ><div class='name'>NLP</div><div class='badge'>(11)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Python/" href="/categories/Python/"
-            id="categoriesPython"
-            ><div class='name'>Python</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"
-            id="categoriesE585B6E4BB96"
-            ><div class='name'>其他</div><div class='badge'>(23)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" href="/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"
-            id="categoriesE79FA5E8AF86E59BBEE8B0B1"
-            ><div class='name'>知识图谱</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"
-            id="categoriesE8AEA1E7AE97E69CBA"
-            ><div class='name'>计算机</div><div class='badge'>(29)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%9A%8F%E5%BF%B5/" href="/categories/%E9%9A%8F%E5%BF%B5/"
-            id="categoriesE99A8FE5BFB5"
-            ><div class='name'>随念</div><div class='badge'>(7)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建流程"><span class="toc-text">搭建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装java"><span class="toc-text">1 安装java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载Hadoop"><span class="toc-text">2 下载Hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-找到Java安装路径"><span class="toc-text">3 找到Java安装路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-安装Hadoop"><span class="toc-text">4 安装Hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-设置Hadoop启动项"><span class="toc-text">5 设置Hadoop启动项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-创建hadoop用户"><span class="toc-text">6 创建hadoop用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-创建hadoop文件目录并授权"><span class="toc-text">7 创建hadoop文件目录并授权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-修改hadoop配置文件"><span class="toc-text">8 修改hadoop配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-hadoop-env-sh"><span class="toc-text">8.1 hadoop-env.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-core-site-xml"><span class="toc-text">8.2 core-site.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-hdfs-site-xml"><span class="toc-text">8.3 hdfs-site.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-设置ssh免密登录"><span class="toc-text">9 设置ssh免密登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-启动hadoop"><span class="toc-text">10 启动hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-格式化hadoop文件系统"><span class="toc-text">10.1 格式化hadoop文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-一键启动"><span class="toc-text">10.2 一键启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-3-检验"><span class="toc-text">10.3 检验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-查看启动效果"><span class="toc-text">11 查看启动效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他文章"><span class="toc-text">其他文章</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -977,22 +792,20 @@
     
   
 
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget related_posts shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
     
   </header>
 
 
-    <div class='content'>
-      <a href="/tags/CentOS/" style="font-size: 15.43px; color: #8f8f8f">CentOS</a> <a href="/tags/Debian/" style="font-size: 14px; color: #999">Debian</a> <a href="/tags/Docker/" style="font-size: 16.86px; color: #868686">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 14px; color: #999">Elasticsearch</a> <a href="/tags/GNN/" style="font-size: 14px; color: #999">GNN</a> <a href="/tags/Github/" style="font-size: 15.43px; color: #8f8f8f">Github</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/Manjaro/" style="font-size: 22.57px; color: #5f5f5f">Manjaro</a> <a href="/tags/NLP/" style="font-size: 24px; color: #555">NLP</a> <a href="/tags/Neo4j/" style="font-size: 15.43px; color: #8f8f8f">Neo4j</a> <a href="/tags/Nodejs/" style="font-size: 14px; color: #999">Nodejs</a> <a href="/tags/Python/" style="font-size: 19.71px; color: #727272">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/ReadtheDocs/" style="font-size: 14px; color: #999">ReadtheDocs</a> <a href="/tags/SSL/" style="font-size: 14px; color: #999">SSL</a> <a href="/tags/Scrapy/" style="font-size: 14px; color: #999">Scrapy</a> <a href="/tags/Tensorflow/" style="font-size: 14px; color: #999">Tensorflow</a> <a href="/tags/Ubuntu/" style="font-size: 14px; color: #999">Ubuntu</a> <a href="/tags/VMware/" style="font-size: 14px; color: #999">VMware</a> <a href="/tags/Windows/" style="font-size: 14px; color: #999">Windows</a> <a href="/tags/blog/" style="font-size: 16.86px; color: #868686">blog</a> <a href="/tags/centos/" style="font-size: 15.43px; color: #8f8f8f">centos</a> <a href="/tags/damedane/" style="font-size: 14px; color: #999">damedane</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/frp/" style="font-size: 14px; color: #999">frp</a> <a href="/tags/github/" style="font-size: 14px; color: #999">github</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/light%E7%B3%BB%E5%88%97%E5%BA%93/" style="font-size: 14px; color: #999">light系列库</a> <a href="/tags/ltp/" style="font-size: 14px; color: #999">ltp</a> <a href="/tags/lua/" style="font-size: 14px; color: #999">lua</a> <a href="/tags/markdown/" style="font-size: 14px; color: #999">markdown</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/nginx/" style="font-size: 14px; color: #999">nginx</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/vscode/" style="font-size: 15.43px; color: #8f8f8f">vscode</a> <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 16.86px; color: #868686">个人</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 21.14px; color: #686868">哲学</a> <a href="/tags/%E5%9B%BD%E5%A3%AB%E6%97%A0%E5%8F%8C/" style="font-size: 18.29px; color: #7c7c7c">国士无双</a> <a href="/tags/%E5%B0%8F%E7%AA%8D%E9%97%A8/" style="font-size: 14px; color: #999">小窍门</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E6%80%9D%E6%83%B3/" style="font-size: 14px; color: #999">工程思想</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">开发工具</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/tags/%E6%8A%BD%E8%B1%A1/" style="font-size: 15.43px; color: #8f8f8f">抽象</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 21.14px; color: #686868">数学</a> <a href="/tags/%E6%96%B0%E8%AF%8D%E5%8F%91%E7%8E%B0/" style="font-size: 14px; color: #999">新词发现</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 15.43px; color: #8f8f8f">杂谈</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 15.43px; color: #8f8f8f">浏览器插件</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 16.86px; color: #868686">深度学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 15.43px; color: #8f8f8f">知识图谱</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 14px; color: #999">知识库</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 15.43px; color: #8f8f8f">科学上网</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.86px; color: #868686">算法</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px; color: #999">统计学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 15.43px; color: #8f8f8f">计算机</a> <a href="/tags/%E9%9A%8F%E5%BF%B5/" style="font-size: 14px; color: #999">随念</a> <a href="/tags/%E9%A2%88%E6%A4%8E%E7%97%85/" style="font-size: 14px; color: #999">颈椎病</a>
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\2019回忆总结录\" title="2019回忆总结录" rel="bookmark">2019回忆总结录</a></h3></div></li></ul>
     </div>
   </section>
 
-
-  
 
   
 
@@ -1231,6 +1044,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
