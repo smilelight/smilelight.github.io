@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>使用终端文件管理器ranger</title>
+      <link href="/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/"/>
+      <url>/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>之前早在18年就使用过Linux下终端文件管理器ranger，后来在Manjaro系统下也使用过，不过最近发现安装的ranger一直都不能预览文件，就很懵逼，一直不甘心，于是各种找解决方案。</p><a id="more"></a><h2 id="1-解决方案"><a href="#1-解决方案" class="headerlink" title="1.解决方案"></a>1.解决方案</h2><p>后来看到这篇教程：<a href="https://www.pythonf.cn/read/49398" target="_blank" rel="noopener">终端文件管理Ranger</a>才知道root账号是不能使用预览功能的，如果开启只能动Python源码。</p><p>具体为修改<code>site-packages/ranger/core/main.py</code>文件的大约141行，如下：</p><pre><code class="lang-python">        if fm.username == &#39;root&#39;:            fm.settings.preview_files = False            fm.settings.use_preview_script = False            LOG.info(&quot;Running as root, disabling the file previews.&quot;)</code></pre><p>把这几行注释掉就可以了。</p><p>然后重新打开ranger发现已经开启预览了嘻嘻。</p><p>关于如何定位<code>main.py</code>具体位置，主要是判断自己是在哪个Python环境下安装的ranger。如我是在miniconda下默认Python环境安装的ranger，并且miniconda的安装位置为<code>/opt/miniconda3</code>，所以我就在该路径下使用find命令即可找到ranger库文件，如下：</p><pre><code class="lang-bash">(base) ➜  miniconda3 find . -name &quot;*ranger*&quot;   ./lib/python3.8/site-packages/ranger_fm-1.9.3.dist-info./lib/python3.8/site-packages/ranger./bin/ranger./share/applications/ranger.desktop./share/doc/ranger./share/man/man1/ranger.1</code></pre><p>然后该<code>mian.py</code>的绝对路径则为<code>/opt/miniconda3/lib/python3.8/site-packages/ranger/core/main.py</code>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ranger, Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CentOS安装Hadoop</title>
       <link href="/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/"/>
       <url>/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/</url>
