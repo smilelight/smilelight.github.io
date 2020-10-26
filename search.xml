@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Elasticsearch分页搜索</title>
+      <link href="/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/"/>
+      <url>/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/</url>
+      
+        <content type="html"><![CDATA[<p>目前已经找到Elasticsearch分页搜索实现机制，目前仅考虑使用<code>from-size</code>机制，具体在通过Python的Elasticsearch库调用时有两种方式：</p><a id="more"></a><h3 id="方式一：restful风格"><a href="#方式一：restful风格" class="headerlink" title="方式一：restful风格"></a>方式一：restful风格</h3><p>使用示例：</p><pre><code class="lang-python">from elasticsearch import Elasticsearches = Elasticsearch()# es = Elasticsearch(hosts={&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 9200})index = &quot;index&quot;query_body = {    &quot;from&quot;: 5,    &quot;size&quot;: 10,    &quot;query&quot;: {        &quot;match&quot;: {            &quot;word&quot;: &quot;测试&quot;        }    }}res = es.search(index=index, body=query_body)</code></pre><p>其中<code>from</code>指定偏移量，<code>size</code>指定返回结果个数。</p><h3 id="方式二：Python风格"><a href="#方式二：Python风格" class="headerlink" title="方式二：Python风格"></a>方式二：Python风格</h3><p>使用示例：</p><pre><code class="lang-python">from elasticsearch import Elasticsearches = Elasticsearch()# es = Elasticsearch(hosts={&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 9200})index = &quot;index&quot;query_body = {    &quot;query&quot;: {        &quot;match&quot;: {            &quot;word&quot;: &quot;测试&quot;        }    }}res = es.search(index=index, body=query_body, from_=5, size=10)</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.jianshu.com/p/171dcd33ab02" target="_blank" rel="noopener">elasticsearch 分页查询实现方案 - 简书</a></li><li><a href="https://wonderomg.github.io/2018/05/17/Elasticsearch%E5%AE%9E%E8%B7%B5api%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" target="_blank" rel="noopener">Elasticsearch实践(3)-api分页查询 | WONDEROMG</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Elasticsearch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用终端文件管理器ranger</title>
       <link href="/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/"/>
       <url>/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/</url>
