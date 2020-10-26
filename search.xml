@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>国内博客网站说明</title>
+      <link href="/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
+      <url>/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/</url>
+      
+        <content type="html"><![CDATA[<p>本博客国内网址链接为：<a href="https://www.lightsmile.cn/" target="_blank" rel="noopener">lightsmile’s Blog</a>。</p><p>另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章被人举报，无奈将两篇文章删除，并且不再同步更新。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 翻墙 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Elasticsearch分页搜索</title>
       <link href="/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/"/>
       <url>/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/</url>

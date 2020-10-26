@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-10-26T05:00:53.770Z</updated>
+  <updated>2020-10-26T05:08:45.481Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>国内博客网站说明</title>
+    <link href="https://www.iamlightsmile.com/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
+    <id>https://www.iamlightsmile.com/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/</id>
+    <published>2020-10-26T05:05:39.000Z</published>
+    <updated>2020-10-26T05:08:45.481Z</updated>
+    
+    <content type="html"><![CDATA[<p>本博客国内网址链接为：<a href="https://www.lightsmile.cn/" target="_blank" rel="noopener">lightsmile’s Blog</a>。</p><p>另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章被人举报，无奈将两篇文章删除，并且不再同步更新。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本博客国内网址链接为：&lt;a href=&quot;https://www.lightsmile.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;lightsmile’s Blog&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章
+      
+    
+    </summary>
+    
+    
+      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="翻墙" scheme="https://www.iamlightsmile.com/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Elasticsearch分页搜索</title>
@@ -469,30 +496,6 @@
     
     
       <category term="damedane" scheme="https://www.iamlightsmile.com/tags/damedane/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DGL使用初体验</title>
-    <link href="https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
-    <id>https://www.iamlightsmile.com/articles/DGL%E4%BD%BF%E7%94%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</id>
-    <published>2020-08-27T15:39:32.000Z</published>
-    <updated>2020-09-05T07:37:11.024Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。</p><p>知识图谱和深度学习相结合的一个点就是图神经网络模型（GNN），这里自己也算开始接触并开启实践之旅了。</p><a id="more"></a><h2 id="1-DGL简单使用"><a href="#1-DGL简单使用" class="headerlink" title="1.DGL简单使用"></a>1.DGL简单使用</h2><h3 id="1-1-DGL介绍"><a href="#1-1-DGL介绍" class="headerlink" title="1.1 DGL介绍"></a>1.1 DGL介绍</h3><p>DGL是一个易于使用，高性能和可扩展的Python包，用于深入学习图形。<br>DGL与框架无关，这意味着如果一个深度图模型是端到端应用程序的一个组件，那么其余的逻辑可以在任何主要框架中实现，比如PyTorch、Apache MXNet或TensorFlow。</p><p>Github地址：<a href="https://github.com/dmlc/dgl" target="_blank" rel="noopener">dmlc/dgl: Python package built to ease deep learning on graph, on top of existing DL frameworks.</a></p><h3 id="1-2-示例代码"><a href="#1-2-示例代码" class="headerlink" title="1.2 示例代码"></a>1.2 示例代码</h3><p><strong>说明</strong>:以下代码在jupyter notebook中运行，且主要搬运自<a href="https://docs.dgl.ai/tutorials/basics/1_first.html" target="_blank" rel="noopener">DGL at a Glance — DGL 0.5.0 documentation</a></p><h4 id="引入依赖库"><a href="#引入依赖库" class="headerlink" title="引入依赖库"></a>引入依赖库</h4><pre><code class="lang-python">import dglimport numpy as np</code></pre><h4 id="使用DGL创建图"><a href="#使用DGL创建图" class="headerlink" title="使用DGL创建图"></a>使用DGL创建图</h4><pre><code class="lang-python">def build_karate_club_graph():    # All 78 edges are stored in two numpy arrays. One for source endpoints    # while the other for destination endpoints.    src = np.array([1, 2, 2, 3, 3, 3, 4, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 9, 10, 10,        10, 11, 12, 12, 13, 13, 13, 13, 16, 16, 17, 17, 19, 19, 21, 21,        25, 25, 27, 27, 27, 28, 29, 29, 30, 30, 31, 31, 31, 31, 32, 32,        32, 32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 33, 33, 33, 33, 33,        33, 33, 33, 33, 33, 33, 33, 33, 33, 33])    dst = np.array([0, 0, 1, 0, 1, 2, 0, 0, 0, 4, 5, 0, 1, 2, 3, 0, 2, 2, 0, 4,        5, 0, 0, 3, 0, 1, 2, 3, 5, 6, 0, 1, 0, 1, 0, 1, 23, 24, 2, 23,        24, 2, 23, 26, 1, 8, 0, 24, 25, 28, 2, 8, 14, 15, 18, 20, 22, 23,        29, 30, 31, 8, 9, 13, 14, 15, 18, 19, 20, 22, 23, 26, 27, 28, 29, 30,        31, 32])    # Edges are directional in DGL; Make them bi-directional.    u = np.concatenate([src, dst])    v = np.concatenate([dst, src])    # Construct a DGLGraph    return dgl.DGLGraph((u, v))G = build_karate_club_graph()print(&#39;We have %d nodes.&#39; % G.number_of_nodes())print(&#39;We have %d edges.&#39; % G.number_of_edges())</code></pre><p>输出：</p><pre><code class="lang-text">We have 34 nodes.We have 156 edges.</code></pre><h4 id="查看图结构"><a href="#查看图结构" class="headerlink" title="查看图结构"></a>查看图结构</h4><pre><code class="lang-python">import networkx as nx# Since the actual graph is undirected, we convert it for visualization# purpose.nx_G = G.to_networkx().to_undirected()# Kamada-Kawaii layout usually looks pretty for arbitrary graphspos = nx.kamada_kawai_layout(nx_G)nx.draw(nx_G, pos, with_labels=True, node_color=[[.2, .5, .7]])</code></pre><p>输出：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/dgl_1.png" alt="dgl_1"></p><h4 id="为节点或边分配特征"><a href="#为节点或边分配特征" class="headerlink" title="为节点或边分配特征"></a>为节点或边分配特征</h4><pre><code class="lang-python">import torchimport torch.nn as nnimport torch.nn.functional as Fembed = nn.Embedding(34, 5)  # 34 nodes with embedding dim equal to 5G.ndata[&#39;feat&#39;] = embed.weight# print out node 2&#39;s input featureprint(G.ndata[&#39;feat&#39;][2])# print out node 10 and 11&#39;s input featuresprint(G.ndata[&#39;feat&#39;][[10, 11]])</code></pre><h4 id="定义一个图卷积神经网络（GCN）"><a href="#定义一个图卷积神经网络（GCN）" class="headerlink" title="定义一个图卷积神经网络（GCN）"></a>定义一个图卷积神经网络（GCN）</h4><pre><code class="lang-python">from dgl.nn.pytorch import GraphConvclass GCN(nn.Module):    def __init__(self, in_feats, hidden_size, num_classes):        super(GCN, self).__init__()        self.conv1 = GraphConv(in_feats, hidden_size)        self.conv2 = GraphConv(hidden_size, num_classes)    def forward(self, g, inputs):        h = self.conv1(g, inputs)        h = torch.relu(h)        h = self.conv2(g, h)        return h# The first layer transforms input features of size of 5 to a hidden size of 5.# The second layer transforms the hidden layer and produces output features of# size 2, corresponding to the two groups of the karate club.net = GCN(5, 5, 2)</code></pre><h4 id="数据准备和初始化"><a href="#数据准备和初始化" class="headerlink" title="数据准备和初始化"></a>数据准备和初始化</h4><pre><code class="lang-python">inputs = embed.weightlabeled_nodes = torch.tensor([0, 33])  # only the instructor and the president nodes are labeledlabels = torch.tensor([0, 1])  # their labels are different</code></pre><h4 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h4><p>训练代码：</p><pre><code class="lang-python">import itertoolsoptimizer = torch.optim.Adam(itertools.chain(net.parameters(), embed.parameters()), lr=0.01)all_logits = []for epoch in range(50):    logits = net(G, inputs)    # we save the logits for visualization later    all_logits.append(logits.detach())    logp = F.log_softmax(logits, 1)    # we only compute loss for labeled nodes    loss = F.nll_loss(logp[labeled_nodes], labels)    optimizer.zero_grad()    loss.backward()    optimizer.step()    print(&#39;Epoch %d | Loss: %.4f&#39; % (epoch, loss.item()))</code></pre><p>输出：</p><pre><code class="lang-text">Epoch 0 | Loss: 0.8586Epoch 1 | Loss: 0.8109Epoch 2 | Loss: 0.7692Epoch 3 | Loss: 0.7338Epoch 4 | Loss: 0.7082Epoch 5 | Loss: 0.6831Epoch 6 | Loss: 0.6582Epoch 7 | Loss: 0.6352Epoch 8 | Loss: 0.6149Epoch 9 | Loss: 0.5956Epoch 10 | Loss: 0.5762Epoch 11 | Loss: 0.5572Epoch 12 | Loss: 0.5374Epoch 13 | Loss: 0.5179Epoch 14 | Loss: 0.4981Epoch 15 | Loss: 0.4777Epoch 16 | Loss: 0.4574Epoch 17 | Loss: 0.4363Epoch 18 | Loss: 0.4148Epoch 19 | Loss: 0.3934Epoch 20 | Loss: 0.3716Epoch 21 | Loss: 0.3494Epoch 22 | Loss: 0.3266Epoch 23 | Loss: 0.3034Epoch 24 | Loss: 0.2805Epoch 25 | Loss: 0.2589Epoch 26 | Loss: 0.2377Epoch 27 | Loss: 0.2172Epoch 28 | Loss: 0.1975Epoch 29 | Loss: 0.1790Epoch 30 | Loss: 0.1615Epoch 31 | Loss: 0.1451Epoch 32 | Loss: 0.1297Epoch 33 | Loss: 0.1156Epoch 34 | Loss: 0.1028Epoch 35 | Loss: 0.0912Epoch 36 | Loss: 0.0809Epoch 37 | Loss: 0.0721Epoch 38 | Loss: 0.0642Epoch 39 | Loss: 0.0572Epoch 40 | Loss: 0.0510Epoch 41 | Loss: 0.0455Epoch 42 | Loss: 0.0407Epoch 43 | Loss: 0.0364Epoch 44 | Loss: 0.0327Epoch 45 | Loss: 0.0294Epoch 46 | Loss: 0.0266Epoch 47 | Loss: 0.0241Epoch 48 | Loss: 0.0218Epoch 49 | Loss: 0.0199</code></pre><h4 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h4><pre><code class="lang-python">%matplotlib inlineimport matplotlib.pyplot as pltdef draw(i):    cls1color = &#39;#00FFFF&#39;    cls2color = &#39;#FF00FF&#39;    pos = {}    colors = []    for v in range(34):        pos[v] = all_logits[i][v].numpy()        cls = pos[v].argmax()        colors.append(cls1color if cls else cls2color)    ax.cla()    ax.axis(&#39;off&#39;)    ax.set_title(&#39;Epoch: %d&#39; % i)    nx.draw_networkx(nx_G.to_undirected(), pos, node_color=colors,            with_labels=True, node_size=300, ax=ax)fig = plt.figure(dpi=150)fig.clf()ax = fig.subplots()draw(0)  # draw the prediction of the first epochplt.show()plt.close()</code></pre><p>初始图节点状态：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/gdl_2.png" alt=""></p><p>动画效果：</p><pre><code class="lang-python">%matplotlib inlinefrom matplotlib import animation, rcfrom IPython.display import HTMLrc(&#39;animation&#39;, html=&#39;html5&#39;)ani = animation.FuncAnimation(fig, draw, frames=len(all_logits), interval=200)plt.show()# HTML(ani.to_html5_video()) # 将动画转为h5 video，和下面两种方式都行HTML(ani.to_jshtml()) # 可视化效果更佳，且好像不依赖ffmpeg？</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/dgl_3.png" alt="dgl_3"></p><h2 id="2-遇到的问题"><a href="#2-遇到的问题" class="headerlink" title="2.遇到的问题"></a>2.遇到的问题</h2><h3 id="2-1-无法实现动画效果"><a href="#2-1-无法实现动画效果" class="headerlink" title="2.1 无法实现动画效果"></a>2.1 无法实现动画效果</h3><p>发现报<code>Matplotlib-Animation “No MovieWriters Available”</code>的错误，后来通过stackoverflow找到了解决方案，即下载<code>ffmpeg</code>并配置环境变量。</p><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><ol><li><a href="https://docs.dgl.ai/tutorials/basics/1_first.html" target="_blank" rel="noopener">DGL at a Glance — DGL 0.5.0 documentation</a></li><li><a href="https://github.com/dmlc/dgl" target="_blank" rel="noopener">dmlc/dgl: Python package built to ease deep learning on graph, on top of existing DL frameworks.</a></li><li><a href="https://stackoverflow.com/questions/13316397/matplotlib-animation-no-moviewriters-available" target="_blank" rel="noopener">python - Matplotlib-Animation “No MovieWriters Available” - Stack Overflow</a></li><li><a href="https://stackoverflow.com/questions/43445103/inline-animations-in-jupyter" target="_blank" rel="noopener">python - Inline animations in Jupyter - Stack Overflow</a></li><li><a href="https://blog.csdn.net/qq_43827595/article/details/104911316" target="_blank" rel="noopener">在 jupyter notebook 中使用 matplotlib 绘图的注意事项_WeiSenhui的博客-CSDN博客</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;近来工作不算忙，工作时间主要在忙解析文档的工作，期间经历了从手撸规则到编写机器学习模型再到深度学习模型（从全连接到Bi-LSTM-CRF）的转变，自己对深度学习的应用框架编写和落地有了更多的理解，尤其是如何在对任务深入理解之上将其建模为机器学习分类任务的流程，之后会另起文章详述，此处不表。&lt;/p&gt;
-&lt;p&gt;知识图谱和深度学习相结合的一个点就是图神经网络模型（GNN），这里自己也算开始接触并开启实践之旅了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="GNN" scheme="https://www.iamlightsmile.com/tags/GNN/"/>
     
   </entry>
   
