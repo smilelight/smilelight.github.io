@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>设置docker容器内时间</title>
+      <link href="/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/"/>
+      <url>/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-通过文件挂载形式设置与宿主机时间一致"><a href="#1-通过文件挂载形式设置与宿主机时间一致" class="headerlink" title="1. 通过文件挂载形式设置与宿主机时间一致"></a>1. 通过文件挂载形式设置与宿主机时间一致</h2><p>可以在<code>docker-compose</code>文件中设置如下：</p><pre><code class="lang-yml">volumes:    - &quot;/etc/localtime:/etc/localtime:ro&quot;  # 容器只能从主机的/etc/localtime中读取</code></pre><h2 id="2-设置timezone"><a href="#2-设置timezone" class="headerlink" title="2. 设置timezone"></a>2. 设置timezone</h2><p>如设置时区为上海，可在docker容器内部执行：</p><pre><code class="lang-bash">echo &#39;Asia/Shanghai&#39; &gt; /etc/timezone</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>缓存机制与产品经理</title>
       <link href="/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
       <url>/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</url>
