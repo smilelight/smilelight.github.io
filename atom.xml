@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-10-26T05:08:45.481Z</updated>
+  <updated>2020-11-12T03:18:40.097Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,104 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vim更新及安装插件教程</title>
+    <link href="https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/"/>
+    <id>https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/</id>
+    <published>2020-11-12T03:13:06.000Z</published>
+    <updated>2020-11-12T03:18:40.097Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里简单记录一下自己安装vim以及安装插件的过程。</p><blockquote><p><strong>注意</strong>：以下安装过程适用于Linux以及Macos系统。</p></blockquote><a id="more"></a><h2 id="1-安装vim-plug"><a href="#1-安装vim-plug" class="headerlink" title="1.安装vim-plug"></a>1.安装vim-plug</h2><pre><code class="lang-bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></pre><h2 id="2-配置vim配置文件"><a href="#2-配置vim配置文件" class="headerlink" title="2.配置vim配置文件"></a>2.配置vim配置文件</h2><p>编辑<code>~/.vimrc</code>文件，如我的<code>~/.vimrc</code>文件下内容目前如下：</p><pre><code class="lang-bash">set encoding=UTF-8set numberset autoindentcall plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;ryanoasis/vim-devicons&#39;Plug &#39;scrooloose/nerdtree&#39;Plug &#39;frazrepo/vim-rainbow&#39;Plug &#39;itchyny/lightline.vim&#39;Plug &#39;junegunn/fzf&#39;Plug &#39;airblade/vim-gitgutter&#39;call plug#end()map &lt;F3&gt; :NERDTreeMirror&lt;CR&gt;map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</code></pre><h2 id="3-安装vim插件"><a href="#3-安装vim插件" class="headerlink" title="3.安装vim插件"></a>3.安装vim插件</h2><pre><code class="lang-bash"># 进入vim中vim</code></pre><p>以下命令均是在vim下执行</p><pre><code class="lang-bash"># 查看vim相关信息:version# 更新vimrc文件（可选）:source ~/.vimrc# 查看插件状态:PlugStatus# 安装插件:PlugInstall</code></pre><h2 id="4-配置终端字体"><a href="#4-配置终端字体" class="headerlink" title="4.配置终端字体"></a>4.配置终端字体</h2><p>使用<code>nerdtree</code>插件以及<code>vim-devicons</code>插件便可以实现vim下目录或文件的图标效果，但前提是启用了支持终端图标效果的字体，这里我们需要去<a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener">ryanoasis/nerd-fonts</a>下载。</p><p>关于字体安装，如果是windows系统或者macos系统可以直接双击文件进行安装，如果是Linux的话，可以参考<a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a>进行配置安装。</p><p>然后设置终端字体为支持Nerd的字体，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim1.png" alt="pic1"></p><p>然后打开vim可以看到如下效果：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim2.png" alt="pic2"></p><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">junegunn/vim-plug: Minimalist Vim Plugin Manager</a></li><li><a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a></li><li><a href="https://www.jianshu.com/p/0c83e6aed270" target="_blank" rel="noopener">Vim-plug：极简 Vim 插件管理器 - 简书</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里简单记录一下自己安装vim以及安装插件的过程。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下安装过程适用于Linux以及Macos系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos更新vim</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/</id>
+    <published>2020-11-12T03:11:37.000Z</published>
+    <updated>2020-11-12T03:14:33.042Z</updated>
+    
+    <content type="html"><![CDATA[<p>centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）</p><a id="more"></a><blockquote><p><strong>注意</strong>：以下命令我都是在root账户下执行的，如果是在普通用户下执行可以选择su切换到root或者前面增加sudo命令。</p></blockquote><h2 id="1-安装依赖库"><a href="#1-安装依赖库" class="headerlink" title="1.安装依赖库"></a>1.安装依赖库</h2><p>源码编译需要安装make、git等工具，但是一般而言服务器上都有，同时教程提到了安装python36，然而现在最新的python都已经到了3.9了，我通过conda安装的python版本环境是3.8，所以并没有严格安装教程来执行相关命令。</p><pre><code class="lang-bash">yum install ncurses-devel</code></pre><h2 id="2-克隆Github的vim项目"><a href="#2-克隆Github的vim项目" class="headerlink" title="2.克隆Github的vim项目"></a>2.克隆Github的vim项目</h2><p>首先切换到一个惯常放置Github项目的目录，如我的在<code>/root/Projects/GithubProjects</code>，然后再执行以下命令，当然位置在哪不大要紧。</p><pre><code class="lang-bash">git clone https://github.com/vim/vim.git</code></pre><h2 id="3-配置并编译vim"><a href="#3-配置并编译vim" class="headerlink" title="3.配置并编译vim"></a>3.配置并编译vim</h2><pre><code class="lang-bash">// 进入项目cd vim// 配置参数./configure --prefix=/usr/local/vim  --enable-pythoninterp=yes --enable-python3interp=yes --with-python-command=python --with-python3-command=python// 编译文件，可能需要使用sudo权限makemake install</code></pre><h2 id="4-复制Vim到系统配置，并修改Profile"><a href="#4-复制Vim到系统配置，并修改Profile" class="headerlink" title="4.复制Vim到系统配置，并修改Profile"></a>4.复制Vim到系统配置，并修改Profile</h2><pre><code class="lang-bash">// 复制前可以备份一下cp /usr/bin/vim /usr/bin/vim.backup// 复制前面编译的vim到系统配置cd /root/Projects/GithubProjects/vim/srccp vim /usr/bin// 修改系统的Profileecho &quot;PATH=\$PATH:/usr/local/vim/bin&quot; &gt;&gt; /etc/profile// 运行刚修改的配置。source /etc/profile// 最后，check versionvim --version// 同时，也能看到它支持Python3了。(7.4是不支持的。)</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li>[CentOS, Vim7.4升级到8.1 (服务器) — 亲试可行 - 简书](</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开放式信息抽取探索（1）</title>
+    <link href="https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/"/>
+    <id>https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/</id>
+    <published>2020-11-05T07:41:56.000Z</published>
+    <updated>2020-11-12T03:22:21.977Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。</p><p>这里简单记录下自己的探索历程和内心感受。</p><a id="more"></a><h2 id="任务划分"><a href="#任务划分" class="headerlink" title="任务划分"></a>任务划分</h2><p>信息抽取主要包含实体抽取、关系抽取和事件抽取，这里主要关注事件抽取。</p><h2 id="可以用监督学习模型吗"><a href="#可以用监督学习模型吗" class="headerlink" title="可以用监督学习模型吗"></a>可以用监督学习模型吗</h2><p>因为是开放式信息抽取，没有标记语料和训练带标签数据的过程，甚至说事件的种类都不是固定已知的，所以不能用监督学习模型。</p><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>打算借助基础nlp工具LTP，调研依存句法、语义角色标注、语义依存分析等功能。</p><h2 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h2><p>经过简单对比，觉得语义角色标注有遗漏的情况，而依存句法和语义依存效果相对较好，同时语义依存结果相对复杂，同时还存在一定的Bug。所以选择使用依存句法去入手。</p><h2 id="调研相关文章和开源项目"><a href="#调研相关文章和开源项目" class="headerlink" title="调研相关文章和开源项目"></a>调研相关文章和开源项目</h2><p>在调研网上其他的基于句法的开放式信息抽取的文章和项目时，发现了<a href="https://github.com/lemonhu/open-entity-relation-extraction" target="_blank" rel="noopener">lemonhu/open-entity-relation-extraction: Knowledge triples extraction and knowledge base construction based on dependency syntax for open domain text.</a>。觉得该项目和我要做的相近，于是调研了其代码实现，发现里面的规则是硬编码的，写的比较死，拓展性比较差，于是便思索是否有别的更好的方案。</p><h2 id="新的想法"><a href="#新的想法" class="headerlink" title="新的想法"></a>新的想法</h2><p>苦思冥想着觉得这些规则不应该硬编码，而是别的可拓展或易于修改的方式。后来突然想到树也算图的一种特殊结构，所以树的遍历、树的路径匹配也可以看做图的遍历、图的子图的路径匹配，而最近刚搞了Neo4j，Neo4j自然可以视作一个高效的图计算引擎，因此将句法分析和Neo4j结合在一起搞的想法便初步形成了。相应的，实体可以看做图的节点，实体在事件中所扮演的角色可以看做是到中心词（动词）的边，依存树中的定语（和实体构成定中修饰关系）可以视作实体节点的属性，而状语作为对中心词（动词）的修饰可以视作事件中心词的属性。所以由依存树到知识图谱便对应起来了。于是乎我们可以去构建Cypher查询语句来实现实体和事件的抽取。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/openoie-neo4j.png" alt="pic1"></p><h2 id="深入Neo4j"><a href="#深入Neo4j" class="headerlink" title="深入Neo4j"></a>深入Neo4j</h2><p>由于涉及到一些图遍历相关的东西，所以自己便想着通过使用Neo4j的apoc拓展库来实现，之前使用了<code>apoc.path.expand</code>，不过后来发现自己用错了，更应该用的是<code>apoc.path.subgraphNodes</code>，然后写了几个语法发现在一些Case上的提取结果还算不错。</p><h2 id="就难受住"><a href="#就难受住" class="headerlink" title="就难受住"></a>就难受住</h2><p>不过当Case变得复杂的时候，发现依存句法解析的有些问题，自然也就导致部分提取不到，于是自己内心就变得沮丧了起来。这是自己想解决的问题呀，可是好难，自己也不知如何去实现，就难受住。</p><h2 id="柳暗花明"><a href="#柳暗花明" class="headerlink" title="柳暗花明"></a>柳暗花明</h2><p>后来想着要不试试别的工具的效果，包括语义角色标注和语义依存分析，结果竟然发现语义角色标注的解析结果还真的挺好的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。&lt;/p&gt;
+&lt;p&gt;这里简单记录下自己的探索历程和内心感受。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+    
+      <category term="信息抽取" scheme="https://www.iamlightsmile.com/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>求职随记</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/</id>
+    <published>2020-10-27T14:17:20.000Z</published>
+    <updated>2020-10-27T14:25:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。</p><a id="more"></a><p>不过今晚最终想了想还是先拒绝掉了，虽然这种做法可能确实有点败人缘、坏人品，但是另一方面，我们小组目前处于比较缺人的状态，并且现在我还主要负责一个电网相关的知识库项目，离开了只会让同事更难做。一方面自己想换个环境继续学习新的知识和技能，另一方面则是一份责任，是自己应该做且做好的事情。只能等把项目推进到年末之后再考虑更换工作吧，现在换工作确实对公司而言有些不厚道了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
+    
+    
+      <category term="求职" scheme="https://www.iamlightsmile.com/tags/%E6%B1%82%E8%81%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>国内博客网站说明</title>
@@ -246,6 +344,31 @@
   </entry>
   
   <entry>
+    <title>flask+vue实现文件上传下载</title>
+    <link href="https://www.iamlightsmile.com/articles/flask-vue%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/"/>
+    <id>https://www.iamlightsmile.com/articles/flask-vue%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</id>
+    <published>2020-09-17T15:38:11.000Z</published>
+    <updated>2020-09-17T15:55:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>自己尝试着用Vue+Flask实现了下文件上传下载的功能，初步试验成功可行~</p><a id="more"></a><h2 id="1-后端代码"><a href="#1-后端代码" class="headerlink" title="1.后端代码"></a>1.后端代码</h2><pre><code class="lang-python">import osfrom flask import Flask, render_template, request, jsonify, send_from_directoryfrom werkzeug.utils import secure_filenamefrom flask_cors import CORSapp = Flask(__name__)CORS(app, supports_credentials=True)app.config[&#39;UPLOAD_FOLDER&#39;] = &#39;upload&#39;for file in os.listdir(app.config[&#39;UPLOAD_FOLDER&#39;]):    print(file)@app.route(&#39;/file_list&#39;, methods = [&#39;GET&#39;, &#39;POST&#39;])def file_list():    return jsonify({        &#39;file_list&#39;: [{&#39;name&#39;: name} for name in os.listdir(app.config[&#39;UPLOAD_FOLDER&#39;])]    })@app.route(&#39;/download/&lt;string:file_name&gt;&#39;, methods = [&#39;POST&#39;])def download(file_name: str):    print(file_name)    print(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;], file_name))    return send_from_directory(app.config[&#39;UPLOAD_FOLDER&#39;], file_name, as_attachment=True)@app.route(&#39;/upload&#39;, methods = [&#39;GET&#39;, &#39;POST&#39;])def uploader():   if request.method == &#39;POST&#39;:        print(request.files)        f = request.files[&#39;file&#39;]        print(f.filename)        print(secure_filename(f.filename))        # f.save(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;],secure_filename(f.filename)))        f.save(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;],f.filename))        return &#39;file uploaded successfully&#39;if __name__ == &#39;__main__&#39;:   app.run()</code></pre><h2 id="2-前端代码"><a href="#2-前端代码" class="headerlink" title="2.前端代码"></a>2.前端代码</h2><pre><code class="lang-vue">&lt;template&gt;  &lt;div&gt;    &lt;h3&gt;文件上传&lt;/h3&gt;    &lt;el-upload class=&quot;upload-demo&quot; drag action=&quot;http://localhost:5000/upload&quot; multiple&gt;      &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;      &lt;div class=&quot;el-upload__text&quot;&gt;        将文件拖到此处，或        &lt;em&gt;点击上传&lt;/em&gt;      &lt;/div&gt;      &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;只能上传jpg/png文件，且不超过500kb&lt;/div&gt;    &lt;/el-upload&gt;    &lt;el-divider&gt;&lt;/el-divider&gt;    &lt;h3&gt;文件下载&lt;/h3&gt;    &lt;p&gt;{{file_list}}&lt;/p&gt;    &lt;el-table      :data=&quot;file_list.filter(data =&gt; !search || data.name.toLowerCase().includes(search.toLowerCase()))&quot;      style=&quot;width: 100%&quot;    &gt;      &lt;el-table-column label=&quot;Name&quot; prop=&quot;name&quot;&gt;&lt;/el-table-column&gt;      &lt;el-table-column align=&quot;right&quot;&gt;        &lt;template slot=&quot;header&quot; slot-scope=&quot;{}&quot;&gt;          &lt;el-input v-model=&quot;search&quot; size=&quot;mini&quot; placeholder=&quot;输入关键字搜索&quot; /&gt;        &lt;/template&gt;        &lt;template slot-scope=&quot;scope&quot;&gt;          &lt;el-button size=&quot;mini&quot; @click=&quot;handleDownload(scope.$index, scope.row)&quot;&gt;下载&lt;/el-button&gt;          &lt;el-button size=&quot;mini&quot; type=&quot;danger&quot; @click=&quot;handleDelete(scope.$index, scope.row)&quot;&gt;删除&lt;/el-button&gt;        &lt;/template&gt;      &lt;/el-table-column&gt;    &lt;/el-table&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;import axios from &quot;axios&quot;;import fileDownload from &#39;js-file-download&#39;;export default {  data() {    return {      tableData: [        {          date: &quot;2016-05-02&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1518 弄&quot;,        },        {          date: &quot;2016-05-04&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1517 弄&quot;,        },        {          date: &quot;2016-05-01&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1519 弄&quot;,        },        {          date: &quot;2016-05-03&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1516 弄&quot;,        },      ],      search: &quot;&quot;,      file_list: &quot;&quot;,    };  },  methods: {    handleDownload(index, row) {      console.log(index, row);      const url = &quot;http://localhost:5000/download&quot;      var path = url + &#39;/&#39; + row[&#39;name&#39;]    axios.post(path, {}, {responseType: &#39;arraybuffer&#39;}).then((res) =&gt; {          fileDownload(res.data, row[&#39;name&#39;]);      })    },    handleDelete(index, row) {      console.log(index, row);    },    get_file_list(){        const url = &quot;http://localhost:5000/file_list&quot;;        axios.get(url).then((res) =&gt; {            console.log(res)            this.file_list = res.data[&quot;file_list&quot;];        }).catch((err) =&gt; {          console.error(err);        });    }  },  created() {      this.get_file_list();  }};&lt;/script&gt;&lt;style&gt;&lt;/style&gt;</code></pre><p>其中使用了axios、element-ui和js-file-download库。</p><h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5.效果"></a>5.效果</h2><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/flask_vue_frontend.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/flask_vue_backend.png" alt=""></p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/qq_25730711/article/details/53643758" target="_blank" rel="noopener">flask-文件上传/下载_More and Better-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/cb02c30f6f84" target="_blank" rel="noopener">Flask 文件上传 - 简书</a></li><li><a href="https://www.jianshu.com/p/53deecb09077" target="_blank" rel="noopener">Axios 各种请求方式传递参数格式 - 简书</a></li><li><a href="https://segmentfault.com/a/1190000020540788" target="_blank" rel="noopener">前端js/vue下载后台传过来的流文件（如excel）并设置下载文件名 - 漫漫前端路 - SegmentFault 思否</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;自己尝试着用Vue+Flask实现了下文件上传下载的功能，初步试验成功可行~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="flask" scheme="https://www.iamlightsmile.com/tags/flask/"/>
+    
+      <category term="vue" scheme="https://www.iamlightsmile.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>配置VSCode-Remote-Container</title>
     <link href="https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/"/>
     <id>https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/</id>
@@ -275,7 +398,7 @@
     <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/"/>
     <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/</id>
     <published>2020-09-15T06:43:52.000Z</published>
-    <updated>2020-09-15T08:03:05.529Z</updated>
+    <updated>2020-09-15T14:35:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。</p><a id="more"></a><h2 id="1-下载并解压安装包"><a href="#1-下载并解压安装包" class="headerlink" title="1.下载并解压安装包"></a>1.下载并解压安装包</h2><h3 id="1-1-下载安装包"><a href="#1-1-下载安装包" class="headerlink" title="1.1 下载安装包"></a>1.1 下载安装包</h3><p>官网中文下载页：<a href="https://zh-cn.libreoffice.org/download/libreoffice/" target="_blank" rel="noopener">下载 LibreOffice | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></p><p>我们需要安装主安装程序以及中文语言安装包和中文离线帮助文件安装包，这里列出6.4.6版本的中文镜像源链接：</p><ul><li>主程序链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz</a></li><li>中文语言包链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz</a></li><li>中文离线帮助文件链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz</a></li></ul><h3 id="1-2-解压安装包"><a href="#1-2-解压安装包" class="headerlink" title="1.2 解压安装包"></a>1.2 解压安装包</h3><p>将安装包放置到合适的位置并且解压。</p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><pre><code class="lang-bash">$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm/RPMS/*.rpm  /* 安装主安装程序的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_langpack_zh-CN/RPMS/*.rpm  /* 安装中文语言包中的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_helppack_zh-CN/RPMS/*.rpm  /* 安装中文离线帮助文件中的所有rpm包 */</code></pre><h2 id="3-依赖"><a href="#3-依赖" class="headerlink" title="3.依赖"></a>3.依赖</h2><h3 id="3-1-查看安装位置"><a href="#3-1-查看安装位置" class="headerlink" title="3.1 查看安装位置"></a>3.1 查看安装位置</h3><pre><code class="lang-bash">whereis libreoffice</code></pre><p>得到如下输出：</p><pre><code class="lang-text">libreoffice: /usr/bin/libreoffice6.4 /usr/lib64/libreoffice</code></pre><h3 id="3-2-安装依赖"><a href="#3-2-安装依赖" class="headerlink" title="3.2 安装依赖"></a>3.2 安装依赖</h3><p>执行<code>libreoffice6.4</code>报库文件找不到的错误，需要安装一些库文件：</p><ul><li><code>yum install cairo -y</code></li><li><code>yum install cups-libs -y</code></li><li><code>yum install libSM -y</code></li></ul><h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><h3 id="4-1-查看版本"><a href="#4-1-查看版本" class="headerlink" title="4.1 查看版本"></a>4.1 查看版本</h3><pre><code class="lang-bash">libreoffice6.4 --version</code></pre><p>得到如下结果：</p><pre><code class="lang-text">LibreOffice 6.4.6.2 0ce51a4fd21bff07a5c061082cc82c5ed232f115</code></pre><h3 id="4-2-创建软链接"><a href="#4-2-创建软链接" class="headerlink" title="4.2 创建软链接"></a>4.2 创建软链接</h3><p>由于联动的其他程序设置的libreoffice路径为<code>/usr/bin/soffice</code>，所以这里创建一个软链：</p><pre><code class="lang-bash">ln -s /opt/libreoffice6.4/program/soffice /usr/bin/soffice</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="http://qtdebug.com/mac-centos7-libreoffice/" target="_blank" rel="noopener">CentOS7 安装 LibreOffice | 公孙二狗</a></li><li><a href="https://zh-cn.libreoffice.org/get-help/install-howto/linux/" target="_blank" rel="noopener">Linux 下的安装方法 | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></li><li><a href="https://blog.csdn.net/m290345792/article/details/78518360" target="_blank" rel="noopener">linux软链接的创建、删除和更新_鲁不迅的专栏-CSDN博客</a></li></ul>]]></content>
     
@@ -298,9 +421,9 @@
     <link href="https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2020-09-10T00:45:02.000Z</published>
-    <updated>2020-10-22T03:05:00.519Z</updated>
+    <updated>2020-09-15T14:35:07.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019(base) ➜  data uname -aLinux VM-32-15-centos 3.10.0-1127.19.1.el7.x86_64 #1 SMP Tue Aug 25 17:23:54 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</code></pre><h2 id="2-文件查看命令"><a href="#2-文件查看命令" class="headerlink" title="2.文件查看命令"></a>2.文件查看命令</h2><h3 id="2-1-查看目录结构"><a href="#2-1-查看目录结构" class="headerlink" title="2.1 查看目录结构"></a>2.1 查看目录结构</h3><pre><code class="lang-bash">➜  ~ tree -d -L 2 # tree命令可以查看目录文件结构信息，其中-d指示只显示目录，-L 2指示只显示下面两层.├── Data│   ├── Application│   ├── DockerImages│   ├── NLP│   └── Pylibs├── Downloads│   ├── neo4j-community-4.1.3│   ├── pylibs│   └── zip├── Projects│   ├── GithubProjects│   ├── kdProjects│   └── myProjects├── Resources├── Software│   ├── Docker│   ├── elasticsearch-7.7.1│   ├── miniconda3│   ├── neo4j-community-4.1.3│   └── Nodejs└── tmp</code></pre>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019</code></pre>]]></content>
     
     <summary type="html">
     
@@ -323,7 +446,7 @@
     <link href="https://www.iamlightsmile.com/articles/%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89ik%E5%88%86%E8%AF%8D%E5%99%A8%E7%9A%84Elasticsearch%E5%AE%B9%E5%99%A8/"/>
     <id>https://www.iamlightsmile.com/articles/%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89ik%E5%88%86%E8%AF%8D%E5%99%A8%E7%9A%84Elasticsearch%E5%AE%B9%E5%99%A8/</id>
     <published>2020-09-09T09:08:02.000Z</published>
-    <updated>2020-09-09T09:52:04.317Z</updated>
+    <updated>2020-09-15T14:35:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>自己目前在学习探索Docker技术，这里简单实践一下创建带有ik分词器的Elasticsearch容器，涉及Dockerfile和docker-compose的使用。</p><a id="more"></a><h2 id="1-创建容器"><a href="#1-创建容器" class="headerlink" title="1.创建容器"></a>1.创建容器</h2><h3 id="1-1-编写Dockerfile"><a href="#1-1-编写Dockerfile" class="headerlink" title="1.1 编写Dockerfile"></a>1.1 编写<code>Dockerfile</code></h3><p>新建<code>elasticsearch</code>目录并在其内创建Dockerfile文件</p><pre><code class="lang-bash">mkdir elasticsearch &amp;&amp; elasticsearchtouch Dockerfile</code></pre><p><code>Dockerfile</code>中内容如下：</p><pre><code class="lang-Dockerfile">FROM elasticsearch:7.7.1RUN yes | ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.1/elasticsearch-analysis-ik-7.7.1.zip</code></pre><h3 id="1-2-编写docker-compose-yml"><a href="#1-2-编写docker-compose-yml" class="headerlink" title="1.2 编写docker-compose.yml"></a>1.2 编写<code>docker-compose.yml</code></h3><p>在<code>elasticsearch</code>文件夹同级目录下创建<code>docker-compose.yml</code>文件，内容为：</p><pre><code class="lang-yml">version: &#39;3&#39;services:    es-ik:        build: ./elasticsearch        image: elasticsearch-ik:7.7.1        container_name: es_ik        environment:             - discovery.type=single-node        ports:            - 9201:9200            - 9301:9300</code></pre><p>上面的端口映射到Host主机的9201和9301是因为系统上已经有Elasticsearch在运行了并且使用了默认的端口，这里需要再换一下端口。</p><h3 id="1-3-打包镜像"><a href="#1-3-打包镜像" class="headerlink" title="1.3 打包镜像"></a>1.3 打包镜像</h3><p>上面的目录结构如下：</p><pre><code class="lang-txt">.├── docker-compose.yml└── elasticsearch    ├── Dockerfile    ├── elasticsearch-analysis-ik-7.7.1.zip    └── test.es</code></pre><p>执行如下命令以构建镜像：</p><pre><code class="lang-bash">docker-compose build</code></pre><p>执行<code>docker images</code>可以看到镜像已经成功创建：</p><pre><code class="lang-bash">[root@localhost ~]# docker imagesREPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZEelasticsearch-ik                                7.7.1               1812e4f405c5        3 hours ago         814 MB</code></pre><h2 id="2-测试容器"><a href="#2-测试容器" class="headerlink" title="2.测试容器"></a>2.测试容器</h2><h3 id="2-1-启动容器"><a href="#2-1-启动容器" class="headerlink" title="2.1 启动容器"></a>2.1 启动容器</h3><p>执行如下命令以启动容器：</p><pre><code class="lang-bash">docker-compose up</code></pre><h3 id="2-2-查看容器启动状态"><a href="#2-2-查看容器启动状态" class="headerlink" title="2.2 查看容器启动状态"></a>2.2 查看容器启动状态</h3><pre><code class="lang-bash">[root@localhost Docker]# lsdocker-compose.yml  elasticsearch[root@localhost Docker]# docker-compose psName               Command               State                       Ports                     -----------------------------------------------------------------------------------------------es_ik   /tini -- /usr/local/bin/do ...   Up      0.0.0.0:9201-&gt;9200/tcp, 0.0.0.0:9301-&gt;9300/tcp</code></pre><h3 id="2-3-测试elasticsearch服务"><a href="#2-3-测试elasticsearch服务" class="headerlink" title="2.3 测试elasticsearch服务"></a>2.3 测试elasticsearch服务</h3><p>这里我是用的是VSCode的<code>Elasticsearch for VSCode</code>插件，该插件允许我们编写<code>.es</code>文件向es执行查询请求。</p><p>如<code>test.es</code>内容如下：</p><pre><code class="lang-es">POST _analyze{    &quot;analyzer&quot;: &quot;ik_smart&quot;,    &quot;text&quot;: &quot;中华人民共和国&quot;}POST _analyze{    &quot;analyzer&quot;: &quot;ik_max_word&quot;,    &quot;text&quot;: &quot;中华人民共和国&quot;}</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/elasticsearch-ik.png" alt=""></p><p>请求结果如下：</p><pre><code class="lang-json">{    &quot;tokens&quot;: [        {            &quot;token&quot;: &quot;中华人民共和国&quot;,            &quot;start_offset&quot;: 0,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 0        },        {            &quot;token&quot;: &quot;中华人民&quot;,            &quot;start_offset&quot;: 0,            &quot;end_offset&quot;: 4,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 1        },        {            &quot;token&quot;: &quot;中华&quot;,            &quot;start_offset&quot;: 0,            &quot;end_offset&quot;: 2,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 2        },        {            &quot;token&quot;: &quot;华人&quot;,            &quot;start_offset&quot;: 1,            &quot;end_offset&quot;: 3,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 3        },        {            &quot;token&quot;: &quot;人民共和国&quot;,            &quot;start_offset&quot;: 2,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 4        },        {            &quot;token&quot;: &quot;人民&quot;,            &quot;start_offset&quot;: 2,            &quot;end_offset&quot;: 4,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 5        },        {            &quot;token&quot;: &quot;共和国&quot;,            &quot;start_offset&quot;: 4,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 6        },        {            &quot;token&quot;: &quot;共和&quot;,            &quot;start_offset&quot;: 4,            &quot;end_offset&quot;: 6,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 7        },        {            &quot;token&quot;: &quot;国&quot;,            &quot;start_offset&quot;: 6,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_CHAR&quot;,            &quot;position&quot;: 8        }    ]}</code></pre><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><ul><li><a href="https://www.runoob.com/docker/docker-compose.html" target="_blank" rel="noopener">Docker Compose | 菜鸟教程</a></li><li><a href="https://www.jianshu.com/p/2217cfed29d7" target="_blank" rel="noopener">Docker Compose 配置文件详解 - 简书</a></li><li><a href="https://www.jianshu.com/p/ea0a1b00334d" target="_blank" rel="noopener">基于docker的elasticsearch中文分词及同义词配置 - 简书</a></li></ul>]]></content>
     
@@ -348,7 +471,7 @@
     <link href="https://www.iamlightsmile.com/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/"/>
     <id>https://www.iamlightsmile.com/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/</id>
     <published>2020-09-08T01:18:47.000Z</published>
-    <updated>2020-09-08T02:39:09.625Z</updated>
+    <updated>2020-09-15T14:35:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="0-概览"><a href="#0-概览" class="headerlink" title="0.概览"></a>0.概览</h2><p>目前自己在深度学习这方面有一定的积累，一些代码流程都有一定的套路和相应的标准，这里自己简单梳理一下。</p><p>我们这里假设输入为已标注数据，输出为训练的模型，不考虑标注前数据处理部分已经代码上线部署环节。</p><p>大致的流程包括：</p><ul><li><strong>数据预处理</strong></li><li><strong>编写神经网络模型</strong></li><li><strong>编写数据加载部分代码</strong></li><li><strong>编写模型训练预测代码</strong></li></ul><a id="more"></a><h2 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1.数据预处理"></a>1.数据预处理</h2><p>对标注数据进行处理，包括特征预处理、数据清洗等，将数据（可能是txt格式、Excel文件等）转化为程序可直接读取的常见的数据集类型（如csv）。如在csv文件中，每行是一个样本（sample），每列为该样本特征（feature）或标签（label）。</p><p>如<code>tes.csv</code>：</p><pre><code class="lang-csv">fuck,shit,label&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;</code></pre><h2 id="2-编写神经网络模型"><a href="#2-编写神经网络模型" class="headerlink" title="2.编写神经网络模型"></a>2.编写神经网络模型</h2><p>对于特定的任务，我们可以选择既有的框架，这样就不需要重写模型。然而当既有的框架模型不满足我们的需求时，我们就需要去自定义去编写神经网络模型。</p><p>以Pytorch为例，模型需要继承自<code>torch.nn.Module</code>类并实现<code>forward</code>方法。</p><h2 id="3-编写数据加载部分代码"><a href="#3-编写数据加载部分代码" class="headerlink" title="3.编写数据加载部分代码"></a>3.编写数据加载部分代码</h2><p>数据预处理的结果为数据集文件，我们需要对其进行读取、分割并转化为向量格式。</p><p>以Pytorch为例，我们需要编写一个继承自<code>torch.utils.data.Dataset</code>类的类并实现其<code>__getitem__</code>方法和<code>__len__</code>方法。该类作为数据集抽象的接口向外部提供数据。</p><p><code>Dataset</code>类的输出一般不作为模型的输入，中间还需要一个<code>torch.utis.data.DataLoader</code>。</p><p><code>DataLoader</code>接收<code>dataset</code>、<code>batch_size</code>、<code>collate_fn</code>、<code>drop_last</code>、<code>shuffle</code>、<code>sampler</code>等参数，各参数含义为dataset:待加载数据集（类型为<code>torch.utils.data.Dataset</code>）、batch_size:批处理数量大小、collate_fn:数据收集函数（用于将一系列sample转化为Tensor）、drop_last:是否丢弃最后不满一个batch_size的batch、shuffle:是否对数据再进行一次shuffle、sampler:数据采样器（类型为<code>torch.utils.data.Sampler</code>），其中各参数之间可能相互冲突不能一起用，具体使用请参见Pytorch官网教程。</p><p><code>Dataloader</code>的输出应该被作为可以直接传递给模型的Tensor类型，以mini-batch，具体在Python代码中为<code>for-in</code>的形式被调用。</p><h2 id="4-编写模型训练预测代码"><a href="#4-编写模型训练预测代码" class="headerlink" title="4.编写模型训练预测代码"></a>4.编写模型训练预测代码</h2><p>在生成<code>Module</code>和<code>DataLoader</code>之后，我们还需要指定损失函数（如<code>torch.nn.functional.cross_entropy</code>（交叉熵损失函数））和优化器（如<code>torch.optim.Adam</code>）。</p><p>更高级的，我们还可以去设置学习率调度器(如<code>torch.optim.lr_scheduler.StepLR</code>)，设置EarlyStopping和断点重训等功能。</p><p>在模型训练完之后我们还需要将其持久化到硬盘中，可以选择保存整个模型对象或者只包含其参数信息。</p><p>上面的训练部分由于比较通用，各框架也可能会将其抽象为<code>Trainer</code>对象。</p>]]></content>
     
@@ -371,131 +494,6 @@
     
     
       <category term="深度学习" scheme="https://www.iamlightsmile.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>完整机器学习项目的工作流程（转）</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%AE%8C%E6%95%B4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E8%BD%AC%EF%BC%89/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%AE%8C%E6%95%B4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E8%BD%AC%EF%BC%89/</id>
-    <published>2020-09-08T00:52:14.000Z</published>
-    <updated>2020-09-08T02:41:07.127Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文章转自<a href="https://zhuanlan.zhihu.com/p/28288050" target="_blank" rel="noopener">完整机器学习项目的工作流程 - 知乎</a>。</p><h2 id="1-抽象成数学问题"><a href="#1-抽象成数学问题" class="headerlink" title="1.抽象成数学问题"></a>1.抽象成数学问题</h2><p>明确问题是进行机器学习的第一步。机器学习的训练过程通常都是一件非常耗时的事情，胡乱尝试时间成本是非常高的。</p><p>这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。即明确输入和输出以及任务类型。</p><a id="more"></a><h2 id="2-获取数据"><a href="#2-获取数据" class="headerlink" title="2.获取数据"></a>2.获取数据</h2><p>数据决定了机器学习结果的上限，而算法只是尽可能逼近这个上限。</p><p>数据要有代表性，否则必然会过拟合。</p><p>而且对于分类问题，数据偏斜不能过于严重，不同类别的数据数量不要有数个数量级的差距。</p><p>而且还要对数据的量级有一个评估，多少个样本，多少个特征，可以估算出其对内存的消耗程度，判断训练过程中内存是否能够放得下。如果放不下就得考虑改进算法或者使用一些降维的技巧了。如果数据量实在太大，那就要考虑分布式了。</p><h2 id="3-特征预处理与特征选择"><a href="#3-特征预处理与特征选择" class="headerlink" title="3.特征预处理与特征选择"></a>3.特征预处理与特征选择</h2><p>良好的数据要能够提取出良好的特征才能真正发挥效力。</p><p>特征预处理、数据清洗是很关键的步骤，往往能够使得算法的效果和性能得到显著提高。归一化、离散化、因子化、缺失值处理、去除共线性等，数据挖掘过程中很多时间就花在它们上面。这些工作简单可复制，收益稳定可预期，是机器学习的基础必备步骤。</p><p>筛选出显著特征、摒弃非显著特征，需要机器学习工程师反复理解业务。这对很多结果有决定性的影响。特征选择好了，非常简单的算法也能得出良好、稳定的结果。这需要运用特征有效性分析的相关技术，如相关系数、卡方检验、平均互信息、条件熵、后验概率、逻辑回归权重等方法。</p><h2 id="4-训练模型与调优"><a href="#4-训练模型与调优" class="headerlink" title="4.训练模型与调优"></a>4.训练模型与调优</h2><p>直到这一步才用到我们上面说的算法进行训练。现在很多算法都能够封装成黑盒供人使用。但是真正考验水平的是调整这些算法的（超）参数，使得结果变得更加优良。这需要我们对算法的原理有深入的理解。理解越深入，就越能发现问题的症结，提出良好的调优方案。</p><h2 id="5-模型诊断"><a href="#5-模型诊断" class="headerlink" title="5.模型诊断"></a>5.模型诊断</h2><p>如何确定模型调优的方向与思路呢？这就需要对模型进行诊断的技术。</p><p>过拟合、欠拟合 判断是模型诊断中至关重要的一步。常见的方法如交叉验证，绘制学习曲线等。过拟合的基本调优思路是增加数据量，降低模型复杂度。欠拟合的基本调优思路是提高特征数量和质量，增加模型复杂度。</p><p>误差分析 也是机器学习至关重要的步骤。通过观察误差样本，全面分析误差产生误差的原因:是参数的问题还是算法选择的问题，是特征的问题还是数据本身的问题……</p><p>诊断后的模型需要进行调优，调优后的新模型需要重新进行诊断，这是一个反复迭代不断逼近的过程，需要不断地尝试， 进而达到最优状态。</p><h2 id="6-模型融合"><a href="#6-模型融合" class="headerlink" title="6.模型融合"></a>6.模型融合</h2><p>一般来说，模型融合后都能使得效果有一定提升。而且效果很好。</p><p>工程上，主要提升算法准确度的方法是分别在模型的前端（特征清洗和预处理，不同的采样模式）与后端（模型融合）上下功夫。因为他们比较标准可复制，效果比较稳定。而直接调参的工作不会很多，毕竟大量数据训练起来太慢了，而且效果难以保证。</p><h2 id="7-上线运行"><a href="#7-上线运行" class="headerlink" title="7.上线运行"></a>7.上线运行</h2><p>这一部分内容主要跟工程实现的相关性比较大。工程上是结果导向，模型在线上运行的效果直接决定模型的成败。 不单纯包括其准确程度、误差等情况，还包括其运行的速度(时间复杂度)、资源消耗程度（空间复杂度）、稳定性是否可接受。</p><h2 id="8-最后"><a href="#8-最后" class="headerlink" title="8.最后"></a>8.最后</h2><p>这些工作流程主要是工程实践上总结出的一些经验。并不是每个项目都包含完整的一个流程。这里的部分只是一个指导性的说明，只有大家自己多实践，多积累项目经验，才会有自己更深刻的认识。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文章转自&lt;a href=&quot;https://zhuanlan.zhihu.com/p/28288050&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;完整机器学习项目的工作流程 - 知乎&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;1-抽象成数学问题&quot;&gt;&lt;a href=&quot;#1-抽象成数学问题&quot; class=&quot;headerlink&quot; title=&quot;1.抽象成数学问题&quot;&gt;&lt;/a&gt;1.抽象成数学问题&lt;/h2&gt;&lt;p&gt;明确问题是进行机器学习的第一步。机器学习的训练过程通常都是一件非常耗时的事情，胡乱尝试时间成本是非常高的。&lt;/p&gt;
-&lt;p&gt;这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。即明确输入和输出以及任务类型。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://www.iamlightsmile.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="https://www.iamlightsmile.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos安装mongodb</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/</id>
-    <published>2020-09-06T07:54:30.000Z</published>
-    <updated>2020-09-15T06:45:17.271Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装方式详情参见<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">在CentOS 7上安装MongoDB - 云+社区 - 腾讯云</a>，只是貌似最新的版本是4.4，即需要将添加MongoDB源部分的3.2都换成4.4。</p><p>另外更精简的文档：<a href="https://www.jb51.net/article/194001.htm" target="_blank" rel="noopener">Centos7 yum安装mongodb实现步骤详解_MongoDB_脚本之家</a>。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装方式详情参见&lt;a href=&quot;https://cloud.tencent.com/developer/article/1329170&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在CentOS 7上安装MongoDB - 云+社区 - 腾讯云&lt;/a&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
-    
-      <category term="mongodb" scheme="https://www.iamlightsmile.com/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置VSCode-Remote-SSH</title>
-    <link href="https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/"/>
-    <id>https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/</id>
-    <published>2020-09-05T08:15:15.000Z</published>
-    <updated>2020-10-10T08:10:56.193Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>在写前一篇文档调研使用brat的时候，由于涉及到操作服务器中文件，然而直接通过命令行操作实在是有些不太方便，毕竟vim不咋熟练，自己突然想到使用vscode可以配置remote开发。于是趁此机会也尝试着配置一下，这里简单记录一下。</p><a id="more"></a><h2 id="1-配置VSCode-Remote-SSH"><a href="#1-配置VSCode-Remote-SSH" class="headerlink" title="1.配置VSCode Remote-SSH"></a>1.配置VSCode Remote-SSH</h2><h3 id="1-1-安装Remote-SSH插件"><a href="#1-1-安装Remote-SSH插件" class="headerlink" title="1.1 安装Remote-SSH插件"></a>1.1 安装Remote-SSH插件</h3><p>在拓展里搜索”remote”，然后安装”Remote-SSH”插件。</p><p>在安装完成之后，侧边栏会多出一个选项，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote.png" alt=""></p><p>点击之后，其会从一些默认位置自动读取系统已有的一些ssh配置信息，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_2.png" alt=""></p><h2 id="2-配置远程服务器"><a href="#2-配置远程服务器" class="headerlink" title="2.配置远程服务器"></a>2.配置远程服务器</h2><h3 id="2-1-添加远程服务器配置信息"><a href="#2-1-添加远程服务器配置信息" class="headerlink" title="2.1 添加远程服务器配置信息"></a>2.1 添加远程服务器配置信息</h3><p>我们可以在<code>config</code>文件中继续添加配置，格式如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_3.png" alt=""></p><h3 id="2-2-配置ssh连接"><a href="#2-2-配置ssh连接" class="headerlink" title="2.2 配置ssh连接"></a>2.2 配置ssh连接</h3><p><strong>注意</strong>：以下命令均是在Git Bash下执行的。</p><h4 id="2-2-1-切换目录至ssh目录"><a href="#2-2-1-切换目录至ssh目录" class="headerlink" title="2.2.1 切换目录至ssh目录"></a>2.2.1 切换目录至ssh目录</h4><pre><code class="lang-bash">cd ~/.ssh</code></pre><h4 id="2-2-2-生成ssh公钥"><a href="#2-2-2-生成ssh公钥" class="headerlink" title="2.2.2 生成ssh公钥"></a>2.2.2 生成ssh公钥</h4><pre><code class="lang-bash">ssh-keygen</code></pre><h4 id="2-2-3-将公钥存储至远程主机"><a href="#2-2-3-将公钥存储至远程主机" class="headerlink" title="2.2.3 将公钥存储至远程主机"></a>2.2.3 将公钥存储至远程主机</h4><p>假如1.3.2步生成的公钥名称为<code>id_rsa.pub</code>，假设远程主机ip地址为<code>12.34.56.78</code>，用户名为<code>root</code></p><pre><code class="lang-bash">ssh-copy-id -i id_rsa.pub root@12.34.56.78</code></pre><h2 id="3-连接至远程服务器"><a href="#3-连接至远程服务器" class="headerlink" title="3.连接至远程服务器"></a>3.连接至远程服务器</h2><p>在上述过程配置完成之后，便可以连接至远程服务器了。如图点击红圈内的图标：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_5.png" alt=""></p><p>连接成功后如图所示：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_6.png" alt=""></p><p>如果还不明白的可以继续看下面的参考文章。</p><h2 id="1-参考"><a href="#1-参考" class="headerlink" title="-1.参考"></a>-1.参考</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/64849549" target="_blank" rel="noopener">VSCode Remote 体验 | 远程Linux环境开发真香 - 知乎</a></li><li><a href="https://www.jianshu.com/p/6761199bedba" target="_blank" rel="noopener">服务器免密登录:ssh公钥配置 - 简书</a></li><li><a href="https://www.jianshu.com/p/1e793e386beb" target="_blank" rel="noopener">ssh配置文件详解 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;在写前一篇文档调研使用brat的时候，由于涉及到操作服务器中文件，然而直接通过命令行操作实在是有些不太方便，毕竟vim不咋熟练，自己突然想到使用vscode可以配置remote开发。于是趁此机会也尝试着配置一下，这里简单记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="vscode" scheme="https://www.iamlightsmile.com/tags/vscode/"/>
-    
-      <category term="ssh" scheme="https://www.iamlightsmile.com/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos下brat安装使用</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E4%B8%8Bbrat%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</id>
-    <published>2020-09-05T02:09:50.000Z</published>
-    <updated>2020-09-07T00:40:01.188Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-更新"><a href="#1-更新" class="headerlink" title="-1.更新"></a>-1.更新</h2><p>发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。</p><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><h3 id="0-1-背景"><a href="#0-1-背景" class="headerlink" title="0.1 背景"></a>0.1 背景</h3><p>近日简单调研一下NLP标注工具brat的使用，其<a href="http://brat.nlplab.org/examples.html" target="_blank" rel="noopener">官网示例</a>中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。</p><a id="more"></a><h3 id="0-2-brat介绍"><a href="#0-2-brat介绍" class="headerlink" title="0.2 brat介绍"></a>0.2 brat介绍</h3><p>brat是使用Python2开发的文本标注工具，只支持在Unix-like环境下使用，同时最新版v1.3提供两种使用方式，即：using CGI和standalone server，第一种方式官方推荐使用Apache2服务器，并提供了简单的配置教程；第二种模式更新，但可能有更多潜在的问题。另外其实也可以通过Docker使用，这种方法相对而言更加方便。</p><h3 id="0-3-个人使用方式"><a href="#0-3-个人使用方式" class="headerlink" title="0.3 个人使用方式"></a>0.3 个人使用方式</h3><p>我个人使用的是第一种方式，关键是我自己试了试第二种，没有成功，所以只能拿第一种搞了。网上的教程既有将brat当server端用的，也有简单的在localhost环境下使用的。由于自己的笔记本系统是Win10，所以选择在腾讯云服务器Cnetos7上搭建brat。</p><h2 id="1-brat相关信息"><a href="#1-brat相关信息" class="headerlink" title="1.brat相关信息"></a>1.brat相关信息</h2><h3 id="1-1-brat相关网址"><a href="#1-1-brat相关网址" class="headerlink" title="1.1 brat相关网址"></a>1.1 brat相关网址</h3><ul><li>brat官网：<a href="http://brat.nlplab.org/" target="_blank" rel="noopener">brat rapid annotation tool</a></li><li>brat安装说明：<a href="http://brat.nlplab.org/installation.html" target="_blank" rel="noopener">Installation - brat rapid annotation tool</a></li><li>brat手册网址：<a href="http://brat.nlplab.org/manual.html" target="_blank" rel="noopener">Manual - brat rapid annotation tool</a></li><li>brat github地址：<a href="https://github.com/nlplab/brat" target="_blank" rel="noopener">nlplab/brat: brat rapid annotation tool (brat) - for all your textual annotation needs</a></li></ul><h2 id="2-brat安装"><a href="#2-brat安装" class="headerlink" title="2.brat安装"></a>2.brat安装</h2><p><strong>说明</strong>：以下命令在root用户下运行，如普通用户请自行在部分命令前面加<code>sudo</code>。</p><h3 id="2-1-安装Apache"><a href="#2-1-安装Apache" class="headerlink" title="2.1 安装Apache"></a>2.1 安装Apache</h3><p>由于brat需要借助Apache提供cgi访问，所以我们首先需要安装apache。</p><p>安装命令如下：</p><pre><code class="lang-bash">yum install httpd</code></pre><p>启动Apache</p><pre><code class="lang-bash">systemctl start httpd.service</code></pre><p>Apache的默认配置：</p><ul><li>Apache默认将网站的根目录指向/<code>var/www/html</code></li><li>默认的主配置文件<code>/etc/httpd/conf/httpd.conf</code></li><li>配置存储在的<code>/etc/httpd/conf.d/</code>目录</li></ul><p>更多关于CentOS下安装Apache请参考<a href="https://www.jianshu.com/p/5b8903709e66" target="_blank" rel="noopener">CentOS 7下Apache的安装 - 简书</a></p><h3 id="2-2-初步配置Apache（视情况可略过）"><a href="#2-2-初步配置Apache（视情况可略过）" class="headerlink" title="2.2 初步配置Apache（视情况可略过）"></a>2.2 初步配置Apache（视情况可略过）</h3><p>由于自己的服务器上已经安装了Nginx，而Apache和Nginx都默认关联80端口，所以这里需要做一些调整，例如将Apache的监听端口设置为8080。而由于自己的frp程序已经关联了8080端口，所以自己这里将Apache的监听端口设置为8088。</p><p>具体配置请参考：<a href="https://blog.csdn.net/weixin_42912498/article/details/106626219" target="_blank" rel="noopener">CentOS下nginx与apache如何共存_weixin_42912498的博客-CSDN博客</a></p><h3 id="2-3-下载brat"><a href="#2-3-下载brat" class="headerlink" title="2.3 下载brat"></a>2.3 下载brat</h3><p>我们可以通过<a href="http://brat.nlplab.org/index.html" target="_blank" rel="noopener">官网</a>下载brat，也可以通过<a href="https://github.com/nlplab/brat/releases" target="_blank" rel="noopener">Github</a>下载brat。</p><p>在下载完成后，我们需要将brat移动至<code>var/www/html</code>目录，并解压重命名目录为<code>brat</code>。</p><p>由于brat目录内的所有内容要被外网用户通过Apache访问到，所以我们需要配置brat目录的权限，具体命令为：</p><pre><code class="lang-bash">chmod 777 -R /var/www/html/brat</code></pre><h3 id="2-4-配置Apache"><a href="#2-4-配置Apache" class="headerlink" title="2.4 配置Apache"></a>2.4 配置Apache</h3><p>编辑<code>/etc/httpd/conf/httpd.conf</code>文件。</p><h4 id="2-4-1-添加brat配置"><a href="#2-4-1-添加brat配置" class="headerlink" title="2.4.1 添加brat配置"></a>2.4.1 添加brat配置</h4><p>在<code>&lt;Directory &quot;/var/www/html&quot;&gt;...&lt;/Directory&gt;</code>配置后添加如下内容：</p><pre><code class="lang-conf"># add brat&lt;Directory &quot;/var/www/html/brat&quot;&gt;    AllowOverride Options Indexes FileInfo Limit    Require all granted    AddType application/xhtml+xml .xhtml    AddType font/ttf .ttf    Options +ExecCGI    AddHandler cgi-script .cgi&lt;/Directory&gt;</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/apache_brat_1.png" alt=""></p><h4 id="2-4-2-添加cgi配置"><a href="#2-4-2-添加cgi配置" class="headerlink" title="2.4.2 添加cgi配置"></a>2.4.2 添加cgi配置</h4><p>在第55行内容大约为<code># Example:# LoadModule foo_module modules/mod_foo.so</code>后面补充：</p><pre><code class="lang-conf">LoadModule cgi_module modules/mod_cgi.soLoadModule cgid_module modules/mod_cgid.so</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/apache_brat_2.png" alt=""></p><h4 id="2-4-3-重启Apache"><a href="#2-4-3-重启Apache" class="headerlink" title="2.4.3 重启Apache"></a>2.4.3 重启Apache</h4><pre><code class="lang-bash">systemctl restart httpd.service</code></pre><h3 id="2-5-查看配置结果"><a href="#2-5-查看配置结果" class="headerlink" title="2.5 查看配置结果"></a>2.5 查看配置结果</h3><p>在浏览器输入相应网址如图（以我个人网址为例）：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/apache_test.png" alt=""></p><p>便说明Apache服务配置成功了。</p><p>在浏览器输入<code>http://lightsmile.cn:8088/brat</code>（以我个人网址为例）得到如下结果，便说明brat已经配置成功：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/apache_brat_3.png" alt=""></p><h2 id="3-brat使用"><a href="#3-brat使用" class="headerlink" title="3.brat使用"></a>3.brat使用</h2><h3 id="3-1-一些相关文章"><a href="#3-1-一些相关文章" class="headerlink" title="3.1 一些相关文章"></a>3.1 一些相关文章</h3><ul><li><a href="https://wetest.qq.com/lab/view/31.html" target="_blank" rel="noopener">你爱我吗？企鹅风讯利用BRAT进行中文情感分析语料标注掌握玩家心 - 腾讯WeTest</a></li><li><a href="https://www.cnblogs.com/xiaoqi/p/brat-config.html" target="_blank" rel="noopener">NLP标注工具brat 配置文件说明 - JadePeng - 博客园</a></li><li><a href="https://blog.csdn.net/anyedianxia/article/details/96832229" target="_blank" rel="noopener">Zhong__CentOS7安装配置Brat(初级)_Zhong的博客-CSDN博客</a></li><li><a href="https://www.codenong.com/cs106623370/" target="_blank" rel="noopener">BRAT的安装、配置、标注操作 | 码农家园</a></li></ul><h3 id="3-2-配置brat中文环境"><a href="#3-2-配置brat中文环境" class="headerlink" title="3.2 配置brat中文环境"></a>3.2 配置brat中文环境</h3><p>如前所述，brat目录为<code>/var/www/html/brat</code>，我们需要更改<code>/var/www/html/brat/server/src/projectconfig.py</code>中的第162行，具体为：</p><pre><code class="lang-python">n  = re.sub(r&#39;[^a-zA-Z\u4e00-\u9fa5&lt;&gt;,0-9_-]&#39;, &#39;_&#39;, n)</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/brat_project_config.png" alt=""></p><h3 id="3-3-待标记语料配置"><a href="#3-3-待标记语料配置" class="headerlink" title="3.3 待标记语料配置"></a>3.3 待标记语料配置</h3><h4 id="3-3-1-放置带标记语料"><a href="#3-3-1-放置带标记语料" class="headerlink" title="3.3.1 放置带标记语料"></a>3.3.1 放置带标记语料</h4><p>将待标注的语料（txt）格式放入到brat的<code>data</code>目录中。</p><p>如：</p><pre><code class="lang-bash">(base) ➜  brat cd data(base) ➜  data lsexamples  tests  tutorials(base) ➜  data ls testsannotation.conf  fuck.ann  fuck.txt  tools.conf</code></pre><p>其中的<code>fuck.txt</code>就是待标记的纯文本语料，内容为：</p><pre><code class="lang-txt">曾经沧海难为水，除却巫山不是云。何当共剪西窗烛，却话巴山夜雨时。毛泽东出生于湖南。</code></pre><h4 id="3-3-2-创建ann文件"><a href="#3-3-2-创建ann文件" class="headerlink" title="3.3.2 创建ann文件"></a>3.3.2 创建ann文件</h4><p>对于所有的待标记语料，brat要求必须有同名的ann文件（brat会将标注结果存放在该文件中，而brat不会自动创建，需要用户手动创建）。</p><p>我们可以在brat目录下执行如下命令来批量创建ann文件。</p><pre><code class="lang-shell">find data -name &#39;*.txt&#39; | sed -e &#39;s|\.txt|.ann|g&#39; | xargs touch</code></pre><h4 id="3-3-3-配置标注信息"><a href="#3-3-3-配置标注信息" class="headerlink" title="3.3.3 配置标注信息"></a>3.3.3 配置标注信息</h4><p>我们可以在txt和ann同级目录中增加conf文件来对标注项目进行配置，具体详情参考上面提到的brat配置文件说明。</p><p>比如说上面的和<code>fuck.txt</code>同级的<code>annotation.conf</code>文件中的内容为：</p><pre><code class="lang-conf">[spans]PlacePerson[relations]Place-in Arg1:Person, Arg2:Place[events][attributes]</code></pre><p>同时也可以在<code>tools.conf</code>文件中设置记录标注过程日志，如：</p><pre><code class="lang-conf">[options]Annotation-log logfile:./log_history.log</code></pre><h3 id="3-4-对语料进行标注"><a href="#3-4-对语料进行标注" class="headerlink" title="3.4 对语料进行标注"></a>3.4 对语料进行标注</h3><p>具体标注过程略，标注界面如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/brat_chrome.png" alt=""></p><h3 id="3-5-查看并导出标注结果"><a href="#3-5-查看并导出标注结果" class="headerlink" title="3.5 查看并导出标注结果"></a>3.5 查看并导出标注结果</h3><p>我们可以点击data菜单项来查看标注结果，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/brat_result_1.png" alt=""></p><p>点击<code>ann</code>即可打开新的页面，查看当前ann格式的标注结果，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/brat_result_2.png" alt=""></p><p>此内容和与<code>fuck.txt</code>同目录的<code>fuck.ann</code>内容一致。</p><p>点击<code>Download tar.gz</code>按钮则可以将当前标注结果下载下来。</p><h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4.注意事项"></a>4.注意事项</h2><h3 id="4-1-无法加载标注文件"><a href="#4-1-无法加载标注文件" class="headerlink" title="4.1 无法加载标注文件"></a>4.1 无法加载标注文件</h3><p>可能是由于文件权限原因，当放置新的标注文件到data目录中时，仍然需要改变文件的访问权限。具体来说，我们可以通过如下命令来执行：</p><pre><code class="lang-bash">chmod 777 -R /var/www/html/brat</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://www.jianshu.com/p/5b8903709e66" target="_blank" rel="noopener">CentOS 7下Apache的安装 - 简书</a></li><li><a href="https://blog.csdn.net/weixin_42912498/article/details/106626219" target="_blank" rel="noopener">CentOS下nginx与apache如何共存_weixin_42912498的博客-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/c36dd3946e74" target="_blank" rel="noopener">Apache配置文件httpd.conf详解 - 简书</a></li><li><a href="https://cloud.tencent.com/developer/article/1499644" target="_blank" rel="noopener">文本标注工具brat简介 - 云+社区 - 腾讯云</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-更新&quot;&gt;&lt;a href=&quot;#1-更新&quot; class=&quot;headerlink&quot; title=&quot;-1.更新&quot;&gt;&lt;/a&gt;-1.更新&lt;/h2&gt;&lt;p&gt;发现现在brat直接Python3就可以使用，只是brat官网上和Github上最新release版本还停留在2012年，然而brat近几年有所更新，所以我们可以直接clone Github上的brat的最新源码进行使用hhh。&lt;/p&gt;
-&lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;h3 id=&quot;0-1-背景&quot;&gt;&lt;a href=&quot;#0-1-背景&quot; class=&quot;headerlink&quot; title=&quot;0.1 背景&quot;&gt;&lt;/a&gt;0.1 背景&lt;/h3&gt;&lt;p&gt;近日简单调研一下NLP标注工具brat的使用，其&lt;a href=&quot;http://brat.nlplab.org/examples.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官网示例&lt;/a&gt;中可以标注的任务包括命名实体识别、事件抽取、指代消解、依存句法、成分句法等等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="NLP" scheme="https://www.iamlightsmile.com/categories/NLP/"/>
-    
-    
-      <category term="NLP" scheme="https://www.iamlightsmile.com/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>damedane视频制作教程</title>
-    <link href="https://www.iamlightsmile.com/articles/damedane%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/damedane%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B/</id>
-    <published>2020-08-30T02:43:21.000Z</published>
-    <updated>2020-09-06T07:57:52.108Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>近日在B站上接触到了一些换脸演唱的视频，觉得还有点意思，发现不少视频都是没几个粉的用户上传的，这让我意识到或许制作这个的门槛并不高，后来偶然间看到了相关教程，于是乎自己也尝试着搞了搞。</p><a id="more"></a><h2 id="1-参考视频"><a href="#1-参考视频" class="headerlink" title="1.参考视频"></a>1.参考视频</h2><ol><li><a href="https://www.bilibili.com/video/BV1HV411U7zm" target="_blank" rel="noopener">最详细简洁的方法教你如何轻松做damedane梗！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li><li><a href="https://www.bilibili.com/video/BV1ni4y1g7xs?p=2&amp;t=14" target="_blank" rel="noopener">教你轻松做出damedane梗图，会不会翻墙都可以！_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></li></ol><h2 id="2-使用方案"><a href="#2-使用方案" class="headerlink" title="2.使用方案"></a>2.使用方案</h2><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/demedane视频制作方案.png" alt=""></p><p>对于程序猿来说，自然是选择方法一了。</p><h2 id="3-使用教程"><a href="#3-使用教程" class="headerlink" title="3.使用教程"></a>3.使用教程</h2><h3 id="3-1-拷贝脚本到colab中"><a href="#3-1-拷贝脚本到colab中" class="headerlink" title="3.1 拷贝脚本到colab中"></a>3.1 拷贝脚本到colab中</h3><p>脚本链接为：<a href="https://colab.research.google.com/github/AliaksandrSiarohin/first-order-model/blob/master/demo.ipynb" target="_blank" rel="noopener">first-order-model-demo.ipynb - Colaboratory</a>。</p><p>该脚本中包含代码运行逻辑所有流程。</p><p>我们可以选择直接编辑拷贝的ipynb文件，或者自己再新建一个ipynb文件，这里我选择的是新创建文件<code>train_image.ipynb</code>。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/new_ipynb.png" alt=""></p><h3 id="3-2-上传资源文件"><a href="#3-2-上传资源文件" class="headerlink" title="3.2 上传资源文件"></a>3.2 上传资源文件</h3><p>将想要制作的源图片和源视频上传到Google Drive中，这里需要注意的是上传的最好是256*256的png格式的图片（如果不是的话，可以先使用图片编辑工具将图片转换成相应的格式）</p><p>如图我这里将图片放到了Images目录：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/drive_my_images.png" alt=""></p><p>将视频放到了Videos目录：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/drive_my_videos.png" alt=""></p><h3 id="3-3-拷贝模型文件"><a href="#3-3-拷贝模型文件" class="headerlink" title="3.3 拷贝模型文件"></a>3.3 拷贝模型文件</h3><p>我们还需要将<a href="https://drive.google.com/drive/folders/1kZ1gCnpfU0BnpdU47pLM_TQ6RypDDqgw?usp=sharing" target="_blank" rel="noopener">模型文件</a>拷贝到Google Drive中。只需要拷贝两个<code>tar</code>文件就好，如图，放到相应的目录（自己随意，后续代码中对应上即可）：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830114204.png" alt=""></p><h3 id="3-4-启动环境并执行脚本"><a href="#3-4-启动环境并执行脚本" class="headerlink" title="3.4 启动环境并执行脚本"></a>3.4 启动环境并执行脚本</h3><p>打开之前创建的<code>train_image.ipynb</code>文件，然后系统便会分配RAM和磁盘供程序运行，由于Colab默认不会为环境配置GPU或者TPU，所以我们这里需要手动设置一下。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830111953.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830112037.png" alt=""></p><h4 id="step1：-克隆仓库到colab"><a href="#step1：-克隆仓库到colab" class="headerlink" title="step1： 克隆仓库到colab"></a>step1： 克隆仓库到colab</h4><p>依次输入并执行以下指令</p><pre><code class="lang-bash">!git clone https://github.com/AliaksandrSiarohin/first-order-model</code></pre><pre><code class="lang-bash">cd first-order-model</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115609.png" alt=""></p><h4 id="step2-查看GPU信息"><a href="#step2-查看GPU信息" class="headerlink" title="step2: 查看GPU信息"></a>step2: 查看GPU信息</h4><pre><code class="lang-bash">!nvidia-smi</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830112835.png" alt=""></p><h4 id="step3-挂载Google-drive到Colab"><a href="#step3-挂载Google-drive到Colab" class="headerlink" title="step3: 挂载Google drive到Colab"></a>step3: 挂载Google drive到Colab</h4><pre><code class="lang-python">from google.colab import drivedrive.mount(&#39;/content/gdrive&#39;)</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115734.png" alt=""></p><p>其中会涉及到使用Google账户授权，只要点击确认并复制相应的验证码到指定位置处运行即可。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115305.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115646.png" alt=""></p><h4 id="step4-加载驱动视频和源图像"><a href="#step4-加载驱动视频和源图像" class="headerlink" title="step4: 加载驱动视频和源图像"></a>step4: 加载驱动视频和源图像</h4><pre><code class="lang-python">import imageioimport numpy as npimport matplotlib.pyplot as pltimport matplotlib.animation as animationfrom skimage.transform import resizefrom IPython.display import HTMLimport warningswarnings.filterwarnings(&quot;ignore&quot;)source_image = imageio.imread(&#39;/content/gdrive/My Drive/Images/xiao_ke.png&#39;)driving_video = imageio.mimread(&#39;/content/gdrive/My Drive/Videos/bakamitai_template.mp4&#39;)#Resize image and video to 256x256source_image = resize(source_image, (256, 256))[..., :3]driving_video = [resize(frame, (256, 256))[..., :3] for frame in driving_video]def display(source, driving, generated=None):    fig = plt.figure(figsize=(8 + 4 * (generated is not None), 6))    ims = []    for i in range(len(driving)):        cols = [source]        cols.append(driving[i])        if generated is not None:            cols.append(generated[i])        im = plt.imshow(np.concatenate(cols, axis=1), animated=True)        plt.axis(&#39;off&#39;)        ims.append([im])    ani = animation.ArtistAnimation(fig, ims, interval=50, repeat_delay=1000)    plt.close()    return ani# HTML(display(source_image, driving_video).to_html5_video())</code></pre><p>上面的<code>source_image</code>和<code>driving_video</code>的路径根据自己的情况进行设置。</p><p>另外我们可以看到上面脚本是有一个将图像和视频都变为256*256的操作，这里我们为了更好的效果可以提前将图片剪辑为相应的格式。</p><p>之后的<code>display</code>方法是定义了通过matplotlib库将图片和视频展示的方法，这里的效果大致如：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830113436.png" alt=""></p><h4 id="step5-创建并加载模型"><a href="#step5-创建并加载模型" class="headerlink" title="step5: 创建并加载模型"></a>step5: 创建并加载模型</h4><pre><code class="lang-python">from demo import load_checkpointsgenerator, kp_detector = load_checkpoints(config_path=&#39;config/vox-256.yaml&#39;,                             checkpoint_path=&#39;/content/gdrive/My Drive/first-order-motion-model/vox-cpk.pth.tar&#39;)</code></pre><p>最开始切换路径的目的就在于能够直接引用到<code>demo</code>的<code>load_checkpoints</code>函数并且对应到配置文件<code>config/vox-256.yaml</code>。</p><h4 id="step6-执行动画生成"><a href="#step6-执行动画生成" class="headerlink" title="step6: 执行动画生成"></a>step6: 执行动画生成</h4><p>到这里终于到了我们最想看到的环节。</p><pre><code class="lang-python">from demo import make_animationfrom skimage import img_as_ubytepredictions = make_animation(source_image, driving_video, generator, kp_detector, relative=True)#save resulting videoimageio.mimsave(&#39;../generated.mp4&#39;, [img_as_ubyte(frame) for frame in predictions])#video can be downloaded from /content folderHTML(display(source_image, driving_video, predictions).to_html5_video())</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830115112.png" alt=""></p><p>根据相对路径关系<code>../generated.mp4</code>我们也可以发现生成的视频文件就在当前环境下,即：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830120220.png" alt=""></p><p>将生成的mp4下载到本地即可。</p><h2 id="4-视频后期处理"><a href="#4-视频后期处理" class="headerlink" title="4.视频后期处理"></a>4.视频后期处理</h2><p>我们下载得到的<code>generated.mp4</code>并不能直接使用，时长不仅增加了3倍，并且也没有了声音。所以只能通过后期视频编辑再将视频调整为正常倍速并添加源视频音轨，实现正常的转换效果。</p><p>关于从mp4中提取音频，我这里用了arctime软件，该软件主要是配字幕的，自己之前使用过（本来以为有视频添加音频的功能，结果没有，这里只提了声音）由于自己的电脑比较渣，所以这里使用了B站提供的云剪辑功能，对视频进行了加工处理。</p><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/20200830121208.png" alt=""></p><p>最终效果：<a href="https://www.bilibili.com/video/BV17t4y1S7CQ" target="_blank" rel="noopener">女装maybe激情献唱_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;近日在B站上接触到了一些换脸演唱的视频，觉得还有点意思，发现不少视频都是没几个粉的用户上传的，这让我意识到或许制作这个的门槛并不高，后来偶然间看到了相关教程，于是乎自己也尝试着搞了搞。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="damedane" scheme="https://www.iamlightsmile.com/tags/damedane/"/>
     
   </entry>
   

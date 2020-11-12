@@ -4,6 +4,108 @@
   
     
     <entry>
+      <title>vim更新及安装插件教程</title>
+      <link href="/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/"/>
+      <url>/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<p>这里简单记录一下自己安装vim以及安装插件的过程。</p><blockquote><p><strong>注意</strong>：以下安装过程适用于Linux以及Macos系统。</p></blockquote><a id="more"></a><h2 id="1-安装vim-plug"><a href="#1-安装vim-plug" class="headerlink" title="1.安装vim-plug"></a>1.安装vim-plug</h2><pre><code class="lang-bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></pre><h2 id="2-配置vim配置文件"><a href="#2-配置vim配置文件" class="headerlink" title="2.配置vim配置文件"></a>2.配置vim配置文件</h2><p>编辑<code>~/.vimrc</code>文件，如我的<code>~/.vimrc</code>文件下内容目前如下：</p><pre><code class="lang-bash">set encoding=UTF-8set numberset autoindentcall plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;ryanoasis/vim-devicons&#39;Plug &#39;scrooloose/nerdtree&#39;Plug &#39;frazrepo/vim-rainbow&#39;Plug &#39;itchyny/lightline.vim&#39;Plug &#39;junegunn/fzf&#39;Plug &#39;airblade/vim-gitgutter&#39;call plug#end()map &lt;F3&gt; :NERDTreeMirror&lt;CR&gt;map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</code></pre><h2 id="3-安装vim插件"><a href="#3-安装vim插件" class="headerlink" title="3.安装vim插件"></a>3.安装vim插件</h2><pre><code class="lang-bash"># 进入vim中vim</code></pre><p>以下命令均是在vim下执行</p><pre><code class="lang-bash"># 查看vim相关信息:version# 更新vimrc文件（可选）:source ~/.vimrc# 查看插件状态:PlugStatus# 安装插件:PlugInstall</code></pre><h2 id="4-配置终端字体"><a href="#4-配置终端字体" class="headerlink" title="4.配置终端字体"></a>4.配置终端字体</h2><p>使用<code>nerdtree</code>插件以及<code>vim-devicons</code>插件便可以实现vim下目录或文件的图标效果，但前提是启用了支持终端图标效果的字体，这里我们需要去<a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener">ryanoasis/nerd-fonts</a>下载。</p><p>关于字体安装，如果是windows系统或者macos系统可以直接双击文件进行安装，如果是Linux的话，可以参考<a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a>进行配置安装。</p><p>然后设置终端字体为支持Nerd的字体，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim1.png" alt="pic1"></p><p>然后打开vim可以看到如下效果：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim2.png" alt="pic2"></p><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">junegunn/vim-plug: Minimalist Vim Plugin Manager</a></li><li><a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a></li><li><a href="https://www.jianshu.com/p/0c83e6aed270" target="_blank" rel="noopener">Vim-plug：极简 Vim 插件管理器 - 简书</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>centos更新vim</title>
+      <link href="/articles/centos%E6%9B%B4%E6%96%B0vim/"/>
+      <url>/articles/centos%E6%9B%B4%E6%96%B0vim/</url>
+      
+        <content type="html"><![CDATA[<p>centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）</p><a id="more"></a><blockquote><p><strong>注意</strong>：以下命令我都是在root账户下执行的，如果是在普通用户下执行可以选择su切换到root或者前面增加sudo命令。</p></blockquote><h2 id="1-安装依赖库"><a href="#1-安装依赖库" class="headerlink" title="1.安装依赖库"></a>1.安装依赖库</h2><p>源码编译需要安装make、git等工具，但是一般而言服务器上都有，同时教程提到了安装python36，然而现在最新的python都已经到了3.9了，我通过conda安装的python版本环境是3.8，所以并没有严格安装教程来执行相关命令。</p><pre><code class="lang-bash">yum install ncurses-devel</code></pre><h2 id="2-克隆Github的vim项目"><a href="#2-克隆Github的vim项目" class="headerlink" title="2.克隆Github的vim项目"></a>2.克隆Github的vim项目</h2><p>首先切换到一个惯常放置Github项目的目录，如我的在<code>/root/Projects/GithubProjects</code>，然后再执行以下命令，当然位置在哪不大要紧。</p><pre><code class="lang-bash">git clone https://github.com/vim/vim.git</code></pre><h2 id="3-配置并编译vim"><a href="#3-配置并编译vim" class="headerlink" title="3.配置并编译vim"></a>3.配置并编译vim</h2><pre><code class="lang-bash">// 进入项目cd vim// 配置参数./configure --prefix=/usr/local/vim  --enable-pythoninterp=yes --enable-python3interp=yes --with-python-command=python --with-python3-command=python// 编译文件，可能需要使用sudo权限makemake install</code></pre><h2 id="4-复制Vim到系统配置，并修改Profile"><a href="#4-复制Vim到系统配置，并修改Profile" class="headerlink" title="4.复制Vim到系统配置，并修改Profile"></a>4.复制Vim到系统配置，并修改Profile</h2><pre><code class="lang-bash">// 复制前可以备份一下cp /usr/bin/vim /usr/bin/vim.backup// 复制前面编译的vim到系统配置cd /root/Projects/GithubProjects/vim/srccp vim /usr/bin// 修改系统的Profileecho &quot;PATH=\$PATH:/usr/local/vim/bin&quot; &gt;&gt; /etc/profile// 运行刚修改的配置。source /etc/profile// 最后，check versionvim --version// 同时，也能看到它支持Python3了。(7.4是不支持的。)</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li>[CentOS, Vim7.4升级到8.1 (服务器) — 亲试可行 - 简书](</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开放式信息抽取探索（1）</title>
+      <link href="/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/"/>
+      <url>/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。</p><p>这里简单记录下自己的探索历程和内心感受。</p><a id="more"></a><h2 id="任务划分"><a href="#任务划分" class="headerlink" title="任务划分"></a>任务划分</h2><p>信息抽取主要包含实体抽取、关系抽取和事件抽取，这里主要关注事件抽取。</p><h2 id="可以用监督学习模型吗"><a href="#可以用监督学习模型吗" class="headerlink" title="可以用监督学习模型吗"></a>可以用监督学习模型吗</h2><p>因为是开放式信息抽取，没有标记语料和训练带标签数据的过程，甚至说事件的种类都不是固定已知的，所以不能用监督学习模型。</p><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>打算借助基础nlp工具LTP，调研依存句法、语义角色标注、语义依存分析等功能。</p><h2 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h2><p>经过简单对比，觉得语义角色标注有遗漏的情况，而依存句法和语义依存效果相对较好，同时语义依存结果相对复杂，同时还存在一定的Bug。所以选择使用依存句法去入手。</p><h2 id="调研相关文章和开源项目"><a href="#调研相关文章和开源项目" class="headerlink" title="调研相关文章和开源项目"></a>调研相关文章和开源项目</h2><p>在调研网上其他的基于句法的开放式信息抽取的文章和项目时，发现了<a href="https://github.com/lemonhu/open-entity-relation-extraction" target="_blank" rel="noopener">lemonhu/open-entity-relation-extraction: Knowledge triples extraction and knowledge base construction based on dependency syntax for open domain text.</a>。觉得该项目和我要做的相近，于是调研了其代码实现，发现里面的规则是硬编码的，写的比较死，拓展性比较差，于是便思索是否有别的更好的方案。</p><h2 id="新的想法"><a href="#新的想法" class="headerlink" title="新的想法"></a>新的想法</h2><p>苦思冥想着觉得这些规则不应该硬编码，而是别的可拓展或易于修改的方式。后来突然想到树也算图的一种特殊结构，所以树的遍历、树的路径匹配也可以看做图的遍历、图的子图的路径匹配，而最近刚搞了Neo4j，Neo4j自然可以视作一个高效的图计算引擎，因此将句法分析和Neo4j结合在一起搞的想法便初步形成了。相应的，实体可以看做图的节点，实体在事件中所扮演的角色可以看做是到中心词（动词）的边，依存树中的定语（和实体构成定中修饰关系）可以视作实体节点的属性，而状语作为对中心词（动词）的修饰可以视作事件中心词的属性。所以由依存树到知识图谱便对应起来了。于是乎我们可以去构建Cypher查询语句来实现实体和事件的抽取。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/openoie-neo4j.png" alt="pic1"></p><h2 id="深入Neo4j"><a href="#深入Neo4j" class="headerlink" title="深入Neo4j"></a>深入Neo4j</h2><p>由于涉及到一些图遍历相关的东西，所以自己便想着通过使用Neo4j的apoc拓展库来实现，之前使用了<code>apoc.path.expand</code>，不过后来发现自己用错了，更应该用的是<code>apoc.path.subgraphNodes</code>，然后写了几个语法发现在一些Case上的提取结果还算不错。</p><h2 id="就难受住"><a href="#就难受住" class="headerlink" title="就难受住"></a>就难受住</h2><p>不过当Case变得复杂的时候，发现依存句法解析的有些问题，自然也就导致部分提取不到，于是自己内心就变得沮丧了起来。这是自己想解决的问题呀，可是好难，自己也不知如何去实现，就难受住。</p><h2 id="柳暗花明"><a href="#柳暗花明" class="headerlink" title="柳暗花明"></a>柳暗花明</h2><p>后来想着要不试试别的工具的效果，包括语义角色标注和语义依存分析，结果竟然发现语义角色标注的解析结果还真的挺好的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 知识图谱 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信息抽取 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>求职随记</title>
+      <link href="/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/"/>
+      <url>/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。</p><a id="more"></a><p>不过今晚最终想了想还是先拒绝掉了，虽然这种做法可能确实有点败人缘、坏人品，但是另一方面，我们小组目前处于比较缺人的状态，并且现在我还主要负责一个电网相关的知识库项目，离开了只会让同事更难做。一方面自己想换个环境继续学习新的知识和技能，另一方面则是一份责任，是自己应该做且做好的事情。只能等把项目推进到年末之后再考虑更换工作吧，现在换工作确实对公司而言有些不厚道了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 求职 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>国内博客网站说明</title>
       <link href="/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
       <url>/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/</url>
@@ -234,6 +336,33 @@
     
     
     <entry>
+      <title>flask+vue实现文件上传下载</title>
+      <link href="/articles/flask-vue%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/"/>
+      <url>/articles/flask-vue%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>自己尝试着用Vue+Flask实现了下文件上传下载的功能，初步试验成功可行~</p><a id="more"></a><h2 id="1-后端代码"><a href="#1-后端代码" class="headerlink" title="1.后端代码"></a>1.后端代码</h2><pre><code class="lang-python">import osfrom flask import Flask, render_template, request, jsonify, send_from_directoryfrom werkzeug.utils import secure_filenamefrom flask_cors import CORSapp = Flask(__name__)CORS(app, supports_credentials=True)app.config[&#39;UPLOAD_FOLDER&#39;] = &#39;upload&#39;for file in os.listdir(app.config[&#39;UPLOAD_FOLDER&#39;]):    print(file)@app.route(&#39;/file_list&#39;, methods = [&#39;GET&#39;, &#39;POST&#39;])def file_list():    return jsonify({        &#39;file_list&#39;: [{&#39;name&#39;: name} for name in os.listdir(app.config[&#39;UPLOAD_FOLDER&#39;])]    })@app.route(&#39;/download/&lt;string:file_name&gt;&#39;, methods = [&#39;POST&#39;])def download(file_name: str):    print(file_name)    print(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;], file_name))    return send_from_directory(app.config[&#39;UPLOAD_FOLDER&#39;], file_name, as_attachment=True)@app.route(&#39;/upload&#39;, methods = [&#39;GET&#39;, &#39;POST&#39;])def uploader():   if request.method == &#39;POST&#39;:        print(request.files)        f = request.files[&#39;file&#39;]        print(f.filename)        print(secure_filename(f.filename))        # f.save(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;],secure_filename(f.filename)))        f.save(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;],f.filename))        return &#39;file uploaded successfully&#39;if __name__ == &#39;__main__&#39;:   app.run()</code></pre><h2 id="2-前端代码"><a href="#2-前端代码" class="headerlink" title="2.前端代码"></a>2.前端代码</h2><pre><code class="lang-vue">&lt;template&gt;  &lt;div&gt;    &lt;h3&gt;文件上传&lt;/h3&gt;    &lt;el-upload class=&quot;upload-demo&quot; drag action=&quot;http://localhost:5000/upload&quot; multiple&gt;      &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;      &lt;div class=&quot;el-upload__text&quot;&gt;        将文件拖到此处，或        &lt;em&gt;点击上传&lt;/em&gt;      &lt;/div&gt;      &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;只能上传jpg/png文件，且不超过500kb&lt;/div&gt;    &lt;/el-upload&gt;    &lt;el-divider&gt;&lt;/el-divider&gt;    &lt;h3&gt;文件下载&lt;/h3&gt;    &lt;p&gt;{{file_list}}&lt;/p&gt;    &lt;el-table      :data=&quot;file_list.filter(data =&gt; !search || data.name.toLowerCase().includes(search.toLowerCase()))&quot;      style=&quot;width: 100%&quot;    &gt;      &lt;el-table-column label=&quot;Name&quot; prop=&quot;name&quot;&gt;&lt;/el-table-column&gt;      &lt;el-table-column align=&quot;right&quot;&gt;        &lt;template slot=&quot;header&quot; slot-scope=&quot;{}&quot;&gt;          &lt;el-input v-model=&quot;search&quot; size=&quot;mini&quot; placeholder=&quot;输入关键字搜索&quot; /&gt;        &lt;/template&gt;        &lt;template slot-scope=&quot;scope&quot;&gt;          &lt;el-button size=&quot;mini&quot; @click=&quot;handleDownload(scope.$index, scope.row)&quot;&gt;下载&lt;/el-button&gt;          &lt;el-button size=&quot;mini&quot; type=&quot;danger&quot; @click=&quot;handleDelete(scope.$index, scope.row)&quot;&gt;删除&lt;/el-button&gt;        &lt;/template&gt;      &lt;/el-table-column&gt;    &lt;/el-table&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;import axios from &quot;axios&quot;;import fileDownload from &#39;js-file-download&#39;;export default {  data() {    return {      tableData: [        {          date: &quot;2016-05-02&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1518 弄&quot;,        },        {          date: &quot;2016-05-04&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1517 弄&quot;,        },        {          date: &quot;2016-05-01&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1519 弄&quot;,        },        {          date: &quot;2016-05-03&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1516 弄&quot;,        },      ],      search: &quot;&quot;,      file_list: &quot;&quot;,    };  },  methods: {    handleDownload(index, row) {      console.log(index, row);      const url = &quot;http://localhost:5000/download&quot;      var path = url + &#39;/&#39; + row[&#39;name&#39;]    axios.post(path, {}, {responseType: &#39;arraybuffer&#39;}).then((res) =&gt; {          fileDownload(res.data, row[&#39;name&#39;]);      })    },    handleDelete(index, row) {      console.log(index, row);    },    get_file_list(){        const url = &quot;http://localhost:5000/file_list&quot;;        axios.get(url).then((res) =&gt; {            console.log(res)            this.file_list = res.data[&quot;file_list&quot;];        }).catch((err) =&gt; {          console.error(err);        });    }  },  created() {      this.get_file_list();  }};&lt;/script&gt;&lt;style&gt;&lt;/style&gt;</code></pre><p>其中使用了axios、element-ui和js-file-download库。</p><h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5.效果"></a>5.效果</h2><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/flask_vue_frontend.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/flask_vue_backend.png" alt=""></p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/qq_25730711/article/details/53643758" target="_blank" rel="noopener">flask-文件上传/下载_More and Better-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/cb02c30f6f84" target="_blank" rel="noopener">Flask 文件上传 - 简书</a></li><li><a href="https://www.jianshu.com/p/53deecb09077" target="_blank" rel="noopener">Axios 各种请求方式传递参数格式 - 简书</a></li><li><a href="https://segmentfault.com/a/1190000020540788" target="_blank" rel="noopener">前端js/vue下载后台传过来的流文件（如excel）并设置下载文件名 - 漫漫前端路 - SegmentFault 思否</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flask </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>配置VSCode-Remote-Container</title>
       <link href="/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/"/>
       <url>/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/</url>
@@ -290,7 +419,7 @@
       <link href="/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
       <url>/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       
-        <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019(base) ➜  data uname -aLinux VM-32-15-centos 3.10.0-1127.19.1.el7.x86_64 #1 SMP Tue Aug 25 17:23:54 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</code></pre><h2 id="2-文件查看命令"><a href="#2-文件查看命令" class="headerlink" title="2.文件查看命令"></a>2.文件查看命令</h2><h3 id="2-1-查看目录结构"><a href="#2-1-查看目录结构" class="headerlink" title="2.1 查看目录结构"></a>2.1 查看目录结构</h3><pre><code class="lang-bash">➜  ~ tree -d -L 2 # tree命令可以查看目录文件结构信息，其中-d指示只显示目录，-L 2指示只显示下面两层.├── Data│   ├── Application│   ├── DockerImages│   ├── NLP│   └── Pylibs├── Downloads│   ├── neo4j-community-4.1.3│   ├── pylibs│   └── zip├── Projects│   ├── GithubProjects│   ├── kdProjects│   └── myProjects├── Resources├── Software│   ├── Docker│   ├── elasticsearch-7.7.1│   ├── miniconda3│   ├── neo4j-community-4.1.3│   └── Nodejs└── tmp</code></pre>]]></content>
+        <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019</code></pre>]]></content>
       
       
       <categories>
