@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>缓存机制与产品经理</title>
+      <link href="/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+      <url>/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<p>今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。</p><p>同事用到的Python的缓存库为<a href="https://github.com/pallets/cachelib" target="_blank" rel="noopener">pallets/cachelib</a>，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。</p><a id="more"></a><p>于是乎只能瞜一眼同事大概是咋用的，然后再读一下这个库的源码，发现还挺简洁的。</p><p>在大致读完代码之后，心里不禁感慨，这个缓存机制真的不错。犹记得，上大学时的计算机系统结构的老师问道：在计算机的发展历史中，引入的哪个功能或组件解决了痛点而又没有引入其他副作用？老师说唯一的答案就是缓存机制。但是当时还不能理解其真正含义。</p><p>打算再看看关于缓存机制介绍的更多的文章，google一下，发现都是讲浏览器缓存的，而我想看些关于机制介绍的更广的东西。</p><p>后来发现了这两篇文章：<a href="http://www.woshipm.com/pmd/856507.html" target="_blank" rel="noopener">浅析互联网中的缓存机制 | 人人都是产品经理</a>以及<a href="https://wizardforcel.gitbooks.io/django-book-20-zh-cn/content/15.html" target="_blank" rel="noopener">第十五章： 缓存机制| Django Book 2.0 中文版</a>，两个也都讲的挺详细的。</p><p>令我没想到的是，有人作为一个产品经理能够将关于缓存机制的东西总结的这么好。于是我不禁反思，一个合格的产品经理应该懂些技术，而一个合格的程序员似乎也应该懂些产品相关的东西，而不应该仅仅着眼于技术实现的层面，更应该以产品经理为师，学习借鉴他们看待问题的视角和方法，提升自己看待问题的层面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 产品经理 </tag>
+            
+            <tag> 缓存机制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vim更新及安装插件教程</title>
       <link href="/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/"/>
       <url>/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/</url>

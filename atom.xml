@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-11-12T04:26:05.509Z</updated>
+  <updated>2020-11-12T07:54:10.939Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>缓存机制与产品经理</title>
+    <link href="https://www.iamlightsmile.com/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    <id>https://www.iamlightsmile.com/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</id>
+    <published>2020-11-12T07:19:44.000Z</published>
+    <updated>2020-11-12T07:54:10.939Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。</p><p>同事用到的Python的缓存库为<a href="https://github.com/pallets/cachelib" target="_blank" rel="noopener">pallets/cachelib</a>，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。</p><a id="more"></a><p>于是乎只能瞜一眼同事大概是咋用的，然后再读一下这个库的源码，发现还挺简洁的。</p><p>在大致读完代码之后，心里不禁感慨，这个缓存机制真的不错。犹记得，上大学时的计算机系统结构的老师问道：在计算机的发展历史中，引入的哪个功能或组件解决了痛点而又没有引入其他副作用？老师说唯一的答案就是缓存机制。但是当时还不能理解其真正含义。</p><p>打算再看看关于缓存机制介绍的更多的文章，google一下，发现都是讲浏览器缓存的，而我想看些关于机制介绍的更广的东西。</p><p>后来发现了这两篇文章：<a href="http://www.woshipm.com/pmd/856507.html" target="_blank" rel="noopener">浅析互联网中的缓存机制 | 人人都是产品经理</a>以及<a href="https://wizardforcel.gitbooks.io/django-book-20-zh-cn/content/15.html" target="_blank" rel="noopener">第十五章： 缓存机制| Django Book 2.0 中文版</a>，两个也都讲的挺详细的。</p><p>令我没想到的是，有人作为一个产品经理能够将关于缓存机制的东西总结的这么好。于是我不禁反思，一个合格的产品经理应该懂些技术，而一个合格的程序员似乎也应该懂些产品相关的东西，而不应该仅仅着眼于技术实现的层面，更应该以产品经理为师，学习借鉴他们看待问题的视角和方法，提升自己看待问题的层面。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。&lt;/p&gt;
+&lt;p&gt;同事用到的Python的缓存库为&lt;a href=&quot;https://github.com/pallets/cachelib&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pallets/cachelib&lt;/a&gt;，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="产品经理" scheme="https://www.iamlightsmile.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+      <category term="缓存机制" scheme="https://www.iamlightsmile.com/tags/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>vim更新及安装插件教程</title>
@@ -463,37 +489,6 @@
       <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
     
       <category term="Elasticsearch" scheme="https://www.iamlightsmile.com/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习代码常见流程</title>
-    <link href="https://www.iamlightsmile.com/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/</id>
-    <published>2020-09-08T01:18:47.000Z</published>
-    <updated>2020-09-15T14:35:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-概览"><a href="#0-概览" class="headerlink" title="0.概览"></a>0.概览</h2><p>目前自己在深度学习这方面有一定的积累，一些代码流程都有一定的套路和相应的标准，这里自己简单梳理一下。</p><p>我们这里假设输入为已标注数据，输出为训练的模型，不考虑标注前数据处理部分已经代码上线部署环节。</p><p>大致的流程包括：</p><ul><li><strong>数据预处理</strong></li><li><strong>编写神经网络模型</strong></li><li><strong>编写数据加载部分代码</strong></li><li><strong>编写模型训练预测代码</strong></li></ul><a id="more"></a><h2 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1.数据预处理"></a>1.数据预处理</h2><p>对标注数据进行处理，包括特征预处理、数据清洗等，将数据（可能是txt格式、Excel文件等）转化为程序可直接读取的常见的数据集类型（如csv）。如在csv文件中，每行是一个样本（sample），每列为该样本特征（feature）或标签（label）。</p><p>如<code>tes.csv</code>：</p><pre><code class="lang-csv">fuck,shit,label&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;</code></pre><h2 id="2-编写神经网络模型"><a href="#2-编写神经网络模型" class="headerlink" title="2.编写神经网络模型"></a>2.编写神经网络模型</h2><p>对于特定的任务，我们可以选择既有的框架，这样就不需要重写模型。然而当既有的框架模型不满足我们的需求时，我们就需要去自定义去编写神经网络模型。</p><p>以Pytorch为例，模型需要继承自<code>torch.nn.Module</code>类并实现<code>forward</code>方法。</p><h2 id="3-编写数据加载部分代码"><a href="#3-编写数据加载部分代码" class="headerlink" title="3.编写数据加载部分代码"></a>3.编写数据加载部分代码</h2><p>数据预处理的结果为数据集文件，我们需要对其进行读取、分割并转化为向量格式。</p><p>以Pytorch为例，我们需要编写一个继承自<code>torch.utils.data.Dataset</code>类的类并实现其<code>__getitem__</code>方法和<code>__len__</code>方法。该类作为数据集抽象的接口向外部提供数据。</p><p><code>Dataset</code>类的输出一般不作为模型的输入，中间还需要一个<code>torch.utis.data.DataLoader</code>。</p><p><code>DataLoader</code>接收<code>dataset</code>、<code>batch_size</code>、<code>collate_fn</code>、<code>drop_last</code>、<code>shuffle</code>、<code>sampler</code>等参数，各参数含义为dataset:待加载数据集（类型为<code>torch.utils.data.Dataset</code>）、batch_size:批处理数量大小、collate_fn:数据收集函数（用于将一系列sample转化为Tensor）、drop_last:是否丢弃最后不满一个batch_size的batch、shuffle:是否对数据再进行一次shuffle、sampler:数据采样器（类型为<code>torch.utils.data.Sampler</code>），其中各参数之间可能相互冲突不能一起用，具体使用请参见Pytorch官网教程。</p><p><code>Dataloader</code>的输出应该被作为可以直接传递给模型的Tensor类型，以mini-batch，具体在Python代码中为<code>for-in</code>的形式被调用。</p><h2 id="4-编写模型训练预测代码"><a href="#4-编写模型训练预测代码" class="headerlink" title="4.编写模型训练预测代码"></a>4.编写模型训练预测代码</h2><p>在生成<code>Module</code>和<code>DataLoader</code>之后，我们还需要指定损失函数（如<code>torch.nn.functional.cross_entropy</code>（交叉熵损失函数））和优化器（如<code>torch.optim.Adam</code>）。</p><p>更高级的，我们还可以去设置学习率调度器(如<code>torch.optim.lr_scheduler.StepLR</code>)，设置EarlyStopping和断点重训等功能。</p><p>在模型训练完之后我们还需要将其持久化到硬盘中，可以选择保存整个模型对象或者只包含其参数信息。</p><p>上面的训练部分由于比较通用，各框架也可能会将其抽象为<code>Trainer</code>对象。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-概览&quot;&gt;&lt;a href=&quot;#0-概览&quot; class=&quot;headerlink&quot; title=&quot;0.概览&quot;&gt;&lt;/a&gt;0.概览&lt;/h2&gt;&lt;p&gt;目前自己在深度学习这方面有一定的积累，一些代码流程都有一定的套路和相应的标准，这里自己简单梳理一下。&lt;/p&gt;
-&lt;p&gt;我们这里假设输入为已标注数据，输出为训练的模型，不考虑标注前数据处理部分已经代码上线部署环节。&lt;/p&gt;
-&lt;p&gt;大致的流程包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据预处理&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编写神经网络模型&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编写数据加载部分代码&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编写模型训练预测代码&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://www.iamlightsmile.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.iamlightsmile.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
