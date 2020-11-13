@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-11-13T01:52:52.811Z</updated>
+  <updated>2020-11-13T04:29:31.243Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>标准答案</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/</id>
+    <published>2020-11-13T03:23:31.000Z</published>
+    <updated>2020-11-13T04:29:31.243Z</updated>
+    
+    <content type="html"><![CDATA[<p>自始至终，一直都觉得现在许多教程都有些问题。看个教材或者文章，一般的思路总是先讲基础历史，然后引出基本概念，然后介绍相关内容，以及高级用法等。这样做很标准规范，但是正如上学时期的参考答案或者标准答案，正确但不够有趣。</p><a id="more"></a><p>我的初中数学老师讲课方式很独特：不让学生们提前预习教材。别的科目或者别的数学老师都要求学生们提前预习课程，等老师讲的时候就比较顺畅，哪里搞不清楚就问哪里，老师也轻松。</p><p>但是我的数学老师则非常反对这样的形式，她认为这种方式下学生们的认识就会先入为主，只能做到“只知其然，而不知其所以然”，即仿佛这种东西或概念原本就存在，这个事物应该就是这个样子也必然就是这个样子，而它的发明者只是海边捡贝壳的小男孩，碰巧发现而已。</p><p>我的数学老师就喜欢在课堂上一点一点把这个概念引出来，即没有它是什么样、我们可能去尝试哪些思路，中间如何探索，然后最终在循循善诱下老师要讲的新概念、新方法也就呼之欲出了。换句话说，老师会用一种通俗易懂的方式带领我们再走一遍前人探索的道路，这是一条打破常规、创造新事物的道路。</p><p>她极力认为应该让学生们学到如何学习、探索新知的能力和方法，要有不迷信权威、勇于探索另辟蹊径的理念，即授之于渔而非授之于鱼。比如说，她有时会在一节课堂上只讲一道题，但是她会讲多种方法，但更多的情况是她希望这些不同的方法都是同学们自己想出来的，即老师抛出问题，然后不同的同学举手回答，最开始的同学的解题思路可能是最基础常规的，然后老师便欢迎其他的人有不同的思路，直到没有更多不同的方法为止，在这个过程中我们不断地练习着从多个角度看待问题、解决问题。</p><p>举个例子：当时学概率的时候，老师问两枚硬币独立投掷的正反面情况，当时一个同学认为两正：两反：一正一反的比例为1:1:2，而我则想当然的认为就三种情况（脑子里也没有多少等概率啥的概念）是1:1:1，于是我们就在讲台上做起了实验，一直抛到比例挺接近1:1:2而我则不得不懵逼的服气为止。而这个过程，如果是预习了课本教材是不会有那种深刻的体会的。</p><p>我一直都非常感激我的这位数学老师，在初高中阶段也很喜欢数学，也非常享受用新的方法解出题目的成就感，甚至于会偏科到其他课上想数学题，没事了就总结些等式规律，一上数学课就兴奋激动跟打了鸡血似的，一上理综课就无聊难受地要死。由于那个时候并没有搞奥赛的班子或者氛围，自己也没有走上相关的道路。</p><p>这种老师我是真心觉得可遇不可求。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自始至终，一直都觉得现在许多教程都有些问题。看个教材或者文章，一般的思路总是先讲基础历史，然后引出基本概念，然后介绍相关内容，以及高级用法等。这样做很标准规范，但是正如上学时期的参考答案或者标准答案，正确但不够有趣。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>给docker-neo4j增加healthcheck</title>
@@ -467,31 +486,6 @@
       <category term="flask" scheme="https://www.iamlightsmile.com/tags/flask/"/>
     
       <category term="vue" scheme="https://www.iamlightsmile.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置VSCode-Remote-Container</title>
-    <link href="https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/"/>
-    <id>https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/</id>
-    <published>2020-09-15T14:37:28.000Z</published>
-    <updated>2020-10-10T08:10:56.180Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>我服了，vscode确实太香了。</p><a id="more"></a><h2 id="1-远程主机配置"><a href="#1-远程主机配置" class="headerlink" title="1.远程主机配置"></a>1.远程主机配置</h2><blockquote><p><strong>注意</strong>：以下基于CentOS7环境。</p></blockquote><h3 id="1-1-安装docker"><a href="#1-1-安装docker" class="headerlink" title="1.1 安装docker"></a>1.1 安装docker</h3><p>一键安装脚本：</p><pre><code class="lang-bash">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></pre><p>可参考：<a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS Docker 安装 | 菜鸟教程</a></p><h3 id="1-2-配置docker"><a href="#1-2-配置docker" class="headerlink" title="1.2 配置docker"></a>1.2 配置docker</h3><p>在远程主机上：</p><ol><li>创建文件<code>daemon.json</code>到目录<code>/etc/docker</code>:</li></ol><pre><code class="lang-josn">{&quot;hosts&quot;: [&quot;tcp://0.0.0.0:2375&quot;, &quot;unix:///var/run/docker.sock&quot;]}</code></pre><ol><li>创建文件<code>/etc/systemd/system/docker.service.d/override.conf</code>:</li></ol><pre><code class="lang-conf">[Service]ExecStart=ExecStart=/usr/bin/dockerd</code></pre><ol><li>重启docker：</li></ol><pre><code class="lang-bash">systemctl daemon-reloadsystemctl restart docker.service</code></pre><h2 id="2-本地桌面配置"><a href="#2-本地桌面配置" class="headerlink" title="2.本地桌面配置"></a>2.本地桌面配置</h2><blockquote><p><strong>注意</strong>：以下基于Windows10桌面专业版环境。</p></blockquote><h3 id="2-1-安装OpenSSL"><a href="#2-1-安装OpenSSL" class="headerlink" title="2.1 安装OpenSSL"></a>2.1 安装OpenSSL</h3><p>略，自带了。</p><h3 id="2-2-生成ssh秘钥对"><a href="#2-2-生成ssh秘钥对" class="headerlink" title="2.2 生成ssh秘钥对"></a>2.2 生成ssh秘钥对</h3><p>略，参见：<a href="http://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/">配置VSCode-Remote-SSH - lightsmile’s Blog</a></p><p>注意，如我的<code>~/.ssh/config</code>中部分内容为：</p><pre><code class="lang-config">Host tencent_cloud    HostName xx.xx.xx.xx    PreferredAuthentications publickey    User root    IdentitiesOnly yes    # Port 22    IdentityFile ~/.ssh/tencent_cloud_desktop</code></pre><p>使用ssh免密登录的时候命令应该为：</p><pre><code class="lang-bash">ssh tencent_cloud</code></pre><h3 id="2-3-安装docker"><a href="#2-3-安装docker" class="headerlink" title="2.3 安装docker"></a>2.3 安装docker</h3><p>下载<a href="https://github.com/StefanScherer/docker-cli-builder/releases/" target="_blank" rel="noopener">docker.exe</a> 并配置路径（其实配不配都可以，因为我把这个路径放到环境变量里进入shell还是没找到2333~。）</p><h3 id="2-4-配置docker服务"><a href="#2-4-配置docker服务" class="headerlink" title="2.4 配置docker服务"></a>2.4 配置docker服务</h3><p>创建一个context：</p><pre><code class="lang-bash">docker context create &lt;context name&gt; --docker &quot;host=ssh://&lt;user&gt;@&lt;host&gt;&quot;</code></pre><p>以我上面的ssh为例，上面的命令可以为：</p><pre><code class="lang-bash">docker context create tencent_cloud --docker &quot;host=ssh://tencent_cloud&quot;</code></pre><p>切换到上面的context：</p><pre><code class="lang-bash">docker context use &lt;context name&gt;</code></pre><p>以上面生成的context：tencent_cloud为例，上面的指令为：</p><pre><code class="lang-bash">docker context use tencent_cloud</code></pre><p>测试一下：</p><pre><code class="lang-bash">docker info</code></pre><p>这里会输出和在远程主机上运行 docker info 一样的结果， 实际上这里docker本地只是一个客户端，连接到远程主机上的docker服务。</p><h3 id="2-5-安装remote-container插件"><a href="#2-5-安装remote-container插件" class="headerlink" title="2.5 安装remote-container插件"></a>2.5 安装remote-container插件</h3><p>在拓展插件里搜索<code>remote container</code>并安装。</p><p>安装完成后，在vscode设置中搜索<code>remote docker path</code>，设置为之前下载的docker的路径（默认就是<code>docker</code>命令，我这里命令行里找不到，所以需要手动配置）</p><h2 id="3-开始项目"><a href="#3-开始项目" class="headerlink" title="3.开始项目"></a>3.开始项目</h2><h3 id="3-1-启动容器"><a href="#3-1-启动容器" class="headerlink" title="3.1 启动容器"></a>3.1 启动容器</h3><pre><code class="lang-bash">docker run -d --name &lt;container name&gt; -v ~/newproj:/workspaces/newproj &lt;image tag&gt; tail -f /dev/null</code></pre><blockquote><p><strong>注意：</strong> 这里要挂载项目目录到容器中方便保存文件。tail -f 这个命令是为了让容器保持运行。</p></blockquote><h3 id="3-2-vscode访问远程容器"><a href="#3-2-vscode访问远程容器" class="headerlink" title="3.2 vscode访问远程容器"></a>3.2 vscode访问远程容器</h3><ol><li>打开VSCode，按下<code>ctrl+shift+p</code>运行<code>docker contexts use</code>, 选择上面创建的docker context.</li><li>按下<code>ctrl+shift+p</code>运行<code>Remote-Containers:Attach to Running Container...</code>, 选择上面创建的容器名字。</li><li>在新打开的vscode窗口中环境即上面的容器内部，现在可以尽情搬砖了。</li></ol><blockquote><p><strong>注意：</strong> 可以连接的容器必须是正在持续运行着的的容器。（即使用类似<code>tail -f /dev/null</code>命令创建的容器）。</p></blockquote><h3 id="4-后记"><a href="#4-后记" class="headerlink" title="4.后记"></a>4.后记</h3><p>本文主要是拾人牙慧，原文为：<a href="https://segmentfault.com/a/1190000023095631#comment-area" target="_blank" rel="noopener">开发环境代码化: VSCode远程Docker容器作为开发环境 - 个人文章 - SegmentFault 思否</a>。但自己在实践过程中遇到了一些问题，比如ssh免密登陆，同时本着“输出是最好的学习”的原则，故记录之。</p><h3 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h3><ul><li><a href="https://segmentfault.com/a/1190000023095631#comment-area" target="_blank" rel="noopener">开发环境代码化: VSCode远程Docker容器作为开发环境 - 个人文章 - SegmentFault 思否</a></li><li><a href="https://blog.csdn.net/weiwosuoai/article/details/88430620" target="_blank" rel="noopener">Docker 查看镜像信息_犬小哈-CSDN博客</a></li><li><a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS Docker 安装 | 菜鸟教程</a></li><li><a href="https://deepzz.com/post/how-to-setup-ssh-config.html" target="_blank" rel="noopener">SSH Config 那些你所知道和不知道的事 | Deepzz’s Blog</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;我服了，vscode确实太香了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
-    
-      <category term="vscode" scheme="https://www.iamlightsmile.com/tags/vscode/"/>
     
   </entry>
   

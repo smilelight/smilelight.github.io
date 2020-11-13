@@ -636,6 +636,11 @@
         
           <div class="prev-next">
             
+              <a class='prev' href='/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>标准答案</p>
+                <p class='content'>自始至终，一直都觉得现在许多教程都有些问题。看个教材或者文章，一般的思路总是先讲基础历史，然后引出基本概念，然后介绍相关内容，以及高级用法等。这样做很标准规范，但是正如上学时期的参考答案或者标准...</p>
+              </a>
+            
             
               <a class='next' href='/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/'>
                 <p class='title'>记录macos下配置hexo博客经历<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
@@ -733,7 +738,7 @@
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\使用docker遇到的问题\" title="使用docker遇到的问题" rel="bookmark">使用docker遇到的问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\设置docker容器内时间\" title="设置docker容器内时间" rel="bookmark">设置docker容器内时间</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Docker常用命令\" title="Docker常用命令" rel="bookmark">Docker常用命令</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\使用docker遇到的问题\" title="使用docker遇到的问题" rel="bookmark">使用docker遇到的问题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\设置docker容器内时间\" title="设置docker容器内时间" rel="bookmark">设置docker容器内时间</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Debian或Ubuntu安装Nodejs\" title="Debian或Ubuntu安装Nodejs" rel="bookmark">Debian或Ubuntu安装Nodejs</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1145,6 +1150,21 @@
 
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

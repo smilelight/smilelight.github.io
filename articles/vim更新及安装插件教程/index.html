@@ -793,7 +793,7 @@ vim
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\centos更新vim\" title="centos更新vim" rel="bookmark">centos更新vim</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Docker常用命令\" title="Docker常用命令" rel="bookmark">Docker常用命令</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\centos更新vim\" title="centos更新vim" rel="bookmark">centos更新vim</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Debian或Ubuntu安装Nodejs\" title="Debian或Ubuntu安装Nodejs" rel="bookmark">Debian或Ubuntu安装Nodejs</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1205,6 +1205,21 @@ vim
 
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
