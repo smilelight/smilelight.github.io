@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-11-12T09:00:14.757Z</updated>
+  <updated>2020-11-13T01:52:52.811Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>给docker-neo4j增加healthcheck</title>
+    <link href="https://www.iamlightsmile.com/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/"/>
+    <id>https://www.iamlightsmile.com/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/</id>
+    <published>2020-11-13T01:29:28.000Z</published>
+    <updated>2020-11-13T01:52:52.811Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-正确的打开方式"><a href="#1-正确的打开方式" class="headerlink" title="1.正确的打开方式"></a>1.正确的打开方式</h2><p>由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过<code>curl -f localhost:7474 || exit 1</code>这样的指令来去判断neo4j容器是否运行正常，这样得到的结果总是unhealthy。</p><a id="more"></a><p>正确的打开方式应该是：</p><pre><code class="lang-yml">healthcheck:    test: [&quot;CMD-SHELL&quot;, &quot;echo &#39;match (n) return count(n);&#39; | bin/cypher-shell -a bolt://localhost:7687 -u neo4j -p xxx || exit 1&quot;]</code></pre><p>对于选择授权的neo4j容器而言，需要指定上面的用户名和密码。</p><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2.参考"></a>2.参考</h2><ul><li><a href="https://medium.com/better-programming/docker-healthchecks-eb744bfe3f3b" target="_blank" rel="noopener">How to Implement Docker Health Checks | by Nassos Michas | Better Programming | Medium</a></li><li><a href="https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/" target="_blank" rel="noopener">Cypher Shell - Operations Manual</a></li><li><a href="https://neo4j.com/developer/kb/how-do-i-authenticate-with-cypher-shell-without-specifying-the-username-and-password-on-the-command-line/" target="_blank" rel="noopener">Neo4j : How do I authenticate with cypher-shell without specifying the username and password on the command line - Neo4j Graph Database Platform</a></li><li><a href="https://github.com/neo4j/docker-neo4j/issues/114" target="_blank" rel="noopener">Unable to probe health when composing · Issue #114 · neo4j/docker-neo4j</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-正确的打开方式&quot;&gt;&lt;a href=&quot;#1-正确的打开方式&quot; class=&quot;headerlink&quot; title=&quot;1.正确的打开方式&quot;&gt;&lt;/a&gt;1.正确的打开方式&lt;/h2&gt;&lt;p&gt;由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过&lt;code&gt;curl -f localhost:7474 || exit 1&lt;/code&gt;这样的指令来去判断neo4j容器是否运行正常，这样得到的结果总是unhealthy。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
+    
+      <category term="neo4j" scheme="https://www.iamlightsmile.com/tags/neo4j/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录macos下配置hexo博客经历</title>
+    <link href="https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/"/>
+    <id>https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/</id>
+    <published>2020-11-12T13:02:57.000Z</published>
+    <updated>2020-11-12T13:58:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。</p><a id="more"></a><h2 id="1-拷贝项目文件"><a href="#1-拷贝项目文件" class="headerlink" title="1.拷贝项目文件"></a>1.拷贝项目文件</h2><p>自己的项目文件其实也通过git管理了，但是不知为何在mac下使用<code>npm install</code>命令老是无法完成安装node_modules。同时自己现在还在用2.6.5版本的volantis主题，而官方都已经更新到v4了，但是自己目前也没有必要迁移到新版本的需求和精力，于是就继续沿用Windows上的旧主题了，于是乎通过选择将整个项目打包压缩然后通过U盘拷到Mac上（如果不压缩打包实在是有些太慢了，因为这些node包的js的细碎文件实在是太多了）</p><h2 id="2-配置hexo路径"><a href="#2-配置hexo路径" class="headerlink" title="2.配置hexo路径"></a>2.配置hexo路径</h2><p>hexo可执行文件在node_modules下的.bin文件下，如果直接执行<code>hexo new xx</code>之类的命令，需要先将该路径添加到PATH变量中，于是乎可以在<code>~/.bash_profile</code>或者<code>~/.zshrc</code>中添加：</p><pre><code class="lang-bash"># hexoexport PATH=&quot;$PATH:/Users/lightsmile/Projects/myProjects/MyBlog//node_modules/.bin&quot;</code></pre><p>上面具体的路径要根据具体情况做出变动。</p><h2 id="3-配置node"><a href="#3-配置node" class="headerlink" title="3.配置node"></a>3.配置node</h2><p>hexo配置完成后，可以正常执行<code>hexo new</code>命令，但是无法执行<code>hexo generate -d</code>命令，google后发现是node版本太新的问题，需要安装旧版本的node，参考文章2中提到v12.14没有问题，于是接下来打算装一下这个版本。</p><h2 id="4-安装nvm"><a href="#4-安装nvm" class="headerlink" title="4.安装nvm"></a>4.安装nvm</h2><p>如果conda可以管理多个版本的Python环境一样，nvm也是用于管理node环境的工具，于是乎直接<code>brew install nvm</code>安装，没想到安装失败，只能去GitHub官方网页上找安装方式，需要执行如下命令：</p><pre><code class="lang-bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash</code></pre><p>或者</p><pre><code class="lang-bash">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash</code></pre><p>于是乎便执行curl命令，没想到报443的错误，想到可能是代理的问题，于是继续Google寻找解决方案。</p><h2 id="5-安装proxychains-ng"><a href="#5-安装proxychains-ng" class="headerlink" title="5.安装proxychains-ng"></a>5.安装proxychains-ng</h2><p>Google后找到了参考3，然后参考3提到了参考4，于是乎安装<code>proxychains-ng</code>。</p><pre><code class="lang-bash">brew install proxychains-ng</code></pre><p>安装人家的教程修改了<code>/usr/local/etc/proxychains.conf</code>后发现还是不行，然后又发现了参考5，按照参考5增加了变动之后发现还是下载失败，后来看参考3的评论中发现了可行的方案：<strong>其实设置DNS为114.114.114.114或者8.8.8.8就好了。</strong>。</p><h2 id="6-配置DNS"><a href="#6-配置DNS" class="headerlink" title="6.配置DNS"></a>6.配置DNS</h2><p>详情参见参考6，dns内容我设置的为8.8.8.8，经测试有效。</p><h2 id="7-继续下载nvm并配置node"><a href="#7-继续下载nvm并配置node" class="headerlink" title="7.继续下载nvm并配置node"></a>7.继续下载nvm并配置node</h2><p>nvm下载完成之后还是找不到，然后自己执行了下<code>source ~/.bash_profile</code>，然后出于保险又把相关命令复制到了<code>~/.zshrc</code>中一份，相关命令如下：</p><pre><code class="lang-bash">export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><h2 id="8-配置nvm镜像源"><a href="#8-配置nvm镜像源" class="headerlink" title="8.配置nvm镜像源"></a>8.配置nvm镜像源</h2><p>使用nvm安装node命令如下：</p><pre><code class="lang-bash">nvm install 12.14</code></pre><p>然后发现nvm会直接从node的官网去下载，于是乎又失败了，只能配置镜像源，配置方式为将如下命令添加到<code>~/.zshrc</code>中：</p><pre><code class="lang-bash">export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node</code></pre><p>配置完成之后更新一下zshrc（即执行命令<code>source ~/.zshrc</code>）然后继续执行install命令便可成功下载。</p><p>然后切换成12.14版本的node，切换命令如下：</p><pre><code class="lang-bash">nvm use 12.14</code></pre><p>然后程序便提示已经成功切换。</p><h2 id="9-参考"><a href="#9-参考" class="headerlink" title="9.参考"></a>9.参考</h2><ol><li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档 | Hexo</a></li><li><a href="https://zhuanlan.zhihu.com/p/136552969" target="_blank" rel="noopener">部署Hexo踩过的坑—node14.0配置hexo - 知乎</a></li><li><a href="https://zhuanlan.zhihu.com/p/115450863" target="_blank" rel="noopener">Failed to connect to raw.githubusercontent.com:443 - 知乎</a></li><li><a href="https://zhuanlan.zhihu.com/p/124199138" target="_blank" rel="noopener">使用 proxychains-ng 代理命令行 - 知乎</a></li><li><a href="https://guangchuangyu.github.io/cn/2018/09/proxychains/" target="_blank" rel="noopener">一次解决所有代理问题</a></li><li><a href="https://www.jianshu.com/p/a150b13a2031" target="_blank" rel="noopener">Mac ：修改 DNS 及清除 DNS 缓存 - 简书</a></li><li><a href="https://www.jianshu.com/p/bc56e70303f7" target="_blank" rel="noopener">NVM配置国内镜像 - 简书</a></li><li><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm-sh/nvm: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="hexo" scheme="https://www.iamlightsmile.com/tags/hexo/"/>
+    
+      <category term="macos" scheme="https://www.iamlightsmile.com/tags/macos/"/>
+    
+  </entry>
   
   <entry>
     <title>设置docker容器内时间</title>
@@ -442,54 +492,6 @@
       <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
     
       <category term="vscode" scheme="https://www.iamlightsmile.com/tags/vscode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos安装LibreOffice</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/</id>
-    <published>2020-09-15T06:43:52.000Z</published>
-    <updated>2020-09-15T14:35:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。</p><a id="more"></a><h2 id="1-下载并解压安装包"><a href="#1-下载并解压安装包" class="headerlink" title="1.下载并解压安装包"></a>1.下载并解压安装包</h2><h3 id="1-1-下载安装包"><a href="#1-1-下载安装包" class="headerlink" title="1.1 下载安装包"></a>1.1 下载安装包</h3><p>官网中文下载页：<a href="https://zh-cn.libreoffice.org/download/libreoffice/" target="_blank" rel="noopener">下载 LibreOffice | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></p><p>我们需要安装主安装程序以及中文语言安装包和中文离线帮助文件安装包，这里列出6.4.6版本的中文镜像源链接：</p><ul><li>主程序链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz</a></li><li>中文语言包链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz</a></li><li>中文离线帮助文件链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz</a></li></ul><h3 id="1-2-解压安装包"><a href="#1-2-解压安装包" class="headerlink" title="1.2 解压安装包"></a>1.2 解压安装包</h3><p>将安装包放置到合适的位置并且解压。</p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><pre><code class="lang-bash">$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm/RPMS/*.rpm  /* 安装主安装程序的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_langpack_zh-CN/RPMS/*.rpm  /* 安装中文语言包中的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_helppack_zh-CN/RPMS/*.rpm  /* 安装中文离线帮助文件中的所有rpm包 */</code></pre><h2 id="3-依赖"><a href="#3-依赖" class="headerlink" title="3.依赖"></a>3.依赖</h2><h3 id="3-1-查看安装位置"><a href="#3-1-查看安装位置" class="headerlink" title="3.1 查看安装位置"></a>3.1 查看安装位置</h3><pre><code class="lang-bash">whereis libreoffice</code></pre><p>得到如下输出：</p><pre><code class="lang-text">libreoffice: /usr/bin/libreoffice6.4 /usr/lib64/libreoffice</code></pre><h3 id="3-2-安装依赖"><a href="#3-2-安装依赖" class="headerlink" title="3.2 安装依赖"></a>3.2 安装依赖</h3><p>执行<code>libreoffice6.4</code>报库文件找不到的错误，需要安装一些库文件：</p><ul><li><code>yum install cairo -y</code></li><li><code>yum install cups-libs -y</code></li><li><code>yum install libSM -y</code></li></ul><h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><h3 id="4-1-查看版本"><a href="#4-1-查看版本" class="headerlink" title="4.1 查看版本"></a>4.1 查看版本</h3><pre><code class="lang-bash">libreoffice6.4 --version</code></pre><p>得到如下结果：</p><pre><code class="lang-text">LibreOffice 6.4.6.2 0ce51a4fd21bff07a5c061082cc82c5ed232f115</code></pre><h3 id="4-2-创建软链接"><a href="#4-2-创建软链接" class="headerlink" title="4.2 创建软链接"></a>4.2 创建软链接</h3><p>由于联动的其他程序设置的libreoffice路径为<code>/usr/bin/soffice</code>，所以这里创建一个软链：</p><pre><code class="lang-bash">ln -s /opt/libreoffice6.4/program/soffice /usr/bin/soffice</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="http://qtdebug.com/mac-centos7-libreoffice/" target="_blank" rel="noopener">CentOS7 安装 LibreOffice | 公孙二狗</a></li><li><a href="https://zh-cn.libreoffice.org/get-help/install-howto/linux/" target="_blank" rel="noopener">Linux 下的安装方法 | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></li><li><a href="https://blog.csdn.net/m290345792/article/details/78518360" target="_blank" rel="noopener">linux软链接的创建、删除和更新_鲁不迅的专栏-CSDN博客</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常用命令</title>
-    <link href="https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2020-09-10T00:45:02.000Z</published>
-    <updated>2020-09-15T14:35:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/tags/Linux/"/>
     
   </entry>
   

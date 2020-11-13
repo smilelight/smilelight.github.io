@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>记录macos下配置hexo博客经历 - lightsmile&#39;s Blog</title>
+  
+    <meta name="keywords" content="hexo,macos">
+  
+  
+    <meta name="description" content="自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="lightsmile's Blog">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/smilelight/CDN@1.0/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.0.1/styles/atom-one-light.css">
+
+    
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131799461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131799461-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- 小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/projects/
+                  
+                  
+                  
+                    id="projects"
+                  >
+                  <i class='fas fa-link fa-fw'></i>项目
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/projects/
+                  
+                  
+                  
+                    id="projects"
+                  >
+                  <i class='fas fa-link fa-fw'></i>项目
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/">
+      记录macos下配置hexo博客经历
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.lightsmile.com" target="_blank" rel="nofollow noopener">
+    <img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/UTOOLS1571056278224.png">
+    <p>lightsmile</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>计算机</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：970字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：3分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年11月12日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。</p>
+<a id="more"></a>
+<h2 id="1-拷贝项目文件"><a href="#1-拷贝项目文件" class="headerlink" title="1.拷贝项目文件"></a>1.拷贝项目文件</h2><p>自己的项目文件其实也通过git管理了，但是不知为何在mac下使用<code>npm install</code>命令老是无法完成安装node_modules。同时自己现在还在用2.6.5版本的volantis主题，而官方都已经更新到v4了，但是自己目前也没有必要迁移到新版本的需求和精力，于是就继续沿用Windows上的旧主题了，于是乎通过选择将整个项目打包压缩然后通过U盘拷到Mac上（如果不压缩打包实在是有些太慢了，因为这些node包的js的细碎文件实在是太多了）</p>
+<h2 id="2-配置hexo路径"><a href="#2-配置hexo路径" class="headerlink" title="2.配置hexo路径"></a>2.配置hexo路径</h2><p>hexo可执行文件在node_modules下的.bin文件下，如果直接执行<code>hexo new xx</code>之类的命令，需要先将该路径添加到PATH变量中，于是乎可以在<code>~/.bash_profile</code>或者<code>~/.zshrc</code>中添加：</p>
+<pre><code class="lang-bash"># hexo
+export PATH=&quot;$PATH:/Users/lightsmile/Projects/myProjects/MyBlog//node_modules/.bin&quot;
+</code></pre>
+<p>上面具体的路径要根据具体情况做出变动。</p>
+<h2 id="3-配置node"><a href="#3-配置node" class="headerlink" title="3.配置node"></a>3.配置node</h2><p>hexo配置完成后，可以正常执行<code>hexo new</code>命令，但是无法执行<code>hexo generate -d</code>命令，google后发现是node版本太新的问题，需要安装旧版本的node，参考文章2中提到v12.14没有问题，于是接下来打算装一下这个版本。</p>
+<h2 id="4-安装nvm"><a href="#4-安装nvm" class="headerlink" title="4.安装nvm"></a>4.安装nvm</h2><p>如果conda可以管理多个版本的Python环境一样，nvm也是用于管理node环境的工具，于是乎直接<code>brew install nvm</code>安装，没想到安装失败，只能去GitHub官方网页上找安装方式，需要执行如下命令：</p>
+<pre><code class="lang-bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+</code></pre>
+<p>或者</p>
+<pre><code class="lang-bash">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+</code></pre>
+<p>于是乎便执行curl命令，没想到报443的错误，想到可能是代理的问题，于是继续Google寻找解决方案。</p>
+<h2 id="5-安装proxychains-ng"><a href="#5-安装proxychains-ng" class="headerlink" title="5.安装proxychains-ng"></a>5.安装proxychains-ng</h2><p>Google后找到了参考3，然后参考3提到了参考4，于是乎安装<code>proxychains-ng</code>。</p>
+<pre><code class="lang-bash">brew install proxychains-ng
+</code></pre>
+<p>安装人家的教程修改了<code>/usr/local/etc/proxychains.conf</code>后发现还是不行，然后又发现了参考5，按照参考5增加了变动之后发现还是下载失败，后来看参考3的评论中发现了可行的方案：<strong>其实设置DNS为114.114.114.114或者8.8.8.8就好了。</strong>。</p>
+<h2 id="6-配置DNS"><a href="#6-配置DNS" class="headerlink" title="6.配置DNS"></a>6.配置DNS</h2><p>详情参见参考6，dns内容我设置的为8.8.8.8，经测试有效。</p>
+<h2 id="7-继续下载nvm并配置node"><a href="#7-继续下载nvm并配置node" class="headerlink" title="7.继续下载nvm并配置node"></a>7.继续下载nvm并配置node</h2><p>nvm下载完成之后还是找不到，然后自己执行了下<code>source ~/.bash_profile</code>，然后出于保险又把相关命令复制到了<code>~/.zshrc</code>中一份，相关命令如下：</p>
+<pre><code class="lang-bash">export NVM_DIR=&quot;$HOME/.nvm&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+</code></pre>
+<h2 id="8-配置nvm镜像源"><a href="#8-配置nvm镜像源" class="headerlink" title="8.配置nvm镜像源"></a>8.配置nvm镜像源</h2><p>使用nvm安装node命令如下：</p>
+<pre><code class="lang-bash">nvm install 12.14
+</code></pre>
+<p>然后发现nvm会直接从node的官网去下载，于是乎又失败了，只能配置镜像源，配置方式为将如下命令添加到<code>~/.zshrc</code>中：</p>
+<pre><code class="lang-bash">export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+</code></pre>
+<p>配置完成之后更新一下zshrc（即执行命令<code>source ~/.zshrc</code>）然后继续执行install命令便可成功下载。</p>
+<p>然后切换成12.14版本的node，切换命令如下：</p>
+<pre><code class="lang-bash">nvm use 12.14
+</code></pre>
+<p>然后程序便提示已经成功切换。</p>
+<h2 id="9-参考"><a href="#9-参考" class="headerlink" title="9.参考"></a>9.参考</h2><ol>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档 | Hexo</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/136552969" target="_blank" rel="noopener">部署Hexo踩过的坑—node14.0配置hexo - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/115450863" target="_blank" rel="noopener">Failed to connect to raw.githubusercontent.com:443 - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/124199138" target="_blank" rel="noopener">使用 proxychains-ng 代理命令行 - 知乎</a></li>
+<li><a href="https://guangchuangyu.github.io/cn/2018/09/proxychains/" target="_blank" rel="noopener">一次解决所有代理问题</a></li>
+<li><a href="https://www.jianshu.com/p/a150b13a2031" target="_blank" rel="noopener">Mac ：修改 DNS 及清除 DNS 缓存 - 简书</a></li>
+<li><a href="https://www.jianshu.com/p/bc56e70303f7" target="_blank" rel="noopener">NVM配置国内镜像 - 简书</a></li>
+<li><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm-sh/nvm: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions</a></li>
+</ol>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/>https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/smilelight/CDN@1.1/img/wechat.jpg'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-12T21:58:05+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年11月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/macos/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>macos</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：970字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：3分钟</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/&title=记录macos下配置hexo博客经历 - lightsmile's Blog&summary=自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/&title=记录macos下配置hexo博客经历 - lightsmile's Blog&summary=自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/&title=记录macos下配置hexo博客经历 - lightsmile's Blog&summary=自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>给docker-neo4j增加healthcheck</p>
+                <p class='content'>1.正确的打开方式由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过curl -f localhost:7474 || e...</p>
+              </a>
+            
+            
+              <a class='next' href='/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/'>
+                <p class='title'>设置docker容器内时间<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>1. 通过文件挂载形式设置与宿主机时间一致可以在docker-compose文件中设置如下：
+volumes:
+    - &quot;/etc/localtime:/etc/localtime...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '记录macos下配置hexo博客经历',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-拷贝项目文件"><span class="toc-text">1.拷贝项目文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置hexo路径"><span class="toc-text">2.配置hexo路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-配置node"><span class="toc-text">3.配置node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装nvm"><span class="toc-text">4.安装nvm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装proxychains-ng"><span class="toc-text">5.安装proxychains-ng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-配置DNS"><span class="toc-text">6.配置DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-继续下载nvm并配置node"><span class="toc-text">7.继续下载nvm并配置node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-配置nvm镜像源"><span class="toc-text">8.配置nvm镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-参考"><span class="toc-text">9.参考</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\个性化hexo主题\" title="个性化hexo主题" rel="bookmark">个性化hexo主题</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Elasticsearch分页搜索\" title="Elasticsearch分页搜索" rel="bookmark">Elasticsearch分页搜索</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+<footer class="clearfix">
+  <br><br>
+  
+  
+  <div class="aplayer-container">
+    
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='4958717116'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+  </div>
+  
+  
+  
+  <br>
+  <div class="social-wrapper">
+    
+    
+    <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank"
+      rel="external nofollow noopener noreferrer">
+    </a>
+    
+          
+    
+    <a href="mailto:iamlightsmile@qq.com" class="social fas fa-envelope flat-btn" target="_blank"
+      rel="external nofollow noopener noreferrer">
+    </a>
+    
+          
+    
+    <a href="https://github.com/smilelight" class="social fab fa-github flat-btn" target="_blank"
+      rel="external nofollow noopener noreferrer">
+    </a>
+    
+          
+    
+    <a href="https://music.163.com/#/user/home?id=515917285" class="social fas fa-headphones-alt flat-btn" target="_blank"
+      rel="external nofollow noopener noreferrer">
+    </a>
+    
+          
+  </div>
+  
+  
+  
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  
+  
+  
+  本站使用
+  <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+  作为主题，总访问量为
+  <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+  次
+  <div>
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+      var now = new Date();
+
+      function createtime() {
+        var grt = new Date("12/22/2017 00:00:00");
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+          hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+          mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+          snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "本小站已苟延残喘 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+      }
+      setInterval("createtime()", 250);
+    </script>
+  </div>
+  
+  
+  
+  
+  <div class='copyright'>
+    <p><a href="https://www.lightsmile.com" target="_blank" rel="noopener">Copyright © 2017-2020 lightsmile</a></p>
+
+  </div>
+  
+  
+  
+  <a class="beian" href="http://www.beian.miit.gov.cn" target="_blank">冀ICP备20001334号</a>
+  
+</footer>
+
+  <script>
+    setLoadingBarProgress(80);
+  </script>
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
