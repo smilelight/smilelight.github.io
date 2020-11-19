@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：ssl - lightsmile&#39;s Blog</title>
+    <title>标签：SSL - lightsmile&#39;s Blog</title>
   
   
 
@@ -410,8 +410,8 @@
         
           
   <h2 class="title">
-    <a href="/articles/%E9%83%A8%E7%BD%B2%E8%87%AA%E7%AD%BE%E5%90%8Dhttps/">
-      部署自签名https
+    <a href="/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/">
+      给网站添加SSL认证（Nginx服务器）
     </a>
   </h2>
 
@@ -436,9 +436,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Linux/' rel="nofollow">
+    <a href='/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux</p>
+      <p>计算机</p>
     </a>
   </div>
 
@@ -449,7 +449,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年11月19日</p>
+    <p>发布于：2020年6月29日</p>
   </a>
 </div>
 
@@ -460,13 +460,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：827字</p>
+      <p>字数：483字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3分钟</p>
+      <p>时长：2分钟</p>
     </a>
   </div>
 
@@ -490,13 +490,13 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>需要用到<code>mkcert</code>，安装方式请参考：</p>
+        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>自己的国内博客网站一直都是只有http访问方式，突然在看的一篇忘了讲啥的文章提到腾讯云可以免费申请SSL证书，于是自己也去操作了，没想到可能就间隔2、3个小时就申请成功了，然后按照文档进行配置就可以了。</p>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/articles/%E9%83%A8%E7%BD%B2%E8%87%AA%E7%AD%BE%E5%90%8Dhttps/">
+          <a href="/articles/%E7%BB%99%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0SSL%E8%AE%A4%E8%AF%81%EF%BC%88Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89/">
             Read More <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -1039,19 +1039,6 @@
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
-</html>
-['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
             processEscapes: true
         }
     });
