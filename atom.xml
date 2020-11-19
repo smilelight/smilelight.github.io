@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-11-19T00:49:19.384Z</updated>
+  <updated>2020-11-19T02:28:29.627Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos安装mkcert</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mkcert/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mkcert/</id>
+    <published>2020-11-19T02:26:47.000Z</published>
+    <updated>2020-11-19T02:28:29.627Z</updated>
+    
+    <content type="html"><![CDATA[<p>没想到安装个mkcert还挺麻烦的，在网上找到教程，基本上都是直接<code>brew install mkcert</code>，但是这个brew基本上是mac专属命令，当然安装到linux上之后提示不能以root权限运行brew，-_-||。</p><a id="more"></a><p>按照mkcert Github上的安装说明通过源码安装，又首先需要安装go，安装完之后又提示有其他问题，终于发现了这个mkcert的预构建版本。</p><p>在centos下安装命令大致如下：</p><pre><code class="lang-bash">wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.2/mkcert-v1.4.2-linux-amd64cp mkcert-v1.4.2-linux-amd64 /usr/local/bin/mkcertchmod +x /usr/local/bin/mkcertln -snvf /usr/local/bin/mkcert /usr/bin/mkcert</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;没想到安装个mkcert还挺麻烦的，在网上找到教程，基本上都是直接&lt;code&gt;brew install mkcert&lt;/code&gt;，但是这个brew基本上是mac专属命令，当然安装到linux上之后提示不能以root权限运行brew，-_-||。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="mkcert" scheme="https://www.iamlightsmile.com/tags/mkcert/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>部署自签名https</title>
+    <link href="https://www.iamlightsmile.com/articles/%E9%83%A8%E7%BD%B2%E8%87%AA%E7%AD%BE%E5%90%8Dhttps/"/>
+    <id>https://www.iamlightsmile.com/articles/%E9%83%A8%E7%BD%B2%E8%87%AA%E7%AD%BE%E5%90%8Dhttps/</id>
+    <published>2020-11-19T02:24:02.000Z</published>
+    <updated>2020-11-19T03:08:25.011Z</updated>
+    
+    <content type="html"><![CDATA[<p>需要用到<code>mkcert</code>，安装方式请参考：</p><a id="more"></a><h2 id="1-部署流程"><a href="#1-部署流程" class="headerlink" title="1.部署流程"></a>1.部署流程</h2><h3 id="1-1-将CA证书加入本地可信CA（可选）"><a href="#1-1-将CA证书加入本地可信CA（可选）" class="headerlink" title="1.1 将CA证书加入本地可信CA（可选）"></a>1.1 将CA证书加入本地可信CA（可选）</h3><pre><code class="lang-bash">(base) ➜  ~ mkcert -installCreated a new local CA 💥The local CA is now installed in the system trust store! ⚡️The local CA is now installed in the Firefox and/or Chrome/Chromium trust store (requires browser restart)! 🦊The local CA is already installed in Java&#39;s trust store! 👍</code></pre><p>这一条其实可选，当执行了这一步流程之后，mkcert使用的根证书就加入了本地可信CA中，以后由该CA签发的证书在本地都是可信的。</p><h3 id="1-2-生成自签名证书"><a href="#1-2-生成自签名证书" class="headerlink" title="1.2 生成自签名证书"></a>1.2 生成自签名证书</h3><pre><code class="lang-bash">(base) ➜  ~ mkcert localhost 127.0.0.1 ::1 49.232.27.108Created a new certificate valid for the following names 📜 - &quot;localhost&quot; - &quot;127.0.0.1&quot; - &quot;::1&quot; - &quot;49.232.27.108&quot;The certificate is at &quot;./localhost+3.pem&quot; and the key at &quot;./localhost+3-key.pem&quot; ✅It will expire on 19 February 2023 🗓</code></pre><p>以上命令会在当前路径生成证书文件和私钥文件，为便于后面使用，可以将该文件放到别的路径，以个人为例，我放到了<code>/root/Data/Web/ssl/</code>下。</p><h3 id="1-3-nginx配置证书文件和私钥文件"><a href="#1-3-nginx配置证书文件和私钥文件" class="headerlink" title="1.3 nginx配置证书文件和私钥文件"></a>1.3 nginx配置证书文件和私钥文件</h3><p>nginx中配置文件内容（默认路径为<code>/etc/nginx/nginx.conf</code>）大致如下：</p><pre><code class="lang-conf">user  root;worker_processes  2;error_log  /var/log/nginx/error.log warn;pid        /var/run/nginx.pid;events {    worker_connections  1024;}http {    include       /etc/nginx/mime.types;    default_type  application/octet-stream;    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;    access_log  /var/log/nginx/access.log  main;    sendfile        on;    #tcp_nopush     on;    keepalive_timeout  65;    #gzip  on;    include /etc/nginx/conf.d/*.conf;    server {        listen 8089 ssl;        # listen 8089;        server_name localhost;        root /root/Data/Web/;        charset utf-8;        index index.html;        ssl_certificate /root/Data/Web/ssl/localhost+3.pem;        ssl_certificate_key /root/Data/Web/ssl/localhost+3-key.pem;        ssl_session_timeout 5m;        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;        ssl_ciphers  HIGH:!aNULL:!MD5;  # 密码加密方式        ssl_prefer_server_ciphers on;        ssl_session_cache shared:SSL:1m;        location / {            root /root/Data/Web/html;            index index.html;        }    }}</code></pre><p>其中<code>/root/Data/Web/ssl/html/index.html</code>内容如下：</p><pre><code class="lang-html">&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;p&gt;Hello world!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre><h3 id="1-4-将CA证书发放给其他用户"><a href="#1-4-将CA证书发放给其他用户" class="headerlink" title="1.4 将CA证书发放给其他用户"></a>1.4 将CA证书发放给其他用户</h3><p>使用以下命令查看CA证书路径并生成crt格式：</p><pre><code class="lang-bash">(base) ➜  ~ mkcert -CAROOT/root/.local/share/mkcert(base) ➜  ~ cd .local/share/mkcert(base) ➜  mkcert lsrootCA-key.pem  rootCA.pem(base) ➜  mkcert cp rootCA.pem rootCA.crt(base) ➜  mkcert lsrootCA.crt  rootCA-key.pem  rootCA.pem</code></pre><p>然后将<code>rootCA.crt</code>文件通过文件传输方式分发给局域网其他电脑。</p><h3 id="1-5-导入CA证书"><a href="#1-5-导入CA证书" class="headerlink" title="1.5 导入CA证书"></a>1.5 导入CA证书</h3><p>Windows和MacOS的导入方式为双击这个文件，在<code>证书导入向导</code>中选择将证书导入<code>受信任的根证书颁发机构</code>，导入成功后我们可以在开始运行中输入<code>certmgr.msc</code>查看证书，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/mkcert3.png" alt="mkcert3"></p><h3 id="1-6-使用https访问服务"><a href="#1-6-使用https访问服务" class="headerlink" title="1.6 使用https访问服务"></a>1.6 使用https访问服务</h3><p>导入该CA证书的局域网其他用户便也可以通过https方法来访问该服务器了，然而需要注意的是浏览器需要先退出然后重新打开，以便于浏览器重新加载信任证书，否则的话还是会提示不安全。</p><p>重新打开后，访问服务可以看到结果如下：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/mkcert2.png" alt="mkcert-https"></p><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2.参考"></a>2.参考</h2><ul><li><a href="https://www.jianshu.com/p/7cb5c2cffaaa" target="_blank" rel="noopener">本地https快速解决方案——mkcert - 简书</a></li><li><a href="https://blog.csdn.net/maokexu123/article/details/42773599" target="_blank" rel="noopener">windows 怎样查看计算机本地安装的证书_如山石的系统虚拟化之路-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;需要用到&lt;code&gt;mkcert&lt;/code&gt;，安装方式请参考：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="mkcert" scheme="https://www.iamlightsmile.com/tags/mkcert/"/>
+    
+      <category term="https" scheme="https://www.iamlightsmile.com/tags/https/"/>
+    
+      <category term="ssl" scheme="https://www.iamlightsmile.com/tags/ssl/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux内网通过windows主机代理访问外网</title>
@@ -438,55 +490,6 @@
     
     
       <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker常用命令</title>
-    <link href="https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2020-10-14T07:06:18.000Z</published>
-    <updated>2020-10-22T03:13:18.820Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-查看容器内系统版本"><a href="#1-查看容器内系统版本" class="headerlink" title="1.查看容器内系统版本"></a>1.查看容器内系统版本</h2><pre><code class="lang-bash">cat /etc/issue</code></pre><blockquote><p><strong>注意</strong>：不能使用<code>cat /proc/version</code> 或 <code>uname -a</code>，因为docker并不能隔离像/dev、/proc的目录，这些都是直接挂载的宿主机的。所以，很多命令像free top之类的命令，其实看到的都是宿主机的。因为这些命令都是基于/proc下的信息统计出来的</p></blockquote><p>参考：<a href="https://blog.csdn.net/c461522756/article/details/70822234" target="_blank" rel="noopener">docker容器中查看容器linux版本_貌似爽歪歪的博客-CSDN博客</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-查看容器内系统版本&quot;&gt;&lt;a href=&quot;#1-查看容器内系统版本&quot; class=&quot;headerlink&quot; title=&quot;1.查看容器内系统版本&quot;&gt;&lt;/a&gt;1.查看容器内系统版本&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;lang-bash&quot;&gt;cat /etc
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>知识库学习心得随记</title>
-    <link href="https://www.iamlightsmile.com/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/"/>
-    <id>https://www.iamlightsmile.com/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/</id>
-    <published>2020-10-10T08:13:47.000Z</published>
-    <updated>2020-10-10T08:28:41.012Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近在看一些知识库的项目，自己小有体会，这里简单记录一下。</p><a id="more"></a><p>近几个月来，出于项目需要，自己简单学习了下Elasticsearch，并且重新学习了下Neo4j。我发现看的知识库的项目所使用的数据库不尽相同，有基于Neo4j的，有基于Elasticsearch的，有基于MongoDB的，这不禁令我反思。</p><p>这些数据库的相似之处在于都非关系型数据库，不同之处在于各自所更能适配的数据类型不同。Neo4j更适配的数据是那些数据类型简单但之间关系复杂多样化的，Elasticsearch更适配的数据或者说场景是待检索的数据尤其是需要定制复杂规则过滤排序的数据，而MongoDB则更加通用一些。</p><p>在实际项目中，对于数据量比较小或者业务场景比较简单的情况下，其实这三种数据库基本都能完成需求；而只有当数据的量级很大（比如在上百万条）以及业务场景比较复杂的情况下，三种各自的优劣才能比较明显的体现出来。数据库之间也没有通用的优劣高低之分，只有哪个更适配任务的数据类型和场景之分。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在看一些知识库的项目，自己小有体会，这里简单记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="知识库" scheme="https://www.iamlightsmile.com/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/"/>
     
   </entry>
   
