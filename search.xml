@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Linux内网通过windows主机代理访问外网</title>
+      <link href="/articles/Linux%E5%86%85%E7%BD%91%E9%80%9A%E8%BF%87windows%E4%B8%BB%E6%9C%BA%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/"/>
+      <url>/articles/Linux%E5%86%85%E7%BD%91%E9%80%9A%E8%BF%87windows%E4%B8%BB%E6%9C%BA%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>有时我们会有这样一个场景，即自己的终端设备（如笔记本或台式机）可以通过手机热点或WiFi等形式联网，然而局域网内公司的服务器不能联网，并且有时需要在这台服务器上更新软件等。对于这种需求，我们可以通过搭建代理的方式访问外网。</p><a id="more"></a><h2 id="1-下载并配置代理工具"><a href="#1-下载并配置代理工具" class="headerlink" title="1.下载并配置代理工具"></a>1.下载并配置代理工具</h2><p>具体内容请参考：<a href="https://blog.csdn.net/lxl1531/article/details/109224706" target="_blank" rel="noopener">Linux内网通过windows主机代理访问外网（centos7.6）_lxl1531的博客-CSDN博客</a></p><h2 id="2-配置服务器"><a href="#2-配置服务器" class="headerlink" title="2.配置服务器"></a>2.配置服务器</h2><p>具体内容请参考：<a href="https://www.cnblogs.com/Shepherdzhao/p/7552276.html" target="_blank" rel="noopener">解决CentOS内网机通过Windows下架设代理来访问网络 - XuepengZ - 博客园</a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.cnblogs.com/Shepherdzhao/p/7552276.html" target="_blank" rel="noopener">解决CentOS内网机通过Windows下架设代理来访问网络 - XuepengZ - 博客园</a></li><li><a href="https://blog.csdn.net/lxl1531/article/details/109224706" target="_blank" rel="noopener">Linux内网通过windows主机代理访问外网（centos7.6）_lxl1531的博客-CSDN博客</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macos软件安装小记</title>
+      <link href="/articles/macos%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/"/>
+      <url>/articles/macos%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-装软件平台"><a href="#1-装软件平台" class="headerlink" title="1.装软件平台"></a>1.装软件平台</h2><ul><li><a href="https://xclient.info/" target="_blank" rel="noopener">精品MAC应用分享</a></li><li><a href="https://www.macwk.com/" target="_blank" rel="noopener">MacWk - 精品mac软件下载</a></li></ul><a id="more"></a><h2 id="2-推荐软件"><a href="#2-推荐软件" class="headerlink" title="2.推荐软件"></a>2.推荐软件</h2><div class="table-container"><table><thead><tr><th>软件名称</th><th>简介</th><th>跨平台情况</th></tr></thead><tbody><tr><td>Iterm2</td><td>macos必备终端</td><td>Mac</td></tr><tr><td>Visual Studio Code</td><td>必备编辑器，强无敌</td><td>Win、Mac、Linux</td></tr><tr><td>Pycharm</td><td>Python开发必备</td><td>Win、Mac、Linux</td></tr><tr><td>Typora</td><td>Markdown编辑器</td><td>Win、Mac、Linux</td></tr><tr><td>Chrome</td><td>网页浏览器</td><td>Win、Mac、Linux</td></tr><tr><td>WeChat</td><td>国人聊天、工作必备</td><td>Win、Mac</td></tr><tr><td>Zotero</td><td>网页收集、整理工具</td><td>Win、Mac、Linux</td></tr><tr><td>Anaconda</td><td>Python开发必备</td><td>Win、Mac、Linux</td></tr><tr><td>Snipaste</td><td>轻量截图工具</td><td>Win、Mac</td></tr><tr><td>Dash</td><td>api查询工具</td><td>Mac</td></tr><tr><td>WPS Office</td><td>办公套件（个人觉得比微软Office更好用）</td><td>Win、Mac、Linux</td></tr><tr><td>网易有道词典</td><td>英语单词查询、句子翻译</td><td>Win、Mac、Linux</td></tr><tr><td>V2RayX</td><td>科学上网</td><td>Mac（别的不清楚，我的Win用的不是这个）</td></tr><tr><td>腾讯会议</td><td>远程会议</td><td>Win、Mac</td></tr><tr><td>AppDelete</td><td>删应用的</td><td>Mac</td></tr><tr><td>Scroll Reverser</td><td>管理鼠标滑动方向的（mac和win不一样）</td><td>Mac</td></tr><tr><td>PicGo</td><td>图床工具</td><td>Win、Mac、Linux</td></tr><tr><td>eZip</td><td>解压缩工具（用不起BandiZip，难受）</td><td>Mac</td></tr><tr><td>QSpace</td><td>多视图文件管理器</td><td>Mac（App Store，收费）</td></tr><tr><td>Hidden Bar</td><td>任务栏图标隐藏小工具</td><td>Mac</td></tr><tr><td>Rectangle</td><td>窗口管理工具</td><td>Mac</td></tr></tbody></table></div><h2 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3.注意事项"></a>3.注意事项</h2><h3 id="3-1-无法安装网上下载的软件"><a href="#3-1-无法安装网上下载的软件" class="headerlink" title="3.1 无法安装网上下载的软件"></a>3.1 无法安装网上下载的软件</h3><p>可以参考这个教程：<a href="https://www.macwk.com/article/mac-file-damage" target="_blank" rel="noopener">macOS 10.14及以下xxx已损坏，打不开。您应该将它移到废纸篓以及来自身份不明的开发者的解决方法</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macos </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macos </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>标准答案</title>
       <link href="/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/"/>
       <url>/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/</url>
@@ -60,9 +110,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> macos </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       
