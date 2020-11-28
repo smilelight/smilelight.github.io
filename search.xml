@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用frp实现通过ssh访问内网机器</title>
+      <link href="/articles/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87ssh%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%BA%E5%99%A8/"/>
+      <url>/articles/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87ssh%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%BA%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<p>内网机配置如下：</p><pre><code class="lang-ini">[common]server_addr = x.x.x.xserver_port = 7000[ssh]type = tcplocal_ip = 127.0.0.1local_port = 22remote_port = 8555</code></pre><p>公网代理机器配置：</p><pre><code class="lang-ini">[common]bind_port = 7000</code></pre><p>然后便可以通过<code>ssh -p 8555 username@x.x.x.x</code>方式连接了。</p><p>参考：<a href="https://gofrp.org/docs/examples/ssh/" target="_blank" rel="noopener">通过 SSH 访问内网机器 | frp</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> frp </tag>
+            
+            <tag> 内网穿透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>centos安装mkcert</title>
       <link href="/articles/centos%E5%AE%89%E8%A3%85mkcert/"/>
       <url>/articles/centos%E5%AE%89%E8%A3%85mkcert/</url>
@@ -1636,9 +1663,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Neo4j </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
