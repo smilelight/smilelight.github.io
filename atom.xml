@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-11-28T02:40:29.963Z</updated>
+  <updated>2020-12-03T02:38:58.150Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>支持正版</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/</id>
+    <published>2020-12-03T02:23:12.000Z</published>
+    <updated>2020-12-03T02:38:58.150Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天Pycharm又提示激活码失效了。</p><a id="more"></a><p>关于Python开发，对我个人而言目前来说Pycharm专业版占主体，VSCode用于轻量开发场景。</p><p>关于Pycharm的破解使用，最开始是网上找的博客教程里面提到的免费的破解码，后来是通过淘宝购买的公用教育邮箱的法子，不过今天终于下决心决定支持正版了。</p><p>关于Pycharm，目前个人理解是自己这几年里使用这个工具收获良多，心怀感激之情，所以也应该为信仰充值，一如在Steam上购买正版游戏一样。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/pycharm2.png" alt="Pycharm2"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/pycharm.png" alt="Pycharm"></p><p>另外，其实JetBrains的产品也不算太贵，通过数码荔枝渠道：<a href="https://store.lizhi.io/site/products/id/291" target="_blank" rel="noopener">PyCharm: JetBrains 专业级Python IDE - 荔枝软件商店</a>单购买Pycharm目前一年只需要569，并且可以永久使用该版本。</p><p>实在不想花这份钱的也可以选择通过开源项目申请的方式，具体可以参考：<a href="https://zhuanlan.zhihu.com/p/87370573" target="_blank" rel="noopener">免费获取JetBrains全家桶正版License教程!! - 知乎</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天Pycharm又提示激活码失效了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
+    
+    
+      <category term="JetBrains" scheme="https://www.iamlightsmile.com/tags/JetBrains/"/>
+    
+      <category term="Pycharm" scheme="https://www.iamlightsmile.com/tags/Pycharm/"/>
+    
+      <category term="正版" scheme="https://www.iamlightsmile.com/tags/%E6%AD%A3%E7%89%88/"/>
+    
+  </entry>
   
   <entry>
     <title>使用frp实现通过ssh访问内网机器</title>
@@ -488,21 +515,6 @@ local_p
       <category term="Nodejs" scheme="https://www.iamlightsmile.com/tags/Nodejs/"/>
     
       <category term="Ubuntu" scheme="https://www.iamlightsmile.com/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常用工具</title>
-    <link href="https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-    <id>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</id>
-    <published>2020-10-18T04:37:21.000Z</published>
-    <updated>2020-10-18T04:37:21.787Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
     
   </entry>
   

@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>支持正版</title>
+      <link href="/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/"/>
+      <url>/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/</url>
+      
+        <content type="html"><![CDATA[<p>昨天Pycharm又提示激活码失效了。</p><a id="more"></a><p>关于Python开发，对我个人而言目前来说Pycharm专业版占主体，VSCode用于轻量开发场景。</p><p>关于Pycharm的破解使用，最开始是网上找的博客教程里面提到的免费的破解码，后来是通过淘宝购买的公用教育邮箱的法子，不过今天终于下决心决定支持正版了。</p><p>关于Pycharm，目前个人理解是自己这几年里使用这个工具收获良多，心怀感激之情，所以也应该为信仰充值，一如在Steam上购买正版游戏一样。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/pycharm2.png" alt="Pycharm2"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/pycharm.png" alt="Pycharm"></p><p>另外，其实JetBrains的产品也不算太贵，通过数码荔枝渠道：<a href="https://store.lizhi.io/site/products/id/291" target="_blank" rel="noopener">PyCharm: JetBrains 专业级Python IDE - 荔枝软件商店</a>单购买Pycharm目前一年只需要569，并且可以永久使用该版本。</p><p>实在不想花这份钱的也可以选择通过开源项目申请的方式，具体可以参考：<a href="https://zhuanlan.zhihu.com/p/87370573" target="_blank" rel="noopener">免费获取JetBrains全家桶正版License教程!! - 知乎</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JetBrains </tag>
+            
+            <tag> Pycharm </tag>
+            
+            <tag> 正版 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用frp实现通过ssh访问内网机器</title>
       <link href="/articles/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87ssh%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%BA%E5%99%A8/"/>
       <url>/articles/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87ssh%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%BA%E5%99%A8/</url>
@@ -708,9 +737,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> Elasticsearch </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
