@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-10-27T14:25:16.317Z</updated>
+  <updated>2020-12-03T02:38:58.000Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,366 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>支持正版</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/</id>
+    <published>2020-12-03T02:23:12.000Z</published>
+    <updated>2020-12-03T02:38:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天Pycharm又提示激活码失效了。</p><a id="more"></a><p>关于Python开发，对我个人而言目前来说Pycharm专业版占主体，VSCode用于轻量开发场景。</p><p>关于Pycharm的破解使用，最开始是网上找的博客教程里面提到的免费的破解码，后来是通过淘宝购买的公用教育邮箱的法子，不过今天终于下决心决定支持正版了。</p><p>关于Pycharm，目前个人理解是自己这几年里使用这个工具收获良多，心怀感激之情，所以也应该为信仰充值，一如在Steam上购买正版游戏一样。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/pycharm2.png" alt="Pycharm2"></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/pycharm.png" alt="Pycharm"></p><p>另外，其实JetBrains的产品也不算太贵，通过数码荔枝渠道：<a href="https://store.lizhi.io/site/products/id/291" target="_blank" rel="noopener">PyCharm: JetBrains 专业级Python IDE - 荔枝软件商店</a>单购买Pycharm目前一年只需要569，并且可以永久使用该版本。</p><p>实在不想花这份钱的也可以选择通过开源项目申请的方式，具体可以参考：<a href="https://zhuanlan.zhihu.com/p/87370573" target="_blank" rel="noopener">免费获取JetBrains全家桶正版License教程!! - 知乎</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天Pycharm又提示激活码失效了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
+    
+    
+      <category term="JetBrains" scheme="https://www.iamlightsmile.com/tags/JetBrains/"/>
+    
+      <category term="Pycharm" scheme="https://www.iamlightsmile.com/tags/Pycharm/"/>
+    
+      <category term="正版" scheme="https://www.iamlightsmile.com/tags/%E6%AD%A3%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用frp实现通过ssh访问内网机器</title>
+    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87ssh%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%BA%E5%99%A8/"/>
+    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8frp%E5%AE%9E%E7%8E%B0%E9%80%9A%E8%BF%87ssh%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E6%9C%BA%E5%99%A8/</id>
+    <published>2020-11-28T02:30:09.000Z</published>
+    <updated>2020-11-28T02:40:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>内网机配置如下：</p><pre><code class="lang-ini">[common]server_addr = x.x.x.xserver_port = 7000[ssh]type = tcplocal_ip = 127.0.0.1local_port = 22remote_port = 8555</code></pre><p>公网代理机器配置：</p><pre><code class="lang-ini">[common]bind_port = 7000</code></pre><p>然后便可以通过<code>ssh -p 8555 username@x.x.x.x</code>方式连接了。</p><p>参考：<a href="https://gofrp.org/docs/examples/ssh/" target="_blank" rel="noopener">通过 SSH 访问内网机器 | frp</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;内网机配置如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-ini&quot;&gt;[common]
+server_addr = x.x.x.x
+server_port = 7000
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_p
+      
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="frp" scheme="https://www.iamlightsmile.com/tags/frp/"/>
+    
+      <category term="内网穿透" scheme="https://www.iamlightsmile.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos安装mkcert</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mkcert/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mkcert/</id>
+    <published>2020-11-19T02:26:47.000Z</published>
+    <updated>2020-11-19T02:28:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>没想到安装个mkcert还挺麻烦的，在网上找到教程，基本上都是直接<code>brew install mkcert</code>，但是这个brew基本上是mac专属命令，当然安装到linux上之后提示不能以root权限运行brew，-_-||。</p><a id="more"></a><p>按照mkcert Github上的安装说明通过源码安装，又首先需要安装go，安装完之后又提示有其他问题，终于发现了这个mkcert的预构建版本。</p><p>在centos下安装命令大致如下：</p><pre><code class="lang-bash">wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.2/mkcert-v1.4.2-linux-amd64cp mkcert-v1.4.2-linux-amd64 /usr/local/bin/mkcertchmod +x /usr/local/bin/mkcertln -snvf /usr/local/bin/mkcert /usr/bin/mkcert</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;没想到安装个mkcert还挺麻烦的，在网上找到教程，基本上都是直接&lt;code&gt;brew install mkcert&lt;/code&gt;，但是这个brew基本上是mac专属命令，当然安装到linux上之后提示不能以root权限运行brew，-_-||。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="mkcert" scheme="https://www.iamlightsmile.com/tags/mkcert/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>部署自签名https</title>
+    <link href="https://www.iamlightsmile.com/articles/%E9%83%A8%E7%BD%B2%E8%87%AA%E7%AD%BE%E5%90%8Dhttps/"/>
+    <id>https://www.iamlightsmile.com/articles/%E9%83%A8%E7%BD%B2%E8%87%AA%E7%AD%BE%E5%90%8Dhttps/</id>
+    <published>2020-11-19T02:24:02.000Z</published>
+    <updated>2020-11-19T03:11:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>需要用到<code>mkcert</code>，安装方式请参考：<a href="http://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mkcert/">centos安装mkcert - lightsmile’s Blog</a></p><a id="more"></a><h2 id="1-部署流程"><a href="#1-部署流程" class="headerlink" title="1.部署流程"></a>1.部署流程</h2><h3 id="1-1-将CA证书加入本地可信CA（可选）"><a href="#1-1-将CA证书加入本地可信CA（可选）" class="headerlink" title="1.1 将CA证书加入本地可信CA（可选）"></a>1.1 将CA证书加入本地可信CA（可选）</h3><pre><code class="lang-bash">(base) ➜  ~ mkcert -installCreated a new local CA 💥The local CA is now installed in the system trust store! ⚡️The local CA is now installed in the Firefox and/or Chrome/Chromium trust store (requires browser restart)! 🦊The local CA is already installed in Java&#39;s trust store! 👍</code></pre><p>这一条其实可选，当执行了这一步流程之后，mkcert使用的根证书就加入了本地可信CA中，以后由该CA签发的证书在本地都是可信的。</p><h3 id="1-2-生成自签名证书"><a href="#1-2-生成自签名证书" class="headerlink" title="1.2 生成自签名证书"></a>1.2 生成自签名证书</h3><pre><code class="lang-bash">(base) ➜  ~ mkcert localhost 127.0.0.1 ::1 49.232.27.108Created a new certificate valid for the following names 📜 - &quot;localhost&quot; - &quot;127.0.0.1&quot; - &quot;::1&quot; - &quot;49.232.27.108&quot;The certificate is at &quot;./localhost+3.pem&quot; and the key at &quot;./localhost+3-key.pem&quot; ✅It will expire on 19 February 2023 🗓</code></pre><p>以上命令会在当前路径生成证书文件和私钥文件，为便于后面使用，可以将该文件放到别的路径，以个人为例，我放到了<code>/root/Data/Web/ssl/</code>下。</p><h3 id="1-3-nginx配置证书文件和私钥文件"><a href="#1-3-nginx配置证书文件和私钥文件" class="headerlink" title="1.3 nginx配置证书文件和私钥文件"></a>1.3 nginx配置证书文件和私钥文件</h3><p>nginx中配置文件内容（默认路径为<code>/etc/nginx/nginx.conf</code>）大致如下：</p><pre><code class="lang-conf">user  root;worker_processes  2;error_log  /var/log/nginx/error.log warn;pid        /var/run/nginx.pid;events {    worker_connections  1024;}http {    include       /etc/nginx/mime.types;    default_type  application/octet-stream;    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;    access_log  /var/log/nginx/access.log  main;    sendfile        on;    #tcp_nopush     on;    keepalive_timeout  65;    #gzip  on;    include /etc/nginx/conf.d/*.conf;    server {        listen 8089 ssl;        # listen 8089;        server_name localhost;        root /root/Data/Web/;        charset utf-8;        index index.html;        ssl_certificate /root/Data/Web/ssl/localhost+3.pem;        ssl_certificate_key /root/Data/Web/ssl/localhost+3-key.pem;        ssl_session_timeout 5m;        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;        ssl_ciphers  HIGH:!aNULL:!MD5;  # 密码加密方式        ssl_prefer_server_ciphers on;        ssl_session_cache shared:SSL:1m;        location / {            root /root/Data/Web/html;            index index.html;        }    }}</code></pre><p>其中<code>/root/Data/Web/ssl/html/index.html</code>内容如下：</p><pre><code class="lang-html">&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;p&gt;Hello world!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre><h3 id="1-4-将CA证书发放给其他用户"><a href="#1-4-将CA证书发放给其他用户" class="headerlink" title="1.4 将CA证书发放给其他用户"></a>1.4 将CA证书发放给其他用户</h3><p>使用以下命令查看CA证书路径并生成crt格式：</p><pre><code class="lang-bash">(base) ➜  ~ mkcert -CAROOT/root/.local/share/mkcert(base) ➜  ~ cd .local/share/mkcert(base) ➜  mkcert lsrootCA-key.pem  rootCA.pem(base) ➜  mkcert cp rootCA.pem rootCA.crt(base) ➜  mkcert lsrootCA.crt  rootCA-key.pem  rootCA.pem</code></pre><p>然后将<code>rootCA.crt</code>文件通过文件传输方式分发给局域网其他电脑。</p><h3 id="1-5-导入CA证书"><a href="#1-5-导入CA证书" class="headerlink" title="1.5 导入CA证书"></a>1.5 导入CA证书</h3><p>Windows和MacOS的导入方式为双击这个文件，在<code>证书导入向导</code>中选择将证书导入<code>受信任的根证书颁发机构</code>，导入成功后我们可以在开始运行中输入<code>certmgr.msc</code>查看证书，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/mkcert3.png" alt="mkcert3"></p><h3 id="1-6-使用https访问服务"><a href="#1-6-使用https访问服务" class="headerlink" title="1.6 使用https访问服务"></a>1.6 使用https访问服务</h3><p>导入该CA证书的局域网其他用户便也可以通过https方法来访问该服务器了，然而需要注意的是浏览器需要先退出然后重新打开，以便于浏览器重新加载信任证书，否则的话还是会提示不安全。</p><p>重新打开后，访问服务可以看到结果如下：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/mkcert2.png" alt="mkcert-https"></p><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2.参考"></a>2.参考</h2><ul><li><a href="https://www.jianshu.com/p/7cb5c2cffaaa" target="_blank" rel="noopener">本地https快速解决方案——mkcert - 简书</a></li><li><a href="https://blog.csdn.net/maokexu123/article/details/42773599" target="_blank" rel="noopener">windows 怎样查看计算机本地安装的证书_如山石的系统虚拟化之路-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;需要用到&lt;code&gt;mkcert&lt;/code&gt;，安装方式请参考：&lt;a href=&quot;http://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mkcert/&quot;&gt;centos安装mkcert - lightsmile’s Blog&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="mkcert" scheme="https://www.iamlightsmile.com/tags/mkcert/"/>
+    
+      <category term="https" scheme="https://www.iamlightsmile.com/tags/https/"/>
+    
+      <category term="ssl" scheme="https://www.iamlightsmile.com/tags/ssl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux内网通过windows主机代理访问外网</title>
+    <link href="https://www.iamlightsmile.com/articles/Linux%E5%86%85%E7%BD%91%E9%80%9A%E8%BF%87windows%E4%B8%BB%E6%9C%BA%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/"/>
+    <id>https://www.iamlightsmile.com/articles/Linux%E5%86%85%E7%BD%91%E9%80%9A%E8%BF%87windows%E4%B8%BB%E6%9C%BA%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91/</id>
+    <published>2020-11-18T12:37:45.000Z</published>
+    <updated>2020-11-19T00:49:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>有时我们会有这样一个场景，即自己的终端设备（如笔记本或台式机）可以通过手机热点或WiFi等形式联网，然而局域网内公司的服务器不能联网，并且有时需要在这台服务器上更新软件等。对于这种需求，我们可以通过搭建代理的方式访问外网。</p><a id="more"></a><h2 id="1-下载并配置代理工具"><a href="#1-下载并配置代理工具" class="headerlink" title="1.下载并配置代理工具"></a>1.下载并配置代理工具</h2><p>具体内容请参考：<a href="https://blog.csdn.net/lxl1531/article/details/109224706" target="_blank" rel="noopener">Linux内网通过windows主机代理访问外网（centos7.6）_lxl1531的博客-CSDN博客</a></p><h2 id="2-配置服务器"><a href="#2-配置服务器" class="headerlink" title="2.配置服务器"></a>2.配置服务器</h2><p>具体内容请参考：<a href="https://www.cnblogs.com/Shepherdzhao/p/7552276.html" target="_blank" rel="noopener">解决CentOS内网机通过Windows下架设代理来访问网络 - XuepengZ - 博客园</a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.cnblogs.com/Shepherdzhao/p/7552276.html" target="_blank" rel="noopener">解决CentOS内网机通过Windows下架设代理来访问网络 - XuepengZ - 博客园</a></li><li><a href="https://blog.csdn.net/lxl1531/article/details/109224706" target="_blank" rel="noopener">Linux内网通过windows主机代理访问外网（centos7.6）_lxl1531的博客-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;有时我们会有这样一个场景，即自己的终端设备（如笔记本或台式机）可以通过手机热点或WiFi等形式联网，然而局域网内公司的服务器不能联网，并且有时需要在这台服务器上更新软件等。对于这种需求，我们可以通过搭建代理的方式访问外网。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>macos软件安装小记</title>
+    <link href="https://www.iamlightsmile.com/articles/macos%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://www.iamlightsmile.com/articles/macos%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/</id>
+    <published>2020-11-15T14:54:49.000Z</published>
+    <updated>2020-11-15T16:14:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-装软件平台"><a href="#1-装软件平台" class="headerlink" title="1.装软件平台"></a>1.装软件平台</h2><ul><li><a href="https://xclient.info/" target="_blank" rel="noopener">精品MAC应用分享</a></li><li><a href="https://www.macwk.com/" target="_blank" rel="noopener">MacWk - 精品mac软件下载</a></li></ul><a id="more"></a><h2 id="2-推荐软件"><a href="#2-推荐软件" class="headerlink" title="2.推荐软件"></a>2.推荐软件</h2><div class="table-container"><table><thead><tr><th>软件名称</th><th>简介</th><th>跨平台情况</th></tr></thead><tbody><tr><td>Iterm2</td><td>macos必备终端</td><td>Mac</td></tr><tr><td>Visual Studio Code</td><td>必备编辑器，强无敌</td><td>Win、Mac、Linux</td></tr><tr><td>Pycharm</td><td>Python开发必备</td><td>Win、Mac、Linux</td></tr><tr><td>Typora</td><td>Markdown编辑器</td><td>Win、Mac、Linux</td></tr><tr><td>Chrome</td><td>网页浏览器</td><td>Win、Mac、Linux</td></tr><tr><td>WeChat</td><td>国人聊天、工作必备</td><td>Win、Mac</td></tr><tr><td>Zotero</td><td>网页收集、整理工具</td><td>Win、Mac、Linux</td></tr><tr><td>Anaconda</td><td>Python开发必备</td><td>Win、Mac、Linux</td></tr><tr><td>Snipaste</td><td>轻量截图工具</td><td>Win、Mac</td></tr><tr><td>Dash</td><td>api查询工具</td><td>Mac</td></tr><tr><td>WPS Office</td><td>办公套件（个人觉得比微软Office更好用）</td><td>Win、Mac、Linux</td></tr><tr><td>网易有道词典</td><td>英语单词查询、句子翻译</td><td>Win、Mac、Linux</td></tr><tr><td>V2RayX</td><td>科学上网</td><td>Mac（别的不清楚，我的Win用的不是这个）</td></tr><tr><td>腾讯会议</td><td>远程会议</td><td>Win、Mac</td></tr><tr><td>AppDelete</td><td>删应用的</td><td>Mac</td></tr><tr><td>Scroll Reverser</td><td>管理鼠标滑动方向的（mac和win不一样）</td><td>Mac</td></tr><tr><td>PicGo</td><td>图床工具</td><td>Win、Mac、Linux</td></tr><tr><td>eZip</td><td>解压缩工具（用不起BandiZip，难受）</td><td>Mac</td></tr><tr><td>QSpace</td><td>多视图文件管理器</td><td>Mac（App Store，收费）</td></tr><tr><td>Hidden Bar</td><td>任务栏图标隐藏小工具</td><td>Mac</td></tr><tr><td>Rectangle</td><td>窗口管理工具</td><td>Mac</td></tr></tbody></table></div><h2 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3.注意事项"></a>3.注意事项</h2><h3 id="3-1-无法安装网上下载的软件"><a href="#3-1-无法安装网上下载的软件" class="headerlink" title="3.1 无法安装网上下载的软件"></a>3.1 无法安装网上下载的软件</h3><p>可以参考这个教程：<a href="https://www.macwk.com/article/mac-file-damage" target="_blank" rel="noopener">macOS 10.14及以下xxx已损坏，打不开。您应该将它移到废纸篓以及来自身份不明的开发者的解决方法</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-装软件平台&quot;&gt;&lt;a href=&quot;#1-装软件平台&quot; class=&quot;headerlink&quot; title=&quot;1.装软件平台&quot;&gt;&lt;/a&gt;1.装软件平台&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://xclient.info/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;精品MAC应用分享&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.macwk.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MacWk - 精品mac软件下载&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="macos" scheme="https://www.iamlightsmile.com/categories/macos/"/>
+    
+    
+      <category term="macos" scheme="https://www.iamlightsmile.com/tags/macos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>标准答案</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%A0%87%E5%87%86%E7%AD%94%E6%A1%88/</id>
+    <published>2020-11-13T03:23:31.000Z</published>
+    <updated>2020-11-13T04:29:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自始至终，一直都觉得现在许多教程都有些问题。看个教材或者文章，一般的思路总是先讲基础历史，然后引出基本概念，然后介绍相关内容，以及高级用法等。这样做很标准规范，但是正如上学时期的参考答案或者标准答案，正确但不够有趣。</p><a id="more"></a><p>我的初中数学老师讲课方式很独特：不让学生们提前预习教材。别的科目或者别的数学老师都要求学生们提前预习课程，等老师讲的时候就比较顺畅，哪里搞不清楚就问哪里，老师也轻松。</p><p>但是我的数学老师则非常反对这样的形式，她认为这种方式下学生们的认识就会先入为主，只能做到“只知其然，而不知其所以然”，即仿佛这种东西或概念原本就存在，这个事物应该就是这个样子也必然就是这个样子，而它的发明者只是海边捡贝壳的小男孩，碰巧发现而已。</p><p>我的数学老师就喜欢在课堂上一点一点把这个概念引出来，即没有它是什么样、我们可能去尝试哪些思路，中间如何探索，然后最终在循循善诱下老师要讲的新概念、新方法也就呼之欲出了。换句话说，老师会用一种通俗易懂的方式带领我们再走一遍前人探索的道路，这是一条打破常规、创造新事物的道路。</p><p>她极力认为应该让学生们学到如何学习、探索新知的能力和方法，要有不迷信权威、勇于探索另辟蹊径的理念，即授之于渔而非授之于鱼。比如说，她有时会在一节课堂上只讲一道题，但是她会讲多种方法，但更多的情况是她希望这些不同的方法都是同学们自己想出来的，即老师抛出问题，然后不同的同学举手回答，最开始的同学的解题思路可能是最基础常规的，然后老师便欢迎其他的人有不同的思路，直到没有更多不同的方法为止，在这个过程中我们不断地练习着从多个角度看待问题、解决问题。</p><p>举个例子：当时学概率的时候，老师问两枚硬币独立投掷的正反面情况，当时一个同学认为两正：两反：一正一反的比例为1:1:2，而我则想当然的认为就三种情况（脑子里也没有多少等概率啥的概念）是1:1:1，于是我们就在讲台上做起了实验，一直抛到比例挺接近1:1:2而我则不得不懵逼的服气为止。而这个过程，如果是预习了课本教材是不会有那种深刻的体会的。</p><p>我一直都非常感激我的这位数学老师，在初高中阶段也很喜欢数学，也非常享受用新的方法解出题目的成就感，甚至于会偏科到其他课上想数学题，没事了就总结些等式规律，一上数学课就兴奋激动跟打了鸡血似的，一上理综课就无聊难受地要死。由于那个时候并没有搞奥赛的班子或者氛围，自己也没有走上相关的道路。</p><p>这种老师我是真心觉得可遇不可求。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自始至终，一直都觉得现在许多教程都有些问题。看个教材或者文章，一般的思路总是先讲基础历史，然后引出基本概念，然后介绍相关内容，以及高级用法等。这样做很标准规范，但是正如上学时期的参考答案或者标准答案，正确但不够有趣。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>给docker-neo4j增加healthcheck</title>
+    <link href="https://www.iamlightsmile.com/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/"/>
+    <id>https://www.iamlightsmile.com/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/</id>
+    <published>2020-11-13T01:29:28.000Z</published>
+    <updated>2020-11-13T01:52:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-正确的打开方式"><a href="#1-正确的打开方式" class="headerlink" title="1.正确的打开方式"></a>1.正确的打开方式</h2><p>由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过<code>curl -f localhost:7474 || exit 1</code>这样的指令来去判断neo4j容器是否运行正常，这样得到的结果总是unhealthy。</p><a id="more"></a><p>正确的打开方式应该是：</p><pre><code class="lang-yml">healthcheck:    test: [&quot;CMD-SHELL&quot;, &quot;echo &#39;match (n) return count(n);&#39; | bin/cypher-shell -a bolt://localhost:7687 -u neo4j -p xxx || exit 1&quot;]</code></pre><p>对于选择授权的neo4j容器而言，需要指定上面的用户名和密码。</p><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2.参考"></a>2.参考</h2><ul><li><a href="https://medium.com/better-programming/docker-healthchecks-eb744bfe3f3b" target="_blank" rel="noopener">How to Implement Docker Health Checks | by Nassos Michas | Better Programming | Medium</a></li><li><a href="https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/" target="_blank" rel="noopener">Cypher Shell - Operations Manual</a></li><li><a href="https://neo4j.com/developer/kb/how-do-i-authenticate-with-cypher-shell-without-specifying-the-username-and-password-on-the-command-line/" target="_blank" rel="noopener">Neo4j : How do I authenticate with cypher-shell without specifying the username and password on the command line - Neo4j Graph Database Platform</a></li><li><a href="https://github.com/neo4j/docker-neo4j/issues/114" target="_blank" rel="noopener">Unable to probe health when composing · Issue #114 · neo4j/docker-neo4j</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-正确的打开方式&quot;&gt;&lt;a href=&quot;#1-正确的打开方式&quot; class=&quot;headerlink&quot; title=&quot;1.正确的打开方式&quot;&gt;&lt;/a&gt;1.正确的打开方式&lt;/h2&gt;&lt;p&gt;由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过&lt;code&gt;curl -f localhost:7474 || exit 1&lt;/code&gt;这样的指令来去判断neo4j容器是否运行正常，这样得到的结果总是unhealthy。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
+    
+      <category term="neo4j" scheme="https://www.iamlightsmile.com/tags/neo4j/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录macos下配置hexo博客经历</title>
+    <link href="https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/"/>
+    <id>https://www.iamlightsmile.com/articles/%E8%AE%B0%E5%BD%95macos%E4%B8%8B%E9%85%8D%E7%BD%AEhexo%E5%8D%9A%E5%AE%A2%E7%BB%8F%E5%8E%86/</id>
+    <published>2020-11-12T13:02:57.000Z</published>
+    <updated>2020-11-12T13:58:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。</p><a id="more"></a><h2 id="1-拷贝项目文件"><a href="#1-拷贝项目文件" class="headerlink" title="1.拷贝项目文件"></a>1.拷贝项目文件</h2><p>自己的项目文件其实也通过git管理了，但是不知为何在mac下使用<code>npm install</code>命令老是无法完成安装node_modules。同时自己现在还在用2.6.5版本的volantis主题，而官方都已经更新到v4了，但是自己目前也没有必要迁移到新版本的需求和精力，于是就继续沿用Windows上的旧主题了，于是乎通过选择将整个项目打包压缩然后通过U盘拷到Mac上（如果不压缩打包实在是有些太慢了，因为这些node包的js的细碎文件实在是太多了）</p><h2 id="2-配置hexo路径"><a href="#2-配置hexo路径" class="headerlink" title="2.配置hexo路径"></a>2.配置hexo路径</h2><p>hexo可执行文件在node_modules下的.bin文件下，如果直接执行<code>hexo new xx</code>之类的命令，需要先将该路径添加到PATH变量中，于是乎可以在<code>~/.bash_profile</code>或者<code>~/.zshrc</code>中添加：</p><pre><code class="lang-bash"># hexoexport PATH=&quot;$PATH:/Users/lightsmile/Projects/myProjects/MyBlog//node_modules/.bin&quot;</code></pre><p>上面具体的路径要根据具体情况做出变动。</p><h2 id="3-配置node"><a href="#3-配置node" class="headerlink" title="3.配置node"></a>3.配置node</h2><p>hexo配置完成后，可以正常执行<code>hexo new</code>命令，但是无法执行<code>hexo generate -d</code>命令，google后发现是node版本太新的问题，需要安装旧版本的node，参考文章2中提到v12.14没有问题，于是接下来打算装一下这个版本。</p><h2 id="4-安装nvm"><a href="#4-安装nvm" class="headerlink" title="4.安装nvm"></a>4.安装nvm</h2><p>如果conda可以管理多个版本的Python环境一样，nvm也是用于管理node环境的工具，于是乎直接<code>brew install nvm</code>安装，没想到安装失败，只能去GitHub官方网页上找安装方式，需要执行如下命令：</p><pre><code class="lang-bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash</code></pre><p>或者</p><pre><code class="lang-bash">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash</code></pre><p>于是乎便执行curl命令，没想到报443的错误，想到可能是代理的问题，于是继续Google寻找解决方案。</p><h2 id="5-安装proxychains-ng"><a href="#5-安装proxychains-ng" class="headerlink" title="5.安装proxychains-ng"></a>5.安装proxychains-ng</h2><p>Google后找到了参考3，然后参考3提到了参考4，于是乎安装<code>proxychains-ng</code>。</p><pre><code class="lang-bash">brew install proxychains-ng</code></pre><p>安装人家的教程修改了<code>/usr/local/etc/proxychains.conf</code>后发现还是不行，然后又发现了参考5，按照参考5增加了变动之后发现还是下载失败，后来看参考3的评论中发现了可行的方案：<strong>其实设置DNS为114.114.114.114或者8.8.8.8就好了。</strong>。</p><h2 id="6-配置DNS"><a href="#6-配置DNS" class="headerlink" title="6.配置DNS"></a>6.配置DNS</h2><p>详情参见参考6，dns内容我设置的为8.8.8.8，经测试有效。</p><h2 id="7-继续下载nvm并配置node"><a href="#7-继续下载nvm并配置node" class="headerlink" title="7.继续下载nvm并配置node"></a>7.继续下载nvm并配置node</h2><p>nvm下载完成之后还是找不到，然后自己执行了下<code>source ~/.bash_profile</code>，然后出于保险又把相关命令复制到了<code>~/.zshrc</code>中一份，相关命令如下：</p><pre><code class="lang-bash">export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><h2 id="8-配置nvm镜像源"><a href="#8-配置nvm镜像源" class="headerlink" title="8.配置nvm镜像源"></a>8.配置nvm镜像源</h2><p>使用nvm安装node命令如下：</p><pre><code class="lang-bash">nvm install 12.14</code></pre><p>然后发现nvm会直接从node的官网去下载，于是乎又失败了，只能配置镜像源，配置方式为将如下命令添加到<code>~/.zshrc</code>中：</p><pre><code class="lang-bash">export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node</code></pre><p>配置完成之后更新一下zshrc（即执行命令<code>source ~/.zshrc</code>）然后继续执行install命令便可成功下载。</p><p>然后切换成12.14版本的node，切换命令如下：</p><pre><code class="lang-bash">nvm use 12.14</code></pre><p>然后程序便提示已经成功切换。</p><h2 id="9-参考"><a href="#9-参考" class="headerlink" title="9.参考"></a>9.参考</h2><ol><li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档 | Hexo</a></li><li><a href="https://zhuanlan.zhihu.com/p/136552969" target="_blank" rel="noopener">部署Hexo踩过的坑—node14.0配置hexo - 知乎</a></li><li><a href="https://zhuanlan.zhihu.com/p/115450863" target="_blank" rel="noopener">Failed to connect to raw.githubusercontent.com:443 - 知乎</a></li><li><a href="https://zhuanlan.zhihu.com/p/124199138" target="_blank" rel="noopener">使用 proxychains-ng 代理命令行 - 知乎</a></li><li><a href="https://guangchuangyu.github.io/cn/2018/09/proxychains/" target="_blank" rel="noopener">一次解决所有代理问题</a></li><li><a href="https://www.jianshu.com/p/a150b13a2031" target="_blank" rel="noopener">Mac ：修改 DNS 及清除 DNS 缓存 - 简书</a></li><li><a href="https://www.jianshu.com/p/bc56e70303f7" target="_blank" rel="noopener">NVM配置国内镜像 - 简书</a></li><li><a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener">nvm-sh/nvm: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自己整了台新Mac，这里简单记录一下同步hexo博客的经历过程，还是有些繁琐的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="macos" scheme="https://www.iamlightsmile.com/tags/macos/"/>
+    
+      <category term="hexo" scheme="https://www.iamlightsmile.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置docker容器内时间</title>
+    <link href="https://www.iamlightsmile.com/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/"/>
+    <id>https://www.iamlightsmile.com/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/</id>
+    <published>2020-11-12T08:56:35.000Z</published>
+    <updated>2020-11-12T09:00:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-通过文件挂载形式设置与宿主机时间一致"><a href="#1-通过文件挂载形式设置与宿主机时间一致" class="headerlink" title="1. 通过文件挂载形式设置与宿主机时间一致"></a>1. 通过文件挂载形式设置与宿主机时间一致</h2><p>可以在<code>docker-compose</code>文件中设置如下：</p><pre><code class="lang-yml">volumes:    - &quot;/etc/localtime:/etc/localtime:ro&quot;  # 容器只能从主机的/etc/localtime中读取</code></pre><h2 id="2-设置timezone"><a href="#2-设置timezone" class="headerlink" title="2. 设置timezone"></a>2. 设置timezone</h2><p>如设置时区为上海，可在docker容器内部执行：</p><pre><code class="lang-bash">echo &#39;Asia/Shanghai&#39; &gt; /etc/timezone</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-通过文件挂载形式设置与宿主机时间一致&quot;&gt;&lt;a href=&quot;#1-通过文件挂载形式设置与宿主机时间一致&quot; class=&quot;headerlink&quot; title=&quot;1. 通过文件挂载形式设置与宿主机时间一致&quot;&gt;&lt;/a&gt;1. 通过文件挂载形式设置与宿主机时间一致&lt;/h2
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存机制与产品经理</title>
+    <link href="https://www.iamlightsmile.com/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    <id>https://www.iamlightsmile.com/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</id>
+    <published>2020-11-12T07:19:44.000Z</published>
+    <updated>2020-11-12T07:54:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。</p><p>同事用到的Python的缓存库为<a href="https://github.com/pallets/cachelib" target="_blank" rel="noopener">pallets/cachelib</a>，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。</p><a id="more"></a><p>于是乎只能瞜一眼同事大概是咋用的，然后再读一下这个库的源码，发现还挺简洁的。</p><p>在大致读完代码之后，心里不禁感慨，这个缓存机制真的不错。犹记得，上大学时的计算机系统结构的老师问道：在计算机的发展历史中，引入的哪个功能或组件解决了痛点而又没有引入其他副作用？老师说唯一的答案就是缓存机制。但是当时还不能理解其真正含义。</p><p>打算再看看关于缓存机制介绍的更多的文章，google一下，发现都是讲浏览器缓存的，而我想看些关于机制介绍的更广的东西。</p><p>后来发现了这两篇文章：<a href="http://www.woshipm.com/pmd/856507.html" target="_blank" rel="noopener">浅析互联网中的缓存机制 | 人人都是产品经理</a>以及<a href="https://wizardforcel.gitbooks.io/django-book-20-zh-cn/content/15.html" target="_blank" rel="noopener">第十五章： 缓存机制| Django Book 2.0 中文版</a>，两个也都讲的挺详细的。</p><p>令我没想到的是，有人作为一个产品经理能够将关于缓存机制的东西总结的这么好。于是我不禁反思，一个合格的产品经理应该懂些技术，而一个合格的程序员似乎也应该懂些产品相关的东西，而不应该仅仅着眼于技术实现的层面，更应该以产品经理为师，学习借鉴他们看待问题的视角和方法，提升自己看待问题的层面。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。&lt;/p&gt;
+&lt;p&gt;同事用到的Python的缓存库为&lt;a href=&quot;https://github.com/pallets/cachelib&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pallets/cachelib&lt;/a&gt;，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="产品经理" scheme="https://www.iamlightsmile.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+      <category term="缓存机制" scheme="https://www.iamlightsmile.com/tags/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim更新及安装插件教程</title>
+    <link href="https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/"/>
+    <id>https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/</id>
+    <published>2020-11-12T03:13:06.000Z</published>
+    <updated>2020-11-12T04:26:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里简单记录一下自己安装vim以及安装插件的过程。</p><blockquote><p><strong>注意</strong>：以下安装过程适用于Linux以及Macos系统。</p></blockquote><a id="more"></a><h2 id="1-安装vim-plug"><a href="#1-安装vim-plug" class="headerlink" title="1.安装vim-plug"></a>1.安装vim-plug</h2><pre><code class="lang-bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></pre><h2 id="2-配置vim配置文件"><a href="#2-配置vim配置文件" class="headerlink" title="2.配置vim配置文件"></a>2.配置vim配置文件</h2><p>编辑<code>~/.vimrc</code>文件，如我的<code>~/.vimrc</code>文件下内容目前如下：</p><pre><code class="lang-txt">set encoding=UTF-8set numberset autoindentcall plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;ryanoasis/vim-devicons&#39;Plug &#39;scrooloose/nerdtree&#39;Plug &#39;frazrepo/vim-rainbow&#39;Plug &#39;itchyny/lightline.vim&#39;Plug &#39;junegunn/fzf&#39;Plug &#39;airblade/vim-gitgutter&#39;call plug#end()map &lt;F3&gt; :NERDTreeMirror&lt;CR&gt;map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</code></pre><h2 id="3-安装vim插件"><a href="#3-安装vim插件" class="headerlink" title="3.安装vim插件"></a>3.安装vim插件</h2><pre><code class="lang-bash"># 进入vim中vim</code></pre><p>以下命令均是在vim下执行</p><pre><code class="lang-bash"># 查看vim相关信息:version# 更新vimrc文件（可选）:source ~/.vimrc# 查看插件状态:PlugStatus# 安装插件:PlugInstall</code></pre><h2 id="4-配置终端字体"><a href="#4-配置终端字体" class="headerlink" title="4.配置终端字体"></a>4.配置终端字体</h2><p>使用<code>nerdtree</code>插件以及<code>vim-devicons</code>插件便可以实现vim下目录或文件的图标效果，但前提是启用了支持终端图标效果的字体，这里我们需要去<a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener">ryanoasis/nerd-fonts</a>下载。</p><p>关于字体安装，如果是windows系统或者macos系统可以直接双击文件进行安装，如果是Linux的话，可以参考<a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a>进行配置安装。</p><p>然后设置终端字体为支持Nerd的字体，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim1.png" alt="pic1"></p><p>然后打开vim可以看到如下效果：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim2.png" alt="pic2"></p><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">junegunn/vim-plug: Minimalist Vim Plugin Manager</a></li><li><a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a></li><li><a href="https://www.jianshu.com/p/0c83e6aed270" target="_blank" rel="noopener">Vim-plug：极简 Vim 插件管理器 - 简书</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里简单记录一下自己安装vim以及安装插件的过程。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下安装过程适用于Linux以及Macos系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos更新vim</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/</id>
+    <published>2020-11-12T03:11:37.000Z</published>
+    <updated>2020-11-12T04:25:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）</p><a id="more"></a><blockquote><p><strong>注意</strong>：以下命令我都是在root账户下执行的，如果是在普通用户下执行可以选择su切换到root或者前面增加sudo命令。</p></blockquote><h2 id="1-安装依赖库"><a href="#1-安装依赖库" class="headerlink" title="1.安装依赖库"></a>1.安装依赖库</h2><p>源码编译需要安装make、git等工具，但是一般而言服务器上都有，同时教程提到了安装python36，然而现在最新的python都已经到了3.9了，我通过conda安装的python版本环境是3.8，所以并没有严格安装教程来执行相关命令。</p><pre><code class="lang-bash">yum install ncurses-devel</code></pre><h2 id="2-克隆Github的vim项目"><a href="#2-克隆Github的vim项目" class="headerlink" title="2.克隆Github的vim项目"></a>2.克隆Github的vim项目</h2><p>首先切换到一个惯常放置Github项目的目录，如我的在<code>/root/Projects/GithubProjects</code>，然后再执行以下命令，当然位置在哪不大要紧。</p><pre><code class="lang-bash">git clone https://github.com/vim/vim.git</code></pre><h2 id="3-配置并编译vim"><a href="#3-配置并编译vim" class="headerlink" title="3.配置并编译vim"></a>3.配置并编译vim</h2><pre><code class="lang-bash">// 进入项目cd vim// 配置参数./configure --prefix=/usr/local/vim  --enable-pythoninterp=yes --enable-python3interp=yes --with-python-command=python --with-python3-command=python// 编译文件，可能需要使用sudo权限makemake install</code></pre><h2 id="4-复制Vim到系统配置，并修改Profile"><a href="#4-复制Vim到系统配置，并修改Profile" class="headerlink" title="4.复制Vim到系统配置，并修改Profile"></a>4.复制Vim到系统配置，并修改Profile</h2><pre><code class="lang-bash">// 复制前可以备份一下cp /usr/bin/vim /usr/bin/vim.backup// 复制前面编译的vim到系统配置cd /root/Projects/GithubProjects/vim/srccp vim /usr/bin// 修改系统的Profileecho &quot;PATH=\$PATH:/usr/local/vim/bin&quot; &gt;&gt; /etc/profile// 运行刚修改的配置。source /etc/profile// 最后，check versionvim --version// 同时，也能看到它支持Python3了。(7.4是不支持的。)</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://www.jianshu.com/p/b44d568aef9f" target="_blank" rel="noopener">CentOS, Vim7.4升级到8.1 (服务器) — 亲试可行 - 简书</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开放式信息抽取探索（1）</title>
+    <link href="https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/"/>
+    <id>https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/</id>
+    <published>2020-11-05T07:41:56.000Z</published>
+    <updated>2020-11-12T03:22:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。</p><p>这里简单记录下自己的探索历程和内心感受。</p><a id="more"></a><h2 id="任务划分"><a href="#任务划分" class="headerlink" title="任务划分"></a>任务划分</h2><p>信息抽取主要包含实体抽取、关系抽取和事件抽取，这里主要关注事件抽取。</p><h2 id="可以用监督学习模型吗"><a href="#可以用监督学习模型吗" class="headerlink" title="可以用监督学习模型吗"></a>可以用监督学习模型吗</h2><p>因为是开放式信息抽取，没有标记语料和训练带标签数据的过程，甚至说事件的种类都不是固定已知的，所以不能用监督学习模型。</p><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>打算借助基础nlp工具LTP，调研依存句法、语义角色标注、语义依存分析等功能。</p><h2 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h2><p>经过简单对比，觉得语义角色标注有遗漏的情况，而依存句法和语义依存效果相对较好，同时语义依存结果相对复杂，同时还存在一定的Bug。所以选择使用依存句法去入手。</p><h2 id="调研相关文章和开源项目"><a href="#调研相关文章和开源项目" class="headerlink" title="调研相关文章和开源项目"></a>调研相关文章和开源项目</h2><p>在调研网上其他的基于句法的开放式信息抽取的文章和项目时，发现了<a href="https://github.com/lemonhu/open-entity-relation-extraction" target="_blank" rel="noopener">lemonhu/open-entity-relation-extraction: Knowledge triples extraction and knowledge base construction based on dependency syntax for open domain text.</a>。觉得该项目和我要做的相近，于是调研了其代码实现，发现里面的规则是硬编码的，写的比较死，拓展性比较差，于是便思索是否有别的更好的方案。</p><h2 id="新的想法"><a href="#新的想法" class="headerlink" title="新的想法"></a>新的想法</h2><p>苦思冥想着觉得这些规则不应该硬编码，而是别的可拓展或易于修改的方式。后来突然想到树也算图的一种特殊结构，所以树的遍历、树的路径匹配也可以看做图的遍历、图的子图的路径匹配，而最近刚搞了Neo4j，Neo4j自然可以视作一个高效的图计算引擎，因此将句法分析和Neo4j结合在一起搞的想法便初步形成了。相应的，实体可以看做图的节点，实体在事件中所扮演的角色可以看做是到中心词（动词）的边，依存树中的定语（和实体构成定中修饰关系）可以视作实体节点的属性，而状语作为对中心词（动词）的修饰可以视作事件中心词的属性。所以由依存树到知识图谱便对应起来了。于是乎我们可以去构建Cypher查询语句来实现实体和事件的抽取。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/openoie-neo4j.png" alt="pic1"></p><h2 id="深入Neo4j"><a href="#深入Neo4j" class="headerlink" title="深入Neo4j"></a>深入Neo4j</h2><p>由于涉及到一些图遍历相关的东西，所以自己便想着通过使用Neo4j的apoc拓展库来实现，之前使用了<code>apoc.path.expand</code>，不过后来发现自己用错了，更应该用的是<code>apoc.path.subgraphNodes</code>，然后写了几个语法发现在一些Case上的提取结果还算不错。</p><h2 id="就难受住"><a href="#就难受住" class="headerlink" title="就难受住"></a>就难受住</h2><p>不过当Case变得复杂的时候，发现依存句法解析的有些问题，自然也就导致部分提取不到，于是自己内心就变得沮丧了起来。这是自己想解决的问题呀，可是好难，自己也不知如何去实现，就难受住。</p><h2 id="柳暗花明"><a href="#柳暗花明" class="headerlink" title="柳暗花明"></a>柳暗花明</h2><p>后来想着要不试试别的工具的效果，包括语义角色标注和语义依存分析，结果竟然发现语义角色标注的解析结果还真的挺好的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。&lt;/p&gt;
+&lt;p&gt;这里简单记录下自己的探索历程和内心感受。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    
+    
+      <category term="信息抽取" scheme="https://www.iamlightsmile.com/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
+    
+  </entry>
   
   <entry>
     <title>求职随记</title>
@@ -155,348 +515,6 @@
       <category term="Nodejs" scheme="https://www.iamlightsmile.com/tags/Nodejs/"/>
     
       <category term="Ubuntu" scheme="https://www.iamlightsmile.com/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常用工具</title>
-    <link href="https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-    <id>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</id>
-    <published>2020-10-18T04:37:21.000Z</published>
-    <updated>2020-10-18T04:37:21.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用docker遇到的问题</title>
-    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2020-10-17T11:14:13.000Z</published>
-    <updated>2020-10-22T03:09:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-容器内文件无法删除"><a href="#1-容器内文件无法删除" class="headerlink" title="1.容器内文件无法删除"></a>1.容器内文件无法删除</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>最近使用docker部署项目，结果发现docker里的文件无法删除，于是开始Google寻求解决方案。</p><a id="more"></a><h3 id="探索过程"><a href="#探索过程" class="headerlink" title="探索过程"></a>探索过程</h3><p>刚开始搜到<a href="https://www.escapelife.site/posts/d9b10b4c.html" target="_blank" rel="noopener">Docker容器内文件无法删除 | Escape</a>，还以为是Centos7本身的bug，但是还是怀疑这种常见的问题应该早就被修复掉了，不应该像文档中那么麻烦。</p><p>之前的问题使用的是公司的内网服务器，Centos7系统；然而自己在自己的腾讯云Centos7系统上也测试了一下删除文件，发现就没有问题。同时自己在使用docker的neo4j容器时遇到了访问文件受限的问题，根据错误信息发现了该issue：<a href="https://github.com/neo4j/docker-neo4j/issues/266" target="_blank" rel="noopener">uid and gid change · Issue #266 · neo4j/docker-neo4j</a>，发现里面提到了docker版本的bug。发现自己服务器上的docker版本比较新，同时检查了下公司内网服务器中的docker版本还挺老旧的。于是网上搜索docker升级命令，找到了<a href="https://www.cnblogs.com/operationhome/p/11322150.html" target="_blank" rel="noopener">Docker 更新版本 - 自由早晚乱余生 - 博客园</a>。这篇文档写的很详细，在遇到的问题部分中提到了Linux内核版本的问题，自己又查看对比了下自己服务器和内网机内核版本，发现差别还真挺大的。内网机版本号才300多，而自己的都900多了。其中文档提到版本号514是个坎。</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>升级系统内核版本+升级docker版本就可以解决该问题。</p><h2 id="2-debian操作系统离线安装docker以及docker-compose"><a href="#2-debian操作系统离线安装docker以及docker-compose" class="headerlink" title="2.debian操作系统离线安装docker以及docker-compose"></a>2.debian操作系统离线安装docker以及docker-compose</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>不知道怎么离线安装，网上找教程即可。</p><h3 id="探索过程-1"><a href="#探索过程-1" class="headerlink" title="探索过程"></a>探索过程</h3><p>找到的两篇文章：</p><ul><li><a href="https://blog.csdn.net/qq_23287943/article/details/96124441" target="_blank" rel="noopener">基于凝思磐石&amp;debian内网环境搭建docker集群_解忧小童子-CSDN博客</a></li><li><a href="https://www.cnblogs.com/nihaorz/p/12123803.html" target="_blank" rel="noopener">debian 10.x (buster) 离线安装docker及卸载 - Nihaorz - 博客园</a></li></ul><p>其中第一篇同时提到了安装docker和docker-compose，第二篇只提到了安装docker但是更加详细。</p><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>参照上面第二篇文档安装docker，参照上面第一篇文档安装docker-compose。</p><p>类似的一键安装脚本可以写成：</p><pre><code class="lang-bash">#!/bin/bash# install dockerdpkg -i containerd.io_1.3.7-1_amd64.debdpkg -i docker-ce-cli_19.03.9~3-0~debian-buster_amd64.debdpkg -i docker-ce_19.03.9~3-0~debian-buster_amd64.deb# check docker versiondocker info# install docker-composecp docker-compose-Linux-x86_64 /usr/local/bin/docker-composechmod +x /usr/local/bin/docker-composeln -snvf /usr/local/bin/docker-compose /usr/bin/docker-compose# check docker-compose versiondocker-compose -v</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-容器内文件无法删除&quot;&gt;&lt;a href=&quot;#1-容器内文件无法删除&quot; class=&quot;headerlink&quot; title=&quot;1.容器内文件无法删除&quot;&gt;&lt;/a&gt;1.容器内文件无法删除&lt;/h2&gt;&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;最近使用docker部署项目，结果发现docker里的文件无法删除，于是开始Google寻求解决方案。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker常用命令</title>
-    <link href="https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2020-10-14T07:06:18.000Z</published>
-    <updated>2020-10-22T03:13:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-查看容器内系统版本"><a href="#1-查看容器内系统版本" class="headerlink" title="1.查看容器内系统版本"></a>1.查看容器内系统版本</h2><pre><code class="lang-bash">cat /etc/issue</code></pre><blockquote><p><strong>注意</strong>：不能使用<code>cat /proc/version</code> 或 <code>uname -a</code>，因为docker并不能隔离像/dev、/proc的目录，这些都是直接挂载的宿主机的。所以，很多命令像free top之类的命令，其实看到的都是宿主机的。因为这些命令都是基于/proc下的信息统计出来的</p></blockquote><p>参考：<a href="https://blog.csdn.net/c461522756/article/details/70822234" target="_blank" rel="noopener">docker容器中查看容器linux版本_貌似爽歪歪的博客-CSDN博客</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-查看容器内系统版本&quot;&gt;&lt;a href=&quot;#1-查看容器内系统版本&quot; class=&quot;headerlink&quot; title=&quot;1.查看容器内系统版本&quot;&gt;&lt;/a&gt;1.查看容器内系统版本&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;lang-bash&quot;&gt;cat /etc
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>知识库学习心得随记</title>
-    <link href="https://www.iamlightsmile.com/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/"/>
-    <id>https://www.iamlightsmile.com/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/</id>
-    <published>2020-10-10T08:13:47.000Z</published>
-    <updated>2020-10-10T08:28:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近在看一些知识库的项目，自己小有体会，这里简单记录一下。</p><a id="more"></a><p>近几个月来，出于项目需要，自己简单学习了下Elasticsearch，并且重新学习了下Neo4j。我发现看的知识库的项目所使用的数据库不尽相同，有基于Neo4j的，有基于Elasticsearch的，有基于MongoDB的，这不禁令我反思。</p><p>这些数据库的相似之处在于都非关系型数据库，不同之处在于各自所更能适配的数据类型不同。Neo4j更适配的数据是那些数据类型简单但之间关系复杂多样化的，Elasticsearch更适配的数据或者说场景是待检索的数据尤其是需要定制复杂规则过滤排序的数据，而MongoDB则更加通用一些。</p><p>在实际项目中，对于数据量比较小或者业务场景比较简单的情况下，其实这三种数据库基本都能完成需求；而只有当数据的量级很大（比如在上百万条）以及业务场景比较复杂的情况下，三种各自的优劣才能比较明显的体现出来。数据库之间也没有通用的优劣高低之分，只有哪个更适配任务的数据类型和场景之分。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在看一些知识库的项目，自己小有体会，这里简单记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="知识库" scheme="https://www.iamlightsmile.com/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Neo4j使用小记</title>
-    <link href="https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/"/>
-    <id>https://www.iamlightsmile.com/articles/Neo4j%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/</id>
-    <published>2020-10-10T07:54:55.000Z</published>
-    <updated>2020-10-10T08:28:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用社区版Neo4j时有一些注意事项，这里简单小记一下。</p><a id="more"></a><h2 id="1-一台机器启动多个Neo4j数据库"><a href="#1-一台机器启动多个Neo4j数据库" class="headerlink" title="1.一台机器启动多个Neo4j数据库"></a>1.一台机器启动多个Neo4j数据库</h2><p>最好的方式，甚至是唯一的选择是使用Docker。</p><p>现在版本（4.0以上）的Neo4j貌似不能使用拷贝程序到不同目录设置不同端口执行了。</p><p>我们可以在Neo4j社区版中创建多个数据库，但是同时只能使用一个。</p><p>如图，只有默认数据库和系统数据库可以切换，其他的数据库的状态是未连接的。</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/neo4j_show_databases.png" alt=""></p><p>如果需要创建多个数据库，那么我们只需要在neo4j的配置文件即<code>neo4j.conf</code>中<code>dbms.default_database=baike</code>一行设置新的数据库名并重启neo4j即可，如前句中为<code>baike</code>。</p><p>相应的，如果需要切换数据库，则只能先修改neo4j.conf配置文件的default_database选项，然后重启neo4j。</p><h2 id="2-Neo4j使用的Apoc需要配套版本"><a href="#2-Neo4j使用的Apoc需要配套版本" class="headerlink" title="2.Neo4j使用的Apoc需要配套版本"></a>2.Neo4j使用的Apoc需要配套版本</h2><p>具体在<a href="https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases" target="_blank" rel="noopener">Releases · neo4j-contrib/neo4j-apoc-procedures</a>页下载。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用社区版Neo4j时有一些注意事项，这里简单小记一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="Neo4j" scheme="https://www.iamlightsmile.com/tags/Neo4j/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>flask+vue实现文件上传下载</title>
-    <link href="https://www.iamlightsmile.com/articles/flask-vue%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/"/>
-    <id>https://www.iamlightsmile.com/articles/flask-vue%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</id>
-    <published>2020-09-17T15:38:11.000Z</published>
-    <updated>2020-09-17T15:55:31.639Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>自己尝试着用Vue+Flask实现了下文件上传下载的功能，初步试验成功可行~</p><a id="more"></a><h2 id="1-后端代码"><a href="#1-后端代码" class="headerlink" title="1.后端代码"></a>1.后端代码</h2><pre><code class="lang-python">import osfrom flask import Flask, render_template, request, jsonify, send_from_directoryfrom werkzeug.utils import secure_filenamefrom flask_cors import CORSapp = Flask(__name__)CORS(app, supports_credentials=True)app.config[&#39;UPLOAD_FOLDER&#39;] = &#39;upload&#39;for file in os.listdir(app.config[&#39;UPLOAD_FOLDER&#39;]):    print(file)@app.route(&#39;/file_list&#39;, methods = [&#39;GET&#39;, &#39;POST&#39;])def file_list():    return jsonify({        &#39;file_list&#39;: [{&#39;name&#39;: name} for name in os.listdir(app.config[&#39;UPLOAD_FOLDER&#39;])]    })@app.route(&#39;/download/&lt;string:file_name&gt;&#39;, methods = [&#39;POST&#39;])def download(file_name: str):    print(file_name)    print(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;], file_name))    return send_from_directory(app.config[&#39;UPLOAD_FOLDER&#39;], file_name, as_attachment=True)@app.route(&#39;/upload&#39;, methods = [&#39;GET&#39;, &#39;POST&#39;])def uploader():   if request.method == &#39;POST&#39;:        print(request.files)        f = request.files[&#39;file&#39;]        print(f.filename)        print(secure_filename(f.filename))        # f.save(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;],secure_filename(f.filename)))        f.save(os.path.join(app.config[&#39;UPLOAD_FOLDER&#39;],f.filename))        return &#39;file uploaded successfully&#39;if __name__ == &#39;__main__&#39;:   app.run()</code></pre><h2 id="2-前端代码"><a href="#2-前端代码" class="headerlink" title="2.前端代码"></a>2.前端代码</h2><pre><code class="lang-vue">&lt;template&gt;  &lt;div&gt;    &lt;h3&gt;文件上传&lt;/h3&gt;    &lt;el-upload class=&quot;upload-demo&quot; drag action=&quot;http://localhost:5000/upload&quot; multiple&gt;      &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;      &lt;div class=&quot;el-upload__text&quot;&gt;        将文件拖到此处，或        &lt;em&gt;点击上传&lt;/em&gt;      &lt;/div&gt;      &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;只能上传jpg/png文件，且不超过500kb&lt;/div&gt;    &lt;/el-upload&gt;    &lt;el-divider&gt;&lt;/el-divider&gt;    &lt;h3&gt;文件下载&lt;/h3&gt;    &lt;p&gt;{{file_list}}&lt;/p&gt;    &lt;el-table      :data=&quot;file_list.filter(data =&gt; !search || data.name.toLowerCase().includes(search.toLowerCase()))&quot;      style=&quot;width: 100%&quot;    &gt;      &lt;el-table-column label=&quot;Name&quot; prop=&quot;name&quot;&gt;&lt;/el-table-column&gt;      &lt;el-table-column align=&quot;right&quot;&gt;        &lt;template slot=&quot;header&quot; slot-scope=&quot;{}&quot;&gt;          &lt;el-input v-model=&quot;search&quot; size=&quot;mini&quot; placeholder=&quot;输入关键字搜索&quot; /&gt;        &lt;/template&gt;        &lt;template slot-scope=&quot;scope&quot;&gt;          &lt;el-button size=&quot;mini&quot; @click=&quot;handleDownload(scope.$index, scope.row)&quot;&gt;下载&lt;/el-button&gt;          &lt;el-button size=&quot;mini&quot; type=&quot;danger&quot; @click=&quot;handleDelete(scope.$index, scope.row)&quot;&gt;删除&lt;/el-button&gt;        &lt;/template&gt;      &lt;/el-table-column&gt;    &lt;/el-table&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;import axios from &quot;axios&quot;;import fileDownload from &#39;js-file-download&#39;;export default {  data() {    return {      tableData: [        {          date: &quot;2016-05-02&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1518 弄&quot;,        },        {          date: &quot;2016-05-04&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1517 弄&quot;,        },        {          date: &quot;2016-05-01&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1519 弄&quot;,        },        {          date: &quot;2016-05-03&quot;,          name: &quot;王小虎&quot;,          address: &quot;上海市普陀区金沙江路 1516 弄&quot;,        },      ],      search: &quot;&quot;,      file_list: &quot;&quot;,    };  },  methods: {    handleDownload(index, row) {      console.log(index, row);      const url = &quot;http://localhost:5000/download&quot;      var path = url + &#39;/&#39; + row[&#39;name&#39;]    axios.post(path, {}, {responseType: &#39;arraybuffer&#39;}).then((res) =&gt; {          fileDownload(res.data, row[&#39;name&#39;]);      })    },    handleDelete(index, row) {      console.log(index, row);    },    get_file_list(){        const url = &quot;http://localhost:5000/file_list&quot;;        axios.get(url).then((res) =&gt; {            console.log(res)            this.file_list = res.data[&quot;file_list&quot;];        }).catch((err) =&gt; {          console.error(err);        });    }  },  created() {      this.get_file_list();  }};&lt;/script&gt;&lt;style&gt;&lt;/style&gt;</code></pre><p>其中使用了axios、element-ui和js-file-download库。</p><h2 id="5-效果"><a href="#5-效果" class="headerlink" title="5.效果"></a>5.效果</h2><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/flask_vue_frontend.png" alt=""></p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/img/flask_vue_backend.png" alt=""></p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/qq_25730711/article/details/53643758" target="_blank" rel="noopener">flask-文件上传/下载_More and Better-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/cb02c30f6f84" target="_blank" rel="noopener">Flask 文件上传 - 简书</a></li><li><a href="https://www.jianshu.com/p/53deecb09077" target="_blank" rel="noopener">Axios 各种请求方式传递参数格式 - 简书</a></li><li><a href="https://segmentfault.com/a/1190000020540788" target="_blank" rel="noopener">前端js/vue下载后台传过来的流文件（如excel）并设置下载文件名 - 漫漫前端路 - SegmentFault 思否</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;自己尝试着用Vue+Flask实现了下文件上传下载的功能，初步试验成功可行~&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="flask" scheme="https://www.iamlightsmile.com/tags/flask/"/>
-    
-      <category term="vue" scheme="https://www.iamlightsmile.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置VSCode-Remote-Container</title>
-    <link href="https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/"/>
-    <id>https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-Container/</id>
-    <published>2020-09-15T14:37:28.000Z</published>
-    <updated>2020-10-10T08:10:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>我服了，vscode确实太香了。</p><a id="more"></a><h2 id="1-远程主机配置"><a href="#1-远程主机配置" class="headerlink" title="1.远程主机配置"></a>1.远程主机配置</h2><blockquote><p><strong>注意</strong>：以下基于CentOS7环境。</p></blockquote><h3 id="1-1-安装docker"><a href="#1-1-安装docker" class="headerlink" title="1.1 安装docker"></a>1.1 安装docker</h3><p>一键安装脚本：</p><pre><code class="lang-bash">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></pre><p>可参考：<a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS Docker 安装 | 菜鸟教程</a></p><h3 id="1-2-配置docker"><a href="#1-2-配置docker" class="headerlink" title="1.2 配置docker"></a>1.2 配置docker</h3><p>在远程主机上：</p><ol><li>创建文件<code>daemon.json</code>到目录<code>/etc/docker</code>:</li></ol><pre><code class="lang-josn">{&quot;hosts&quot;: [&quot;tcp://0.0.0.0:2375&quot;, &quot;unix:///var/run/docker.sock&quot;]}</code></pre><ol><li>创建文件<code>/etc/systemd/system/docker.service.d/override.conf</code>:</li></ol><pre><code class="lang-conf">[Service]ExecStart=ExecStart=/usr/bin/dockerd</code></pre><ol><li>重启docker：</li></ol><pre><code class="lang-bash">systemctl daemon-reloadsystemctl restart docker.service</code></pre><h2 id="2-本地桌面配置"><a href="#2-本地桌面配置" class="headerlink" title="2.本地桌面配置"></a>2.本地桌面配置</h2><blockquote><p><strong>注意</strong>：以下基于Windows10桌面专业版环境。</p></blockquote><h3 id="2-1-安装OpenSSL"><a href="#2-1-安装OpenSSL" class="headerlink" title="2.1 安装OpenSSL"></a>2.1 安装OpenSSL</h3><p>略，自带了。</p><h3 id="2-2-生成ssh秘钥对"><a href="#2-2-生成ssh秘钥对" class="headerlink" title="2.2 生成ssh秘钥对"></a>2.2 生成ssh秘钥对</h3><p>略，参见：<a href="http://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/">配置VSCode-Remote-SSH - lightsmile’s Blog</a></p><p>注意，如我的<code>~/.ssh/config</code>中部分内容为：</p><pre><code class="lang-config">Host tencent_cloud    HostName xx.xx.xx.xx    PreferredAuthentications publickey    User root    IdentitiesOnly yes    # Port 22    IdentityFile ~/.ssh/tencent_cloud_desktop</code></pre><p>使用ssh免密登录的时候命令应该为：</p><pre><code class="lang-bash">ssh tencent_cloud</code></pre><h3 id="2-3-安装docker"><a href="#2-3-安装docker" class="headerlink" title="2.3 安装docker"></a>2.3 安装docker</h3><p>下载<a href="https://github.com/StefanScherer/docker-cli-builder/releases/" target="_blank" rel="noopener">docker.exe</a> 并配置路径（其实配不配都可以，因为我把这个路径放到环境变量里进入shell还是没找到2333~。）</p><h3 id="2-4-配置docker服务"><a href="#2-4-配置docker服务" class="headerlink" title="2.4 配置docker服务"></a>2.4 配置docker服务</h3><p>创建一个context：</p><pre><code class="lang-bash">docker context create &lt;context name&gt; --docker &quot;host=ssh://&lt;user&gt;@&lt;host&gt;&quot;</code></pre><p>以我上面的ssh为例，上面的命令可以为：</p><pre><code class="lang-bash">docker context create tencent_cloud --docker &quot;host=ssh://tencent_cloud&quot;</code></pre><p>切换到上面的context：</p><pre><code class="lang-bash">docker context use &lt;context name&gt;</code></pre><p>以上面生成的context：tencent_cloud为例，上面的指令为：</p><pre><code class="lang-bash">docker context use tencent_cloud</code></pre><p>测试一下：</p><pre><code class="lang-bash">docker info</code></pre><p>这里会输出和在远程主机上运行 docker info 一样的结果， 实际上这里docker本地只是一个客户端，连接到远程主机上的docker服务。</p><h3 id="2-5-安装remote-container插件"><a href="#2-5-安装remote-container插件" class="headerlink" title="2.5 安装remote-container插件"></a>2.5 安装remote-container插件</h3><p>在拓展插件里搜索<code>remote container</code>并安装。</p><p>安装完成后，在vscode设置中搜索<code>remote docker path</code>，设置为之前下载的docker的路径（默认就是<code>docker</code>命令，我这里命令行里找不到，所以需要手动配置）</p><h2 id="3-开始项目"><a href="#3-开始项目" class="headerlink" title="3.开始项目"></a>3.开始项目</h2><h3 id="3-1-启动容器"><a href="#3-1-启动容器" class="headerlink" title="3.1 启动容器"></a>3.1 启动容器</h3><pre><code class="lang-bash">docker run -d --name &lt;container name&gt; -v ~/newproj:/workspaces/newproj &lt;image tag&gt; tail -f /dev/null</code></pre><blockquote><p><strong>注意：</strong> 这里要挂载项目目录到容器中方便保存文件。tail -f 这个命令是为了让容器保持运行。</p></blockquote><h3 id="3-2-vscode访问远程容器"><a href="#3-2-vscode访问远程容器" class="headerlink" title="3.2 vscode访问远程容器"></a>3.2 vscode访问远程容器</h3><ol><li>打开VSCode，按下<code>ctrl+shift+p</code>运行<code>docker contexts use</code>, 选择上面创建的docker context.</li><li>按下<code>ctrl+shift+p</code>运行<code>Remote-Containers:Attach to Running Container...</code>, 选择上面创建的容器名字。</li><li>在新打开的vscode窗口中环境即上面的容器内部，现在可以尽情搬砖了。</li></ol><blockquote><p><strong>注意：</strong> 可以连接的容器必须是正在持续运行着的的容器。（即使用类似<code>tail -f /dev/null</code>命令创建的容器）。</p></blockquote><h3 id="4-后记"><a href="#4-后记" class="headerlink" title="4.后记"></a>4.后记</h3><p>本文主要是拾人牙慧，原文为：<a href="https://segmentfault.com/a/1190000023095631#comment-area" target="_blank" rel="noopener">开发环境代码化: VSCode远程Docker容器作为开发环境 - 个人文章 - SegmentFault 思否</a>。但自己在实践过程中遇到了一些问题，比如ssh免密登陆，同时本着“输出是最好的学习”的原则，故记录之。</p><h3 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h3><ul><li><a href="https://segmentfault.com/a/1190000023095631#comment-area" target="_blank" rel="noopener">开发环境代码化: VSCode远程Docker容器作为开发环境 - 个人文章 - SegmentFault 思否</a></li><li><a href="https://blog.csdn.net/weiwosuoai/article/details/88430620" target="_blank" rel="noopener">Docker 查看镜像信息_犬小哈-CSDN博客</a></li><li><a href="https://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">CentOS Docker 安装 | 菜鸟教程</a></li><li><a href="https://deepzz.com/post/how-to-setup-ssh-config.html" target="_blank" rel="noopener">SSH Config 那些你所知道和不知道的事 | Deepzz’s Blog</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;我服了，vscode确实太香了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
-    
-      <category term="vscode" scheme="https://www.iamlightsmile.com/tags/vscode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos安装LibreOffice</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85LibreOffice/</id>
-    <published>2020-09-15T06:43:52.000Z</published>
-    <updated>2020-09-15T14:35:07.454Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。</p><a id="more"></a><h2 id="1-下载并解压安装包"><a href="#1-下载并解压安装包" class="headerlink" title="1.下载并解压安装包"></a>1.下载并解压安装包</h2><h3 id="1-1-下载安装包"><a href="#1-1-下载安装包" class="headerlink" title="1.1 下载安装包"></a>1.1 下载安装包</h3><p>官网中文下载页：<a href="https://zh-cn.libreoffice.org/download/libreoffice/" target="_blank" rel="noopener">下载 LibreOffice | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></p><p>我们需要安装主安装程序以及中文语言安装包和中文离线帮助文件安装包，这里列出6.4.6版本的中文镜像源链接：</p><ul><li>主程序链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm.tar.gz</a></li><li>中文语言包链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_langpack_zh-CN.tar.gz</a></li><li>中文离线帮助文件链接：<a href="https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz" target="_blank" rel="noopener">https://mirrors.nju.edu.cn/tdf/libreoffice/stable/6.4.6/rpm/x86_64/LibreOffice_6.4.6_Linux_x86-64_rpm_helppack_zh-CN.tar.gz</a></li></ul><h3 id="1-2-解压安装包"><a href="#1-2-解压安装包" class="headerlink" title="1.2 解压安装包"></a>1.2 解压安装包</h3><p>将安装包放置到合适的位置并且解压。</p><h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><pre><code class="lang-bash">$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm/RPMS/*.rpm  /* 安装主安装程序的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_langpack_zh-CN/RPMS/*.rpm  /* 安装中文语言包中的所有rpm包 */$ sudo yum install ./LibreOffice_6.x.x_Linux_x86_rpm_helppack_zh-CN/RPMS/*.rpm  /* 安装中文离线帮助文件中的所有rpm包 */</code></pre><h2 id="3-依赖"><a href="#3-依赖" class="headerlink" title="3.依赖"></a>3.依赖</h2><h3 id="3-1-查看安装位置"><a href="#3-1-查看安装位置" class="headerlink" title="3.1 查看安装位置"></a>3.1 查看安装位置</h3><pre><code class="lang-bash">whereis libreoffice</code></pre><p>得到如下输出：</p><pre><code class="lang-text">libreoffice: /usr/bin/libreoffice6.4 /usr/lib64/libreoffice</code></pre><h3 id="3-2-安装依赖"><a href="#3-2-安装依赖" class="headerlink" title="3.2 安装依赖"></a>3.2 安装依赖</h3><p>执行<code>libreoffice6.4</code>报库文件找不到的错误，需要安装一些库文件：</p><ul><li><code>yum install cairo -y</code></li><li><code>yum install cups-libs -y</code></li><li><code>yum install libSM -y</code></li></ul><h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h2><h3 id="4-1-查看版本"><a href="#4-1-查看版本" class="headerlink" title="4.1 查看版本"></a>4.1 查看版本</h3><pre><code class="lang-bash">libreoffice6.4 --version</code></pre><p>得到如下结果：</p><pre><code class="lang-text">LibreOffice 6.4.6.2 0ce51a4fd21bff07a5c061082cc82c5ed232f115</code></pre><h3 id="4-2-创建软链接"><a href="#4-2-创建软链接" class="headerlink" title="4.2 创建软链接"></a>4.2 创建软链接</h3><p>由于联动的其他程序设置的libreoffice路径为<code>/usr/bin/soffice</code>，所以这里创建一个软链：</p><pre><code class="lang-bash">ln -s /opt/libreoffice6.4/program/soffice /usr/bin/soffice</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="http://qtdebug.com/mac-centos7-libreoffice/" target="_blank" rel="noopener">CentOS7 安装 LibreOffice | 公孙二狗</a></li><li><a href="https://zh-cn.libreoffice.org/get-help/install-howto/linux/" target="_blank" rel="noopener">Linux 下的安装方法 | LibreOffice 简体中文官方网站 - 自由免费的办公套件</a></li><li><a href="https://blog.csdn.net/m290345792/article/details/78518360" target="_blank" rel="noopener">linux软链接的创建、删除和更新_鲁不迅的专栏-CSDN博客</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;最近的工作涉及到文档处理与转换，需要用到LibreOffice，所以这里简单记录下在centos环境下安装过程。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux常用命令</title>
-    <link href="https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://www.iamlightsmile.com/articles/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2020-09-10T00:45:02.000Z</published>
-    <updated>2020-09-15T14:35:07.453Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p><strong>注意</strong>：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。</p></blockquote><a id="more"></a><h2 id="1-系统相关命令"><a href="#1-系统相关命令" class="headerlink" title="1.系统相关命令"></a>1.系统相关命令</h2><h3 id="1-1-查看系统版本"><a href="#1-1-查看系统版本" class="headerlink" title="1.1 查看系统版本"></a>1.1 查看系统版本</h3><pre><code class="lang-bash">(base) ➜  ~ cat /etc/redhat-releaseCentOS Linux release 7.7.1908 (Core)(base) ➜  ~ cat /proc/versionLinux version 3.10.0-957.21.3.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) ) #1 SMP Tue Jun 18 16:35:19 UTC 2019</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下命令都是在CentOS上执行，在Ubuntu或其他发行版部分有所不同。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创建带有ik分词器的Elasticsearch容器</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89ik%E5%88%86%E8%AF%8D%E5%99%A8%E7%9A%84Elasticsearch%E5%AE%B9%E5%99%A8/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89ik%E5%88%86%E8%AF%8D%E5%99%A8%E7%9A%84Elasticsearch%E5%AE%B9%E5%99%A8/</id>
-    <published>2020-09-09T09:08:02.000Z</published>
-    <updated>2020-09-15T14:35:07.455Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>自己目前在学习探索Docker技术，这里简单实践一下创建带有ik分词器的Elasticsearch容器，涉及Dockerfile和docker-compose的使用。</p><a id="more"></a><h2 id="1-创建容器"><a href="#1-创建容器" class="headerlink" title="1.创建容器"></a>1.创建容器</h2><h3 id="1-1-编写Dockerfile"><a href="#1-1-编写Dockerfile" class="headerlink" title="1.1 编写Dockerfile"></a>1.1 编写<code>Dockerfile</code></h3><p>新建<code>elasticsearch</code>目录并在其内创建Dockerfile文件</p><pre><code class="lang-bash">mkdir elasticsearch &amp;&amp; elasticsearchtouch Dockerfile</code></pre><p><code>Dockerfile</code>中内容如下：</p><pre><code class="lang-Dockerfile">FROM elasticsearch:7.7.1RUN yes | ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.1/elasticsearch-analysis-ik-7.7.1.zip</code></pre><h3 id="1-2-编写docker-compose-yml"><a href="#1-2-编写docker-compose-yml" class="headerlink" title="1.2 编写docker-compose.yml"></a>1.2 编写<code>docker-compose.yml</code></h3><p>在<code>elasticsearch</code>文件夹同级目录下创建<code>docker-compose.yml</code>文件，内容为：</p><pre><code class="lang-yml">version: &#39;3&#39;services:    es-ik:        build: ./elasticsearch        image: elasticsearch-ik:7.7.1        container_name: es_ik        environment:             - discovery.type=single-node        ports:            - 9201:9200            - 9301:9300</code></pre><p>上面的端口映射到Host主机的9201和9301是因为系统上已经有Elasticsearch在运行了并且使用了默认的端口，这里需要再换一下端口。</p><h3 id="1-3-打包镜像"><a href="#1-3-打包镜像" class="headerlink" title="1.3 打包镜像"></a>1.3 打包镜像</h3><p>上面的目录结构如下：</p><pre><code class="lang-txt">.├── docker-compose.yml└── elasticsearch    ├── Dockerfile    ├── elasticsearch-analysis-ik-7.7.1.zip    └── test.es</code></pre><p>执行如下命令以构建镜像：</p><pre><code class="lang-bash">docker-compose build</code></pre><p>执行<code>docker images</code>可以看到镜像已经成功创建：</p><pre><code class="lang-bash">[root@localhost ~]# docker imagesREPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZEelasticsearch-ik                                7.7.1               1812e4f405c5        3 hours ago         814 MB</code></pre><h2 id="2-测试容器"><a href="#2-测试容器" class="headerlink" title="2.测试容器"></a>2.测试容器</h2><h3 id="2-1-启动容器"><a href="#2-1-启动容器" class="headerlink" title="2.1 启动容器"></a>2.1 启动容器</h3><p>执行如下命令以启动容器：</p><pre><code class="lang-bash">docker-compose up</code></pre><h3 id="2-2-查看容器启动状态"><a href="#2-2-查看容器启动状态" class="headerlink" title="2.2 查看容器启动状态"></a>2.2 查看容器启动状态</h3><pre><code class="lang-bash">[root@localhost Docker]# lsdocker-compose.yml  elasticsearch[root@localhost Docker]# docker-compose psName               Command               State                       Ports                     -----------------------------------------------------------------------------------------------es_ik   /tini -- /usr/local/bin/do ...   Up      0.0.0.0:9201-&gt;9200/tcp, 0.0.0.0:9301-&gt;9300/tcp</code></pre><h3 id="2-3-测试elasticsearch服务"><a href="#2-3-测试elasticsearch服务" class="headerlink" title="2.3 测试elasticsearch服务"></a>2.3 测试elasticsearch服务</h3><p>这里我是用的是VSCode的<code>Elasticsearch for VSCode</code>插件，该插件允许我们编写<code>.es</code>文件向es执行查询请求。</p><p>如<code>test.es</code>内容如下：</p><pre><code class="lang-es">POST _analyze{    &quot;analyzer&quot;: &quot;ik_smart&quot;,    &quot;text&quot;: &quot;中华人民共和国&quot;}POST _analyze{    &quot;analyzer&quot;: &quot;ik_max_word&quot;,    &quot;text&quot;: &quot;中华人民共和国&quot;}</code></pre><p>如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/elasticsearch-ik.png" alt=""></p><p>请求结果如下：</p><pre><code class="lang-json">{    &quot;tokens&quot;: [        {            &quot;token&quot;: &quot;中华人民共和国&quot;,            &quot;start_offset&quot;: 0,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 0        },        {            &quot;token&quot;: &quot;中华人民&quot;,            &quot;start_offset&quot;: 0,            &quot;end_offset&quot;: 4,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 1        },        {            &quot;token&quot;: &quot;中华&quot;,            &quot;start_offset&quot;: 0,            &quot;end_offset&quot;: 2,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 2        },        {            &quot;token&quot;: &quot;华人&quot;,            &quot;start_offset&quot;: 1,            &quot;end_offset&quot;: 3,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 3        },        {            &quot;token&quot;: &quot;人民共和国&quot;,            &quot;start_offset&quot;: 2,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 4        },        {            &quot;token&quot;: &quot;人民&quot;,            &quot;start_offset&quot;: 2,            &quot;end_offset&quot;: 4,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 5        },        {            &quot;token&quot;: &quot;共和国&quot;,            &quot;start_offset&quot;: 4,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 6        },        {            &quot;token&quot;: &quot;共和&quot;,            &quot;start_offset&quot;: 4,            &quot;end_offset&quot;: 6,            &quot;type&quot;: &quot;CN_WORD&quot;,            &quot;position&quot;: 7        },        {            &quot;token&quot;: &quot;国&quot;,            &quot;start_offset&quot;: 6,            &quot;end_offset&quot;: 7,            &quot;type&quot;: &quot;CN_CHAR&quot;,            &quot;position&quot;: 8        }    ]}</code></pre><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><ul><li><a href="https://www.runoob.com/docker/docker-compose.html" target="_blank" rel="noopener">Docker Compose | 菜鸟教程</a></li><li><a href="https://www.jianshu.com/p/2217cfed29d7" target="_blank" rel="noopener">Docker Compose 配置文件详解 - 简书</a></li><li><a href="https://www.jianshu.com/p/ea0a1b00334d" target="_blank" rel="noopener">基于docker的elasticsearch中文分词及同义词配置 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;自己目前在学习探索Docker技术，这里简单实践一下创建带有ik分词器的Elasticsearch容器，涉及Dockerfile和docker-compose的使用。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="Docker" scheme="https://www.iamlightsmile.com/tags/Docker/"/>
-    
-      <category term="Elasticsearch" scheme="https://www.iamlightsmile.com/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习代码常见流程</title>
-    <link href="https://www.iamlightsmile.com/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E5%B8%B8%E8%A7%81%E6%B5%81%E7%A8%8B/</id>
-    <published>2020-09-08T01:18:47.000Z</published>
-    <updated>2020-09-15T14:35:07.473Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-概览"><a href="#0-概览" class="headerlink" title="0.概览"></a>0.概览</h2><p>目前自己在深度学习这方面有一定的积累，一些代码流程都有一定的套路和相应的标准，这里自己简单梳理一下。</p><p>我们这里假设输入为已标注数据，输出为训练的模型，不考虑标注前数据处理部分已经代码上线部署环节。</p><p>大致的流程包括：</p><ul><li><strong>数据预处理</strong></li><li><strong>编写神经网络模型</strong></li><li><strong>编写数据加载部分代码</strong></li><li><strong>编写模型训练预测代码</strong></li></ul><a id="more"></a><h2 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1.数据预处理"></a>1.数据预处理</h2><p>对标注数据进行处理，包括特征预处理、数据清洗等，将数据（可能是txt格式、Excel文件等）转化为程序可直接读取的常见的数据集类型（如csv）。如在csv文件中，每行是一个样本（sample），每列为该样本特征（feature）或标签（label）。</p><p>如<code>tes.csv</code>：</p><pre><code class="lang-csv">fuck,shit,label&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;&quot;a&quot;,1.2,&quot;a&quot;&quot;b&quot;,2,&quot;b&quot;</code></pre><h2 id="2-编写神经网络模型"><a href="#2-编写神经网络模型" class="headerlink" title="2.编写神经网络模型"></a>2.编写神经网络模型</h2><p>对于特定的任务，我们可以选择既有的框架，这样就不需要重写模型。然而当既有的框架模型不满足我们的需求时，我们就需要去自定义去编写神经网络模型。</p><p>以Pytorch为例，模型需要继承自<code>torch.nn.Module</code>类并实现<code>forward</code>方法。</p><h2 id="3-编写数据加载部分代码"><a href="#3-编写数据加载部分代码" class="headerlink" title="3.编写数据加载部分代码"></a>3.编写数据加载部分代码</h2><p>数据预处理的结果为数据集文件，我们需要对其进行读取、分割并转化为向量格式。</p><p>以Pytorch为例，我们需要编写一个继承自<code>torch.utils.data.Dataset</code>类的类并实现其<code>__getitem__</code>方法和<code>__len__</code>方法。该类作为数据集抽象的接口向外部提供数据。</p><p><code>Dataset</code>类的输出一般不作为模型的输入，中间还需要一个<code>torch.utis.data.DataLoader</code>。</p><p><code>DataLoader</code>接收<code>dataset</code>、<code>batch_size</code>、<code>collate_fn</code>、<code>drop_last</code>、<code>shuffle</code>、<code>sampler</code>等参数，各参数含义为dataset:待加载数据集（类型为<code>torch.utils.data.Dataset</code>）、batch_size:批处理数量大小、collate_fn:数据收集函数（用于将一系列sample转化为Tensor）、drop_last:是否丢弃最后不满一个batch_size的batch、shuffle:是否对数据再进行一次shuffle、sampler:数据采样器（类型为<code>torch.utils.data.Sampler</code>），其中各参数之间可能相互冲突不能一起用，具体使用请参见Pytorch官网教程。</p><p><code>Dataloader</code>的输出应该被作为可以直接传递给模型的Tensor类型，以mini-batch，具体在Python代码中为<code>for-in</code>的形式被调用。</p><h2 id="4-编写模型训练预测代码"><a href="#4-编写模型训练预测代码" class="headerlink" title="4.编写模型训练预测代码"></a>4.编写模型训练预测代码</h2><p>在生成<code>Module</code>和<code>DataLoader</code>之后，我们还需要指定损失函数（如<code>torch.nn.functional.cross_entropy</code>（交叉熵损失函数））和优化器（如<code>torch.optim.Adam</code>）。</p><p>更高级的，我们还可以去设置学习率调度器(如<code>torch.optim.lr_scheduler.StepLR</code>)，设置EarlyStopping和断点重训等功能。</p><p>在模型训练完之后我们还需要将其持久化到硬盘中，可以选择保存整个模型对象或者只包含其参数信息。</p><p>上面的训练部分由于比较通用，各框架也可能会将其抽象为<code>Trainer</code>对象。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-概览&quot;&gt;&lt;a href=&quot;#0-概览&quot; class=&quot;headerlink&quot; title=&quot;0.概览&quot;&gt;&lt;/a&gt;0.概览&lt;/h2&gt;&lt;p&gt;目前自己在深度学习这方面有一定的积累，一些代码流程都有一定的套路和相应的标准，这里自己简单梳理一下。&lt;/p&gt;
-&lt;p&gt;我们这里假设输入为已标注数据，输出为训练的模型，不考虑标注前数据处理部分已经代码上线部署环节。&lt;/p&gt;
-&lt;p&gt;大致的流程包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据预处理&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编写神经网络模型&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编写数据加载部分代码&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编写模型训练预测代码&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://www.iamlightsmile.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.iamlightsmile.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>完整机器学习项目的工作流程（转）</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%AE%8C%E6%95%B4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E8%BD%AC%EF%BC%89/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%AE%8C%E6%95%B4%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%88%E8%BD%AC%EF%BC%89/</id>
-    <published>2020-09-08T00:52:14.000Z</published>
-    <updated>2020-09-15T14:35:07.473Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文章转自<a href="https://zhuanlan.zhihu.com/p/28288050" target="_blank" rel="noopener">完整机器学习项目的工作流程 - 知乎</a>。</p><h2 id="1-抽象成数学问题"><a href="#1-抽象成数学问题" class="headerlink" title="1.抽象成数学问题"></a>1.抽象成数学问题</h2><p>明确问题是进行机器学习的第一步。机器学习的训练过程通常都是一件非常耗时的事情，胡乱尝试时间成本是非常高的。</p><p>这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。即明确输入和输出以及任务类型。</p><a id="more"></a><h2 id="2-获取数据"><a href="#2-获取数据" class="headerlink" title="2.获取数据"></a>2.获取数据</h2><p>数据决定了机器学习结果的上限，而算法只是尽可能逼近这个上限。</p><p>数据要有代表性，否则必然会过拟合。</p><p>而且对于分类问题，数据偏斜不能过于严重，不同类别的数据数量不要有数个数量级的差距。</p><p>而且还要对数据的量级有一个评估，多少个样本，多少个特征，可以估算出其对内存的消耗程度，判断训练过程中内存是否能够放得下。如果放不下就得考虑改进算法或者使用一些降维的技巧了。如果数据量实在太大，那就要考虑分布式了。</p><h2 id="3-特征预处理与特征选择"><a href="#3-特征预处理与特征选择" class="headerlink" title="3.特征预处理与特征选择"></a>3.特征预处理与特征选择</h2><p>良好的数据要能够提取出良好的特征才能真正发挥效力。</p><p>特征预处理、数据清洗是很关键的步骤，往往能够使得算法的效果和性能得到显著提高。归一化、离散化、因子化、缺失值处理、去除共线性等，数据挖掘过程中很多时间就花在它们上面。这些工作简单可复制，收益稳定可预期，是机器学习的基础必备步骤。</p><p>筛选出显著特征、摒弃非显著特征，需要机器学习工程师反复理解业务。这对很多结果有决定性的影响。特征选择好了，非常简单的算法也能得出良好、稳定的结果。这需要运用特征有效性分析的相关技术，如相关系数、卡方检验、平均互信息、条件熵、后验概率、逻辑回归权重等方法。</p><h2 id="4-训练模型与调优"><a href="#4-训练模型与调优" class="headerlink" title="4.训练模型与调优"></a>4.训练模型与调优</h2><p>直到这一步才用到我们上面说的算法进行训练。现在很多算法都能够封装成黑盒供人使用。但是真正考验水平的是调整这些算法的（超）参数，使得结果变得更加优良。这需要我们对算法的原理有深入的理解。理解越深入，就越能发现问题的症结，提出良好的调优方案。</p><h2 id="5-模型诊断"><a href="#5-模型诊断" class="headerlink" title="5.模型诊断"></a>5.模型诊断</h2><p>如何确定模型调优的方向与思路呢？这就需要对模型进行诊断的技术。</p><p>过拟合、欠拟合 判断是模型诊断中至关重要的一步。常见的方法如交叉验证，绘制学习曲线等。过拟合的基本调优思路是增加数据量，降低模型复杂度。欠拟合的基本调优思路是提高特征数量和质量，增加模型复杂度。</p><p>误差分析 也是机器学习至关重要的步骤。通过观察误差样本，全面分析误差产生误差的原因:是参数的问题还是算法选择的问题，是特征的问题还是数据本身的问题……</p><p>诊断后的模型需要进行调优，调优后的新模型需要重新进行诊断，这是一个反复迭代不断逼近的过程，需要不断地尝试， 进而达到最优状态。</p><h2 id="6-模型融合"><a href="#6-模型融合" class="headerlink" title="6.模型融合"></a>6.模型融合</h2><p>一般来说，模型融合后都能使得效果有一定提升。而且效果很好。</p><p>工程上，主要提升算法准确度的方法是分别在模型的前端（特征清洗和预处理，不同的采样模式）与后端（模型融合）上下功夫。因为他们比较标准可复制，效果比较稳定。而直接调参的工作不会很多，毕竟大量数据训练起来太慢了，而且效果难以保证。</p><h2 id="7-上线运行"><a href="#7-上线运行" class="headerlink" title="7.上线运行"></a>7.上线运行</h2><p>这一部分内容主要跟工程实现的相关性比较大。工程上是结果导向，模型在线上运行的效果直接决定模型的成败。 不单纯包括其准确程度、误差等情况，还包括其运行的速度(时间复杂度)、资源消耗程度（空间复杂度）、稳定性是否可接受。</p><h2 id="8-最后"><a href="#8-最后" class="headerlink" title="8.最后"></a>8.最后</h2><p>这些工作流程主要是工程实践上总结出的一些经验。并不是每个项目都包含完整的一个流程。这里的部分只是一个指导性的说明，只有大家自己多实践，多积累项目经验，才会有自己更深刻的认识。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文章转自&lt;a href=&quot;https://zhuanlan.zhihu.com/p/28288050&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;完整机器学习项目的工作流程 - 知乎&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;1-抽象成数学问题&quot;&gt;&lt;a href=&quot;#1-抽象成数学问题&quot; class=&quot;headerlink&quot; title=&quot;1.抽象成数学问题&quot;&gt;&lt;/a&gt;1.抽象成数学问题&lt;/h2&gt;&lt;p&gt;明确问题是进行机器学习的第一步。机器学习的训练过程通常都是一件非常耗时的事情，胡乱尝试时间成本是非常高的。&lt;/p&gt;
-&lt;p&gt;这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。即明确输入和输出以及任务类型。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="https://www.iamlightsmile.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="https://www.iamlightsmile.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos安装mongodb</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85mongodb/</id>
-    <published>2020-09-06T07:54:30.000Z</published>
-    <updated>2020-09-15T14:35:07.455Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装方式详情参见<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">在CentOS 7上安装MongoDB - 云+社区 - 腾讯云</a>，只是貌似最新的版本是4.4，即需要将添加MongoDB源部分的3.2都换成4.4。</p><p>另外更精简的文档：<a href="https://www.jb51.net/article/194001.htm" target="_blank" rel="noopener">Centos7 yum安装mongodb实现步骤详解<em>MongoDB</em>脚本之家</a>。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;安装方式详情参见&lt;a href=&quot;https://cloud.tencent.com/developer/article/1329170&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在CentOS 7上安装MongoDB - 云+社区 - 腾讯云&lt;/a&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
-    
-      <category term="mongodb" scheme="https://www.iamlightsmile.com/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置VSCode-Remote-SSH</title>
-    <link href="https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/"/>
-    <id>https://www.iamlightsmile.com/articles/%E9%85%8D%E7%BD%AEVSCode-Remote-SSH/</id>
-    <published>2020-09-05T08:15:15.000Z</published>
-    <updated>2020-09-15T14:39:35.172Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>在写前一篇文档调研使用brat的时候，由于涉及到操作服务器中文件，然而直接通过命令行操作实在是有些不太方便，毕竟vim不咋熟练，自己突然想到使用vscode可以配置remote开发。于是趁此机会也尝试着配置一下，这里简单记录一下。</p><a id="more"></a><h2 id="1-配置VSCode-Remote-SSH"><a href="#1-配置VSCode-Remote-SSH" class="headerlink" title="1.配置VSCode Remote-SSH"></a>1.配置VSCode Remote-SSH</h2><h3 id="1-1-安装Remote-SSH插件"><a href="#1-1-安装Remote-SSH插件" class="headerlink" title="1.1 安装Remote-SSH插件"></a>1.1 安装Remote-SSH插件</h3><p>在拓展里搜索”remote”，然后安装”Remote-SSH”插件。</p><p>在安装完成之后，侧边栏会多出一个选项，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote.png" alt=""></p><p>点击之后，其会从一些默认位置自动读取系统已有的一些ssh配置信息，如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_2.png" alt=""></p><h2 id="2-配置远程服务器"><a href="#2-配置远程服务器" class="headerlink" title="2.配置远程服务器"></a>2.配置远程服务器</h2><h3 id="2-1-添加远程服务器配置信息"><a href="#2-1-添加远程服务器配置信息" class="headerlink" title="2.1 添加远程服务器配置信息"></a>2.1 添加远程服务器配置信息</h3><p>我们可以在<code>config</code>文件中继续添加配置，格式如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_3.png" alt=""></p><h3 id="2-2-配置ssh连接"><a href="#2-2-配置ssh连接" class="headerlink" title="2.2 配置ssh连接"></a>2.2 配置ssh连接</h3><p><strong>注意</strong>：以下命令均是在Git Bash下执行的。</p><h4 id="2-2-1-切换目录至ssh目录"><a href="#2-2-1-切换目录至ssh目录" class="headerlink" title="2.2.1 切换目录至ssh目录"></a>2.2.1 切换目录至ssh目录</h4><pre><code class="lang-bash">cd ~/.ssh</code></pre><h4 id="2-2-2-生成ssh公钥"><a href="#2-2-2-生成ssh公钥" class="headerlink" title="2.2.2 生成ssh公钥"></a>2.2.2 生成ssh公钥</h4><pre><code class="lang-bash">ssh-keygen</code></pre><h4 id="2-2-3-将公钥存储至远程主机"><a href="#2-2-3-将公钥存储至远程主机" class="headerlink" title="2.2.3 将公钥存储至远程主机"></a>2.2.3 将公钥存储至远程主机</h4><p>假如1.3.2步生成的公钥名称为<code>id_rsa.pub</code>，假设远程主机ip地址为<code>12.34.56.78</code>，用户名为<code>root</code></p><pre><code class="lang-bash">ssh-copy-id -i id_rsa.pub root@12.34.56.78</code></pre><h2 id="3-连接至远程服务器"><a href="#3-连接至远程服务器" class="headerlink" title="3.连接至远程服务器"></a>3.连接至远程服务器</h2><p>在上述过程配置完成之后，便可以连接至远程服务器了。如图点击红圈内的图标：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_5.png" alt=""></p><p>连接成功后如图所示：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/vscode_remote_6.png" alt=""></p><p>如果还不明白的可以继续看下面的参考文章。</p><h2 id="1-参考"><a href="#1-参考" class="headerlink" title="-1.参考"></a>-1.参考</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/64849549" target="_blank" rel="noopener">VSCode Remote 体验 | 远程Linux环境开发真香 - 知乎</a></li><li><a href="https://www.jianshu.com/p/6761199bedba" target="_blank" rel="noopener">服务器免密登录:ssh公钥配置 - 简书</a></li><li><a href="https://www.jianshu.com/p/1e793e386beb" target="_blank" rel="noopener">ssh配置文件详解 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;在写前一篇文档调研使用brat的时候，由于涉及到操作服务器中文件，然而直接通过命令行操作实在是有些不太方便，毕竟vim不咋熟练，自己突然想到使用vscode可以配置remote开发。于是趁此机会也尝试着配置一下，这里简单记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="vscode" scheme="https://www.iamlightsmile.com/tags/vscode/"/>
-    
-      <category term="ssh" scheme="https://www.iamlightsmile.com/tags/ssh/"/>
     
   </entry>
   
