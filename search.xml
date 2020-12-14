@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>python离线安装包及其依赖包（转载）</title>
+      <link href="/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/"/>
+      <url>/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：</p><p>安装pipdeptree：</p><pre><code class="lang-bash">PS D:\test&gt; pip install pipdeptree</code></pre><p>假如想在内网安装flask，先在外网下载安装：</p><pre><code class="lang-bash">PS D:\test&gt; pip install flask</code></pre><p>使用pipdeptree 查看并生成requirements.txt</p><pre><code class="lang-bash">PS D:\test&gt; pipdeptree -f  -p flaskFlask==1.1.2  click==7.1.2  itsdangerous==1.1.0  Jinja2==2.11.2    MarkupSafe==1.1.1  Werkzeug==1.0.1PS D:\test&gt; pipdeptree -f  -p flask &gt; .\requirements.txt</code></pre><p>下载所有包至本地</p><pre><code class="lang-bash">PS D:\test&gt; pip download -r .\requirements.txt</code></pre><p>将test文件夹拷贝至内网机器（如F:/test），进入test目录执行如下命令离线安装</p><pre><code class="lang-bash">PS F:\test&gt; pip install --no-index --find-links=./ -r requirements.txt</code></pre><p>转自：<a href="https://www.jianshu.com/p/9a726dc64e2b" target="_blank" rel="noopener">python 离线安装包及其依赖包 - 简书</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>支持正版</title>
       <link href="/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/"/>
       <url>/articles/%E6%94%AF%E6%8C%81%E6%AD%A3%E7%89%88/</url>
