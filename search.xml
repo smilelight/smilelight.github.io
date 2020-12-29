@@ -4,11 +4,65 @@
   
     
     <entry>
+      <title>elasticsearch设置自定义词典与停用词</title>
+      <link href="/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/"/>
+      <url>/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>处于项目需要，我们需要在elasticsearch中设置自定义的词典与停用词，这里简单说明下其配置方法。</p><p>自己这里是通过docker以及docker-compose的方式来使用的，直接使用elasticsearch的方法流程与之类似，可以看下面的参考。</p><a id="more"></a><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><p>项目目录结构大致如下：</p><pre><code class="lang-bash">(base) ➜  elasticsearch tree ..├── config│   ├── IKAnalyzer.cfg.xml│   ├── stopwords.dic│   └── userwords.dic├── docker-compose.yml└── Dockerfile1 directory, 5 files</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><code>Dockerfile</code></h3><p>其中<code>Dockerfile</code>中内容如下：</p><pre><code class="lang-Dockerfile">FROM elasticsearch:7.7.1RUN yes | ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.1/elasticsearch-analysis-ik-7.7.1.zip</code></pre><h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a><code>docker-compose.yml</code></h3><p>其中<code>docker-compose.yml</code>中内容如下：</p><pre><code class="lang-yaml">version: &#39;3&#39;services:    es:        image: elasticsearch-ik:7.7.1        container_name: elasticsearch        network_mode: &quot;host&quot;        environment:             - discovery.type=single-node        ports:            - 9200:9200            - 9300:9300        volumes:             - ./config/IKAnalyzer.cfg.xml:/usr/share/elasticsearch/config/analysis-ik/IKAnalyzer.cfg.xml            - ./config/userwords.dic:/usr/share/elasticsearch/config/analysis-ik/userwords.dic            - ./config/stopwords.dic:/usr/share/elasticsearch/config/analysis-ik/stopwords.dic</code></pre><h3 id="IKAnalyzer-cfg-xml"><a href="#IKAnalyzer-cfg-xml" class="headerlink" title="IKAnalyzer.cfg.xml"></a><code>IKAnalyzer.cfg.xml</code></h3><p>其中<code>IKAnalyzer.cfg.xml</code>中内容如下：</p><pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;&lt;properties&gt;    &lt;comment&gt;IK Analyzer 扩展配置&lt;/comment&gt;    &lt;!--用户可以在这里配置自己的扩展字典 --&gt;    &lt;entry key=&quot;ext_dict&quot;&gt;userwords.dic&lt;/entry&gt;     &lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;    &lt;entry key=&quot;ext_stopwords&quot;&gt;stopwords.dic&lt;/entry&gt;    &lt;!--用户可以在这里配置远程扩展字典 --&gt;    &lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;    &lt;!--用户可以在这里配置远程扩展停止词字典--&gt;    &lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;&lt;/properties&gt;</code></pre><h3 id="stopwords-dic"><a href="#stopwords-dic" class="headerlink" title="stopwords.dic"></a><code>stopwords.dic</code></h3><p>其中<code>stopwords.dic</code>内容如下：</p><pre><code class="lang-dic">吃</code></pre><h3 id="userwords-dic"><a href="#userwords-dic" class="headerlink" title="userwords.dic"></a><code>userwords.dic</code></h3><p>其中<code>userwords.dic</code>内容如下：</p><pre><code class="lang-dic">曹操和李德方</code></pre><h2 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h2><pre><code class="lang-bash">docker-compose up -d</code></pre><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>效果如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/elasticsearch_userdict.png" alt="elasticsearch_userdict"></p><p>可以看到，里面<code>李德方</code>、<code>曹操和</code>分别作为词语被拆分出来，同时<code>吃</code>这个词直接就被过滤掉了。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">medcl/elasticsearch-analysis-ik: The IK Analysis plugin integrates Lucene IK analyzer into elasticsearch, support customized dictionary.</a></li><li><a href="https://www.jianshu.com/p/f178e59ffaf2" target="_blank" rel="noopener">ElasticSearch-IK分词使用踩坑总结 - 简书</a></li><li><a href="https://zq99299.github.io/note-book/elasticsearch-senior/ik/31-config.html#%E4%B8%BB%E8%A6%81%E9%85%8D%E7%BD%AE%E8%A7%A3%E8%AF%B4" target="_blank" rel="noopener">IK 分词器配置文件和自定义词库 | Mrcode 笔记本</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> elasticsearch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>折腾tmux</title>
+      <link href="/articles/%E6%8A%98%E8%85%BEtmux/"/>
+      <url>/articles/%E6%8A%98%E8%85%BEtmux/</url>
+      
+        <content type="html"><![CDATA[<p>有2台腾讯云服务器，一台之前装过brat，成功了。后来打算在新的更好配置的服务器上装brat，没想到总是失败，要么浏览器显示的样式有问题，要么就是打开链接直接重定向要下载文件。</p><a id="more"></a><p>于是乎决定只能在原来的服务器上做标注，考虑到持续使用，所以打算用tmux。没想到直接tmux报错，tmux报<code>can&#39;t create socket</code>的错误，yum提示<code>could not resolve host: mirrors.tencentyun.com; unknown error</code>的错误，更可怕的是ping 外网都ping不通。</p><p>后来参考<a href="https://www.jianshu.com/p/a80189d68104" target="_blank" rel="noopener">腾讯云服务器 “Could not resolve host: mirrors.tencentyun.com; Unknown error” - 简书</a>、<a href="https://blog.csdn.net/shengshengshiwo/article/details/84191515" target="_blank" rel="noopener">mirrors.tencentyun.com 又挂了！_BLUEHEART-CSDN博客</a>以及<a href="https://cloud.tencent.com/developer/article/1464422" target="_blank" rel="noopener">CentOS修改各大yum源(centos5,centos6,centos7) - 云+社区 - 腾讯云</a>对yum源进行了配置，如：</p><pre><code class="lang-bash">cd /etc/yum.repos.dmv CentOS-Base.repo CentOS-Base.repo.backupwget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repoyum clean allyum makecacheyum update</code></pre><p>以及修改了<code>/etc/yum.repos.d/CentOS-Epel.repo</code>文件，如下：</p><pre><code class="lang-conf">[epel]name=EPEL for redhat/centos $releasever - $basearchfailovermethod=prioritygpgcheck=1gpgkey=http://mirrors.163.com/epel/RPM-GPG-KEY-EPEL-7enabled=0baseurl=http://mirrors.163.com/epel/$releasever/$basearch/</code></pre><p>然后解决了yum问题。</p><p>没想到tmux还是不行，后来找到了<a href="https://github.com/MachinaCore/CygwinPortable/issues/28" target="_blank" rel="noopener">tmux can’t create socket: Permission denied · Issue #28 · MachinaCore/CygwinPortable</a>通过在zshrc中配置<code>alias tmux=&#39;tmux -S ~/.tmsock new -ADsCyg&#39;</code>暂时解决了这个问题。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.jianshu.com/p/a80189d68104" target="_blank" rel="noopener">腾讯云服务器 “Could not resolve host: mirrors.tencentyun.com; Unknown error” - 简书</a></li><li><a href="https://blog.csdn.net/shengshengshiwo/article/details/84191515" target="_blank" rel="noopener">mirrors.tencentyun.com 又挂了！_BLUEHEART-CSDN博客</a></li><li><a href="https://cloud.tencent.com/developer/article/1464422" target="_blank" rel="noopener">CentOS修改各大yum源(centos5,centos6,centos7) - 云+社区 - 腾讯云</a></li><li><a href="https://github.com/MachinaCore/CygwinPortable/issues/28" target="_blank" rel="noopener">tmux can’t create socket: Permission denied · Issue #28 · MachinaCore/CygwinPortable</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> tmux </tag>
+            
+            <tag> brat </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python离线安装包及其依赖包（转载）</title>
       <link href="/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/"/>
       <url>/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p>在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：</p><p>安装pipdeptree：</p><pre><code class="lang-bash">PS D:\test&gt; pip install pipdeptree</code></pre><p>假如想在内网安装flask，先在外网下载安装：</p><pre><code class="lang-bash">PS D:\test&gt; pip install flask</code></pre><p>使用pipdeptree 查看并生成requirements.txt</p><pre><code class="lang-bash">PS D:\test&gt; pipdeptree -f  -p flaskFlask==1.1.2  click==7.1.2  itsdangerous==1.1.0  Jinja2==2.11.2    MarkupSafe==1.1.1  Werkzeug==1.0.1PS D:\test&gt; pipdeptree -f  -p flask &gt; .\requirements.txt</code></pre><p>下载所有包至本地</p><pre><code class="lang-bash">PS D:\test&gt; pip download -r .\requirements.txt</code></pre><p>将test文件夹拷贝至内网机器（如F:/test），进入test目录执行如下命令离线安装</p><pre><code class="lang-bash">PS F:\test&gt; pip install --no-index --find-links=./ -r requirements.txt</code></pre><p>转自：<a href="https://www.jianshu.com/p/9a726dc64e2b" target="_blank" rel="noopener">python 离线安装包及其依赖包 - 简书</a></p>]]></content>
+        <content type="html"><![CDATA[<p>在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：</p><a id="more"></a><p>安装pipdeptree：</p><pre><code class="lang-bash">PS D:\test&gt; pip install pipdeptree</code></pre><p>假如想在内网安装flask，先在外网下载安装：</p><pre><code class="lang-bash">PS D:\test&gt; pip install flask</code></pre><p>使用pipdeptree 查看并生成requirements.txt</p><pre><code class="lang-bash">PS D:\test&gt; pipdeptree -f  -p flaskFlask==1.1.2  click==7.1.2  itsdangerous==1.1.0  Jinja2==2.11.2    MarkupSafe==1.1.1  Werkzeug==1.0.1PS D:\test&gt; pipdeptree -f  -p flask &gt; .\requirements.txt</code></pre><p>下载所有包至本地</p><pre><code class="lang-bash">PS D:\test&gt; pip download -r .\requirements.txt</code></pre><p>将test文件夹拷贝至内网机器（如F:/test），进入test目录执行如下命令离线安装</p><pre><code class="lang-bash">PS F:\test&gt; pip install --no-index --find-links=./ -r requirements.txt</code></pre><p>转自：<a href="https://www.jianshu.com/p/9a726dc64e2b" target="_blank" rel="noopener">python 离线安装包及其依赖包 - 简书</a></p>]]></content>
       
       
       

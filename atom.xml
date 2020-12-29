@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-12-14T01:03:02.842Z</updated>
+  <updated>2020-12-29T07:10:06.034Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -17,22 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>elasticsearch设置自定义词典与停用词</title>
+    <link href="https://www.iamlightsmile.com/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/"/>
+    <id>https://www.iamlightsmile.com/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/</id>
+    <published>2020-12-29T06:40:57.000Z</published>
+    <updated>2020-12-29T07:10:06.034Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>处于项目需要，我们需要在elasticsearch中设置自定义的词典与停用词，这里简单说明下其配置方法。</p><p>自己这里是通过docker以及docker-compose的方式来使用的，直接使用elasticsearch的方法流程与之类似，可以看下面的参考。</p><a id="more"></a><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><p>项目目录结构大致如下：</p><pre><code class="lang-bash">(base) ➜  elasticsearch tree ..├── config│   ├── IKAnalyzer.cfg.xml│   ├── stopwords.dic│   └── userwords.dic├── docker-compose.yml└── Dockerfile1 directory, 5 files</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><code>Dockerfile</code></h3><p>其中<code>Dockerfile</code>中内容如下：</p><pre><code class="lang-Dockerfile">FROM elasticsearch:7.7.1RUN yes | ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.1/elasticsearch-analysis-ik-7.7.1.zip</code></pre><h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a><code>docker-compose.yml</code></h3><p>其中<code>docker-compose.yml</code>中内容如下：</p><pre><code class="lang-yaml">version: &#39;3&#39;services:    es:        image: elasticsearch-ik:7.7.1        container_name: elasticsearch        network_mode: &quot;host&quot;        environment:             - discovery.type=single-node        ports:            - 9200:9200            - 9300:9300        volumes:             - ./config/IKAnalyzer.cfg.xml:/usr/share/elasticsearch/config/analysis-ik/IKAnalyzer.cfg.xml            - ./config/userwords.dic:/usr/share/elasticsearch/config/analysis-ik/userwords.dic            - ./config/stopwords.dic:/usr/share/elasticsearch/config/analysis-ik/stopwords.dic</code></pre><h3 id="IKAnalyzer-cfg-xml"><a href="#IKAnalyzer-cfg-xml" class="headerlink" title="IKAnalyzer.cfg.xml"></a><code>IKAnalyzer.cfg.xml</code></h3><p>其中<code>IKAnalyzer.cfg.xml</code>中内容如下：</p><pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;&lt;properties&gt;    &lt;comment&gt;IK Analyzer 扩展配置&lt;/comment&gt;    &lt;!--用户可以在这里配置自己的扩展字典 --&gt;    &lt;entry key=&quot;ext_dict&quot;&gt;userwords.dic&lt;/entry&gt;     &lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;    &lt;entry key=&quot;ext_stopwords&quot;&gt;stopwords.dic&lt;/entry&gt;    &lt;!--用户可以在这里配置远程扩展字典 --&gt;    &lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;    &lt;!--用户可以在这里配置远程扩展停止词字典--&gt;    &lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;&lt;/properties&gt;</code></pre><h3 id="stopwords-dic"><a href="#stopwords-dic" class="headerlink" title="stopwords.dic"></a><code>stopwords.dic</code></h3><p>其中<code>stopwords.dic</code>内容如下：</p><pre><code class="lang-dic">吃</code></pre><h3 id="userwords-dic"><a href="#userwords-dic" class="headerlink" title="userwords.dic"></a><code>userwords.dic</code></h3><p>其中<code>userwords.dic</code>内容如下：</p><pre><code class="lang-dic">曹操和李德方</code></pre><h2 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h2><pre><code class="lang-bash">docker-compose up -d</code></pre><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>效果如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/elasticsearch_userdict.png" alt="elasticsearch_userdict"></p><p>可以看到，里面<code>李德方</code>、<code>曹操和</code>分别作为词语被拆分出来，同时<code>吃</code>这个词直接就被过滤掉了。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">medcl/elasticsearch-analysis-ik: The IK Analysis plugin integrates Lucene IK analyzer into elasticsearch, support customized dictionary.</a></li><li><a href="https://www.jianshu.com/p/f178e59ffaf2" target="_blank" rel="noopener">ElasticSearch-IK分词使用踩坑总结 - 简书</a></li><li><a href="https://zq99299.github.io/note-book/elasticsearch-senior/ik/31-config.html#%E4%B8%BB%E8%A6%81%E9%85%8D%E7%BD%AE%E8%A7%A3%E8%AF%B4" target="_blank" rel="noopener">IK 分词器配置文件和自定义词库 | Mrcode 笔记本</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;处于项目需要，我们需要在elasticsearch中设置自定义的词典与停用词，这里简单说明下其配置方法。&lt;/p&gt;
+&lt;p&gt;自己这里是通过docker以及docker-compose的方式来使用的，直接使用elasticsearch的方法流程与之类似，可以看下面的参考。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="elasticsearch" scheme="https://www.iamlightsmile.com/tags/elasticsearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>折腾tmux</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%8A%98%E8%85%BEtmux/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%8A%98%E8%85%BEtmux/</id>
+    <published>2020-12-17T01:47:15.000Z</published>
+    <updated>2020-12-28T07:00:20.883Z</updated>
+    
+    <content type="html"><![CDATA[<p>有2台腾讯云服务器，一台之前装过brat，成功了。后来打算在新的更好配置的服务器上装brat，没想到总是失败，要么浏览器显示的样式有问题，要么就是打开链接直接重定向要下载文件。</p><a id="more"></a><p>于是乎决定只能在原来的服务器上做标注，考虑到持续使用，所以打算用tmux。没想到直接tmux报错，tmux报<code>can&#39;t create socket</code>的错误，yum提示<code>could not resolve host: mirrors.tencentyun.com; unknown error</code>的错误，更可怕的是ping 外网都ping不通。</p><p>后来参考<a href="https://www.jianshu.com/p/a80189d68104" target="_blank" rel="noopener">腾讯云服务器 “Could not resolve host: mirrors.tencentyun.com; Unknown error” - 简书</a>、<a href="https://blog.csdn.net/shengshengshiwo/article/details/84191515" target="_blank" rel="noopener">mirrors.tencentyun.com 又挂了！_BLUEHEART-CSDN博客</a>以及<a href="https://cloud.tencent.com/developer/article/1464422" target="_blank" rel="noopener">CentOS修改各大yum源(centos5,centos6,centos7) - 云+社区 - 腾讯云</a>对yum源进行了配置，如：</p><pre><code class="lang-bash">cd /etc/yum.repos.dmv CentOS-Base.repo CentOS-Base.repo.backupwget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repoyum clean allyum makecacheyum update</code></pre><p>以及修改了<code>/etc/yum.repos.d/CentOS-Epel.repo</code>文件，如下：</p><pre><code class="lang-conf">[epel]name=EPEL for redhat/centos $releasever - $basearchfailovermethod=prioritygpgcheck=1gpgkey=http://mirrors.163.com/epel/RPM-GPG-KEY-EPEL-7enabled=0baseurl=http://mirrors.163.com/epel/$releasever/$basearch/</code></pre><p>然后解决了yum问题。</p><p>没想到tmux还是不行，后来找到了<a href="https://github.com/MachinaCore/CygwinPortable/issues/28" target="_blank" rel="noopener">tmux can’t create socket: Permission denied · Issue #28 · MachinaCore/CygwinPortable</a>通过在zshrc中配置<code>alias tmux=&#39;tmux -S ~/.tmsock new -ADsCyg&#39;</code>暂时解决了这个问题。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.jianshu.com/p/a80189d68104" target="_blank" rel="noopener">腾讯云服务器 “Could not resolve host: mirrors.tencentyun.com; Unknown error” - 简书</a></li><li><a href="https://blog.csdn.net/shengshengshiwo/article/details/84191515" target="_blank" rel="noopener">mirrors.tencentyun.com 又挂了！_BLUEHEART-CSDN博客</a></li><li><a href="https://cloud.tencent.com/developer/article/1464422" target="_blank" rel="noopener">CentOS修改各大yum源(centos5,centos6,centos7) - 云+社区 - 腾讯云</a></li><li><a href="https://github.com/MachinaCore/CygwinPortable/issues/28" target="_blank" rel="noopener">tmux can’t create socket: Permission denied · Issue #28 · MachinaCore/CygwinPortable</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有2台腾讯云服务器，一台之前装过brat，成功了。后来打算在新的更好配置的服务器上装brat，没想到总是失败，要么浏览器显示的样式有问题，要么就是打开链接直接重定向要下载文件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="tmux" scheme="https://www.iamlightsmile.com/tags/tmux/"/>
+    
+      <category term="brat" scheme="https://www.iamlightsmile.com/tags/brat/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python离线安装包及其依赖包（转载）</title>
     <link href="https://www.iamlightsmile.com/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/"/>
     <id>https://www.iamlightsmile.com/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/</id>
     <published>2020-12-14T00:57:38.000Z</published>
-    <updated>2020-12-14T01:03:02.842Z</updated>
+    <updated>2020-12-14T01:24:34.222Z</updated>
     
-    <content type="html"><![CDATA[<p>在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：</p><p>安装pipdeptree：</p><pre><code class="lang-bash">PS D:\test&gt; pip install pipdeptree</code></pre><p>假如想在内网安装flask，先在外网下载安装：</p><pre><code class="lang-bash">PS D:\test&gt; pip install flask</code></pre><p>使用pipdeptree 查看并生成requirements.txt</p><pre><code class="lang-bash">PS D:\test&gt; pipdeptree -f  -p flaskFlask==1.1.2  click==7.1.2  itsdangerous==1.1.0  Jinja2==2.11.2    MarkupSafe==1.1.1  Werkzeug==1.0.1PS D:\test&gt; pipdeptree -f  -p flask &gt; .\requirements.txt</code></pre><p>下载所有包至本地</p><pre><code class="lang-bash">PS D:\test&gt; pip download -r .\requirements.txt</code></pre><p>将test文件夹拷贝至内网机器（如F:/test），进入test目录执行如下命令离线安装</p><pre><code class="lang-bash">PS F:\test&gt; pip install --no-index --find-links=./ -r requirements.txt</code></pre><p>转自：<a href="https://www.jianshu.com/p/9a726dc64e2b" target="_blank" rel="noopener">python 离线安装包及其依赖包 - 简书</a></p>]]></content>
+    <content type="html"><![CDATA[<p>在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：</p><a id="more"></a><p>安装pipdeptree：</p><pre><code class="lang-bash">PS D:\test&gt; pip install pipdeptree</code></pre><p>假如想在内网安装flask，先在外网下载安装：</p><pre><code class="lang-bash">PS D:\test&gt; pip install flask</code></pre><p>使用pipdeptree 查看并生成requirements.txt</p><pre><code class="lang-bash">PS D:\test&gt; pipdeptree -f  -p flaskFlask==1.1.2  click==7.1.2  itsdangerous==1.1.0  Jinja2==2.11.2    MarkupSafe==1.1.1  Werkzeug==1.0.1PS D:\test&gt; pipdeptree -f  -p flask &gt; .\requirements.txt</code></pre><p>下载所有包至本地</p><pre><code class="lang-bash">PS D:\test&gt; pip download -r .\requirements.txt</code></pre><p>将test文件夹拷贝至内网机器（如F:/test），进入test目录执行如下命令离线安装</p><pre><code class="lang-bash">PS F:\test&gt; pip install --no-index --find-links=./ -r requirements.txt</code></pre><p>转自：<a href="https://www.jianshu.com/p/9a726dc64e2b" target="_blank" rel="noopener">python 离线安装包及其依赖包 - 简书</a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：&lt;/p&gt;
-&lt;p&gt;安装pipdeptree：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-bash&quot;&gt;PS D:\test
-      
+      &lt;p&gt;在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：&lt;/p&gt;
     
     </summary>
     
@@ -470,48 +516,6 @@ local_p
     
     
       <category term="Elasticsearch" scheme="https://www.iamlightsmile.com/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用终端文件管理器ranger</title>
-    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/"/>
-    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/</id>
-    <published>2020-10-25T15:08:33.000Z</published>
-    <updated>2020-10-25T15:21:09.999Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>之前早在18年就使用过Linux下终端文件管理器ranger，后来在Manjaro系统下也使用过，不过最近发现安装的ranger一直都不能预览文件，就很懵逼，一直不甘心，于是各种找解决方案。</p><a id="more"></a><h2 id="1-解决方案"><a href="#1-解决方案" class="headerlink" title="1.解决方案"></a>1.解决方案</h2><p>后来看到这篇教程：<a href="https://www.pythonf.cn/read/49398" target="_blank" rel="noopener">终端文件管理Ranger</a>才知道root账号是不能使用预览功能的，如果开启只能动Python源码。</p><p>具体为修改<code>site-packages/ranger/core/main.py</code>文件的大约141行，如下：</p><pre><code class="lang-python">        if fm.username == &#39;root&#39;:            fm.settings.preview_files = False            fm.settings.use_preview_script = False            LOG.info(&quot;Running as root, disabling the file previews.&quot;)</code></pre><p>把这几行注释掉就可以了。</p><p>然后重新打开ranger发现已经开启预览了嘻嘻。</p><p>关于如何定位<code>main.py</code>具体位置，主要是判断自己是在哪个Python环境下安装的ranger。如我是在miniconda下默认Python环境安装的ranger，并且miniconda的安装位置为<code>/opt/miniconda3</code>，所以我就在该路径下使用find命令即可找到ranger库文件，如下：</p><pre><code class="lang-bash">(base) ➜  miniconda3 find . -name &quot;*ranger*&quot;   ./lib/python3.8/site-packages/ranger_fm-1.9.3.dist-info./lib/python3.8/site-packages/ranger./bin/ranger./share/applications/ranger.desktop./share/doc/ranger./share/man/man1/ranger.1</code></pre><p>然后该<code>mian.py</code>的绝对路径则为<code>/opt/miniconda3/lib/python3.8/site-packages/ranger/core/main.py</code>。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;之前早在18年就使用过Linux下终端文件管理器ranger，后来在Manjaro系统下也使用过，不过最近发现安装的ranger一直都不能预览文件，就很懵逼，一直不甘心，于是各种找解决方案。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="ranger, Linux" scheme="https://www.iamlightsmile.com/tags/ranger-Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS安装Hadoop</title>
-    <link href="https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/"/>
-    <id>https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/</id>
-    <published>2020-10-23T09:02:13.000Z</published>
-    <updated>2020-10-23T15:13:27.195Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。</p><a id="more"></a><p>主要参考的两篇教程：</p><ul><li><a href="https://www.jianshu.com/p/78f9cc79a766" target="_blank" rel="noopener">hadoop 3.1.3单机版安装教程 - 简书</a></li><li><a href="https://www.jianshu.com/p/27cbd5bbdf61" target="_blank" rel="noopener">【Hadoop】Hadoop 3.2.1 真伪分布式搭建 - 简书</a></li></ul><blockquote><p><strong>注意</strong>：本文将介绍伪分布式安装过程，至于真分布式不做介绍。</p></blockquote><h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1 安装java"></a>1 安装java</h3><p>略</p><h3 id="2-下载Hadoop"><a href="#2-下载Hadoop" class="headerlink" title="2 下载Hadoop"></a>2 下载Hadoop</h3><p>下载页：<a href="https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz" target="_blank" rel="noopener">Apache Download Mirrors</a></p><h3 id="3-找到Java安装路径"><a href="#3-找到Java安装路径" class="headerlink" title="3 找到Java安装路径"></a>3 找到Java安装路径</h3><p>which java定位到的是java程序的执行路径，而不是安装路径，经过两次-lrt最后的输出才是安装路径。</p><p>具体参考第2篇文档。</p><h3 id="4-安装Hadoop"><a href="#4-安装Hadoop" class="headerlink" title="4 安装Hadoop"></a>4 安装Hadoop</h3><p>上面两篇文档放置的Hadoop的位置路径不同，一个是在<code>/home/</code>路径下，一个是在<code>usr/local/hadoop</code>下，而我自己选择了<code>/opt</code>下面。</p><p>相关不同可以参考：<a href="https://blog.csdn.net/baidu_30000217/article/details/78936790" target="_blank" rel="noopener">Linux 软件安装到 /usr，/usr/local/ 还是 /opt 目录？_LSGOZJ的博客-CSDN博客</a></p><h3 id="5-设置Hadoop启动项"><a href="#5-设置Hadoop启动项" class="headerlink" title="5 设置Hadoop启动项"></a>5 设置Hadoop启动项</h3><p>同样的，上面两篇教程中配置方式也不相同，一篇直接修改<code>/etc/profile</code>，一篇修改<code>/etc/profile.d/hadoop.sh</code>，两者殊途同归，效果一致。</p><p>内容大致即：</p><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64  export HADOOP_HOME=/home/hadoop-3.2.1export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</code></pre><p>然后使配置生效刷新环境变量，即运行<code>source /etc/profile</code></p><h3 id="6-创建hadoop用户"><a href="#6-创建hadoop用户" class="headerlink" title="6 创建hadoop用户"></a>6 创建hadoop用户</h3><pre><code class="lang-bash">adduser hadoop # 新增用户passwd hadoop # 设置秘密groupadd hadoop # 新建用户组usermod -G hadoop hadoop # 将用户添加到用户组id hadoop # 查看用户情况</code></pre><h3 id="7-创建hadoop文件目录并授权"><a href="#7-创建hadoop文件目录并授权" class="headerlink" title="7 创建hadoop文件目录并授权"></a>7 创建hadoop文件目录并授权</h3><pre><code class="lang-bash">mkdir -p /home/hadoop/tmp # hadoop临时文件目录mkdir -p /home/hadoop/hdfs/name # hadoop主节点(namenode)文件目录mkdir -p /home/hadoop/hdfs/data # hadoop数据节点(datanode)文件目录mkdir -p /home/hadoop/log # hadoop日志文件目录chown -R hadoop:hadoop /home/hadoop # 设置hadoop文件目录所有者</code></pre><h3 id="8-修改hadoop配置文件"><a href="#8-修改hadoop配置文件" class="headerlink" title="8 修改hadoop配置文件"></a>8 修改hadoop配置文件</h3><p>hadoop的配置文件都在 etc/hadoop 目录下，配置文件有很多，最基本要修改3个文件：hadoop-env.sh ，core-site.xml，hdfs-site.xml。</p><h4 id="8-1-hadoop-env-sh"><a href="#8-1-hadoop-env-sh" class="headerlink" title="8.1 hadoop-env.sh"></a>8.1 hadoop-env.sh</h4><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64 # 需要指定Java路径export HADOOP_LOG_DIR=/home/hadoop/log # 需要指定hadoop_log_dir</code></pre><h4 id="8-2-core-site-xml"><a href="#8-2-core-site-xml" class="headerlink" title="8.2 core-site.xml"></a>8.2 core-site.xml</h4><pre><code class="lang-xml">&lt;configuration&gt;    &lt;property&gt;        &lt;name&gt;fs.defaultFS&lt;/name&gt;        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;        &lt;description&gt;hdfs内部通讯访问地址&lt;/description&gt;    &lt;/property&gt;    &lt;property&gt;        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;        &lt;value&gt;file:/home/hadoop/tmp&lt;/value&gt;        &lt;description&gt;hadoop数据存放&lt;/description&gt;    &lt;/property&gt;&lt;/configuration&gt;</code></pre><h4 id="8-3-hdfs-site-xml"><a href="#8-3-hdfs-site-xml" class="headerlink" title="8.3 hdfs-site.xml"></a>8.3 hdfs-site.xml</h4><pre><code class="lang-xml">&lt;configuration&gt;    &lt;property&gt;        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;        &lt;value&gt;file:/home/hadoop/hdfs/name&lt;/value&gt;    &lt;/property&gt;    &lt;property&gt;        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;        &lt;value&gt;file:/home/hadoop/hdfs/data&lt;/value&gt;    &lt;/property&gt;    &lt;property&gt;        &lt;name&gt;dfs.replication&lt;/name&gt;        &lt;value&gt;1&lt;/value&gt;    &lt;/property&gt;&lt;/configuration&gt;</code></pre><h3 id="9-设置ssh免密登录"><a href="#9-设置ssh免密登录" class="headerlink" title="9 设置ssh免密登录"></a>9 设置ssh免密登录</h3><blockquote><p><strong>注意</strong>：以下命令均是在hadoop用户下进行。</p></blockquote><p>需要用前面创建的hadoop用户通过ssh免密访问本地，先切换到hadoop用户目录下，执行以下命令：</p><pre><code class="lang-bash">ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsacat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keyschmod 0600 ~/.ssh/authorized_keys</code></pre><p>测试是否成功，执行下面命令，若不用输入密码则成功。</p><pre><code class="lang-bash">ssh localhost</code></pre><h3 id="10-启动hadoop"><a href="#10-启动hadoop" class="headerlink" title="10 启动hadoop"></a>10 启动hadoop</h3><blockquote><p><strong>注意</strong>：以下命令均是在hadoop用户下进行。</p></blockquote><h4 id="10-1-格式化hadoop文件系统"><a href="#10-1-格式化hadoop文件系统" class="headerlink" title="10.1 格式化hadoop文件系统"></a>10.1 格式化hadoop文件系统</h4><pre><code class="lang-bash">hdfs namenode -format</code></pre><h4 id="10-2-一键启动"><a href="#10-2-一键启动" class="headerlink" title="10.2 一键启动"></a>10.2 一键启动</h4><pre><code class="lang-bash">start-all.sh</code></pre><h4 id="10-3-检验"><a href="#10-3-检验" class="headerlink" title="10.3 检验"></a>10.3 检验</h4><p>输入命令 ，没有报错，则hadoop单机版安装成功。</p><pre><code class="lang-bash">hadoop fs -ls /</code></pre><h3 id="11-查看启动效果"><a href="#11-查看启动效果" class="headerlink" title="11 查看启动效果"></a>11 查看启动效果</h3><p>访问<code>http://localhost:9870</code>，可以得到如下图所示：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hadoop_front.png" alt="hadoop效果"></p><h3 id="其他文章"><a href="#其他文章" class="headerlink" title="其他文章"></a>其他文章</h3><ul><li><a href="https://www.cnblogs.com/luo630/p/13271637.html" target="_blank" rel="noopener">Hadoop、HBase、Spark单机安装 - 工程师二号 - 博客园</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
     
   </entry>
   
