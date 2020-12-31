@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-12-29T07:10:06.034Z</updated>
+  <updated>2020-12-31T08:17:47.639Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务器被挖矿的入侵了</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%8C%96%E7%9F%BF%E7%9A%84%E5%85%A5%E4%BE%B5%E4%BA%86/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%8C%96%E7%9F%BF%E7%9A%84%E5%85%A5%E4%BE%B5%E4%BA%86/</id>
+    <published>2020-12-31T08:06:16.000Z</published>
+    <updated>2020-12-31T08:17:47.639Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天连一台腾讯云服务器的时候，发现网络可以建立连接，但是特别的卡，不知道咋回事，最开始还以为是网络慢。后来<code>htop</code>命令查看了一下进程，好家伙，CPU都被占满了，这是什么鬼？！并且怎么还跑着奇奇怪怪的不知道啥名字的程序？！</p><p>此时心里一惊，坏了，不会被黑客入侵了吧。。。然后大概网上搜了一下，果然情况和参考中两篇链接几乎一致，淦！</p><a id="more"></a><p>我是昨天刚在服务器上配置的hadoop用户密码，结果今天就被入侵了，然而腾讯云也没有任何报警提示，我服了。偷袭我一个Linux新手？我大意了啊，没防住~</p><p>担心自己处理不好还是留下后门，于是乎只能把服务器上的数据拷贝到本地，然后再重装系统了。</p><p>哎，2020果然不顺，最后一天都是如此悲催，希望2021能有好运气和好收获吧。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.v2ex.com/t/683249" target="_blank" rel="noopener">跟着网上博客的教程安装 hadoop，然后我的服务器就被入侵了 - V2EX</a></li><li><a href="https://blog.csdn.net/subfate/article/details/106546646" target="_blank" rel="noopener">记一次ubuntu虚拟机被挖矿木马攻击的过程_李迟的专栏-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天连一台腾讯云服务器的时候，发现网络可以建立连接，但是特别的卡，不知道咋回事，最开始还以为是网络慢。后来&lt;code&gt;htop&lt;/code&gt;命令查看了一下进程，好家伙，CPU都被占满了，这是什么鬼？！并且怎么还跑着奇奇怪怪的不知道啥名字的程序？！&lt;/p&gt;
+&lt;p&gt;此时心里一惊，坏了，不会被黑客入侵了吧。。。然后大概网上搜了一下，果然情况和参考中两篇链接几乎一致，淦！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="hadoop" scheme="https://www.iamlightsmile.com/tags/hadoop/"/>
+    
+  </entry>
   
   <entry>
     <title>elasticsearch设置自定义词典与停用词</title>
@@ -493,29 +517,6 @@ local_p
     
     
       <category term="翻墙" scheme="https://www.iamlightsmile.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Elasticsearch分页搜索</title>
-    <link href="https://www.iamlightsmile.com/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/"/>
-    <id>https://www.iamlightsmile.com/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/</id>
-    <published>2020-10-26T04:59:22.000Z</published>
-    <updated>2020-10-26T05:00:53.770Z</updated>
-    
-    <content type="html"><![CDATA[<p>目前已经找到Elasticsearch分页搜索实现机制，目前仅考虑使用<code>from-size</code>机制，具体在通过Python的Elasticsearch库调用时有两种方式：</p><a id="more"></a><h3 id="方式一：restful风格"><a href="#方式一：restful风格" class="headerlink" title="方式一：restful风格"></a>方式一：restful风格</h3><p>使用示例：</p><pre><code class="lang-python">from elasticsearch import Elasticsearches = Elasticsearch()# es = Elasticsearch(hosts={&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 9200})index = &quot;index&quot;query_body = {    &quot;from&quot;: 5,    &quot;size&quot;: 10,    &quot;query&quot;: {        &quot;match&quot;: {            &quot;word&quot;: &quot;测试&quot;        }    }}res = es.search(index=index, body=query_body)</code></pre><p>其中<code>from</code>指定偏移量，<code>size</code>指定返回结果个数。</p><h3 id="方式二：Python风格"><a href="#方式二：Python风格" class="headerlink" title="方式二：Python风格"></a>方式二：Python风格</h3><p>使用示例：</p><pre><code class="lang-python">from elasticsearch import Elasticsearches = Elasticsearch()# es = Elasticsearch(hosts={&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 9200})index = &quot;index&quot;query_body = {    &quot;query&quot;: {        &quot;match&quot;: {            &quot;word&quot;: &quot;测试&quot;        }    }}res = es.search(index=index, body=query_body, from_=5, size=10)</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.jianshu.com/p/171dcd33ab02" target="_blank" rel="noopener">elasticsearch 分页查询实现方案 - 简书</a></li><li><a href="https://wonderomg.github.io/2018/05/17/Elasticsearch%E5%AE%9E%E8%B7%B5api%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" target="_blank" rel="noopener">Elasticsearch实践(3)-api分页查询 | WONDEROMG</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;目前已经找到Elasticsearch分页搜索实现机制，目前仅考虑使用&lt;code&gt;from-size&lt;/code&gt;机制，具体在通过Python的Elasticsearch库调用时有两种方式：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="Elasticsearch" scheme="https://www.iamlightsmile.com/tags/Elasticsearch/"/>
     
   </entry>
   

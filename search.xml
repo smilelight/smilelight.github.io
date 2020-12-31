@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>服务器被挖矿的入侵了</title>
+      <link href="/articles/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%8C%96%E7%9F%BF%E7%9A%84%E5%85%A5%E4%BE%B5%E4%BA%86/"/>
+      <url>/articles/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%8C%96%E7%9F%BF%E7%9A%84%E5%85%A5%E4%BE%B5%E4%BA%86/</url>
+      
+        <content type="html"><![CDATA[<p>今天连一台腾讯云服务器的时候，发现网络可以建立连接，但是特别的卡，不知道咋回事，最开始还以为是网络慢。后来<code>htop</code>命令查看了一下进程，好家伙，CPU都被占满了，这是什么鬼？！并且怎么还跑着奇奇怪怪的不知道啥名字的程序？！</p><p>此时心里一惊，坏了，不会被黑客入侵了吧。。。然后大概网上搜了一下，果然情况和参考中两篇链接几乎一致，淦！</p><a id="more"></a><p>我是昨天刚在服务器上配置的hadoop用户密码，结果今天就被入侵了，然而腾讯云也没有任何报警提示，我服了。偷袭我一个Linux新手？我大意了啊，没防住~</p><p>担心自己处理不好还是留下后门，于是乎只能把服务器上的数据拷贝到本地，然后再重装系统了。</p><p>哎，2020果然不顺，最后一天都是如此悲催，希望2021能有好运气和好收获吧。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.v2ex.com/t/683249" target="_blank" rel="noopener">跟着网上博客的教程安装 hadoop，然后我的服务器就被入侵了 - V2EX</a></li><li><a href="https://blog.csdn.net/subfate/article/details/106546646" target="_blank" rel="noopener">记一次ubuntu虚拟机被挖矿木马攻击的过程_李迟的专栏-CSDN博客</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>elasticsearch设置自定义词典与停用词</title>
       <link href="/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/"/>
       <url>/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/</url>
