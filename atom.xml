@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-12-31T08:17:47.639Z</updated>
+  <updated>2021-02-10T14:14:42.581Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos安装spark</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85spark/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85spark/</id>
+    <published>2021-02-10T12:56:49.000Z</published>
+    <updated>2021-02-10T14:14:42.581Z</updated>
+    
+    <content type="html"><![CDATA[<p>迄今为止，已经有五次因为安装hadoop被黑客入侵导致重装服务器的系统了。经过不断的排查摸索，终于初步确定了就是因为hadoop开放端口的原因。</p><p>在安装spark之前，我们首先需要安装好以下几个组件：</p><ul><li>java</li><li>hadoop</li><li>scala</li></ul><a id="more"></a><h2 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1.安装java"></a>1.安装java</h2><p>关于java的安装，可以选择java8或者java11。使用以下命令搜索相关yum源程序：</p><pre><code class="lang-bash">yum search java</code></pre><p>如下图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/yum-search-java.png" alt="yum search java"></p><p>之后可以使用如下命令安装java：</p><pre><code class="lang-bash">yum install java-1.8.0-openjdk-devel.x86_64</code></pre><p>或</p><pre><code class="lang-bash">yum install java-11-openjdk-devel.x86_64</code></pre><h2 id="2-安装hadoop"><a href="#2-安装hadoop" class="headerlink" title="2.安装hadoop"></a>2.安装hadoop</h2><p>关于安装hadoop，之前已经写过相关文章如<a href="https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/">CentOS安装Hadoop - lightsmile’s Blog</a>。关于hadoop的下载，我们可以通过清华源来下载，具体下载地址为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/core/hadoop-3.3.0/" target="_blank" rel="noopener">Index of /apache/hadoop/core/hadoop-3.3.0</a>。</p><p>需要注意的是设置ssh免密登录过程可能会出现问题，在设置完成后可能还需要提示输入密码才可以。</p><p>这时可以输入：</p><pre><code class="lang-bash">ssh -vvv localhost</code></pre><p>查看详细的登录日志信息，以确定问题所在。其中的问题主要包括<code>~/.ssh</code>文件夹的权限不对以及<code>authorized_keys</code>的权限不对，以及用户自定义ssh秘钥文件名等等。</p><h3 id="2-1-hadoop设置ssh免密登录失败常见原因及解决措施"><a href="#2-1-hadoop设置ssh免密登录失败常见原因及解决措施" class="headerlink" title="2.1 hadoop设置ssh免密登录失败常见原因及解决措施"></a>2.1 hadoop设置ssh免密登录失败常见原因及解决措施</h3><h4 id="ssh文件夹权限"><a href="#ssh文件夹权限" class="headerlink" title="~/.ssh文件夹权限"></a>~/.ssh文件夹权限</h4><p>可以输入以下命令以修改ssh文件夹权限：</p><pre><code class="lang-bash">chmod 700 ~/.ssh</code></pre><h4 id="authorized-keys文件权限"><a href="#authorized-keys文件权限" class="headerlink" title="authorized_keys文件权限"></a>authorized_keys文件权限</h4><pre><code class="lang-bash">chmod 0600 authorized_keys</code></pre><h4 id="找不到ssh秘钥文件或用户自定义ssh秘钥文件名"><a href="#找不到ssh秘钥文件或用户自定义ssh秘钥文件名" class="headerlink" title="找不到ssh秘钥文件或用户自定义ssh秘钥文件名"></a>找不到ssh秘钥文件或用户自定义ssh秘钥文件名</h4><p>如果用户不将ssh秘钥文件设置为默认的id_dsa或id_rsa等，那么用户还需要在~/.ssh文件夹下新增一个config文件以配置相关信息，具体内容大致如下：</p><pre><code class="lang-text">Host localhost    HostName localhost    User hadoop    Port 22    PreferredAuthentications publickey    IdentityFile ~/.ssh/id_rsa</code></pre><p>其中Host后面的localhost是指用户自定义的主机名，用于之后免密登录时ssh后面的地址，HostName则为实际的主机名，User指用户名，Port指ssh登录所使用的端口，IdentityFile指秘钥所对应的路径。</p><p>在新增config文件之后，同时也还需要设置该文件的权限，如：</p><pre><code class="lang-bash">chmod 0600 config</code></pre><h2 id="3-安装scala"><a href="#3-安装scala" class="headerlink" title="3.安装scala"></a>3.安装scala</h2><p>首先需要到Scala<a href="https://www.scala-lang.org/download/" target="_blank" rel="noopener">Download | The Scala Programming Language</a>官网下载scala，可以下载如下文件：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/download_scala.png" alt=""></p><p>在下载完成之后，将其解压到合适的文件夹，并将bin目录添加到系统PATH环境变量中即可。</p><p>我是将hadoop、spark和scala都放到了/opt路径下，同时新增了<code>/etc/profile.d/hadoop.sh</code>文件，里面内容为：</p><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.9.11-3.el8_3.x86_64  export HADOOP_HOME=/opt/hadoop-3.3.0export SCALA_HOME=/opt/scala-2.13.4export SPARK_HOME=/opt/spark-3.0.1export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SCALA_HOME/bin:$SPARK_HOME/bin</code></pre><p>安装完成之后，可以简单验证一下，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hello_scala.png" alt=""></p><h2 id="4-安装spark"><a href="#4-安装spark" class="headerlink" title="4.安装spark"></a>4.安装spark</h2><p>对于spark的下载，可以通过国内清华源下载以提高下载速度。具体网址为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/" target="_blank" rel="noopener">Index of /apache/spark</a>，当前最新版本的下载链接为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz" target="_blank" rel="noopener">spark-3.0.1-bin-hadoop3.2.tgz</a>。</p><p>在下载好spark后，解压到合适的位置并配置环境变量与配置scala类似，此处不表。在安装完成之后，可以简单验证一下，如下命令：</p><pre><code class="lang-bash">(base) ➜  ~ run-example SparkPi 10  2&gt;&amp;1 | grep &quot;Pi is&quot;Pi is roughly 3.144179144179144</code></pre><h2 id="5-通过安全组控制hadoop服务所开放的端口"><a href="#5-通过安全组控制hadoop服务所开放的端口" class="headerlink" title="5.通过安全组控制hadoop服务所开放的端口"></a>5.通过安全组控制hadoop服务所开放的端口</h2><p>通过以下命令排查得到java所对应端口：</p><pre><code class="lang-bash">(base) ➜  ~ netstat -tunlp | grep javatcp        0      0 0.0.0.0:8030            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8031            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8032            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8033            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8040            0.0.0.0:*               LISTEN      82046/java          tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      81255/java          tcp        0      0 0.0.0.0:8042            0.0.0.0:*               LISTEN      82046/java          tcp        0      0 0.0.0.0:9868            0.0.0.0:*               LISTEN      81632/java          tcp        0      0 0.0.0.0:9870            0.0.0.0:*               LISTEN      81255/java          tcp        0      0 0.0.0.0:36563           0.0.0.0:*               LISTEN      82046/java          tcp        0      0 0.0.0.0:8088            0.0.0.0:*               LISTEN      81914/java</code></pre><p>通过jps命令查看java进程信息：</p><pre><code class="lang-bash">(base) ➜  ~ jps81632 SecondaryNameNode81255 NameNode81914 ResourceManager82046 NodeManager190765 Jps</code></pre><p>然后根据对应的端口号配置安全组，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hadoop安全组.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;迄今为止，已经有五次因为安装hadoop被黑客入侵导致重装服务器的系统了。经过不断的排查摸索，终于初步确定了就是因为hadoop开放端口的原因。&lt;/p&gt;
+&lt;p&gt;在安装spark之前，我们首先需要安装好以下几个组件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;li&gt;hadoop&lt;/li&gt;
+&lt;li&gt;scala&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="hadoop" scheme="https://www.iamlightsmile.com/tags/hadoop/"/>
+    
+      <category term="spark" scheme="https://www.iamlightsmile.com/tags/spark/"/>
+    
+  </entry>
   
   <entry>
     <title>服务器被挖矿的入侵了</title>
@@ -490,33 +521,6 @@ local_p
     
     
       <category term="求职" scheme="https://www.iamlightsmile.com/tags/%E6%B1%82%E8%81%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>国内博客网站说明</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/</id>
-    <published>2020-10-26T05:05:39.000Z</published>
-    <updated>2020-10-26T05:08:45.481Z</updated>
-    
-    <content type="html"><![CDATA[<p>本博客国内网址链接为：<a href="https://www.lightsmile.cn/" target="_blank" rel="noopener">lightsmile’s Blog</a>。</p><p>另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章被人举报，无奈将两篇文章删除，并且不再同步更新。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本博客国内网址链接为：&lt;a href=&quot;https://www.lightsmile.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;lightsmile’s Blog&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章
-      
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="翻墙" scheme="https://www.iamlightsmile.com/tags/%E7%BF%BB%E5%A2%99/"/>
     
   </entry>
   
