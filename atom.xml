@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2021-02-10T14:14:42.581Z</updated>
+  <updated>2021-02-16T12:43:53.113Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spark搞起来！</title>
+    <link href="https://www.iamlightsmile.com/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/"/>
+    <id>https://www.iamlightsmile.com/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/</id>
+    <published>2021-02-16T12:36:08.000Z</published>
+    <updated>2021-02-16T12:43:53.113Z</updated>
+    
+    <content type="html"><![CDATA[<p>Spark搞起来，嘿嘿嘿！</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Spark-ui-1.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-2.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spakr-ui-3.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-4.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-5.png" alt=""></p><p>大爱VS Code~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spark搞起来，嘿嘿嘿！&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Spark" scheme="https://www.iamlightsmile.com/tags/Spark/"/>
+    
+      <category term="VS Code" scheme="https://www.iamlightsmile.com/tags/VS-Code/"/>
+    
+  </entry>
   
   <entry>
     <title>centos安装spark</title>
@@ -41,9 +64,9 @@
     
       <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
     
-      <category term="hadoop" scheme="https://www.iamlightsmile.com/tags/hadoop/"/>
-    
       <category term="spark" scheme="https://www.iamlightsmile.com/tags/spark/"/>
+    
+      <category term="hadoop" scheme="https://www.iamlightsmile.com/tags/hadoop/"/>
     
   </entry>
   
@@ -498,29 +521,6 @@ local_p
     
     
       <category term="信息抽取" scheme="https://www.iamlightsmile.com/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求职随记</title>
-    <link href="https://www.iamlightsmile.com/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/"/>
-    <id>https://www.iamlightsmile.com/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/</id>
-    <published>2020-10-27T14:17:20.000Z</published>
-    <updated>2020-10-27T14:25:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。</p><a id="more"></a><p>不过今晚最终想了想还是先拒绝掉了，虽然这种做法可能确实有点败人缘、坏人品，但是另一方面，我们小组目前处于比较缺人的状态，并且现在我还主要负责一个电网相关的知识库项目，离开了只会让同事更难做。一方面自己想换个环境继续学习新的知识和技能，另一方面则是一份责任，是自己应该做且做好的事情。只能等把项目推进到年末之后再考虑更换工作吧，现在换工作确实对公司而言有些不厚道了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
-    
-    
-      <category term="求职" scheme="https://www.iamlightsmile.com/tags/%E6%B1%82%E8%81%8C/"/>
     
   </entry>
   

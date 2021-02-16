@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Spark搞起来！</title>
+      <link href="/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/"/>
+      <url>/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/</url>
+      
+        <content type="html"><![CDATA[<p>Spark搞起来，嘿嘿嘿！</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Spark-ui-1.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-2.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spakr-ui-3.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-4.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-5.png" alt=""></p><p>大爱VS Code~</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Spark </tag>
+            
+            <tag> VS Code </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>centos安装spark</title>
       <link href="/articles/centos%E5%AE%89%E8%A3%85spark/"/>
       <url>/articles/centos%E5%AE%89%E8%A3%85spark/</url>
@@ -16,9 +37,9 @@
             
             <tag> centos </tag>
             
-            <tag> hadoop </tag>
-            
             <tag> spark </tag>
+            
+            <tag> hadoop </tag>
             
         </tags>
       
@@ -852,9 +873,9 @@
       
         <tags>
             
-            <tag> Elasticsearch </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Elasticsearch </tag>
             
         </tags>
       
