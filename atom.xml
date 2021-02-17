@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2021-02-16T12:43:53.113Z</updated>
+  <updated>2021-02-17T04:08:42.014Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Jupyter添加Scala和Spark内核</title>
+    <link href="https://www.iamlightsmile.com/articles/Jupyter%E6%B7%BB%E5%8A%A0Scala%E5%92%8CSpark%E5%86%85%E6%A0%B8/"/>
+    <id>https://www.iamlightsmile.com/articles/Jupyter%E6%B7%BB%E5%8A%A0Scala%E5%92%8CSpark%E5%86%85%E6%A0%B8/</id>
+    <published>2021-02-17T02:39:38.000Z</published>
+    <updated>2021-02-17T04:08:42.014Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>Jupyter大法好！</p><a id="more"></a><h2 id="1-修改Jupyter-notebook配置方法"><a href="#1-修改Jupyter-notebook配置方法" class="headerlink" title="1.修改Jupyter notebook配置方法"></a>1.修改Jupyter notebook配置方法</h2><pre><code class="lang-bash">jupyter notebook --generate-config</code></pre><p>使用以上命令得到notebook的配置文件，路径为：<code>~/.jupyter/jupyter_notebook_config.py</code>，然后我们可以在其中修改是否允许以root用户启动，以及启动目录等。</p><h2 id="2-添加Scala-kernel"><a href="#2-添加Scala-kernel" class="headerlink" title="2.添加Scala kernel"></a>2.添加Scala kernel</h2><p>需要借助<code>almond</code>工具，首先需要先安装<code>almond</code>，如下：</p><pre><code class="lang-bash">curl -Lo coursier https://git.io/coursier-clichmod +x coursier</code></pre><p>然后执行如下命令安装：</p><pre><code class="lang-bash">./coursier launch --fork almond -- --install</code></pre><p>或者是指定almond或scala版本：</p><pre><code class="lang-bash">./coursier launch --fork almond:0.10.0 --scala 2.13 -- --install</code></pre><blockquote><p><strong>注释</strong>：使用<code>scala -version</code>命令查看scala版本。</p></blockquote><p>以上的安装需要耗费一些时间，如果安装过程最后的输出信息为<code>Installed scala kernel under /root/.local/share/jupyter/kernels/scala</code>，则说明安装成功。</p><h2 id="3-添加Spark-kernel"><a href="#3-添加Spark-kernel" class="headerlink" title="3.添加Spark kernel"></a>3.添加Spark kernel</h2><p>这里的kernel更准确的来说应该是pyspark kernel。</p><p>安装命令如下：</p><pre><code class="lang-bash">pip install spylon-kernelpython -m spylon_kernel install</code></pre><h2 id="4-jupyter-notebook内核创建成功示例"><a href="#4-jupyter-notebook内核创建成功示例" class="headerlink" title="4.jupyter notebook内核创建成功示例"></a>4.jupyter notebook内核创建成功示例</h2><p>如下图，为scala kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/scala-kernel.png" alt=""></p><p>如下图，为spark kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-kernel.png" alt=""></p><p>如下图，为jupyter notebook的所有kernels：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/jupyter-notebook-kernels.png" alt=""></p><h2 id="5-Jupyter-notebook内核管理"><a href="#5-Jupyter-notebook内核管理" class="headerlink" title="5.Jupyter notebook内核管理"></a>5.Jupyter notebook内核管理</h2><h3 id="5-1-列出内核"><a href="#5-1-列出内核" class="headerlink" title="5.1 列出内核"></a>5.1 列出内核</h3><pre><code class="lang-bash">jupyter kernelspec list Available kernels:  scala            /root/.local/share/jupyter/kernels/scala  python3          /opt/miniconda3/share/jupyter/kernels/python3  spylon-kernel    /usr/local/share/jupyter/kernels/spylon-kernel</code></pre><h3 id="5-2-移除内核"><a href="#5-2-移除内核" class="headerlink" title="5.2 移除内核"></a>5.2 移除内核</h3><pre><code class="lang-bash">jupyter kernelspec remove &lt;kernel-name&gt;</code></pre><h3 id="5-3-修改kernel名称"><a href="#5-3-修改kernel名称" class="headerlink" title="5.3 修改kernel名称"></a>5.3 修改kernel名称</h3><p>首先使用<code>jupyter kernelspec list</code>找到kernel所在的位置，然后在该文件夹下编辑<code>kernel.json</code>文件，修改<code>display_name</code>属性即可。</p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/u014552678/article/details/62046638" target="_blank" rel="noopener">总结：修改Anaconda中的Jupyter Notebook默认工作路径的三种方式_u014552678的博客-CSDN博客</a></li><li><a href="https://almond.sh/docs/quick-start-install" target="_blank" rel="noopener">Installation · almond</a></li><li><a href="https://queirozf.com/entries/jupyter-kernels-how-to-add-change-remove#add-apache-spark-kernel" target="_blank" rel="noopener">Jupyter Notebook Kernels: How to Add, Change, Remove</a></li><li><a href="https://blog.csdn.net/moledyzhang/article/details/78850820" target="_blank" rel="noopener">jupyter安装及配置scala、spark、pyspark内核_moledyzhang的博客-CSDN博客</a></li><li><a href="https://github.com/Valassis-Digital-Media/spylon-kernel" target="_blank" rel="noopener">Valassis-Digital-Media/spylon-kernel: Jupyter kernel for scala and spark</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;Jupyter大法好！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="Jupyter" scheme="https://www.iamlightsmile.com/tags/Jupyter/"/>
+    
+      <category term="Scala" scheme="https://www.iamlightsmile.com/tags/Scala/"/>
+    
+      <category term="Spark" scheme="https://www.iamlightsmile.com/tags/Spark/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Spark搞起来！</title>
     <link href="https://www.iamlightsmile.com/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/"/>
     <id>https://www.iamlightsmile.com/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/</id>
     <published>2021-02-16T12:36:08.000Z</published>
-    <updated>2021-02-16T12:43:53.113Z</updated>
+    <updated>2021-02-17T02:41:39.491Z</updated>
     
     <content type="html"><![CDATA[<p>Spark搞起来，嘿嘿嘿！</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Spark-ui-1.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-2.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spakr-ui-3.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-4.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-5.png" alt=""></p><p>大爱VS Code~</p>]]></content>
     
@@ -31,6 +58,8 @@
     
     </summary>
     
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     
       <category term="Spark" scheme="https://www.iamlightsmile.com/tags/Spark/"/>
@@ -44,7 +73,7 @@
     <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85spark/"/>
     <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85spark/</id>
     <published>2021-02-10T12:56:49.000Z</published>
-    <updated>2021-02-10T14:14:42.581Z</updated>
+    <updated>2021-02-17T02:41:39.629Z</updated>
     
     <content type="html"><![CDATA[<p>迄今为止，已经有五次因为安装hadoop被黑客入侵导致重装服务器的系统了。经过不断的排查摸索，终于初步确定了就是因为hadoop开放端口的原因。</p><p>在安装spark之前，我们首先需要安装好以下几个组件：</p><ul><li>java</li><li>hadoop</li><li>scala</li></ul><a id="more"></a><h2 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1.安装java"></a>1.安装java</h2><p>关于java的安装，可以选择java8或者java11。使用以下命令搜索相关yum源程序：</p><pre><code class="lang-bash">yum search java</code></pre><p>如下图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/yum-search-java.png" alt="yum search java"></p><p>之后可以使用如下命令安装java：</p><pre><code class="lang-bash">yum install java-1.8.0-openjdk-devel.x86_64</code></pre><p>或</p><pre><code class="lang-bash">yum install java-11-openjdk-devel.x86_64</code></pre><h2 id="2-安装hadoop"><a href="#2-安装hadoop" class="headerlink" title="2.安装hadoop"></a>2.安装hadoop</h2><p>关于安装hadoop，之前已经写过相关文章如<a href="https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/">CentOS安装Hadoop - lightsmile’s Blog</a>。关于hadoop的下载，我们可以通过清华源来下载，具体下载地址为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/core/hadoop-3.3.0/" target="_blank" rel="noopener">Index of /apache/hadoop/core/hadoop-3.3.0</a>。</p><p>需要注意的是设置ssh免密登录过程可能会出现问题，在设置完成后可能还需要提示输入密码才可以。</p><p>这时可以输入：</p><pre><code class="lang-bash">ssh -vvv localhost</code></pre><p>查看详细的登录日志信息，以确定问题所在。其中的问题主要包括<code>~/.ssh</code>文件夹的权限不对以及<code>authorized_keys</code>的权限不对，以及用户自定义ssh秘钥文件名等等。</p><h3 id="2-1-hadoop设置ssh免密登录失败常见原因及解决措施"><a href="#2-1-hadoop设置ssh免密登录失败常见原因及解决措施" class="headerlink" title="2.1 hadoop设置ssh免密登录失败常见原因及解决措施"></a>2.1 hadoop设置ssh免密登录失败常见原因及解决措施</h3><h4 id="ssh文件夹权限"><a href="#ssh文件夹权限" class="headerlink" title="~/.ssh文件夹权限"></a>~/.ssh文件夹权限</h4><p>可以输入以下命令以修改ssh文件夹权限：</p><pre><code class="lang-bash">chmod 700 ~/.ssh</code></pre><h4 id="authorized-keys文件权限"><a href="#authorized-keys文件权限" class="headerlink" title="authorized_keys文件权限"></a>authorized_keys文件权限</h4><pre><code class="lang-bash">chmod 0600 authorized_keys</code></pre><h4 id="找不到ssh秘钥文件或用户自定义ssh秘钥文件名"><a href="#找不到ssh秘钥文件或用户自定义ssh秘钥文件名" class="headerlink" title="找不到ssh秘钥文件或用户自定义ssh秘钥文件名"></a>找不到ssh秘钥文件或用户自定义ssh秘钥文件名</h4><p>如果用户不将ssh秘钥文件设置为默认的id_dsa或id_rsa等，那么用户还需要在~/.ssh文件夹下新增一个config文件以配置相关信息，具体内容大致如下：</p><pre><code class="lang-text">Host localhost    HostName localhost    User hadoop    Port 22    PreferredAuthentications publickey    IdentityFile ~/.ssh/id_rsa</code></pre><p>其中Host后面的localhost是指用户自定义的主机名，用于之后免密登录时ssh后面的地址，HostName则为实际的主机名，User指用户名，Port指ssh登录所使用的端口，IdentityFile指秘钥所对应的路径。</p><p>在新增config文件之后，同时也还需要设置该文件的权限，如：</p><pre><code class="lang-bash">chmod 0600 config</code></pre><h2 id="3-安装scala"><a href="#3-安装scala" class="headerlink" title="3.安装scala"></a>3.安装scala</h2><p>首先需要到Scala<a href="https://www.scala-lang.org/download/" target="_blank" rel="noopener">Download | The Scala Programming Language</a>官网下载scala，可以下载如下文件：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/download_scala.png" alt=""></p><p>在下载完成之后，将其解压到合适的文件夹，并将bin目录添加到系统PATH环境变量中即可。</p><p>我是将hadoop、spark和scala都放到了/opt路径下，同时新增了<code>/etc/profile.d/hadoop.sh</code>文件，里面内容为：</p><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.9.11-3.el8_3.x86_64  export HADOOP_HOME=/opt/hadoop-3.3.0export SCALA_HOME=/opt/scala-2.13.4export SPARK_HOME=/opt/spark-3.0.1export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SCALA_HOME/bin:$SPARK_HOME/bin</code></pre><p>安装完成之后，可以简单验证一下，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hello_scala.png" alt=""></p><h2 id="4-安装spark"><a href="#4-安装spark" class="headerlink" title="4.安装spark"></a>4.安装spark</h2><p>对于spark的下载，可以通过国内清华源下载以提高下载速度。具体网址为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/" target="_blank" rel="noopener">Index of /apache/spark</a>，当前最新版本的下载链接为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz" target="_blank" rel="noopener">spark-3.0.1-bin-hadoop3.2.tgz</a>。</p><p>在下载好spark后，解压到合适的位置并配置环境变量与配置scala类似，此处不表。在安装完成之后，可以简单验证一下，如下命令：</p><pre><code class="lang-bash">(base) ➜  ~ run-example SparkPi 10  2&gt;&amp;1 | grep &quot;Pi is&quot;Pi is roughly 3.144179144179144</code></pre><h2 id="5-通过安全组控制hadoop服务所开放的端口"><a href="#5-通过安全组控制hadoop服务所开放的端口" class="headerlink" title="5.通过安全组控制hadoop服务所开放的端口"></a>5.通过安全组控制hadoop服务所开放的端口</h2><p>通过以下命令排查得到java所对应端口：</p><pre><code class="lang-bash">(base) ➜  ~ netstat -tunlp | grep javatcp        0      0 0.0.0.0:8030            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8031            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8032            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8033            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8040            0.0.0.0:*               LISTEN      82046/java          tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      81255/java          tcp        0      0 0.0.0.0:8042            0.0.0.0:*               LISTEN      82046/java          tcp        0      0 0.0.0.0:9868            0.0.0.0:*               LISTEN      81632/java          tcp        0      0 0.0.0.0:9870            0.0.0.0:*               LISTEN      81255/java          tcp        0      0 0.0.0.0:36563           0.0.0.0:*               LISTEN      82046/java          tcp        0      0 0.0.0.0:8088            0.0.0.0:*               LISTEN      81914/java</code></pre><p>通过jps命令查看java进程信息：</p><pre><code class="lang-bash">(base) ➜  ~ jps81632 SecondaryNameNode81255 NameNode81914 ResourceManager82046 NodeManager190765 Jps</code></pre><p>然后根据对应的端口号配置安全组，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hadoop安全组.png" alt=""></p>]]></content>
     
@@ -60,6 +89,8 @@
     
     </summary>
     
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     
       <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
@@ -497,30 +528,6 @@ local_p
       <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
     
       <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开放式信息抽取探索（1）</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/</id>
-    <published>2020-11-05T07:41:56.000Z</published>
-    <updated>2020-11-12T03:22:21.977Z</updated>
-    
-    <content type="html"><![CDATA[<p>一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。</p><p>这里简单记录下自己的探索历程和内心感受。</p><a id="more"></a><h2 id="任务划分"><a href="#任务划分" class="headerlink" title="任务划分"></a>任务划分</h2><p>信息抽取主要包含实体抽取、关系抽取和事件抽取，这里主要关注事件抽取。</p><h2 id="可以用监督学习模型吗"><a href="#可以用监督学习模型吗" class="headerlink" title="可以用监督学习模型吗"></a>可以用监督学习模型吗</h2><p>因为是开放式信息抽取，没有标记语料和训练带标签数据的过程，甚至说事件的种类都不是固定已知的，所以不能用监督学习模型。</p><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>打算借助基础nlp工具LTP，调研依存句法、语义角色标注、语义依存分析等功能。</p><h2 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h2><p>经过简单对比，觉得语义角色标注有遗漏的情况，而依存句法和语义依存效果相对较好，同时语义依存结果相对复杂，同时还存在一定的Bug。所以选择使用依存句法去入手。</p><h2 id="调研相关文章和开源项目"><a href="#调研相关文章和开源项目" class="headerlink" title="调研相关文章和开源项目"></a>调研相关文章和开源项目</h2><p>在调研网上其他的基于句法的开放式信息抽取的文章和项目时，发现了<a href="https://github.com/lemonhu/open-entity-relation-extraction" target="_blank" rel="noopener">lemonhu/open-entity-relation-extraction: Knowledge triples extraction and knowledge base construction based on dependency syntax for open domain text.</a>。觉得该项目和我要做的相近，于是调研了其代码实现，发现里面的规则是硬编码的，写的比较死，拓展性比较差，于是便思索是否有别的更好的方案。</p><h2 id="新的想法"><a href="#新的想法" class="headerlink" title="新的想法"></a>新的想法</h2><p>苦思冥想着觉得这些规则不应该硬编码，而是别的可拓展或易于修改的方式。后来突然想到树也算图的一种特殊结构，所以树的遍历、树的路径匹配也可以看做图的遍历、图的子图的路径匹配，而最近刚搞了Neo4j，Neo4j自然可以视作一个高效的图计算引擎，因此将句法分析和Neo4j结合在一起搞的想法便初步形成了。相应的，实体可以看做图的节点，实体在事件中所扮演的角色可以看做是到中心词（动词）的边，依存树中的定语（和实体构成定中修饰关系）可以视作实体节点的属性，而状语作为对中心词（动词）的修饰可以视作事件中心词的属性。所以由依存树到知识图谱便对应起来了。于是乎我们可以去构建Cypher查询语句来实现实体和事件的抽取。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/openoie-neo4j.png" alt="pic1"></p><h2 id="深入Neo4j"><a href="#深入Neo4j" class="headerlink" title="深入Neo4j"></a>深入Neo4j</h2><p>由于涉及到一些图遍历相关的东西，所以自己便想着通过使用Neo4j的apoc拓展库来实现，之前使用了<code>apoc.path.expand</code>，不过后来发现自己用错了，更应该用的是<code>apoc.path.subgraphNodes</code>，然后写了几个语法发现在一些Case上的提取结果还算不错。</p><h2 id="就难受住"><a href="#就难受住" class="headerlink" title="就难受住"></a>就难受住</h2><p>不过当Case变得复杂的时候，发现依存句法解析的有些问题，自然也就导致部分提取不到，于是自己内心就变得沮丧了起来。这是自己想解决的问题呀，可是好难，自己也不知如何去实现，就难受住。</p><h2 id="柳暗花明"><a href="#柳暗花明" class="headerlink" title="柳暗花明"></a>柳暗花明</h2><p>后来想着要不试试别的工具的效果，包括语义角色标注和语义依存分析，结果竟然发现语义角色标注的解析结果还真的挺好的。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。&lt;/p&gt;
-&lt;p&gt;这里简单记录下自己的探索历程和内心感受。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="信息抽取" scheme="https://www.iamlightsmile.com/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
     
   </entry>
   
