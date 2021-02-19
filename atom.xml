@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2021-02-17T04:08:42.014Z</updated>
+  <updated>2021-02-19T02:53:02.869Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -17,13 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python38的logging模块的bug</title>
+    <link href="https://www.iamlightsmile.com/articles/python38%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84bug/"/>
+    <id>https://www.iamlightsmile.com/articles/python38%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84bug/</id>
+    <published>2021-02-18T09:43:17.000Z</published>
+    <updated>2021-02-19T02:53:02.869Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天写代码遇到了一个难以解决的状况，即python38的logging模块存在bug。</p><p>具体内容参见：<a href="https://blog.csdn.net/Mrchuncui/article/details/107606961" target="_blank" rel="noopener">FindCaller() takes from 1 to 2 positional arguments but 3 were given错误纠正_Mrchuncui的博客-CSDN博客</a>，经过几番尝试之后，最终还是通过将python3.7版本的logging模块替换掉3.8版本的logging模块才得以解决。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天写代码遇到了一个难以解决的状况，即python38的logging模块存在bug。&lt;/p&gt;
+&lt;p&gt;具体内容参见：&lt;a href=&quot;https://blog.csdn.net/Mrchuncui/article/details/107606961&quot; target=&quot;_bl
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/categories/Python/"/>
+    
+    
+      <category term="python38" scheme="https://www.iamlightsmile.com/tags/python38/"/>
+    
+      <category term="logging" scheme="https://www.iamlightsmile.com/tags/logging/"/>
+    
+      <category term="bug" scheme="https://www.iamlightsmile.com/tags/bug/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Jupyter添加Scala和Spark内核</title>
     <link href="https://www.iamlightsmile.com/articles/Jupyter%E6%B7%BB%E5%8A%A0Scala%E5%92%8CSpark%E5%86%85%E6%A0%B8/"/>
     <id>https://www.iamlightsmile.com/articles/Jupyter%E6%B7%BB%E5%8A%A0Scala%E5%92%8CSpark%E5%86%85%E6%A0%B8/</id>
     <published>2021-02-17T02:39:38.000Z</published>
-    <updated>2021-02-17T04:08:42.014Z</updated>
+    <updated>2021-02-17T04:14:04.279Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>Jupyter大法好！</p><a id="more"></a><h2 id="1-修改Jupyter-notebook配置方法"><a href="#1-修改Jupyter-notebook配置方法" class="headerlink" title="1.修改Jupyter notebook配置方法"></a>1.修改Jupyter notebook配置方法</h2><pre><code class="lang-bash">jupyter notebook --generate-config</code></pre><p>使用以上命令得到notebook的配置文件，路径为：<code>~/.jupyter/jupyter_notebook_config.py</code>，然后我们可以在其中修改是否允许以root用户启动，以及启动目录等。</p><h2 id="2-添加Scala-kernel"><a href="#2-添加Scala-kernel" class="headerlink" title="2.添加Scala kernel"></a>2.添加Scala kernel</h2><p>需要借助<code>almond</code>工具，首先需要先安装<code>almond</code>，如下：</p><pre><code class="lang-bash">curl -Lo coursier https://git.io/coursier-clichmod +x coursier</code></pre><p>然后执行如下命令安装：</p><pre><code class="lang-bash">./coursier launch --fork almond -- --install</code></pre><p>或者是指定almond或scala版本：</p><pre><code class="lang-bash">./coursier launch --fork almond:0.10.0 --scala 2.13 -- --install</code></pre><blockquote><p><strong>注释</strong>：使用<code>scala -version</code>命令查看scala版本。</p></blockquote><p>以上的安装需要耗费一些时间，如果安装过程最后的输出信息为<code>Installed scala kernel under /root/.local/share/jupyter/kernels/scala</code>，则说明安装成功。</p><h2 id="3-添加Spark-kernel"><a href="#3-添加Spark-kernel" class="headerlink" title="3.添加Spark kernel"></a>3.添加Spark kernel</h2><p>这里的kernel更准确的来说应该是pyspark kernel。</p><p>安装命令如下：</p><pre><code class="lang-bash">pip install spylon-kernelpython -m spylon_kernel install</code></pre><h2 id="4-jupyter-notebook内核创建成功示例"><a href="#4-jupyter-notebook内核创建成功示例" class="headerlink" title="4.jupyter notebook内核创建成功示例"></a>4.jupyter notebook内核创建成功示例</h2><p>如下图，为scala kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/scala-kernel.png" alt=""></p><p>如下图，为spark kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-kernel.png" alt=""></p><p>如下图，为jupyter notebook的所有kernels：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/jupyter-notebook-kernels.png" alt=""></p><h2 id="5-Jupyter-notebook内核管理"><a href="#5-Jupyter-notebook内核管理" class="headerlink" title="5.Jupyter notebook内核管理"></a>5.Jupyter notebook内核管理</h2><h3 id="5-1-列出内核"><a href="#5-1-列出内核" class="headerlink" title="5.1 列出内核"></a>5.1 列出内核</h3><pre><code class="lang-bash">jupyter kernelspec list Available kernels:  scala            /root/.local/share/jupyter/kernels/scala  python3          /opt/miniconda3/share/jupyter/kernels/python3  spylon-kernel    /usr/local/share/jupyter/kernels/spylon-kernel</code></pre><h3 id="5-2-移除内核"><a href="#5-2-移除内核" class="headerlink" title="5.2 移除内核"></a>5.2 移除内核</h3><pre><code class="lang-bash">jupyter kernelspec remove &lt;kernel-name&gt;</code></pre><h3 id="5-3-修改kernel名称"><a href="#5-3-修改kernel名称" class="headerlink" title="5.3 修改kernel名称"></a>5.3 修改kernel名称</h3><p>首先使用<code>jupyter kernelspec list</code>找到kernel所在的位置，然后在该文件夹下编辑<code>kernel.json</code>文件，修改<code>display_name</code>属性即可。</p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/u014552678/article/details/62046638" target="_blank" rel="noopener">总结：修改Anaconda中的Jupyter Notebook默认工作路径的三种方式_u014552678的博客-CSDN博客</a></li><li><a href="https://almond.sh/docs/quick-start-install" target="_blank" rel="noopener">Installation · almond</a></li><li><a href="https://queirozf.com/entries/jupyter-kernels-how-to-add-change-remove#add-apache-spark-kernel" target="_blank" rel="noopener">Jupyter Notebook Kernels: How to Add, Change, Remove</a></li><li><a href="https://blog.csdn.net/moledyzhang/article/details/78850820" target="_blank" rel="noopener">jupyter安装及配置scala、spark、pyspark内核_moledyzhang的博客-CSDN博客</a></li><li><a href="https://github.com/Valassis-Digital-Media/spylon-kernel" target="_blank" rel="noopener">Valassis-Digital-Media/spylon-kernel: Jupyter kernel for scala and spark</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>Jupyter大法好！</p><a id="more"></a><h2 id="1-修改Jupyter-notebook配置方法"><a href="#1-修改Jupyter-notebook配置方法" class="headerlink" title="1.修改Jupyter notebook配置方法"></a>1.修改Jupyter notebook配置方法</h2><pre><code class="lang-bash">jupyter notebook --generate-config</code></pre><p>使用以上命令得到notebook的配置文件，路径为：<code>~/.jupyter/jupyter_notebook_config.py</code>，然后我们可以在其中修改是否允许以root用户启动，以及启动目录等。</p><h2 id="2-添加Scala-kernel"><a href="#2-添加Scala-kernel" class="headerlink" title="2.添加Scala kernel"></a>2.添加Scala kernel</h2><p>需要借助<code>almond</code>工具，首先需要先安装<code>almond</code>，如下：</p><pre><code class="lang-bash">curl -Lo coursier https://git.io/coursier-clichmod +x coursier</code></pre><p>然后执行如下命令安装：</p><pre><code class="lang-bash">./coursier launch --fork almond -- --install</code></pre><p>或者是指定almond或scala版本：</p><pre><code class="lang-bash">./coursier launch --fork almond:0.10.0 --scala 2.13 -- --install</code></pre><blockquote><p><strong>注释</strong>：使用<code>scala -version</code>命令查看scala版本。</p></blockquote><p>以上的安装需要耗费一些时间，如果安装过程最后的输出信息为<code>Installed scala kernel under /root/.local/share/jupyter/kernels/scala</code>，则说明安装成功。</p><h2 id="3-添加Spark-kernel"><a href="#3-添加Spark-kernel" class="headerlink" title="3.添加Spark kernel"></a>3.添加Spark kernel</h2><p>这里的kernel更准确的来说应该是pyspark kernel。</p><p>安装命令如下：</p><pre><code class="lang-bash">pip install spylon-kernelpython -m spylon_kernel install</code></pre><h2 id="4-jupyter-notebook内核创建成功示例"><a href="#4-jupyter-notebook内核创建成功示例" class="headerlink" title="4.jupyter notebook内核创建成功示例"></a>4.jupyter notebook内核创建成功示例</h2><p>如下图，为scala kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/scala-kernel.png" alt=""></p><p>如下图，为spark kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-kernel.png" alt=""></p><p>如下图，为jupyter notebook的所有kernels：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/jupyter-notebook-kernels.png" alt=""></p><h2 id="5-Jupyter-notebook内核管理"><a href="#5-Jupyter-notebook内核管理" class="headerlink" title="5.Jupyter notebook内核管理"></a>5.Jupyter notebook内核管理</h2><h3 id="5-1-列出内核"><a href="#5-1-列出内核" class="headerlink" title="5.1 列出内核"></a>5.1 列出内核</h3><pre><code class="lang-bash">jupyter kernelspec list Available kernels:  scala            /root/.local/share/jupyter/kernels/scala  python3          /opt/miniconda3/share/jupyter/kernels/python3  spylon-kernel    /usr/local/share/jupyter/kernels/spylon-kernel</code></pre><h3 id="5-2-移除内核"><a href="#5-2-移除内核" class="headerlink" title="5.2 移除内核"></a>5.2 移除内核</h3><pre><code class="lang-bash">jupyter kernelspec remove &lt;kernel-name&gt;</code></pre><h3 id="5-3-修改kernel名称"><a href="#5-3-修改kernel名称" class="headerlink" title="5.3 修改kernel名称"></a>5.3 修改kernel名称</h3><p>首先使用<code>jupyter kernelspec list</code>找到kernel所在的位置，然后在该文件夹下编辑<code>kernel.json</code>文件，修改<code>display_name</code>属性即可。</p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/u014552678/article/details/62046638" target="_blank" rel="noopener">总结：修改Anaconda中的Jupyter Notebook默认工作路径的三种方式_u014552678的博客-CSDN博客</a></li><li><a href="https://almond.sh/docs/quick-start-install" target="_blank" rel="noopener">Installation · almond</a></li><li><a href="https://queirozf.com/entries/jupyter-kernels-how-to-add-change-remove#add-apache-spark-kernel" target="_blank" rel="noopener">Jupyter Notebook Kernels: How to Add, Change, Remove</a></li><li><a href="https://blog.csdn.net/moledyzhang/article/details/78850820" target="_blank" rel="noopener">jupyter安装及配置scala、spark、pyspark内核_moledyzhang的博客-CSDN博客</a></li><li><a href="https://github.com/Valassis-Digital-Media/spylon-kernel" target="_blank" rel="noopener">Valassis-Digital-Media/spylon-kernel: Jupyter kernel for scala and spark</a></li><li><a href="https://blog.csdn.net/rosefun96/article/details/105500856" target="_blank" rel="noopener">Jupyter notebook安装Scala_rosefun96的博客-CSDN博客</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -501,31 +532,6 @@ local_p
     
       <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
     
-    
-      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos更新vim</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/</id>
-    <published>2020-11-12T03:11:37.000Z</published>
-    <updated>2020-11-12T04:25:02.656Z</updated>
-    
-    <content type="html"><![CDATA[<p>centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）</p><a id="more"></a><blockquote><p><strong>注意</strong>：以下命令我都是在root账户下执行的，如果是在普通用户下执行可以选择su切换到root或者前面增加sudo命令。</p></blockquote><h2 id="1-安装依赖库"><a href="#1-安装依赖库" class="headerlink" title="1.安装依赖库"></a>1.安装依赖库</h2><p>源码编译需要安装make、git等工具，但是一般而言服务器上都有，同时教程提到了安装python36，然而现在最新的python都已经到了3.9了，我通过conda安装的python版本环境是3.8，所以并没有严格安装教程来执行相关命令。</p><pre><code class="lang-bash">yum install ncurses-devel</code></pre><h2 id="2-克隆Github的vim项目"><a href="#2-克隆Github的vim项目" class="headerlink" title="2.克隆Github的vim项目"></a>2.克隆Github的vim项目</h2><p>首先切换到一个惯常放置Github项目的目录，如我的在<code>/root/Projects/GithubProjects</code>，然后再执行以下命令，当然位置在哪不大要紧。</p><pre><code class="lang-bash">git clone https://github.com/vim/vim.git</code></pre><h2 id="3-配置并编译vim"><a href="#3-配置并编译vim" class="headerlink" title="3.配置并编译vim"></a>3.配置并编译vim</h2><pre><code class="lang-bash">// 进入项目cd vim// 配置参数./configure --prefix=/usr/local/vim  --enable-pythoninterp=yes --enable-python3interp=yes --with-python-command=python --with-python3-command=python// 编译文件，可能需要使用sudo权限makemake install</code></pre><h2 id="4-复制Vim到系统配置，并修改Profile"><a href="#4-复制Vim到系统配置，并修改Profile" class="headerlink" title="4.复制Vim到系统配置，并修改Profile"></a>4.复制Vim到系统配置，并修改Profile</h2><pre><code class="lang-bash">// 复制前可以备份一下cp /usr/bin/vim /usr/bin/vim.backup// 复制前面编译的vim到系统配置cd /root/Projects/GithubProjects/vim/srccp vim /usr/bin// 修改系统的Profileecho &quot;PATH=\$PATH:/usr/local/vim/bin&quot; &gt;&gt; /etc/profile// 运行刚修改的配置。source /etc/profile// 最后，check versionvim --version// 同时，也能看到它支持Python3了。(7.4是不支持的。)</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://www.jianshu.com/p/b44d568aef9f" target="_blank" rel="noopener">CentOS, Vim7.4升级到8.1 (服务器) — 亲试可行 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
     
       <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
     
