@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2020-12-03T02:38:58.000Z</updated>
+  <updated>2021-02-21T08:08:41.019Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,245 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近日随感</title>
+    <link href="https://www.iamlightsmile.com/articles/%E8%BF%91%E6%97%A5%E9%9A%8F%E6%84%9F/"/>
+    <id>https://www.iamlightsmile.com/articles/%E8%BF%91%E6%97%A5%E9%9A%8F%E6%84%9F/</id>
+    <published>2021-02-21T07:55:35.000Z</published>
+    <updated>2021-02-21T08:08:41.019Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>不是所有的女生都很物质。爱情、呵护、陪伴等同样在她们心中占据相当重要的比重。</li><li>女生或许有身高控、颜控等部分外在筛选条件，但是她们的内心都比较柔弱，在她们心中更重要的是男生应该像一座大山一样，是她们最坚实的依靠，是她们灵魂休憩的港湾。</li><li>不是所有的女生都不敢和男生吃苦，陪男生一起成长；男生更要不负期待，用行动去证明自己值得爱与被爱，用行动去证明女生当时的孤注一掷是正确的。</li><li>最最最重要的是，男生们永远不要让喜欢自己、曾经选择了自己的女生失望难过。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;不是所有的女生都很物质。爱情、呵护、陪伴等同样在她们心中占据相当重要的比重。&lt;/li&gt;
+&lt;li&gt;女生或许有身高控、颜控等部分外在筛选条件，但是她们的内心都比较柔弱，在她们心中更重要的是男生应该像一座大山一样，是她们最坚实的依靠，是她们灵魂休憩的港湾。&lt;/li&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
+    
+    
+      <category term="感情" scheme="https://www.iamlightsmile.com/tags/%E6%84%9F%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python38的logging模块的bug</title>
+    <link href="https://www.iamlightsmile.com/articles/python38%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84bug/"/>
+    <id>https://www.iamlightsmile.com/articles/python38%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84bug/</id>
+    <published>2021-02-18T09:43:17.000Z</published>
+    <updated>2021-02-19T02:53:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天写代码遇到了一个难以解决的状况，即python38的logging模块存在bug。</p><p>具体内容参见：<a href="https://blog.csdn.net/Mrchuncui/article/details/107606961" target="_blank" rel="noopener">FindCaller() takes from 1 to 2 positional arguments but 3 were given错误纠正_Mrchuncui的博客-CSDN博客</a>，经过几番尝试之后，最终还是通过将python3.7版本的logging模块替换掉3.8版本的logging模块才得以解决。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天写代码遇到了一个难以解决的状况，即python38的logging模块存在bug。&lt;/p&gt;
+&lt;p&gt;具体内容参见：&lt;a href=&quot;https://blog.csdn.net/Mrchuncui/article/details/107606961&quot; target=&quot;_bl
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/categories/Python/"/>
+    
+    
+      <category term="python38" scheme="https://www.iamlightsmile.com/tags/python38/"/>
+    
+      <category term="logging" scheme="https://www.iamlightsmile.com/tags/logging/"/>
+    
+      <category term="bug" scheme="https://www.iamlightsmile.com/tags/bug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jupyter添加Scala和Spark内核</title>
+    <link href="https://www.iamlightsmile.com/articles/Jupyter%E6%B7%BB%E5%8A%A0Scala%E5%92%8CSpark%E5%86%85%E6%A0%B8/"/>
+    <id>https://www.iamlightsmile.com/articles/Jupyter%E6%B7%BB%E5%8A%A0Scala%E5%92%8CSpark%E5%86%85%E6%A0%B8/</id>
+    <published>2021-02-17T02:39:38.000Z</published>
+    <updated>2021-02-17T04:14:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>Jupyter大法好！</p><a id="more"></a><h2 id="1-修改Jupyter-notebook配置方法"><a href="#1-修改Jupyter-notebook配置方法" class="headerlink" title="1.修改Jupyter notebook配置方法"></a>1.修改Jupyter notebook配置方法</h2><pre><code class="lang-bash">jupyter notebook --generate-config</code></pre><p>使用以上命令得到notebook的配置文件，路径为：<code>~/.jupyter/jupyter_notebook_config.py</code>，然后我们可以在其中修改是否允许以root用户启动，以及启动目录等。</p><h2 id="2-添加Scala-kernel"><a href="#2-添加Scala-kernel" class="headerlink" title="2.添加Scala kernel"></a>2.添加Scala kernel</h2><p>需要借助<code>almond</code>工具，首先需要先安装<code>almond</code>，如下：</p><pre><code class="lang-bash">curl -Lo coursier https://git.io/coursier-clichmod +x coursier</code></pre><p>然后执行如下命令安装：</p><pre><code class="lang-bash">./coursier launch --fork almond -- --install</code></pre><p>或者是指定almond或scala版本：</p><pre><code class="lang-bash">./coursier launch --fork almond:0.10.0 --scala 2.13 -- --install</code></pre><blockquote><p><strong>注释</strong>：使用<code>scala -version</code>命令查看scala版本。</p></blockquote><p>以上的安装需要耗费一些时间，如果安装过程最后的输出信息为<code>Installed scala kernel under /root/.local/share/jupyter/kernels/scala</code>，则说明安装成功。</p><h2 id="3-添加Spark-kernel"><a href="#3-添加Spark-kernel" class="headerlink" title="3.添加Spark kernel"></a>3.添加Spark kernel</h2><p>这里的kernel更准确的来说应该是pyspark kernel。</p><p>安装命令如下：</p><pre><code class="lang-bash">pip install spylon-kernelpython -m spylon_kernel install</code></pre><h2 id="4-jupyter-notebook内核创建成功示例"><a href="#4-jupyter-notebook内核创建成功示例" class="headerlink" title="4.jupyter notebook内核创建成功示例"></a>4.jupyter notebook内核创建成功示例</h2><p>如下图，为scala kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/scala-kernel.png" alt=""></p><p>如下图，为spark kernel：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-kernel.png" alt=""></p><p>如下图，为jupyter notebook的所有kernels：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/jupyter-notebook-kernels.png" alt=""></p><h2 id="5-Jupyter-notebook内核管理"><a href="#5-Jupyter-notebook内核管理" class="headerlink" title="5.Jupyter notebook内核管理"></a>5.Jupyter notebook内核管理</h2><h3 id="5-1-列出内核"><a href="#5-1-列出内核" class="headerlink" title="5.1 列出内核"></a>5.1 列出内核</h3><pre><code class="lang-bash">jupyter kernelspec list Available kernels:  scala            /root/.local/share/jupyter/kernels/scala  python3          /opt/miniconda3/share/jupyter/kernels/python3  spylon-kernel    /usr/local/share/jupyter/kernels/spylon-kernel</code></pre><h3 id="5-2-移除内核"><a href="#5-2-移除内核" class="headerlink" title="5.2 移除内核"></a>5.2 移除内核</h3><pre><code class="lang-bash">jupyter kernelspec remove &lt;kernel-name&gt;</code></pre><h3 id="5-3-修改kernel名称"><a href="#5-3-修改kernel名称" class="headerlink" title="5.3 修改kernel名称"></a>5.3 修改kernel名称</h3><p>首先使用<code>jupyter kernelspec list</code>找到kernel所在的位置，然后在该文件夹下编辑<code>kernel.json</code>文件，修改<code>display_name</code>属性即可。</p><h2 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h2><ul><li><a href="https://blog.csdn.net/u014552678/article/details/62046638" target="_blank" rel="noopener">总结：修改Anaconda中的Jupyter Notebook默认工作路径的三种方式_u014552678的博客-CSDN博客</a></li><li><a href="https://almond.sh/docs/quick-start-install" target="_blank" rel="noopener">Installation · almond</a></li><li><a href="https://queirozf.com/entries/jupyter-kernels-how-to-add-change-remove#add-apache-spark-kernel" target="_blank" rel="noopener">Jupyter Notebook Kernels: How to Add, Change, Remove</a></li><li><a href="https://blog.csdn.net/moledyzhang/article/details/78850820" target="_blank" rel="noopener">jupyter安装及配置scala、spark、pyspark内核_moledyzhang的博客-CSDN博客</a></li><li><a href="https://github.com/Valassis-Digital-Media/spylon-kernel" target="_blank" rel="noopener">Valassis-Digital-Media/spylon-kernel: Jupyter kernel for scala and spark</a></li><li><a href="https://blog.csdn.net/rosefun96/article/details/105500856" target="_blank" rel="noopener">Jupyter notebook安装Scala_rosefun96的博客-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;Jupyter大法好！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="Spark" scheme="https://www.iamlightsmile.com/tags/Spark/"/>
+    
+      <category term="Jupyter" scheme="https://www.iamlightsmile.com/tags/Jupyter/"/>
+    
+      <category term="Scala" scheme="https://www.iamlightsmile.com/tags/Scala/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark搞起来！</title>
+    <link href="https://www.iamlightsmile.com/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/"/>
+    <id>https://www.iamlightsmile.com/articles/Spark%E6%90%9E%E8%B5%B7%E6%9D%A5%EF%BC%81/</id>
+    <published>2021-02-16T12:36:08.000Z</published>
+    <updated>2021-02-17T02:41:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Spark搞起来，嘿嘿嘿！</p><a id="more"></a><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/Spark-ui-1.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-2.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spakr-ui-3.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-4.png" alt=""><br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/spark-ui-5.png" alt=""></p><p>大爱VS Code~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spark搞起来，嘿嘿嘿！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="Spark" scheme="https://www.iamlightsmile.com/tags/Spark/"/>
+    
+      <category term="VS Code" scheme="https://www.iamlightsmile.com/tags/VS-Code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos安装spark</title>
+    <link href="https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85spark/"/>
+    <id>https://www.iamlightsmile.com/articles/centos%E5%AE%89%E8%A3%85spark/</id>
+    <published>2021-02-10T12:56:49.000Z</published>
+    <updated>2021-02-17T02:41:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>迄今为止，已经有五次因为安装hadoop被黑客入侵导致重装服务器的系统了。经过不断的排查摸索，终于初步确定了就是因为hadoop开放端口的原因。</p><p>在安装spark之前，我们首先需要安装好以下几个组件：</p><ul><li>java</li><li>hadoop</li><li>scala</li></ul><a id="more"></a><h2 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1.安装java"></a>1.安装java</h2><p>关于java的安装，可以选择java8或者java11。使用以下命令搜索相关yum源程序：</p><pre><code class="lang-bash">yum search java</code></pre><p>如下图：<br><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/yum-search-java.png" alt="yum search java"></p><p>之后可以使用如下命令安装java：</p><pre><code class="lang-bash">yum install java-1.8.0-openjdk-devel.x86_64</code></pre><p>或</p><pre><code class="lang-bash">yum install java-11-openjdk-devel.x86_64</code></pre><h2 id="2-安装hadoop"><a href="#2-安装hadoop" class="headerlink" title="2.安装hadoop"></a>2.安装hadoop</h2><p>关于安装hadoop，之前已经写过相关文章如<a href="https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/">CentOS安装Hadoop - lightsmile’s Blog</a>。关于hadoop的下载，我们可以通过清华源来下载，具体下载地址为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/core/hadoop-3.3.0/" target="_blank" rel="noopener">Index of /apache/hadoop/core/hadoop-3.3.0</a>。</p><p>需要注意的是设置ssh免密登录过程可能会出现问题，在设置完成后可能还需要提示输入密码才可以。</p><p>这时可以输入：</p><pre><code class="lang-bash">ssh -vvv localhost</code></pre><p>查看详细的登录日志信息，以确定问题所在。其中的问题主要包括<code>~/.ssh</code>文件夹的权限不对以及<code>authorized_keys</code>的权限不对，以及用户自定义ssh秘钥文件名等等。</p><h3 id="2-1-hadoop设置ssh免密登录失败常见原因及解决措施"><a href="#2-1-hadoop设置ssh免密登录失败常见原因及解决措施" class="headerlink" title="2.1 hadoop设置ssh免密登录失败常见原因及解决措施"></a>2.1 hadoop设置ssh免密登录失败常见原因及解决措施</h3><h4 id="ssh文件夹权限"><a href="#ssh文件夹权限" class="headerlink" title="~/.ssh文件夹权限"></a>~/.ssh文件夹权限</h4><p>可以输入以下命令以修改ssh文件夹权限：</p><pre><code class="lang-bash">chmod 700 ~/.ssh</code></pre><h4 id="authorized-keys文件权限"><a href="#authorized-keys文件权限" class="headerlink" title="authorized_keys文件权限"></a>authorized_keys文件权限</h4><pre><code class="lang-bash">chmod 0600 authorized_keys</code></pre><h4 id="找不到ssh秘钥文件或用户自定义ssh秘钥文件名"><a href="#找不到ssh秘钥文件或用户自定义ssh秘钥文件名" class="headerlink" title="找不到ssh秘钥文件或用户自定义ssh秘钥文件名"></a>找不到ssh秘钥文件或用户自定义ssh秘钥文件名</h4><p>如果用户不将ssh秘钥文件设置为默认的id_dsa或id_rsa等，那么用户还需要在~/.ssh文件夹下新增一个config文件以配置相关信息，具体内容大致如下：</p><pre><code class="lang-text">Host localhost    HostName localhost    User hadoop    Port 22    PreferredAuthentications publickey    IdentityFile ~/.ssh/id_rsa</code></pre><p>其中Host后面的localhost是指用户自定义的主机名，用于之后免密登录时ssh后面的地址，HostName则为实际的主机名，User指用户名，Port指ssh登录所使用的端口，IdentityFile指秘钥所对应的路径。</p><p>在新增config文件之后，同时也还需要设置该文件的权限，如：</p><pre><code class="lang-bash">chmod 0600 config</code></pre><h2 id="3-安装scala"><a href="#3-安装scala" class="headerlink" title="3.安装scala"></a>3.安装scala</h2><p>首先需要到Scala<a href="https://www.scala-lang.org/download/" target="_blank" rel="noopener">Download | The Scala Programming Language</a>官网下载scala，可以下载如下文件：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/download_scala.png" alt=""></p><p>在下载完成之后，将其解压到合适的文件夹，并将bin目录添加到系统PATH环境变量中即可。</p><p>我是将hadoop、spark和scala都放到了/opt路径下，同时新增了<code>/etc/profile.d/hadoop.sh</code>文件，里面内容为：</p><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.9.11-3.el8_3.x86_64  export HADOOP_HOME=/opt/hadoop-3.3.0export SCALA_HOME=/opt/scala-2.13.4export SPARK_HOME=/opt/spark-3.0.1export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SCALA_HOME/bin:$SPARK_HOME/bin</code></pre><p>安装完成之后，可以简单验证一下，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hello_scala.png" alt=""></p><h2 id="4-安装spark"><a href="#4-安装spark" class="headerlink" title="4.安装spark"></a>4.安装spark</h2><p>对于spark的下载，可以通过国内清华源下载以提高下载速度。具体网址为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/" target="_blank" rel="noopener">Index of /apache/spark</a>，当前最新版本的下载链接为：<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz" target="_blank" rel="noopener">spark-3.0.1-bin-hadoop3.2.tgz</a>。</p><p>在下载好spark后，解压到合适的位置并配置环境变量与配置scala类似，此处不表。在安装完成之后，可以简单验证一下，如下命令：</p><pre><code class="lang-bash">(base) ➜  ~ run-example SparkPi 10  2&gt;&amp;1 | grep &quot;Pi is&quot;Pi is roughly 3.144179144179144</code></pre><h2 id="5-通过安全组控制hadoop服务所开放的端口"><a href="#5-通过安全组控制hadoop服务所开放的端口" class="headerlink" title="5.通过安全组控制hadoop服务所开放的端口"></a>5.通过安全组控制hadoop服务所开放的端口</h2><p>通过以下命令排查得到java所对应端口：</p><pre><code class="lang-bash">(base) ➜  ~ netstat -tunlp | grep javatcp        0      0 0.0.0.0:8030            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8031            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8032            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8033            0.0.0.0:*               LISTEN      81914/java          tcp        0      0 0.0.0.0:8040            0.0.0.0:*               LISTEN      82046/java          tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      81255/java          tcp        0      0 0.0.0.0:8042            0.0.0.0:*               LISTEN      82046/java          tcp        0      0 0.0.0.0:9868            0.0.0.0:*               LISTEN      81632/java          tcp        0      0 0.0.0.0:9870            0.0.0.0:*               LISTEN      81255/java          tcp        0      0 0.0.0.0:36563           0.0.0.0:*               LISTEN      82046/java          tcp        0      0 0.0.0.0:8088            0.0.0.0:*               LISTEN      81914/java</code></pre><p>通过jps命令查看java进程信息：</p><pre><code class="lang-bash">(base) ➜  ~ jps81632 SecondaryNameNode81255 NameNode81914 ResourceManager82046 NodeManager190765 Jps</code></pre><p>然后根据对应的端口号配置安全组，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hadoop安全组.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;迄今为止，已经有五次因为安装hadoop被黑客入侵导致重装服务器的系统了。经过不断的排查摸索，终于初步确定了就是因为hadoop开放端口的原因。&lt;/p&gt;
+&lt;p&gt;在安装spark之前，我们首先需要安装好以下几个组件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;li&gt;hadoop&lt;/li&gt;
+&lt;li&gt;scala&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="spark" scheme="https://www.iamlightsmile.com/tags/spark/"/>
+    
+      <category term="hadoop" scheme="https://www.iamlightsmile.com/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器被挖矿的入侵了</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%8C%96%E7%9F%BF%E7%9A%84%E5%85%A5%E4%BE%B5%E4%BA%86/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%8C%96%E7%9F%BF%E7%9A%84%E5%85%A5%E4%BE%B5%E4%BA%86/</id>
+    <published>2020-12-31T08:06:16.000Z</published>
+    <updated>2020-12-31T08:17:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天连一台腾讯云服务器的时候，发现网络可以建立连接，但是特别的卡，不知道咋回事，最开始还以为是网络慢。后来<code>htop</code>命令查看了一下进程，好家伙，CPU都被占满了，这是什么鬼？！并且怎么还跑着奇奇怪怪的不知道啥名字的程序？！</p><p>此时心里一惊，坏了，不会被黑客入侵了吧。。。然后大概网上搜了一下，果然情况和参考中两篇链接几乎一致，淦！</p><a id="more"></a><p>我是昨天刚在服务器上配置的hadoop用户密码，结果今天就被入侵了，然而腾讯云也没有任何报警提示，我服了。偷袭我一个Linux新手？我大意了啊，没防住~</p><p>担心自己处理不好还是留下后门，于是乎只能把服务器上的数据拷贝到本地，然后再重装系统了。</p><p>哎，2020果然不顺，最后一天都是如此悲催，希望2021能有好运气和好收获吧。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.v2ex.com/t/683249" target="_blank" rel="noopener">跟着网上博客的教程安装 hadoop，然后我的服务器就被入侵了 - V2EX</a></li><li><a href="https://blog.csdn.net/subfate/article/details/106546646" target="_blank" rel="noopener">记一次ubuntu虚拟机被挖矿木马攻击的过程_李迟的专栏-CSDN博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天连一台腾讯云服务器的时候，发现网络可以建立连接，但是特别的卡，不知道咋回事，最开始还以为是网络慢。后来&lt;code&gt;htop&lt;/code&gt;命令查看了一下进程，好家伙，CPU都被占满了，这是什么鬼？！并且怎么还跑着奇奇怪怪的不知道啥名字的程序？！&lt;/p&gt;
+&lt;p&gt;此时心里一惊，坏了，不会被黑客入侵了吧。。。然后大概网上搜了一下，果然情况和参考中两篇链接几乎一致，淦！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="hadoop" scheme="https://www.iamlightsmile.com/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>elasticsearch设置自定义词典与停用词</title>
+    <link href="https://www.iamlightsmile.com/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/"/>
+    <id>https://www.iamlightsmile.com/articles/elasticsearch%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8%E4%B8%8E%E5%81%9C%E7%94%A8%E8%AF%8D/</id>
+    <published>2020-12-29T06:40:57.000Z</published>
+    <updated>2020-12-29T07:10:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>处于项目需要，我们需要在elasticsearch中设置自定义的词典与停用词，这里简单说明下其配置方法。</p><p>自己这里是通过docker以及docker-compose的方式来使用的，直接使用elasticsearch的方法流程与之类似，可以看下面的参考。</p><a id="more"></a><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><p>项目目录结构大致如下：</p><pre><code class="lang-bash">(base) ➜  elasticsearch tree ..├── config│   ├── IKAnalyzer.cfg.xml│   ├── stopwords.dic│   └── userwords.dic├── docker-compose.yml└── Dockerfile1 directory, 5 files</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a><code>Dockerfile</code></h3><p>其中<code>Dockerfile</code>中内容如下：</p><pre><code class="lang-Dockerfile">FROM elasticsearch:7.7.1RUN yes | ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.1/elasticsearch-analysis-ik-7.7.1.zip</code></pre><h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a><code>docker-compose.yml</code></h3><p>其中<code>docker-compose.yml</code>中内容如下：</p><pre><code class="lang-yaml">version: &#39;3&#39;services:    es:        image: elasticsearch-ik:7.7.1        container_name: elasticsearch        network_mode: &quot;host&quot;        environment:             - discovery.type=single-node        ports:            - 9200:9200            - 9300:9300        volumes:             - ./config/IKAnalyzer.cfg.xml:/usr/share/elasticsearch/config/analysis-ik/IKAnalyzer.cfg.xml            - ./config/userwords.dic:/usr/share/elasticsearch/config/analysis-ik/userwords.dic            - ./config/stopwords.dic:/usr/share/elasticsearch/config/analysis-ik/stopwords.dic</code></pre><h3 id="IKAnalyzer-cfg-xml"><a href="#IKAnalyzer-cfg-xml" class="headerlink" title="IKAnalyzer.cfg.xml"></a><code>IKAnalyzer.cfg.xml</code></h3><p>其中<code>IKAnalyzer.cfg.xml</code>中内容如下：</p><pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;&lt;properties&gt;    &lt;comment&gt;IK Analyzer 扩展配置&lt;/comment&gt;    &lt;!--用户可以在这里配置自己的扩展字典 --&gt;    &lt;entry key=&quot;ext_dict&quot;&gt;userwords.dic&lt;/entry&gt;     &lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;    &lt;entry key=&quot;ext_stopwords&quot;&gt;stopwords.dic&lt;/entry&gt;    &lt;!--用户可以在这里配置远程扩展字典 --&gt;    &lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;words_location&lt;/entry&gt; --&gt;    &lt;!--用户可以在这里配置远程扩展停止词字典--&gt;    &lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;words_location&lt;/entry&gt; --&gt;&lt;/properties&gt;</code></pre><h3 id="stopwords-dic"><a href="#stopwords-dic" class="headerlink" title="stopwords.dic"></a><code>stopwords.dic</code></h3><p>其中<code>stopwords.dic</code>内容如下：</p><pre><code class="lang-dic">吃</code></pre><h3 id="userwords-dic"><a href="#userwords-dic" class="headerlink" title="userwords.dic"></a><code>userwords.dic</code></h3><p>其中<code>userwords.dic</code>内容如下：</p><pre><code class="lang-dic">曹操和李德方</code></pre><h2 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h2><pre><code class="lang-bash">docker-compose up -d</code></pre><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>效果如图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/elasticsearch_userdict.png" alt="elasticsearch_userdict"></p><p>可以看到，里面<code>李德方</code>、<code>曹操和</code>分别作为词语被拆分出来，同时<code>吃</code>这个词直接就被过滤掉了。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">medcl/elasticsearch-analysis-ik: The IK Analysis plugin integrates Lucene IK analyzer into elasticsearch, support customized dictionary.</a></li><li><a href="https://www.jianshu.com/p/f178e59ffaf2" target="_blank" rel="noopener">ElasticSearch-IK分词使用踩坑总结 - 简书</a></li><li><a href="https://zq99299.github.io/note-book/elasticsearch-senior/ik/31-config.html#%E4%B8%BB%E8%A6%81%E9%85%8D%E7%BD%AE%E8%A7%A3%E8%AF%B4" target="_blank" rel="noopener">IK 分词器配置文件和自定义词库 | Mrcode 笔记本</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;处于项目需要，我们需要在elasticsearch中设置自定义的词典与停用词，这里简单说明下其配置方法。&lt;/p&gt;
+&lt;p&gt;自己这里是通过docker以及docker-compose的方式来使用的，直接使用elasticsearch的方法流程与之类似，可以看下面的参考。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="elasticsearch" scheme="https://www.iamlightsmile.com/tags/elasticsearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>折腾tmux</title>
+    <link href="https://www.iamlightsmile.com/articles/%E6%8A%98%E8%85%BEtmux/"/>
+    <id>https://www.iamlightsmile.com/articles/%E6%8A%98%E8%85%BEtmux/</id>
+    <published>2020-12-17T01:47:15.000Z</published>
+    <updated>2020-12-28T07:00:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>有2台腾讯云服务器，一台之前装过brat，成功了。后来打算在新的更好配置的服务器上装brat，没想到总是失败，要么浏览器显示的样式有问题，要么就是打开链接直接重定向要下载文件。</p><a id="more"></a><p>于是乎决定只能在原来的服务器上做标注，考虑到持续使用，所以打算用tmux。没想到直接tmux报错，tmux报<code>can&#39;t create socket</code>的错误，yum提示<code>could not resolve host: mirrors.tencentyun.com; unknown error</code>的错误，更可怕的是ping 外网都ping不通。</p><p>后来参考<a href="https://www.jianshu.com/p/a80189d68104" target="_blank" rel="noopener">腾讯云服务器 “Could not resolve host: mirrors.tencentyun.com; Unknown error” - 简书</a>、<a href="https://blog.csdn.net/shengshengshiwo/article/details/84191515" target="_blank" rel="noopener">mirrors.tencentyun.com 又挂了！_BLUEHEART-CSDN博客</a>以及<a href="https://cloud.tencent.com/developer/article/1464422" target="_blank" rel="noopener">CentOS修改各大yum源(centos5,centos6,centos7) - 云+社区 - 腾讯云</a>对yum源进行了配置，如：</p><pre><code class="lang-bash">cd /etc/yum.repos.dmv CentOS-Base.repo CentOS-Base.repo.backupwget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repoyum clean allyum makecacheyum update</code></pre><p>以及修改了<code>/etc/yum.repos.d/CentOS-Epel.repo</code>文件，如下：</p><pre><code class="lang-conf">[epel]name=EPEL for redhat/centos $releasever - $basearchfailovermethod=prioritygpgcheck=1gpgkey=http://mirrors.163.com/epel/RPM-GPG-KEY-EPEL-7enabled=0baseurl=http://mirrors.163.com/epel/$releasever/$basearch/</code></pre><p>然后解决了yum问题。</p><p>没想到tmux还是不行，后来找到了<a href="https://github.com/MachinaCore/CygwinPortable/issues/28" target="_blank" rel="noopener">tmux can’t create socket: Permission denied · Issue #28 · MachinaCore/CygwinPortable</a>通过在zshrc中配置<code>alias tmux=&#39;tmux -S ~/.tmsock new -ADsCyg&#39;</code>暂时解决了这个问题。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.jianshu.com/p/a80189d68104" target="_blank" rel="noopener">腾讯云服务器 “Could not resolve host: mirrors.tencentyun.com; Unknown error” - 简书</a></li><li><a href="https://blog.csdn.net/shengshengshiwo/article/details/84191515" target="_blank" rel="noopener">mirrors.tencentyun.com 又挂了！_BLUEHEART-CSDN博客</a></li><li><a href="https://cloud.tencent.com/developer/article/1464422" target="_blank" rel="noopener">CentOS修改各大yum源(centos5,centos6,centos7) - 云+社区 - 腾讯云</a></li><li><a href="https://github.com/MachinaCore/CygwinPortable/issues/28" target="_blank" rel="noopener">tmux can’t create socket: Permission denied · Issue #28 · MachinaCore/CygwinPortable</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有2台腾讯云服务器，一台之前装过brat，成功了。后来打算在新的更好配置的服务器上装brat，没想到总是失败，要么浏览器显示的样式有问题，要么就是打开链接直接重定向要下载文件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
+    
+      <category term="tmux" scheme="https://www.iamlightsmile.com/tags/tmux/"/>
+    
+      <category term="brat" scheme="https://www.iamlightsmile.com/tags/brat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python离线安装包及其依赖包（转载）</title>
+    <link href="https://www.iamlightsmile.com/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/"/>
+    <id>https://www.iamlightsmile.com/articles/python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E5%85%B6%E4%BE%9D%E8%B5%96%E5%8C%85%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/</id>
+    <published>2020-12-14T00:57:38.000Z</published>
+    <updated>2020-12-14T01:24:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：</p><a id="more"></a><p>安装pipdeptree：</p><pre><code class="lang-bash">PS D:\test&gt; pip install pipdeptree</code></pre><p>假如想在内网安装flask，先在外网下载安装：</p><pre><code class="lang-bash">PS D:\test&gt; pip install flask</code></pre><p>使用pipdeptree 查看并生成requirements.txt</p><pre><code class="lang-bash">PS D:\test&gt; pipdeptree -f  -p flaskFlask==1.1.2  click==7.1.2  itsdangerous==1.1.0  Jinja2==2.11.2    MarkupSafe==1.1.1  Werkzeug==1.0.1PS D:\test&gt; pipdeptree -f  -p flask &gt; .\requirements.txt</code></pre><p>下载所有包至本地</p><pre><code class="lang-bash">PS D:\test&gt; pip download -r .\requirements.txt</code></pre><p>将test文件夹拷贝至内网机器（如F:/test），进入test目录执行如下命令离线安装</p><pre><code class="lang-bash">PS F:\test&gt; pip install --no-index --find-links=./ -r requirements.txt</code></pre><p>转自：<a href="https://www.jianshu.com/p/9a726dc64e2b" target="_blank" rel="noopener">python 离线安装包及其依赖包 - 简书</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在内网环境只能本地方式安装需要的包，需要在公网机器上下载需要的包及相应依赖包，传输至内网进行安装。以win10系统python 3.7.3为例：&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>支持正版</title>
@@ -298,223 +537,6 @@ local_p
       <category term="产品经理" scheme="https://www.iamlightsmile.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
       <category term="缓存机制" scheme="https://www.iamlightsmile.com/tags/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim更新及安装插件教程</title>
-    <link href="https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/</id>
-    <published>2020-11-12T03:13:06.000Z</published>
-    <updated>2020-11-12T04:26:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里简单记录一下自己安装vim以及安装插件的过程。</p><blockquote><p><strong>注意</strong>：以下安装过程适用于Linux以及Macos系统。</p></blockquote><a id="more"></a><h2 id="1-安装vim-plug"><a href="#1-安装vim-plug" class="headerlink" title="1.安装vim-plug"></a>1.安装vim-plug</h2><pre><code class="lang-bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></pre><h2 id="2-配置vim配置文件"><a href="#2-配置vim配置文件" class="headerlink" title="2.配置vim配置文件"></a>2.配置vim配置文件</h2><p>编辑<code>~/.vimrc</code>文件，如我的<code>~/.vimrc</code>文件下内容目前如下：</p><pre><code class="lang-txt">set encoding=UTF-8set numberset autoindentcall plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;ryanoasis/vim-devicons&#39;Plug &#39;scrooloose/nerdtree&#39;Plug &#39;frazrepo/vim-rainbow&#39;Plug &#39;itchyny/lightline.vim&#39;Plug &#39;junegunn/fzf&#39;Plug &#39;airblade/vim-gitgutter&#39;call plug#end()map &lt;F3&gt; :NERDTreeMirror&lt;CR&gt;map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</code></pre><h2 id="3-安装vim插件"><a href="#3-安装vim插件" class="headerlink" title="3.安装vim插件"></a>3.安装vim插件</h2><pre><code class="lang-bash"># 进入vim中vim</code></pre><p>以下命令均是在vim下执行</p><pre><code class="lang-bash"># 查看vim相关信息:version# 更新vimrc文件（可选）:source ~/.vimrc# 查看插件状态:PlugStatus# 安装插件:PlugInstall</code></pre><h2 id="4-配置终端字体"><a href="#4-配置终端字体" class="headerlink" title="4.配置终端字体"></a>4.配置终端字体</h2><p>使用<code>nerdtree</code>插件以及<code>vim-devicons</code>插件便可以实现vim下目录或文件的图标效果，但前提是启用了支持终端图标效果的字体，这里我们需要去<a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener">ryanoasis/nerd-fonts</a>下载。</p><p>关于字体安装，如果是windows系统或者macos系统可以直接双击文件进行安装，如果是Linux的话，可以参考<a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a>进行配置安装。</p><p>然后设置终端字体为支持Nerd的字体，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim1.png" alt="pic1"></p><p>然后打开vim可以看到如下效果：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim2.png" alt="pic2"></p><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">junegunn/vim-plug: Minimalist Vim Plugin Manager</a></li><li><a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a></li><li><a href="https://www.jianshu.com/p/0c83e6aed270" target="_blank" rel="noopener">Vim-plug：极简 Vim 插件管理器 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里简单记录一下自己安装vim以及安装插件的过程。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下安装过程适用于Linux以及Macos系统。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos更新vim</title>
-    <link href="https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/"/>
-    <id>https://www.iamlightsmile.com/articles/centos%E6%9B%B4%E6%96%B0vim/</id>
-    <published>2020-11-12T03:11:37.000Z</published>
-    <updated>2020-11-12T04:25:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）</p><a id="more"></a><blockquote><p><strong>注意</strong>：以下命令我都是在root账户下执行的，如果是在普通用户下执行可以选择su切换到root或者前面增加sudo命令。</p></blockquote><h2 id="1-安装依赖库"><a href="#1-安装依赖库" class="headerlink" title="1.安装依赖库"></a>1.安装依赖库</h2><p>源码编译需要安装make、git等工具，但是一般而言服务器上都有，同时教程提到了安装python36，然而现在最新的python都已经到了3.9了，我通过conda安装的python版本环境是3.8，所以并没有严格安装教程来执行相关命令。</p><pre><code class="lang-bash">yum install ncurses-devel</code></pre><h2 id="2-克隆Github的vim项目"><a href="#2-克隆Github的vim项目" class="headerlink" title="2.克隆Github的vim项目"></a>2.克隆Github的vim项目</h2><p>首先切换到一个惯常放置Github项目的目录，如我的在<code>/root/Projects/GithubProjects</code>，然后再执行以下命令，当然位置在哪不大要紧。</p><pre><code class="lang-bash">git clone https://github.com/vim/vim.git</code></pre><h2 id="3-配置并编译vim"><a href="#3-配置并编译vim" class="headerlink" title="3.配置并编译vim"></a>3.配置并编译vim</h2><pre><code class="lang-bash">// 进入项目cd vim// 配置参数./configure --prefix=/usr/local/vim  --enable-pythoninterp=yes --enable-python3interp=yes --with-python-command=python --with-python3-command=python// 编译文件，可能需要使用sudo权限makemake install</code></pre><h2 id="4-复制Vim到系统配置，并修改Profile"><a href="#4-复制Vim到系统配置，并修改Profile" class="headerlink" title="4.复制Vim到系统配置，并修改Profile"></a>4.复制Vim到系统配置，并修改Profile</h2><pre><code class="lang-bash">// 复制前可以备份一下cp /usr/bin/vim /usr/bin/vim.backup// 复制前面编译的vim到系统配置cd /root/Projects/GithubProjects/vim/srccp vim /usr/bin// 修改系统的Profileecho &quot;PATH=\$PATH:/usr/local/vim/bin&quot; &gt;&gt; /etc/profile// 运行刚修改的配置。source /etc/profile// 最后，check versionvim --version// 同时，也能看到它支持Python3了。(7.4是不支持的。)</code></pre><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://www.jianshu.com/p/b44d568aef9f" target="_blank" rel="noopener">CentOS, Vim7.4升级到8.1 (服务器) — 亲试可行 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;centos默认vim版本为7.4，用起来其实并不舒服，所以这里选择通过源码安装方式（主要是尝试了通过yum安装都没有成功）安装最新版vim（写这篇文档的时候是8.2）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="https://www.iamlightsmile.com/tags/centos/"/>
-    
-      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开放式信息抽取探索（1）</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%BC%80%E6%94%BE%E5%BC%8F%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96%E6%8E%A2%E7%B4%A2%EF%BC%881%EF%BC%89/</id>
-    <published>2020-11-05T07:41:56.000Z</published>
-    <updated>2020-11-12T03:22:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。</p><p>这里简单记录下自己的探索历程和内心感受。</p><a id="more"></a><h2 id="任务划分"><a href="#任务划分" class="headerlink" title="任务划分"></a>任务划分</h2><p>信息抽取主要包含实体抽取、关系抽取和事件抽取，这里主要关注事件抽取。</p><h2 id="可以用监督学习模型吗"><a href="#可以用监督学习模型吗" class="headerlink" title="可以用监督学习模型吗"></a>可以用监督学习模型吗</h2><p>因为是开放式信息抽取，没有标记语料和训练带标签数据的过程，甚至说事件的种类都不是固定已知的，所以不能用监督学习模型。</p><h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>打算借助基础nlp工具LTP，调研依存句法、语义角色标注、语义依存分析等功能。</p><h2 id="简单对比"><a href="#简单对比" class="headerlink" title="简单对比"></a>简单对比</h2><p>经过简单对比，觉得语义角色标注有遗漏的情况，而依存句法和语义依存效果相对较好，同时语义依存结果相对复杂，同时还存在一定的Bug。所以选择使用依存句法去入手。</p><h2 id="调研相关文章和开源项目"><a href="#调研相关文章和开源项目" class="headerlink" title="调研相关文章和开源项目"></a>调研相关文章和开源项目</h2><p>在调研网上其他的基于句法的开放式信息抽取的文章和项目时，发现了<a href="https://github.com/lemonhu/open-entity-relation-extraction" target="_blank" rel="noopener">lemonhu/open-entity-relation-extraction: Knowledge triples extraction and knowledge base construction based on dependency syntax for open domain text.</a>。觉得该项目和我要做的相近，于是调研了其代码实现，发现里面的规则是硬编码的，写的比较死，拓展性比较差，于是便思索是否有别的更好的方案。</p><h2 id="新的想法"><a href="#新的想法" class="headerlink" title="新的想法"></a>新的想法</h2><p>苦思冥想着觉得这些规则不应该硬编码，而是别的可拓展或易于修改的方式。后来突然想到树也算图的一种特殊结构，所以树的遍历、树的路径匹配也可以看做图的遍历、图的子图的路径匹配，而最近刚搞了Neo4j，Neo4j自然可以视作一个高效的图计算引擎，因此将句法分析和Neo4j结合在一起搞的想法便初步形成了。相应的，实体可以看做图的节点，实体在事件中所扮演的角色可以看做是到中心词（动词）的边，依存树中的定语（和实体构成定中修饰关系）可以视作实体节点的属性，而状语作为对中心词（动词）的修饰可以视作事件中心词的属性。所以由依存树到知识图谱便对应起来了。于是乎我们可以去构建Cypher查询语句来实现实体和事件的抽取。</p><p>如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/openoie-neo4j.png" alt="pic1"></p><h2 id="深入Neo4j"><a href="#深入Neo4j" class="headerlink" title="深入Neo4j"></a>深入Neo4j</h2><p>由于涉及到一些图遍历相关的东西，所以自己便想着通过使用Neo4j的apoc拓展库来实现，之前使用了<code>apoc.path.expand</code>，不过后来发现自己用错了，更应该用的是<code>apoc.path.subgraphNodes</code>，然后写了几个语法发现在一些Case上的提取结果还算不错。</p><h2 id="就难受住"><a href="#就难受住" class="headerlink" title="就难受住"></a>就难受住</h2><p>不过当Case变得复杂的时候，发现依存句法解析的有些问题，自然也就导致部分提取不到，于是自己内心就变得沮丧了起来。这是自己想解决的问题呀，可是好难，自己也不知如何去实现，就难受住。</p><h2 id="柳暗花明"><a href="#柳暗花明" class="headerlink" title="柳暗花明"></a>柳暗花明</h2><p>后来想着要不试试别的工具的效果，包括语义角色标注和语义依存分析，结果竟然发现语义角色标注的解析结果还真的挺好的。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直对自然语言处理和知识图谱感兴趣，然而其细分领域中最感兴趣的领域或问题是开放式信息抽取。&lt;/p&gt;
-&lt;p&gt;这里简单记录下自己的探索历程和内心感受。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="知识图谱" scheme="https://www.iamlightsmile.com/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
-    
-    
-      <category term="信息抽取" scheme="https://www.iamlightsmile.com/tags/%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求职随记</title>
-    <link href="https://www.iamlightsmile.com/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/"/>
-    <id>https://www.iamlightsmile.com/articles/%E6%B1%82%E8%81%8C%E9%9A%8F%E8%AE%B0/</id>
-    <published>2020-10-27T14:17:20.000Z</published>
-    <updated>2020-10-27T14:25:16.317Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。</p><a id="more"></a><p>不过今晚最终想了想还是先拒绝掉了，虽然这种做法可能确实有点败人缘、坏人品，但是另一方面，我们小组目前处于比较缺人的状态，并且现在我还主要负责一个电网相关的知识库项目，离开了只会让同事更难做。一方面自己想换个环境继续学习新的知识和技能，另一方面则是一份责任，是自己应该做且做好的事情。只能等把项目推进到年末之后再考虑更换工作吧，现在换工作确实对公司而言有些不厚道了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近想换工作，于是Boss直聘设置状态为“在职-考虑机会”，同时更新了简历内容，于是乎最近有简历投递邀请，并且今天还收到了好几份面试邀请。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
-    
-    
-      <category term="求职" scheme="https://www.iamlightsmile.com/tags/%E6%B1%82%E8%81%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>国内博客网站说明</title>
-    <link href="https://www.iamlightsmile.com/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
-    <id>https://www.iamlightsmile.com/articles/%E5%9B%BD%E5%86%85%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E/</id>
-    <published>2020-10-26T05:05:39.000Z</published>
-    <updated>2020-10-26T05:08:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>本博客国内网址链接为：<a href="https://www.lightsmile.cn/" target="_blank" rel="noopener">lightsmile’s Blog</a>。</p><p>另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章被人举报，无奈将两篇文章删除，并且不再同步更新。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本博客国内网址链接为：&lt;a href=&quot;https://www.lightsmile.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;lightsmile’s Blog&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;另：国内网站采用腾讯云服务器，自己写了两篇关于翻墙的文章
-      
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://www.iamlightsmile.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="翻墙" scheme="https://www.iamlightsmile.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Elasticsearch分页搜索</title>
-    <link href="https://www.iamlightsmile.com/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/"/>
-    <id>https://www.iamlightsmile.com/articles/Elasticsearch%E5%88%86%E9%A1%B5%E6%90%9C%E7%B4%A2/</id>
-    <published>2020-10-26T04:59:22.000Z</published>
-    <updated>2020-10-26T05:00:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>目前已经找到Elasticsearch分页搜索实现机制，目前仅考虑使用<code>from-size</code>机制，具体在通过Python的Elasticsearch库调用时有两种方式：</p><a id="more"></a><h3 id="方式一：restful风格"><a href="#方式一：restful风格" class="headerlink" title="方式一：restful风格"></a>方式一：restful风格</h3><p>使用示例：</p><pre><code class="lang-python">from elasticsearch import Elasticsearches = Elasticsearch()# es = Elasticsearch(hosts={&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 9200})index = &quot;index&quot;query_body = {    &quot;from&quot;: 5,    &quot;size&quot;: 10,    &quot;query&quot;: {        &quot;match&quot;: {            &quot;word&quot;: &quot;测试&quot;        }    }}res = es.search(index=index, body=query_body)</code></pre><p>其中<code>from</code>指定偏移量，<code>size</code>指定返回结果个数。</p><h3 id="方式二：Python风格"><a href="#方式二：Python风格" class="headerlink" title="方式二：Python风格"></a>方式二：Python风格</h3><p>使用示例：</p><pre><code class="lang-python">from elasticsearch import Elasticsearches = Elasticsearch()# es = Elasticsearch(hosts={&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 9200})index = &quot;index&quot;query_body = {    &quot;query&quot;: {        &quot;match&quot;: {            &quot;word&quot;: &quot;测试&quot;        }    }}res = es.search(index=index, body=query_body, from_=5, size=10)</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.jianshu.com/p/171dcd33ab02" target="_blank" rel="noopener">elasticsearch 分页查询实现方案 - 简书</a></li><li><a href="https://wonderomg.github.io/2018/05/17/Elasticsearch%E5%AE%9E%E8%B7%B5api%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" target="_blank" rel="noopener">Elasticsearch实践(3)-api分页查询 | WONDEROMG</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;目前已经找到Elasticsearch分页搜索实现机制，目前仅考虑使用&lt;code&gt;from-size&lt;/code&gt;机制，具体在通过Python的Elasticsearch库调用时有两种方式：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="Elasticsearch" scheme="https://www.iamlightsmile.com/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用终端文件管理器ranger</title>
-    <link href="https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/"/>
-    <id>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8ranger/</id>
-    <published>2020-10-25T15:08:33.000Z</published>
-    <updated>2020-10-25T15:21:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p>之前早在18年就使用过Linux下终端文件管理器ranger，后来在Manjaro系统下也使用过，不过最近发现安装的ranger一直都不能预览文件，就很懵逼，一直不甘心，于是各种找解决方案。</p><a id="more"></a><h2 id="1-解决方案"><a href="#1-解决方案" class="headerlink" title="1.解决方案"></a>1.解决方案</h2><p>后来看到这篇教程：<a href="https://www.pythonf.cn/read/49398" target="_blank" rel="noopener">终端文件管理Ranger</a>才知道root账号是不能使用预览功能的，如果开启只能动Python源码。</p><p>具体为修改<code>site-packages/ranger/core/main.py</code>文件的大约141行，如下：</p><pre><code class="lang-python">        if fm.username == &#39;root&#39;:            fm.settings.preview_files = False            fm.settings.use_preview_script = False            LOG.info(&quot;Running as root, disabling the file previews.&quot;)</code></pre><p>把这几行注释掉就可以了。</p><p>然后重新打开ranger发现已经开启预览了嘻嘻。</p><p>关于如何定位<code>main.py</code>具体位置，主要是判断自己是在哪个Python环境下安装的ranger。如我是在miniconda下默认Python环境安装的ranger，并且miniconda的安装位置为<code>/opt/miniconda3</code>，所以我就在该路径下使用find命令即可找到ranger库文件，如下：</p><pre><code class="lang-bash">(base) ➜  miniconda3 find . -name &quot;*ranger*&quot;   ./lib/python3.8/site-packages/ranger_fm-1.9.3.dist-info./lib/python3.8/site-packages/ranger./bin/ranger./share/applications/ranger.desktop./share/doc/ranger./share/man/man1/ranger.1</code></pre><p>然后该<code>mian.py</code>的绝对路径则为<code>/opt/miniconda3/lib/python3.8/site-packages/ranger/core/main.py</code>。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;0-前言&quot;&gt;&lt;a href=&quot;#0-前言&quot; class=&quot;headerlink&quot; title=&quot;0.前言&quot;&gt;&lt;/a&gt;0.前言&lt;/h2&gt;&lt;p&gt;之前早在18年就使用过Linux下终端文件管理器ranger，后来在Manjaro系统下也使用过，不过最近发现安装的ranger一直都不能预览文件，就很懵逼，一直不甘心，于是各种找解决方案。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="ranger, Linux" scheme="https://www.iamlightsmile.com/tags/ranger-Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS安装Hadoop</title>
-    <link href="https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/"/>
-    <id>https://www.iamlightsmile.com/articles/CentOS%E5%AE%89%E8%A3%85Hadoop/</id>
-    <published>2020-10-23T09:02:13.000Z</published>
-    <updated>2020-10-23T15:13:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。</p><a id="more"></a><p>主要参考的两篇教程：</p><ul><li><a href="https://www.jianshu.com/p/78f9cc79a766" target="_blank" rel="noopener">hadoop 3.1.3单机版安装教程 - 简书</a></li><li><a href="https://www.jianshu.com/p/27cbd5bbdf61" target="_blank" rel="noopener">【Hadoop】Hadoop 3.2.1 真伪分布式搭建 - 简书</a></li></ul><blockquote><p><strong>注意</strong>：本文将介绍伪分布式安装过程，至于真分布式不做介绍。</p></blockquote><h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="1-安装java"><a href="#1-安装java" class="headerlink" title="1 安装java"></a>1 安装java</h3><p>略</p><h3 id="2-下载Hadoop"><a href="#2-下载Hadoop" class="headerlink" title="2 下载Hadoop"></a>2 下载Hadoop</h3><p>下载页：<a href="https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz" target="_blank" rel="noopener">Apache Download Mirrors</a></p><h3 id="3-找到Java安装路径"><a href="#3-找到Java安装路径" class="headerlink" title="3 找到Java安装路径"></a>3 找到Java安装路径</h3><p>which java定位到的是java程序的执行路径，而不是安装路径，经过两次-lrt最后的输出才是安装路径。</p><p>具体参考第2篇文档。</p><h3 id="4-安装Hadoop"><a href="#4-安装Hadoop" class="headerlink" title="4 安装Hadoop"></a>4 安装Hadoop</h3><p>上面两篇文档放置的Hadoop的位置路径不同，一个是在<code>/home/</code>路径下，一个是在<code>usr/local/hadoop</code>下，而我自己选择了<code>/opt</code>下面。</p><p>相关不同可以参考：<a href="https://blog.csdn.net/baidu_30000217/article/details/78936790" target="_blank" rel="noopener">Linux 软件安装到 /usr，/usr/local/ 还是 /opt 目录？_LSGOZJ的博客-CSDN博客</a></p><h3 id="5-设置Hadoop启动项"><a href="#5-设置Hadoop启动项" class="headerlink" title="5 设置Hadoop启动项"></a>5 设置Hadoop启动项</h3><p>同样的，上面两篇教程中配置方式也不相同，一篇直接修改<code>/etc/profile</code>，一篇修改<code>/etc/profile.d/hadoop.sh</code>，两者殊途同归，效果一致。</p><p>内容大致即：</p><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64  export HADOOP_HOME=/home/hadoop-3.2.1export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</code></pre><p>然后使配置生效刷新环境变量，即运行<code>source /etc/profile</code></p><h3 id="6-创建hadoop用户"><a href="#6-创建hadoop用户" class="headerlink" title="6 创建hadoop用户"></a>6 创建hadoop用户</h3><pre><code class="lang-bash">adduser hadoop # 新增用户passwd hadoop # 设置秘密groupadd hadoop # 新建用户组usermod -G hadoop hadoop # 将用户添加到用户组id hadoop # 查看用户情况</code></pre><h3 id="7-创建hadoop文件目录并授权"><a href="#7-创建hadoop文件目录并授权" class="headerlink" title="7 创建hadoop文件目录并授权"></a>7 创建hadoop文件目录并授权</h3><pre><code class="lang-bash">mkdir -p /home/hadoop/tmp # hadoop临时文件目录mkdir -p /home/hadoop/hdfs/name # hadoop主节点(namenode)文件目录mkdir -p /home/hadoop/hdfs/data # hadoop数据节点(datanode)文件目录mkdir -p /home/hadoop/log # hadoop日志文件目录chown -R hadoop:hadoop /home/hadoop # 设置hadoop文件目录所有者</code></pre><h3 id="8-修改hadoop配置文件"><a href="#8-修改hadoop配置文件" class="headerlink" title="8 修改hadoop配置文件"></a>8 修改hadoop配置文件</h3><p>hadoop的配置文件都在 etc/hadoop 目录下，配置文件有很多，最基本要修改3个文件：hadoop-env.sh ，core-site.xml，hdfs-site.xml。</p><h4 id="8-1-hadoop-env-sh"><a href="#8-1-hadoop-env-sh" class="headerlink" title="8.1 hadoop-env.sh"></a>8.1 hadoop-env.sh</h4><pre><code class="lang-bash">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64 # 需要指定Java路径export HADOOP_LOG_DIR=/home/hadoop/log # 需要指定hadoop_log_dir</code></pre><h4 id="8-2-core-site-xml"><a href="#8-2-core-site-xml" class="headerlink" title="8.2 core-site.xml"></a>8.2 core-site.xml</h4><pre><code class="lang-xml">&lt;configuration&gt;    &lt;property&gt;        &lt;name&gt;fs.defaultFS&lt;/name&gt;        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;        &lt;description&gt;hdfs内部通讯访问地址&lt;/description&gt;    &lt;/property&gt;    &lt;property&gt;        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;        &lt;value&gt;file:/home/hadoop/tmp&lt;/value&gt;        &lt;description&gt;hadoop数据存放&lt;/description&gt;    &lt;/property&gt;&lt;/configuration&gt;</code></pre><h4 id="8-3-hdfs-site-xml"><a href="#8-3-hdfs-site-xml" class="headerlink" title="8.3 hdfs-site.xml"></a>8.3 hdfs-site.xml</h4><pre><code class="lang-xml">&lt;configuration&gt;    &lt;property&gt;        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;        &lt;value&gt;file:/home/hadoop/hdfs/name&lt;/value&gt;    &lt;/property&gt;    &lt;property&gt;        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;        &lt;value&gt;file:/home/hadoop/hdfs/data&lt;/value&gt;    &lt;/property&gt;    &lt;property&gt;        &lt;name&gt;dfs.replication&lt;/name&gt;        &lt;value&gt;1&lt;/value&gt;    &lt;/property&gt;&lt;/configuration&gt;</code></pre><h3 id="9-设置ssh免密登录"><a href="#9-设置ssh免密登录" class="headerlink" title="9 设置ssh免密登录"></a>9 设置ssh免密登录</h3><blockquote><p><strong>注意</strong>：以下命令均是在hadoop用户下进行。</p></blockquote><p>需要用前面创建的hadoop用户通过ssh免密访问本地，先切换到hadoop用户目录下，执行以下命令：</p><pre><code class="lang-bash">ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsacat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keyschmod 0600 ~/.ssh/authorized_keys</code></pre><p>测试是否成功，执行下面命令，若不用输入密码则成功。</p><pre><code class="lang-bash">ssh localhost</code></pre><h3 id="10-启动hadoop"><a href="#10-启动hadoop" class="headerlink" title="10 启动hadoop"></a>10 启动hadoop</h3><blockquote><p><strong>注意</strong>：以下命令均是在hadoop用户下进行。</p></blockquote><h4 id="10-1-格式化hadoop文件系统"><a href="#10-1-格式化hadoop文件系统" class="headerlink" title="10.1 格式化hadoop文件系统"></a>10.1 格式化hadoop文件系统</h4><pre><code class="lang-bash">hdfs namenode -format</code></pre><h4 id="10-2-一键启动"><a href="#10-2-一键启动" class="headerlink" title="10.2 一键启动"></a>10.2 一键启动</h4><pre><code class="lang-bash">start-all.sh</code></pre><h4 id="10-3-检验"><a href="#10-3-检验" class="headerlink" title="10.3 检验"></a>10.3 检验</h4><p>输入命令 ，没有报错，则hadoop单机版安装成功。</p><pre><code class="lang-bash">hadoop fs -ls /</code></pre><h3 id="11-查看启动效果"><a href="#11-查看启动效果" class="headerlink" title="11 查看启动效果"></a>11 查看启动效果</h3><p>访问<code>http://localhost:9870</code>，可以得到如下图所示：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/hadoop_front.png" alt="hadoop效果"></p><h3 id="其他文章"><a href="#其他文章" class="headerlink" title="其他文章"></a>其他文章</h3><ul><li><a href="https://www.cnblogs.com/luo630/p/13271637.html" target="_blank" rel="noopener">Hadoop、HBase、Spark单机安装 - 工程师二号 - 博客园</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近决定学一些大数据、分布式之类的技术。其中最基本的比如说安装Hadoop，没想到安装个这个也不太顺利，这里简单记录一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Debian或Ubuntu安装Nodejs</title>
-    <link href="https://www.iamlightsmile.com/articles/Debian%E6%88%96Ubuntu%E5%AE%89%E8%A3%85Nodejs/"/>
-    <id>https://www.iamlightsmile.com/articles/Debian%E6%88%96Ubuntu%E5%AE%89%E8%A3%85Nodejs/</id>
-    <published>2020-10-22T01:20:32.000Z</published>
-    <updated>2020-10-22T01:31:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h2><p>安装最新Nodejs的命令如下：</p><a id="more"></a><h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><pre><code class="lang-bash">curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -sudo apt-get install -y nodejs</code></pre><h3 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h3><pre><code class="lang-bash">curl -sL https://deb.nodesource.com/setup_15.x | bash -apt-get install -y nodejs</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/nodesource/distributions" target="_blank" rel="noopener">nodesource/distributions: NodeSource Node.js Binary Distributions</a></li><li><a href="https://ywnz.com/linuxjc/5819.html" target="_blank" rel="noopener">在Debian 10系统上安装Node.js和npm的三种不同方法<em>Linux教程</em>云网牛站</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;安装命令&quot;&gt;&lt;a href=&quot;#安装命令&quot; class=&quot;headerlink&quot; title=&quot;安装命令&quot;&gt;&lt;/a&gt;安装命令&lt;/h2&gt;&lt;p&gt;安装最新Nodejs的命令如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="Debian" scheme="https://www.iamlightsmile.com/tags/Debian/"/>
-    
-      <category term="Nodejs" scheme="https://www.iamlightsmile.com/tags/Nodejs/"/>
-    
-      <category term="Ubuntu" scheme="https://www.iamlightsmile.com/tags/Ubuntu/"/>
     
   </entry>
   
