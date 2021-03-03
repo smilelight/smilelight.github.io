@@ -4,6 +4,83 @@
   
     
     <entry>
+      <title>Python配置文件选择策略</title>
+      <link href="/articles/Python%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E7%AD%96%E7%95%A5/"/>
+      <url>/articles/Python%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E7%AD%96%E7%95%A5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0-正文"><a href="#0-正文" class="headerlink" title="0.正文"></a>0.正文</h2><p>现在想来，大致使用Python配置变量或配置文件的策略有以下几种：</p><ol><li>硬编码字符串</li><li>配置脚本，如py文件</li><li>配置文件如yml或cfg、ini格式</li><li>环境变量</li><li>命令参数</li><li>数据库中的数据</li></ol><a id="more"></a><p>其中各种选择各有利弊，具体在项目中如何使用需要具体情况具体分析。</p><h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a>1.参考</h2><ul><li><a href="https://segmentfault.com/a/1190000022638813" target="_blank" rel="noopener">Python 配置管理的几种方式 - SegmentFault 思否</a></li><li><a href="https://zhuanlan.zhihu.com/p/54764686" target="_blank" rel="noopener">Python项目读取配置的正确姿势 - 知乎</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>为flask添加统一路由</title>
+      <link href="/articles/%E4%B8%BAflask%E6%B7%BB%E5%8A%A0%E7%BB%9F%E4%B8%80%E8%B7%AF%E7%94%B1/"/>
+      <url>/articles/%E4%B8%BAflask%E6%B7%BB%E5%8A%A0%E7%BB%9F%E4%B8%80%E8%B7%AF%E7%94%B1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>今天重构项目觉得可以为flask项目各接口添加统一的前缀，而不是全部都是字符串拼接。</p><a id="more"></a><h2 id="2-正文"><a href="#2-正文" class="headerlink" title="2.正文"></a>2.正文</h2><p>其中代码大致如下：</p><pre><code class="lang-python">from flask import Flask, request, jsonify, send_filefrom flask_cors import CORSfrom werkzeug.routing import Rulefrom werkzeug.serving import run_simplefrom werkzeug.middleware.dispatcher import DispatcherMiddlewarePREFIX_PATH = &quot;/prefix&quot;HOST = &quot;127.0.0.1&quot;PORT = 8501if __name__ == &#39;__main__&#39;:    app = Flask(__name__)    @app.route(&quot;/hello_world&quot;, methods=[&#39;POST&#39;, &#39;GET&#39;])    def hello_world():        return jsonify({            &#39;text&#39;: &quot;Hello World!&quot;        })    application = DispatcherMiddleware(app, {PREFIX_PATH: app})    run_simple(HOST, PORT, application, use_debugger=False, threaded=True)</code></pre><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><ul><li><a href="https://stackoverflow.com/questions/18967441/add-a-prefix-to-all-flask-routes" target="_blank" rel="noopener">python - Add a prefix to all Flask routes - Stack Overflow</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> flask </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>近日随感</title>
+      <link href="/articles/%E8%BF%91%E6%97%A5%E9%9A%8F%E6%84%9F/"/>
+      <url>/articles/%E8%BF%91%E6%97%A5%E9%9A%8F%E6%84%9F/</url>
+      
+        <content type="html"><![CDATA[<ol><li>不是所有的女生都很物质。爱情、呵护、陪伴等同样在她们心中占据相当重要的比重。</li><li>女生或许有身高控、颜控等部分外在筛选条件，但是她们的内心都比较柔弱，在她们心中更重要的是男生应该像一座大山一样，是她们最坚实的依靠，是她们灵魂休憩的港湾。</li><li>不是所有的女生都不敢和男生吃苦，陪男生一起成长；男生更要不负期待，用行动去证明自己值得爱与被爱，用行动去证明女生当时的孤注一掷是正确的。</li><li>最最最重要的是，男生们永远不要让喜欢自己、曾经选择了自己的女生失望难过。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 感情 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python38的logging模块的bug</title>
       <link href="/articles/python38%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84bug/"/>
       <url>/articles/python38%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84bug/</url>

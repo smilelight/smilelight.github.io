@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2021-02-19T02:53:02.869Z</updated>
+  <updated>2021-03-03T09:18:22.158Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -15,6 +15,91 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python配置文件选择策略</title>
+    <link href="https://www.iamlightsmile.com/articles/Python%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E7%AD%96%E7%95%A5/"/>
+    <id>https://www.iamlightsmile.com/articles/Python%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E7%AD%96%E7%95%A5/</id>
+    <published>2021-03-03T09:10:10.000Z</published>
+    <updated>2021-03-03T09:18:22.158Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-正文"><a href="#0-正文" class="headerlink" title="0.正文"></a>0.正文</h2><p>现在想来，大致使用Python配置变量或配置文件的策略有以下几种：</p><ol><li>硬编码字符串</li><li>配置脚本，如py文件</li><li>配置文件如yml或cfg、ini格式</li><li>环境变量</li><li>命令参数</li><li>数据库中的数据</li></ol><a id="more"></a><p>其中各种选择各有利弊，具体在项目中如何使用需要具体情况具体分析。</p><h2 id="1-参考"><a href="#1-参考" class="headerlink" title="1.参考"></a>1.参考</h2><ul><li><a href="https://segmentfault.com/a/1190000022638813" target="_blank" rel="noopener">Python 配置管理的几种方式 - SegmentFault 思否</a></li><li><a href="https://zhuanlan.zhihu.com/p/54764686" target="_blank" rel="noopener">Python项目读取配置的正确姿势 - 知乎</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-正文&quot;&gt;&lt;a href=&quot;#0-正文&quot; class=&quot;headerlink&quot; title=&quot;0.正文&quot;&gt;&lt;/a&gt;0.正文&lt;/h2&gt;&lt;p&gt;现在想来，大致使用Python配置变量或配置文件的策略有以下几种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;硬编码字符串&lt;/li&gt;
+&lt;li&gt;配置脚本，如py文件&lt;/li&gt;
+&lt;li&gt;配置文件如yml或cfg、ini格式&lt;/li&gt;
+&lt;li&gt;环境变量&lt;/li&gt;
+&lt;li&gt;命令参数&lt;/li&gt;
+&lt;li&gt;数据库中的数据&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为flask添加统一路由</title>
+    <link href="https://www.iamlightsmile.com/articles/%E4%B8%BAflask%E6%B7%BB%E5%8A%A0%E7%BB%9F%E4%B8%80%E8%B7%AF%E7%94%B1/"/>
+    <id>https://www.iamlightsmile.com/articles/%E4%B8%BAflask%E6%B7%BB%E5%8A%A0%E7%BB%9F%E4%B8%80%E8%B7%AF%E7%94%B1/</id>
+    <published>2021-03-03T08:57:13.000Z</published>
+    <updated>2021-03-03T09:08:51.934Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>今天重构项目觉得可以为flask项目各接口添加统一的前缀，而不是全部都是字符串拼接。</p><a id="more"></a><h2 id="2-正文"><a href="#2-正文" class="headerlink" title="2.正文"></a>2.正文</h2><p>其中代码大致如下：</p><pre><code class="lang-python">from flask import Flask, request, jsonify, send_filefrom flask_cors import CORSfrom werkzeug.routing import Rulefrom werkzeug.serving import run_simplefrom werkzeug.middleware.dispatcher import DispatcherMiddlewarePREFIX_PATH = &quot;/prefix&quot;HOST = &quot;127.0.0.1&quot;PORT = 8501if __name__ == &#39;__main__&#39;:    app = Flask(__name__)    @app.route(&quot;/hello_world&quot;, methods=[&#39;POST&#39;, &#39;GET&#39;])    def hello_world():        return jsonify({            &#39;text&#39;: &quot;Hello World!&quot;        })    application = DispatcherMiddleware(app, {PREFIX_PATH: app})    run_simple(HOST, PORT, application, use_debugger=False, threaded=True)</code></pre><h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><ul><li><a href="https://stackoverflow.com/questions/18967441/add-a-prefix-to-all-flask-routes" target="_blank" rel="noopener">python - Add a prefix to all Flask routes - Stack Overflow</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1.前言&quot;&gt;&lt;/a&gt;1.前言&lt;/h2&gt;&lt;p&gt;今天重构项目觉得可以为flask项目各接口添加统一的前缀，而不是全部都是字符串拼接。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://www.iamlightsmile.com/tags/Python/"/>
+    
+      <category term="flask" scheme="https://www.iamlightsmile.com/tags/flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>近日随感</title>
+    <link href="https://www.iamlightsmile.com/articles/%E8%BF%91%E6%97%A5%E9%9A%8F%E6%84%9F/"/>
+    <id>https://www.iamlightsmile.com/articles/%E8%BF%91%E6%97%A5%E9%9A%8F%E6%84%9F/</id>
+    <published>2021-02-21T07:55:35.000Z</published>
+    <updated>2021-02-21T08:08:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>不是所有的女生都很物质。爱情、呵护、陪伴等同样在她们心中占据相当重要的比重。</li><li>女生或许有身高控、颜控等部分外在筛选条件，但是她们的内心都比较柔弱，在她们心中更重要的是男生应该像一座大山一样，是她们最坚实的依靠，是她们灵魂休憩的港湾。</li><li>不是所有的女生都不敢和男生吃苦，陪男生一起成长；男生更要不负期待，用行动去证明自己值得爱与被爱，用行动去证明女生当时的孤注一掷是正确的。</li><li>最最最重要的是，男生们永远不要让喜欢自己、曾经选择了自己的女生失望难过。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;不是所有的女生都很物质。爱情、呵护、陪伴等同样在她们心中占据相当重要的比重。&lt;/li&gt;
+&lt;li&gt;女生或许有身高控、颜控等部分外在筛选条件，但是她们的内心都比较柔弱，在她们心中更重要的是男生应该像一座大山一样，是她们最坚实的依靠，是她们灵魂休憩的港湾。&lt;/li&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="随念" scheme="https://www.iamlightsmile.com/categories/%E9%9A%8F%E5%BF%B5/"/>
+    
+    
+      <category term="感情" scheme="https://www.iamlightsmile.com/tags/%E6%84%9F%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>python38的logging模块的bug</title>
@@ -456,84 +541,6 @@ local_p
       <category term="macos" scheme="https://www.iamlightsmile.com/tags/macos/"/>
     
       <category term="hexo" scheme="https://www.iamlightsmile.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置docker容器内时间</title>
-    <link href="https://www.iamlightsmile.com/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/"/>
-    <id>https://www.iamlightsmile.com/articles/%E8%AE%BE%E7%BD%AEdocker%E5%AE%B9%E5%99%A8%E5%86%85%E6%97%B6%E9%97%B4/</id>
-    <published>2020-11-12T08:56:35.000Z</published>
-    <updated>2020-11-12T09:00:14.757Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-通过文件挂载形式设置与宿主机时间一致"><a href="#1-通过文件挂载形式设置与宿主机时间一致" class="headerlink" title="1. 通过文件挂载形式设置与宿主机时间一致"></a>1. 通过文件挂载形式设置与宿主机时间一致</h2><p>可以在<code>docker-compose</code>文件中设置如下：</p><pre><code class="lang-yml">volumes:    - &quot;/etc/localtime:/etc/localtime:ro&quot;  # 容器只能从主机的/etc/localtime中读取</code></pre><h2 id="2-设置timezone"><a href="#2-设置timezone" class="headerlink" title="2. 设置timezone"></a>2. 设置timezone</h2><p>如设置时区为上海，可在docker容器内部执行：</p><pre><code class="lang-bash">echo &#39;Asia/Shanghai&#39; &gt; /etc/timezone</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-通过文件挂载形式设置与宿主机时间一致&quot;&gt;&lt;a href=&quot;#1-通过文件挂载形式设置与宿主机时间一致&quot; class=&quot;headerlink&quot; title=&quot;1. 通过文件挂载形式设置与宿主机时间一致&quot;&gt;&lt;/a&gt;1. 通过文件挂载形式设置与宿主机时间一致&lt;/h2
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>缓存机制与产品经理</title>
-    <link href="https://www.iamlightsmile.com/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
-    <id>https://www.iamlightsmile.com/articles/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</id>
-    <published>2020-11-12T07:19:44.000Z</published>
-    <updated>2020-11-12T07:54:10.939Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。</p><p>同事用到的Python的缓存库为<a href="https://github.com/pallets/cachelib" target="_blank" rel="noopener">pallets/cachelib</a>，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。</p><a id="more"></a><p>于是乎只能瞜一眼同事大概是咋用的，然后再读一下这个库的源码，发现还挺简洁的。</p><p>在大致读完代码之后，心里不禁感慨，这个缓存机制真的不错。犹记得，上大学时的计算机系统结构的老师问道：在计算机的发展历史中，引入的哪个功能或组件解决了痛点而又没有引入其他副作用？老师说唯一的答案就是缓存机制。但是当时还不能理解其真正含义。</p><p>打算再看看关于缓存机制介绍的更多的文章，google一下，发现都是讲浏览器缓存的，而我想看些关于机制介绍的更广的东西。</p><p>后来发现了这两篇文章：<a href="http://www.woshipm.com/pmd/856507.html" target="_blank" rel="noopener">浅析互联网中的缓存机制 | 人人都是产品经理</a>以及<a href="https://wizardforcel.gitbooks.io/django-book-20-zh-cn/content/15.html" target="_blank" rel="noopener">第十五章： 缓存机制| Django Book 2.0 中文版</a>，两个也都讲的挺详细的。</p><p>令我没想到的是，有人作为一个产品经理能够将关于缓存机制的东西总结的这么好。于是我不禁反思，一个合格的产品经理应该懂些技术，而一个合格的程序员似乎也应该懂些产品相关的东西，而不应该仅仅着眼于技术实现的层面，更应该以产品经理为师，学习借鉴他们看待问题的视角和方法，提升自己看待问题的层面。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天研读同事的代码，发现代码里新增了缓存机制，这里算是自己不太懂的领域，需要学习一下。&lt;/p&gt;
-&lt;p&gt;同事用到的Python的缓存库为&lt;a href=&quot;https://github.com/pallets/cachelib&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pallets/cachelib&lt;/a&gt;，发现这个库用的人还挺少的（至少star数是如此），并且作者也有段时间没更新了，网上搜的话也找不到相关教程。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机" scheme="https://www.iamlightsmile.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-      <category term="产品经理" scheme="https://www.iamlightsmile.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
-    
-      <category term="缓存机制" scheme="https://www.iamlightsmile.com/tags/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim更新及安装插件教程</title>
-    <link href="https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/"/>
-    <id>https://www.iamlightsmile.com/articles/vim%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%95%99%E7%A8%8B/</id>
-    <published>2020-11-12T03:13:06.000Z</published>
-    <updated>2020-11-12T04:26:05.509Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里简单记录一下自己安装vim以及安装插件的过程。</p><blockquote><p><strong>注意</strong>：以下安装过程适用于Linux以及Macos系统。</p></blockquote><a id="more"></a><h2 id="1-安装vim-plug"><a href="#1-安装vim-plug" class="headerlink" title="1.安装vim-plug"></a>1.安装vim-plug</h2><pre><code class="lang-bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></pre><h2 id="2-配置vim配置文件"><a href="#2-配置vim配置文件" class="headerlink" title="2.配置vim配置文件"></a>2.配置vim配置文件</h2><p>编辑<code>~/.vimrc</code>文件，如我的<code>~/.vimrc</code>文件下内容目前如下：</p><pre><code class="lang-txt">set encoding=UTF-8set numberset autoindentcall plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;ryanoasis/vim-devicons&#39;Plug &#39;scrooloose/nerdtree&#39;Plug &#39;frazrepo/vim-rainbow&#39;Plug &#39;itchyny/lightline.vim&#39;Plug &#39;junegunn/fzf&#39;Plug &#39;airblade/vim-gitgutter&#39;call plug#end()map &lt;F3&gt; :NERDTreeMirror&lt;CR&gt;map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</code></pre><h2 id="3-安装vim插件"><a href="#3-安装vim插件" class="headerlink" title="3.安装vim插件"></a>3.安装vim插件</h2><pre><code class="lang-bash"># 进入vim中vim</code></pre><p>以下命令均是在vim下执行</p><pre><code class="lang-bash"># 查看vim相关信息:version# 更新vimrc文件（可选）:source ~/.vimrc# 查看插件状态:PlugStatus# 安装插件:PlugInstall</code></pre><h2 id="4-配置终端字体"><a href="#4-配置终端字体" class="headerlink" title="4.配置终端字体"></a>4.配置终端字体</h2><p>使用<code>nerdtree</code>插件以及<code>vim-devicons</code>插件便可以实现vim下目录或文件的图标效果，但前提是启用了支持终端图标效果的字体，这里我们需要去<a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener">ryanoasis/nerd-fonts</a>下载。</p><p>关于字体安装，如果是windows系统或者macos系统可以直接双击文件进行安装，如果是Linux的话，可以参考<a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a>进行配置安装。</p><p>然后设置终端字体为支持Nerd的字体，如下图：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim1.png" alt="pic1"></p><p>然后打开vim可以看到如下效果：</p><p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/centos-vim2.png" alt="pic2"></p><h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5.参考"></a>5.参考</h2><ul><li><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">junegunn/vim-plug: Minimalist Vim Plugin Manager</a></li><li><a href="https://www.jianshu.com/p/8517e94a29ae" target="_blank" rel="noopener">[转]Linux CentOS 7 安装字体库和中文字体 - 简书</a></li><li><a href="https://www.jianshu.com/p/0c83e6aed270" target="_blank" rel="noopener">Vim-plug：极简 Vim 插件管理器 - 简书</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里简单记录一下自己安装vim以及安装插件的过程。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：以下安装过程适用于Linux以及Macos系统。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="vim" scheme="https://www.iamlightsmile.com/tags/vim/"/>
     
   </entry>
   
