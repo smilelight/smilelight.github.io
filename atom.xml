@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.iamlightsmile.com/"/>
-  <updated>2021-03-04T07:51:46.524Z</updated>
+  <updated>2021-03-11T09:23:07.906Z</updated>
   <id>https://www.iamlightsmile.com/</id>
   
   <author>
@@ -17,13 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>lightnlu:一个基于Python的小巧简单的模板匹配框架</title>
+    <link href="https://www.iamlightsmile.com/articles/lightnlu-%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EPython%E7%9A%84%E5%B0%8F%E5%B7%A7%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D%E6%A1%86%E6%9E%B6/"/>
+    <id>https://www.iamlightsmile.com/articles/lightnlu-%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8EPython%E7%9A%84%E5%B0%8F%E5%B7%A7%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D%E6%A1%86%E6%9E%B6/</id>
+    <published>2021-03-11T09:14:01.000Z</published>
+    <updated>2021-03-11T09:23:07.906Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一个基于Python实现的小巧简单的基于模板匹配的自然语言理解框架。<br>这里的自然语言理解仅指意图识别和词槽提取。</p><a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>```shell script<br>pip install lightnlu</p><pre><code>## 特性- 特别轻量- 模板文件使用yml格式- 支持多源数据导入- 模板语法简明易懂## 使用示例### step1:定制词表规则如编写`words.yml`文件如下：```yaml-  name: person  aliases:    - 人物  type: json  config:    path: data/person.json-  name: place  aliases:    - 地点    - 位置    - 城市    - 区域  type: csv  config:    path: data/place.csv-  name: relation  aliases: []  type: yml  config:    path: data/relation.yml-  name: predicate  aliases: []  type: yml  config:    path: data/predicate.yml</code></pre><p>其中对应的各yml、json、csv文件内容如下：</p><p><code>person.json</code>中内容如下：</p><pre><code class="lang-json">{&quot;name&quot;: &quot;曹操&quot;, &quot;id&quot;: &quot;1&quot;}{&quot;name&quot;: &quot;刘备&quot;, &quot;id&quot;: &quot;2&quot;}{&quot;name&quot;: &quot;诸葛亮&quot;, &quot;id&quot;: &quot;3&quot;}{&quot;name&quot;: &quot;曹丕&quot;, &quot;id&quot;: &quot;4&quot;}{&quot;name&quot;: &quot;曹植&quot;, &quot;id&quot;: &quot;5&quot;}</code></pre><p><code>place.csv</code>中内容如下：</p><pre><code class="lang-csv">name,id洛阳,1长安,2新野,3赤壁,4宛城,5</code></pre><p><code>relation.yml</code>中内容如下：</p><pre><code class="lang-yaml">son:  - 儿子father:  - 父亲  - 爸爸</code></pre><p><code>predicatel.yml</code>中内容如下：</p><pre><code class="lang-yaml">is:  - 是  - 为isnot:  - 不是  - 不为</code></pre><h3 id="step2-定制模板规则"><a href="#step2-定制模板规则" class="headerlink" title="step2:定制模板规则"></a>step2:定制模板规则</h3><p>如编写<code>pattern.yml</code>文件如下：</p><pre><code class="lang-yaml">-  name: father_son_relation  patterns:    -      - [person, ~, son] # 规则为 [类型, id值, 词槽名称]      - [relation, father, ~]      - [predicate, is, null]      - [person, ~, father]    -      - [ person, ~, father ]      - [ predicate, is, null ]      - [ person, ~, son ]      - [ relation, father, ~ ]-  name: test  patterns:    -      - [person, ~, person]      - [ predicate, is, null ]      - [&#39;@person&#39;, ~, ttt]</code></pre><p>在以上的模板规则中，对于每一个模板规则，需要指定其名字（name）及相应的模板（patterns）。<br>由于存在多个相近但不相同的模板对应同一种意图及词槽，所以这里的patterns是一个列表。<br>在以上的pattern.yml文件中，包含一个<code>&#39;@person&#39;</code>，这里可以映射到person这个类别所对应的所有别名，具体来说，可以对应到<code>[&quot;人物&quot;]</code>列表中的所有词汇。</p><h3 id="step3-编写源代码及触发函数"><a href="#step3-编写源代码及触发函数" class="headerlink" title="step3:编写源代码及触发函数"></a>step3:编写源代码及触发函数</h3><p>示例如下：</p><pre><code class="lang-python"># -*- coding: utf-8 -*-import osimport sysproject_path = os.path.abspath(os.path.join(__file__, &quot;../..&quot;))sys.path.insert(0, project_path)from lightnlu.core import NER, Ruleif __name__ == &#39;__main__&#39;:    path = os.path.join(project_path, &#39;data/words.yml&#39;)    ner = NER()    ner.build_from_yml(path, base_dir=project_path)    print(ner.entities)    path = os.path.join(project_path, &#39;data/pattern.yml&#39;)    rule = Rule()    rule.build_from_yml(path)    @rule.bind(rule_name=&quot;father_son_relation&quot;, act_name=&quot;test&quot;)    def test(father: str, son: str):        return {            &quot;father&quot;: father,            &quot;son&quot;: son        }    @rule.bind(rule_name=&quot;test&quot;, act_name=&quot;ppp&quot;)    def ppp(person: str, ttt: str):        return {            &quot;person&quot;: person,            &quot;ttt&quot;: ttt        }    print(rule.actors)    text = &quot;刘备和诸葛亮在新野旅游，途中遇上了曹操&quot;    slots = ner.extract(text)    print(slots)    print(rule.match(slots))    text = &quot;曹丕的父亲是曹操&quot;    slots = ner.extract(text)    print(rule.match(slots))    print(rule.match_and_act(slots))    text = &quot;曹操是曹丕的父亲&quot;    slots = ner.extract(text)    print(rule.match(slots))    print(rule.match_and_act(slots))    text = &quot;曹操是个人物&quot;    slots = ner.extract(text)    print(rule.match(slots))    print(rule.match_and_act(slots))</code></pre><p>执行结果如下：</p><pre><code class="lang-text">defaultdict(&lt;function default_type at 0x7f88a96b00d0&gt;, {&#39;曹操&#39;: [{&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;1&#39;}], &#39;刘备&#39;: [{&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;2&#39;}], &#39;诸葛亮&#39;: [{&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;3&#39;}], &#39;曹丕&#39;: [{&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;4&#39;}], &#39;曹植&#39;: [{&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;5&#39;}], &#39;人物&#39;: [{&#39;type&#39;: &#39;@person&#39;, &#39;id&#39;: None}], &#39;洛阳&#39;: [{&#39;type&#39;: &#39;place&#39;, &#39;id&#39;: &#39;1&#39;}], &#39;长安&#39;: [{&#39;type&#39;: &#39;place&#39;, &#39;id&#39;: &#39;2&#39;}], &#39;新野&#39;: [{&#39;type&#39;: &#39;place&#39;, &#39;id&#39;: &#39;3&#39;}], &#39;赤壁&#39;: [{&#39;type&#39;: &#39;place&#39;, &#39;id&#39;: &#39;4&#39;}], &#39;宛城&#39;: [{&#39;type&#39;: &#39;place&#39;, &#39;id&#39;: &#39;5&#39;}], &#39;地点&#39;: [{&#39;type&#39;: &#39;@place&#39;, &#39;id&#39;: None}], &#39;位置&#39;: [{&#39;type&#39;: &#39;@place&#39;, &#39;id&#39;: None}], &#39;城市&#39;: [{&#39;type&#39;: &#39;@place&#39;, &#39;id&#39;: None}], &#39;区域&#39;: [{&#39;type&#39;: &#39;@place&#39;, &#39;id&#39;: None}], &#39;电站&#39;: [{&#39;type&#39;: &#39;ban_words&#39;, &#39;id&#39;: &#39;&#39;}], &#39;正在站&#39;: [{&#39;type&#39;: &#39;ban_words&#39;, &#39;id&#39;: &#39;&#39;}], &#39;引流线&#39;: [{&#39;type&#39;: &#39;ban_words&#39;, &#39;id&#39;: &#39;&#39;}], &#39;子导线&#39;: [{&#39;type&#39;: &#39;ban_words&#39;, &#39;id&#39;: &#39;&#39;}], &#39;甲母线&#39;: [{&#39;type&#39;: &#39;ban_words&#39;, &#39;id&#39;: &#39;&#39;}], &#39;规则&#39;: [{&#39;type&#39;: &#39;@ban_words&#39;, &#39;id&#39;: None}], &#39;所属厂站&#39;: [{&#39;type&#39;: &#39;attr&#39;, &#39;id&#39;: &#39;attr_ST_ID&#39;}], &#39;所属电厂&#39;: [{&#39;type&#39;: &#39;attr&#39;, &#39;id&#39;: &#39;attr_ST_ID&#39;}], &#39;属于哪个厂站&#39;: [{&#39;type&#39;: &#39;attr&#39;, &#39;id&#39;: &#39;attr_ST_ID&#39;}], &#39;属于哪个电厂&#39;: [{&#39;type&#39;: &#39;attr&#39;, &#39;id&#39;: &#39;attr_ST_ID&#39;}], &#39;电压等级&#39;: [{&#39;type&#39;: &#39;attr&#39;, &#39;id&#39;: &#39;attr_VOLTAGE_TYPE&#39;}], &#39;儿子&#39;: [{&#39;type&#39;: &#39;relation&#39;, &#39;id&#39;: &#39;son&#39;}], &#39;父亲&#39;: [{&#39;type&#39;: &#39;relation&#39;, &#39;id&#39;: &#39;father&#39;}], &#39;爸爸&#39;: [{&#39;type&#39;: &#39;relation&#39;, &#39;id&#39;: &#39;father&#39;}], &#39;是&#39;: [{&#39;type&#39;: &#39;predicate&#39;, &#39;id&#39;: &#39;is&#39;}], &#39;为&#39;: [{&#39;type&#39;: &#39;predicate&#39;, &#39;id&#39;: &#39;is&#39;}], &#39;不是&#39;: [{&#39;type&#39;: &#39;predicate&#39;, &#39;id&#39;: &#39;isnot&#39;}], &#39;不为&#39;: [{&#39;type&#39;: &#39;predicate&#39;, &#39;id&#39;: &#39;isnot&#39;}]})defaultdict(&lt;class &#39;dict&#39;&gt;, {&#39;father_son_relation&#39;: {&#39;test&#39;: &lt;function test at 0x7f88a967e940&gt;}, &#39;test&#39;: {&#39;ppp&#39;: &lt;function ppp at 0x7f88a967e9d0&gt;}})[(&#39;刘备&#39;, {&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;2&#39;}, 0, 2), (&#39;诸葛亮&#39;, {&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;3&#39;}, 3, 6), (&#39;新野&#39;, {&#39;type&#39;: &#39;place&#39;, &#39;id&#39;: &#39;3&#39;}, 7, 9), (&#39;曹操&#39;, {&#39;type&#39;: &#39;person&#39;, &#39;id&#39;: &#39;1&#39;}, 17, 19)][][{&#39;name&#39;: &#39;father_son_relation&#39;, &#39;slots&#39;: {&#39;son&#39;: &#39;曹丕&#39;, &#39;father&#39;: &#39;曹操&#39;}}]{&#39;father_son_relation&#39;: {&#39;test&#39;: {&#39;father&#39;: &#39;曹操&#39;, &#39;son&#39;: &#39;曹丕&#39;}}}[{&#39;name&#39;: &#39;father_son_relation&#39;, &#39;slots&#39;: {&#39;father&#39;: &#39;曹操&#39;, &#39;son&#39;: &#39;曹丕&#39;}}]{&#39;father_son_relation&#39;: {&#39;test&#39;: {&#39;father&#39;: &#39;曹操&#39;, &#39;son&#39;: &#39;曹丕&#39;}}}[{&#39;name&#39;: &#39;test&#39;, &#39;slots&#39;: {&#39;person&#39;: &#39;曹操&#39;, &#39;ttt&#39;: &#39;人物&#39;}}]{&#39;test&#39;: {&#39;ppp&#39;: {&#39;person&#39;: &#39;曹操&#39;, &#39;ttt&#39;: &#39;人物&#39;}}}</code></pre><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol><li>csv文件和json文件中必须包含name和id两个属性或列。</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://github.com/keyue123/poemElasticDemo" target="_blank" rel="noopener">keyue123/poemElasticDemo: 基于Elasticsearch的KBQA</a></li><li><a href="https://github.com/liuhuanyong/QAonMilitaryKG" target="_blank" rel="noopener">liuhuanyong/QAonMilitaryKG: QAonMilitaryKG，QaSystem based on military knowledge graph that stores in mongodb which is different from the previous one, 基于mongodb存储的军事领域知识图谱问答项目，包括飞行器、太空装备等8大类，100余小类，共计5800项的军事武器知识库，该项目不使用图数据库进行存储，通过jieba进行问句解析，问句实体项识别，基于查询模板完成多类问题的查询，主要是提供一种工业界的问答思想demo。</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;一个基于Python实现的小巧简单的基于模板匹配的自然语言理解框架。&lt;br&gt;这里的自然语言理解仅指意图识别和词槽提取。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>创建ubuntu容器注意事项</title>
     <link href="https://www.iamlightsmile.com/articles/%E5%88%9B%E5%BB%BAubuntu%E5%AE%B9%E5%99%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
     <id>https://www.iamlightsmile.com/articles/%E5%88%9B%E5%BB%BAubuntu%E5%AE%B9%E5%99%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</id>
     <published>2021-03-04T07:46:10.000Z</published>
-    <updated>2021-03-04T07:51:46.524Z</updated>
+    <updated>2021-03-04T07:58:59.208Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>以下为部分创建Ubuntu容器的注意事项：</p><a id="more"></a><h3 id="1-设置时间区时"><a href="#1-设置时间区时" class="headerlink" title="1. 设置时间区时"></a>1. 设置时间区时</h3><p>执行<code>apt install tzdata</code>命令，安装完成后，即可设置区时，首先设置洲为Asia（亚洲），然后设置城市为Shanghai（70，上海）。</p><h3 id="2-清除缓存"><a href="#2-清除缓存" class="headerlink" title="2. 清除缓存"></a>2. 清除缓存</h3><pre><code class="lang-bash">apt clean &amp;&amp; apt autoclean &amp;&amp; apt autoremove</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://blog.csdn.net/xo19882011/article/details/83789702" target="_blank" rel="noopener">ubuntu16.04 docker 时区设置问题_xo19882011的专栏-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/ee70f9736930" target="_blank" rel="noopener">docker 构建ubuntu镜像设置时区时间 - 简书</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>以下为部分创建Ubuntu容器的注意事项：</p><a id="more"></a><h3 id="1-设置时间区时"><a href="#1-设置时间区时" class="headerlink" title="1. 设置时间区时"></a>1. 设置时间区时</h3><p>执行<code>apt install tzdata</code>命令，安装完成后，即可设置区时，首先设置洲为Asia（亚洲），然后设置城市为Shanghai（70，上海）。</p><h3 id="2-清除缓存"><a href="#2-清除缓存" class="headerlink" title="2. 清除缓存"></a>2. 清除缓存</h3><pre><code class="lang-bash">apt clean &amp;&amp; apt autoclean &amp;&amp; apt autoremove</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://blog.csdn.net/xo19882011/article/details/83789702" target="_blank" rel="noopener">ubuntu16.04 docker 时区设置问题_xo19882011的专栏-CSDN博客</a></li><li><a href="https://www.jianshu.com/p/ee70f9736930" target="_blank" rel="noopener">docker 构建ubuntu镜像设置时区时间 - 简书</a></li><li><a href="https://zhuanlan.zhihu.com/p/93088751" target="_blank" rel="noopener">使用 apt-get 清理 - 知乎</a></li></ol>]]></content>
     
     <summary type="html">
     
@@ -514,31 +533,6 @@ local_p
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>给docker-neo4j增加healthcheck</title>
-    <link href="https://www.iamlightsmile.com/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/"/>
-    <id>https://www.iamlightsmile.com/articles/%E7%BB%99docker-neo4j%E5%A2%9E%E5%8A%A0healthcheck/</id>
-    <published>2020-11-13T01:29:28.000Z</published>
-    <updated>2020-11-13T01:52:52.811Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-正确的打开方式"><a href="#1-正确的打开方式" class="headerlink" title="1.正确的打开方式"></a>1.正确的打开方式</h2><p>由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过<code>curl -f localhost:7474 || exit 1</code>这样的指令来去判断neo4j容器是否运行正常，这样得到的结果总是unhealthy。</p><a id="more"></a><p>正确的打开方式应该是：</p><pre><code class="lang-yml">healthcheck:    test: [&quot;CMD-SHELL&quot;, &quot;echo &#39;match (n) return count(n);&#39; | bin/cypher-shell -a bolt://localhost:7687 -u neo4j -p xxx || exit 1&quot;]</code></pre><p>对于选择授权的neo4j容器而言，需要指定上面的用户名和密码。</p><h2 id="2-参考"><a href="#2-参考" class="headerlink" title="2.参考"></a>2.参考</h2><ul><li><a href="https://medium.com/better-programming/docker-healthchecks-eb744bfe3f3b" target="_blank" rel="noopener">How to Implement Docker Health Checks | by Nassos Michas | Better Programming | Medium</a></li><li><a href="https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/" target="_blank" rel="noopener">Cypher Shell - Operations Manual</a></li><li><a href="https://neo4j.com/developer/kb/how-do-i-authenticate-with-cypher-shell-without-specifying-the-username-and-password-on-the-command-line/" target="_blank" rel="noopener">Neo4j : How do I authenticate with cypher-shell without specifying the username and password on the command line - Neo4j Graph Database Platform</a></li><li><a href="https://github.com/neo4j/docker-neo4j/issues/114" target="_blank" rel="noopener">Unable to probe health when composing · Issue #114 · neo4j/docker-neo4j</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-正确的打开方式&quot;&gt;&lt;a href=&quot;#1-正确的打开方式&quot; class=&quot;headerlink&quot; title=&quot;1.正确的打开方式&quot;&gt;&lt;/a&gt;1.正确的打开方式&lt;/h2&gt;&lt;p&gt;由于healthcheck执行的指令是在容器内部执行的，而docker-neo4j内部并没有curl指令，所以我们不能通过&lt;code&gt;curl -f localhost:7474 || exit 1&lt;/code&gt;这样的指令来去判断neo4j容器是否运行正常，这样得到的结果总是unhealthy。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="https://www.iamlightsmile.com/categories/Linux/"/>
-    
-    
-      <category term="docker" scheme="https://www.iamlightsmile.com/tags/docker/"/>
-    
-      <category term="neo4j" scheme="https://www.iamlightsmile.com/tags/neo4j/"/>
     
   </entry>
   
