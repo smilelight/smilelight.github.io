@@ -460,7 +460,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：396字</p>
+      <p>字数：460字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -490,7 +490,9 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-下载pybind11"><a href="#1-下载pybind11" class="headerlink" title="1.下载pybind11"></a>1.下载pybind11</h2><pre><code class="lang-bash">git clone https://github.com/pybind/pybind11.git --depth=1
+        <h2 id="0-pybind11简介"><a href="#0-pybind11简介" class="headerlink" title="0.pybind11简介"></a>0.pybind11简介</h2><p>pybind11是一个轻量级的头文件库，它在Python中公开c++类型，反之亦然，主要用于创建现有c++代码的Python绑定。</p>
+<p>简而言之，pybind11是用于实现Python调用c++代码的相对好用的工具。</p>
+<h2 id="1-下载pybind11"><a href="#1-下载pybind11" class="headerlink" title="1.下载pybind11"></a>1.下载pybind11</h2><pre><code class="lang-bash">git clone https://github.com/pybind/pybind11.git --depth=1
 </code></pre>
       
     </div>
@@ -1034,6 +1036,21 @@
 
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

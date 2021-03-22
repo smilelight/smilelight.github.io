@@ -460,7 +460,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：408字</p>
+      <p>字数：487字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -490,7 +490,8 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-安装Cython"><a href="#1-安装Cython" class="headerlink" title="1.安装Cython"></a>1.安装Cython</h2><pre><code class="lang-bash">pip install cython
+        <h2 id="0-Cython简介"><a href="#0-Cython简介" class="headerlink" title="0.Cython简介"></a>0.Cython简介</h2><p>Cython是具有C数据类型的Python。使用Cython我们可以通过改写部分业务逻辑为C代码并融合到Python中，起到加速代码执行速度的作用。</p>
+<h2 id="1-安装Cython"><a href="#1-安装Cython" class="headerlink" title="1.安装Cython"></a>1.安装Cython</h2><pre><code class="lang-bash">pip install cython
 </code></pre>
       
     </div>
@@ -1034,6 +1035,21 @@
 
 
 
-  <script>setLoadingBarProgress(100);</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script>setLoadingBarProgress(100);</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

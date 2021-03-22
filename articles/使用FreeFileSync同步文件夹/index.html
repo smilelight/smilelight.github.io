@@ -16,9 +16,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Docker常用命令 - lightsmile&#39;s Blog</title>
-  
-    <meta name="keywords" content="Docker">
+    <title>使用FreeFileSync同步文件夹 - lightsmile&#39;s Blog</title>
   
   
 
@@ -397,8 +395,8 @@
         
           
   <h1 class="title">
-    <a href="/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-      Docker常用命令
+    <a href="/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/">
+      使用FreeFileSync同步文件夹
     </a>
   </h1>
 
@@ -421,14 +419,6 @@
           
             
               
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Linux/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux</p>
-    </a>
-  </div>
-
 
             
           
@@ -437,7 +427,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：120字</p>
+      <p>字数：187字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -454,7 +444,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年10月14日</p>
+    <p>发布于：2021年3月22日</p>
   </a>
 </div>
 
@@ -477,12 +467,21 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="1-查看容器内系统版本"><a href="#1-查看容器内系统版本" class="headerlink" title="1.查看容器内系统版本"></a>1.查看容器内系统版本</h2><pre><code class="lang-bash">cat /etc/issue
-</code></pre>
-<blockquote>
-<p><strong>注意</strong>：不能使用<code>cat /proc/version</code> 或 <code>uname -a</code>，因为docker并不能隔离像/dev、/proc的目录，这些都是直接挂载的宿主机的。所以，很多命令像free top之类的命令，其实看到的都是宿主机的。因为这些命令都是基于/proc下的信息统计出来的</p>
-</blockquote>
-<p>参考：<a href="https://blog.csdn.net/c461522756/article/details/70822234" target="_blank" rel="noopener">docker容器中查看容器linux版本_貌似爽歪歪的博客-CSDN博客</a></p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自己简单用来同步博客</p>
+<h2 id="FreeFileSync简介"><a href="#FreeFileSync简介" class="headerlink" title="FreeFileSync简介"></a>FreeFileSync简介</h2><p>FreeFileSync 是一款开源的 Windows, Linux 和 macOS 下文件和文件夹同步软件。 它可以比对目录下的文件，然后执行备份操作。它具有简单的多语言操作界面，可以执行本地、双机手动或自动按时备份，并可过滤目录下文件。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载地址：<a href="https://freefilesync.org/download.php" target="_blank" rel="noopener">Download the Latest Version - FreeFileSync</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>设置云盘ip地址、认证信息及远程目录，如图：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/freefilesync_1.png" alt=""></p>
+<p>设置比较、过滤器、同步设置：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/freefilesync_compare.png" alt=""></p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/freefilesync_filter.png" alt=""></p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/freefilesync_sync.png" alt=""></p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>点击如下红框部分，即可开始比较和同步，如下图：</p>
+<p><img src="https://lightsmile-img.oss-cn-beijing.aliyuncs.com/freefilesync_11.png" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/111033312" target="_blank" rel="noopener">科研资料备份同步方案(FreeFileSync) - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/266883367" target="_blank" rel="noopener">好用的自动同步软件：FreeFileSync - 知乎</a></li>
+</ol>
 
           
             <div class='article_footer'>
@@ -519,7 +518,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/>https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></p>
+            <p>本文永久链接是：<a href=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/</a></p>
           
         
       </blockquote>
@@ -563,10 +562,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-22T11:13:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-22T16:29:02+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月22日</p>
+    <p>更新于：2021年3月22日</p>
   </a>
 </div>
 
@@ -574,9 +573,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Docker/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Docker</p></a></div>
-
 
         
       
@@ -590,7 +586,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：120字</p>
+      <p>字数：187字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -611,7 +607,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=Docker常用命令 - lightsmile's Blog&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/&title=使用FreeFileSync同步文件夹 - lightsmile's Blog&summary="
           
           >
           
@@ -623,7 +619,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=Docker常用命令 - lightsmile's Blog&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/&title=使用FreeFileSync同步文件夹 - lightsmile's Blog&summary="
           
           >
           
@@ -635,7 +631,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=Docker常用命令 - lightsmile's Blog&summary="
+          href="http://service.weibo.com/share/share.php?url=https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/&title=使用FreeFileSync同步文件夹 - lightsmile's Blog&summary="
           
           >
           
@@ -659,19 +655,11 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/articles/%E4%BD%BF%E7%94%A8docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>使用docker遇到的问题</p>
-                <p class='content'>1.容器内文件无法删除问题描述最近使用docker部署项目，结果发现docker里的文件无法删除，于是开始Google寻求解决方案。
-
-探索过程刚开始搜到Docker容器内文件无法删除 | Es...</p>
-              </a>
             
-            
-              <a class='next' href='/articles/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E9%9A%8F%E8%AE%B0/'>
-                <p class='title'>知识库学习心得随记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>最近在看一些知识库的项目，自己小有体会，这里简单记录一下。
-
-近几个月来，出于项目需要，自己简单学习了下Elasticsearch，并且重新学习了下Neo4j。我发现看的知识库的项目所使用的数据...</p>
+              <a class='next' href='/articles/%E4%BD%BF%E7%94%A8Cython%E5%B0%8F%E8%AE%B0/'>
+                <p class='title'>使用Cython小记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>0.Cython简介Cython是具有C数据类型的Python。使用Cython我们可以通过改写部分业务逻辑为C代码并融合到Python中，起到加速代码执行速度的作用。
+1.安装Cythonpi...</p>
               </a>
             
           </div>
@@ -715,7 +703,7 @@
 
   <script>
     window.subData = {
-      title: 'Docker常用命令',
+      title: '使用FreeFileSync同步文件夹',
       tools: true
     }
   </script>
@@ -741,7 +729,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-查看容器内系统版本"><span class="toc-text">1.查看容器内系统版本</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FreeFileSync简介"><span class="toc-text">FreeFileSync简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步"><span class="toc-text">同步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </section>
 
@@ -763,7 +751,7 @@
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建ubuntu容器注意事项\" title="创建ubuntu容器注意事项" rel="bookmark">创建ubuntu容器注意事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建带有ik分词器的Elasticsearch容器\" title="创建带有ik分词器的Elasticsearch容器" rel="bookmark">创建带有ik分词器的Elasticsearch容器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\配置VSCode-Remote-Container\" title="配置VSCode-Remote-Container" rel="bookmark">配置VSCode-Remote-Container</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Debian或Ubuntu安装Nodejs\" title="Debian或Ubuntu安装Nodejs" rel="bookmark">Debian或Ubuntu安装Nodejs</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\2019回忆总结录\" title="2019回忆总结录" rel="bookmark">2019回忆总结录</a></h3></div></li></ul>
     </div>
   </section>
 
