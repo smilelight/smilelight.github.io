@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.iamlightsmile.com/articles/CentOS8%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEkubernetes%EF%BC%88K8S%EF%BC%89/</loc>
+    
+    <lastmod>2021-04-01T11:05:12.755Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
+    
+    <lastmod>2021-03-22T08:45:20.170Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8pybind11%E5%B0%8F%E8%AE%B0/</loc>
     
     <lastmod>2021-03-22T08:38:40.842Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8Cython%E5%B0%8F%E8%AE%B0/</loc>
     
     <lastmod>2021-03-22T08:34:31.202Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.iamlightsmile.com/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/</loc>
-    
-    <lastmod>2021-03-22T08:29:02.253Z</lastmod>
     
   </url>
   
