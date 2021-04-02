@@ -584,7 +584,7 @@ Client Version: version.Info{Major:&quot;1&quot;, Minor:&quot;20&quot;, GitVersi
 Kubernetes v1.20.5
 </code></pre>
 <p>可以看到kubelet的版本为1.20.5。</p>
-<h3 id="5-初始化kubernetes集群"><a href="#5-初始化kubernetes集群" class="headerlink" title="5. 初始化kubernetes集群"></a>5. 初始化kubernetes集群</h3><pre><code class="lang-bash">kubeadm init --apiserver-advertise-address=0.0.0.0 --apiserver-cert-extra-sans=127.0.0.1 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.20.5 --pod-network-cidr=10.18.0.0/16
+<h3 id="5-初始化kubernetes集群"><a href="#5-初始化kubernetes集群" class="headerlink" title="5. 初始化kubernetes集群"></a>5. 初始化kubernetes集群</h3><pre><code class="lang-bash">kubeadm init --apiserver-advertise-address=0.0.0.0 --apiserver-cert-extra-sans=127.0.0.1 --image-repository=registry.aliyuncs.com/google_containers --ignore-preflight-errors=all --kubernetes-version=v1.20.5 --service-cidr=10.10.0.0/16 --pod-network-cidr=10.18.0.0/16
 </code></pre>
 <p>运行后出现问题：</p>
 <pre><code class="lang-bash">[root@localhost admin]# kubeadm init --apiserver-advertise-address=0.0.0.0 \
@@ -860,10 +860,10 @@ kubeadm token create $token --print-join-command --ttl=0
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-01T19:05:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-02T09:29:03+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月1日</p>
+    <p>更新于：2021年4月2日</p>
   </a>
 </div>
 
@@ -965,6 +965,13 @@ CentOS8下超详细安装配置kubernetes（K8S）_Witton的专栏-CSDN博客
         
           <div class="prev-next">
             
+              <a class='prev' href='/articles/CentOS8%E5%AE%89%E8%A3%85nvidia%E9%A9%B1%E5%8A%A8/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>CentOS8安装nvidia驱动</p>
+                <p class='content'>安装依赖包sudo dnf groupinstall &quot;Development Tools&quot;
+
+sudo dnf install libglvnd-devel elfutil...</p>
+              </a>
+            
             
               <a class='next' href='/articles/%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%A4%B9/'>
                 <p class='title'>使用FreeFileSync同步文件夹<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
@@ -1062,7 +1069,7 @@ FreeFileSync简介FreeFileSync 是一款开源的 Windows, Linux 和 macOS 下�
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Docker常用命令\" title="Docker常用命令" rel="bookmark">Docker常用命令</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建ubuntu容器注意事项\" title="创建ubuntu容器注意事项" rel="bookmark">创建ubuntu容器注意事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建带有ik分词器的Elasticsearch容器\" title="创建带有ik分词器的Elasticsearch容器" rel="bookmark">创建带有ik分词器的Elasticsearch容器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\配置VSCode-Remote-Container\" title="配置VSCode-Remote-Container" rel="bookmark">配置VSCode-Remote-Container</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Debian或Ubuntu安装Nodejs\" title="Debian或Ubuntu安装Nodejs" rel="bookmark">Debian或Ubuntu安装Nodejs</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\CentOS8安装nvidia驱动\" title="CentOS8安装nvidia驱动" rel="bookmark">CentOS8安装nvidia驱动</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Docker常用命令\" title="Docker常用命令" rel="bookmark">Docker常用命令</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建ubuntu容器注意事项\" title="创建ubuntu容器注意事项" rel="bookmark">创建ubuntu容器注意事项</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\创建带有ik分词器的Elasticsearch容器\" title="创建带有ik分词器的Elasticsearch容器" rel="bookmark">创建带有ik分词器的Elasticsearch容器</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\articles\Debian或Ubuntu安装Nodejs\" title="Debian或Ubuntu安装Nodejs" rel="bookmark">Debian或Ubuntu安装Nodejs</a></h3></div></li></ul>
     </div>
   </section>
 
